@@ -1,23 +1,27 @@
-%% Copyright 2020 Clea F. Rees
-%
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License, either version 1.3
-% of this license or (at your option) any later version.
-% The latest version of this license is in
-%   http://www.latex-project.org/lppl.txt
-% and version 1.3 or later is part of all distributions of LaTeX
-% version 2005/12/01 or later.
-%
-% This work has the LPPL maintenance status `maintained'.
-%
-% The Current Maintainer of this work is Clea F. Rees.
-%
-% This work consists of all files listed in manifest.txt.
+%% Copyright 2016-2024 Clea F. Rees
 %%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is Clea F. Rees.
+%%
+%% This file may only be distributed together with a copy of the package
+%% prooftrees. You may however distribute the package prooftrees without
+%% such generated files.
+%%
+%% This work consists of all files listed in manifest.txt.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN{$Id: prooftrees.sty 9855 2023-10-29 14:58:46Z cfrees $}[v0.9 \revinfo]
-\RequirePackage{etoolbox}
+\ProvidesPackageSVN{$Id: prooftrees.sty 10485 2024-10-08 16:15:13Z cfrees $}[v0.9 \revinfo]
 % define \prooftrees@enw to hold the name of the environment
 % default is to name the environment prooftree, this ensures backwards compatibility
 \newcommand*\prooftrees@enw{prooftree}
@@ -27,7 +31,12 @@
 \DeclareOption{tableau}{\renewcommand*\prooftrees@enw{tableau}}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{forest}}
 % if \prooftree is not yet defined, set the name to prooftree; otherwise, use tableau to avoid conflict with bussproofs (which uses 'prooftree' rather than 'bussproof' as one might expect)
-\ifundef\prooftree{\renewcommand*\prooftrees@enw{prooftree}}{\renewcommand*\prooftrees@enw{tableau}}
+\ifcsname prooftree\endcsname
+  \renewcommand*\prooftrees@enw{tableau}%
+\else
+  \renewcommand*\prooftrees@enw{prooftree}%
+\fi
+% \ifundef\prooftree{\renewcommand*\prooftrees@enw{prooftree}}{\renewcommand*\prooftrees@enw{tableau}}
 % let users override the default prooftree in case they need to load bussproofs later
 \ProcessOptions
 \RequirePackage{forest}[2016/12/04]
@@ -901,21 +910,20 @@
 }{}
 
 \ExplSyntaxOn
-\cs_new_protected_nopar:Nn \__prooftrees_memoize:n
+\cs_new_protected_nopar:Npn \__prooftrees_memoize:n #1
 {
   \mmzset{
     auto = { #1 } { memoize },
   }
 }
 \cs_generate_variant:Nn \__prooftrees_memoize:n { V }
-\cs_new_eq:NN \prooftrees@memoize \__prooftrees_memoize:V
-\ExplSyntaxOff
-
-\AtEndPreamble{% paid â memoize bussproofs prooftree ...
-  \@ifpackageloaded{memoize}{%
-    \prooftrees@memoize\prooftrees@enw
-  }{}%
+\hook_gput_code:nnn { begindocument / before } { . }
+{% paid â memoize bussproofs prooftree ...
+  \@ifpackageloaded{memoize}{
+    \__prooftrees_memoize:V \prooftrees@enw
+  }{}
 }
+\ExplSyntaxOff
 
 \endinput
 %% end prooftrees.sty
