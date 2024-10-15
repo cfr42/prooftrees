@@ -1,4 +1,4 @@
--- $Id: build.lua 10485 2024-10-08 16:15:13Z cfrees $
+-- $Id: build.lua 10512 2024-10-15 16:08:45Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 os.setenv ("PATH", "/usr/local/texlive/bin:/usr/bin:")
@@ -7,8 +7,6 @@ os.setenv ("TEXMFLOCAL", ".")
 os.setenv ("TEXMFARCH", ".")
 --------------------------------------------------------------------------------
 maindir = maindir or "."
---------------------------------------------------------------------------------
-dofile(maindir .. "/tag.lua")
 --------------------------------------------------------------------------------
 ctanpkg = "prooftrees"
 module = "prooftrees"
