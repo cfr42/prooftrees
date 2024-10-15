@@ -1,4 +1,4 @@
-$Id:$
+$Id: README.md 10513 2024-10-15 16:34:06Z cfrees $
 
 # prooftrees
 
