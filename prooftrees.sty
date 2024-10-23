@@ -13,15 +13,14 @@
 %% The Current Maintainer of this work is Clea F. Rees.
 %%
 %% This file may only be distributed together with a copy of the package
-%% prooftrees. You may however distribute the package prooftrees without
-%% such generated files.
+%% prooftrees. 
 %%
 %% This work consists of all files listed in manifest.txt.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN{$Id: prooftrees.sty 10485 2024-10-08 16:15:13Z cfrees $}[v0.9 \revinfo]
+\ProvidesPackageSVN{$Id: prooftrees.sty 10522 2024-10-23 16:31:08Z cfrees $}[v0.9 \revinfo]
 % define \prooftrees@enw to hold the name of the environment
 % default is to name the environment prooftree, this ensures backwards compatibility
 \newcommand*\prooftrees@enw{prooftree}
@@ -466,7 +465,7 @@
         }{},
         where={%
           >{O _O< O &&}{grouped}{1}{level}{proof tree rhifo}%
-        }{% this searches for certain kinds of structural asymmetry in the tree and attempts to move lines appropriately in such cases - the algorithm is intended to be relatively conservative (not in the sense of 'cautious' or 'safe' but in the sense of 'reflection of the overlapping consensus of reasonable users' / 'what would be rationally agreed behind the prooftrees veil of ignorance'; apologies for the inconvenience if you are an unreasonable user)
+        }{% this searches for certain kinds of structural asymmetry in the tree and attempts to move lines appropriately in such cases - the algorithm is intended to be relatively conservative (not in the sense of 'cautious' or 'safe' but in the sense of 'reflection of the overlapping consensus of reasonable users' / 'what would be rationally agreed behind the prooftrees veil of ignorance'; however, I should have realised I actually had 'the overlapping concensus of reasonable Beamer users' in mind rather than 'the overlapping consensus of reasonable users', so there is now an option to turn it off;apologies if this comment previously misclassified you as 'unreasonable'; apologies for the inconvenience if you are an unreasonable user)
           not tempboola,
           for root/.process={Ow1}{level}{%
             for level={##1}{%

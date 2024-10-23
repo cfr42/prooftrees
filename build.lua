@@ -1,4 +1,4 @@
--- $Id: build.lua 10512 2024-10-15 16:08:45Z cfrees $
+-- $Id: build.lua 10522 2024-10-23 16:31:08Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 os.setenv ("PATH", "/usr/local/texlive/bin:/usr/bin:")
@@ -10,14 +10,8 @@ maindir = maindir or "."
 --------------------------------------------------------------------------------
 ctanpkg = "prooftrees"
 module = "prooftrees"
--- installfiles = { "*.cls", "*.sty", "*.tex" }
--- packtdszip = false
--- tdslocations = {
---   "doc/latex/prooftrees/prooftrees-example.tex",
--- }
-sourcefiles = {"*.dtx","*.ins","*.sty"}
-typesetfiles = {"*.dtx","*.tex"}
--- typesetdemofiles = {"prooftrees-example.tex"}
+sourcefiles = {"*.sty","prooftrees.tex"}
+typesetfiles = {"prooftrees.tex"}
 uploadconfig = {
   ctanPath = "/macros/latex/contrib/prooftrees",
   pkg = "prooftrees",
@@ -37,4 +31,4 @@ if direxists(sourcedir .. "/../adnoddau/l3build") then
   dofile(sourcedir .. "/../adnoddau/l3build/manifest.lua")
   dofile(sourcedir .. "/../adnoddau/l3build/tag.lua")
 end
--- vim: ts=2:sw=2:
+-- vim: ts=2:sw=2:et:

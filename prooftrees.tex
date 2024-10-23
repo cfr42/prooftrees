@@ -14,14 +14,14 @@
 %% The Current Maintainer of this work is Clea F. Rees.
 %%
 %% This file may only be distributed together with a copy of the package
-%% prooftrees. You may however distribute the package prooftrees without
-%% such generated files.
+%% prooftrees. 
 %%
 %% This work consists of all files listed in manifest.txt.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % arara: pdflatex: { synctex: true, shell: false }
 % arara: biber
+% arara: makeindex 
 % arara: pdflatex: { synctex: true, shell: false }
 % arara: pdflatex: { synctex: true, shell: false }
 % biber --output_format=bibtex --output_resolve prooftrees.bcf to generate .bib for upload
@@ -30,7 +30,7 @@
 \fi
 \pdfminorversion=7
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees.tex 10516 2024-10-20 18:22:36Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN{$Id: prooftrees.tex 10522 2024-10-23 16:31:08Z cfrees $}[v0.9 \revinfo]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
 \let\prooftreesdocbase\filebase
@@ -58,6 +58,9 @@
   auto=\Cpagerefrange{refrange},
   mkdir,
 }
+% \CodelineIndex
+% \RecordChanges
+% \EnableCrossrefs
 \usepackage{babel,geometry,fancyhdr,enumitem}
 \usepackage{csquotes}
   \MakeAutoQuote{‘}{’}
@@ -89,7 +92,7 @@
   },
 }
 \usepackage{tcolorbox}
-\tcbuselibrary{listings}%,breakable}% if you use skins, you need to disable externalisation for boxes which use the relevant options - gweler nodiadau/tex/tex.se/tcolorbox-coursepacket-exp.tex
+\tcbuselibrary{listingsutf8}% if you use skins, you need to disable externalisation for boxes which use the relevant options - gweler nodiadau/tex/tex.se/tcolorbox-coursepacket-exp.tex
 %%%%%%%%%%%%%%%%
 % Sašo Živanović: https://github.com/sasozivanovic/memoize/issues/31#issuecomment-2424700001
 \csappto{tcb@shield@@externalize}{\ifdefined\memoizefalse\memoizefalse\fi}
@@ -117,7 +120,7 @@
     \raggedleft\PrintDescribeMacro{#1}\par
     \PrintLabelName[\macrolabelfont]{\macrolabelname}%
   }%
-  \expandafter\prooftrees@index{\macrolabelname}{\protect\verb \protect #1}\@esphack\ignorespaces}
+  \expandafter\prooftrees@index{\macrolabelname}{\protect\ttfamily\protect\string\protect#1}\@esphack\ignorespaces}
 \renewcommand*\Describe@Env[1]{\endgroup
   \marginpar{%
     \raggedleft\PrintDescribeMacro{#1}\par
@@ -217,6 +220,16 @@
   keywordstyle=\color{doc@keywordcolor},
   commentstyle=\color{doc@commentcolor},
   frame=none,
+}
+\lstdefinestyle{lstsrc}{%
+  style=lstDemoStyleLaTeXCode,
+  stringstyle=\color{doc@stringcolor},
+  keywordstyle=\color{doc@keywordcolor},
+  commentstyle=\color{doc@commentcolor},
+  texcsstyle=\color{doc@keywordcolor},
+  frame=none,
+  numbers=left,
+  moretexcs={forestset,linenumberstyle,ifcsname,ProcessOptions,DeclareOption,ProvidesPackageSVN,bracketset,NewDocumentEnvironment,ExplSyntaxOn,mmzset,ExplSyntaxOff,forest,prooftrees@enw,foresteregister,foresteoption,forestregister,forestoption,PackageError,PackageWarning,PassOptionsToPackage,CurrentOption,@ifpackageloaded,endforest,draw},
 }
 \geometry{headheight=12pt,marginparwidth=45mm,hmarginratio=4:1,vscale=.8,hscale=.7,verbose}
 \newlength\tewadjust
@@ -2098,7 +2111,7 @@ See \cref{subsec:go}.
 The main point of this option is to allow automatic moves to be switched off if one teaches students to first apply  all available non-branching rules for the tableau as a whole, as opposed to all non-branching rules for the sub-tree.
 The automatic algorithm is consistent with the latter, but not former, approach.
 The algorithm favours compact trees, which are more likely to fit on \pkg{beamer} slides.
-Switching the algorithm off permits users to specify exactly how things should or should not be move.
+Switching the algorithm off permits users to specify exactly how things should or should not be moved.
 Thanks to Peter Smith for prompting this.
 
 Fix bug reported at \href{https://tex.stackexchange.com/q/479263/39222}{tex.stackexchange.com/q/479263/39222}.
@@ -2151,10 +2164,25 @@ First CTAN release.
 % END sec:hanes
 
 \printbibliography
-\clearpage
 
 \loadgeometry{safonol}%
 \fancyheadoffset[lh]{0pt}%
+
 \printindex
+
+
+\onecolumn
+\appendix
+
+\section{Implementation}\label{sec:imp}
+
+{%
+  % \makeatletter
+  % \def\@xobeysp{\leavevmode\penalty100\ }%
+  % \makeatother
+  % \verbatiminput{prooftrees.sty}%
+}
+\lstinputlisting[style=lstsrc,numbers=left,inputencoding=utf8/latin1]{prooftrees.sty}
+
 
 \end{document}
