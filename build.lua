@@ -1,4 +1,4 @@
--- $Id: build.lua 10522 2024-10-23 16:31:08Z cfrees $
+-- $Id: build.lua 10525 2024-10-24 06:31:34Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 os.setenv ("PATH", "/usr/local/texlive/bin:/usr/bin:")
@@ -7,11 +7,19 @@ os.setenv ("TEXMFLOCAL", ".")
 os.setenv ("TEXMFARCH", ".")
 --------------------------------------------------------------------------------
 maindir = maindir or "."
+sourcedir = sourcedir or maindir
 --------------------------------------------------------------------------------
 ctanpkg = "prooftrees"
 module = "prooftrees"
+--------------------------------------------------------------------------------
+checkconfigs = { "build", "config-mem" }
+manifestfile = "manifest.txt"
 sourcefiles = {"*.sty","prooftrees.tex"}
 typesetfiles = {"prooftrees.tex"}
+--------------------------------------------------------------------------------
+indexstyle = ""
+typesetruns = 4
+--------------------------------------------------------------------------------
 uploadconfig = {
   ctanPath = "/macros/latex/contrib/prooftrees",
   pkg = "prooftrees",

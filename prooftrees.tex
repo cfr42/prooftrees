@@ -30,7 +30,7 @@
 \fi
 \pdfminorversion=7
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees.tex 10522 2024-10-23 16:31:08Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN{$Id: prooftrees.tex 10525 2024-10-24 06:31:34Z cfrees $}[v0.9 \revinfo]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
 \let\prooftreesdocbase\filebase
@@ -143,7 +143,7 @@
   \renewcommand*\do[1]{\ifcyntafun ##1\else\\##1\fi\cyntafunfalse}%
   \cyntafuntrue
   \marginpar{%
-    \raggedleft\PrintDescribeMacro{ % peid â dileu'r gwagle hwn!!
+    \raggedleft\PrintDescribeMacro{ % paid â dileu'r gwagle hwn!!
       \expandafter\docsvlist{#2}%
     }\par
     \PrintLabelName[\macrolabelfont]{\csname #1labelname\endcsname}%
@@ -2045,7 +2045,7 @@ Memoization is faster, more secure, more robust and easier to use than \TikZ's e
 
 There is always a ‘but’, but this is a pretty small ‘but’ as ‘but’s go.
 \begin{description}
-  \item[But installation requires slightly more work.] To reap the full benefits, you want to use either the \textt{perl} or the \texttt{python} ‘extraction’ method.
+  \item[But installation requires slightly more work.] To reap the full benefits, you want to use either the \texttt{perl} or the \texttt{python} ‘extraction’ method.
   There is a third method, which does not require any special installation, but this lacks several of the advantages explained above and is not recommended.
   
   If you use \TeX{} Live, you have \texttt{perl} already, but you may need to install a couple of libraries.
