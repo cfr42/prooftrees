@@ -1,4 +1,4 @@
-$Id: README.md 10513 2024-10-15 16:34:06Z cfrees $
+$Id: README.md 10529 2024-10-25 21:19:36Z cfrees $
 
 # prooftrees
 
@@ -60,7 +60,7 @@ Bug reports, feature requests etc. should be filed at
 
 
 Clea F. Rees
-Version 0.0
-2019/09/30
+Version 0.9
+2024-10-25
 
 vim: et:tw=80:

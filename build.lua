@@ -1,4 +1,4 @@
--- $Id: build.lua 10525 2024-10-24 06:31:34Z cfrees $
+-- $Id: build.lua 10529 2024-10-25 21:19:36Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 os.setenv ("PATH", "/usr/local/texlive/bin:/usr/bin:")
@@ -15,6 +15,7 @@ module = "prooftrees"
 checkconfigs = { "build", "config-mem" }
 manifestfile = "manifest.txt"
 sourcefiles = {"*.sty","prooftrees.tex"}
+tagfiles = { "*.dtx", "README.md", "*.sty", "prooftrees.tex", "manifest.txt" }
 typesetfiles = {"prooftrees.tex"}
 --------------------------------------------------------------------------------
 indexstyle = ""
@@ -35,6 +36,7 @@ uploadconfig = {
   topic = {"logic", "pgf-tikz", "proof", "tree"},
 }
 --------------------------------------------------------------------------------
+date = "2016-2024"
 if direxists(sourcedir .. "/../adnoddau/l3build") then
   dofile(sourcedir .. "/../adnoddau/l3build/manifest.lua")
   dofile(sourcedir .. "/../adnoddau/l3build/tag.lua")
