@@ -22,9 +22,8 @@
 %% 
 %% This work consists of all files listed in manifest.txt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pdfminorversion=7
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-egs.lvt 10526 2024-10-25 05:39:42Z cfrees $}[\filebase \revinfo]
+\ProvidesFileSVN{$Id: prooftrees-egs.lvt 10527 2024-10-25 19:13:21Z cfrees $}[\filebase \revinfo]
 \input regression-test.tex\relax
 \PassOptionsToPackage{rgb,x11names,svgnames,dvipsnames}{xcolor}
 \documentclass{article}
@@ -32,13 +31,13 @@
 \useforestlibrary*{edges}
 \usepackage{amssymb}
 \usepackage{mathtools,turnstile}
-% change these back to make sure it still works before releasing anything on the basis that it is llwyddianus 'ma
-\newcommand*{\tnot}{\ensuremath{\mathord{\sim}}}
-\newcommand*{\lif}{\ensuremath{\mathbin{\rightarrow}}}
-\newcommand*{\liff}{\ensuremath{\mathbin{\leftrightarrow}}}
-% \newcommand*{\tnot}{\mathord{\sim}}
-% \newcommand*{\lif}{\mathbin{\rightarrow}}
-% \newcommand*{\liff}{\mathbin{\leftrightarrow}}
+% change these back to make sure it still works before releasing anything on the basis that it is llwyddianus 'ma <<<< ?????
+% \newcommand*{\tnot}{\ensuremath{\mathord{\sim}}}
+% \newcommand*{\lif}{\ensuremath{\mathbin{\rightarrow}}}
+% \newcommand*{\liff}{\ensuremath{\mathbin{\leftrightarrow}}}
+\newcommand*{\tnot}{\mathord{\sim}}
+\newcommand*{\lif}{\mathbin{\rightarrow}}
+\newcommand*{\liff}{\mathbin{\leftrightarrow}}
 \DeclareMathSymbol{\aand}{\mathbin}{operators}{38}
 \newcommand*{\elim}{\,\text{E}}
 \newbox\tableaubox
