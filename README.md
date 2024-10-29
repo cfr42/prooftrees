@@ -1,4 +1,7 @@
-$Id: README.md 10529 2024-10-25 21:19:36Z cfrees $
+$Id: README.md 10541 2024-10-29 06:14:20Z cfrees $
+
+[![Automatic
+Checks](https://github.com/cfr42/prooftrees/actions/workflows/main.yml/badge.svg)](https://github.com/cfr42/prooftrees/actions/workflows/main.yml)
 
 # prooftrees
 
