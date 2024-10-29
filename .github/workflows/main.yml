@@ -32,7 +32,7 @@ jobs:
 
       # https://github.com/josephwright/siunitx/blob/549cad913591b92a3a199b7477a325866303bf29/.github/workflows/main.yaml
       # We need Ghostscript for XeTeX tests.
-      - run: sudo apt-get update && sudo apt-get install ghostscript
+      - run: sudo apt-get update && sudo apt-get install ghostscript python3-pdfrw
       - name: Install TeX Live
         uses: zauguin/install-texlive@v3
         with:
