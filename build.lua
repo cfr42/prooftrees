@@ -1,10 +1,5 @@
--- $Id: build.lua 10532 2024-10-26 02:39:56Z cfrees $
+-- $Id: build.lua 10572 2024-11-04 15:37:34Z cfrees $
 -- Build configuration for prooftrees
---------------------------------------------------------------------------------
-os.setenv ("PATH", "/usr/local/texlive/bin:/usr/bin:")
-os.setenv ("TEXMFHOME", ".")
-os.setenv ("TEXMFLOCAL", ".")
-os.setenv ("TEXMFARCH", ".")
 --------------------------------------------------------------------------------
 maindir = maindir or "."
 sourcedir = sourcedir or maindir
