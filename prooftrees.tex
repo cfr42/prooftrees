@@ -30,7 +30,7 @@
 \fi
 \pdfminorversion=7
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees.tex 10525 2024-10-24 06:31:34Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN{$Id: prooftrees.tex 10576 2024-11-05 04:45:53Z cfrees $}[v0.9 \revinfo]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
 \let\prooftreesdocbase\filebase
@@ -115,6 +115,19 @@
 }
 \usepackage{cleveref}
 \makeatletter
+% Joseph Wright: from \file{siunitx.sty} ; \url{https://chat.stackexchange.com/transcript/message/64327823#64327823}
+\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+\IfFormatAtLeastTF {2024-11-01}
+{% ateb sgwrsio Ulrike Fischer: https://chat.stackexchange.com/transcript/message/66562343#66562343
+  \NewSocketPlug{refstepcounter}{cleveref}{%
+    \ifHy@pdfstring\else#1
+      {%
+        \firstaid@cref@updatelabeldata{\@currentcounter}%
+      }%
+    \fi
+  }%
+  \AssignSocketPlug{refstepcounter}{cleveref}%
+}{}
 \renewcommand*\Describe@Macro[1]{\endgroup
   \marginpar{%
     \raggedleft\PrintDescribeMacro{#1}\par
@@ -511,7 +524,7 @@
         close with format={RoyalBlue4},
         where level=0{%
           tikz+={%
-           \draw [RoyalBlue4, thick] (current bounding box.north west) rectangle (current bounding box.south east);
+            \draw [RoyalBlue4, thick] (current bounding box.north west) rectangle (current bounding box.south east);
             \draw [RoyalBlue4, semithick] (.south -| current bounding box.west) -- (.south -| current bounding box.east);
           },
         }{},
@@ -523,22 +536,21 @@
               [Pd, just=$\cdot$\elim:!uu
                 [{\tnot (\forall y)(Py \Leftrightarrow (d = y))}, checked=c, just={$\tnot\exists$\elim:!r11}
                   [{\tnot (Pc \Leftrightarrow (d = c))}, checked, just={$\tnot\forall$\elim:!u}
-                      [Pc, just={$\tnot\Leftrightarrow$\elim:!u}
-                        [d \neq c, just={$\tnot\Leftrightarrow$\elim:!uu}, name=fred
-                          [{Pc \Rightarrow (d = c)}, checked, just=$\forall$\elim:!r1111, move by=1
-                            [\tnot Pc, close={:!uuu,!c} , just=$\Rightarrow$\elim:!u, wff options=WildStrawberry, !uuu.wff options=WildStrawberry
-                            ]
-                            [{d = c}
-                              [d \neq d, close={:!c} , just={$=$:fred,!u}, wff options=red
-                              ]
+                    [Pc, just={$\tnot\Leftrightarrow$\elim:!u}
+                      [d \neq c, just={$\tnot\Leftrightarrow$\elim:!uu}, name=fred
+                        [{Pc \Rightarrow (d = c)}, checked, just=$\forall$\elim:!r1111, move by=1
+                          [\tnot Pc, close={:!uuu,!c} , just=$\Rightarrow$\elim:!u, wff options=WildStrawberry, !uuu.wff options=WildStrawberry
+                          ]
+                          [{d = c}
+                            [d \neq d, close={:!c} , just={$=$:fred,!u}, wff options=red
                             ]
                           ]
                         ]
                       ]
-                      [\tnot Pc
-                        [{d = c}
-                          [Pc, just={$=$:!r11111,!u}, close={:!uu,!c}, wff options=blue!50!cyan, !uu.wff options=blue!50!cyan
-                          ]
+                    ]
+                    [\tnot Pc
+                      [{d = c}
+                        [Pc, just={$=$:!r11111,!u}, close={:!uu,!c}, wff options=blue!50!cyan, !uu.wff options=blue!50!cyan
                         ]
                       ]
                     ]
@@ -982,22 +994,21 @@ To typeset a proof, think of it as consisting of nested trees, trunks upwards, a
           [Pa, just=$\land\elim$:!uu, name=simple
             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-                  [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
-                    [a \neq b, just=$\liff\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                  [a \neq b, just=$\liff\elim$:!u
                     [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
-                        [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
-                        ]
-                        [{a = b}
-                          [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
-                          ]
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                        [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
                         ]
                       ]
                     ]
                   ]
-                  [\lnot Pb
-                    [{a = b}
-                      [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
-                      ]
+                ]
+                [\lnot Pb
+                  [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
                     ]
                   ]
                 ]
