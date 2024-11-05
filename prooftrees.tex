@@ -114,12 +114,20 @@
   urlcolor={blueberry}%
 }
 \usepackage{cleveref}
-% ateb sgwrsio Ulrike Fischer: https://chat.stackexchange.com/transcript/message/66562343#66562343
 \makeatletter
-\NewSocketPlug{refstepcounter}{cleveref}{\ifHy@pdfstring\else#1
-    {\firstaid@cref@updatelabeldata{\@currentcounter}}%
-\fi}
-\AssignSocketPlug{refstepcounter}{cleveref}
+% Joseph Wright: from \file{siunitx.sty} ; \url{https://chat.stackexchange.com/transcript/message/64327823#64327823}
+\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+\IfFormatAtLeastTF {2024-11-01}
+{% ateb sgwrsio Ulrike Fischer: https://chat.stackexchange.com/transcript/message/66562343#66562343
+  \NewSocketPlug{refstepcounter}{cleveref}{%
+    \ifHy@pdfstring\else#1
+      {%
+        \firstaid@cref@updatelabeldata{\@currentcounter}%
+      }%
+    \fi
+  }%
+  \AssignSocketPlug{refstepcounter}{cleveref}%
+}{}
 \renewcommand*\Describe@Macro[1]{\endgroup
   \marginpar{%
     \raggedleft\PrintDescribeMacro{#1}\par
