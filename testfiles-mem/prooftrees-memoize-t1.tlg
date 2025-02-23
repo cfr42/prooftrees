@@ -7,7 +7,7 @@ prooftrees-memoize-t1.mmz:
 -------- prooftrees-memoize-t1.mmz (start) ---------
 (prooftrees-memoize-t1.mmz) \mmzPrefix {memos/}^^M
 \mmzUsedCMemo {memos/7121941879D6FB13ABCA25F26E053B07.memo}^^M
-\mmzUsedExtern {memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}^^M
+\mmzUsedExtern {memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}^^M
 \mmzUsedCCMemo {memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}^^M
 -------- prooftrees-memoize-t1.mmz (end) -----------
 ============================================================
@@ -35,7 +35,7 @@ memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%^^M
 \mmzMemo^^M
-\quitvmode \mmzIncludeExtern {0}\hbox {123.82225pt}{10.27742pt}{79.69406pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\global \expandafter \advance \csname pgf@picture@serial@count\endcsname 28%^^M
+\quitvmode \mmzIncludeExtern {0}\hbox {123.82225pt}{10.27742pt}{79.69406pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {28}%^^M
 \mmzThisContext^^M
 padding=(1in,1in,1in,1in),^^M
 \mmzEndMemo^^M
