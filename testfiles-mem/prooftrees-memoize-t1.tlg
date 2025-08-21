@@ -5,10 +5,10 @@ TEST 1: prooftrees-memoize-t1-mmz
 ============================================================
 prooftrees-memoize-t1.mmz:
 -------- prooftrees-memoize-t1.mmz (start) ---------
-(prooftrees-memoize-t1.mmz) \mmzPrefix {memos/}^^M
-\mmzUsedCMemo {memos/7121941879D6FB13ABCA25F26E053B07.memo}^^M
-\mmzUsedExtern {memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}^^M
-\mmzUsedCCMemo {memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}^^M
+(prooftrees-memoize-t1.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/7121941879D6FB13ABCA25F26E053B07.memo}[nl]
+\mmzUsedExtern {memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 -------- prooftrees-memoize-t1.mmz (end) -----------
 ============================================================
 ============================================================
@@ -21,11 +21,11 @@ TEST 3: prooftrees-memoize-t1-cmemo
 ============================================================
 memos/7121941879D6FB13ABCA25F26E053B07.memo:
 -------- memos/7121941879D6FB13ABCA25F26E053B07.memo (start) ---------
-(memos/7121941879D6FB13ABCA25F26E053B07.memo) \mmzMemo^^M
-\global \mmzContextExtra {}%^^M
-%^^M
-\mmzSource^^M
-\begin {prooftree} {to prove = \alpha \land \lnot \alpha \vdash \beta , } [\alpha \land \lnot \alpha , just=ass [\lnot \beta , just=ass [\alpha , just=$\land $ elim:!r1 [\lnot \alpha , just=$\land $ elim:!r1, close=:{!u,!c} ] ] ] ] \end {prooftree}^^M
+(memos/7121941879D6FB13ABCA25F26E053B07.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\begin {prooftree} {to prove = \alpha \land \lnot \alpha \vdash \beta , } [\alpha \land \lnot \alpha , just=ass [\lnot \beta , just=ass [\alpha , just=$\land $ elim:!r1 [\lnot \alpha , just=$\land $ elim:!r1, close=:{!u,!c} ] ] ] ] \end {prooftree}[nl]
 -------- memos/7121941879D6FB13ABCA25F26E053B07.memo (end) -----------
 ============================================================
 ============================================================
@@ -33,11 +33,11 @@ TEST 4: prooftrees-memoize-t1-ccmemo
 ============================================================
 memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%^^M
-\mmzMemo^^M
-\quitvmode \mmzIncludeExtern {0}\hbox {123.82225pt}{10.27742pt}{79.69406pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {28}%^^M
-\mmzThisContext^^M
-padding=(1in,1in,1in,1in),^^M
-\mmzEndMemo^^M
+(memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {123.82225pt}{10.27742pt}{79.69406pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {28}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),[nl]
+\mmzEndMemo[nl]
 -------- memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
