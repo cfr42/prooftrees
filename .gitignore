@@ -351,6 +351,8 @@ build
 prooftrees-egs.pdf
 prooftrees-egs-nonstandard.pdf
 prooftrees.pdf
+prooftrees-doc.pdf
+prooftrees-code.pdf
 prooftrees_biber_hen.bib
 cmds
 cmds-manifest

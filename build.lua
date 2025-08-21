@@ -1,4 +1,4 @@
--- $Id: build.lua 10572 2024-11-04 15:37:34Z cfrees $
+-- $Id: build.lua 11134 2025-08-22 17:35:31Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 maindir = maindir or "."
@@ -8,12 +8,16 @@ ctanpkg = "prooftrees"
 module = "prooftrees"
 --------------------------------------------------------------------------------
 checkconfigs = { "build", "config-mem" }
+checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 manifestfile = "manifest.txt"
-sourcefiles = {"*.sty","prooftrees.tex"}
-tagfiles = { "*.dtx", "README.md", "*.sty", "prooftrees.tex", "manifest.txt" }
-typesetfiles = {"prooftrees.tex"}
+sourcefiles = {"*.dtx","*.ins"}--,"prooftrees.tex"}
+tagfiles = { "*.dtx", "*.ins", "README.md", "*.sty", "prooftrees.tex", "manifest.txt" }
+-- typesetfiles = {"prooftrees.tex"}
+typesetfiles = {"prooftrees-doc.tex","prooftrees-code.tex"}
+-- typesetopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
+typesetopts = "-interaction=errorstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 --------------------------------------------------------------------------------
-indexstyle = ""
+-- indexstyle = ""
 typesetruns = 4
 --------------------------------------------------------------------------------
 uploadconfig = {
@@ -31,7 +35,7 @@ uploadconfig = {
   topic = {"logic", "pgf-tikz", "proof", "tree"},
 }
 --------------------------------------------------------------------------------
-date = "2016-2024"
+date = "2016-2025"
 if direxists(sourcedir .. "/../adnoddau/l3build") then
   dofile(sourcedir .. "/../adnoddau/l3build/manifest.lua")
   dofile(sourcedir .. "/../adnoddau/l3build/tag.lua")
