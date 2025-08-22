@@ -1,0 +1,100 @@
+# autochecks.yml
+# automatic testing for prooftrees
+
+# https://github.com/latex3/hyperref/blob/adc36adbc3650db73329469b43afb0ee86e3c807/.github/workflows/main.yaml
+# https://github.com/josephwright/siunitx/blob/main/.github/workflows/main.yaml
+
+name: Automatic Checks for prooftrees
+
+on:
+  push:
+    branches: 
+      - "*"
+    tags:
+      - "*"
+    paths:
+      - '**'
+      - '!**.md'
+      - '!**.txt'
+      - '!.github/workflows/*.yml'
+      - '!.github/actions/**'
+      - '!.github/dependabot.yml'
+      - '.github/workflows/autochecks.yml'
+      - '!licences/**'
+      - '!test/**'
+  pull_request:
+    branches: 
+      - "*"
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  # addaswyd o https://github.com/latex3/latex2e/blob/develop/.github/workflows/main.yaml
+  # update TL tree if needed
+  texlive-cache:
+    runs-on: ubuntu-latest
+    name: Update TeX Live cache
+    outputs: 
+      cache_key: ${{ steps.texlive.outputs.cache_key }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+      - name: Install TeX Live
+        id: texlive
+        uses: zauguin/install-texlive@v4
+        with:
+          package_file: .github/tl_packages
+
+  prooftrees:
+    # don't run if previous job failed (default)
+    runs-on: ubuntu-latest
+    name: "Test build: prooftrees"
+    needs: texlive-cache
+    outputs:
+      ctan_prooftrees_output: ${{ steps.build.outputs.ctan_ret }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+      - name: Build ctan
+        id: build 
+        # uses: cfr42/nfssext/.github/actions/nfssext-autocheck-action@eeab7fc024553e35584805f40af881812b7e09a6
+        uses: cfr42/nfssext/.github/actions/nfssext-autocheck-action@v0.1
+        with:
+          ctan: true
+          # https://github.com/josephwright/siunitx/blob/549cad913591b92a3a199b7477a325866303bf29/.github/workflows/main.yaml
+          # We need Ghostscript for XeTeX tests.
+          extra_packages: ghostscript python3-pdfrw
+          # cannot be built on github
+          manifest: false
+          module: prooftrees
+          # release: ${{ startsWith(github.ref, 'refs/tags/') }}
+          release: ${{ contains(github.ref_name, 'prooftrees-') }}
+          tds: false
+          texlive_cache_key: ${{ needs.texlive-cache.outputs.cache_key }}
+          working_directory: ./
+      - name: Save ctan build results
+        if: ${{ !cancelled() }}
+        id: save-outputs
+        shell: bash
+        env: 
+          checkret: ${{ steps.build.outputs.check_ret }}
+          ctanret: ${{ steps.build.outputs.ctan_ret }}
+          ctanrelret: ${{ steps.build.outputs.ctanrel_ret }}
+          docret: ${{ steps.build.outputs.doc_ret }}
+          # manifestret: ${{ steps.build.outputs.manifest_ret }}
+          releasing: ${{ contains(github.ref_name, 'prooftrees-') }}
+          releaseret: ${{ steps.build.outputs.release_ret }}
+        run: |
+          allan=0
+          [[ $checkret != 0 && $ctanret != 0 ]] && allan=1
+          [[ $docret != 0 && $ctanret != 0 ]] && allan=1
+          if [ $releasing != "false" ]
+          then
+            [[ $ctanret == 0 || $ctanrelret == 0 ]] || allan=1
+            [[ $releaseret == 0 ]] || allan=1
+            # manifest doesn't currently build on github
+            # [[ $releaseret == 0 && $manifestret == 0 ]] || allan=1
+          fi
+          exit $allan
+
