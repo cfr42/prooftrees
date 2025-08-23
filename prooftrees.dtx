@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11138 2025-08-22 19:06:12Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11139 2025-08-23 02:35:12Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2192,13 +2192,13 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11138 2025-08-22 19:06:12Z cfrees $}[v0.9 \revinfo]
+\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11139 2025-08-23 02:35:12Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
 % ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
 % \fi
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \begin{macro}{\prooftrees@enw}
 % define \cs{prooftrees@enw} to hold the name of the environment
 %
@@ -2418,12 +2418,29 @@
   declare keylist={proof tree jrefs}{},
   declare keylist={proof tree crefs}{},
 %    \end{macrocode}
-% keylists for use in stages
+% Internal keylists for use in stages
 %    \begin{macrocode}
   declare keylist={proof tree ffurf}{},
   declare keylist={proof tree symud awto}{},
   declare keylist={proof tree creu nodiadau}{},
   declare keylist={proof tree nodiadau}{},
+%    \end{macrocode}
+% \changes{v0.0}{2025-08-23}{New internal keylists.}
+% Additional internal keylists so we don't pollute \pkg{forest}'s and customisation is easier.
+%    \begin{macrocode}
+  declare keylist={proof tree before typesetting nodes}{},
+  declare keylist={proof tree before packing}{},
+  declare keylist={proof tree before computing xy}{},
+  declare keylist={proof tree before drawing tree}{},
+  declare keylist={proof tree tableau structure}{},
+  declare keylist={proof tree tableau tag}{},
+%    \end{macrocode}
+% \changes{v0.0}{2025-08-23}{New public keylists.}
+% Empty by default. 
+% Allow changes in between processing of standard keylists.
+%    \begin{macrocode}
+  declare keylist={before annotating}{},
+  declare keylist={before tagging}{},
 %    \end{macrocode}
 % > not documented yet, I think
 % > now indicates use of process when it is the first token, preceding a list of instructions as opposed to pgfmath stuff
@@ -2503,7 +2520,7 @@
 %    \end{macrocode}
 % adjust the distance between the closure symbol and any annotation
 %    \begin{macrocode}
-          before computing xy={% 
+          proof tree before computing xy={% 
             delay={%
 %    \end{macrocode}
 % cywiro? fel arall, bydda'r peth byth yn cael ei wneud achos proof tree phantom? dim yn siwr o gwbl
@@ -2514,7 +2531,7 @@
               },
             },
           },
-          before drawing tree={%
+          proof tree before drawing tree={%
             if={>{RR|}{line numbering}{justifications}}{%
               proof tree proof line no/.option=!parent.proof tree proof line no,
             }{},
@@ -2543,7 +2560,7 @@
                   delay={%
                     !{parent,parent}.proof tree crefs'={},
                   },
-                  before drawing tree={%
+                  proof tree before drawing tree={%
                     if={>{RR|}{line numbering}{justifications}}{%
                       proof tree proof line no/.option=!{parent,parent}.proof tree proof line no,
                     }{},
@@ -2626,14 +2643,14 @@
 %    \begin{macrocode}
   to prove/.style={% 
     for root={%
-      before typesetting nodes={%
+      proof tree before typesetting nodes={%
         content={#1},
         phantom=false,
         baseline,
         if line numbering={anchor=base west}{anchor=base},
         process keylist register=proof statement format
       },
-      before computing xy={%
+      proof tree before computing xy={%
         delay={%
           for children={%
             l=1.5*\baselineskip,
@@ -2683,7 +2700,7 @@
 % no edges from phantom root or proof statement to children
 %    \begin{macrocode}
       for children={% 
-        before typesetting nodes={%
+        proof tree before typesetting nodes={%
           no edge,
         },
       },
@@ -2818,7 +2835,7 @@
 %    \end{macrocode}
 % apply wff-specific highlighting and additional TikZ keys 
 %    \begin{macrocode}
-      before typesetting nodes={%
+      proof tree before typesetting nodes={%
         process keylist register=wff format,
         if highlight wff={node options/.register=highlight format}{},
         node options/.option=wff options,
@@ -3110,7 +3127,7 @@
 %    \end{macrocode}
 % initial alignment so we don't get proof line numbers incrementing due to varying height/depth of nodes, for example - when single branches is true and few nodes are grouped, this is also a reasonable first approximation 
 %    \begin{macrocode}
-    before packing={%
+    proof tree before packing={%
       for tree={%
         tier/.process={OOw2+nw1}{level}{proof tree toing by}{##1+##2}{tier ##1},
       },
@@ -3126,7 +3143,7 @@
 %    \end{macrocode}
 % adjust distance between levels for grouped nodes after tree is packed 
 %    \begin{macrocode}
-    before computing xy={%
+    proof tree before computing xy={%
       for tree={%
         if={%
          >{O _O< &}{grouped}{1}{level}%
@@ -3148,7 +3165,7 @@
 %    \end{macrocode}
 % set final alignment for proof lines which have been moved by effectively grouping lead nodes and moving their subtrees accordingly - this requires that each line number and justification be the child of the previous one and that if justifications are used at all, then justifications exist for all proof lines, even if empty 
 %    \begin{macrocode}
-    before drawing tree={%
+    proof tree before drawing tree={%
 %    \end{macrocode}
 % correct the alignment of move by lines when single branches is false - o fersiwn anti-pgfmath Sašo 
 %    \begin{macrocode} 
@@ -3304,7 +3321,7 @@
             edge path/.option=!last dynamic node.edge path,
             edge/.option=!last dynamic node.edge,
             append,
-            before drawing tree={%
+            proof tree before drawing tree={%
               if={>{RR|}{line numbering}{justifications}}{%
                 proof tree proof line no/.process={Ow1+n}{!parent.proof tree proof line no}{##1+1},
               }{},
@@ -3324,7 +3341,7 @@
                     proof tree phantom,
                     edge path/.option=!u.edge path,
                     edge/.option=!u.edge,
-                    before drawing tree={%
+                    proof tree before drawing tree={%
                       if={>{RR|}{line numbering}{justifications}}{%
                         proof tree proof line no/.process={Ow1+n}{!n=1.proof tree proof line no}{##1-1},
                       }{},
@@ -3386,7 +3403,7 @@
 % 2018-02-19 ateb \url{https://tex.stackexchange.com/a/416037/} 
 %    \begin{macrocode}
   line no override/.style={%
-    before drawing tree={
+    proof tree before drawing tree={
       for name/.process={Ow}{proof tree proof line no}{line no ##1}{
         content=\linenumberstyle{#1},
         typeset node,
@@ -3397,7 +3414,7 @@
 % 2018-02-19 gweler uchod 
 %    \begin{macrocode}
   no line no/.style={%
-    before drawing tree={
+    proof tree before drawing tree={
       for name/.process={Ow}{proof tree proof line no}{line no ##1}{
         content=,
         typeset node,
@@ -3408,12 +3425,12 @@
 % style for use in debugging moves which displays information about nodes in the tree 
 %    \begin{macrocode}
   proof tree dadfygio/.style={%
-    before packing={%
+    proof tree before packing={%
       for tree={%
         label/.process={OOOw3}{level}{proof tree toing by}{id}{[red,font=\tiny,inner sep=0pt,outer sep=0pt, anchor=south]below:##1/##2/##3},
       },
     },
-    before drawing tree={%
+    proof tree before drawing tree={%
       for tree={%
         delay={%
           tikz+/.process={Ow1}{proof tree proof line no}{\node [anchor=west, font=\tiny, text=blue, inner sep=0pt] at (.east) {##1}; },
@@ -3425,7 +3442,7 @@
 %  debugging / dangos dimension stuff
 %    \begin{macrocode}
   proof tree alino/.style={%
-    before drawing tree={%
+    proof tree before drawing tree={%
       tikz+/.process={%
         RRRRw4{proof tree inner proof midpoint}{line no width}{line no dist}{just dist}
         {
@@ -3463,24 +3480,50 @@
           process keylist register=preamble,
         },
         process keylist=given options,
+%    \end{macrocode}
+% \changes{v0.0}{2025-08-23}{Adjust stage processing for new keylists}
+%    \begin{macrocode}
+        process keylist=proof tree before typesetting nodes,
         process keylist=before typesetting nodes,
+%    \end{macrocode}
+%    \begin{macrocode}
 %    \end{macrocode}
 % first two additions: process two custom keylists after before typesetting nodes and before typesetting nodes 
 %    \begin{macrocode}
         process keylist=proof tree ffurf,
         process keylist=proof tree symud awto,
         typeset nodes stage,
+        process keylist=proof tree before packing,
         process keylist=before packing,
         pack stage,
+        process keylist=proof tree before computing xy,
         process keylist=before computing xy,
         compute xy stage,
 %    \end{macrocode}
 % second two additions: process two custom keylists after computing xy and before before drawing tree
 %    \begin{macrocode}
         process keylist=proof tree creu nodiadau,
+        process keylist=before annotating,
         process keylist=proof tree nodiadau,
+%    \end{macrocode}
+% standardish
+%    \begin{macrocode}
+        process keylist=proof tree before drawing tree,
         process keylist=before drawing tree,
+%    \end{macrocode}
+% hopefully for doing something useful for tagging
+%    \begin{macrocode}
+        process keylist=before tagging,
+        process keylist=proof tree tableau structure,
+%    \end{macrocode}
+% standard
+%    \begin{macrocode}
         draw tree stage,
+%    \end{macrocode}
+% the only reason to split this is that I can't currently figure out how to avoid it
+% strictly speaking, the drawing is irrelevant to the tagging
+%    \begin{macrocode}
+        process keylist=proof tree tableau tag,
       },
     )%
 %    \end{macrocode}
@@ -3538,7 +3581,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11138 2025-08-22 19:06:12Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11139 2025-08-23 02:35:12Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -3553,7 +3596,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11138 2025-08-22 19:06:12Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11139 2025-08-23 02:35:12Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -3564,5 +3607,5 @@
 %^^A doc-code guards >>>
 % 
 %\Finale
-% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:
