@@ -3673,22 +3673,6 @@
 %    \begin{macrocode}
 \ExplSyntaxOn
 %    \end{macrocode}
-% \begin{macro}{\prooftrees@ttableau}
-% \changes{v0.0}{2025-08-25}{Possibly for tagging.}
-%    \begin{macrocode}
-\def\prooftrees@ttableau#1#2#3{}
-%    \end{macrocode}
-% \end{macro}
-% \begin{macro}{\prooftrees@ttableau@init}
-% \changes{v0.0}{2025-08-25}{Possibly for tagging.}
-%    \begin{macrocode}
-\let\prooftrees@ttableau@init\relax
-%    \end{macrocode}
-% \end{macro}
-% \changes{v0.0}{2025-08-25}{Possibly for tagging.}
-%    \begin{macrocode}
-\newcount\prooftrees@tableau@id
-%    \end{macrocode}
 % \changes{v0.9}{}{Add support for \pkg{memoize} and utilise for documentation.}
 % \begin{macro}{\__prooftrees_memoize:n,\__prooftrees_memoize:V}
 %   Internal macro so we don't memoize \pkg{bussproofs}'s \texttt{prooftree} by mistake.
@@ -3769,6 +3753,13 @@
 %   Not a macro, but no idea how to mark it in \pkg{ltxdoc} correctly. 
 %    \begin{macrocode}
 \newtoks \prooftrees@tableau@toks
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\prooftrees@tableau@id}
+%   \changes{v0.0}{2025-08-25}{Add \cs{prooftrees@tableau@id}.}
+%   Not a macro, but no idea how to mark it in \pkg{ltxdoc} correctly. 
+%    \begin{macrocode}
+\newcount\prooftrees@tableau@id
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{%
@@ -3927,6 +3918,7 @@
 % \begin{macro}{%
 %   \prooftrees@ttableau@init,\__tableau_ttableau_init:%
 % }
+% \changes{v0.0}{2025-08-25}{Possibly for tagging.}
 %   I think I don't really get the ‘plug’ concept.
 %   It is surely pointless to assign and immediately use one in a package which defines the relevant socket?
 %   That is, wouldn't a macro or just the code do equally well but faster?
