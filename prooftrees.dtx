@@ -411,6 +411,12 @@
   \char_set_catcode_letter:N \@\char_set_catcode_letter:N \_\char_set_catcode_letter:N \:
 }
 \cs_set_eq:NN \MakePrivateLetters \__prooftreesdoc_mpl:
+\cs_new_eq:NN \__prooftreesdoc_cs_orig:n \cs
+\cs_new_protected:Npn \__prooftreesdoc_cs_expl:n #1
+{
+  \exp_args:Ne \__prooftreesdoc_cs_orig:n {\tl_to_string:n {#1}}
+}
+\cs_new_eq:NN \ecs \__prooftreesdoc_cs_expl:n
 \ExplSyntaxOff
 % ^^A % ^^A if these are commented where the f*** are they defined?
 % ^^A % ^^A \definecolor{strawberry}{rgb}{1.000,0.000,0.502}
@@ -432,8 +438,8 @@
   \renewcommand*\headrulewidth{0pt}%^^A
   \fancyhf[cf]{\textit{--- \thepage{} of \lastpage{} ---}}}
 \patchcmd{\sectionmark}{\MakeUppercase}{}{\typeout{sectionmark patched OK!}}{\typeout{sectionmark patch failed!}}
-\patchcmd{\tableofcontents}{\MakeUppercase}{}{\typeout{sectionmark patched OK!}}{\typeout{sectionmark patch failed!}}
-\patchcmd{\tableofcontents}{\MakeUppercase\contentsname}{}{\typeout{sectionmark patched OK!}}{\typeout{sectionmark patch failed!}}
+\patchcmd{\tableofcontents}{\MakeUppercase}{}{\typeout{sectionmark patched OK!}}{\typeout{tableofcontents patch failed!}}
+\patchcmd{\tableofcontents}{\MakeUppercase\contentsname}{}{\typeout{sectionmark patched OK!}}{\typeout{tableofcontents patch failed!}}
 % ^^A Really, why on Earth does Biblatex do something this obnoxious?
 % ^^A It is all for unilaterally declaring standard LaTeX macros 'deprecated' and trying to replace them with its own less convenient versions.
 % ^^A It could at least do us the favour of holding some of its much less defensible and much more inconvenient design decisions in equal contempt!!
@@ -3719,7 +3725,7 @@
 % Otherwise \dots
 %
 % \begin{macro}{\c__tableau_nexpl_at_cctab}
-% \changes{v0.0}{2025-08-25}{Add \verb|\c__tableau_nexpl_at_cctab|.}
+% \changes{v0.0}{2025-08-25}{Add \ecs{c__tableau_nexpl_at_cctab}.}
 %   Not a macro but a constant.
 %   Allow \texttt{@} and \pkg{expl3} syntax in memos, but don't change cat codes of spaces or newlines.
 %    \begin{macrocode}
@@ -3742,7 +3748,7 @@
 }
 %    \end{macrocode}
 % \begin{macro}{\l__tableau_toks_tl}
-%   \changes{v0.0}{2025-08-25}{Add \verb|\l__tableau_toks_tl|.}
+%   \changes{v0.0}{2025-08-25}{Add \ecs{l__tableau_toks_tl}.}
 %   variable because I can't work out how to pass the toks directly.
 %    \begin{macrocode}
 \tl_new:N \l__tableau_toks_tl
@@ -3815,9 +3821,9 @@
 % can't use noop due to collection of mcs even if tagging suspended;
 % artifact gets rid of these
 % I think some combination of:
-%   \verb|\tag_suspend:n| \{\cs{tableau}\}
-%   \verb|\tag_resume:n| \{\cs{tableau}\}
-%   \verb|\luamml_ignore:|
+%   \ecs{tag_suspend:n} \{\cs{tableau}\}
+%   \ecs{tag_resume:n} \{\cs{tableau}\}
+%   \ecs{luamml_ignore:}
 % should work, but I have no idea how to get it right
 %
 % Assigning these \pkg{labex-lab} plugs prevents the chaos of errors produced by the defaults.
@@ -3918,7 +3924,7 @@
 % \begin{macro}{%
 %   \prooftrees@ttableau@init,\__tableau_ttableau_init:%
 % }
-% \changes{v0.0}{2025-08-25}{Added \verb|\__tableau_ttableau_init:|.}
+% \changes{v0.0}{2025-08-25}{Added \ecs{__tableau_ttableau_init:}.}
 %   I think I don't really get the ‘plug’ concept.
 %   It is surely pointless to assign and immediately use one in a package which defines the relevant socket?
 %   That is, wouldn't a macro or just the code do equally well but faster?
@@ -3940,7 +3946,7 @@
 % \begin{macro}{%
 %   \prooftrees@ttableau,\__tableau_ttableau:nnn%
 % }
-% \changes{v0.0}{2025-08-25}{Added \verb|\__tableau_ttableau:nnn|, \cs{prooftrees@ttableau}.}
+% \changes{v0.0}{2025-08-25}{Added \ecs{__tableau_ttableau:nnn}, \cs{prooftrees@ttableau}.}
 % \mbox{}
 %    \begin{macrocode}
 \cs_new_nopar:Npn \__tableau_ttableau:nnn #1#2#3
