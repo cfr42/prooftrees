@@ -3815,9 +3815,9 @@
 % can't use noop due to collection of mcs even if tagging suspended;
 % artifact gets rid of these
 % I think some combination of:
-%   \cs{tag_suspend:n} \{\cs{tableau}\}
-%   \cs{tag_resume:n} \{\cs{tableau}\}
-%   \cs{luamml_ignore:}
+%   \verb|\tag_suspend:n| \{\cs{tableau}\}
+%   \verb|\tag_resume:n| \{\cs{tableau}\}
+%   \verb|\luamml_ignore:|
 % should work, but I have no idea how to get it right
 %
 % Assigning these \pkg{labex-lab} plugs prevents the chaos of errors produced by the defaults.
