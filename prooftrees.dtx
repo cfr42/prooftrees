@@ -414,7 +414,7 @@
 \cs_new_eq:NN \__prooftreesdoc_cs_orig:n \cs
 \cs_new_protected:Npn \__prooftreesdoc_cs_expl:n #1
 {
-  \exp_args:Ne \__prooftreesdoc_cs_orig:n {\tl_to_string:n {#1}}
+  \exp_args:Ne \__prooftreesdoc_cs_orig:n {\tl_to_str:n {#1}}
 }
 \cs_new_eq:NN \ecs \__prooftreesdoc_cs_expl:n
 \ExplSyntaxOff
