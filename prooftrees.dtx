@@ -3719,7 +3719,7 @@
 % Otherwise \dots
 %
 % \begin{macro}{\c__tableau_nexpl_at_cctab}
-% \changes{v0.0}{2025-08-25}{Add \cs{c__tableau_nexpl_at_cctab}.}
+% \changes{v0.0}{2025-08-25}{Add \verb|\c__tableau_nexpl_at_cctab|.}
 %   Not a macro but a constant.
 %   Allow \texttt{@} and \pkg{expl3} syntax in memos, but don't change cat codes of spaces or newlines.
 %    \begin{macrocode}
@@ -3742,7 +3742,7 @@
 }
 %    \end{macrocode}
 % \begin{macro}{\l__tableau_toks_tl}
-%   \changes{v0.0}{2025-08-25}{Add \cs{l__tableau_toks_tl}.}
+%   \changes{v0.0}{2025-08-25}{Add \verb|\l__tableau_toks_tl|.}
 %   variable because I can't work out how to pass the toks directly.
 %    \begin{macrocode}
 \tl_new:N \l__tableau_toks_tl
@@ -3918,7 +3918,7 @@
 % \begin{macro}{%
 %   \prooftrees@ttableau@init,\__tableau_ttableau_init:%
 % }
-% \changes{v0.0}{2025-08-25}{Possibly for tagging.}
+% \changes{v0.0}{2025-08-25}{Added \verb|\__tableau_ttableau_init:|.}
 %   I think I don't really get the ‘plug’ concept.
 %   It is surely pointless to assign and immediately use one in a package which defines the relevant socket?
 %   That is, wouldn't a macro or just the code do equally well but faster?
@@ -3940,6 +3940,7 @@
 % \begin{macro}{%
 %   \prooftrees@ttableau,\__tableau_ttableau:nnn%
 % }
+% \changes{v0.0}{2025-08-25}{Added \verb|\__tableau_ttableau:nnn|, \cs{prooftrees@ttableau}.}
 % \mbox{}
 %    \begin{macrocode}
 \cs_new_nopar:Npn \__tableau_ttableau:nnn #1#2#3
