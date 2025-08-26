@@ -34,12 +34,16 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-tag-t2.lvt 11142 2025-08-26 01:16:58Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\ProvidesFileSVN{$Id: prooftrees-tag-t2.lvt 11144 2025-08-26 02:28:43Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
 \usepackage[tableaux]{prooftrees}
 \usepackage{turnstile}
 \usepackage{unicode-math}
+\newcommand*{\lif}{\ensuremath{\mathbin{\rightarrow}}}
+\makeatletter
+\@ttableau@dadfygiotrue
+\makeatother
 \begin{document}
 \START
 \TEST{prooftrees-tag-t2}{%

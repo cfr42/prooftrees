@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11142 2025-08-26 01:16:58Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11144 2025-08-26 02:28:43Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2198,7 +2198,7 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11142 2025-08-26 01:16:58Z cfrees $}[v0.9 \revinfo]
+\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11144 2025-08-26 02:28:43Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2520,12 +2520,12 @@
       if check right={%
         content+'={\ \forestregister{check with}#1},
         if tag={%
-          ttoks+/.process={>Rw{tag check with}{ ##1#1}},
+          ttoks+/.process={Rw{tag check with}{ ##1#1}},
         }{},
       }{%
         +content'={\forestregister{check with}#1\ },
         if tag={%
-          +ttoks/.process={>Rw{tag check with}{##1#1 }},
+          +ttoks/.process={Rw{tag check with}{##1#1 }},
         }{},
       },
     },
@@ -2539,12 +2539,12 @@
       if subs right={%
         content+'={\ \forestregister{subs with}#1},
         if tag={%
-          ttoks+/.process={>Rw{tag subs with}{ ##1#1}},
+          ttoks+/.process={Rw{tag subs with}{ ##1#1}},
         }{},
       }{%
         +content'={\forestregister{subs with}#1\ },
         if tag={%
-          +ttoks/.process={>Rw{tag subs with}{##1#1 }},
+          +ttoks/.process={Rw{tag subs with}{##1#1 }},
         }{},
       },
     },
@@ -4035,7 +4035,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11142 2025-08-26 01:16:58Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11144 2025-08-26 02:28:43Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4050,7 +4050,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11142 2025-08-26 01:16:58Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11144 2025-08-26 02:28:43Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
