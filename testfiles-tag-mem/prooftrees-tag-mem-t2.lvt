@@ -23,6 +23,8 @@
 %% 
 %% This work consists of all files listed in manifest.txt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% structure validates but differs from non-externalised ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DocumentMetadata{
  tagging=on,
  lang=en-GB,
@@ -34,7 +36,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-tag-mem-t2.lvt 11146 2025-08-26 13:23:52Z cfrees $}[v0.0 \revinfo][\filebase: tag support memoization test]
+\ProvidesFileSVN{$Id: prooftrees-tag-mem-t2.lvt 11147 2025-08-26 13:49:45Z cfrees $}[v0.0 \revinfo][\filebase: tag support memoization test]
 \input regression-test.tex\relax
 \documentclass{article}
 \START
@@ -87,21 +89,21 @@
 }
 \SuspendTagging {l3build}%
 \TEST{prooftrees-tag-mem-t2-cmemo}{%
-  \IfFileExists{memos/XXX.memo}{%
-    \TYPE{memos/XXX.memo:}%
+  \IfFileExists{memos/E0A20A9AE958FA0ADF4BAF7C6E172F69.memo}{%
+    \TYPE{memos/E0A20A9AE958FA0ADF4BAF7C6E172F69.memo:}%
     \NEWLINE
-    \SHOWFILE{memos/XXX.memo}%
+    \SHOWFILE{memos/E0A20A9AE958FA0ADF4BAF7C6E172F69.memo}%
   }{%
-    \TYPE{CANNOT FIND memos/XXX.memo!}%
+    \TYPE{CANNOT FIND memos/E0A20A9AE958FA0ADF4BAF7C6E172F69.memo!}%
   }%
 }
 \TEST{prooftrees-tag-mem-t2-ccmemo}{%
-  \IfFileExists{memos/XXX-ZZZ.memo}{%
-    \TYPE{memos/XXX-ZZZ.memo:}%
+  \IfFileExists{memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}{%
+    \TYPE{memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:}%
     \NEWLINE
-    \SHOWFILE{memos/XXX-ZZZ.memo}%
+    \SHOWFILE{memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}%
   }{%
-    \TYPE{CANNOT FIND memos/XXX-ZZZ.memo!}%
+    \TYPE{CANNOT FIND memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo!}%
   }%
 }
 \ResumeTagging {l3build}%
