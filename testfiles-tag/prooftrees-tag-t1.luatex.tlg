@@ -1,0 +1,52 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: prooftrees-tag-t1
+============================================================
+Tagging is active.
+Assigning and using tag plug to socket tableaux/tagsupport/tableau/init.
+[Tag tableau debug]:: Copying node contents
+[Tag tableau debug]:: Copying node content to ttoks
+[Tag tableau debug]:: ttoks is \ensuremath {\lnot (p\vee \lnot p)}
+[Tag tableau debug]:: Copying node content to ttoks
+[Tag tableau debug]:: ttoks is \ensuremath {\lnot p}
+[Tag tableau debug]:: Copying node content to ttoks
+[Tag tableau debug]:: ttoks is \ensuremath {\lnot \lnot p}
+[Tag tableau debug]:: Copying to prove to ttoks
+[Tag tableau debug]:: To prove:\ \ensuremath {\sststile{}{}p\vee \lnot p}
+[Tag tableau debug]:: Making tags
+[Tag tableau debug]:: ttoks is now 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\ 
+[Tag tableau debug]:: ttoks is now 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\ 
+[Tag tableau debug]:: ttoks is now 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ 
+[Tag tableau debug]:: Pick up ttoks from to prove
+[Tag tableau debug]:: Appending toks To prove:\ \ensuremath {\sststile{}{}p\vee \lnot p}.
+[Tag tableau debug]:: Get tag from wff
+[Tag tableau debug]:: Appending toks 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\ .
+[Tag tableau debug]:: Get tag from wff
+[Tag tableau debug]:: Appending toks 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\ .
+[Tag tableau debug]:: Get tag from wff
+[Tag tableau debug]:: Appending toks 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\ .
+[Tag tableau debug]:: Accumulated toks:
+To prove:\ \ensuremath {\sststile{}{}p\vee \lnot p} 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\  2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\  3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\  
+[Tag tableau debug]:: Tag tableau
+============================================================
+[1
+]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-t1.aux)
+MathML statistic
+================
+==> 0 MathML fragments read
+==> 0 different MathML fragments
+==> 0 math fragments found
+==> 0 fitting MathML AF found
+==> 0 MathML AF attached
+Package tagpdf Info: Finalizing the tagging structure:
+(tagpdf)             Writing out ~7 structure objects
+(tagpdf)             with ~27 'MC' leaf nodes.
+(tagpdf)             Be patient if there are lots of objects!
+Package tagpdf Info: writing ParentTree
+Package tagpdf Info: writing IDTree
+Package tagpdf Info: writing RoleMap
+Package tagpdf Info: writing ClassMap
+Package tagpdf Info: writing NameSpaces
+Package tagpdf Info: writing StructElems
+Package tagpdf Info: writing Root
