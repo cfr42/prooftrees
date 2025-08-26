@@ -162,9 +162,9 @@ collection-basic
 # other
 pgf 
 marginnote 
-tikzducks 
-tikzlings 
-catchfile
+# tikzducks 
+# tikzlings 
+# catchfile
 babel-latin
 hyphen-latin
 sourcesanspro
@@ -175,7 +175,7 @@ hyperxmp
 babel-greek
 babel-spanish
 # times
-ntheorem
+# ntheorem
 babel-dutch
 hyphen-greek
 greek-fontenc
@@ -230,3 +230,7 @@ xstring
 biber
 biblatex
 logreq
+
+# angen am unicode-math
+lualatex-math
+luamml
