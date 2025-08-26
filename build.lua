@@ -1,4 +1,4 @@
--- $Id: build.lua 11142 2025-08-26 01:16:58Z cfrees $
+-- $Id: build.lua 11146 2025-08-26 13:23:52Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 maindir = maindir or "."
@@ -7,7 +7,7 @@ sourcedir = sourcedir or maindir
 ctanpkg = "prooftrees"
 module = "prooftrees"
 --------------------------------------------------------------------------------
-checkconfigs = { "build", "config-mem", "config-tag" }
+checkconfigs = { "build", "config-mem", "config-tag", "config-tag-mem" }
 checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 manifestfile = "manifest.txt"
 sourcefiles = {"*.dtx","*.ins"}--,"prooftrees.tex"}

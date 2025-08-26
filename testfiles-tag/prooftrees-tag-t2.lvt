@@ -34,7 +34,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-tag-t2.lvt 11144 2025-08-26 02:28:43Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\ProvidesFileSVN{$Id: prooftrees-tag-t2.lvt 11146 2025-08-26 13:23:52Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
 \usepackage[tableaux]{prooftrees}
@@ -44,9 +44,11 @@
 \makeatletter
 \@ttableau@dadfygiotrue
 \makeatother
+\title{What is the title of this test?}
 \begin{document}
 \START
 \TEST{prooftrees-tag-t2}{%
+  \showoutput
   \begin{tableau}
     {
       to prove={\{P \vee (Q \vee \lnot R), P \lif
