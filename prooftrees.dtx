@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11144 2025-08-26 02:28:43Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11148 2025-08-27 03:08:44Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2198,7 +2198,7 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11144 2025-08-26 02:28:43Z cfrees $}[v0.9 \revinfo]
+\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11148 2025-08-27 03:08:44Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2241,10 +2241,10 @@
 %    \begin{macrocode}
 \ProcessOptions
 %    \end{macrocode}
-% Load packages, but we shouldn't require \pkg{amssymb} for Unicode engines \dots.
+% \changes{v0.0}{2025-08-27}{Don't load \pkg{amssymb} or \pkg{amstext} unconditionally.}
+% Load \pkg{forest}, but load maths packages later only if needed.
 %    \begin{macrocode}
 \RequirePackage{forest}[2016/12/04]
-\RequirePackage{amssymb,amstext}
 %    \end{macrocode}
 % \begin{macro}{\linenumberstyle}
 %   \mbox{}
@@ -3736,8 +3736,6 @@
     }
   }{\newif\ifmemoizing\memoizingfalse}
 %    \end{macrocode}
-%    \begin{macrocode}
-%    \end{macrocode}
 % \begin{macro}{%
 %   \__tableau_property_ref_orig:nn,
 %   \__tableau_property_ref_orig:ee,
@@ -3773,6 +3771,27 @@
   \cs_generate_variant:Nn \__tableau_property_ref_orig:nn {ee}
 %    \end{macrocode}
 % \end{macro}
+% \changes{v0.0}{2025-08-27}{Use \pkg{unicode-math} rather than \pkg{amssymb} and \pkg{amstext} on Unicode engines, but, in any case, only load what's needed.}
+%    \begin{macrocode}
+  \cs_if_exist:NF \otimes
+  {
+    \sys_if_engine_opentype:TF
+    {
+      \RequirePackage{unicode-math}
+    }{
+      \RequirePackage{amssymb}
+    }
+  }
+  \cs_if_exist:NF \text
+  {
+    \sys_if_engine_opentype:TF
+    {
+      \RequirePackage{unicode-math}
+    }{
+      \RequirePackage{amstext}
+    }
+  }
+%    \end{macrocode}
 %    \begin{macrocode}
 }
 %    \end{macrocode}
@@ -4035,7 +4054,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11144 2025-08-26 02:28:43Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11148 2025-08-27 03:08:44Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4050,7 +4069,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11144 2025-08-26 02:28:43Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11148 2025-08-27 03:08:44Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
