@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11149 2025-08-27 03:27:37Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2193,16 +2193,20 @@
 % 
 %^^A sty guards <<<
 % \iffalse
-%<*sty>
+%<*sty|debug>
 % \fi
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11149 2025-08-27 03:27:37Z cfrees $}[v0.9 \revinfo]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
 % ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
+% \fi
+% \iffalse
+%<*!debug>
 % \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \begin{macro}{\prooftrees@enw}
@@ -2266,9 +2270,15 @@
 % \textbf{In particular, the style \texttt{proof tree} is **NOT** intended to be used directly by the user and its direct use is **ABSOLUTELY NOT SUPPORTED IN ANY WAY, SHAPE OR FORM**; it is intended only for implicit use when the \texttt{prooftree} environment calls it.}
 %
 % Don't use \texttt{@} in register/option names - the documentation is lying when it says non-alphanumerics will be converted to underscores when forming pgfmath functions ;)
+% \iffalse
+%</!debug>
+% \fi
 %    \begin{macrocode}
 \forestset{% 
 %    \end{macrocode}
+% \iffalse
+%<*!debug>
+% \fi
 % line numbers
 %    \begin{macrocode}
   declare boolean register={line numbering},
@@ -2699,6 +2709,9 @@
     line no shift'+=-1,
   },
 %    \end{macrocode}
+% \iffalse
+%</!debug>
+% \fi
 % sets a proof statement
 %    \begin{macrocode}
   to prove/.style={% 
@@ -2713,11 +2726,23 @@
 % \changes{v0.0}{2025-08-25}{Add to \texttt{ttoks} if tagging.}
 %    \begin{macrocode}
         if={>R{tag}}{%
-          debug tagging=Copying to prove to ttoks,
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>          debug tagging=Copying to prove to ttoks,
+%    \end{macrocode}
+%    \begin{macrocode}
           ttoks/.process={ORw2{content}{tag to prove}{##2\ \ensuremath{##1}}},
-          debug tagging/.option=ttoks,
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>          debug tagging/.option=ttoks,
+%    \end{macrocode}
+%    \begin{macrocode}
           proof tree get tags={%
-            debug tagging=Pick up ttoks from to prove,
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>            debug tagging=Pick up ttoks from to prove,
+%    \end{macrocode}
+%    \begin{macrocode}
             pick up tag/.option=ttoks,
           },
         }{},
@@ -2732,6 +2757,9 @@
     },
   },
 %    \end{macrocode}
+% \iffalse
+%<*!debug>
+% \fi
 % this style should **NOT** be used directly in a forest environment - see notes at top of this file
 %    \begin{macrocode}
   proof tree/.style={% 
@@ -3494,7 +3522,10 @@
     },
   },
 %    \end{macrocode}
-% style for use in debugging moves which displays information about nodes in the tree 
+% Two styles for debugging.
+% Despite the names, these are available in the non-debug package for largely historical reasons, but also because they probably do not cost much.
+%
+% Style for use in debugging moves which displays information about nodes in the tree.
 %    \begin{macrocode}
   proof tree dadfygio/.style={%
     proof tree before packing={%
@@ -3529,25 +3560,42 @@
     },
   },
 %    \end{macrocode}
+% \iffalse
+%</!debug>
+% \fi
 % \changes{v0.0}{2025-08-25}{Add ttableau style for experiments with tagging.}
+% \texttt{debug tagging} is more expensive, so split this out.
+%
 % ANGEN: dw i ddim yn meddwl bod crefs yn cynnwys explicit closures?
 %    \begin{macrocode}
   ttableau/.style={%
     if={>R{tag}}{%
       proof tree copy content={%
-        debug tagging=Copying node contents,
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>        debug tagging=Copying node contents,
+%    \end{macrocode}
+%    \begin{macrocode}
         where content={}{}{%
-          debug tagging=Copying node content to ttoks,
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>          debug tagging=Copying node content to ttoks,
+%    \end{macrocode}
+%    \begin{macrocode}
           ttoks+/.process={Ow{content}{\ensuremath{##1}}},
-          debug tagging/.process={Ow{ttoks}{ttoks is ##1}},
-          % ^^A proof tree get tags={%
-          % ^^A   debug tagging=Picking up ttoks from to prove,
-          % ^^A   pick up tag/.option=ttoks,
-          % ^^A },
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>          debug tagging/.process={Ow{ttoks}{ttoks is ##1}},
+%    \end{macrocode}
+%    \begin{macrocode}
         },
       },
       proof tree make tags={%
-        debug tagging=Making tags,
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>        debug tagging=Making tags,
+%    \end{macrocode}
+%    \begin{macrocode}
         for unique={proof tree wffs}{%
           if proof tree rhifo={
             if line numbering={%
@@ -3557,9 +3605,17 @@
             if justifications={%
               ttoks+/.process={Ow+pw {proof tree proof line no}{O{!{name=just ##1}.content}}{\ ##1\ }},
             }{},
-            debug tagging/.process={Ow{ttoks}{ttoks is now ##1}},
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>            debug tagging/.process={Ow{ttoks}{ttoks is now ##1}},
+%    \end{macrocode}
+%    \begin{macrocode}
             proof tree get tags={%
-              debug tagging=Get tag from wff,
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>              debug tagging=Get tag from wff,
+%    \end{macrocode}
+%    \begin{macrocode}
               pick up tag/.option=ttoks,
             },
           }{%
@@ -3574,7 +3630,11 @@
 % Note that this method would not work for many \pkg{forest} trees and may fail for some tableaux, but should work for most proofs, I think.
 %    \begin{macrocode}
       tag tableau/.style={
-        debug tagging=Tag tableau,
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>        debug tagging=Tag tableau,
+%    \end{macrocode}
+%    \begin{macrocode}
         tempdima/.max={>OOw2+d{x}{max x}{####1+####2}}{tree},
         tempdima-/.min={>OOw2+d{x}{min x}{####1+####2}}{tree},
         tempdimb/.max={>OOw2+d{y}{max y}{####1+####2}}{tree},
@@ -3588,8 +3648,8 @@
 %    \end{macrocode}
 % \changes{v0.0}{2025-08-25}{\texttt{tag tableau stage} following \pkg{forest} pattern and noop default style.}
 %    \begin{macrocode}
-  tag tableau stage/.style={for root'=tag tableau,},
-  tag tableau/.style={},
+%<!debug>  tag tableau stage/.style={for root'=tag tableau,},
+%<!debug>  tag tableau/.style={},
 %    \end{macrocode}
 % \changes{v0.0}{2025-08-25}{Experimental \texttt{alt} plug for tagging.}
 % Note this is not just default.
@@ -3597,26 +3657,25 @@
 %    \begin{macrocode}
   alt/.style={%
     plug=alt,
-    debug tagging=Using plug alt,
+%<debug>    debug tagging=Using plug alt,
     pick up tag/.code={%
       \toksapp\prooftrees@tableau@toks{##1 }%
-      \if@ttableau@dadfygio
-        \typeout{[Tag tableau debug]:: Appending toks ##1.}%
-      \fi
+%<debug>      \if@ttableau@dadfygio
+%<debug>        \typeout{[Tag tableau debug]:: Appending toks ##1.}%
+%<debug>      \fi
     },
   },
   alt,
-  debug tagging/.code={},
+%<debug>  debug tagging/.code={},
 }
-%    \end{macrocode}
-%    \begin{macrocode}
-\bracketset{action character=@}
+%<!debug>\bracketset{action character=@}
 %    \end{macrocode}
 % \begin{environment}{prooftree}
 % \begin{environment}{tableau}
 % \cs{forest}/\cs{endforest} from egreg's answer at \url{https://tex.stackexchange.com/a/229608/} 
 %    \begin{macrocode}
-\NewDocumentEnvironment{\prooftrees@enw}{ m +b }{%
+%<!debug>\NewDocumentEnvironment{\prooftrees@enw}{ m +b }{%
+%<debug>\RenewDocumentEnvironment{\prooftrees@enw}{ m +b }{%
   \global\advance\prooftrees@tableau@id by 1
   \prooftrees@ttableau@init
   \forest
@@ -3673,12 +3732,16 @@
         process keylist=proof tree make tags,
         process keylist=before getting tags,
         process keylist=proof tree get tags,
-        TeX={%
-          \if@ttableau@dadfygio
-            \typeout{[Tag tableau debug]:: Accumulated toks:}%
-            \ExpandArgs {o} \typeout{\the\prooftrees@tableau@toks}%
-          \fi
-        },
+%    \end{macrocode}
+%    \begin{macrocode}
+%<debug>        TeX={%
+%<debug>          \if@ttableau@dadfygio
+%<debug>            \typeout{[Tag tableau debug]:: Accumulated toks:}%
+%<debug>            \ExpandArgs {o} \typeout{\the\prooftrees@tableau@toks}%
+%<debug>          \fi
+%<debug>        },
+%    \end{macrocode}
+%    \begin{macrocode}
         tag tableau stage,
 %    \end{macrocode}
 % standard
@@ -3687,7 +3750,7 @@
       },
     )%
 %    \end{macrocode}
-% apply the proof tree style, which sets keylists from both forest's defaults and our custom additions
+% Apply the proof tree style, which sets keylists from both forest's defaults and our custom additions.
 %    \begin{macrocode}
     proof tree,
 %    \end{macrocode}
@@ -3696,7 +3759,7 @@
 %    \begin{macrocode}
     ttableau,
 %    \end{macrocode}
-% insert user's preamble, empty or otherwise - this allows the user both to override our defaults (e.g. by setting a non-empty proof statement or a custom format for line numbers) and to customise the tree using forest's facilities in the usual way - BUT customisations of the latter kind may or may not be effective, may or may not have undesirable - not to say chaotic - consequences, and may or may not cause compilation failures (structural changes, in particular, should be avoided completely)
+% Insert user's preamble, empty or otherwise - this allows the user both to override our defaults (e.g.~by setting a non-empty proof statement or a custom format for line numbers) and to customise the tree using forest's facilities in the usual way - BUT customisations of the latter kind may or may not be effective, may or may not have undesirable - not to say chaotic - consequences, and may or may not cause compilation failures (structural changes, in particular, should be avoided completely).
 %    \begin{macrocode}
     #1,
     [, name=proof statement @#2]%
@@ -3708,6 +3771,9 @@
 %    \begin{macrocode}
 \ExplSyntaxOn
 %    \end{macrocode}
+% \iffalse
+%<*!debug>
+% \fi
 % \changes{v0.9}{}{Add support for \pkg{memoize} and utilise for documentation.}
 % \begin{macro}{\__prooftrees_memoize:n,\__prooftrees_memoize:V}
 %   Internal macro so we don't memoize \pkg{bussproofs}'s \texttt{prooftree} by mistake.
@@ -3926,9 +3992,10 @@
 }
 %    \end{macrocode}
 % A version of the above which appends to the context memo rather than executing the code.
-% For \texttt{alt}, externalisation seems to work fine with tagging.
+% For \texttt{alt}, externalisation seems to work at least somewhat with tagging.
 % (Also \texttt{actualtext}.
 % That seems a bad choice for a tableau, but could be provided if required.)
+% But it changes the structure, so I'm not at all sure here.
 % 
 % This requires modifying the cat code regime inside the context memo (or providing 2e-style names for all the cases where these aren't available, including ones internal to \pkg{prooftrees}.
 %    \begin{macrocode}
@@ -3977,6 +4044,7 @@
   }
 }
 %    \end{macrocode}
+%</!debug>
 % \begin{macro}{%
 %   \prooftrees@ttableau@init,\__tableau_ttableau_init:%
 % }
@@ -3985,33 +4053,38 @@
 %   It is surely pointless to assign and immediately use one in a package which defines the relevant socket?
 %   That is, wouldn't a macro or just the code do equally well but faster?
 %    \begin{macrocode}
-\cs_new_nopar:Npn \__tableau_ttableau_init: 
+%<!debug>\cs_new_nopar:Npn \__tableau_ttableau_init: 
+%<debug>\cs_set_nopar:Npn \__tableau_ttableau_init: 
 {
   \tag_if_active:TF{
     \forestset{tag=1}
     \global\prooftrees@tableau@toks{}
-    \if@ttableau@dadfygio 
-      \typeout{Tagging~is~active.}
-      \forestset{
-        debug~tagging/.code={
-          \typeout{[Tag~tableau~debug]::~##1}
-        },
-      }
-      \typeout{Assigning~and~using~tag~plug~to~socket~tableaux/tagsupport/tableau/init.}
-    \fi
+%<debug>    \if@ttableau@dadfygio 
+%<debug>      \typeout{Tagging~is~active.}
+%<debug>      \forestset{
+%<debug>        debug~tagging/.code={
+%<debug>          \typeout{[Tag~tableau~debug]::~##1}
+%<debug>        },
+%<debug>      }
+%<debug>      \typeout{Assigning~and~using~tag~plug~to~socket~tableaux/tagsupport/tableau/init.}
+%<debug>    \fi
     \socket_assign_plug:nn {tableaux/tagsupport/tableau/init}{tag}
     \socket_use:n {tableaux/tagsupport/tableau/init}
     \def\pgfsys@begin@text{}
     \def\pgfsys@end@text{}
   }{
     \forestset{tag=0}
-    \if@ttableau@dadfygio 
-      \typeout{Tagging~is~not~active.}
-    \fi
+%<debug>    \if@ttableau@dadfygio 
+%<debug>      \typeout{Tagging~is~not~active.}
+%<debug>    \fi
   }
 }
-\cs_new_eq:NN \prooftrees@ttableau@init \__tableau_ttableau_init:
+%<!debug>\cs_new_eq:NN \prooftrees@ttableau@init \__tableau_ttableau_init:
+%<debug>\cs_set_eq:NN \prooftrees@ttableau@init \__tableau_ttableau_init:
 %    \end{macrocode}
+% \iffalse
+%<*!debug>
+% \fi
 % \end{macro}
 % \begin{macro}{%
 %   \prooftrees@ttableau,\__tableau_ttableau:nnn%
@@ -4038,12 +4111,14 @@
 \cs_new_eq:NN \prooftrees@ttableau \__tableau_ttableau:nnn
 %    \end{macrocode}
 % \end{macro}
-\ExplSyntaxOff
+% \iffalse
+%</!debug>
+% \fi
 %    \begin{macrocode}
-%% end prooftrees.sty
+\ExplSyntaxOff
 %    \end{macrocode}
 % \iffalse
-%</sty>
+%</sty|debug>
 % \fi
 %^^A sty guards >>>
 % 
@@ -4054,7 +4129,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11149 2025-08-27 03:27:37Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4069,7 +4144,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11149 2025-08-27 03:27:37Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
