@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2198,8 +2198,8 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2210,19 +2210,19 @@
 % \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \begin{macro}{\prooftrees@enw}
-% define \cs{prooftrees@enw} to hold the name of the environment
+% Define \cs{prooftrees@enw} to hold the name of the environment.
 %
-% default is to name the environment prooftree, this ensures backwards compatibility
+% Default is to name the environment prooftree, this ensures backwards compatibility.
 %    \begin{macrocode}
 \newcommand*\prooftrees@enw{prooftree}
 %    \end{macrocode}
 % \end{macro}
 % ^^A \begin{opt}{tableaux,tableau}
-% allow users to change the name to tableau using tableaux
+% Allow users to change the name to tableau using tableaux.
 %    \begin{macrocode}
 \DeclareOption{tableaux}{\renewcommand*\prooftrees@enw{tableau}}
 %    \end{macrocode}
-% just in case
+% Just in case.
 %    \begin{macrocode}
 \DeclareOption{tableau}{\renewcommand*\prooftrees@enw{tableau}}
 %    \end{macrocode}
@@ -2230,9 +2230,10 @@
 %    \begin{macrocode}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{forest}}
 %    \end{macrocode}
-% If \cs{prooftree} is not yet defined, set the name to \texttt{prooftree}; otherwise, use \texttt{tableau} to avoid conflict with \pkg{bussproofs} (which uses \texttt{prooftree} rather than \texttt{bussproof} as one might expect)
+% If \cs{prooftree} is not yet defined, set the name to \texttt{prooftree}; otherwise, use \texttt{tableau} to avoid conflict with \pkg{bussproofs} (which uses \texttt{prooftree} rather than \texttt{bussproof} as one might expect).
 %
 % Is there some reason I didn't use a hook here? obviously hooks weren't a thing, but \cs{AtBeginDocument}?
+% Oh, I guess I can't \dots.
 %    \begin{macrocode}
 \ifcsname prooftree\endcsname
   \renewcommand*\prooftrees@enw{tableau}%
@@ -2249,6 +2250,7 @@
 % Load \pkg{forest}, but load maths packages later only if needed.
 %    \begin{macrocode}
 \RequirePackage{forest}[2016/12/04]
+\RequirePackage{prooftrees-utils}
 %    \end{macrocode}
 % \begin{macro}{\linenumberstyle}
 %   \mbox{}
@@ -2279,69 +2281,69 @@
 % \iffalse
 %<*!debug>
 % \fi
-% line numbers
+% Line numbers
 %    \begin{macrocode}
   declare boolean register={line numbering},
 %    \end{macrocode}
-% default is for line numbers
+% Default is for line numbers
 %    \begin{macrocode}
   line numbering,
 %    \end{macrocode}
-% line justifications
+% Line justifications
 %    \begin{macrocode}
   declare boolean register={justifications},
 %    \end{macrocode}
-% default is for no line justifications (b/c there's no point in enabling this if the user doesn't specify any content)
+% Default is for no line justifications (b/c there's no point in enabling this if the user doesn't specify any content)
 %    \begin{macrocode}
   not justifications,
 %    \end{macrocode}
-% single branches: explicitly drawn branches and a normal level distance between lone children and their parents
+% Single branches: explicitly drawn branches and a normal level distance between lone children and their parents
 %    \begin{macrocode}
   declare boolean register={single branches},
 %    \end{macrocode}
-% default is for lone children to be grouped with their parents
+% Default is for lone children to be grouped with their parents
 %    \begin{macrocode}
   not single branches,
 %    \end{macrocode}
 %    \begin{macrocode}
   declare boolean register={auto move},% ble mae'n bosibl, symud pethau'n awtomatig
 %    \end{macrocode}
-% default: symud yn awtomatig
+% Default: symud yn awtomatig
 %    \begin{macrocode}
   auto move,
 %    \end{macrocode}
-% default will be set to the width of 99 wrapped in the line numbering style
+% Default will be set to the width of 99 wrapped in the line numbering style
 %    \begin{macrocode}
   declare dimen register={line no width},
 %    \end{macrocode}
-% fallback default is 0pt
+% Fallback default is 0pt
 %    \begin{macrocode}
   line no width'=0pt,
 %    \end{macrocode}
-% amount by which to shift justifications away from the main tree
+% Amount by which to shift justifications away from the main tree
 %    \begin{macrocode}
   declare dimen register={just sep},
 %    \end{macrocode}
-% default is 1.5em
+% Default is 1.5em
 %    \begin{macrocode}
   just sep'=1.5em,
 %    \end{macrocode}
-% distance of justifications from centre of inner tree; overrides just sep
+% Distance of justifications from centre of inner tree; overrides just sep
 %    \begin{macrocode}
   declare dimen register={just dist},
   just dist'=0pt,
 %    \end{macrocode}
-% amount by which to shift line numbers away from the main tree
+% Amount by which to shift line numbers away from the main tree
 %    \begin{macrocode}
   declare dimen register={line no sep},
   line no sep'=1.5em,
 %    \end{macrocode}
-% distance of line nos. from centre of inner tree; overrides line no sep
+% Distance of line nos. from centre of inner tree; overrides line no sep
 %    \begin{macrocode}
   declare dimen register={line no dist},
   line no dist'=0pt,
 %    \end{macrocode}
-% distance between closure symbols and any following annotation
+% Distance between closure symbols and any following annotation
 %    \begin{macrocode}
   declare dimen register={close sep},
   close sep'=.75\baselineskip,
@@ -2354,22 +2356,22 @@
   declare dimen register={proof tree inner proof midpoint},
   proof tree inner proof midpoint'=0pt,
 %    \end{macrocode}
-% count the levels in the proof tree
+% Count the levels in the proof tree
 %    \begin{macrocode}
   declare count register={proof tree rhif lefelau},
   proof tree rhif lefelau'=0,
 %    \end{macrocode}
-% count the line numbers (on the left)
+% Count the line numbers (on the left)
 %    \begin{macrocode}
   declare count register={proof tree lcount},
   proof tree lcount'=0,
 %    \end{macrocode}
-% count the justifications (on the right)
+% Count the justifications (on the right)
 %    \begin{macrocode}
   declare count register={proof tree jcount},
   proof tree jcount'=0,
 %    \end{macrocode}
-% adjustment for line numbering
+% Adjustment for line numbering
 %    \begin{macrocode}
   declare count register={line no shift},
   line no shift'=0,
@@ -2434,7 +2436,7 @@
   declare count={proof tree toooing}{0},
   declare count={proof tree proof line no}{0},
 %    \end{macrocode}
-% keylists for internal storage
+% Keylists for internal storage
 %    \begin{macrocode}
   declare keylist={proof tree jrefs}{},
   declare keylist={proof tree crefs}{},
@@ -2497,11 +2499,11 @@
     root,if line numbering={n=2}{n=1},sort by={>{O}{level},>{_O<}{1}{n children}},sort'=descendants
   },
 %    \end{macrocode}
-% updated version of defn. from saso's code (forest2-saso-ptsz.tex) \& \url{https://chat.stackexchange.com/transcript/message/28321501#28321501}
+% Updated version of defn. from saso's code (forest2-saso-ptsz.tex) \& \url{https://chat.stackexchange.com/transcript/message/28321501#28321501}
 %    \begin{macrocode}
   define long step={proof tree camau}{}{%
 %    \end{macrocode}
-% angen +d - gweler \url{https://chat.stackexchange.com/transcript/message/28607212#28607212}
+% Angen +d - gweler \url{https://chat.stackexchange.com/transcript/message/28607212#28607212}
 %    \begin{macrocode}
     root,sort by={>{O}{y},>{Ow1+d}{x}{-##1}},sort'={filter={descendants}{>{OO!&}{proof tree rhifo}{proof tree phantom}}}% 
   },
@@ -2520,7 +2522,7 @@
   },
   proof tree get tags processing order=proof tree every wff,
 %    \end{macrocode}
-% mark discharge with optional name substituted into existential
+% Mark discharge with optional name substituted into existential
 % \changes{v0.0}{2025-08-25}{Add checked markers to \texttt{ttoks} if tagging.}
 %
 % For building \texttt{alt} text, we want to do this after content is copied but still before \texttt{before typesetting nodes} or \texttt{proof tree before typesetting nodes}.
@@ -2541,7 +2543,7 @@
     },
   },
 %    \end{macrocode}
-% mark substitution of name into universal
+% Mark substitution of name into universal
 % \changes{v0.0}{2025-08-25}{Add substitution markers to \texttt{ttoks} if tagging.}
 %    \begin{macrocode}
   subs/.style={% 
@@ -2560,7 +2562,7 @@
     },
   },
 %    \end{macrocode}
-% this now uses nodes rather than a label to accommodate annotations; closing must be done before packing the tree to ensure that sufficient space is allowed for the symbol and any following annotation; the annotations must be processed before anything is moved to ensure that the correct line numbers are used later, even if the references are given as relative node names
+% This now uses nodes rather than a label to accommodate annotations; closing must be done before packing the tree to ensure that sufficient space is allowed for the symbol and any following annotation; the annotations must be processed before anything is moved to ensure that the correct line numbers are used later, even if the references are given as relative node names
 %    \begin{macrocode}
   close/.style={% 
     if={%
@@ -2578,7 +2580,7 @@
 %    \begin{macrocode}
     proof tree after copying content={%
 %    \end{macrocode}
-% this node holds the closure symbol
+% This node holds the closure symbol
 %    \begin{macrocode}
       append={% 
         [\forestregister{close with},
@@ -2588,12 +2590,12 @@
           no edge,
           process keylist register=close with format,
 %    \end{macrocode}
-% adjust the distance between the closure symbol and any annotation
+% Adjust the distance between the closure symbol and any annotation
 %    \begin{macrocode}
           proof tree before computing xy={% 
             delay={%
 %    \end{macrocode}
-% cywiro? fel arall, bydda'r peth byth yn cael ei wneud achos proof tree phantom? dim yn siwr o gwbl
+% Cywiro? Fel arall, bydda'r peth byth yn cael ei wneud achos proof tree phantom? Dim yn siwr o gwbl.
 %    \begin{macrocode}
               l'=\baselineskip,% 
               for children={%
@@ -2610,12 +2612,12 @@
             >{__=}{#1}{}%
           }{}{% 
 %    \end{macrocode}
-% don't create a second node if there's no annotation
+% Don't create a second node if there's no annotation.
 %    \begin{macrocode}
             delay={%
               append={% 
 %    \end{macrocode}
-% this node holds the annotation, possibly including cross-references which will be relative to the node's grandparent
+% This node holds the annotation, possibly including cross-references which will be relative to the node's grandparent.
 %    \begin{macrocode}
                 [,
                   not proof tree rhifo,
@@ -2644,7 +2646,7 @@
     },
   },
 %    \end{macrocode}
-% creates the line numbers on the left; note that it *does* matter that these are part of the tree, even though they do not need to be packed or to have xy computed; moreover, it matters that each is the child of the previous line number... so it won't do for them to *remain* siblings, even though that's fine when they are created.
+% Creates the line numbers on the left; note that it *does* matter that these are part of the tree, even though they do not need to be packed or to have xy computed; moreover, it matters that each is the child of the previous line number... so it won't do for them to *remain* siblings, even though that's fine when they are created.
 %    \begin{macrocode}
   proof tree line no/.style={% 
     anchor=base west,
@@ -2658,16 +2660,16 @@
       tempcounta/.process={RRw2+n}{proof tree lcount}{line no shift}{##1+##2},
       content/.process={Rw1}{tempcounta}{\linenumberstyle{##1}},% content i.e. the line number
 %    \end{macrocode}
-% name them so they can be moved later
+% Name them so they can be moved later
 %    \begin{macrocode}
       name/.expanded={line no \foresteregister{tempcounta}},% 
       typeset node,
 %    \end{macrocode}
-% the initial location of most line numbers is incorrect and they must be moved
+% The initial location of most line numbers is incorrect and they must be moved
 %    \begin{macrocode}
       if proof tree lcount>=3{% 
 %    \end{macrocode}
-% move the line number below the previous line number
+% Move the line number below the previous line number
 %    \begin{macrocode}
         for previous={% 
           append/.expanded={line no \foresteregister{tempcounta}}
@@ -2676,7 +2678,7 @@
     },
   },
 %    \end{macrocode}
-% creates the justifications on the right but does not yet specify any content
+% Creates the justifications on the right but does not yet specify any content
 %    \begin{macrocode}
   proof tree line justification/.style={% 
     anchor=base west,
@@ -2688,15 +2690,15 @@
       proof tree jcount'+=1,
       tempcounta/.process={RRw2+n}{proof tree jcount}{line no shift}{##1+##2},
 %    \end{macrocode}
-% name them so they can be moved
+% Name them so they can be moved
 %    \begin{macrocode}
       name/.expanded={just \foresteregister{tempcounta}}, 
 %    \end{macrocode}
-% angen i osgoi broblemau 'da highlight just/line etc.
+% Angen i osgoi broblemau 'da highlight just/line etc.
 %    \begin{macrocode}
       typeset node, 
 %    \end{macrocode}
-% correct the location as for the line numbers (cf. line no style)
+% Correct the location as for the line numbers (cf. line no style)
 %    \begin{macrocode}
       if proof tree jcount>=3{% 
         for previous={%
@@ -2712,7 +2714,7 @@
 % \iffalse
 %</!debug>
 % \fi
-% sets a proof statement
+% Sets a proof statement
 %    \begin{macrocode}
   to prove/.style={% 
     for root={%
@@ -2760,7 +2762,7 @@
 % \iffalse
 %<*!debug>
 % \fi
-% this style should **NOT** be used directly in a forest environment - see notes at top of this file
+% This style should **NOT** be used directly in a forest environment - see notes at top of this file.
 %    \begin{macrocode}
   proof tree/.style={% 
     for tree={%
@@ -2775,7 +2777,7 @@
       math content,
       delay={%
 %    \end{macrocode}
-% if we've got justifications, make sure nodes are created for them later and split out cross-references so we identify the correct nodes before anything gets moved, allowing the use of relative node names
+% If we've got justifications, make sure nodes are created for them later and split out cross-references so we identify the correct nodes before anything gets moved, allowing the use of relative node names.
 %    \begin{macrocode}
         if just={}{}{% 
           justifications,
@@ -2797,7 +2799,7 @@
     },
     where level=0{%
 %    \end{macrocode}
-% no edges from phantom root or proof statement to children
+% No edges from phantom root or proof statement to children.
 %    \begin{macrocode}
       for children={% 
         proof tree before typesetting nodes={%
@@ -2807,7 +2809,7 @@
       delay={%
         if content={}{phantom}{},
 %    \end{macrocode}
-% create the line numbers if appropriate
+% Create the line numbers if appropriate.
 %    \begin{macrocode}
         if line numbering={% 
           parent anchor=south west,
@@ -2817,11 +2819,11 @@
         }{},
       },
 %    \end{macrocode}
-% this is processed after computing xy
+% This is processed after computing xy.
 %    \begin{macrocode}
       proof tree creu nodiadau={% 
 %    \end{macrocode}
-% count proof lines if necessary
+% Count proof lines if necessary.
 %    \begin{macrocode}
         if={>{RR|}{line numbering}{justifications}}{% 
           proof tree rhif lefelau'/.register=line no shift,
@@ -2843,7 +2845,7 @@
           proof tree inner proof midpoint+/.process={Rw+d{proof tree inner proof width}{##1/2}},
         }{},
 %    \end{macrocode}
-% get the x position of line numbers and adjust the location and alignment of the proof statement 
+% Get the x position of line numbers and adjust the location and alignment of the proof statement.
 %    \begin{macrocode}
         if line numbering={% 
           proof tree line no x/.min={>{OOw2+d}{x}{min x}{##1+##2}}{fake=root,descendants},
@@ -2874,8 +2876,8 @@
             [,
               proof tree line no,
 %    \end{macrocode}
-%  () to group are required here - otherwise, the -1 (or -2 or whatever) is silently ignored
-% most are created in the wrong place but proof tree line no moves them later
+%  () to group are required here - otherwise, the -1 (or -2 or whatever) is silently ignored.
+% Most are created in the wrong place but proof tree line no moves them later.
 %    \begin{macrocode}
               repeat={((proof_tree_rhif_lefelau)-1)-(line_no_shift)}{% 
                 delay n={proof_tree_lcount}{
@@ -2886,7 +2888,7 @@
           },
         }{},
 %    \end{macrocode}
-%  get the x position of justifications and create the nodes which will hold the justification content, if required
+%  Get the x position of justifications and create the nodes which will hold the justification content, if required.
 %    \begin{macrocode}
         if justifications={%
           proof tree justification x/.max={>{OOw2+d}{x}{max x}{##1+##2}}{fake=root,descendants},
@@ -2908,7 +2910,7 @@
             [,
               proof tree line justification,
 %    \end{macrocode}
-% most are created in the wrong place but proof tree line justification moves them later
+% Most are created in the wrong place but proof tree line justification moves them later.
 %    \begin{macrocode}
               repeat={((proof_tree_rhif_lefelau)-1)-(line_no_shift)}{% 
                 delay n={proof_tree_jcount}{%
@@ -2922,7 +2924,7 @@
     }{%
       delay={%
 %    \end{macrocode}
-% automatically group lines if not using single branches 
+% Automatically group lines if not using single branches.
 %    \begin{macrocode}
         if single branches={}{%
           if n children=1{%
@@ -2933,7 +2935,7 @@
         },
       },
 %    \end{macrocode}
-% apply wff-specific highlighting and additional TikZ keys 
+% Apply wff-specific highlighting and additional TikZ keys.
 %    \begin{macrocode}
       proof tree before typesetting nodes={%
         process keylist register=wff format,
@@ -2942,7 +2944,7 @@
       },
     },
 %    \end{macrocode}
-% processed before proof tree symud auto: adjusts the alignment of lines when some levels of the tree are grouped together either whenever the number of children is only 1 or by applying the grouped style to particular nodes when specifying the tree 
+% Processed before proof tree symud auto: adjusts the alignment of lines when some levels of the tree are grouped together either whenever the number of children is only 1 or by applying the grouped style to particular nodes when specifying the tree.
 %    \begin{macrocode}
     proof tree ffurf={%
       if auto move={%
@@ -2972,7 +2974,7 @@
         where={%
           >{O _O< O &&}{grouped}{1}{level}{proof tree rhifo}%
 %    \end{macrocode}
-% this searches for certain kinds of structural asymmetry in the tree and attempts to move lines appropriately in such cases - the algorithm is intended to be relatively conservative (not in the sense of 'cautious' or 'safe' but in the sense of 'reflection of the overlapping consensus of reasonable users' / 'what would be rationally agreed behind the prooftrees veil of ignorance'; however, I should have realised I actually had 'the overlapping concensus of reasonable Beamer users' in mind rather than 'the overlapping consensus of reasonable users', so there is now an option to turn it off;apologies if this comment previously misclassified you as 'unreasonable'; apologies for the inconvenience if you are an unreasonable user) 
+% This searches for certain kinds of structural asymmetry in the tree and attempts to move lines appropriately in such cases - the algorithm is intended to be relatively conservative (not in the sense of 'cautious' or 'safe' but in the sense of 'reflection of the overlapping consensus of reasonable users' / 'what would be rationally agreed behind the prooftrees veil of ignorance'; however, I should have realised I actually had 'the overlapping concensus of reasonable Beamer users' in mind rather than 'the overlapping consensus of reasonable users', so there is now an option to turn it off;apologies if this comment previously misclassified you as 'unreasonable'; apologies for the inconvenience if you are an unreasonable user).
 %    \begin{macrocode}
         }{%
           not tempboola,
@@ -2985,34 +2987,34 @@
               }{},
             },
 %    \end{macrocode}
-% Sašo:  \url{https://chat.stackexchange.com/transcript/message/27874731#27874731}, see also \url{https://chat.stackexchange.com/transcript/message/27874722#27874722} 
+% Sašo:  \url{https://chat.stackexchange.com/transcript/message/27874731#27874731}, see also \url{https://chat.stackexchange.com/transcript/message/27874722#27874722}.
 %    \begin{macrocode}
           },%
           if tempboola={%
             if n children=0{%
 %    \end{macrocode}
-% we're already moving the parent and the child will move with the parent, so we can just mark this and do nothing else 
+% We're already moving the parent and the child will move with the parent, so we can just mark this and do nothing else.
 %    \begin{macrocode}
               if={>{OO|}{!parent.proof tree toing}{!parent.proof tree toing with}}{%
                 proof tree toing with,
               }{%
 %    \end{macrocode}
-% don't move a terminal node even in case of asymmetry: instead, create a separate proof line for terminal nodes on this level which are only children, by moving children with siblings on this level down a proof line, without altering their physical location 
+% Don't move a terminal node even in case of asymmetry: instead, create a separate proof line for terminal nodes on this level which are only children, by moving children with siblings on this level down a proof line, without altering their physical location.
 %    \begin{macrocode}
                 for root/.process={Ow1}{level}{%
 %    \end{macrocode}
-% this makes the tree more compact and stops it looking silly
+% This makes the tree more compact and stops it looking silly.
 %    \begin{macrocode}
                   for level={##1}{%
                     if={%
                       >{_O< _O= &}{1}{!parent.n children}{1}{n}%
                     }{%
 %    \end{macrocode}
-% this just serves to keep the levels nice for the sub-tree and ensure things align. We need this because we want to skip a level here to allow room for the terminal node in the other branch 
+% This just serves to keep the levels nice for the sub-tree and ensure things align. We need this because we want to skip a level here to allow room for the terminal node in the other branch.
 %    \begin{macrocode}
                       for parent={%
 %    \end{macrocode}
-% we mark the parent to avoid increasing the line number of its descendants more than once 
+% We mark the parent to avoid increasing the line number of its descendants more than once. 
 %    \begin{macrocode}
                         if proof tree rhiant cymysg={}{%
                           proof tree rhiant cymysg,
@@ -3024,7 +3026,7 @@
                     }{},
                   },
 %    \end{macrocode}
-% Sašo:  \url{https://chat.stackexchange.com/transcript/message/27874731#27874731}, see also \url{https://chat.stackexchange.com/transcript/message/27874722#27874722} 
+% Sašo:  \url{https://chat.stackexchange.com/transcript/message/27874731#27874731}, see also \url{https://chat.stackexchange.com/transcript/message/27874722#27874722}.
 %    \begin{macrocode}
                 },%
               },
@@ -3033,7 +3035,7 @@
               if={%
                 >{_O= _O< &}{1}{!parent.n children}{1}{!parent,parent.n children}%
 %    \end{macrocode}
-% don't try to move if the node has more than 1 child or the grandparent has no more than that; otherwise, mark the node as one to move - we figure out where to move it later 
+% Don't try to move if the node has more than 1 child or the grandparent has no more than that; otherwise, mark the node as one to move - we figure out where to move it later.
 %    \begin{macrocode}
               }{%
                 proof tree toing,
@@ -3044,14 +3046,14 @@
       }{},
     },
 %    \end{macrocode}
-% processed before typesetting nodes: if \emph{this} could be done during packing, that would be very nice, even if the previous stuff can't be 
+% Processed before typesetting nodes: if \emph{this} could be done during packing, that would be very nice, even if the previous stuff can't be.
 %    \begin{macrocode}
     proof tree symud awto={%
       if auto move={%
         proof tree aros'=0,
         for proof tree symud={%
 %    \end{macrocode}
-% this relies on an experimental feature of forest, which is anffodus 
+% This relies on an experimental feature of forest, which is anffodus. 
 %    \begin{macrocode}
           if proof tree toing={%
             for nodewalk={fake=parent,fake=sibling,descendants}{do dynamics},
@@ -3073,11 +3075,11 @@
       }{},
     },
 %    \end{macrocode}
-% processed after proof tree creu nodiadau and before before drawing tree: creates annotation content which may include cross-references, applies highlighting and additional TikZ keys to line numbers, justifications and to wffs where specified for entire proof lines 
+% Processed after proof tree creu nodiadau and before before drawing tree: creates annotation content which may include cross-references, applies highlighting and additional TikZ keys to line numbers, justifications and to wffs where specified for entire proof lines.
 %    \begin{macrocode}
     proof tree nodiadau={%
 %    \end{macrocode}
-% resolve cross-refs in closures 
+% Resolve cross-refs in closures. 
 %    \begin{macrocode}
       where proof tree crefs={}{}{%
         split option={proof tree crefs}{,}{proof tree rhif llinell cau},
@@ -3089,13 +3091,13 @@
         typeset node,
       },
 %    \end{macrocode}
-% apply highlighting and additional TikZ keys to line numbers; initial alignment of numbers with proof lines 
+% Apply highlighting and additional TikZ keys to line numbers; initial alignment of numbers with proof lines.
 %    \begin{macrocode}
       if line numbering={%
         for proof tree wffs={%
           if highlight line no={%
 %    \end{macrocode}
-% from Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?! 
+% From Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?! 
 %    \begin{macrocode}
             for name/.process={Ow1OOOw3}{proof tree proof line no}{line no ##1}{proof tree proof line no}{line no options}{y}{%
               node options/.register=highlight format,
@@ -3124,14 +3126,14 @@
         },
       }{},
 %    \end{macrocode}
-% initial alignment of justifications with proof lines, addition of content, resolution of cross-references and application of highlighting and additional TikZ keys 
+% Initial alignment of justifications with proof lines, addition of content, resolution of cross-references and application of highlighting and additional TikZ keys.
 %    \begin{macrocode}
       if justifications={%
         for proof tree wffs={%
           if just={}{%
             if proof tree phantom={}{%
 %    \end{macrocode}
-% from Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?! 
+% From Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?! 
 %    \begin{macrocode}
               for name/.process={Ow1OOw2}{proof tree proof line no}{just ##1}{proof tree proof line no}{y}{%
                 y'=##2,
@@ -3140,11 +3142,11 @@
             },
           }{%
 %    \end{macrocode}
-% puts the content of the justifications into the empty justification nodes on the right; because this is done late, the nodes need to be typeset again 
+% Puts the content of the justifications into the empty justification nodes on the right; because this is done late, the nodes need to be typeset again.
 %    \begin{macrocode}
             if proof tree jrefs={}{}{%
 %    \end{macrocode}
-% resolve cross-refs in justifications
+% Resolve cross-refs in justifications.
 %    \begin{macrocode}
               split option={proof tree jrefs}{,}{proof tree rhif llinell},
               if just refs left={%
@@ -3154,17 +3156,17 @@
               },
             },
 %    \end{macrocode}
-% apply highlighting and additional TikZ keys to justifications, set content and merge any conflicting specifications, warning user if appropriate 
+% Apply highlighting and additional TikZ keys to justifications, set content and merge any conflicting specifications, warning user if appropriate.
 %    \begin{macrocode}
             if highlight just={%
 %    \end{macrocode}
-% from Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?! 
+% From Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?! 
 %    \begin{macrocode}
               for name/.process={Ow1OOOOw4}{proof tree proof line no}{just ##1}{proof tree proof line no}{just}{just options}{y}{%
                 if={%
                  >{O_= O_= |}{content}{}{content}{##2}%
 %    \end{macrocode}
-% gweler isod - o gôd Sašo 
+% Gweler isod - o gôd Sašo.
 %    \begin{macrocode}
                 }{%
                   content={##2},
@@ -3180,12 +3182,12 @@
               }% do NOT put a comma here!
             }{%
 %    \end{macrocode}
-% from Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?! 
+% From Sašo's anti-pgfmath version - rhaid ddweud proof tree proof line no yn ddwywaith ?! dim yn bosibl i ailddefnyddio'r gyntaf ?! 
 %    \begin{macrocode}
               for name/.process={Ow1OOOOw4}{proof tree proof line no}{just ##1}{proof tree proof line no}{just}{just options}{y}{%
                 if={%
 %    \end{macrocode}
-% from Sašo's anti-pgfmath version - I appreciate this is faster, but why is it \textbf{required}?! 
+% From Sašo's anti-pgfmath version - I appreciate this is faster, but why is it \textbf{required}?! 
 %    \begin{macrocode}
                  >{O_= O_= |}{content}{}{content}{##2}%
                 }{%
@@ -3204,7 +3206,7 @@
         },
       }{},
 %    \end{macrocode}
-% apply highlighting and TikZ keys which are specified for whole proof lines to all applicable wffs 
+% Apply highlighting and TikZ keys which are specified for whole proof lines to all applicable wffs.
 %    \begin{macrocode}
       for proof tree wffs={%
         if proof tree phantom={}{%
@@ -3225,14 +3227,14 @@
       },
     },
 %    \end{macrocode}
-% initial alignment so we don't get proof line numbers incrementing due to varying height/depth of nodes, for example - when single branches is true and few nodes are grouped, this is also a reasonable first approximation 
+% Initial alignment so we don't get proof line numbers incrementing due to varying height/depth of nodes, for example - when single branches is true and few nodes are grouped, this is also a reasonable first approximation.
 %    \begin{macrocode}
     proof tree before packing={%
       for tree={%
         tier/.process={OOw2+nw1}{level}{proof tree toing by}{##1+##2}{tier ##1},
       },
 %    \end{macrocode}
-% if there's no proof statement, adjust the alignment of the proof relative to the surrounding text 
+% If there's no proof statement, adjust the alignment of the proof relative to the surrounding text.
 %    \begin{macrocode}
       for root={%
         if content={}{%
@@ -3241,14 +3243,14 @@
       },
     },
 %    \end{macrocode}
-% adjust distance between levels for grouped nodes after tree is packed 
+% Adjust distance between levels for grouped nodes after tree is packed.
 %    \begin{macrocode}
     proof tree before computing xy={%
       for tree={%
         if={%
          >{O _O< &}{grouped}{1}{level}%
 %    \end{macrocode}
-% osgoi overlapping nodes, if posibl: cwestiwn \url{https://tex.stackexchange.com/q/456254/} 
+% Osgoi overlapping nodes, if posibl: cwestiwn \url{https://tex.stackexchange.com/q/456254/}.
 %    \begin{macrocode}
        }{%
          not tempboola,
@@ -3263,32 +3265,32 @@
       },
     },
 %    \end{macrocode}
-% set final alignment for proof lines which have been moved by effectively grouping lead nodes and moving their subtrees accordingly - this requires that each line number and justification be the child of the previous one and that if justifications are used at all, then justifications exist for all proof lines, even if empty 
+% Set final alignment for proof lines which have been moved by effectively grouping lead nodes and moving their subtrees accordingly - this requires that each line number and justification be the child of the previous one and that if justifications are used at all, then justifications exist for all proof lines, even if empty.
 %    \begin{macrocode}
     proof tree before drawing tree={%
 %    \end{macrocode}
-% correct the alignment of move by lines when single branches is false - o fersiwn anti-pgfmath Sašo 
+% Correct the alignment of move by lines when single branches is false - o fersiwn anti-pgfmath Sašo. 
 %    \begin{macrocode} 
       if={>{RR|R!&}{line numbering}{justifications}{single branches}}{%
 %    \end{macrocode}
-% track cumulative adjustments to line numbers and justifications 
+% Track cumulative adjustments to line numbers and justifications 
 %    \begin{macrocode} 
         tempdimc'=0pt,
         for proof tree cywiro symud={%
 %    \end{macrocode}
-% only examine the lead nodes - their descendants need the same (cumulative) adjustments 
+% Only examine the lead nodes - their descendants need the same (cumulative) adjustments 
 %    \begin{macrocode} 
           if proof tree arweinydd={%
             tempdima'/.option=y,
 %    \end{macrocode}
-% if there are line numbers, we use the previous line number's vertical position 
+% If there are line numbers, we use the previous line number's vertical position 
 %    \begin{macrocode} 
             if line numbering={%
               for name/.process={Ow1+nw1}{proof tree proof line no}{##1-1}{line no ##1}{% arafach ?
                 tempdimb'/.option=y,
               }%
 %    \end{macrocode}
-% if not, we use the previous justification's vertical position 
+% If not, we use the previous justification's vertical position 
 %    \begin{macrocode}
             }{%
               for name/.process={Ow1+nw1}{proof tree proof line no}{##1-1}{just ##1}{% arafach ?
@@ -3296,13 +3298,13 @@
               }%
             },
 %    \end{macrocode}
-% the parent (which will be a phantom) gets aligned with the previous line 
+% The parent (which will be a phantom) gets aligned with the previous line 
 %    \begin{macrocode}
             for parent={%
               y'/.register=tempdimb,
             },
 %    \end{macrocode}
-% adjust so we align this line below the previous one (assuming we're going down) 
+% Adjust so we align this line below the previous one (assuming we're going down) 
 %    \begin{macrocode}
             if tempdimb<={0pt}{%
               tempdimb'-=\baselineskip,
@@ -3310,21 +3312,21 @@
               tempdimb'+=\baselineskip,
             },
 %    \end{macrocode}
-% how far are we moving? 
+% How far are we moving? 
 %    \begin{macrocode}
             tempdimb'-/.register=tempdima,
 %    \end{macrocode}
-% adjust this node and all descendants 
+% Adjust this node and all descendants 
 %    \begin{macrocode}
             for tree={%
               y'+/.register=tempdimb,
             },
 %    \end{macrocode}
-% deduct any tracked cumulative adjustments to line numbers and justifications
+% Deduct any tracked cumulative adjustments to line numbers and justifications
 %    \begin{macrocode}
             tempdimb'-/.register=tempdimc,
 %    \end{macrocode}
-% adjust the line numbers, if any 
+% Adjust the line numbers, if any 
 %    \begin{macrocode}
             if line numbering={%
               for name/.process={Ow1}{proof tree proof line no}{line no ##1}{%
@@ -3334,7 +3336,7 @@
               }%
             }{},
 %    \end{macrocode}
-% adjust the justifications, if any 
+% Adjust the justifications, if any 
 %    \begin{macrocode}
             if justifications={%
 %    \end{macrocode}
@@ -3347,7 +3349,7 @@
               }%
             }{},
 %    \end{macrocode}
-% add the adjustment just implemented to the tracked cumulative adjustments for line numbers and/or justifications
+% Add the adjustment just implemented to the tracked cumulative adjustments for line numbers and/or justifications
 %    \begin{macrocode}
             tempdimc'/.register=tempdimb,
           }{},
@@ -3377,13 +3379,13 @@
     },
   },
 %    \end{macrocode}
-% this implements both the automated moves \pkg{prooftrees} finds necessary and any additional moves requested by the user - more accurately, it implements initial moves, which may get corrected later (e.g. to avoid skipping numbers or creating empty proof lines, which we assume aren't wanted) 
+% This implements both the automated moves \pkg{prooftrees} finds necessary and any additional moves requested by the user - more accurately, it implements initial moves, which may get corrected later (e.g. to avoid skipping numbers or creating empty proof lines, which we assume aren't wanted).
 %    \begin{macrocode}
   move by/.style={%
     if={
      >{_n<}{0}{#1}%
 %    \end{macrocode}
-% only try to move the node if the target line number exceeds the one i.e. the line number is to be positively incremented 
+% Only try to move the node if the target line number exceeds the one i.e. the line number is to be positively incremented. 
 %    \begin{macrocode}
     }{%
       proof tree cadw toing by/.option=proof tree toing by,
@@ -3392,7 +3394,7 @@
         if={%
          >{_n<}{1}{#1}%
 %    \end{macrocode}
-% track skipped lines for which we won't be creating phantom nodes 
+% Track skipped lines for which we won't be creating phantom nodes 
 %    \begin{macrocode}
         }{%
           proof tree toing by+=#1-2,
@@ -3400,7 +3402,7 @@
         }{},
       },
 %    \end{macrocode}
-% insert our first phantom 
+% Insert our first phantom 
 %    \begin{macrocode}
       delay={%
         replace by={%
@@ -3416,7 +3418,7 @@
             },
             proof tree phantom,
 %    \end{macrocode}
-% Sašo Živanović: \url{https://chat.stackexchange.com/transcript/message/27990955#27990955}
+% Sašo Živanović: \url{https://chat.stackexchange.com/transcript/message/27990955#27990955}.
 %    \begin{macrocode}
             edge path/.option=!last dynamic node.edge path,
             edge/.option=!last dynamic node.edge,
@@ -3429,7 +3431,7 @@
             if={%
              >{_n<}{1}{#1}%
 %    \end{macrocode}
-% if we are moving by more than 1, we insert a second phantom so that a node with siblings which is moved a long way will not get a unidirectional edge but an edge which looks similar to others in the tree (by default, sloping down a line or so and then plummeting straight down rather than a sharply-angled steep descent) 
+% If we are moving by more than 1, we insert a second phantom so that a node with siblings which is moved a long way will not get a unidirectional edge but an edge which looks similar to others in the tree (by default, sloping down a line or so and then plummeting straight down rather than a sharply-angled steep descent).
 %    \begin{macrocode}
             }{%
               delay={%
@@ -3467,13 +3469,13 @@
     },
   },
 %    \end{macrocode}
-% get the names of nodes cross-referenced in closure annotations for use later 
+% Get the names of nodes cross-referenced in closure annotations for use later 
 %    \begin{macrocode}
   proof tree cref/.style={%
     proof tree crefs+/.option=#1.name,
   },
 %    \end{macrocode}
-% get the proof line numbers of the cross-referenced nodes in closure annotations, using the list of names created earlier 
+% Get the proof line numbers of the cross-referenced nodes in closure annotations, using the list of names created earlier.
 %    \begin{macrocode}
   proof tree rhif llinell cau/.style={%
     if proof tree rhestr rhifau llinellau cau={}{}{%
@@ -3482,13 +3484,13 @@
     proof tree rhestr rhifau llinellau cau+/.option=#1.proof tree proof line no,
   },
 %    \end{macrocode}
-% get the names of nodes cross-referenced in justifications for use later 
+% Get the names of nodes cross-referenced in justifications for use later. 
 %    \begin{macrocode}
   proof tree jref/.style={%
     proof tree jrefs+/.option=#1.name,
   },
 %    \end{macrocode}
-% get the proof line numbers of the cross-referenced nodes in justifications, using the list of names created earlier 
+% Get the proof line numbers of the cross-referenced nodes in justifications, using the list of names created earlier.
 %    \begin{macrocode}
   proof tree rhif llinell/.style={%
     if proof tree rhestr rhifau llinellau={}{}{%
@@ -3542,7 +3544,7 @@
     },
   },
 %    \end{macrocode}
-%  debugging / dangos dimension stuff
+% Debugging / dangos dimension stuff.
 %    \begin{macrocode}
   proof tree alino/.style={%
     proof tree before drawing tree={%
@@ -3681,11 +3683,11 @@
   \forest
     (%
 %    \end{macrocode}
-% customised definition of stages - we don't use any custom stages, but we do use several custom keylists, where the processing order of these is critical 
+% Customised definition of stages - we don't use any custom stages, but we do use several custom keylists, where the processing order of these is critical.
 %    \begin{macrocode}
       stages={%
 %    \end{macrocode}
-% nothing is removed from the standard forest definition - we only change it by adding to it 
+% Nothing is removed from the standard forest definition - we only change it by adding to it. 
 %    \begin{macrocode}
         for root'={%
           process keylist register=default preamble,
@@ -3693,7 +3695,13 @@
         },
         process keylist=given options,
 %    \end{macrocode}
-% \changes{v0.0}{2025-08-23}{Adjust stage processing for new keylists}
+% \changes{v0.0}{2025-08-23}{Adjust stage processing for new keylists.}
+% \texttt{proof tree before typesetting nodes}, \texttt{proof tree after copying content}, \texttt{proof tree before packing}, \texttt{proof tree before computing xy} and \texttt{proof tree before drawing tree} just avoid polluting \pkg{forest}'s keylists so they can be used to customise the tableau.
+% \texttt{proof tree copy content} is used only for tagging.
+% These are internal lists.
+% They should not generally be redefined or customised by users, as doing so may render the tree structure invalid or cause unexpected results.
+%
+% In addition to the keylists provided by \pkg{forest}, \texttt{before copying content}, \texttt{before annotating}, \texttt{before making tags} and \texttt{before getting tags} are intended for users to customise the tableau at these points, if required.
 %    \begin{macrocode}
         process keylist=before copying content,
         process keylist=proof tree copy content,
@@ -3703,7 +3711,7 @@
 %    \end{macrocode}
 %    \begin{macrocode}
 %    \end{macrocode}
-% first two additions: process two custom keylists after before typesetting nodes and before typesetting nodes 
+% First two structural additions: process two custom keylists after before typesetting nodes and before typesetting nodes to shape the tree.
 %    \begin{macrocode}
         process keylist=proof tree ffurf,
         process keylist=proof tree symud awto,
@@ -3715,18 +3723,20 @@
         process keylist=before computing xy,
         compute xy stage,
 %    \end{macrocode}
-% second two additions: process two custom keylists after computing xy and before before drawing tree
+% Second two structural/content additions: process two custom keylists after computing xy and before before drawing tree to create and attach the annotations.
 %    \begin{macrocode}
         process keylist=proof tree creu nodiadau,
         process keylist=before annotating,
         process keylist=proof tree nodiadau,
 %    \end{macrocode}
-% standardish
+% Standardish
 %    \begin{macrocode}
         process keylist=proof tree before drawing tree,
         process keylist=before drawing tree,
 %    \end{macrocode}
-% hopefully for doing something useful for tagging
+% Hopefully for doing something useful for tagging.
+% \texttt{proof tree make tags} and \texttt{proof tree get tags} are used to collect information for tagging the tableau.
+% The ‘public’ keylists are described above.
 %    \begin{macrocode}
         process keylist=before making tags,
         process keylist=proof tree make tags,
@@ -3741,10 +3751,11 @@
 %<debug>          \fi
 %<debug>        },
 %    \end{macrocode}
+% Try to produce some kind of useful stuff for tagging, if active.
 %    \begin{macrocode}
         tag tableau stage,
 %    \end{macrocode}
-% standard
+% Standard.
 %    \begin{macrocode}
         draw tree stage,
       },
@@ -3787,7 +3798,7 @@
 \cs_generate_variant:Nn \__prooftrees_memoize:n { V }
 %    \end{macrocode}
 % \end{macro}
-% paid â memoize bussproofs prooftree ... 
+% Paid â memoize \pkg{bussproofs} \texttt{prooftree} \dots. 
 %    \begin{macrocode}
 \hook_gput_code:nnn { begindocument / before } { . }
 {%
@@ -3871,7 +3882,7 @@
 % \end{macro}
 % \begin{macro}{\l__tableau_toks_tl}
 %   \changes{v0.0}{2025-08-25}{Add \ecs{l__tableau_toks_tl}.}
-%   variable because I can't work out how to pass the toks directly.
+%   Variable because I can't work out how to pass the toks directly.
 %    \begin{macrocode}
 \tl_new:N \l__tableau_toks_tl
 %    \end{macrocode}
@@ -3940,13 +3951,14 @@
 \socket_new_plug:nnn {tableaux/tagsupport/tableau/init}{tag}
 {
 %    \end{macrocode}
-% can't use noop due to collection of mcs even if tagging suspended;
-% artifact gets rid of these
+% Can't use noop due to collection of mcs even if tagging suspended;
+% \texttt{artifact} gets rid of these.
 % I think some combination of:
 %   \ecs{tag_suspend:n} \{\cs{tableau}\}
 %   \ecs{tag_resume:n} \{\cs{tableau}\}
 %   \ecs{luamml_ignore:}
-% should work, but I have no idea how to get it right
+% should work, but I have no idea how to get it right.
+% I also suspect I'm not \emph{meant} to get rid of mcs, but the result is so horribly chaotic otherwise.
 %
 % Assigning these \pkg{labex-lab} plugs prevents the chaos of errors produced by the defaults.
 % Basically, if the tableau will involve $n$ \texttt{tikzpicture} environments, we have to completely ignore the first $n-1$, even though this means we also lose all marked content.
@@ -4122,6 +4134,55 @@
 % \fi
 %^^A sty guards >>>
 % 
+%^^A utils guards <<<
+% \iffalse
+%<*utils>
+% \fi
+% \begin{macro}{%
+%    \toksapp,
+%    \@toksapp,
+%    \toks@cs@num,
+%    \toks@cs@or@num@num,
+%    \toks@cs@or@num@cs,
+% }
+%   \changes{v0.0}{2025-08-28}{Copy \cs{toksapp} macro used in collating \texttt{alt} text if tagging to avoid requiring \pkg{collargs}.}
+%   Copied almost verbatim from Sašo Živanović's \pkg{collargs} under the LPPL.
+%   Loading the original package seems like overkill if the user hasn't loaded it already and is unnecessary on Lua\TeX{}.
+%   
+%   The only reason to use \pkg{expl3} here is b/c we want an error if it isn't new and \cs{newcommand} doesn't like delimiters. 
+%   The original using \cs{def} is much nicer, IMHO.
+%   Although \cs{exp\_args:<something>} would be nice \dots.
+%    \begin{macrocode}
+\RequirePackage{svn-prov}
+\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
+\ExplSyntaxOn
+\sys_if_engine_luatex:F
+{
+  \hook_gput_code:nnn {begindocument/before}{.}
+  {
+    \IfPackageLoadedTF{collargs}{}{
+      \cs_new_nopar:Npn \toksapp{\toks@cs@or@num\@toksapp}
+      \cs_new_nopar:Npn \toks@cs@or@num#1#2#{
+        \ifnum-2>-1#2\relax
+          \expandafter\toks@cs@or@num@num
+        \fi
+        \toks@cs@or@num@cs{#1}{#2}
+      }
+      \cs_new_nopar:Npn \toks@cs@or@num@cs#1#2{#1{#2}}
+      %^^A what does this do? I could probably omit it ...
+      \cs_new_nopar:Npn \toks@cs@or@num@num\toks@cs@or@num@cs#1#2{#1{\toks#2~}}
+      \cs_new:Npn \@toksapp#1#2{#1\expandafter{\the#1#2}}
+    }
+  }
+}
+\ExplSyntaxOff
+%    \end{macrocode}
+% \end{macro}
+% \iffalse
+%</utils>
+% \fi
+%^^A utils guards >>>
+%
 %
 %^^A doc guards <<<
 % \iffalse
@@ -4129,7 +4190,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4138,13 +4199,14 @@
 %</doc>
 % \fi
 %^^A doc guards >>>
+
 %^^A doc-code guards <<<
 % \iffalse
 %<*doc-code>
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11151 2025-08-27 20:53:11Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
