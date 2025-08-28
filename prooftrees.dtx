@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11159 2025-08-28 19:26:15Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -323,6 +323,7 @@
 \newcommand*\TikZ{Ti\emph{k}Z}
 \newcommand*{\elim}{\,\text{E}}
 \newcommand*\wff{\emph{wff}}
+\newcommand*\wffs{\emph{wffs}}
 \newcounter{lliw}
 \setcounter{lliw}{0}
 \newcounter{rhiflliwnyth}
@@ -1639,6 +1640,7 @@
 %^^A BEGIN sec:ops <<<
 % Most configuration uses the standard key/value interface provided by \TikZ{} and extended by \pkg{forest}.
 % These are divided into those which determine the overall appearance of the proof as a whole and those with more local effects.
+% See \cref{sec:keylists} for advanced customisation.
 %
 % \subsection{Global Options}\label{subsec:go}
 %^^A BEGIN subsec:go <<<
@@ -1710,6 +1712,9 @@
 %   single branches=true
 % \end{latexcode}
 %
+% \subsubsection{Dimensions}\label{subsubsec:go-dims}
+% ^^A subsubsec:go-dims <<<
+%
 % \DescribeKey[fregdim]{line no width}\val{dimension}\AfterLastParam
 % The maximum width of line numbers.
 % By default, this is set to the width of the formatted line number \keyval{99}.
@@ -1744,6 +1749,10 @@
 %
 % \DescribeKey[fregdim]{proof tree inner proof midpoint}\val{dimension}\AfterLastParam
 % \Default{0pt}
+% ^^A subsubsec:go-dims
+%
+% \subsubsection{Line Numbers}\label{subsubsec:go-nos}
+% ^^A subsubsec:go-nos <<<
 %
 % \DescribeKey[fregcount]{line no shift}\val{integer}\AfterLastParam
 % \Default{0}
@@ -1758,12 +1767,20 @@
 %   zero start
 %   line no shift=-1
 % \end{latexcode}
+% ^^A subsubsec:go-nos >>>
+%
+% \subsubsection{Proof Statement}\label{subsubsec:go-prove}
+% ^^A subsubsec:go-prove <<<
 %
 % \DescribeKey[fstyle]{to prove}\val{wff}\AfterLastParam
 % Statement of theorem or entailment to be typeset above the proof.
 % In many cases, it will be necessary to enclose the statement in curly brackets.
 % \Example{to prove=\arg{\cs{sststile}\arg{}\arg{} P \cs{lif} P}}
 % By default, the content is expected to be suitable for typesetting in maths mode and should \emph{not}, therefore, be enclosed by dollar signs or equivalent.
+% ^^A END subsubsec:go-prove >>>
+%
+% \subsubsection{Format}\label{subsubsec:go-format}
+% ^^A subsubsec:go-format <<<
 %
 % \DescribeKey[fregtoks]{check with}\val{symbol}\AfterLastParam
 % \Default{\cs{ensuremath}\arg{\cs{checkmark}} (\ensuremath{\checkmark})}
@@ -1892,6 +1909,7 @@
 % Moreover, later references to the proof line will be similarly ambiguous.
 % That is, \keyname[fregtoks]{merge delimiter} ought almost never be necessary because it is almost always better to restructure the proof to avoid ambiguity.
 %
+%^^A END subsubsec:go-format >>>
 %^^A END subsec:go >>>
 %
 % \subsection{Local Options}\label{subsec:lo}
@@ -1905,6 +1923,9 @@
 % When \keyname[fregbool]{single branches} is true, however, this key must be specified for any line which ought not be treated as an inference.
 % \Example{grouped}
 %
+% \subsubsection{Annotations}\label{subsubsec:lo-annot}
+% ^^A subsubsec:lo-annot <<<
+% 
 % \DescribeKey[fstyle]{checked}
 % Mark a complex \wff{} as resolved, discharging the line.
 % \Example{checked}
@@ -1951,6 +1972,10 @@
 % \Example{just=\$\cs{lnot}\cs{exists}\$\cs{elim}:\arg{!uu,!u}}
 % If \keyname[fregbool]{just refs left} is false, then the appropriate line number(s) will be typeset after the \meta{justification prefix}.
 % \Example{just=From:bertha}
+% ^^A subsubsec:lo-annot >>>
+%
+% \subsubsection{Moving}\label{subsubsec:lo-move}
+% ^^A subsubsec:lo-move <<<
 %
 % \DescribeKey[fstyle]{move by}\val{positive integer}\AfterLastParam
 % Move the content of the current line \meta{positive integer} lines later in the proof.
@@ -2010,6 +2035,10 @@
 % This happens if \keyname[foptautotoks]{just} is specified more than once for the same proof line with differing content.
 % \pkg{prooftrees} \emph{does} examine the content of justifications for \emph{this} purpose.
 % When conflicting justifications are detected for the same proof line, the justifications are merged and a warning issued suggesting the use of \keyname[fstyle]{move by}.
+% ^^A subsubsec:lo-move >>>
+%
+% \subsubsection{Format: \wff{}, justification \& line number}\label{subsubsec:lo-format}
+% ^^A subsubsec:lo-format <<<
 %
 % \DescribeKeys[foptbool]{highlight wff, not hightlight wff}
 % Highlight \wff{}.
@@ -2054,13 +2083,14 @@
 % \meta{text} will be wrapped by \keyname[macro]{\cs{linenumberstyle}}, so should not be anything which would not make sense in that context.
 % \Example{line no override=\arg{n}}
 %
-% \DescribeKey[fstyle]{no line no}\AfterLastParam
+% \DescribeKey[fstyle]{no line no}
 % Do not typeset a line number for this line.
 % Intended for use in trees where \keyname[foptbool]{line numbering} is activated, but some particular line should not have its number typeset.
 % Note that the number for the line is still assigned and the node which would otherwise contain that number is still typeset.
 % If the next line is automatically numbered, the line numbering will, therefore, ‘jump’, skipping the omitted number.
 % \Example{no line no}
 %
+%^^A END subsubsec:lo-format >>>
 %^^A END subsec:lo >>>
 %^^A END sec:ops >>>
 %
@@ -2080,6 +2110,51 @@
 % \end{latexcode}
 %
 %^^A END sec:macros >>>
+%
+% \section{Advanced Configuration}\label{sec:keylists}
+% ^^A sec:keylists <<<
+%
+% \pkg{forest}'s default \foptkeylistlabelname{} options may be used to customise tableaux if the provided options prove insufficient.
+% In versions 0.9 and earlier, great care must be taken to avoid conflicts with \pkg{prooftrees}'s use of these lists.
+% In later versions, internal versions are reserved for \pkg{prooftrees}'s use, enabling \pkg{forest}'s to be used more freely by the user.
+% Note that you should still avoid changing the basic structure of the proof.
+% For example, deleting extant justifications or line numbers (as opposed to modifying their content or options), would end badly.
+%
+% \DescribeKey[foptkeylist]{before annotating}\val{key-value list}\AfterLastParam
+% \Default{}
+% This \foptkeylistlabelname{} allows customisation after annotations are created, but before they are attached to their corresponding \wffs{}.
+% I do not know if this option is useful or not.
+%
+% The remaining options in this section are applicable only if tagging is active.
+%
+% \DescribeKey[foptkeylist]{before copying content}\val{key-value list}\AfterLastParam
+% \Default{}
+% Only relevant if tagging is active.
+% This \foptkeylistlabelname{} allows the content of a node to be altered before it is copied for tagging.
+% Changes made after \texttt{proof tree copy content} will affect only the visual representation.
+% \Example{P \cs{supset} Q, before copying content=\{content+=\{*\}\}, before typesetting nodes=\{blue\},}
+% This would include the \texttt{*} into the content of the node used for tagging, but not the colouration.
+%
+% \DescribeKey[foptkeylist]{before making tags}\val{key-value list}\AfterLastParam
+% \Default{}
+% Only relevant if tagging is active.
+% Allow changes before tagged content for a node is finalised.
+% This \foptkeylistlabelname{} is processed before annotations are added to a node's tagged content.
+% \Example{P \cs{supset} Q, before making tags=\{ttoks'=\{P horseshoe Q\},\},}
+% This would replace \verb|P \supset Q| with \texttt{P horseshoe Q} in the content used for tagging\footnote{%
+%   This is not the best way to handle the horseshoe, however.
+%   It would be better to define a dedicated macro to produce the symbol such as \cs{horseshoe} and assign an appropriate ‘output intent’, regardless of whether you choose to override the content in tagging.%
+% }.
+% 
+% \DescribeKey[foptkeylist]{before getting tags}\val{key-value list}\AfterLastParam
+% \Default{}
+% Only relevant if tagging is active.
+% This \foptkeylistlabelname{} is processed after annotations are added to a node's tagged content, but before that content is used for tagging.
+% \Example{P \cs{supset} Q, just=Ass, before getting tags=\{ttoks'=\{P horseshoe Q\},\}}
+% This would prevent \texttt{Ass} from being used in the tagged content.
+% Note that it would also lose any line number, so this should be added explicitly if required.
+%
+%^^A END sec:keylists >>>
 %
 % \section{Memoization}\label{sec:memoize}
 %^^A BEGIN sec:memoize <<<
@@ -2198,8 +2273,8 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11159 2025-08-28 19:26:15Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11159 2025-08-28 19:26:15Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2616,7 +2691,7 @@
             delay={%
               append={% 
 %    \end{macrocode}
-% This node holds the annotation, possibly including cross-references which will be relative to the node's grandparent.
+% This node holds the annotation, possibly including cross-references which will be relative to the node's grandparent.G
 %    \begin{macrocode}
                 [,
                   not proof tree rhifo,
@@ -4165,7 +4240,7 @@
 %   Although \cs{exp\_args:<something>} would be nice \dots.
 %    \begin{macrocode}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
+\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11159 2025-08-28 19:26:15Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
 \ExplSyntaxOn
 \sys_if_engine_luatex:F
 {
@@ -4201,7 +4276,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11159 2025-08-28 19:26:15Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4217,7 +4292,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11159 2025-08-28 19:26:15Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
