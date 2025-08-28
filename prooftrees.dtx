@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2198,8 +2198,8 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2250,7 +2250,6 @@
 % Load \pkg{forest}, but load maths packages later only if needed.
 %    \begin{macrocode}
 \RequirePackage{forest}[2016/12/04]
-\RequirePackage{prooftrees-utils}
 %    \end{macrocode}
 % \begin{macro}{\linenumberstyle}
 %   \mbox{}
@@ -3869,6 +3868,18 @@
     }
   }
 %    \end{macrocode}
+% \begin{macro}{\toksapp}
+%   \changes{v0.0}{2025-08-28}{Add \cs{toksapp} using format definition of \cs{addto@hook}, in case this is not primitive/already defined.}
+%   Copy of \LaTeX{}'s \cs{addto@hook}.
+%   Not used if Lua\TeX{} is used, which defines it as a primitive, or if \pkg{collargs} is loaded (e.g.~for \pkg{memoize}), which provides a more complicated version.
+%   David Carlisle: \url{https://chat.stackexchange.com/transcript/message/68194858#68194858}.
+%    \begin{macrocode}
+  \cs_if_free:NT \toksapp
+  {
+    \cs_new:Npn \toksapp#1#2{#1\expandafter{\the #1#2}}
+  }
+%    \end{macrocode}
+% \end{macro}
 %    \begin{macrocode}
 }
 %    \end{macrocode}
@@ -4154,7 +4165,7 @@
 %   Although \cs{exp\_args:<something>} would be nice \dots.
 %    \begin{macrocode}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
+\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
 \ExplSyntaxOn
 \sys_if_engine_luatex:F
 {
@@ -4190,7 +4201,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4206,7 +4217,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11155 2025-08-28 16:11:17Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11156 2025-08-28 16:40:30Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
