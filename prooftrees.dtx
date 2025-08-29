@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11160 2025-08-28 19:41:15Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -220,6 +220,7 @@
 \newcommand*\fregautotokslabelname{Forest autowrapped toks register}
 \newcommand*\foptautotokslabelname{Forest autowrapped toks option}
 \newcommand*\fstylelabelname{Forest style}
+\newcommand*\fbracketkeyname{Forest bracket key}
 \newcommand*\pkgoptlabelname{package option}
 \newcommand*\pkglabelname{package}
 \let\PrintDescribeKey\PrintDescribeMacro
@@ -2120,6 +2121,8 @@
 % Note that you should still avoid changing the basic structure of the proof.
 % For example, deleting extant justifications or line numbers (as opposed to modifying their content or options), would end badly.
 %
+% See \cref{sec:manylion} for details of the typesetting process.
+%
 % \DescribeKey[foptkeylist]{before annotating}\val{key-value list}\AfterLastParam
 % \Default{}
 % This \foptkeylistlabelname{} allows customisation after annotations are created, but before they are attached to their corresponding \wffs{}.
@@ -2131,13 +2134,13 @@
 % \Default{}
 % Only relevant if tagging is active.
 % This \foptkeylistlabelname{} allows the content of a node to be altered before it is copied for tagging.
-% Changes made after \texttt{proof tree copy content} will affect only the visual representation.
+% Changes made after \keyname[foptkeylist]{proof tree copy content} will affect only the visual representation.
 % \Example{P \cs{supset} Q, before copying content=\{content+=\{*\}\}, before typesetting nodes=\{blue\},}
 % This would include the \texttt{*} into the content of the node used for tagging, but not the colouration.
 %
 % \DescribeKey[foptkeylist]{before making tags}\val{key-value list}\AfterLastParam
 % \Default{}
-% Only relevant if tagging is active.
+% Only relevant if tagging is active (see \cref{sec:tag}).
 % Allow changes before tagged content for a node is finalised.
 % This \foptkeylistlabelname{} is processed before annotations are added to a node's tagged content.
 % \Example{P \cs{supset} Q, before making tags=\{ttoks'=\{P horseshoe Q\},\},}
@@ -2148,7 +2151,7 @@
 % 
 % \DescribeKey[foptkeylist]{before getting tags}\val{key-value list}\AfterLastParam
 % \Default{}
-% Only relevant if tagging is active.
+% Only relevant if tagging is active (see \cref{sec:tag}).
 % This \foptkeylistlabelname{} is processed after annotations are added to a node's tagged content, but before that content is used for tagging.
 % \Example{P \cs{supset} Q, just=Ass, before getting tags=\{ttoks'=\{P horseshoe Q\},\}}
 % This would prevent \texttt{Ass} from being used in the tagged content.
@@ -2203,6 +2206,143 @@
 % See \citetitle{saso-memoize-manual} \autocite{saso-memoize-manual} for details.
 %
 %^^A END sec:memoize >>>
+%
+% \section{Tagging}\label{sec:tag}
+% ^^A sec:tag <<<
+%
+% See also \cref{sec:keylists}.
+% Most options here are global and fairly straightforward.
+%
+% \subsection{Global Tagging Options}\label{subsec:tag-go}
+% ^^A subsec:tag-go <<<
+%
+% \DescribeKey[fregbool]{tag}\vals{true,false}\AfterLastParam
+% \Default{} \texttt{true} if tagging is active; otherwise \texttt{false}.
+% Whether to tag the tableau or not.
+% This register should not generally be set by the user, as \pkg{prooftrees} adjusts it automatically.
+% However, it might be useful in exceptional cases.
+% 
+% \DescribeKey[fregtoks]{plug}\texttt{alt}\AfterLastParam
+% \Default{alt}
+% The only choice with package-specific support is currently \texttt{alt}.
+% Use of \pkg{latex-lab}'s plugs for \pkg{tikz} will yield chaotic results at best, but more likely invalid structures or compilation errors.
+% If you need something other than the current \texttt{alt}, file a feature request.
+% 
+% \DescribeKey[fregtoks]{tag check with}\val{text}\AfterLastParam
+% \Default{checked}
+% Text replacement for \keyname[fregtoks]{check with} for tagging.
+% 
+% \DescribeKey[fregtoks]{tag close with}\val{text}\AfterLastParam
+% \Default{closed}
+% Text replacement for \keyname[fregtoks]{close with} for tagging.
+% 
+% \DescribeKey[fregtoks]{tag subs with}\val{text}\AfterLastParam
+% \Default{substituted}
+% Text replacement for \keyname[fregtoks]{subs with} for tagging.
+% 
+% \DescribeKey[fregtoks]{tag to prove}\val{text}\AfterLastParam
+% \Default{To prove: }
+% Text to prepend to the proof statement when tagging.
+% ^^A subsec:tag-go >>>
+% 
+% \subsection{Local Tagging Options}\label{subsec:tag-lo}
+% ^^A subsec:tag-lo <<<
+%
+% \DescribeKey[fopttoks]{ttoks}\val{text}\AfterLastParam
+% \texttt{ttoks} stores the content used to tag the proof statement and each \wff{} in the tableau.
+% \pkg{prooftrees} creates this content automatically from either the proof statement given to {to prove} or the content of the \wff{}.
+% Additional content is appended or prepended when \keyname[fstyle]{checked}, \keyname[fstyle]{close}, \keyname[fstyle]{subs} and/or \keyname[foptautotoks]{just} are used.
+% If applicable, a line number is also added.
+% 
+% The content used for tagging the node may be supplemented or entirely overridden by the user at any stage, but direct use of the option must be delayed in order for the changes to be effective. 
+% \Example{P \cs{equiv} Q, just=Ass, before getting tags=\{ttoks\textquotesingle=\{P iff Q (Premise)\},\}, checked,}
+% This would use precisely the specified content when tagging i.e.~the checked marker, justification and any line number would be omitted.
+% \Example{P \cs{equiv} Q, just=Ass, before making tags=\{ttoks\textquotesingle=\{P iff Q (Premise)\},\}, checked,}
+% The would use the specified content, together with the line number and justification, but would omit the checked marker.
+%
+% See \cref{sec:keylists,sec:manylion}.
+% ^^A subsec:tag-lo >>>
+% ^^A sec:tag >>>
+%
+% \section{Typesetting Process}\label{sec:manylion}
+% ^^A sec:manylion <<<
+%
+% This section provides a high-level description of the process \env{prooftree}/\env{tableau} uses to construct and typeset a proof.
+% Further details can be found in \cref{sec:imp}.
+%
+% \textbf{Most uses of \pkg{prooftrees} do not require knowledge --- or, even, awareness of --- the details described in this section.}
+% Indeed, earlier versions of the documentation did not include this section at all.
+% The details may be of use to users who wish to modify tableaux in ways unsupported by the features documented in previous sections.
+%
+% \begin{enumerate}
+%   \item Increment a count and determine whether to tag the tableau.
+%   \item Initialise tagging, if applicable.
+%     This is largely a matter of setting \pkg{latex-lab}'s plug for \pkg{tikz} to \texttt{artifact}.
+%     This is necessary because a \pkg{forest} tree involves \emph{many} uses of \env{tikzpicture} and the default tagging can result in erroneous structures and/or compilation errors and produces at best chaotic \texttt{marked content}.
+%   \item\label{enum:stages} Starts \env{forest} with a custom definition of \keyname[foptkeylist]{stages}.
+% Any \foptkeylistlabelname{} prefixed with \texttt{proof tree} is used internally by \pkg{prooftrees} to process the tableau.
+% \keyname[fstyle][tag tableau stage] executes the code actually responsible for tagging the proof. 
+% Any \foptkeylistlabelname{} described as ‘Does nothing by default.’ is explicitly intended for use in customising the process.
+% See \cref{sec:keylists} for details.
+%     \begin{enumerate}[label={Stage \arabic*}]
+%       \item Execute the standard \pkg{forest} parsing for the \keyname[fregkeylist]{default preamble} and \keyname[fregkeylist]{preamble} with
+% \iffalse
+%<*verb>
+% \fi
+%    \begin{macrocode}
+for root'={%
+  process keylist register=default preamble,
+  process keylist register=preamble,
+},
+%    \end{macrocode}
+% \iffalse
+%</verb>
+% \fi
+%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{given options}.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before copying content}.
+%         Does nothing by default.
+%       \item Process the \foptkeylistlabelname{}  \keyname[foptkeylist]{proof tree copy content}.
+%         Does nothing unless tagging.
+%       \item Process the \foptkeylistlabelname{}  \keyname[foptkeylist]{proof tree after copying content}.
+%       \item Process the \foptkeylistlabelname{}  \keyname[foptkeylist]{proof tree before typesetting nodes}.
+%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before typesetting nodes}.
+%       \item Process  the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree ffurf}.
+%       \item Process  the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree symud awto}.
+%       \item Execute \pkg{forest}'s \keyname[fstyle]{typeset nodes stage}.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree before packing}.
+%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before packing}.
+%       \item Execute \pkg{forest}'s \keyname[fstyle]{pack stage}.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree before computing xy}.
+%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before computing xy}.
+%       \item Execute \pkg{forest}'s \keyname[fstyle]{compute xy stage}.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree creu nodiadau}.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before annotating}.
+%         Does nothing unless by default.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree nodiadau}.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree before drawing tree}.
+%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before drawing tree}.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before making tags}.
+%         Does nothing unless by default.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree make tags}.
+%         Does nothing unless tagging.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before getting tags}.
+%         Does nothing unless by default.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree get tags}.
+%         Does nothing unless tagging.
+%       \item Execute \keyname[fstyle]{tag tableau stage}.
+%         Does nothing unless tagging.
+%       \item Execute \pkg{forest}'s \keyname[fstyle]{draw tree stage}.
+%     \end{enumerate}
+%   \item Applies \keyname[fstyle]{proof tree}.
+%   \item Applies \keyname[fstyle]{ttableau}.
+%     This does nothing unless tagging is enabled.
+%   \item Executes the content of \env{prooftree}/\env{tableau}'s mandatory argument.
+%   \item Creates a root node with \keyname[fopttoks]{name}\val{proof statement}.
+%   \item Integrates the contents of the \env{prooftree}/\env{tableau}.
+% \end{enumerate}
+%
+% Note that \pkg{prooftrees} sets \pkg{forest}'s \keyname[fbracketkey]{action character} to \verb|@| before defining the \env{prooftree}/\env{tableau} environment.
+% ^^A sec:manylion >>>
 %
 % \section{Compatibility}\label{sec:compat}
 %^^A BEGIN sec:compat <<<
@@ -2273,8 +2413,8 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11160 2025-08-28 19:41:15Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11160 2025-08-28 19:41:15Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4240,7 +4380,7 @@
 %   Although \cs{exp\_args:<something>} would be nice \dots.
 %    \begin{macrocode}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11160 2025-08-28 19:41:15Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
+\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
 \ExplSyntaxOn
 \sys_if_engine_luatex:F
 {
@@ -4276,7 +4416,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11160 2025-08-28 19:41:15Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4292,7 +4432,7 @@
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11160 2025-08-28 19:41:15Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
