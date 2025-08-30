@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11169 2025-08-30 15:45:46Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2420,8 +2420,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11169 2025-08-30 15:45:46Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11169 2025-08-30 15:45:46Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4369,63 +4369,13 @@ for root'={%
 % \fi
 %^^A sty guards >>>
 % 
-%^^A utils guards <<<
-% \iffalse
-%<*utils>
-% \fi
-% \begin{macro}{%
-%    \toksapp,
-%    \@toksapp,
-%    \toks@cs@num,
-%    \toks@cs@or@num@num,
-%    \toks@cs@or@num@cs,
-% }
-%   \changes{v0.0}{2025-08-28}{Copy \cs{toksapp} macro used in collating \texttt{alt} text if tagging to avoid requiring \pkg{collargs}.}
-%   Copied almost verbatim from Sašo Živanović's \pkg{collargs} under the LPPL.
-%   Loading the original package seems like overkill if the user hasn't loaded it already and is unnecessary on Lua\TeX{}.
-%   
-%   The only reason to use \pkg{expl3} here is b/c we want an error if it isn't new and \cs{newcommand} doesn't like delimiters. 
-%   The original using \cs{def} is much nicer, IMHO.
-%   Although \cs{exp\_args:<something>} would be nice \dots.
-%    \begin{macrocode}
-\RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
-\ExplSyntaxOn
-\sys_if_engine_luatex:F
-{
-  \hook_gput_code:nnn {begindocument/before}{.}
-  {
-    \IfPackageLoadedTF{collargs}{}{
-      \cs_new_nopar:Npn \toksapp{\toks@cs@or@num\@toksapp}
-      \cs_new_nopar:Npn \toks@cs@or@num#1#2#{
-        \ifnum-2>-1#2\relax
-          \expandafter\toks@cs@or@num@num
-        \fi
-        \toks@cs@or@num@cs{#1}{#2}
-      }
-      \cs_new_nopar:Npn \toks@cs@or@num@cs#1#2{#1{#2}}
-      %^^A what does this do? I could probably omit it ...
-      \cs_new_nopar:Npn \toks@cs@or@num@num\toks@cs@or@num@cs#1#2{#1{\toks#2~}}
-      \cs_new:Npn \@toksapp#1#2{#1\expandafter{\the#1#2}}
-    }
-  }
-}
-\ExplSyntaxOff
-%    \end{macrocode}
-% \end{macro}
-% \iffalse
-%</utils>
-% \fi
-%^^A utils guards >>>
-%
-%
 %^^A doc guards <<<
 % \iffalse
 %<*doc>
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11169 2025-08-30 15:45:46Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4434,14 +4384,14 @@ for root'={%
 %</doc>
 % \fi
 %^^A doc guards >>>
-
+% 
 %^^A doc-code guards <<<
 % \iffalse
 %<*doc-code>
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11169 2025-08-30 15:45:46Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
