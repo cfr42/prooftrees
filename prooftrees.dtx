@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11170 2025-08-30 16:47:42Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2420,8 +2420,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11170 2025-08-30 16:47:42Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11170 2025-08-30 16:47:42Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -3760,6 +3760,28 @@ for root'={%
     },
   },
 %    \end{macrocode}
+% \changes{v0.0}{2025-08-30}{Add \texttt{nodewalk node+}, \texttt{nodewalk node\textquotesingle}, \texttt{+nodewalk node}, \texttt{nodewalk node} and \texttt{nodewalk to node}.}
+% Styles to make facilitate drawing around nodewalks.
+%    \begin{macrocode}
+  prooftrees@nodewalk@node/.style={inner sep=0pt},
+  nodewalk node+/.code={%
+    \pgfqkeys{/forest}{prooftrees@nodewalk@node/.append style={#1}}%
+  },
+  +nodewalk node/.code={%
+    \pgfqkeys{/forest}{prooftrees@nodewalk@node/.prepend style={#1}}%
+  },
+  nodewalk node'/.code={%
+    \pgfqkeys{/forest}{prooftrees@nodewalk@node/.style={#1}}%
+  },
+  nodewalk node/.forward to=/forest/nodewalk node+,
+  nodewalk to node/.style 2 args={%
+    proof tree before drawing tree={%
+      tikz+={%
+        \node [fit to={#2},/forest/prooftrees@nodewalk@node] (#1) {};
+      },
+    },
+  },
+%    \end{macrocode}
 % Two styles for debugging.
 % Despite the names, these are available in the non-debug package for largely historical reasons, but also because they probably do not cost much.
 %
@@ -3910,10 +3932,12 @@ for root'={%
 %    \end{macrocode}
 % \begin{environment}{prooftree}
 % \begin{environment}{tableau}
+% ^^A <<<
 % \cs{forest}/\cs{endforest} from egreg's answer at \url{https://tex.stackexchange.com/a/229608/} 
 %    \begin{macrocode}
-%<!debug>\NewDocumentEnvironment{\prooftrees@enw}{ m +b }{%
-%<debug>\RenewDocumentEnvironment{\prooftrees@enw}{ m +b }{%
+%<!debug>\NewDocumentEnvironment{\prooftrees@enw}{ m +b }
+%<debug>\RenewDocumentEnvironment{\prooftrees@enw}{ m +b }
+{%
   \global\advance\prooftrees@tableau@id by 1
   \prooftrees@ttableau@init
   \forest
@@ -4014,6 +4038,7 @@ for root'={%
   \endforest
 }{}
 %    \end{macrocode}
+% ^^A >>>
 % \end{environment}
 % \end{environment}
 %    \begin{macrocode}
@@ -4024,6 +4049,7 @@ for root'={%
 % \fi
 % \changes{v0.9}{}{Add support for \pkg{memoize} and utilise for documentation.}
 % \begin{macro}{\__prooftrees_memoize:n,\__prooftrees_memoize:V}
+% ^^A memoize <<<
 %   Internal macro so we don't memoize \pkg{bussproofs}'s \texttt{prooftree} by mistake.
 %    \begin{macrocode}
 \cs_new_protected_nopar:Npn \__prooftrees_memoize:n #1
@@ -4034,7 +4060,9 @@ for root'={%
 }
 \cs_generate_variant:Nn \__prooftrees_memoize:n { V }
 %    \end{macrocode}
+% ^^A memoize >>>
 % \end{macro}
+% ^^A delay to begindocument/before <<<
 % Paid â memoize \pkg{bussproofs} \texttt{prooftree} \dots. 
 %    \begin{macrocode}
 \hook_gput_code:nnn { begindocument / before } { . }
@@ -4120,7 +4148,9 @@ for root'={%
 % \end{macro}
 %    \begin{macrocode}
 }
+% ^^A delay to begindocument/before >>>
 %    \end{macrocode}
+% ^^A tagsupport <<<
 % \begin{macro}{\if@ttableau@dadfygio}
 %   \changes{v0.0}{2025-08-25}{Add \cs{if@ttableau@dadfygio}.}
 %   for debugging tagging
@@ -4372,6 +4402,7 @@ for root'={%
 \cs_new_eq:NN \prooftrees@ttableau \__tableau_ttableau:nnn
 %    \end{macrocode}
 % \end{macro}
+% ^^A tagsupport >>>
 % \iffalse
 %</!debug>
 % \fi
@@ -4389,7 +4420,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11170 2025-08-30 16:47:42Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4405,7 +4436,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11170 2025-08-30 16:47:42Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
