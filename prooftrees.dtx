@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -1750,7 +1750,7 @@
 %
 % \DescribeKey[fregdim]{proof tree inner proof midpoint}\val{dimension}\AfterLastParam
 % \Default{0pt}
-% ^^A subsubsec:go-dims
+% ^^A subsubsec:go-dims >>>
 %
 % \subsubsection{Line Numbers}\label{subsubsec:go-nos}
 % ^^A subsubsec:go-nos <<<
@@ -2123,6 +2123,11 @@
 %
 % See \cref{sec:manylion} for details of the typesetting process.
 %
+% \DescribeKey[foptkeylist]{before making annotations}\val{key-value list}\AfterLastParam
+% \Default{}
+% This \foptkeylistlabelname{} allows customisation after node positions are first computed by \pkg{forest} but before annotations are created.
+% This is sometimes useful.
+%
 % \DescribeKey[foptkeylist]{before annotating}\val{key-value list}\AfterLastParam
 % \Default{}
 % This \foptkeylistlabelname{} allows customisation after annotations are created, but before they are attached to their corresponding \wffs{}.
@@ -2315,6 +2320,8 @@ for root'={%
 %       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree before computing xy}.
 %       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before computing xy}.
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{compute xy stage}.
+%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before making annotations}.
+%         Does nothing unless by default.
 %       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree creu nodiadau}.
 %       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before annotating}.
 %         Does nothing unless by default.
@@ -2413,8 +2420,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2677,6 +2684,7 @@ for root'={%
 % Empty by default. 
 % Allow changes in between processing of standard keylists.
 %    \begin{macrocode}
+  declare keylist={before making annotations}{},
   declare keylist={before annotating}{},
 %    \end{macrocode}
 % \changes{v0.0}{2025-08-25}{Additions for tagging: 
@@ -3915,7 +3923,7 @@ for root'={%
 % These are internal lists.
 % They should not generally be redefined or customised by users, as doing so may render the tree structure invalid or cause unexpected results.
 %
-% In addition to the keylists provided by \pkg{forest}, \texttt{before copying content}, \texttt{before annotating}, \texttt{before making tags} and \texttt{before getting tags} are intended for users to customise the tableau at these points, if required.
+% In addition to the keylists provided by \pkg{forest}, \texttt{before copying content}, \texttt{before making annotations}, \texttt{before annotating}, \texttt{before making tags} and \texttt{before getting tags} are intended for users to customise the tableau at these points, if required.
 %    \begin{macrocode}
         process keylist=before copying content,
         process keylist=proof tree copy content,
@@ -3939,6 +3947,7 @@ for root'={%
 %    \end{macrocode}
 % Second two structural/content additions: process two custom keylists after computing xy and before before drawing tree to create and attach the annotations.
 %    \begin{macrocode}
+        process keylist=before making annotations,
         process keylist=proof tree creu nodiadau,
         process keylist=before annotating,
         process keylist=proof tree nodiadau,
@@ -4380,7 +4389,7 @@ for root'={%
 %   Although \cs{exp\_args:<something>} would be nice \dots.
 %    \begin{macrocode}
 \RequirePackage{svn-prov}
-\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
+\ProvidesPackageSVN[\filebase-utils.sty]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: small necessities purloined from elsewhere]
 \ExplSyntaxOn
 \sys_if_engine_luatex:F
 {
@@ -4416,7 +4425,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4432,7 +4441,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11164 2025-08-30 03:19:11Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11168 2025-08-30 15:43:17Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
