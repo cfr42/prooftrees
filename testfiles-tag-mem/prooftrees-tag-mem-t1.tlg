@@ -1,1 +1,57 @@
-placeholder to satisfy l3build
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: prooftrees-tag-mem-t1-mmz
+============================================================
+prooftrees-tag-mem-t1.mmz:
+-------- prooftrees-tag-mem-t1.mmz (start) ---------
+(prooftrees-tag-mem-t1.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/C1296E5C3F9D87D77A252D261FCE6D46.memo}[nl]
+\mmzUsedExtern {memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\endinput[nl]
+-------- prooftrees-tag-mem-t1.mmz (end) -----------
+============================================================
+============================================================
+TEST 2: prooftrees-tag-mem-t1
+============================================================
+(memos/C1296E5C3F9D87D77A252D261FCE6D46.memo) (memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo)
+============================================================
+============================================================
+TEST 3: prooftrees-tag-mem-t1-cmemo
+============================================================
+memos/C1296E5C3F9D87D77A252D261FCE6D46.memo:
+-------- memos/C1296E5C3F9D87D77A252D261FCE6D46.memo (start) ---------
+(memos/C1296E5C3F9D87D77A252D261FCE6D46.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\begin {tableau}{to prove=\sststile {}{}p\vee \lnot p, } [\lnot (p\vee \lnot p),just=$\lnot $ conc [\lnot p,just=$\vee $E:!u, [\lnot \lnot p,just=$\vee $E:!uu,close={:!u,!c},] ] ] \end {tableau}[nl]
+-------- memos/C1296E5C3F9D87D77A252D261FCE6D46.memo (end) -----------
+============================================================
+============================================================
+TEST 4: prooftrees-tag-mem-t1-ccmemo
+============================================================
+memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \csname cctab_begin:c\endcsname {c__tableau_nexpl_at_cctab}\global \advance \prooftrees@tableau@id by 1\relax \tex_savepos:D \property_record:ee {prooftrees-tableau-id\the \prooftrees@tableau@id }{xpos,ypos}\tex_savepos:D \tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={To prove:\ \ensuremath {\sststile {}{}p\vee \lnot p} 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\  2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\  3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\  }}\cs_new:cpe {prooftrees@tableau@mark@pos@\the \prooftrees@tableau@id }{\__tableau_pgftikz_tag_bbox:enn {prooftrees-tableau-id\the \prooftrees@tableau@id }{128.01955pt}{80.92545pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {prooftrees@tableau@mark@pos@\the \prooftrees@tableau@id }]}\tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {128.21954pt}{13.23251pt}{67.69293pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {23}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),[nl]
+\mmzEndMemo[nl]
+-------- memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+[1
+ <./memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf>]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-mem-t1.aux)
+Package tagpdf Info: Finalizing the tagging structure:
+(tagpdf)             Writing out ~7 structure objects
+(tagpdf)             with ~4 'MC' leaf nodes.
+(tagpdf)             Be patient if there are lots of objects!
+Package tagpdf Info: writing ParentTree
+Package tagpdf Info: writing IDTree
+Package tagpdf Info: writing RoleMap
+Package tagpdf Info: writing ClassMap
+Package tagpdf Info: writing NameSpaces
+Package tagpdf Info: writing StructElems
+Package tagpdf Info: writing Root
