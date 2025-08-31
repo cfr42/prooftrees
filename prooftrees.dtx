@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -220,7 +220,10 @@
 \newcommand*\fregautotokslabelname{Forest autowrapped toks register}
 \newcommand*\foptautotokslabelname{Forest autowrapped toks option}
 \newcommand*\fstylelabelname{Forest style}
-\newcommand*\fbracketkeyname{Forest bracket key}
+\newcommand*\fbracketkeylabelname{Forest bracket key}
+\newcommand*\flsteplabelname{Forest long step}
+\newcommand*\fssteplabelname{Forest short step}
+\newcommand*\fsteplabelname{Forest step}
 \newcommand*\pkgoptlabelname{package option}
 \newcommand*\pkglabelname{package}
 \let\PrintDescribeKey\PrintDescribeMacro
@@ -2112,6 +2115,57 @@
 %
 %^^A END sec:macros >>>
 %
+% \section{Extras}\label{sec:ychwanegol}
+% ^^A sec:ychwanegol <<<
+%
+% \subsection{Steps}\label{subsec:camau}
+% ^^A subsec:camau <<<
+%
+% \DescribeKey[flstep]{every wff}
+% A nodewalk long step which visits the proof statement and every \wff{} exactly once in proof line number order.
+% This is the default order used for tagging the tableau, but may be used for other purposes.
+% As with the next step, this one should be used in \keyname[foptkeylist]{before annotating} or similar.
+%
+% \DescribeKey[flstep]{wff from proof line no to}\marg{start}\marg{end}\AfterLastParam
+% A long step which visits all \wffs{} between proof lines numbered \meta{start} and \marg{end} inclusive.
+% \meta{start} and \meta{end} must be proof line numbers in the tableau.
+%
+% \textbf{This step cannot be used until quite late in the tableau's processing, as it is valid only once line numbers have been assigned.}
+% Hence use of this step must always be delayed.
+% For example, to colour the \wffs{} in lines 3, 4 and 5 blue, you could add the following to the preamble:
+% \begin{latexcode}
+% before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset node}},
+% \end{latexcode}
+% Note the use of \texttt{typeset node} to re-typeset the content. 
+% Without this option, the colour would have no effect.
+% ^^A subsec:camau >>>
+%
+% \subsection{Fit}\label{subsec:fit}
+% ^^A subsec:fit <<<
+%
+% \DescribeKey[fstyle]{nodewalk to node}\val{name}\marg{nodewalk}\AfterLastParam
+% A simple wrapper around \pkg{forest}'s \keyname[fstyle]{fit to}, which is a \TikZ{} key used to create a node fitted around a nodewalk using the \TikZ{} \pkg{fit} library.
+% This does not depend on the code used for tableaux and may be used in an ordinary \env{forest} environment.
+% (But do not load \pkg{prooftrees} just for this!)
+%
+% For example, adding the following to a tableau's preamble would create a node named \texttt{a} around all the \wffs{} in lines \texttt{4} to \texttt{7} inclusive.
+% Note that this does not include the line number or justification, if used, but only the \wffs{} in the ‘main’ part of the proof.
+% \begin{latexcode}
+%   nodewalk to node={a}{wffs from proof line no to={4}{7}},
+% \end{latexcode}
+%
+% \DescribeKey{nodewalk node,nodewalk node+,+nodewalk node,nodewalk node\textquotesingle}\val{key-value list}\AfterLastParam
+% \Default{inner sep=0pt}
+% Style applied to any \TikZ{} nodes created using \keyname[fstyle]{nodewalk to node}.
+% The versions with \texttt{+} prepend/append to the existing style, while the \texttt{\textquotesingle} version replaces it.
+% \texttt{nodewalk node} is aliased to \texttt{nodewalk node+}.
+% \Example{nodewalk node=\{draw=magenta,rounded corners\},}
+% This would cause the options \texttt{inner sep=0pt,draw=magenta,rounded corners} to be applied to any nodes created by \keyname[fstyle]{nodewalk to node}.
+%
+% Note that, despite any similarity in syntax, these are not \pkg{forest} options or registers, but just code wrappers around a simple \TikZ{} style. 
+% ^^A subsec:fit >>>
+% ^^A sec:ychwanegol >>>
+%
 % \section{Advanced Configuration}\label{sec:keylists}
 % ^^A sec:keylists <<<
 %
@@ -2420,8 +2474,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2737,12 +2791,13 @@ for root'={%
   },
 %    \end{macrocode}
 % \changes{v0.0}{2025-08-25}{New long step \texttt{proof tree every wff}.}
+% \changes{v0.0}{2025-08-31}{Renamed \texttt{every wff}.}
 % Unlike the previous step, this includes any proof statement and ensures nodes are only visited once, which we want for tagging.
 %    \begin{macrocode}
-  define long step={proof tree every wff}{}{%
+  define long step={every wff}{}{%
     unique={name=proof statement,proof tree wffs}%
   },
-  proof tree get tags processing order=proof tree every wff,
+  proof tree get tags processing order=every wff,
 %    \end{macrocode}
 % \changes{v0.0}{2025-08-30}{New long step \texttt{wff from proof line no to}.}
 % See \url{https://tex.stackexchange.com/a/749854/39222} for example usage.
@@ -3782,6 +3837,7 @@ for root'={%
     },
   },
 %    \end{macrocode}
+% ^^A dadfygio <<<
 % Two styles for debugging.
 % Despite the names, these are available in the non-debug package for largely historical reasons, but also because they probably do not cost much.
 %
@@ -3927,6 +3983,7 @@ for root'={%
   },
   alt,
 %<debug>  debug tagging/.code={},
+% ^^A dadfygio >>>
 }
 %<!debug>\bracketset{action character=@}
 %    \end{macrocode}
@@ -4420,7 +4477,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4436,7 +4493,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11174 2025-08-30 23:01:52Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
