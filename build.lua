@@ -1,4 +1,4 @@
--- $Id: build.lua 11146 2025-08-26 13:23:52Z cfrees $
+-- $Id: build.lua 11178 2025-09-01 04:30:34Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 maindir = maindir or "."
@@ -19,6 +19,7 @@ typesetopts = "-interaction=errorstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEX
 --------------------------------------------------------------------------------
 -- indexstyle = ""
 typesetruns = 4
+-- typesetruns = 1
 --------------------------------------------------------------------------------
 uploadconfig = {
   ctanPath = "/macros/latex/contrib/prooftrees",

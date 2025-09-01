@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -997,11 +997,9 @@
 %               \coordinate (q\i) at ([xshift=\k+40 pt]current bounding box.south |- p\i);
 %               \node [fill=WildStrawberry!\j!blue, circle, font=\sffamily\small, text width=12pt, text centered, text=white, inner sep=0pt] at (q\i) {\i};
 %             \else
-%               \ifnum\i<13
-%                 \ifnum\i>11
-%                   \coordinate (q\i) at ([xshift=\m pt]current bounding box.south |- p\i);
-%                   \node [fill=WildStrawberry!\j!blue, circle, font=\sffamily\small, text width=12pt, text centered, text=white, inner sep=0pt] at (q\i) {\i};
-%                 \fi
+%               \ifnum\i=12
+%                 \coordinate (q\i) at ([xshift=\m pt]current bounding box.south |- p\i);
+%                 \node [fill=WildStrawberry!\j!blue, circle, font=\sffamily\small, text width=12pt, text centered, text=white, inner sep=0pt] at (q\i) {\i};
 %               \fi
 %             \fi
 %           \fi
@@ -1009,35 +1007,39 @@
 %       },
 %     },
 %     for tree={%
-%       s sep+=30pt,
-%       if={((level()>=1)&&(proof_tree_rhifo()==1)))}{%
-%         node options/.wrap pgfmath arg={draw, rounded corners, WildStrawberry!#1!blue}{(level()+proof_tree_toing_by())*100/14},
+%       s sep'+=30pt,
+%       if={%
+%         > O_> O_= & {level}{0} {proof tree rhifo}{1}
+%       }{%
+%         node options/.process={%
+%           OOw2+nw+Pw {level}{proof tree toing by}{#1+#2}{#1*100/14}{%
+%             draw,rounded corners,WildStrawberry!#1!blue}},
 %         fill=white,
 %         delay={%
-%           tempcounta=int(level()+proof_tree_toing_by()),
-%           if={(tempcounta)<=7}{%^^A proof_tree_toing_by is zero here
-%             nyth/.wrap pgfmath arg={{(!r211111111112111) (!Luu) (!Luuu) (!11) (!Fuu) (!r21111111111)}{#1}{p}}{tempcounta},
+%           tempcounta/.process={OOw2+n{level}{proof tree toing by}{#1+#2}},
+%           if={> R_< {tempcounta}{8}}{%
+%             nyth/.process={Rw{tempcounta}{{(!r211111111112111) (!Luu) (!Luuu) (!11) (!Fuu) (!r21111111111)}{#1}{p}}},
 %           }{%
-%             if={(tempcounta)>9}{%
-%               if={n("!uu")==2}{}{%
+%             if={>R_>{tempcounta}{9}}{%
+%               if={>O_={!uu.n}{2}}{}{%
 %                 tempcounta'+=1,
-%                 if={(n()==1)&&(n_children("!u")==2)}{%
-%                   nyth/.wrap pgfmath arg={{}{#1}{q}}{tempcounta},
+%                 if={>O_=O_=&{n}{1}{!u.n children}{2}}{%
+%                   nyth/.process={Rw{tempcounta}{{}{#1}{q}}},
 %                 }{%
-%                   nyth/.wrap pgfmath arg={{}{#1}{p}}{tempcounta},
+%                   nyth/.process={Rw{tempcounta}{{}{#1}{p}}},
 %                 },
 %               },
 %             }{%
-%               if={((tempcounta)==8)&&(n()==1)}{%
+%               if={>R_=O_=&{tempcounta}{8}{n}{1}}{%
 %                 nyth={(!1111) (!llll) (!lllll)}{8}{p},
-% ^^A             !1.nyth={(!111) (!lll) (!llll)}{9}{p},
 %               }{%
-%                 if={n()==2}{%
-%                   nyth/.wrap pgfmath arg={{(!1)}{#1}{q}}{tempcounta},
+%                 if={>O_={n}{2}}{%
+%                   before drawing tree={green,typeset node},
+%                   nyth/.process={Rw{tempcounta}{{(!1)}{#1}{q}}},
 %                   tempcounta'+=1,
-% ^^A               !1.nyth/.wrap pgfmath arg={{(!1)}{#1}{q}}{tempcounta},
+%                   nyth/.process={Rw{tempcounta}{{(!11)}{#1}{q}}},
 %                   tempcounta'+=1,
-% ^^A               !11.nyth/.wrap pgfmath arg={{(!1)}{#1}{p}}{tempcounta},
+%                   nyth/.process={Rw{tempcounta}{{(!111)}{#1}{p}}},
 %                 }{},
 %               },
 %             },
@@ -2490,8 +2492,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4493,7 +4495,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4509,7 +4511,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
