@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11184 2025-09-01 17:45:26Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11185 2025-09-01 18:11:24Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -944,10 +944,16 @@
 %^^A BEGIN sec:ee <<<
 %
 % After loading \pkg{prooftrees} in the document preamble:
-% \begin{latexcode}
-% % in document's preamble
-% \usepackage{prooftrees}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+% in document's preamble
+\usepackage{prooftrees}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % the \env{prooftree} environment is available for typesetting proof trees.
 % This takes an argument used to specify a \meta{tree preamble}, with the body of the environment consisting of a \meta{tree specification} in \pkg{forest}'s notation.
 % The \meta{tree preamble} can be as simple as an empty argument --- \arg{} --- or much more complex.
@@ -961,13 +967,19 @@
 % \]
 % and we would like to typeset the entailment established by our proof at the top of the tree.
 % Then we should begin like this:
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % That is all the preamble we want, so we move onto consider the \meta{tree specification}.
 % \pkg{forest} uses square brackets to specify trees' structures.
 % To typeset a proof, think of it as consisting of nested trees, trunks upwards, and work from the outside in and the trunks down (\cref{nythod}).
@@ -1098,32 +1110,44 @@
 % We also use \pkg{forest}'s \keyname*[fopttoks]{name} to label the line for ease of reference later.
 % (Technically, it is the node rather than the line which is named, but, for our purposes, this doesn't matter.
 % \pkg{forest} will create a name if we don't specify one, but it will not necessarily be one we would have chosen for ease of use!)
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % We can refer to this line later as \verb|pr|.
 %
 % We then consider the next tree \nyth*{}.
 % Its \bocsnyth{} goes inside that for \nyth[1], so the square brackets containing the next \wff{} go inside those we used for \nyth[1].
 % Again, we add the justification with \keyname[foptautotoks]{just}, but we use \verb|subs=a| rather than \verb|checked=a| as we want to mark substitution of $a$ for $x$ without discharging the line.
 % Again, we use \keyname*[fopttoks]{name} so that we can refer to the line later as \verb|neg conc|.
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % Turning to tree \nyth*{}, we again note that its \bocsnyth{} is nested within the previous two, so the square brackets for its \wff{} need to be nested within those for the previous \wff{}s.
 % This time, we want to mark the line as discharged without substitution, so we simply use \keyname[fstyle]{checked} without a value.
@@ -1131,19 +1155,25 @@
 % This justification also refers to an earlier line in the proof.
 % We could write this as \verb|just=1 $\exists\elim$|, but instead we use the name we assigned earlier with the referencing feature provided by \pkg{prooftrees}.
 % To do this, we put the reference, \verb|pr| \emph{after} the rest of the justification, separating the two parts by a colon i.e.~\verb|$\exists\elim$:pr| and allow \pkg{prooftrees} to figure out the correct number.
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % Continuing in the same way, we surround each of the \wff{}s for \nyth*{}, \nyth*{}, \nyth*{} and \nyth*{} within square brackets nested within those surrounding the previous \wff{} since each of the trees is nested within the previous one.
 % Where necessary, we use \keyname*[fopttoks]{name} to label lines we wish to refer to later, but we also use \pkg{forest}'s \emph{relative} naming system when this seems easier.
@@ -1151,89 +1181,107 @@
 % \verb|!| tells \pkg{forest} that the reference specifies a relationship between the current line and the referenced one, rather than referring to the other line by name.
 % \verb|!u| refers to the current line's parent line --- in this case, \verb|{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr|.
 % \verb|!uu| refers to the current line's parent line's parent line and so on.
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%         [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
-%           [Pa, just=$\land\elim$:!uu, name=simple
-%             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
-%               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-%               ]
-%             ]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % Reaching \nyth*{}, things get a little more complex since we now have not one, but \emph{two} \bocsnyth{} nested within \nyth[7].
 % This means that we need \emph{two} sets of square brackets for \nyth{} --- one for each of its two trees.
 % Again, both of these should be nested within the square brackets for \nyth[7] but neither should be nested within the other because the trees for the two branches at \nyth{} are distinct.
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%         [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
-%           [Pa, just=$\land\elim$:!uu, name=simple
-%             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
-%               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-%                 [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
-%                 ]
-%                 [\lnot Pb
-%                 ]
-%               ]
-%             ]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                ]
+                [\lnot Pb
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % At this point, we need to work separately or in parallel on each of our two branches since each constitutes its own tree.
 % Turning to trees \nyth*{}, each needs to be nested within the relevant tree \nyth[8], since each \bocsnyth{} is nested within the applicable branch's tree.
 % Hence, we nest square brackets for each of the \wff{}s at \nyth{} within the previous set.
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%         [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
-%           [Pa, just=$\land\elim$:!uu, name=simple
-%             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
-%               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-%                 [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
-%                  [a \neq b, just=$\liff\elim$:!u
-%                  ]
-%                 ]
-%                 [\lnot Pb
-%                  [{a = b}
-%                  ]
-%                 ]
-%               ]
-%             ]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                 ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % We only have one tree \nyth*{} as there is no corresponding tree in the left-hand branch.
 % This isn't a problem: we just need to ensure that we nest it within the appropriate tree \nyth[9].
@@ -1244,155 +1292,179 @@
 % We can use \verb|close={8,10}| for this or we can use the same referencing system we used to reference lines when specifying justifications and write \verb|close={:to Pb or not to Pb,!c}|.
 % In either case, we again surrounding the argument with curly brackets to protect the comma.
 % \verb|!c| refers to the current line --- something useful in many close annotations, but not helpful in specifying non-circular justifications.
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%         [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
-%           [Pa, just=$\land\elim$:!uu, name=simple
-%             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
-%               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-%                 [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
-%                  [a \neq b, just=$\liff\elim$:!u
-%                  ]
-%                 ]
-%                 [\lnot Pb
-%                  [{a = b}
-%                     [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
-%                     ]
-%                  ]
-%                 ]
-%               ]
-%             ]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                 ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % This completes the main right-hand branch of the tree and we can focus solely on the remaining left-hand one.
 % Tree \nyth*{} is straightforward --- we just need to nest it within the left-hand tree \nyth[9].
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%         [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
-%           [Pa, just=$\land\elim$:!uu, name=simple
-%             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
-%               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-%                 [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
-%                  [a \neq b, just=$\liff\elim$:!u
-%                   [{Pb \lif a = b}, checked, just=$\forall\elim$:mark%, move by=1
-%                   ]
-%                 ]
-%                 ]
-%                 [\lnot Pb
-%                  [{a = b}
-%                     [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
-%                     ]
-%                  ]
-%                 ]
-%               ]
-%             ]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=$\forall\elim$:mark%, move by=1
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % At this point, the main left-hand branch itself branches, so we have two trees \nyth*{}.
 % Treating this in the same way as the earlier branch at \nyth[8], we use two sets of square brackets nested within those for tree \nyth{}, but with neither nested within the other.
 % Since we also want to mark the leftmost branch as closed, we add \verb|close={:to Pb or not to Pb,!c}| in the same way as before.
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%         [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
-%           [Pa, just=$\land\elim$:!uu, name=simple
-%             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
-%               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-%                 [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
-%                  [a \neq b, just=$\liff\elim$:!u
-%                   [{Pb \lif a = b}, checked, just=4 $\forall\elim$
-%                       [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
-%                       ]
-%                       [{a = b}
-%                       ]
-%                   ]
-%                 ]
-%                 ]
-%                 [\lnot Pb
-%                  [{a = b}
-%                     [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
-%                     ]
-%                  ]
-%                 ]
-%               ]
-%             ]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=4 $\forall\elim$
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                      ]
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % We complete our initial specification by nesting \nyth*{} within the appropriate tree \nyth[12], again marking closure appropriately.
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%         [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
-%           [Pa, just=$\land\elim$:!uu, name=simple
-%             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
-%               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-%                 [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
-%                  [a \neq b, just=$\liff\elim$:!u
-%                   [{Pb \lif a = b}, checked, just=4 $\forall\elim$
-%                       [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
-%                       ]
-%                       [{a = b}
-%                         [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
-%                         ]
-%                       ]
-%                   ]
-%                 ]
-%                 ]
-%                 [\lnot Pb
-%                  [{a = b}
-%                     [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
-%                     ]
-%                  ]
-%                 ]
-%               ]
-%             ]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=4 $\forall\elim$
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                        [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
+                        ]
+                      ]
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % Compiling our code, we find that the line numbering is not quite right:
 %
@@ -1435,58 +1507,82 @@
 % \end{tableau}
 %
 % \pkg{prooftrees} warns us about this:
-% \begin{latexcode}
-% Package prooftrees Warning: Merging conflicting justifications for line 10! Please examine the output carefully and use "move by" to move lines later in the proof if required. Details of how to do this are included in the documentation.
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+Package prooftrees Warning: Merging conflicting justifications for line 10! Please examine the output carefully and use "move by" to move lines later in the proof if required. Details of how to do this are included in the documentation.
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % We would like line 10 in the left-hand branch to be moved down by one line, so we add \verb|move by=1| to the relevant line of our proof.
 % That is, we replace the line
-% \begin{latexcode}
-%                   [{Pb \lif a = b}, checked, just=4 $\forall\elim$
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+                  [{Pb \lif a = b}, checked, just=4 $\forall\elim$
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % by
-% \begin{latexcode}
-%                   [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+                  [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % giving us the following code:
-% \begin{latexcode}
-% \begin{tableau}
-%   {
-%     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
-%   }
-%   [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
-%     [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
-%       [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
-%         [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
-%           [Pa, just=$\land\elim$:!uu, name=simple
-%             [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
-%               [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
-%                 [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
-%                  [a \neq b, just=$\liff\elim$:!u
-%                   [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
-%                       [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
-%                       ]
-%                       [{a = b}
-%                         [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
-%                         ]
-%                       ]
-%                   ]
-%                 ]
-%                 ]
-%                 [\lnot Pb
-%                  [{a = b}
-%                     [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
-%                     ]
-%                  ]
-%                 ]
-%               ]
-%             ]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{tableau}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                        [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
+                        ]
+                      ]
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % which produces our desired result:
 %
 % \begin{tableau}
@@ -1536,9 +1632,15 @@
 %^^A BEGIN sec:llwytho <<<
 %
 % To load the package simply add the following to your document's preamble.
-% \begin{latexcode}
-% \usepackage{prooftrees}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\usepackage{prooftrees}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % \keyname[pkg]{\pkg{prooftrees}} will load \keyname[pkg]{\pkg{forest}} automatically.
 %
 % \changes{v0.6}{}{Add compatibility option for use with \pkg{bussproofs}.
@@ -1694,40 +1796,70 @@
 % The default is to avoid conflicts automatically where possible.
 % Turning this off permits finer-grained control of what gets moved using \keyname[fstyle]{move by}.
 % The following are equivalent to the default setting:
-% \begin{latexcode}
-%   auto move
-%   auto move=true
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  auto move
+  auto move=true
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % Either of the following will turn auto move off:
-% \begin{latexcode}
-%   not auto move
-%   auto move=false
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  not auto move
+  auto move=false
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % \DescribeKeys[fregbool]{line numbering, not line numbering}\vals{true,false}\AfterLastParam
 % \Default{true}
 % This determines whether lines should be numbered.
 % The default is to number lines.
 % The following are equivalent to the default setting:
-% \begin{latexcode}
-%   line numbering
-%   line numbering=true
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  line numbering
+  line numbering=true
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % Either of the following will turn line numbering off:
-% \begin{latexcode}
-%   not line numbering
-%   line numbering=false
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  not line numbering
+  line numbering=false
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % \DescribeKeys[fregbool]{justifications, not justifications}\vals{true,false}\AfterLastParam
 % This determines whether justifications for lines of the proof should be typeset to the right of the tree.
 % It is rarely necessary to set this option explicitly as it will be automatically enabled if required.
 % The only exception concerns a proof for which a line should be moved but no justifications are specified.
 % In this case either of the following should be used to activate the option:
-% \begin{latexcode}
-%   justifications
-%   justifications=true
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  justifications
+  justifications=true
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % This is not necessary if \keyname[foptautotoks]{just} is used for any line of the proof.
 %
 % \DescribeKeys[fregbool]{single branches, not single branches}\vals{true,false}\AfterLastParam
@@ -1735,15 +1867,27 @@
 % This determines whether inference steps which do not result in at least two branches should draw and explicit branch.
 % The default is to not draw single branches explicitly.
 % The following are equivalent to the default setting:
-% \begin{latexcode}
-%   not single branches
-%   single branches=false
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  not single branches
+  single branches=false
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % Either of the following will turn line numbering off:
-% \begin{latexcode}
-%   single branches
-%   single branches=true
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  single branches
+  single branches=true
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % \subsubsection{Dimensions}\label{subsubsec:go-dims}
 % ^^A subsubsec:go-dims <<<
@@ -1796,10 +1940,16 @@
 % \DescribeKey[fstyle]{zero start}
 % Start line numbering from 0 rather than 1.
 % The following are equivalent:
-% \begin{latexcode}
-%   zero start
-%   line no shift=-1
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  zero start
+  line no shift=-1
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % ^^A subsubsec:go-nos >>>
 %
 % \subsubsection{Proof Statement}\label{subsubsec:go-prove}
@@ -1826,18 +1976,30 @@
 % Determines whether the symbol indicating that a line is discharged should be placed to the right of the \wff{}.
 % The alternative is, unsurprisingly, to place it to the left of the \wff{}.
 % The following are equivalent to the default setting:
-% \begin{latexcode}
-%   check right
-%   check right=true
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  check right
+  check right=true
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % \DescribeKeys[fstyle]{check left}%
 % Set \keyname[fregbool]{check right}\verb|=false|.
 % The following are equivalent ways to place the markers to the left:
-% \begin{latexcode}
-%   check right=false
-%   not check right
-%   check left
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  check right=false
+  not check right
+  check left
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % \DescribeKey[fregtoks]{close with}\val{symbol}\AfterLastParam
 % \Default{\cs{ensuremath}\arg{\cs{otimes}} (\ensuremath{\otimes})}
@@ -1870,36 +2032,60 @@
 % Determines whether variable substitution should be indicated to the right of the \wff{}.
 % The alternative is, again, to place it to the left of the \wff{}.
 % The following are equivalent to the default setting:
-% \begin{latexcode}
-%   subs right
-%   subs right=true
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  subs right
+  subs right=true
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % \DescribeKeys[fstyle]{subs left}%
 % Set \keyname[fregbool]{subs right}\verb|=false|.
 % The following are equivalent ways to place the annotations to the left:
-% \begin{latexcode}
-%   subs right=false
-%   not subs right
-%   subs left
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  subs right=false
+  not subs right
+  subs left
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % \DescribeKeys[fregbool]{just refs left, not just refs left}\vals{true,false}\AfterLastParam
 % \Default{true}
 % Determines whether line number references should be placed to the left of justifications.
 % The alternative is to place them to the right of justifications.
 % The following are equivalent to the default setting:
-% \begin{latexcode}
-%   just refs left
-%   just refs left=true
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  just refs left
+  just refs left=true
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % \DescribeKeys[fstyle]{just refs right}%
 % Set \keyname[fregbool]{just refs left}\verb|=false|.
 % The following are equivalent ways to place the references to the right:
-% \begin{latexcode}
-%   just refs left=false
-%   not just refs left
-%   just refs right
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  just refs left=false
+  not just refs left
+  just refs right
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % Note that this setting \emph{only affects the placement of line numbers specified using the cross-referencing system} explained in \cref{subsec:lo}.
 % Hard-coded line numbers in justifications will be typeset as is.
 %
@@ -2102,10 +2288,16 @@
 % \Example{wff options=\arg{magenta, draw}}
 % Note that this key is provided primarily for symmetry as it is faster to simply give the options directly to \pkg{forest} to pass on to \TikZ{}.
 % Unless \keyname[fregkeylist]{wff format} is set to a non-default value, the following are equivalent:
-% \begin{latexcode}
-%   wff options={magenta, draw}
-%   magenta, draw
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  wff options={magenta, draw}
+  magenta, draw
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % \DescribeKey[foptautotoks]{line options}\val{key-value list}\AfterLastParam
 % Additional \TikZ{} keys to apply to this proof line.
@@ -2133,14 +2325,26 @@
 % \DescribeMacro{\linenumberstyle}\marg{number}\AfterLastParam
 % This macro is responsible for formatting the line numbers.
 % The default definition is
-% \begin{latexcode}
-%   \newcommand*\linenumberstyle[1]{#1.}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  \newcommand*\linenumberstyle[1]{#1.}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % It may be redefined with \cs{renewcommand*} in the usual way.
 % For example, if for some reason you would like bold line numbers, try
-% \begin{latexcode}
-%   \renewcommand*\linenumberstyle[1]{\textbf{#1.}}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  \renewcommand*\linenumberstyle[1]{\textbf{#1.}}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 %^^A END sec:macros >>>
 %
@@ -2162,9 +2366,15 @@
 % \textbf{This step cannot be used until quite late in the tableau's processing, as it is valid only once line numbers have been assigned.}
 % Hence use of this step must always be delayed.
 % For example, to colour the \wffs{} in lines 3, 4 and 5 blue, you could add the following to the preamble:
-% \begin{latexcode}
-% before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset node}},
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset node}},
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % Note the use of \texttt{typeset node} to re-typeset the content. 
 % Without this option, the colour would have no effect.
 % ^^A subsec:camau >>>
@@ -2179,9 +2389,15 @@
 %
 % For example, adding the following to a tableau's preamble would create a node named \texttt{a} around all the \wffs{} in lines \texttt{4} to \texttt{7} inclusive.
 % Note that this does not include the line number or justification, if used, but only the \wffs{} in the ‘main’ part of the proof.
-% \begin{latexcode}
-%   nodewalk to node={a}{wffs from proof line no to={4}{7}},
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  nodewalk to node={a}{wffs from proof line no to={4}{7}},
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % \DescribeKey{nodewalk node,nodewalk node+,+nodewalk node,nodewalk node\textquotesingle}\val{key-value list}\AfterLastParam
 % \Default{inner sep=0pt}
@@ -2279,10 +2495,16 @@
 %
 % Once you have the prerequisites setup, all you need do is load \pkg{memoize} \emph{before} \pkg{prooftrees}.
 %
-% \begin{latexcode}
-% \usepackage[extraction method=perl]{memoize}% or python
-% \usepackage{prooftrees}
-% \end{latexcode}
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\usepackage[extraction method=perl]{memoize}% or python
+\usepackage{prooftrees}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 %
 % After a single compilation, your document will have expanded to include extra pages.
 % At this point, it will look pretty weird.
@@ -2503,8 +2725,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11184 2025-09-01 17:45:26Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11184 2025-09-01 17:45:26Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11185 2025-09-01 18:11:24Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11185 2025-09-01 18:11:24Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4506,7 +4728,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11184 2025-09-01 17:45:26Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11185 2025-09-01 18:11:24Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4522,7 +4744,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11184 2025-09-01 17:45:26Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11185 2025-09-01 18:11:24Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
