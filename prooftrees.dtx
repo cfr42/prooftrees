@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -700,6 +700,7 @@
 % \thispagestyle{plain}%
 % \begin{coeden}[label=sample, floatplacement={!bp}, grow to left by=3em, grow to right by=3em]{\pkg{prooftrees}: sample output}
 %   \centering
+% \mbox{%^^A required by docstrip + memoize (but only for both)
 %   \begin{tableau}
 %     {
 %       to prove={\{ P \lor (Q \lor \lnot R), P \lif \lnot R, Q \lif \lnot R \} \sststile{}{} \lnot R},
@@ -729,44 +730,51 @@
 %         ]
 %       ]
 %     ]
-%   \end{tableau}\hfill
-%   {\renewcommand*\linenumberstyle[1]{#1)}%
-%   \begin{tableau}
-%     {
-%       close with={\ensuremath{\ast}},
-%       just format={text=gray, font=\itshape},
-%       line no format={text=gray},
-%       for tree={
-%         edge path'={(!u.parent anchor) -- +(0,-5pt) -| (.child anchor)},
-%         edge={gray},
-%       },
-%       line no sep=.35em,
-%       just sep=.35em,
-%     }
-%     [P \lor (Q \lor \tnot R),  just=Ass, checked
-%       [P \supset \tnot R,  just=Ass, checked
-%         [Q \supset \tnot R,  just=Ass, checked
-%           [\tnot\tnot R, just={Neg conc}
-%             [P,  just={$\lor$ Elim:!r1}
-%               [\tnot P, close={:!u,!c}]
-%               [\tnot R,  close={:!uu,!c}, just={$\supset$ Elim:!r11}
-%               ]
-%             ]
-%             [Q \lor \tnot R, checked
-%               [Q, move by=1
-%                 [\tnot Q, close={:!u,!c}]
-%                 [\tnot R,  close={:!r1111,!c}, just={$\supset$ Elim:!r111}
+%   \end{tableau}%
+% }%^^A
+%   \hfill
+%   {%
+%     \renewcommand*\linenumberstyle[1]{#1)}%
+% \mbox{%^^A required by docstrip + memoize (but only for both)
+%     \begin{tableau}
+%       {
+%         close with={\ensuremath{\ast}},
+%         just format={text=gray, font=\itshape},
+%         line no format={text=gray},
+%         for tree={
+%           edge path'={(!u.parent anchor) -- +(0,-5pt) -| (.child anchor)},
+%           edge={gray},
+%         },
+%         line no sep=.35em,
+%         just sep=.35em,
+%       }
+%       [P \lor (Q \lor \tnot R),  just=Ass, checked
+%         [P \supset \tnot R,  just=Ass, checked
+%           [Q \supset \tnot R,  just=Ass, checked
+%             [\tnot\tnot R, just={Neg conc}
+%               [P,  just={$\lor$ Elim:!r1}
+%                 [\tnot P, close={:!u,!c}]
+%                 [\tnot R,  close={:!uu,!c}, just={$\supset$ Elim:!r11}
 %                 ]
 %               ]
-%               [\tnot R,  close={:!r1111,!c}, just={$\lor$ Elim:!u}, move by=1
+%               [Q \lor \tnot R, checked
+%                 [Q, move by=1
+%                   [\tnot Q, close={:!u,!c}]
+%                   [\tnot R,  close={:!r1111,!c}, just={$\supset$ Elim:!r111}
+%                   ]
+%                 ]
+%                 [\tnot R,  close={:!r1111,!c}, just={$\lor$ Elim:!u}, move by=1
+%                 ]
 %               ]
 %             ]
 %           ]
 %         ]
 %       ]
-%     ]
-%   \end{tableau}}
+%     \end{tableau}%
+% }%^^A
+%   }
 %
+% \mbox{%^^A required by docstrip + memoize (but only for both)
 %   \begin{tableau}
 %     {
 %       not line numbering,
@@ -800,7 +808,10 @@
 %       ]
 %     ]
 %   \end{tableau}%
-%   \hfill\begin{tableau}
+% }%^^A
+%   \hfill
+% \mbox{%^^A required by docstrip + memoize (but only for both)
+%   \begin{tableau}
 %     {
 %       to prove={\{ P \lor (Q \lor \lnot R), P \lif \lnot R, Q \lif \lnot R \} \therefore \lnot R},
 %       close with={\ensuremath{\times}},
@@ -832,7 +843,9 @@
 %       ]
 %     ]
 %   \end{tableau}
+% }%^^A
 %
+% \mbox{%^^A required by docstrip + memoize (but only for both)
 %   \begin{tableau}
 %     {
 %       to prove={(\exists x)(Lx \lor Mx) \sststile{}{} (\exists x) Lx \lor (\exists x) Mx},
@@ -859,7 +872,10 @@
 %       ]
 %     ]
 %   \end{tableau}%
-%   \hfill\begin{tableau}
+% }%^^A
+%   \hfill
+% \mbox{%^^A required by docstrip + memoize (but only for both)
+%   \begin{tableau}
 %     {
 %       for tree={%
 %         plain content,
@@ -880,8 +896,8 @@
 %         ]
 %       ]
 %     ]
-%   \end{tableau}
-%
+%   \end{tableau}%
+% }%^^A
 % \end{coeden}
 %^^A END sec:raisondetre >>>
 % \clearpage
@@ -2474,8 +2490,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4477,7 +4493,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4493,7 +4509,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11175 2025-08-31 00:30:45Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11176 2025-09-01 01:56:45Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
