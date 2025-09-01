@@ -39,7 +39,7 @@ memos/08DAA7A1056F412B770A507AF950152B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/08DAA7A1056F412B770A507AF950152B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/08DAA7A1056F412B770A507AF950152B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{08DAA7A1056F412B770A507AF950152B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\quitvmode \mmzIncludeExtern {0}\hbox {65.53758pt}{7.63852pt}{59.2774pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {25}%[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {65.33188pt}{7.75298pt}{59.38297pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {25}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
@@ -64,54 +64,59 @@ memos/B9E0A01BC202203A02EA915EB62FD408-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/B9E0A01BC202203A02EA915EB62FD408-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/B9E0A01BC202203A02EA915EB62FD408-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{B9E0A01BC202203A02EA915EB62FD408-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\quitvmode \mmzIncludeExtern {0}\hbox {64.85121pt}{7.63852pt}{59.2774pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {25}%[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {64.86188pt}{7.75298pt}{59.38297pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {25}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
 -------- memos/B9E0A01BC202203A02EA915EB62FD408-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 Completed box being shipped out [1]
-\vbox(633.0+0.0)x407.0
-.\hbox(0.0+0.0)x0.0
-..\kern -72.26999
-..\vbox(0.0+0.0)x0.0, glue set 72.270fil
-...\kern -72.26999
-...\hbox(0.0+0.0)x0.0
-....\hbox(0.0+0.0)x0.0, glue set 72.270fil, shifted 72.26999
-.....\kern -72.26999
+\vbox(633.0+0.0)x407.0, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(0.0+0.0)x0.0, glue set 72.26999fil, shifted 72.26999, direction TLT
+.....\kern-72.26999
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 0.0 plus 1.0fil minus 1.0fil
 .\glue 16.0
-.\vbox(617.0+0.0)x345.0, shifted 62.0
-..\vbox(12.0+0.0)x345.0, glue set 12.000fil
+.\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x345.0
+...\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 push {0 g 0 G}
-....\hbox(0.0+0.0)x345.0
+....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(550.0+0.0)x345.0, glue set 485.671fil
+..\vbox(550.0+0.0)x345.0, glue set 485.56519fil, direction TLT
 ...\write-{}
 ...\pdfcolorstack 0 push {0 g 0 G}
-...\glue(\topskip) 2.36148
-...\hbox(7.63852+59.2774)x345.0, glue set 186.291fil
-....\hbox(0.0+0.0)x15.0
-....\hbox(7.63852+59.2774)x64.85121
-.....\hbox(7.63861+59.2774)x64.8513
-......\hbox(211.456+0.0)x137.12129, shifted 131.5474
+...\glue(\topskip) 2.24702
+...\hbox(7.75298+59.38297)x345.0, glue set 186.48624fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x15.0, direction TLT
+....\hbox(7.75298+59.38297)x64.86188, direction TLT
+.....\hbox(7.75287+59.38297)x64.86235, direction TLT
+......\hbox(211.67581+0.0)x137.13234, shifted 131.65295, direction TLT
 .......\glue -72.26999
-.......\image(211.456+0.0)x209.39128
-....\glue 3.330 plus 1.665 minus 1.110
-....\hbox(7.63852+59.2774)x65.53758
-.....\hbox(7.63861+59.2774)x65.53787
-......\hbox(211.456+0.0)x137.80786, shifted 131.5474
+.......\image(211.67581+0.0)x209.40233
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\hbox(7.75298+59.38297)x65.33188, direction TLT
+.....\hbox(7.75287+59.38297)x65.3321, direction TLT
+......\hbox(211.67581+0.0)x137.6021, shifted 131.65295, direction TLT
 .......\glue -72.26999
-.......\image(211.456+0.0)x210.07785
-....\glue 3.330 plus 1.665 minus 1.110
-....\glue 3.330 plus 1.665 minus 1.110
-....\glue 3.330 plus 1.665 minus 1.110
+.......\image(211.67581+0.0)x209.87209
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -120,12 +125,12 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 23.34
-..\hbox(6.66+0.0)x345.0
+..\hbox(6.66+0.0)x345.0, direction TLT
 ...\pdfcolorstack 0 push {0 g 0 G}
-...\hbox(6.66+0.0)x345.0, glue set 170.000fil
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
 ....\TU/lmr/m/n/10 1
 ....\glue 0.0 plus 1.0fil
 ...\pdfcolorstack 0 pop
-.\kern 0.0
+.\kern0.0
 <./memos/B9E0A01BC202203A02EA915EB62FD408-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf><./memos/08DAA7A1056F412B770A507AF950152B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf> (prooftrees-memoize-t2-alignment.aux)

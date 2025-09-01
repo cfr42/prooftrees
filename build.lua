@@ -1,4 +1,4 @@
--- $Id: build.lua 11178 2025-09-01 04:30:34Z cfrees $
+-- $Id: build.lua 11181 2025-09-01 16:42:05Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 maindir = maindir or "."

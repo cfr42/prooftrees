@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11180 2025-09-01 16:40:51Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -1030,18 +1030,26 @@
 %                 },
 %               },
 %             }{%
-%               if={>R_=O_=&{tempcounta}{8}{n}{1}}{%
-%                 nyth={(!1111) (!llll) (!lllll)}{8}{p},
-%               }{%
-%                 if={>O_={n}{2}}{%
-%                   before drawing tree={green,typeset node},
-%                   nyth/.process={Rw{tempcounta}{{(!1)}{#1}{q}}},
-%                   tempcounta'+=1,
-%                   nyth/.process={Rw{tempcounta}{{(!11)}{#1}{q}}},
-%                   tempcounta'+=1,
-%                   nyth/.process={Rw{tempcounta}{{(!111)}{#1}{p}}},
-%                 }{},
-%               },
+%               tempcountb/.register=tempcounta,
+%               if={>R_={tempcounta}{8}}{%
+%                 if n=1{%^^A is-goeden ar y chwith
+%                   nyth={(!1111) (!llll) (!lllll)}{8}{p},
+%                 }{%^^A is-goeden ar y dde
+%                   nyth={(!1) (!11)}{8}{q},
+%                 },
+%                 tempcounta'+=1,
+%                 for n=1{%
+%                   if={>O_={!u.n}{1}}{%^^A is-goeden ar y chwith
+%                     nyth={(!Fuu) (!Luu)}{9}{p},
+%                   }{%^^A is-goeden ar y dde
+%                     nyth={(!1)}{9}{q},
+%                     tempcounta'+=1,
+%                     for n=1{%
+%                       nyth={}{10}{p},
+%                     },
+%                   },
+%                 },
+%               }{},
 %             },
 %           },
 %         },
@@ -2492,8 +2500,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11180 2025-09-01 16:40:51Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11180 2025-09-01 16:40:51Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4495,7 +4503,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11180 2025-09-01 16:40:51Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4511,7 +4519,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11177 2025-09-01 04:29:36Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11180 2025-09-01 16:40:51Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
