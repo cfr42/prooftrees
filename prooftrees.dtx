@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -666,77 +666,89 @@
 % \section{Raison d'être}\label{sec:raisondetre}
 %^^A BEGIN raisondetre <<<
 %
-% Suppose that we wish to typeset a typical proof tree demonstrating the following entailment
+% Suppose that we wish to typeset a typical tableau demonstrating the following entailment
 % \[
 %   \{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile{}{} \lnot R
 % \]
 %
 % We start by typesetting the tree using \pkg{forest}'s default settings (\cref{fordefaults}) and find our solution has several advantages: the proof is specified concisely and the code reflects the structure of the tree.
-% \begin{codcoeden}[label=fordefaults,floatplacement=bp!]{\pkg{forest}: default settings}
-% \begin{forest}
-%   [$P \vee (Q \vee \lnot R)$
-%     [$P \lif \lnot R$
-%       [$Q \lif \lnot R$
-%         [$\lnot\lnot R$
-%           [$P$
-%             [$\lnot P$]
-%             [$\lnot R$]
-%           ]
-%           [$Q \vee \lnot R$
-%             [$Q$
-%               [$\lnot Q$]
-%               [$\lnot R$]
-%             ]
-%             [$\lnot R$]
-%           ]
-%         ]
-%       ]
-%     ]
-%   ]
-% \end{forest}
-% \end{codcoeden}
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}[label=fordefaults,floatplacement=bp!]{\pkg{forest}: default settings}
+\begin{forest}
+  [$P \vee (Q \vee \lnot R)$
+    [$P \lif \lnot R$
+      [$Q \lif \lnot R$
+        [$\lnot\lnot R$
+          [$P$
+            [$\lnot P$]
+            [$\lnot R$]
+          ]
+          [$Q \vee \lnot R$
+            [$Q$
+              [$\lnot Q$]
+              [$\lnot R$]
+            ]
+            [$\lnot R$]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
 % It is relatively straightforward to specify a proof using \pkg{forest}'s bracket notation, and the spacing of nodes and branches is automatically calculated.
 %
-% Despite this, the results are not quite what we might have hoped for in a proof tree.
+% Despite this, the results are not quite what we might have hoped for in a tableau.
 % The assumptions should certainly be grouped more closely together and no edges (lines) should be drawn between them because these are not steps in the proof --- they do not represent inferences.
 % Preferably, edges should start from a common point in the case of branching inferences, rather than there being a gap.
 %
-% Moreover, proof trees are often compacted so that \emph{non-branching} inferences are grouped together, like assumptions, without explicitly drawn edges.
-% Although explicit edges to represent non-branching inferences are useful when introducing students to proof trees, more complex proofs grow unwieldy and the more compact presentation becomes essential.
+% Moreover, tableaux are often compacted so that \emph{non-branching} inferences are grouped together, like assumptions, without explicitly drawn edges.
+% Although explicit edges to represent non-branching inferences are useful when introducing students to tableaux, more complex proofs grow unwieldy and the more compact presentation becomes essential.
 %
-% Furthermore, it is useful to have the option of \emph{annotating} proof trees by numbering the lines of the proof on the left and entering the justification for each line on the right.
+% Furthermore, it is useful to have the option of \emph{annotating} tableaux by numbering the lines of the proof on the left and entering the justification for each line on the right.
 %
 % \pkg{forest} is a powerful and flexible package capable of all this and, indeed, a good deal more.
 % It is not enormously difficult to customise particular trees to meet most of our desiderata.
 % However, it is difficult to get things perfectly aligned even in simple cases, requires the insertion of ‘phantom’ nodes and management of several sub-trees in parallel (one for line numbers, one for the proof and one for the justifications).
 % The process requires a good deal of manual intervention, trial-and-error and hard-coding of things it would be better to have \LaTeXe{} manage for us, such as keeping count of lines and line references.
 %
-% \pkg{prooftrees} aims to make it as easy to specify proof trees as it was to specify our initial tree using \pkg{forest}'s default settings.
+% \pkg{prooftrees} aims to make it as easy to specify tableaux as it was to specify our initial tree using \pkg{forest}'s default settings.
 % The package supports a small number of options which can be configured to customise the output.
-% The code for a \pkg{prooftrees} proof tree is shown in \cref{ptdefaults}, together with the output obtained using the default settings.
+% The code for a \pkg{prooftrees} tableau is shown in \cref{ptdefaults}, together with the output obtained using the default settings.
 %
-% \begin{codcoeden}*[label=ptdefaults]{\pkg{prooftrees}: default settings}
-% \begin{tableau}
-%   {
-%     to prove={\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile{}{} \lnot R}
-%   }
-%   [P \vee (Q \vee \lnot R),  just=Ass, checked
-%     [P \lif \lnot R,  just=Ass, checked
-%       [Q \lif \lnot R,  just=Ass, checked, name=last premise
-%         [\lnot\lnot R, just={$\lnot$ Conc}, name=not conc
-%           [P,  just={$\vee$ Elim:!uuuu}
-%             [\lnot P, close={:!u,!c}]
-%             [\lnot R,  close={:not conc,!c}, just={$\lif$ Elim:!uuuu}]]
-%           [Q \vee \lnot R
-%             [Q, move by=1
-%               [\lnot Q, close={:!u,!c}]
-%               [\lnot R,  close={:not conc,!c}, just={$\lif$ Elim:last premise}]]
-%             [\lnot R, close={:not conc,!c}, move by=1, just={$\vee$ Elim:!u}]]]]]]
-% \end{tableau}
-% \end{codcoeden}
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}*[label=ptdefaults]{\pkg{prooftrees}: default settings}
+\begin{tableau}
+  {
+    to prove={\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile{}{} \lnot R}
+  }
+  [P \vee (Q \vee \lnot R),  just=Ass, checked
+    [P \lif \lnot R,  just=Ass, checked
+      [Q \lif \lnot R,  just=Ass, checked, name=last premise
+        [\lnot\lnot R, just={$\lnot$ Conc}, name=not conc
+          [P,  just={$\vee$ Elim:!uuuu}
+            [\lnot P, close={:!u,!c}]
+            [\lnot R,  close={:not conc,!c}, just={$\lif$ Elim:!uuuu}]]
+          [Q \vee \lnot R
+            [Q, move by=1
+              [\lnot Q, close={:!u,!c}]
+              [\lnot R,  close={:not conc,!c}, just={$\lif$ Elim:last premise}]]
+            [\lnot R, close={:not conc,!c}, move by=1, just={$\vee$ Elim:!u}]]]]]]
+\end{tableau}
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
 % More extensive configuration can be achieved by utilising \pkg{forest} \autocite{saso-forest-manual} and/or \TikZ{} \autocite{tantau-tikz-pgf-manual} directly.
-% A sample of supported proof tree styles are shown in \cref{sample}.
-% The package is \emph{\bfseries not} intended for the typesetting of proof trees which differ significantly in structure.
+% A sample of supported tableau styles are shown in \cref{sample}.
+% The package is \emph{\bfseries not} intended for the typesetting of tableaux which differ significantly in structure.
 % \clearpage
 % \thispagestyle{plain}%
 % \begin{coeden}[label=sample, floatplacement={!bp}, grow to left by=3em, grow to right by=3em]{\pkg{prooftrees}: sample output}
@@ -965,20 +977,24 @@
 %   If $\mathcal{L}$ fails to satisfy this condition, \pkg{prooftrees} is likely to violate the requirements of affected derivation rules by splitting branches ‘mid-inference’.
 %   \item No derivation rule yields \wff{}s on more than two branches.
 %   \item All derivation rules proceed in a downwards direction at an angle of -90\textdegree{} i.e.~from north to south.
-%   \item Any justifications are set on the far right of the proof tree.
-%   \item Any line numbers are set on the far left of the proof tree.
+%   \item Any justifications are set on the far right of the tableau.
+%   \item Any line numbers are set on the far left of the tableau.
 %   \item Justifications can refer only to earlier lines in the proof.
 %   \pkg{prooftrees} can typeset proofs if $\mathcal{L}$ violates this condition, but the cross-referencing system explained in \cref{subsec:lo} cannot be used for affected justifications.
 % \end{itemize}
-% \pkg{prooftrees} does not support the automatic breaking of proof trees across pages.
-% Proof trees can be manually broken by using \keyname[fregcount]{line no shift} with an appropriate value for parts after the first (\cref{subsec:go}).
+% \pkg{prooftrees} does not support the automatic breaking of tableaux across pages\footnote{%
+%   It is possible to persuade \pkg{prooftrees} to do this automatically or semi-automatically.
+%   However, the code is not in a state I would wish to inflict on an unsuspecting public.
+%   The perilously inquisitive may search TeX Stack Exchange at their own risk.%^^A
+% }.
+% Tableaux can be manually broken by using \keyname[fregcount]{line no shift} with an appropriate value for parts after the first (\cref{subsec:go}).
 % However, horizontal alignment across page breaks will not be consistent in this case.
 %
 % In addition, \pkg{prooftrees} almost certainly relies on additional assumptions not articulated above and certainly depends on a feature of \pkg{forest} which its author classifies as experimental (\keyname*{do dynamics}).
 %
 %^^A END sec:ass >>>
 %
-% \section{Typesetting a Proof Tree}\label{sec:ee}
+% \section{Typesetting a Tableau}\label{sec:ee}
 %^^A BEGIN sec:ee <<<
 %
 % After loading \pkg{prooftrees} in the document preamble:
@@ -992,14 +1008,14 @@
 % \iffalse
 %</verb>
 % \fi
-% the \env{prooftree} environment is available for typesetting proof trees.
+% the \env{prooftree} environment is available for typesetting tableaux.
 % This takes an argument used to specify a \meta{tree preamble}, with the body of the environment consisting of a \meta{tree specification} in \pkg{forest}'s notation.
 % The \meta{tree preamble} can be as simple as an empty argument --- \arg{} --- or much more complex.
 %
 % Customisation options and further details concerning loading and invocation are explained in \cref{sec:llwytho}, \cref{sec:invoke}, \cref{sec:anatomy}, \cref{sec:ops} and \cref{sec:macros}.
 % In this section, we begin by looking at a simple example using the default settings.
 %
-% Suppose that we wish to typeset the proof tree for
+% Suppose that we wish to typeset the tableau for
 % \[
 %   (\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)
 % \]
@@ -1021,7 +1037,7 @@
 % That is all the preamble we want, so we move onto consider the \meta{tree specification}.
 % \pkg{forest} uses square brackets to specify trees' structures.
 % To typeset a proof, think of it as consisting of nested trees, trunks upwards, and work from the outside in and the trunks down (\cref{nythod}).
-% \begin{coeden}[label=nythod]{Nested structure of proof tree}
+% \begin{coeden}[label=nythod]{Nested structure of tableau}
 % \begin{tableau}
 %   {
 %     to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)},
@@ -1720,7 +1736,7 @@ Package prooftrees Warning: Merging conflicting justifications for line 10! Plea
 %
 %^^A END sec:invoke >>>
 %
-% \section{Proof Tree Anatomy}\label{sec:anatomy}
+% \section{Tableau Anatomy}\label{sec:anatomy}
 %^^A BEGIN sec:anatomy <<<
 % The following diagram provides an overview of the configuration and anatomy of a \pkg{prooftrees} proof tree.
 % Detailed documentation is provided in \cref{sec:ops} and \cref{sec:macros}.
@@ -1820,7 +1836,7 @@ Package prooftrees Warning: Merging conflicting justifications for line 10! Plea
 %
 % The following options affect the global style of the tree and should typically be set in the tree's preamble if non-default values are desired.
 % The default values for the document can be set outside the \env{prooftree} environment using \cs{forestset}\marg{settings}.
-% If \emph{only} proof trees will be typeset, a default style can be configured using \pkg{forest}'s \keyname*[fkeylist]{default preamble}.
+% If \emph{only} tableaux will be typeset, a default style can be configured using \pkg{forest}'s \keyname*[fkeylist]{default preamble}.
 %
 % \changes{v0.7}{}{Implement \pkg{forest} boolean register \texttt{auto move}.
 % The main point of this option is to allow automatic moves to be switched off if one teaches students to first apply  all available non-branching rules for the tableau as a whole, as opposed to all non-branching rules for the sub-tree.
@@ -2749,8 +2765,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4380,7 +4396,8 @@ for root'={%
 %<*!debug>
 % \fi
 % \changes{v0.9}{}{Add support for \pkg{memoize} and utilise for documentation.}
-% \begin{macro}{\__prooftrees_memoize:n,\__prooftrees_memoize:V}
+% \begin{macro}{\__prooftrees_memoize:n}
+% \begin{macro}{\__prooftrees_memoize:V}
 % ^^A memoize <<<
 %   Internal macro so we don't memoize \pkg{bussproofs}'s \texttt{prooftree} by mistake.
 %    \begin{macrocode}
@@ -4393,6 +4410,7 @@ for root'={%
 \cs_generate_variant:Nn \__prooftrees_memoize:n { V }
 %    \end{macrocode}
 % ^^A memoize >>>
+% \end{macro}
 % \end{macro}
 % ^^A delay to begindocument/before <<<
 % Paid â memoize \pkg{bussproofs} \texttt{prooftree} \dots. 
@@ -4411,9 +4429,9 @@ for root'={%
   }{\newif\ifmemoizing\memoizingfalse}
 %    \end{macrocode}
 % \begin{macro}{%
-%   \__tableau_property_ref_orig:nn,
-%   \__tableau_property_ref_orig:ee,
-% }
+%   \__tableau_property_ref_orig:nn}
+% \begin{macro}{%
+%   \__tableau_property_ref_orig:ee}
 % \mbox{}
 % \changes{v0.0}{2025-08-25}{Use \pkg{mmzx-ext} stuff if loaded, but don't require for now, anyway.}
 %    \begin{macrocode}
@@ -4444,6 +4462,7 @@ for root'={%
   }
   \cs_generate_variant:Nn \__tableau_property_ref_orig:nn {ee}
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 % \changes{v0.0}{2025-08-27}{Use \pkg{unicode-math} rather than \pkg{amssymb} and \pkg{amstext} on Unicode engines, but, in any case, only load what's needed.}
 %    \begin{macrocode}
@@ -4513,9 +4532,9 @@ for root'={%
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{%
-%   \__tableau_pgftikz_tag_bbox:nnn,%
-%   \__tableau_pgftikz_tag_bbox:enn,%
-% }
+%   \__tableau_pgftikz_tag_bbox:nnn}
+% \begin{macro}{%
+%   \__tableau_pgftikz_tag_bbox:enn}
 % \mbox{}
 %    \begin{macrocode}
 \cs_new_nopar:Npn \__tableau_pgftikz_tag_bbox:nnn #1#2#3
@@ -4532,10 +4551,11 @@ for root'={%
 \cs_generate_variant:Nn \__tableau_pgftikz_tag_bbox:nnn {enn}
 %    \end{macrocode}
 % \end{macro}
+% \end{macro}
 % \begin{macro}{%
-%   \__tableau_pgftikz_tag_bbox_aux:nnnn,%
-%   \__tableau_pgftikz_tag_bbox_aux:eenn,%
-% }
+%   \__tableau_pgftikz_tag_bbox_aux:nnnn}
+% \begin{macro}{%
+%   \__tableau_pgftikz_tag_bbox_aux:eenn}
 % \mbox{}
 %    \begin{macrocode}
 \cs_new_nopar:Npn \__tableau_pgftikz_tag_bbox_aux:nnnn #1#2#3#4
@@ -4550,6 +4570,7 @@ for root'={%
 }
 \cs_generate_variant:Nn \__tableau_pgftikz_tag_bbox_aux:nnnn {eenn}
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 % Sockets. 
 % No idea how to index.
@@ -4669,8 +4690,9 @@ for root'={%
 %    \end{macrocode}
 %</!debug>
 % \begin{macro}{%
-%   \prooftrees@ttableau@init,\__tableau_ttableau_init:%
-% }
+%   \prooftrees@ttableau@init}
+% \begin{macro}{%
+%   \__tableau_ttableau_init:}
 % \changes{v0.0}{2025-08-25}{Added \ecs{__tableau_ttableau_init:}.}
 %   I think I don't really get the ‘plug’ concept.
 %   It is surely pointless to assign and immediately use one in a package which defines the relevant socket?
@@ -4709,9 +4731,11 @@ for root'={%
 %<*!debug>
 % \fi
 % \end{macro}
+% \end{macro}
 % \begin{macro}{%
-%   \prooftrees@ttableau,\__tableau_ttableau:nnn%
-% }
+%   \prooftrees@ttableau}
+% \begin{macro}{%
+%   \__tableau_ttableau:nnn}
 % \changes{v0.0}{2025-08-25}{Added \ecs{__tableau_ttableau:nnn}, \cs{prooftrees@ttableau}.}
 % \mbox{}
 %    \begin{macrocode}
@@ -4734,6 +4758,7 @@ for root'={%
 \cs_new_eq:NN \prooftrees@ttableau \__tableau_ttableau:nnn
 %    \end{macrocode}
 % \end{macro}
+% \end{macro}
 % ^^A tagsupport >>>
 % \iffalse
 %</!debug>
@@ -4752,7 +4777,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4768,7 +4793,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
