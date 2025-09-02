@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11190 2025-09-02 00:02:01Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -202,29 +202,66 @@
 \newcommand*\valmarg[1]{{\ttfamily = \marg{#1}}}
 \newcommand*\pkg[1]{\textsf{#1}}
 \DeclareRobustCommand\macrolabelfont{\normalfont\footnotesize\em\normalcolor}
+\ExplSyntaxOn
+\cs_new_nopar:Npn \prooftreesdoc_new_label:nnn #1#2#3
+{
+  \cs_new_nopar:cpn {#1labelname} {#2}
+  \cs_new_nopar:cpn {#1shortname} {#3}
+}
+\cs_new_nopar:Npn \__prooftreesdo_new_forest_label:nn #1#2
+{
+  \prooftreesdoc_new_label:nnn {#1}{Forest~#2}{#2}
+}
+\seq_set_split:Nnn \l_tmpa_seq {,}
+{
+  fkeylist,
+  fregkeylist,
+  foptkeylist,
+  freg,
+  fopt,
+  fregdim,
+  fregcount,
+  fregtoks,
+  fopttoks,
+  fregbool,
+  foptbool,
+  fregautotoks,
+  foptautotoks,
+  fstyle,
+  fstylewrap,
+  fbracketkey,
+  flstep,
+  fsstep,
+  fstep,
+}
+\seq_set_split:Nnn \l_tmpb_seq {,}
+{
+  keylist,
+  keylist~register,
+  keylist~option,
+  register,
+  option,
+  dimension~register,
+  count~register,
+  toks~register,
+  toks~option,
+  boolean~register,
+  boolean~option,
+  autowrapped~toks~register,
+  autowrapped~toks~option,
+  style,
+  wrapped~style,
+  bracket~key,
+  long~step,
+  short~step,
+  step,
+}
+\seq_map_pairwise_function:NNN \l_tmpa_seq \l_tmpb_seq \__prooftreesdo_new_forest_label:nn
+\ExplSyntaxOff
 \newcommand*\macrolabelname{macro}
 \newcommand*\PrintLabelName[2][\normalfont\normalsize\normalcolor]{#1#2}
 \newcommand*\envlabelname{environment}
 \newcommand*\keylabelname{key}
-\newcommand*\fkeylistlabelname{Forest keylist}
-\newcommand*\fregkeylistlabelname{Forest keylist register}
-\newcommand*\foptkeylistlabelname{Forest keylist option}
-\newcommand*\freglabelname{Forest register}
-\newcommand*\foptlabelname{Forest option}
-\newcommand*\fregdimlabelname{Forest dimension register}
-\newcommand*\fregcountlabelname{Forest count register}
-\newcommand*\fregtokslabelname{Forest toks register}
-\newcommand*\fopttokslabelname{Forest toks option}
-\newcommand*\fregboollabelname{Forest boolean register}
-\newcommand*\foptboollabelname{Forest boolean option}
-\newcommand*\fregautotokslabelname{Forest autowrapped toks register}
-\newcommand*\foptautotokslabelname{Forest autowrapped toks option}
-\newcommand*\fstylelabelname{Forest style}
-\newcommand*\fstylewraplabelname{Forest wrapped style}
-\newcommand*\fbracketkeylabelname{Forest bracket key}
-\newcommand*\flsteplabelname{Forest long step}
-\newcommand*\fssteplabelname{Forest short step}
-\newcommand*\fsteplabelname{Forest step}
 \newcommand*\pkgoptlabelname{package option}
 \newcommand*\pkglabelname{package}
 \let\PrintDescribeKey\PrintDescribeMacro
@@ -2400,7 +2437,7 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 %</verb>
 % \fi
 %
-% \DescribeKey[fstylewrap]{nodewalk node,nodewalk node+,+nodewalk node,nodewalk node\textquotesingle}\val{key-value list}\AfterLastParam
+% \DescribeKeys[fstylewrap]{nodewalk node, nodewalk node+, +nodewalk node, nodewalk node\textquotesingle}\val{key-value list}\AfterLastParam
 % \Default{inner sep=0pt}
 % Style applied to any \TikZ{} nodes created using \keyname[fstyle]{nodewalk to node}.
 % The versions with \texttt{+} prepend/append to the existing style, while the \texttt{\textquotesingle} version replaces it.
@@ -2586,9 +2623,9 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 %     This is largely a matter of setting \pkg{latex-lab}'s plug for \pkg{tikz} to \texttt{artifact}.
 %     This is necessary because a \pkg{forest} tree involves \emph{many} uses of \env{tikzpicture} and the default tagging can result in erroneous structures and/or compilation errors and produces at best chaotic \texttt{marked content}.
 %   \item\label{enum:stages} Starts \env{forest} with a custom definition of \keyname[foptkeylist]{stages}.
-% Any \foptkeylistlabelname{} prefixed with \texttt{proof tree} is used internally by \pkg{prooftrees} to process the tableau.
-% \keyname[fstyle][tag tableau stage] executes the code actually responsible for tagging the proof. 
-% Any \foptkeylistlabelname{} described as ‘Does nothing by default.’ is explicitly intended for users to customise the process.
+% Any \foptkeylistshortname{} prefixed with \texttt{proof tree} is used internally by \pkg{prooftrees} to process the tableau.
+% \keyname[fstyle]{tag tableau stage} executes the code actually responsible for tagging the proof. 
+% Any \foptkeylistshortname{} described as ‘Does nothing by default.’ is explicitly intended for users to customise the process.
 % See \cref{sec:keylists} for details.
 %
 % Here is a (long!) step-by-step description of \pkg{prooftrees}'s redefinition of \texttt{stages}.
@@ -2606,46 +2643,46 @@ for root'={%
 % \iffalse
 %</verb>
 % \fi
-%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{given options}.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before copying content}.
+%       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{given options}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before copying content}.
 %         Does nothing by default.
-%       \item Process the \foptkeylistlabelname{}  \keyname[foptkeylist]{proof tree copy content}.
+%       \item Process the \foptkeylistshortname{}  \keyname[foptkeylist]{proof tree copy content}.
 %         Does nothing unless tagging.
-%       \item Process the \foptkeylistlabelname{}  \keyname[foptkeylist]{proof tree after copying content}.
-%       \item Process the \foptkeylistlabelname{}  \keyname[foptkeylist]{proof tree before typesetting nodes}.
-%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before typesetting nodes}.
-%       \item Process  the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree ffurf}.
-%       \item Process  the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree symud awto}.
+%       \item Process the \foptkeylistshortname{}  \keyname[foptkeylist]{proof tree after copying content}.
+%       \item Process the \foptkeylistshortname{}  \keyname[foptkeylist]{proof tree before typesetting nodes}.
+%       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{before typesetting nodes}.
+%       \item Process  the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree ffurf}.
+%       \item Process  the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree symud awto}.
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{typeset nodes stage}.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree before packing}.
-%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before packing}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree before packing}.
+%       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{before packing}.
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{pack stage}.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree before computing xy}.
-%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before computing xy}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree before computing xy}.
+%       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{before computing xy}.
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{compute xy stage}.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before making annotations}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before making annotations}.
 %         Does nothing unless by default.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree creu nodiadau}.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before annotating}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree creu nodiadau}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before annotating}.
 %         Does nothing unless by default.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree nodiadau}.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree before drawing tree}.
-%       \item Process the \pkg{forest} \foptkeylistlabelname{} \keyname[foptkeylist]{before drawing tree}.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before making tags}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree nodiadau}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree before drawing tree}.
+%       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{before drawing tree}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before making tags}.
 %         Does nothing unless by default.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree make tags}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree make tags}.
 %         Does nothing unless tagging.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{before getting tags}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before getting tags}.
 %         Does nothing unless by default.
-%       \item Process the \foptkeylistlabelname{} \keyname[foptkeylist]{proof tree get tags}.
+%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree get tags}.
 %         Does nothing unless tagging.
 %       \item Execute \keyname[fstyle]{tag tableau stage}.
 %         Does nothing unless tagging.
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{draw tree stage}.
 %     \end{enumerate}
-%   \item Applies \fstylelabelname{} \keyname[fstyle]{proof tree}.
+%   \item Applies \fstyleshortname{} \keyname[fstyle]{proof tree}.
 %     \textbf{This style should NOT be used directly.}
-%   \item Applies \fstylelabelname{} \keyname[fstyle]{ttableau}.
+%   \item Applies \fstyleshortname{} \keyname[fstyle]{ttableau}.
 %     This does nothing unless tagging is enabled.
 %     \textbf{This style should NOT be used directly.}
 %   \item Executes the content of \env{prooftree}/\env{tableau}'s mandatory argument.
@@ -2678,25 +2715,12 @@ for root'={%
 % \loadgeometry{safonol}%
 % \fancyheadoffset[lh]{0pt}%
 % 
-% ^^A \section{Implementation}
-% ^^A {%
-% ^^A   % \makeatletter
-% ^^A   % \def\@xobeysp{\leavevmode\penalty100\ }%
-% ^^A   % \makeatother
-% ^^A   % \verbatiminput{prooftrees.sty}%
-% ^^A }
-% ^^A \lstinputlisting[style=lstsrc,numbers=left,inputencoding=utf8/latin1]{prooftrees.sty}
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \StopEventually{%^^A \MaybeStop is v3 
 %   \def\glossaryname{Change History}%^^A
 %   \PrintChanges
 %   \PrintIndex
 % }
-%
-%^^A \onecolumn
-%^^A \appendix
 % 
 % \section{Implementation}\label{sec:imp}
 %
@@ -2725,8 +2749,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11190 2025-09-02 00:02:01Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11190 2025-09-02 00:02:01Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4728,7 +4752,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11190 2025-09-02 00:02:01Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4744,7 +4768,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11190 2025-09-02 00:02:01Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11191 2025-09-02 02:58:46Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
