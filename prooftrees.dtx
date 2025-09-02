@@ -1,5 +1,5 @@
 % \iffalse meta-comment
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % prooftrees.dtx
 % Additions and changes Copyright (C) 2016-2025 Clea F. Rees.
 % Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
@@ -23,8 +23,8 @@
 % dtxtut by Scott Pakin. A copy of dtxtut, including the
 % unmodified version of skeleton.dtx is available from
 % https://www.ctan.org/pkg/dtxtut and released under the LPPL.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % arara: pdflatex: { synctex: true, shell: false }
 % arara: biber
 % arara: makeindex 
@@ -32,7 +32,7 @@
 % arara: pdflatex: { synctex: true, shell: false }
 % biber --output_format=bibtex --output_resolve prooftrees.bcf to generate .bib for upload
 % sed -i '/1977/s/DATE/YEAR'
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \fi
 %
 % \iffalse
@@ -114,13 +114,17 @@
 }
 \usepackage{tcolorbox}
 \tcbuselibrary{listingsutf8}% ^^A if you use skins, you need to disable externalisation for boxes which use the relevant options - gweler nodiadau/tex/tex.se/tcolorbox-coursepacket-exp.tex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % ^^A Sašo Živanović: https://github.com/sasozivanovic/memoize/issues/31#issuecomment-2424700001
 \csappto{tcb@shield@@externalize}{\ifdefined\memoizefalse\memoizefalse\fi}
 \tcbset{shield externalize}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \let\docenvironment\environment
 \let\enddocenvironment\endenvironment
+\let\docmacrocode\macrocode
+\let\enddocmacrocode\endmacrocode
+\let\docmacro\macro
+\let\enddocmacro\endmacro
 \usepackage[%^^A 
   loadHyperref=true,
   createIndexEntries=false,
@@ -281,7 +285,9 @@
   \twocolumn[\section*{\indexname}
     \emph{%^^A 
       Features are sorted by kind.
-      Page references are given for both definitions and comments on use.}\bigskip
+      Page references are given for both definitions and comments on use.
+      Underlined numbers refer to code line numbers; the remainder to pages.%
+    }\bigskip
   ]%^^A 
   \markboth{\indexname}%^^A 
   {\indexname}%^^A 
@@ -399,7 +405,7 @@
 \appto\mmzAtEndMemoization{%^^A
   \xtoksapp\mmzCMemo{\string^\string^A}%^^A
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ExplSyntaxOn
 \keys_define:nn { prooftrees / doc }
 {
@@ -456,7 +462,7 @@
 % ^^A % ^^A \definecolor{strawberry}{rgb}{1.000,0.000,0.502}
 % ^^A % ^^A \definecolor{blueberry}{rgb}{0.000,0.000,1.000}
 % ^^A % ^^A \definecolor{moss}{rgb}{0.000,0.502,0.251}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhf[lh]{\textit{\leftmark}}
@@ -481,6 +487,10 @@
   \section*{#1}%^^A
   \markboth{#1}{}}
 \errorcontextlines=10
+% ^^A break long code lines unsuccessfully
+\makeatletter
+\def\@xobeysp{\leavevmode\penalty100\ }
+\makeatother
 %^^A END preamble >>>
 \begin{document}
 %^^A \let\MakePrivateLetters\MyMakePrivateLetters
@@ -488,8 +498,8 @@
 \end{document}
 %</driver>
 % \fi
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \newgeometry{headheight=12pt,scale=.8,marginparwidth=0pt,marginparsep=0pt}%
 % \savegeometry{safonol}%
 % \setlength\tewadjust{\marginparwidth+\marginparsep}%
@@ -2716,8 +2726,8 @@ for root'={%
 %
 % \printbibliography
 %
-% \loadgeometry{safonol}%
-% \fancyheadoffset[lh]{0pt}%
+% ^^A \loadgeometry{safonol}%
+% ^^A \fancyheadoffset[lh]{0pt}%
 % 
 % \changes{v0.0}{2025-08-20}{Switch to \pkg{docstrip}.}
 % \changes{v0.9}{0001-01-01}{Use \cs{NewDocumentEnvironment}, removing direct dependency on \pkg{environ}.}
@@ -2733,7 +2743,7 @@ for root'={%
 % }
 % \changes{v0.3}{0001-01-01}{First CTAN release.}
 % 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \StopEventually{%^^A \MaybeStop is v3 
 %   \def\glossaryname{Change History}%^^A
 %   \PrintChanges
@@ -2745,6 +2755,10 @@ for root'={%
 % ^^A if I'd known what doctools did, I'd never have used it in the first place
 % ^^A \let\environment\docenvironment
 % ^^A \let\endenvironment\enddocenvironment
+% \let\macrocode\docmacrocode
+% \let\endmacrocode\enddocmacrocode
+% \let\macro\docmacro
+% \let\endmacro\enddocmacro
 %
 %^^A sty guards <<<
 % \iffalse
@@ -2763,7 +2777,6 @@ for root'={%
 % \iffalse
 %<*!debug>
 % \fi
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \begin{macro}{\prooftrees@enw}
 % Define \cs{prooftrees@enw} to hold the name of the environment.
 %
@@ -3409,10 +3422,16 @@ for root'={%
               },
             }{},
           },
-          proof tree inner proof midpoint/.min={>{OOw2+d}{x}{min x}{##1+##2}}{fake=root,descendants},
-          proof tree inner proof width/.max={>{OOw2+d}{x}{max x}{##1+##2}}{fake=root,descendants},
+          proof tree inner proof midpoint/.min={%
+            >{OOw2+d}{x}{min x}{##1+##2}%
+          }{fake=root,descendants},
+          proof tree inner proof width/.max={%
+            >{OOw2+d}{x}{max x}{##1+##2}%
+          }{fake=root,descendants},
           proof tree inner proof width-/.register=proof tree inner proof midpoint,
-          proof tree inner proof midpoint+/.process={Rw+d{proof tree inner proof width}{##1/2}},
+          proof tree inner proof midpoint+/.process={%
+            Rw+d{proof tree inner proof width}{##1/2}%
+          },
         }{},
 %    \end{macrocode}
 % Get the x position of line numbers and adjust the location and alignment of the proof statement.
@@ -3461,7 +3480,9 @@ for root'={%
 %  Get the x position of justifications and create the nodes which will hold the justification content, if required.
 %    \begin{macrocode}
         if justifications={%
-          proof tree justification x/.max={>{OOw2+d}{x}{max x}{##1+##2}}{fake=root,descendants},
+          proof tree justification x/.max={%
+            >{OOw2+d}{x}{max x}{##1+##2}%
+          }{fake=root,descendants},
           if={%
             > Rd= {just dist}{0pt}%
           }{%
@@ -3628,7 +3649,10 @@ for root'={%
           if proof tree toing={%
             for nodewalk={fake=parent,fake=sibling,descendants}{do dynamics},
             delay n={\foresteregister{proof tree aros}}{%
-              tempcounta/.max={>{OOOOw4+n}{level}{proof tree toing by}{proof tree toooing}{proof tree rhifo}{(##1+##2+##3)*##4}}{parent,sibling,descendants},
+              tempcounta/.max={%
+                >{OOOOw4+n}{level}{proof tree toing by}{proof tree toooing}%
+                {proof tree rhifo}{(##1+##2+##3)*##4}%
+              }{parent,sibling,descendants},
               if tempcounta>=1{%
                 if={%
                   >{Rw1+n OOw2+n >}{tempcounta}{##1+1}{level}{proof tree toing by}{##1+##2}%
@@ -4125,13 +4149,17 @@ for root'={%
   proof tree dadfygio/.style={%
     proof tree before packing={%
       for tree={%
-        label/.process={OOOw3}{level}{proof tree toing by}{id}{[red,font=\tiny,inner sep=0pt,outer sep=0pt, anchor=south]below:##1/##2/##3},
+        label/.process={OOOw3}{level}{proof tree toing by}{id}{%
+          [red,font=\tiny,inner sep=0pt,outer sep=0pt, anchor=south]below:##1/##2/##3%
+        },
       },
     },
     proof tree before drawing tree={%
       for tree={%
         delay={%
-          tikz+/.process={Ow1}{proof tree proof line no}{\node [anchor=west, font=\tiny, text=blue, inner sep=0pt] at (.east) {##1}; },
+          tikz+/.process={Ow1}{proof tree proof line no}{%
+            \node [anchor=west, font=\tiny, text=blue, inner sep=0pt] at (.east) {##1};
+          },
         },
       },
     },
@@ -4198,7 +4226,11 @@ for root'={%
               +ttoks/.option=proof tree proof line no,
             }{},
             if justifications={%
-              ttoks+/.process={Ow+pw {proof tree proof line no}{O{!{name=just ##1}.content}}{\ ##1\ }},
+              ttoks+/.process={%
+                Ow+pw {proof tree proof line no}{%
+                  O{!{name=just ##1}.content}%
+                }{\ ##1\ }%
+              },
             }{},
 %    \end{macrocode}
 %    \begin{macrocode}
@@ -4691,7 +4723,9 @@ for root'={%
 %<debug>          \typeout{[Tag~tableau~debug]::~##1}
 %<debug>        },
 %<debug>      }
-%<debug>      \typeout{Assigning~and~using~tag~plug~to~socket~tableaux/tagsupport/tableau/init.}
+%<debug>      \typeout{Assigning~and~using~tag~plug~to~socket~
+%<debug>        tableaux/tagsupport/tableau/init.
+%<debug>      }
 %<debug>    \fi
     \socket_assign_plug:nn {tableaux/tagsupport/tableau/init}{tag}
     \socket_use:n {tableaux/tagsupport/tableau/init}
@@ -4781,6 +4815,9 @@ for root'={%
 % \fi
 %^^A doc-code guards >>>
 % 
+% \loadgeometry{safonol}%
+% \fancyheadoffset[lh]{0pt}%
+% 
 %\Finale
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:
