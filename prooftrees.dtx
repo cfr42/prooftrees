@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11194 2025-09-02 13:49:55Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2765,8 +2765,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11194 2025-09-02 13:49:55Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11194 2025-09-02 13:49:55Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4428,10 +4428,8 @@ for root'={%
     }
   }{\newif\ifmemoizing\memoizingfalse}
 %    \end{macrocode}
-% \begin{macro}{%
-%   \__tableau_property_ref_orig:nn}
-% \begin{macro}{%
-%   \__tableau_property_ref_orig:ee}
+% \begin{macro}{\__tableau_property_ref_orig:nn}
+% \begin{macro}{\__tableau_property_ref_orig:ee}
 % \mbox{}
 % \changes{v0.0}{2025-08-25}{Use \pkg{mmzx-ext} stuff if loaded, but don't require for now, anyway.}
 %    \begin{macrocode}
@@ -4531,10 +4529,8 @@ for root'={%
 \newcount\prooftrees@tableau@id
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{%
-%   \__tableau_pgftikz_tag_bbox:nnn}
-% \begin{macro}{%
-%   \__tableau_pgftikz_tag_bbox:enn}
+% \begin{macro}{\__tableau_pgftikz_tag_bbox:nnn}
+% \begin{macro}{\__tableau_pgftikz_tag_bbox:enn}
 % \mbox{}
 %    \begin{macrocode}
 \cs_new_nopar:Npn \__tableau_pgftikz_tag_bbox:nnn #1#2#3
@@ -4552,10 +4548,8 @@ for root'={%
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
-% \begin{macro}{%
-%   \__tableau_pgftikz_tag_bbox_aux:nnnn}
-% \begin{macro}{%
-%   \__tableau_pgftikz_tag_bbox_aux:eenn}
+% \begin{macro}{\__tableau_pgftikz_tag_bbox_aux:nnnn}
+% \begin{macro}{\__tableau_pgftikz_tag_bbox_aux:eenn}
 % \mbox{}
 %    \begin{macrocode}
 \cs_new_nopar:Npn \__tableau_pgftikz_tag_bbox_aux:nnnn #1#2#3#4
@@ -4689,10 +4683,8 @@ for root'={%
 }
 %    \end{macrocode}
 %</!debug>
-% \begin{macro}{%
-%   \prooftrees@ttableau@init}
-% \begin{macro}{%
-%   \__tableau_ttableau_init:}
+% \begin{macro}{\prooftrees@ttableau@init}
+% \begin{macro}{\__tableau_ttableau_init:}
 % \changes{v0.0}{2025-08-25}{Added \ecs{__tableau_ttableau_init:}.}
 %   I think I don't really get the ‘plug’ concept.
 %   It is surely pointless to assign and immediately use one in a package which defines the relevant socket?
@@ -4732,10 +4724,8 @@ for root'={%
 % \fi
 % \end{macro}
 % \end{macro}
-% \begin{macro}{%
-%   \prooftrees@ttableau}
-% \begin{macro}{%
-%   \__tableau_ttableau:nnn}
+% \begin{macro}{\prooftrees@ttableau}
+% \begin{macro}{\__tableau_ttableau:nnn}
 % \changes{v0.0}{2025-08-25}{Added \ecs{__tableau_ttableau:nnn}, \cs{prooftrees@ttableau}.}
 % \mbox{}
 %    \begin{macrocode}
@@ -4777,7 +4767,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11194 2025-09-02 13:49:55Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4793,7 +4783,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11193 2025-09-02 05:18:15Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11194 2025-09-02 13:49:55Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
