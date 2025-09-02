@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11195 2025-09-02 13:58:24Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -393,7 +393,7 @@
 }
 \renewcommand\maketitlehookb{%^^A 
   \begin{center}
-    Version \prooftreesdocversion{} \prooftreesdocinfo
+    Version \prooftreesdocversion{} 
   \end{center}%^^A 
 }
 \appto\mmzAtEndMemoization{%^^A
@@ -401,17 +401,6 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ExplSyntaxOn
-% ^^A % ^^A \NewDocumentCommand \ivals { +m }
-% ^^A % ^^A {
-% ^^A % ^^A   {
-% ^^A % ^^A     \clist_if_empty:nF { #1 }
-% ^^A % ^^A     {
-% ^^A % ^^A       \normalfont
-% ^^A % ^^A       \itshape
-% ^^A % ^^A       < \clist_use:nn { #1 } { >\texttt{,} ~ < } >
-% ^^A % ^^A     }
-% ^^A % ^^A   }
-% ^^A % ^^A }
 \keys_define:nn { prooftrees / doc }
 {
   unknown .code:n = {
@@ -441,7 +430,6 @@
     \textbar{} Mirror:
     \href{https://github.com/cfr42/prooftrees}{\url{github.com/cfr42/prooftrees}}%^^A 
 }}
-% ^^A % ^^A \date{\fileversion~\filedate}
 \date{\prooftreesdocdate}
 \title{\prooftreesdocbase}
 \ExplSyntaxOn
@@ -2731,19 +2719,6 @@ for root'={%
 % \loadgeometry{safonol}%
 % \fancyheadoffset[lh]{0pt}%
 % 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% \StopEventually{%^^A \MaybeStop is v3 
-%   \def\glossaryname{Change History}%^^A
-%   \PrintChanges
-%   \PrintIndex
-% }
-% 
-% \section{Implementation}\label{sec:imp}
-%
-% ^^A if I'd known what doctools did, I'd never have used it in the first place
-% ^^A \let\environment\docenvironment
-% ^^A \let\endenvironment\enddocenvironment
-%
 % \changes{v0.0}{2025-08-20}{Switch to \pkg{docstrip}.}
 % \changes{v0.9}{0001-01-01}{Use \cs{NewDocumentEnvironment}, removing direct dependency on \pkg{environ}.}
 % \changes{v0.8}{0001-01-01}{Add previously unnoticed dependency on \pkg{amstext}.}
@@ -2758,6 +2733,19 @@ for root'={%
 % }
 % \changes{v0.3}{0001-01-01}{First CTAN release.}
 % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% \StopEventually{%^^A \MaybeStop is v3 
+%   \def\glossaryname{Change History}%^^A
+%   \PrintChanges
+%   \PrintIndex
+% }
+% 
+% \section{Implementation}\label{sec:imp}
+%
+% ^^A if I'd known what doctools did, I'd never have used it in the first place
+% ^^A \let\environment\docenvironment
+% ^^A \let\endenvironment\enddocenvironment
+%
 %^^A sty guards <<<
 % \iffalse
 %<*sty|debug>
@@ -2765,8 +2753,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11195 2025-09-02 13:58:24Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11195 2025-09-02 13:58:24Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4767,7 +4755,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11195 2025-09-02 13:58:24Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4783,7 +4771,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11195 2025-09-02 13:58:24Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
