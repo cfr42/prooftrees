@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11198 2025-09-03 17:46:30Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2767,8 +2767,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11198 2025-09-03 17:46:30Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11198 2025-09-03 17:46:30Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -3204,7 +3204,7 @@ for root'={%
             delay={%
               append={% 
 %    \end{macrocode}
-% This node holds the annotation, possibly including cross-references which will be relative to the node's grandparent.G
+% This node holds the annotation, possibly including cross-references which will be relative to the node's grandparent.
 %    \begin{macrocode}
                 [,
                   not proof tree rhifo,
@@ -4237,42 +4237,86 @@ for root'={%
       proof tree make tags={%
 %    \end{macrocode}
 %    \begin{macrocode}
-%<debug>        debug tagging=Making tags,
+%<debug>  debug tagging=Making tags,
 %    \end{macrocode}
 %    \begin{macrocode}
         for unique={proof tree wffs}{%
-          if proof tree rhifo={
+          if={>OO!&{proof tree rhifo}{proof tree phantom}}
+          {%
             if line numbering={%
               +ttoks={\ },
               +ttoks/.option=proof tree proof line no,
             }{},
             if justifications={%
+%<debug>      debug tagging={Looking for a justification ...},
 %    \end{macrocode}
-% ANGEN: rhywbeth well!
+% Avoid merged justifications when tagging; duplicate shared justifications where possible.
 %    \begin{macrocode}
-              ttoks+/.process={%
-                Ow+pw {proof tree proof line no}{%
-                  O{!{name=just ##1}.content}%
-                }{\ ##1\ }%
+              if just={}{%
+                if={> O_= {!u.n children}{2}}{%
+                  if={>O_={!s.just}{}}{}{just/.option=!s.just,},
+%<debug>          debug tagging/.process={Ow{just}{from sibling just is ##1}},
+                }{%
+                  temptoksa=,
+                  for nodewalk={%
+                    while nodewalk valid={u}{%
+                      u,
+                      if proof tree phantom={}{%
+                        if n children=2{%
+                          back=1,
+                          s,
+                          temptoksa/.option=just%
+                        }{},
+                        break,
+                      }%
+                    }%
+                  }{},
+                  just/.register=temptoksa,
+%<debug>          debug tagging/.process={Ow{just}{from ancestor sibling just is ##1}},
+                },
+              }{},
+              if just={}{}{%
+                ttoks+/.process={%
+                  Ow{just}{\ ##1\ }%
+                },
+% ^^A                Ow+pw {proof tree proof line no}{%
+% ^^A                  O{!{name=just ##1}.content}%
+% ^^A                }{\ ##1\ }%
               },
+%<debug>      debug tagging/.process={Ow{ttoks}{ttoks is now ##1}},
             }{},
 %    \end{macrocode}
 %    \begin{macrocode}
-%<debug>            debug tagging/.process={Ow{ttoks}{ttoks is now ##1}},
+%<debug>    debug tagging/.process={Ow{ttoks}{ttoks is now ##1}},
 %    \end{macrocode}
 %    \begin{macrocode}
             proof tree get tags={%
 %    \end{macrocode}
 %    \begin{macrocode}
-%<debug>              debug tagging=Get tag from wff,
+%<debug>      debug tagging=Get tag from wff,
+%<debug>      debug tagging/.process={Ow{ttoks}{ttoks is now ##1}},
 %    \end{macrocode}
 %    \begin{macrocode}
               pick up tag/.option=ttoks,
             },
           }{%
-            if proof tree crefs={}{}{%
-              !uu.ttoks+/.process={ORw2{content}{tag close with}{\ ##2\ ##1\ }},
-            },
+            if n children=0{%
+              delay={%
+%<debug>        debug tagging=Leaf node,
+%<debug>        debug tagging=Get closure status,
+                if={> O_=! O_=! | {proof tree crefs}{} {!uu.proof tree close}{}}
+                {%
+%<debug>          debug tagging=Branch is closed,
+%<debug>          debug tagging/.process={Ow{proof tree crefs}{crefs: ##1}},
+%<debug>          debug tagging/.process={Ow{!uu.proof tree close}{!uu.proof tree close: ##1}},
+%<debug>          debug tagging/.process={Ow{content}{content: ##1}},
+                  !uu.ttoks+/.process={ORw2{content}{tag close with}{\ ##2\ ##1\ }},
+%<debug>          debug tagging/.process={Ow{!uu.ttoks}{!uu.ttoks is now ##1}},
+                }{%
+%<debug>          debug tagging=Branch is open,
+                },
+              },
+            }{},
           },
         },
       },
@@ -4813,7 +4857,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11198 2025-09-03 17:46:30Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4829,7 +4873,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11198 2025-09-03 17:46:30Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
