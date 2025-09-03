@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2767,8 +2767,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -3055,6 +3055,10 @@ for root'={%
   declare keylist={before getting tags}{},
   declare keylist={proof tree get tags}{},
   declare toks={ttoks}{},
+%    \end{macrocode}
+% \changes{v0.0}{2025-09-03}{To avoid merging tags for merged justifications: just ttoks} 
+%    \begin{macrocode}
+  declare toks={just ttoks}{},
 %    \end{macrocode}
 % > indicates use of process when it is the first token, preceding a list of instructions as opposed to pgfmath stuff
 %    \begin{macrocode}
@@ -3565,7 +3569,7 @@ for root'={%
         where={%
           >{O _O< O &&}{grouped}{1}{level}{proof tree rhifo}%
 %    \end{macrocode}
-% This searches for certain kinds of structural asymmetry in the tree and attempts to move lines appropriately in such cases - the algorithm is intended to be relatively conservative (not in the sense of 'cautious' or 'safe' but in the sense of 'reflection of the overlapping consensus of reasonable users' / 'what would be rationally agreed behind the prooftrees veil of ignorance'; however, I should have realised I actually had 'the overlapping concensus of reasonable Beamer users' in mind rather than 'the overlapping consensus of reasonable users', so there is now an option to turn it off;apologies if this comment previously misclassified you as 'unreasonable'; apologies for the inconvenience if you are an unreasonable user).
+% This searches for certain kinds of structural asymmetry in the tree and attempts to move lines appropriately in such cases - the algorithm is intended to be relatively conservative (not in the sense of 'cautious' or 'safe' but in the sense of 'reflection of the overlapping consensus of reasonable users' / 'what would be rationally agreed behind the prooftrees veil of ignorance'; however, I should have realised I actually had 'the overlapping concensus of reasonable Beamer users' in mind rather than 'the overlapping consensus of reasonable users', so there is now an option to turn it off; apologies if this comment previously misclassified you as 'unreasonable'; apologies for the inconvenience if you are an unreasonable user).
 %    \begin{macrocode}
         }{%
           not tempboola,
@@ -3764,9 +3768,18 @@ for root'={%
 %    \begin{macrocode}
                 }{%
                   content={##2},
+%    \end{macrocode}
+% \changes{v0.0}{2025-09-03}{Avoid merging tags for merged justifications.} 
+% Avoid merging tags for merged justifications.
+% We need this in four places: for merged and unmerged justifications with and without highlighting.
+% This would have been easier with Peter Smith's preferred design \dots.
+%    \begin{macrocode}
                 }{%
                   content+'={\foresteregister{merge delimiter}##2},
                   TeX={\PackageWarning{prooftrees}{Merging conflicting justifications for line ##1! Please examine the output carefully and use "move by" to move lines later in the proof if required. Details of how to do this are included in the documentation.}},
+%    \end{macrocode}
+% Avoid merging tags for merged justifications.
+%    \begin{macrocode}
                 },
                 node options/.register=highlight format,
                 ##3,
@@ -3786,9 +3799,15 @@ for root'={%
                  >{O_= O_= |}{content}{}{content}{##2}%
                 }{%
                   content={##2},
+%    \end{macrocode}
+% Avoid merging tags for merged justifications.
+%    \begin{macrocode}
                 }{%
                   content+'={\foresteregister{merge delimiter}##2},
                   TeX={\PackageWarning{prooftrees}{Merging conflicting justifications for line ##1! Please examine the output carefully and use "move by" to move lines later in the proof if required. Details of how to do this are included in the documentation.}},
+%    \end{macrocode}
+% Avoid merging tags for merged justifications.
+%    \begin{macrocode}
                 },
                 ##3,
                 y'=##4,
@@ -4183,6 +4202,8 @@ for root'={%
     },
   },
 %    \end{macrocode}
+% ^^A dadfygio >>> 
+% ^^A ttableau yn cynnwys dadfygio tagging <<< 
 % \iffalse
 %</!debug>
 % \fi
@@ -4226,6 +4247,9 @@ for root'={%
               +ttoks/.option=proof tree proof line no,
             }{},
             if justifications={%
+%    \end{macrocode}
+% ANGEN: rhywbeth well!
+%    \begin{macrocode}
               ttoks+/.process={%
                 Ow+pw {proof tree proof line no}{%
                   O{!{name=just ##1}.content}%
@@ -4789,7 +4813,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4805,7 +4829,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11196 2025-09-02 14:29:49Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11197 2025-09-03 04:00:18Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
