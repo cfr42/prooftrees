@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11201 2025-09-04 00:52:06Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11202 2025-09-04 01:50:17Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2564,6 +2564,7 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 %
 %^^A END sec:memoize >>>
 %
+% \iffalse
 % \section{Tagging}\label{sec:tag}
 % ^^A sec:tag <<<
 %
@@ -2620,6 +2621,7 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % See \cref{sec:keylists,sec:manylion}.
 % ^^A subsec:tag-lo >>>
 % ^^A sec:tag >>>
+% \fi
 %
 % \section{Typesetting Process}\label{sec:manylion}
 % ^^A sec:manylion <<<
@@ -2767,8 +2769,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug&!tag>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11201 2025-09-04 00:52:06Z cfrees $}[v0.9 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11201 2025-09-04 00:52:06Z cfrees $}[v0.9 \revinfo\ (debugging)]
+%<!debug&!tag>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11202 2025-09-04 01:50:17Z cfrees $}[v0.9 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11202 2025-09-04 01:50:17Z cfrees $}[v0.9 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4396,8 +4398,8 @@ for root'={%
 %<!debug>\NewDocumentEnvironment{\prooftrees@enw}{ m +b }
 %<debug>\RenewDocumentEnvironment{\prooftrees@enw}{ m +b }
 {%
-%<tag>  \global\advance\prooftrees@tableau@id by 1
-%<tag>  \prooftrees@ttableau@init
+  \global\advance\prooftrees@tableau@id by 1
+  \prooftrees@ttableau@init
   \forest
     (%
 %    \end{macrocode}
@@ -4627,8 +4629,15 @@ for root'={%
 % \fi
 %    \begin{macrocode}
 }
-% ^^A delay to begindocument/before >>>
 %    \end{macrocode}
+% ^^A delay to begindocument/before >>>
+% \begin{macro}{\prooftrees@tableau@id}
+%   \changes{v0.0}{2025-08-25}{Add \cs{prooftrees@tableau@id}.}
+%   Not a macro, but no idea how to mark it in \pkg{ltxdoc} correctly. 
+%    \begin{macrocode}
+\newcount\prooftrees@tableau@id
+%    \end{macrocode}
+% \end{macro}
 % \iffalse
 %<*tag>
 % \fi
@@ -4653,13 +4662,6 @@ for root'={%
 %   Not a macro, but no idea how to mark it in \pkg{ltxdoc} correctly. 
 %    \begin{macrocode}
 \newtoks \prooftrees@tableau@toks
-%    \end{macrocode}
-% \end{macro}
-% \begin{macro}{\prooftrees@tableau@id}
-%   \changes{v0.0}{2025-08-25}{Add \cs{prooftrees@tableau@id}.}
-%   Not a macro, but no idea how to mark it in \pkg{ltxdoc} correctly. 
-%    \begin{macrocode}
-\newcount\prooftrees@tableau@id
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\__tableau_pgftikz_tag_bbox:nnn}
@@ -4833,6 +4835,27 @@ for root'={%
 {
 %    \end{macrocode}
 % \iffalse
+%<*!debug>
+% \fi
+%    \begin{macrocode}
+  \tag_if_active:T{
+    \PackageError{prooftrees}{Prooftrees~is~currently~incompatible~with~
+      tagging.~
+      The~safest~approach~is~to~compile~tableaux~standalone~and~include~
+      as~images~with~detailed~alt~text.
+    }{Since~you~insist,~you~can~enable~basic~tagging~support~by~loading~
+      prooftrees-debug~after~prooftrees.~
+      The~code~certainly~requires~LuaLaTeX~and~probably~produces~an~
+      invalid~structure,~but~verapdf~validates~it~and~the~code~produces~
+      alt~text~automatically.~
+      I~do~not~know~how~to~make~the~structure~valid.~
+      For~a~logic~package,~this~is~doubly~unfortunate.
+    }
+    \def\forest##1\endforest{Tableau~\the\prooftrees@tableau@id}
+  }
+%    \end{macrocode}
+% \iffalse
+%</!debug>
 %<*tag>
 % \fi
 %    \begin{macrocode}
@@ -4925,7 +4948,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11201 2025-09-04 00:52:06Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11202 2025-09-04 01:50:17Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4941,7 +4964,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11201 2025-09-04 00:52:06Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11202 2025-09-04 01:50:17Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
