@@ -1,4 +1,4 @@
-$Id: README.md 10578 2024-11-05 05:23:46Z cfrees $
+$Id: README.md 11204 2025-09-04 03:23:15Z cfrees $
 
 [![Automatic
 Checks](https://github.com/cfr42/prooftrees/actions/workflows/main.yml/badge.svg)](https://github.com/cfr42/prooftrees/actions/workflows/main.yml)
@@ -65,7 +65,7 @@ Bug reports, feature requests etc. should be filed at
 
 
 Clea F. Rees
-Version 0.9
-2024-10-25
+Version 0.9.1
+2025-09-04
 
 vim: et:tw=80:
