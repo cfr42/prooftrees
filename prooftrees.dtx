@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11204 2025-09-04 03:23:15Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11206 2025-09-04 14:34:42Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2769,8 +2769,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug&!tag>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11204 2025-09-04 03:23:15Z cfrees $}[v0.9.1 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11204 2025-09-04 03:23:15Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
+%<!debug&!tag>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11206 2025-09-04 14:34:42Z cfrees $}[v0.9.1 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11206 2025-09-04 14:34:42Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4732,6 +4732,15 @@ for root'={%
 %    \begin{macrocode}
 \socket_new_plug:nnn {tableaux/tagsupport/tableau}{alt}
 {
+  \ifvmode
+    {
+      \if@inlabel 
+        \leavevmode 
+% ^^A      \else 
+% ^^A        \tag_socket_use:n{para/begin}
+      \fi
+    }
+  \fi
   \tag_mc_end_push:
   \tag_struct_begin:n
   {
@@ -4741,7 +4750,13 @@ for root'={%
 %    \end{macrocode}
 % \begin{macro}{\prooftrees@tableau@mark@pos@\the\prooftrees@tableau@id}
 %   Modified version of the \pkg{latex-lab} code as we can't use \pkg{pgf} \texttt{remember picture} etc.
+% \changes{v0.0}{2025-09-04}{Move pos marking here to follow \pkg{latex-lab} more closely.
+%   It does not help, but does not seem to hinder.}
 %    \begin{macrocode}
+  \tex_savepos:D
+  \property_record:ee {prooftrees-tableau-id\the\prooftrees@tableau@id}
+  {xpos,ypos}
+  \tex_savepos:D
   \cs_new:cpe {prooftrees@tableau@mark@pos@\the\prooftrees@tableau@id}
   {
     \__tableau_pgftikz_tag_bbox:enn {prooftrees-tableau-id\the\prooftrees@tableau@id}
@@ -4908,11 +4923,12 @@ for root'={%
 % \fi
 %    \begin{macrocode}
 % ^^A \tag_resume:n {\tableau}
-  \tex_savepos:D
-  \property_record:ee {prooftrees-tableau-id\the\prooftrees@tableau@id}
-  {xpos,ypos}
-  \tex_savepos:D
-  \tl_set:No \l__tableau_toks_tl {\the\prooftrees@tableau@toks}
+%    \end{macrocode}
+% \changes{v0.0}{2025-09-04}{Purify \cs{the}\cs{prooftrees@tableau@toks} before setting \ecs{l__tableau_toks_tl}.}
+%    \begin{macrocode}
+  \tl_set:Ne \l__tableau_toks_tl {
+    \exp_args:No \text_purify:n { \the\prooftrees@tableau@toks }
+  }
   \socket_assign_plug:nn {tableaux/tagsupport/tableau}{#1}
   \ifmemoizing
     \socket_assign_plug:nn {tableaux/tagsupport/tableau/mmzx}{#1}
@@ -4948,7 +4964,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11204 2025-09-04 03:23:15Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11206 2025-09-04 14:34:42Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4964,7 +4980,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11204 2025-09-04 03:23:15Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11206 2025-09-04 14:34:42Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
