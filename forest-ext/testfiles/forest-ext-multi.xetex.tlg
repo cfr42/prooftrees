@@ -1,0 +1,4805 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: multi-1
+============================================================
+> \box...=
+\hbox(96.45084+0.0)x164.40562
+.\hbox(96.45084+0.0)x164.40562
+..\glue 74.65456
+..\hbox(0.0+0.0)x0.0, shifted -86.22913
+...\special{pdf:bcontent}
+...\special{pdf:code q }
+...\special{pdf:code 0 G }
+...\special{pdf:code 0 g }
+...\special{pdf:code 0.3985 w }
+...\hbox(0.0+0.0)x0.0
+....\special{pdf:code q }
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 0.0 0.0}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 A
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -67.52773 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.52829 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.083
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.083
+..........\T1/lmr/m/n/10 B
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -53.83757 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -53.83757 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.80528 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.639
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.639
+..........\T1/lmr/m/n/10 D
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -40.07721 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.59753 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.222
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.222
+..........\T1/lmr/m/n/10 C
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 0.91646 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.39006 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x6.8055
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x6.8055
+..........\T1/lmr/m/n/10 E
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -33.09967 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.25183 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x6.52798
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x6.52798
+..........\T1/lmr/m/n/10 F
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -12.25816 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.90887 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.847
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.847
+..........\T1/lmr/m/n/10 G
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 1.81528 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 1.81528 -82.58751}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -2.55994 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x5.139
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x5.139
+..........\T1/lmr/m/n/10 J
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 15.717 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 H
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 34.93259 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -1.79877 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x3.611
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x3.611
+..........\T1/lmr/m/n/10 I
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 67.52771 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87451 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.77798
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.77798
+..........\T1/lmr/m/n/10 K
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 53.5255 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.11336 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x6.25
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x6.25
+..........\T1/lmr/m/n/10 L
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 66.80066 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 66.80066 -82.58751}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 N
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 81.5299 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -4.56642 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x9.16699
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x9.16699
+..........\T1/lmr/m/n/10 M
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -7.25584 0.47476 m }
+....\special{pdf:code -60.4796 -21.22702 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -50.3636 -44.67543 m }
+....\special{pdf:code -43.55064 -31.04898 l }
+....\special{pdf:code S }
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:code q }
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\special{pdf:code -57.29373 -44.67543 m }
+......\special{pdf:code -64.072 -31.04898 l }
+......\special{pdf:code S }
+......\glue 0.0
+......\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -7.25584 -1.5502 m }
+....\special{pdf:code -32.95984 -19.20921 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.23132 -3.5198 m }
+....\special{pdf:code 0.68513 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.91646 -31.04898 m }
+....\special{pdf:code -26.328 -47.53133 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.91646 -31.04898 m }
+....\special{pdf:code -7.80899 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 7.89503 -74.10345 m }
+....\special{pdf:code 29.614 -56.04666 l }
+....\special{pdf:code S }
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:code q }
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\special{pdf:code -4.26447 -74.36432 m }
+......\special{pdf:code -26.328 -56.96582 l }
+......\special{pdf:code S }
+......\glue 0.0
+......\special{pdf:code Q }
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:code q }
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\special{pdf:code -1.7377 -72.2046 m }
+......\special{pdf:code -8.70569 -58.57816 l }
+......\special{pdf:code S }
+......\glue 0.0
+......\special{pdf:code Q }
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:code q }
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\special{pdf:code 5.32489 -72.2046 m }
+......\special{pdf:code 12.20781 -58.57816 l }
+......\special{pdf:code S }
+......\glue 0.0
+......\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.91646 -31.04898 m }
+....\special{pdf:code 10.7188 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.91646 -31.04898 m }
+....\special{pdf:code 29.614 -48.41013 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 7.25584 0.47543 m }
+....\special{pdf:code 60.13338 -21.086 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 63.99275 -31.04898 m }
+....\special{pdf:code 57.06004 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 66.80066 -72.2046 m }
+....\special{pdf:code 76.55579 -58.57816 l }
+....\special{pdf:code S }
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:code q }
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\special{pdf:code 66.80066 -72.2046 m }
+......\special{pdf:code 58.00862 -58.57816 l }
+......\special{pdf:code S }
+......\glue 0.0
+......\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 71.06267 -31.04898 m }
+....\special{pdf:code 77.99538 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code Q }
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\special{pdf:code n }
+...\special{pdf:code Q }
+...\special{pdf:econtent}
+...\glue 0.0 plus 1.0fil minus 1.0fil
+! OK.
+<argument> ...] ] ] \end {forest} \showbox \mybox 
+l. ...}
+============================================================
+============================================================
+TEST 2: multi-2
+============================================================
+> \box...=
+\hbox(96.45084+0.0)x155.22963
+.\hbox(96.45084+0.0)x155.22963
+..\glue 66.54724
+..\hbox(0.0+0.0)x0.0, shifted -86.22913
+...\special{pdf:bcontent}
+...\special{pdf:code q }
+...\special{pdf:code 0 G }
+...\special{pdf:code 0 g }
+...\special{pdf:code 0.3985 w }
+...\hbox(0.0+0.0)x0.0
+....\special{pdf:code q }
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 0.0 0.0}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 A
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -59.45059 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.52829 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.083
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.083
+..........\T1/lmr/m/n/10 B
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -45.76044 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -45.76044 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.80528 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.639
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.639
+..........\T1/lmr/m/n/10 D
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -32.00002 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.59753 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.222
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.222
+..........\T1/lmr/m/n/10 C
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.93893 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.39006 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x6.8055
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x6.8055
+..........\T1/lmr/m/n/10 E
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -25.02254 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.25183 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x6.52798
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x6.52798
+..........\T1/lmr/m/n/10 F
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -4.18105 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.90887 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.847
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.847
+..........\T1/lmr/m/n/10 G
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -4.18105 -82.58751}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -1.79877 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x3.611
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x3.611
+..........\T1/lmr/m/n/10 I
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 17.14465 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 H
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 59.45059 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -2.55994 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x5.139
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x5.139
+..........\T1/lmr/m/n/10 J
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 38.43597 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87451 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.77798
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.77798
+..........\T1/lmr/m/n/10 K
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 59.10463 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.11336 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x6.25
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x6.25
+..........\T1/lmr/m/n/10 L
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 59.10463 -82.58751}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 N
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 80.46521 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -4.56642 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x9.16699
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x9.16699
+..........\T1/lmr/m/n/10 M
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.0 -3.5198 m }
+....\special{pdf:code 0.0 -8.50119 l }
+....\special{pdf:code -59.45059 -8.50119 l }
+....\special{pdf:code -59.45059 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -45.76044 -44.67543 m }
+....\special{pdf:code -45.76044 -44.67543 m }
+....\special{pdf:code -45.76044 -36.03036 l }
+....\special{pdf:code -59.45059 -36.03036 l }
+....\special{pdf:code -59.45059 -31.04898 l }
+....\special{pdf:code -45.76044 -44.67543 m }
+....\special{pdf:code -45.76044 -36.03036 l }
+....\special{pdf:code -32.00002 -36.03036 l }
+....\special{pdf:code -32.00002 -31.04898 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.0 -3.5198 m }
+....\special{pdf:code 0.0 -8.50119 l }
+....\special{pdf:code -32.00002 -8.50119 l }
+....\special{pdf:code -32.00002 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.0 -3.5198 m }
+....\special{pdf:code 0.0 -8.50119 l }
+....\special{pdf:code -3.93893 -8.50119 l }
+....\special{pdf:code -3.93893 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -3.93893 -31.04898 m }
+....\special{pdf:code -3.93893 -36.03036 l }
+....\special{pdf:code -25.02254 -36.03036 l }
+....\special{pdf:code -25.02254 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -3.93893 -31.04898 m }
+....\special{pdf:code -3.93893 -36.03036 l }
+....\special{pdf:code -4.18105 -36.03036 l }
+....\special{pdf:code -4.18105 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -4.18105 -72.2046 m }
+....\special{pdf:code -4.18105 -72.2046 m }
+....\special{pdf:code -4.18105 -63.55954 l }
+....\special{pdf:code -25.02254 -63.55954 l }
+....\special{pdf:code -25.02254 -58.57816 l }
+....\special{pdf:code -4.18105 -72.2046 m }
+....\special{pdf:code -4.18105 -63.55954 l }
+....\special{pdf:code -4.18105 -63.55954 l }
+....\special{pdf:code -4.18105 -58.57816 l }
+....\special{pdf:code -4.18105 -72.2046 m }
+....\special{pdf:code -4.18105 -63.55954 l }
+....\special{pdf:code 17.14465 -63.55954 l }
+....\special{pdf:code 17.14465 -58.57816 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -3.93893 -31.04898 m }
+....\special{pdf:code -3.93893 -36.03036 l }
+....\special{pdf:code 17.14465 -36.03036 l }
+....\special{pdf:code 17.14465 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.0 -3.5198 m }
+....\special{pdf:code 0.0 -8.50119 l }
+....\special{pdf:code 59.45059 -8.50119 l }
+....\special{pdf:code 59.45059 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 59.45059 -31.04898 m }
+....\special{pdf:code 59.45059 -36.03036 l }
+....\special{pdf:code 38.43597 -36.03036 l }
+....\special{pdf:code 38.43597 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 59.45059 -31.04898 m }
+....\special{pdf:code 59.45059 -36.03036 l }
+....\special{pdf:code 59.10463 -36.03036 l }
+....\special{pdf:code 59.10463 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 59.10463 -72.2046 m }
+....\special{pdf:code 59.10463 -72.2046 m }
+....\special{pdf:code 59.10463 -63.55954 l }
+....\special{pdf:code 38.43597 -63.55954 l }
+....\special{pdf:code 38.43597 -58.57816 l }
+....\special{pdf:code 59.10463 -72.2046 m }
+....\special{pdf:code 59.10463 -63.55954 l }
+....\special{pdf:code 59.10463 -63.55954 l }
+....\special{pdf:code 59.10463 -58.57816 l }
+....\special{pdf:code 59.10463 -72.2046 m }
+....\special{pdf:code 59.10463 -63.55954 l }
+....\special{pdf:code 80.46521 -63.55954 l }
+....\special{pdf:code 80.46521 -58.57816 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 59.45059 -31.04898 m }
+....\special{pdf:code 59.45059 -36.03036 l }
+....\special{pdf:code 80.46521 -36.03036 l }
+....\special{pdf:code 80.46521 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code Q }
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\special{pdf:code n }
+...\special{pdf:code Q }
+...\special{pdf:econtent}
+...\glue 0.0 plus 1.0fil minus 1.0fil
+! OK.
+<argument> ...] ] ] \end {forest} \showbox \mybox 
+l. ...}
+============================================================
+============================================================
+TEST 3: multi-3
+============================================================
+> \box...=
+\hbox(96.45084+0.0)x151.14355
+.\hbox(96.45084+0.0)x151.14355
+..\glue 60.70753
+..\hbox(0.0+0.0)x0.0, shifted -86.22913
+...\special{pdf:bcontent}
+...\special{pdf:code q }
+...\special{pdf:code 0 G }
+...\special{pdf:code 0 g }
+...\special{pdf:code 0.3985 w }
+...\hbox(0.0+0.0)x0.0
+....\special{pdf:code q }
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 0.0 0.0}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87451 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.77798
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.77798
+..........\T1/lmr/m/n/10 O
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -39.35318 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.39006 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x6.8055
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x6.8055
+..........\T1/lmr/m/n/10 P
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -53.28642 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87451 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+1.94443)x7.77798
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+1.94443)x7.77798
+..........\T1/lmr/m/n/10 Q
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -39.24966 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -39.24966 -82.58751}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -2.7674 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x5.5555
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x5.5555
+..........\T1/lmr/m/n/10 S
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -25.41995 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.66678 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.361
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.361
+..........\T1/lmr/m/n/10 R
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 39.35316 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.59753 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.222
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.222
+..........\T1/lmr/m/n/10 T
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -4.33633 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 U
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 16.8165 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 V
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 39.35316 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.11986 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x10.27798
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x10.27798
+..........\T1/lmr/m/n/10 W
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 39.35316 -82.58751}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.04411 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x6.111
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x6.111
+..........\T1/lmr/m/n/10 Z
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 61.88985 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 X
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 83.0427 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.73604 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.5
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.5
+..........\T1/lmr/m/n/10 Y
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.0 -3.5198 m }
+....\special{pdf:code -39.35318 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -39.35318 -31.04898 m }
+....\special{pdf:code -48.16545 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -39.24966 -72.2046 m }
+....\special{pdf:code -30.09029 -58.57816 l }
+....\special{pdf:code S }
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:code q }
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\special{pdf:code -39.24966 -72.2046 m }
+......\special{pdf:code -47.61826 -60.51535 l }
+......\special{pdf:code S }
+......\glue 0.0
+......\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -39.35318 -31.04898 m }
+....\special{pdf:code -30.12527 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.0 -3.5198 m }
+....\special{pdf:code 39.35316 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 39.35316 -31.04898 m }
+....\special{pdf:code 39.35316 -41.01175 l }
+....\special{pdf:code -4.33633 -41.01175 l }
+....\special{pdf:code -4.33633 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 39.35316 -31.04898 m }
+....\special{pdf:code 39.35316 -41.01175 l }
+....\special{pdf:code 16.8165 -41.01175 l }
+....\special{pdf:code 16.8165 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 39.35316 -31.04898 m }
+....\special{pdf:code 39.35316 -41.01175 l }
+....\special{pdf:code 39.35316 -41.01175 l }
+....\special{pdf:code 39.35316 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 39.35316 -72.2046 m }
+....\special{pdf:code 39.35316 -72.2046 m }
+....\special{pdf:code 39.35316 -68.54092 l }
+....\special{pdf:code -4.33633 -68.54092 l }
+....\special{pdf:code -4.33633 -58.57816 l }
+....\special{pdf:code 39.35316 -72.2046 m }
+....\special{pdf:code 39.35316 -68.54092 l }
+....\special{pdf:code 16.8165 -68.54092 l }
+....\special{pdf:code 16.8165 -58.57816 l }
+....\special{pdf:code 39.35316 -72.2046 m }
+....\special{pdf:code 39.35316 -68.54092 l }
+....\special{pdf:code 39.35316 -68.54092 l }
+....\special{pdf:code 39.35316 -58.57816 l }
+....\special{pdf:code 39.35316 -72.2046 m }
+....\special{pdf:code 39.35316 -68.54092 l }
+....\special{pdf:code 61.88985 -68.54092 l }
+....\special{pdf:code 61.88985 -58.57816 l }
+....\special{pdf:code 39.35316 -72.2046 m }
+....\special{pdf:code 39.35316 -68.54092 l }
+....\special{pdf:code 83.0427 -68.54092 l }
+....\special{pdf:code 83.0427 -58.57816 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 39.35316 -31.04898 m }
+....\special{pdf:code 39.35316 -41.01175 l }
+....\special{pdf:code 61.88985 -41.01175 l }
+....\special{pdf:code 61.88985 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 39.35316 -31.04898 m }
+....\special{pdf:code 39.35316 -41.01175 l }
+....\special{pdf:code 83.0427 -41.01175 l }
+....\special{pdf:code 83.0427 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code Q }
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\special{pdf:code n }
+...\special{pdf:code Q }
+...\special{pdf:econtent}
+...\glue 0.0 plus 1.0fil minus 1.0fil
+! OK.
+<argument> ...] ] ] \end {forest} \showbox \mybox 
+l. ...}
+============================================================
+============================================================
+TEST 4: multi-4
+============================================================
+ext.multi test: Child's parent: 7: P1
+ext.multi test: Child's parent: 8: P2
+ext.multi test: Child's parent: 9: P3
+> \box...=
+\hbox(68.81879+0.0)x154.29123
+.\hbox(68.81879+0.0)x154.29123
+..\glue 57.46974
+..\hbox(0.0+0.0)x0.0, shifted -58.59708
+...\special{pdf:bcontent}
+...\special{pdf:code q }
+...\special{pdf:code 0 G }
+...\special{pdf:code 0 g }
+...\special{pdf:code 0.3985 w }
+...\hbox(0.0+0.0)x0.0
+....\special{pdf:code q }
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 0.0 0.0}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.66678 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x7.361
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x7.361
+..........\T1/lmr/m/n/10 R
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -48.05443 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.88075 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x11.8055
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x11.8055
+..........\T1/lmr/m/n/10 P
+..........\T1/lmr/m/n/10 1
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -22.61214 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.88075 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x11.8055
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x11.8055
+..........\T1/lmr/m/n/10 P
+..........\T1/lmr/m/n/10 2
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -22.61214 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -11.89977 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x23.8885
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x23.8885
+..........\T1/lmr/m/n/10 C
+..........\T1/lmr/m/n/10 h
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 l
+..........\T1/lmr/m/n/10 d
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 2.83015 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.88075 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x11.8055
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x11.8055
+..........\T1/lmr/m/n/10 P
+..........\T1/lmr/m/n/10 3
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 48.05441 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -10.93135 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x21.94443
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x21.94443
+..........\T1/lmr/m/n/10 A
+..........\kern-0.27779
+..........\T1/lmr/m/n/10 u
+..........\T1/lmr/m/n/10 n
+..........\kern-0.27779
+..........\T1/lmr/m/n/10 t
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 22.09122 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -19.1228 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x38.38857
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x38.38857
+..........\T1/lmr/m/n/10 C
+..........\T1/lmr/m/n/10 o
+..........\T1/lmr/m/n/10 u
+..........\T1/lmr/m/n/10 s
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 n
+..........\glue 3.33333 plus 1.66666 minus 1.11111
+..........\T1/lmr/m/n/10 1
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 74.01762 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -19.1228 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(6.88875+0.0)x38.38857
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(6.88875+0.0)x38.38857
+..........\T1/lmr/m/n/10 C
+..........\T1/lmr/m/n/10 o
+..........\T1/lmr/m/n/10 u
+..........\T1/lmr/m/n/10 s
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 n
+..........\glue 3.33333 plus 1.66666 minus 1.11111
+..........\T1/lmr/m/n/10 2
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -7.1866 -0.6856 m }
+....\special{pdf:code -38.65385 -18.71513 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -5.70863 -3.5198 m }
+....\special{pdf:code -16.90422 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -16.18901 -44.67543 m }
+....\special{pdf:code -3.59222 -31.04898 l }
+....\special{pdf:code S }
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:code q }
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\special{pdf:code -29.03525 -44.67543 m }
+......\special{pdf:code -41.63203 -31.04898 l }
+......\special{pdf:code S }
+......\glue 0.0
+......\special{pdf:code Q }
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:code q }
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\glue 0.0
+......\special{pdf:code -22.61214 -44.67543 m }
+......\special{pdf:code -22.61214 -31.04898 l }
+......\special{pdf:code S }
+......\glue 0.0
+......\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.71448 -3.5198 m }
+....\special{pdf:code 2.11578 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 7.1866 -0.68384 m }
+....\special{pdf:code 35.92412 -17.14626 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 41.49977 -31.04898 m }
+....\special{pdf:code 28.64502 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 54.60907 -31.04898 m }
+....\special{pdf:code 67.46382 -44.67543 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code Q }
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\special{pdf:code n }
+...\special{pdf:code Q }
+...\special{pdf:econtent}
+...\glue 0.0 plus 1.0fil minus 1.0fil
+! OK.
+<argument> ... 2]]] \end {forest} \showbox \mybox 
+l. ...}
+============================================================
+============================================================
+TEST 5: multi-5
+============================================================
+ext.multi test: every foster parent of tree
+12
+\strut Francis Verricker
+14
+\strut John
+ext.multi test: every fosterling of Abigail Tillerman and descendants
+6
+\strut John
+7
+\strut Liza
+8
+\strut Dicey
+9
+\strut James
+10
+\strut Maybeth
+11
+\strut Sammy
+13
+\strut Samuel
+ext.multi test: fosterlings of Francis Vernicker
+8
+\strut Dicey
+9
+\strut James
+10
+\strut Maybeth
+11
+\strut Sammy
+ext.multi test: foster parents of Liza Tillerman
+14
+\strut John
+> \box...=
+\hbox(96.36284+0.0)x332.55626
+.\hbox(96.36284+0.0)x332.55626
+..\glue 92.22772
+..\hbox(0.0+0.0)x0.0, shifted -96.16284
+...\special{pdf:bcontent}
+...\special{pdf:code q }
+...\special{pdf:code 0 G }
+...\special{pdf:code 0 g }
+...\special{pdf:code 0.3985 w }
+...\hbox(0.0+0.0)x0.0
+....\special{pdf:code q }
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 0.0 0.0}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -73.82721 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -10.23936 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x20.55527
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x20.55527
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 C
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 l
+..........\T1/lmr/m/n/10 l
+..........\T1/lmr/m/n/10 a
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -73.82721 -58.21338}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -14.73654 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x29.58325
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x29.58325
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 E
+..........\T1/lmr/m/n/10 u
+..........\T1/lmr/m/n/10 n
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 c
+..........\T1/lmr/m/n/10 e
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 73.82721 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -38.61917 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x77.52702
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x77.52702
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 A
+..........\T1/lmr/m/n/10 b
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 g
+..........\T1/lmr/m/n/10 a
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 l
+..........\glue 3.33333 plus 1.66666 minus 1.11111
+..........\T1/lmr/m/n/10 T
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 l
+..........\T1/lmr/m/n/10 l
+..........\T1/lmr/m/n/10 e
+..........\T1/lmr/m/n/10 r
+..........\T1/lmr/m/n/10 m
+..........\T1/lmr/m/n/10 a
+..........\T1/lmr/m/n/10 n
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -34.82445 -58.21338}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -10.58543 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x21.25
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x21.25
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 J
+..........\T1/lmr/m/n/10 o
+..........\T1/lmr/m/n/10 h
+..........\T1/lmr/m/n/10 n
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -1.35648 -58.21338}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -9.20174 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x18.47226
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x18.47226
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 L
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 z
+..........\T1/lmr/m/n/10 a
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -68.77896 -88.8976}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -12.2461 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x24.58376
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x24.58376
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 D
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 c
+..........\T1/lmr/m/n/10 e
+..........\T1/lmr/m/n/10 y
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -29.47159 -88.8976}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -13.38048 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x26.861
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x26.861
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 J
+..........\T1/lmr/m/n/10 a
+..........\T1/lmr/m/n/10 m
+..........\T1/lmr/m/n/10 e
+..........\T1/lmr/m/n/10 s
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 16.962 -88.8976}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -19.37233 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x38.88948
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x38.88948
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 M
+..........\T1/lmr/m/n/10 a
+..........\kern-0.27779
+..........\T1/lmr/m/n/10 y
+..........\T1/lmr/m/n/10 b
+..........\kern0.27779
+..........\T1/lmr/m/n/10 e
+..........\T1/lmr/m/n/10 t
+..........\T1/lmr/m/n/10 h
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 66.06598 -88.8976}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -16.05084 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x32.22168
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x32.22168
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 S
+..........\T1/lmr/m/n/10 a
+..........\T1/lmr/m/n/10 m
+..........\T1/lmr/m/n/10 m
+..........\kern-0.27779
+..........\T1/lmr/m/n/10 y
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 116.3413 -58.21338}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -36.82101 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x73.91724
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x73.91724
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 F
+..........\kern-0.83334
+..........\T1/lmr/m/n/10 r
+..........\T1/lmr/m/n/10 a
+..........\T1/lmr/m/n/10 n
+..........\T1/lmr/m/n/10 c
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 s
+..........\glue 3.33333 plus 1.66666 minus 1.11111
+..........\T1/lmr/m/n/10 V
+..........\kern-0.83334
+..........\T1/lmr/m/n/10 e
+..........\T1/lmr/m/n/10 r
+..........\T1/lmr/m/n/10 r
+..........\T1/lmr/m/n/10 i
+..........\T1/lmr/m/n/10 c
+..........\kern-0.27779
+..........\T1/lmr/m/n/10 k
+..........\kern-0.27779
+..........\T1/lmr/m/n/10 e
+..........\T1/lmr/m/n/10 r
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 95.82013 -85.74255}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 109.5009 -85.74255}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 123.18169 -85.74255}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 136.86246 -85.74255}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 182.47888 -58.21338}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -15.63579 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x31.38846
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x31.38846
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 S
+..........\T1/lmr/m/n/10 a
+..........\T1/lmr/m/n/10 m
+..........\kern-0.27779
+..........\T1/lmr/m/n/10 u
+..........\T1/lmr/m/n/10 e
+..........\T1/lmr/m/n/10 l
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 225.52774 -27.52916}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\glue 0.0
+.......\glue 0.0
+.......\glue 0.0
+.......\special{pdf:code q }
+.......\special{pdf:code q -1 0 0 -1 0 0 cm q}
+.......\special{pdf: econtent}
+.......\special{pdf: bcontent}
+.......\special{pdf:code -1 0 0 -1 0 0 cm}
+.......\special{pdf:code q}
+.......\special{pdf: econtent}
+.......\special{pdf:code 0 J [] 0 d}
+.......\special{pdf:bcolor [1]}
+.......\special{pdf:bcolor [0]}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -10.58543 0.0}
+.......\hbox(0.0+0.0)x0.0
+........\hbox(8.39996+3.60004)x21.25
+.........\special{pdf:code 0 G }
+.........\special{pdf:code 0 g }
+.........\hbox(8.39996+3.60004)x21.25
+..........\rule(8.39996+3.60004)x0.0
+..........\T1/lmr/m/n/10 J
+..........\T1/lmr/m/n/10 o
+..........\T1/lmr/m/n/10 h
+..........\T1/lmr/m/n/10 n
+.........\glue 0.0
+.......\special{pdf:etrans}
+.......\special{pdf:ecolor}
+.......\special{pdf:ecolor}
+.......\special{pdf: bcontent}
+.......\special{pdf:code Q Q Q}
+.......\special{pdf:code Q }
+.......\glue 0.0
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 211.84697 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 225.52774 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code q }
+....\special{pdf:code q -1 0 0 -1 0 0 cm q}
+....\special{pdf: econtent}
+....\special{pdf: bcontent}
+....\special{pdf:code -1 0 0 -1 0 0 cm}
+....\special{pdf:code q}
+....\special{pdf: econtent}
+....\special{pdf:code 0 J [] 0 d}
+....\special{pdf:bcolor [1]}
+....\special{pdf:bcolor [0]}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 239.20851 -55.05833}
+....\hbox(0.0+0.0)x0.0
+.....\hbox(0.0+0.0)x0.0
+......\special{pdf:bcontent}
+......\hbox(0.0+0.0)x0.0
+.......\special{pdf:code q }
+.......\special{pdf:code Q }
+......\special{pdf:econtent}
+....\special{pdf:etrans}
+....\special{pdf:ecolor}
+....\special{pdf:ecolor}
+....\special{pdf: bcontent}
+....\special{pdf:code Q Q Q}
+....\special{pdf:code Q }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.0 0.0 m }
+....\special{pdf:code 0.0 -4.98138 l }
+....\special{pdf:code -73.82721 -4.98138 l }
+....\special{pdf:code -73.82721 -15.64066 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -73.82721 -34.63562 m }
+....\special{pdf:code -73.82721 -39.617 l }
+....\special{pdf:code -73.82721 -39.617 l }
+....\special{pdf:code -73.82721 -46.32487 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 0.0 0.0 m }
+....\special{pdf:code 0.0 -4.98138 l }
+....\special{pdf:code 73.82721 -4.98138 l }
+....\special{pdf:code 73.82721 -15.64066 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 73.82721 -34.63562 m }
+....\special{pdf:code 73.82721 -39.617 l }
+....\special{pdf:code -34.82445 -39.617 l }
+....\special{pdf:code -34.82445 -46.32487 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 73.82721 -34.63562 m }
+....\special{pdf:code 73.82721 -39.617 l }
+....\special{pdf:code -1.35648 -39.617 l }
+....\special{pdf:code -1.35648 -46.32487 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -1.35648 -65.31984 m }
+....\special{pdf:code -1.35648 -70.30122 l }
+....\special{pdf:code -68.77896 -70.30122 l }
+....\special{pdf:code -68.77896 -77.0091 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -1.35648 -65.31984 m }
+....\special{pdf:code -1.35648 -70.30122 l }
+....\special{pdf:code -29.47159 -70.30122 l }
+....\special{pdf:code -29.47159 -77.0091 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -1.35648 -65.31984 m }
+....\special{pdf:code -1.35648 -70.30122 l }
+....\special{pdf:code 16.962 -70.30122 l }
+....\special{pdf:code 16.962 -77.0091 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -1.35648 -65.31984 m }
+....\special{pdf:code -1.35648 -70.30122 l }
+....\special{pdf:code 66.06598 -70.30122 l }
+....\special{pdf:code 66.06598 -77.0091 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -68.77896 -77.0091 m }
+....\special{pdf:code -68.77896 -70.30122 l }
+....\special{pdf:code 116.3413 -70.30122 l }
+....\special{pdf:code 116.3413 -65.31984 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -29.47159 -77.0091 m }
+....\special{pdf:code -29.47159 -70.30122 l }
+....\special{pdf:code 116.3413 -70.30122 l }
+....\special{pdf:code 116.3413 -65.31984 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 16.962 -77.0091 m }
+....\special{pdf:code 16.962 -70.30122 l }
+....\special{pdf:code 116.3413 -70.30122 l }
+....\special{pdf:code 116.3413 -65.31984 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 66.06598 -77.0091 m }
+....\special{pdf:code 66.06598 -70.30122 l }
+....\special{pdf:code 116.3413 -70.30122 l }
+....\special{pdf:code 116.3413 -65.31984 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 73.82721 -34.63562 m }
+....\special{pdf:code 73.82721 -39.617 l }
+....\special{pdf:code 182.47888 -39.617 l }
+....\special{pdf:code 182.47888 -46.32487 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -34.82445 -46.32487 m }
+....\special{pdf:code -34.82445 -39.617 l }
+....\special{pdf:code 225.52774 -39.617 l }
+....\special{pdf:code 225.52774 -34.63562 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code -1.35648 -46.32487 m }
+....\special{pdf:code -1.35648 -39.617 l }
+....\special{pdf:code 225.52774 -39.617 l }
+....\special{pdf:code 225.52774 -34.63562 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 182.47888 -46.32487 m }
+....\special{pdf:code 182.47888 -39.617 l }
+....\special{pdf:code 225.52774 -39.617 l }
+....\special{pdf:code 225.52774 -34.63562 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code Q }
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\special{pdf:code n }
+...\special{pdf:code Q }
+...\special{pdf:econtent}
+...\glue 0.0 plus 1.0fil minus 1.0fil
+! OK.
+<argument> ...e ] ] \end {forest} \showbox \mybox 
+l. ...}
+============================================================
+[1
+] (forest-ext-multi.aux)

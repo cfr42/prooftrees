@@ -1,0 +1,161 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `forest-ext-tagging.lvt',
+%%
+%% Copyright (C) 2025 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% forest-ext. You may, however, distribute the package without this file.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: forest-ext-multi.lvt 11415 2025-12-26 23:16:17Z cfrees $}[v0.0 \revinfo][\filebase: linguistics extensions test]
+\input regression-test.tex\relax
+\documentclass{article}
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage[ext.multi]{forest}
+\useforestlibrary{edges}
+\newbox\mybox
+\forestset{draw tree box=\mybox}
+\begin{document}
+\START
+\TEST{multi-1}{%
+  \begin{forest}
+    [A
+      [D, multi={B,C}, ]
+      [E, parent anchor=children,
+        [J, multi={F,G,H,I}, ]
+      ]
+      [K
+        [N, multi={L,M}, child anchor=parent, 
+        ]
+      ]
+    ]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\begingroup
+\forestapplylibrarydefaults{edges}%
+\TIMO
+\TEST{multi-2}{%
+  \begin{forest}
+    forked edges,
+    [A
+      [D, multi={B,C} ]
+      [E
+        [I, multi={F,G,H} ]
+      ]
+      [J
+        [N, multi={K,L,M} ]
+      ]
+    ]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{multi-3}{%
+  \begin{forest}
+    for tree={%
+      child anchor=parent,
+      parent anchor=children,
+      fork sep'=1em,
+    },
+    [O
+      [P
+        [S, multi={Q,R} ]
+      ]
+      [T, forked edges=descendants,
+        [Z,multi={U,V,W,X,Y} ]
+      ]
+    ]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{multi-4}{%
+  \begin{forest}
+    [R [Child, multi={P1,P2,P3},every parent={%
+          typeout/.process={OOw2{id}{content}{ext.multi test: Child's parent: #1: #2}},
+    },] [Aunt [Cousin 1][Cousin 2]]]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{multi-5}{%
+  \begin{forest}
+    forked edges,
+    delay={%
+      for tree={%
+        +content=\strut,
+      },
+    },
+    before typesetting nodes={%
+      typeout={ext.multi test: every foster parent of tree},
+      for every foster parent={tree}{typeout/.option=id,typeout/.option=content},
+      typeout={ext.multi test: every fosterling of Abigail Tillerman and descendants},
+      for every fosterling={fake=root,2,descendants}{typeout/.option=id,typeout/.option=content},
+      typeout={ext.multi test: fosterlings of Francis Vernicker},
+      for nodewalk={fake=root,fake=2,fake=3,fosterlings}{typeout/.option=id,typeout/.option=content},
+      typeout={ext.multi test: foster parents of Liza Tillerman},
+      for nodewalk={fake=root,fake=2,fake=2,foster parents}{typeout/.option=id,typeout/.option=content},
+    },
+    [,coordinate,calign primary child=1,calign secondary child=2,calign=midpoint,
+      [Cilla
+        [Eunice]
+      ]
+      [Abigail Tillerman
+        [John,also parent={append}{j}]
+        [Liza, also parent={append}{!r3}, for children={also parent={append}{!un}}
+          [Dicey]
+          [James]
+          [Maybeth]
+          [Sammy]
+        ]
+        [Francis Verricker,no edge]
+        [Samuel, also parent+={!r3}]
+      ]
+      [John, name=j, no edge
+      ]
+    ]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\endgroup
+\TIMO
+% \TEST{multi-6}{%
+%   \showbox\mybox
+% }
+% \OMIT
+% \box\mybox
+% \TIMO
+\end{document}
+\END
+

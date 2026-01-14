@@ -1,0 +1,109 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `forest-ext-utils.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% forest-ext. You may, however, distribute the package without this file.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: forest-ext-utils.lvt 11428 2026-01-02 01:53:18Z cfrees $}[v0.0 \revinfo][\filebase: utils extensions test]
+\input regression-test.tex\relax
+\documentclass{article}
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage[ext.utils-debug]{forest}
+\useforestlibrary{linguistics}
+\newbox\mybox
+\forestset{draw tree box=\mybox}
+\begin{document}
+\START
+\TEST{utils: align middle child(ren)}{%
+% ateb: https://tex.stackexchange.com/a/436985/ addaswyd o gwestiwn A. D: https://tex.stackexchange.com/q/436881/
+  \begin{forest}
+    align middle children
+    [top, s sep=1cm
+      [A, child anchor=90]
+      [B]
+      [{CDDDDDDDD}, parent anchor=-10
+        [A]
+        [B]
+        [C]
+        [D]
+        [E]     
+      ]
+    ]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{utils: align middle children + linguistics}{%
+% ateb: https://tex.stackexchange.com/a/717680/ addaswyd o ateb Alan Munn: https://tex.stackexchange.com/a/717669/ i gwestiwn Andrea: https://tex.stackexchange.com/q/717656/
+  \OMIT
+  \forestapplylibrarydefaults{linguistics}
+  \TIMO
+  \begin{forest}
+    align middle children,
+    [$\omega$,s sep'=1cm[$\phi$,s sep'=1cm[$\theta$[C][D][Fl][E][$\chi$[O][Ve]][F]][Q(?)][M]][$\beta$,s sep'=1cm[$\gamma$[W][$\sigma$[V][Z]][B(?)]][$\delta$[$\varepsilon$[P][U][$\eta$[R][T]]][S]]]]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{utils: outer label}{%
+  \begin{forest}
+    [A [B[D,outer label=d]][C,outer label={c,outer label}:{anchor=base west,font=\sffamily,text=blue}]]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{utils: outer labels at}{%
+  \begin{forest}
+    outer labels at=west,
+    outer labels={anchor=base east,text=magenta},
+    [A [B[D,outer label=d]][C,outer label={c,outer label}:{anchor=north east,font=\sffamily,text=blue}]]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+% \TEST{utils-5}{%
+%   \showbox\mybox
+% }
+% \OMIT
+% \box\mybox
+% \TIMO
+% \TEST{utils-6}{%
+%   \showbox\mybox
+% }
+% \OMIT
+% \box\mybox
+% \TIMO
+\end{document}
+\END
+

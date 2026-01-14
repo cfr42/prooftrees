@@ -1,0 +1,499 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% forest-ext-utils.dtx
+% Additions and changes Copyright (C) 2025-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file forest-ext-utils.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+\RequirePackage{svn-prov}
+% ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
+\def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
+\ExplSyntaxOff
+\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\DefineFileInfoSVN[forest-ext-utils]
+\documentclass[11pt,british]{ltxdoc}
+% ^^A l3doc, minted both load fancyvrb
+% ^^A fancyvrb overwrites svn-prov's macros without warning
+% ^^A restore \fileversion \filerev in case we're using something troublesome
+\GetFileInfoSVN{forest-ext-utils}
+\begin{document}
+\DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+%
+% \title{ext.utils}
+% \author{Clea F. Rees\thanks{%
+%     Bug tracker:
+%     \href{https://codeberg.org/cfr/forest-ext/issues}{\url{codeberg.org/cfr/forest-ext/issues}}
+%     \textbar{} Code:
+%     \href{https://codeberg.org/cfr/forest-ext}{\url{codeberg.org/cfr/forest-ext}}
+%     % \textbar{} Mirror:
+%     % \href{https://github.com/cfr42/forest-ext}{\url{github.com/cfr42/forest-ext}}% 
+% }}
+% \date{\forestextdocdate}
+% \maketitle
+%
+% ^^A forest-lib-ext.utils{-debug} 
+% ^^A <<< 
+% \iffalse
+%<*sty>
+% \fi
+%<@@=forestext>
+% \permissivelines
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+%% $Id: forest-ext-utils.dtx 11471 2026-01-14 21:49:31Z cfrees $}
+%<!debug>    \ProvidesForestLibrary{ext.utils}[2025-12-05 v0.0]
+%<debug>    \ProvidesForestLibrary{ext.utils-debug}[2025-12-05 v0.0]
+%    \end{macrocode}
+% \iffalse
+% ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
+% \fi
+% \section{Toks etc.}\label{sec:imp-toks}
+% ^^A <<< toks
+% Only used if other stuff isn't loaded.
+%    \begin{macrocode}
+\ExplSyntaxOn
+%    \end{macrocode}
+% \begin{macro}{\forestext@toksapp}
+%   Avoid standard name in case the user loads code which defines the macro after loading our package.
+%    \begin{macrocode}
+\cs_new:Npn \forestext@toksapp#1#2{#1\expandafter{\the #1#2}}
+\@ifpackageloaded{memoize}
+{}{
+  \newif\ifmemoizing\memoizingfalse
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\socket_get_plug:nN}
+%   See \url{https://github.com/latex3/latex2e/issues/1851#issuecomment-3566374363}.
+%   I don't know the implementation status of Ulrike Fischer's suggestion.
+%    \begin{macrocode}
+\cs_if_free:NT \socket_get_plug:nN
+{
+  \cs_new_protected_nopar:Npn \socket_get_plug:nN #1#2
+  {
+    \str_set_eq:cN { l__socket_#1_plug_str } #2
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+% ^^A >>> toks
+%
+% \section{‘Tagging keylists’}\label{sec:imp-tagging-keylists}
+% ^^A <<< tagging keylists
+% A bit like \pkg{expl3} property lists outside \env{forest} environments; just like \pkg{forest} \emph{keylist options} inside them.
+%
+% Mostly intended for tagging, but possibly useful in some other context so here.
+% Sylwad jps: \url{https://chat.stackexchange.com/transcript/message/68670752#68670752}.
+%    \begin{macrocode}
+\ExplSyntaxOn
+\tl_new:N \l_@@_tmpa_tl
+\prop_new:N \l_@@_tmpa_prop
+\seq_new:N \l_@@_tmpa_seq
+%    \end{macrocode}
+% \begin{macro}{\@@_fkeylist_declare:nn}% ^^A <<<
+%   Wrapper.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_fkeylist_declare:nn #1#2
+{
+%<debug>      \typeout{[Forest~ext.utils~debug]::~Declare~#1~with~#2.}
+  \prop_new:c {l_@@_#1_prop}
+  \@@_fkeylist_put_from_keyval:nn {#1}{#2}
+%<debug>      \@@_fkeylist_log:n {#1}
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_redeclare:nn}% ^^A <<<
+%   This one is the point, after all.
+%   That is, it is here that \pkg{forest} seems to lack capacity (as far as I can tell).
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_fkeylist_redeclare:nn #1#2
+{
+%<debug>      \typeout{[Forest~ext.utils~debug]::~Redeclare~#1~with~#2.}
+  \prop_clear:c {l_@@_#1_prop}
+  \@@_fkeylist_put_from_keyval:nn {#1} {#2}
+%<debug>      \@@_fkeylist_log:n {#1}
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_put_from_keyval:nn}% ^^A <<<
+%   This is ugly as sin, but \pkg{l3prop} does not like keys without values.
+%
+%   jps: <- ‘we'll need two steps of full expansion’
+%   I don't understand this at all.
+%
+%   jps: \url{https://chat.stackexchange.com/transcript/message/68672267#68672267}
+%   ‘\verb|\exp_args:Nne \prop_set_from_keyval:ce| will in combination expand the entire thing two times inside an e-argument, hence two steps of full expansion. 
+%   It's necessary because \verb|\keyval_parse:nnn| returns its result inside \verb|\exp_not:n|, but we want to also expand all the auxiliary functions, hence two steps.’
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_fkeylist_put_from_keyval:nn #1#2
+{
+%<debug>      \typeout{[Forest~ext.utils~debug]::~Processing~#2~for~#1.}
+  \exp_args:Nne \prop_put_from_keyval:ce {l_@@_#1_prop}
+  {
+    \keyval_parse:NNn
+    \@@_fkeylist_put_from_keyval_aux:n
+    \@@_fkeylist_put_from_keyval_aux:nn
+    {#2}
+  }
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{%
+%   \@@_fkeylist_put_from_keyval_aux:n,
+%   \@@_fkeylist_put_from_keyval_aux:nn%
+% }% ^^A <<<
+%   jps.
+%   I would never have thought to do it this way?
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_fkeylist_put_from_keyval_aux:n #1
+{
+% ^^A paid â wneud hwn!
+% ^^A %<debug>      \typeout{[Forest~ext.utils~debug]::~Setting~keyval~#1.}
+  \@@_fkeylist_put_from_keyval_aux:nn {#1} {\q_no_value}
+}
+\cs_new_nopar:Npn \@@_fkeylist_put_from_keyval_aux:nn #1#2
+{
+% ^^A paid â wneud hwn!
+% ^^A %<debug>      \typeout{[Forest~ext.utils~debug]::~Setting~keyval~#1 = #2.}
+  \exp_not:n { {#1} = {#2} },
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_tokeyval:n}% ^^A <<<
+%   Wrapper.
+%    \begin{macrocode}
+\cs_new_nopar:Npn  \@@_fkeylist_to_keyval:n #1
+{
+% ^^A paid â wneud hwn.
+% ^^A   \prop_to_keyval:c {l_@@_#1_prop}
+  \prop_map_function:cN {l_@@_#1_prop} \@@_fkeylist_to_keyval_aux:nn
+% ^^A paid â wneud hwn.
+% ^^A %<debug>      \@@_fkeylist_log:n {#1}
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_to_keyval_aux:nn}% ^^A <<<
+%   Ugly as sin in reverse.
+%    \begin{macrocode}
+\cs_new_nopar:Npn  \@@_fkeylist_to_keyval_aux:nn #1#2
+{
+  \str_if_eq:nnTF {\q_no_value} {#2}
+  {\exp_not:n{#1},}{\exp_not:n{#1}=\exp_not:n{{#2}},}
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_put:nn}% ^^A <<<
+%   Wrapper.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_fkeylist_put:nn #1#2
+{
+  \@@_fkeylist_put_from_keyval:nn {#1} {#2}
+%<debug>      \@@_fkeylist_log:n {#1}
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_remove:nn}% ^^ <<<
+%   Unconditionally remove a key.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_fkeylist_remove:nn #1#2
+{
+  \prop_remove:cn {l_@@_#1_prop} {#2}
+%<debug>      \@@_fkeylist_log:n {#1}
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_remove_if_match:nn}% ^^A <<<
+%   Conditional removal.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_fkeylist_remove_if_match:nn #1#2
+{
+%<debug>      \typeout{[Forest~ext.utils~debug]::~Remove~#2~from~#1~if~value~match.}
+  \prop_set_eq:Nc \l_@@_tmpa_prop {l_@@_#1_prop}
+  \keyval_parse:NNn
+  \@@_fkeylist_remove_from_keyval_aux:n
+  \@@_fkeylist_remove_from_keyval_aux:nn
+  {#2}
+  \prop_set_eq:cN {l_@@_#1_prop} \l_@@_tmpa_prop
+%<debug>      \@@_fkeylist_log:n {#1}
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{%
+%   \@@_fkeylist_remove_from_keyval_aux:n,
+%   \@@_fkeylist_remove_from_keyval_aux:nn%
+% }% ^^A <<<
+%   Auxiliaries.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn  \@@_fkeylist_remove_from_keyval_aux:n #1
+{
+  \@@_fkeylist_remove_from_keyval_aux:nn {#1} {\q_no_value}
+}
+\cs_new_protected_nopar:Npn \@@_fkeylist_remove_from_keyval_aux:nn #1#2
+{
+%<debug>      \typeout{[Forest~ext.utils~debug]::~Remove~#1~if~value~is~#2.}
+  \prop_get:NnN \l_@@_tmpa_prop {#1} \l_@@_tmpa_tl
+  \tl_if_eq:NnT \l_@@_tmpa_tl {#2}
+  {
+    \prop_remove:Nn \l_@@_tmpa_prop {#1}
+  }
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{% ^^A <<< 2e aliases
+%   \forestext@keylist@declare,
+%   \forestext@prop@to@keylist,
+%   \forestext@keylist@put,
+%   \forestext@keylist@remove@key,
+%   \forestext@keylist@remove,
+%   \forestext@keylist@redeclare 
+% }
+% 2e aliases.
+%    \begin{macrocode}
+\cs_new_eq:NN \forestext@keylist@declare \@@_fkeylist_declare:nn
+\cs_new_eq:NN \forestext@prop@to@keylist \@@_fkeylist_to_keyval:n
+\cs_new_eq:NN \forestext@keylist@put \@@_fkeylist_put:nn
+\cs_new_eq:NN \forestext@keylist@remove@key \@@_fkeylist_remove:nn
+\cs_new_eq:NN \forestext@keylist@remove \@@_fkeylist_remove_if_match:nn
+\cs_new_eq:NN \forestext@keylist@redeclare \@@_fkeylist_redeclare:nn
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_protected_show:n,\forestext@keylist@log}% ^^A <<< 
+%    \begin{macrocode}
+%<debug>    \cs_new_nopar:Npn \@@_fkeylist_log:n #1
+%<debug>    {
+%<debug>      \typeout{[tagforext~debug]::~ #1:~}
+%<debug>      \prop_log:c {l_@@_#1_prop} 
+%<debug>    }
+%<debug>    \cs_new_eq:NN \forestext@keylist@log \@@_fkeylist_log:n
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
+%    \begin{macrocode}
+\cs_generate_variant:Nn \prop_to_keyval:N {c}
+\cs_generate_variant:Nn \prop_put_from_keyval:Nn {ce}
+\ExplSyntaxOff
+\newtoks\forestext@toksa
+%    \end{macrocode}
+% Avoid using a hook.
+%    \begin{macrocode}
+\forestset{%
+%    \end{macrocode}
+% \begin{fcodekey}{declare~tagging~keylist,redeclare~tagging~keylist}
+%   Wrappers for primary functionality of these bits.
+%    \begin{macrocode}
+  declare tagging keylist/.code 2 args={%
+%<debug>          \typeout{[Forest ext.utils debug]:: Declaring tagging keylist #1}%
+%<debug>          \typeout{[Forest ext.utils debug]:: with default #2.}%
+    \forestext@keylist@declare {#1}{#2}%
+%<debug>          \forestext@keylist@log{#1}%
+    \forestext@toksapp\forestext@toksa{%
+      declare keylist/.process={_x{#1}{\forestext@prop@to@keylist{#1}}},
+    }%
+%<debug>          \expandafter\typeout\expandafter{\the\forestext@toksa}%
+  },
+  redeclare tagging keylist/.code 2 args={%
+%<debug>          \typeout{[Forest ext.utils debug]:: Redeclaring tagging keylist #1}%
+%<debug>          \typeout{[Forest ext.utils debug]:: with default #2.}%
+    \forestext@keylist@redeclare {#1}{#2}%
+%<debug>          \forestext@keylist@log{#1}%
+  },
+%    \end{macrocode}
+% \end{fcodekey}
+% \begin{fcodekey}{%
+%   tagging~keylist~put,
+%   tagging~keylist~remove~key,
+%   tagging~keylist~remove%
+% }
+%   Wrappers for manipulating these keylists.
+%    \begin{macrocode}
+  tagging keylist put/.code 2 args={%
+    \forestext@keylist@put {#1}{#2}%
+  },
+  tagging keylist remove key/.code 2 args={%
+    \forestext@keylist@remove@key {#1}{#2}%
+  },
+  tagging keylist remove/.code 2 args={%
+    \forestext@keylist@remove {#1}{#2}%
+  },
+%    \end{macrocode}
+% \end{fcodekey}
+%    \begin{macrocode}
+}
+%    \end{macrocode}
+% Declare ‘tagging keylist’ options so we get defaults applied to nodes.
+% Then zap all the user-facing keys used to manipulate them.
+%
+% We want this to happen really early, but we do need the group or there's no point.
+%    \begin{macrocode}
+\AddToHook{cmd/forest@config/before}[.]{%
+%<debug>    \typeout{[Forest ext.utils debug]:: Creating options set with declare tagging keylist.}%
+%<debug>          \expandafter\typeout\expandafter{\the\forestext@toksa}%
+  \expandafter\forestset\expandafter{\the\forestext@toksa}%
+  \forestset{%
+    tagging keylist error/.code={%
+      \PackageError{ext.tagging (forest library)}{%
+        The key '#1' cannot be used inside a forest environment.%
+      }{%
+        You need to use this key inside the document but outside the forest.
+        Please see forest-ext's documentation for details.%
+      }%
+    },
+    declare tagging keylist/.style 2 args={tagging keylist error=declare tagging keylist},
+    redeclare tagging keylist/.style 2 args={tagging keylist error=redeclare tagging keylist},
+    tagging keylist put/.style 2 args={tagging keylist error=tagging keylist put},
+    tagging keylist remove/.style 2 args={tagging keylist error=tagging keylist remove},
+    tagging keylist remove key/.style 2 args={tagging keylist error=tagging keylist remove key},
+  }%
+}
+%    \end{macrocode}
+% ^^A >>> end tagging keylists
+%
+% \section{Styles}\label{sec:imp-styles}
+% ^^A <<< styles
+%    \begin{macrocode}
+\forestset{
+%    \end{macrocode}
+% \begin{fstyle}{align middle child,align middle children}
+% \texseans{436985} \texseqn{436881}[A. D]
+%    \begin{macrocode}
+  align middle child/.style={
+    before typesetting nodes={
+      if={
+        > Ow+P {n children}{isodd(##1)}
+      }{
+        calign child/.process={
+          Ow+n {n children}{(##1+1)/2}
+        },
+        calign=#1,
+      }{},
+    },
+  },
+  align middle child/.default=child edge,
+  align middle children/.style={
+    for tree={align middle child=#1},
+  },
+  align middle children/.default=child edge,
+%    \end{macrocode}
+% \end{fstyle}
+% \begin{fkeylist}{utils@outer@label@opts}
+%   Options.
+%    \begin{macrocode}
+  declare keylist={utils@outer@label@opts}{},
+%    \end{macrocode}
+% \end{fkeylist}
+% \begin{fkeylistr}{outer~labels}
+%   Keys applied to all outer labels.
+%    \begin{macrocode}
+  declare keylist register={outer labels},
+  outer labels={anchor=base west},
+%    \end{macrocode}
+% \end{fkeylistr}
+% \begin{booleanr}{utils@has@outer@labels}
+%   Boolean.
+%    \begin{macrocode}
+  declare boolean register=utils@has@outer@labels,
+  utils@has@outer@labels=0,
+%    \end{macrocode}
+% \end{booleanr}
+% \begin{ftoksr}{outer~labels~at}
+%   Anchor.
+%    \begin{macrocode}
+  declare toks register=outer labels at,
+  outer labels at=east,
+%    \end{macrocode}
+% \end{ftoksr}
+% \begin{autotoks}{utils@outer@label}
+%   Label.
+%    \begin{macrocode}
+  declare autowrapped toks={utils@outer@label}{},
+%    \end{macrocode}
+% \end{autotoks}
+%    \begin{macrocode}
+  /forest/ext/utils/outer@label/anchor/.initial=base,
+  /forest/ext/utils/outer@label/anchor/.forward to=/tikz/anchor,
+  /forest/ext/utils/outer@label/.search also={/tikz,/pgf},
+%    \end{macrocode}
+% \begin{fstyle}{outer~label}
+%   Args: options, content
+%    \begin{macrocode}
+  outer label/.style={%
+    split={#1}{:}{utils@outer@label,utils@outer@label@opts},
+    if utils@has@outer@labels={}{%
+      utils@has@outer@labels,
+      for root={%
+        tikz+={%
+          \coordinate (utils@outer@labels@align) at 
+            (current bounding box.\foresteregister{outer labels at});
+        },
+        before drawing tree={%
+          where utils@outer@label={}{}{%
+            tikz+/.process={%
+              OOORw4 
+              {utils@outer@label}
+              {utils@outer@label@opts}
+              {!u.grow}
+              {outer labels}
+              {%
+                \path [%
+                  rotate=##3,
+                ] node [%
+                  ##4,
+                  /forest/ext/utils/outer@label/.cd,
+                  ##2,
+                ] at (.\pgfkeysvalueof{/forest/ext/utils/outer@label/anchor} 
+                        |- utils@outer@labels@align) 
+                  {##1};
+              }%
+            },
+          },
+        },
+      },
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}
+% ^^A >>> styles
+%    \begin{macrocode}
+%<!debug>      libraries/ext.utils/defaults/.style=
+%<debug>      libraries/ext.utils-debug/defaults/.style=
+  {%
+    default preamble+={
+    },
+  }%
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+%    \end{macrocode}
+% \iffalse
+%</sty>
+% \fi
+%^^A >>>
+%
+% ^^A \Finale
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:

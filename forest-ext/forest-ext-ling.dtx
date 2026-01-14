@@ -1,0 +1,330 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% forest-ext-ling.dtx
+% Additions and changes Copyright (C) 2025-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file forest-ext-ling.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+\RequirePackage{svn-prov}
+% ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
+\def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
+\ExplSyntaxOff
+\ProvidesFileSVN{$Id: forest-ext-ling.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\DefineFileInfoSVN[forest-ext-ling]
+\documentclass[11pt,british]{ltxdoc}
+% ^^A l3doc, minted both load fancyvrb
+% ^^A fancyvrb overwrites svn-prov's macros without warning
+% ^^A restore \fileversion \filerev in case we're using something troublesome
+\GetFileInfoSVN{forest-ext-ling}
+\begin{document}
+\DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+%
+% \title{ext.ling}
+% \author{Clea F. Rees\thanks{%
+%     Bug tracker:
+%     \href{https://codeberg.org/cfr/forest-ext/issues}{\url{codeberg.org/cfr/forest-ext/issues}}
+%     \textbar{} Code:
+%     \href{https://codeberg.org/cfr/forest-ext}{\url{codeberg.org/cfr/forest-ext}}
+%     % \textbar{} Mirror:
+%     % \href{https://github.com/cfr42/forest-ext}{\url{github.com/cfr42/forest-ext}}% 
+% }}
+% \date{\forestextdocdate}
+% \maketitle
+%
+% ^^A forest-lib-ext.ling{-debug} 
+% ^^A <<< 
+% \iffalse
+%<*sty>
+% \fi
+% \permissivelines
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+%% $Id: forest-ext-ling.dtx 11471 2026-01-14 21:49:31Z cfrees $}
+%<!debug>    \ProvidesForestLibrary{ext.ling}[2025-12-05 v0.0]
+%<debug>    \ProvidesForestLibrary{ext.ling-debug}[2025-12-05 v0.0]
+%    \end{macrocode}
+% \iffalse
+% ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
+% \fi
+% ^^A multidom <<<
+%    \begin{macrocode}
+%<!debug>    \useforestlibrary{ext.multi}
+%<debug>    \useforestlibrary{ext.multi-debug}
+\forestset{
+%    \end{macrocode}
+% My answer: \url{https://tex.stackexchange.com/a/695602/}.
+% Based on an answer by Alan Munn: \url{https://tex.stackexchange.com/a/695600/}, which was based on my original answer.
+%
+% Internal registers.
+%    \begin{macrocode}
+  declare dimen register={multidom@dimx},
+  multidom@dimx'=0pt,
+  declare dimen register={multidom@dimy},
+  multidom@dimy'=0pt,
+  declare toks register={multidom@toksa},
+  multidom@toksa={},
+  declare toks register={multidom@toksb},
+  multidom@toksb={},
+  declare toks register={multidom@toksc},
+  multidom@toksc={},
+  declare toks register={multidom@toksd},
+  multidom@toksd={},
+%    \end{macrocode}
+% \begin{fstyle}{multidom@aux}
+% First split the argument on colons.
+% If there's no sixth argument, re-split to \texttt{curve to also parent}; o/w split out the first argument to (send back to) \texttt{multidom}, storing remaining arguments.
+%    \begin{macrocode}
+  multidom@aux/.style={%
+%<debug>    debug@multidom=Executing style multidom@aux at,
+%<debug>    debug@multidom@option=id,
+    if={>__={#1}{}}{}{
+      multidom@toksa={},
+      multidom@toksb={},
+      multidom@toksc={},
+      multidom@toksd={},
+      multidom@dimx'=0pt,
+      multidom@dimy'=0pt,
+      split={#1}{:}{%
+        multidom@toksa,multidom@toksa,%
+        multidom@toksa,multidom@toksb,%
+        multidom@toksc,multidom@toksd%
+      },
+      if={>{R_=}{multidom@toksd}{}}{% no sixth arg -> resplit -> curve to also parent
+        split={#1}{:}{%
+          multidom@toksa,multidom@toksb,multidom@toksc%
+        },
+        curve to also parent/.process={%
+          RRR
+          {multidom@toksa}
+          {multidom@toksb}
+          {multidom@toksc}%
+        },      
+      }{% sixth arg -> (first) multidom
+        split={#1}{:}{%
+          multidom@toksa,multidom@dimx,%
+          multidom@dimy,multidom@toksb,%
+          multidom@toksc,multidom@toksd%
+        },
+%<debug>    debug@multidom@register=multidom@dimx,
+%<debug>    debug@multidom@register=multidom@dimy,
+        multidom/.process={%
+          RRRRRR
+          {multidom@toksa}{multidom@dimx}
+          {multidom@dimy}{multidom@toksb}
+          {multidom@toksc}{multidom@toksd}%
+        },
+      },
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}
+% \begin{fstyle}{curve to also parent,curve to also parent+,+curve to also parent}
+%   Draws a curved edge from the current node to an additional extant parent.
+%   Parameterised from \url{https://tex.stackexchange.com/a/249615/}.
+%
+%   Why do I need to double hashes twice here?
+%    \begin{macrocode}
+  curve to also parent/.style n args=3{%
+%<debug>    debug@multidom=Executing style curve to also parent at,
+%<debug>    debug@multidom@option=id,
+    also parent={#1}{%
+      #3:{%
+        multidom@curved@edge=from (!c fosterling.#2) 
+          to (!c foster parent.parent anchor)%
+      }%
+    },
+  },
+  +curve to also parent/.style 2 args={%
+%<debug>    debug@multidom=Executing style +curve to also parent at,
+%<debug>    debug@multidom@option=id,
+    +also parent={%
+      #2:{%
+        multidom@curved@edge=from (!c fosterling.#1) 
+          to (!c foster parent.parent anchor)%
+      }%
+    },
+  },
+  curve to also parent+/.style 2 args={%
+%<debug>    debug@multidom=Executing style curve to also parent+ at,
+%<debug>    debug@multidom@option=id,
+    also parent+={%
+      #2:{%
+        multidom@curved@edge=from (!c fosterling.#1) 
+          to (!c foster parent.parent anchor)%
+      }%
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}
+% \begin{fstyle}{multidom}
+%   Based on an answer by Alan Munn: \url{https://tex.stackexchange.com/a/695600/}, which was based on my original answer.
+%   Draws a curved edge from the current node to its parent and from the current node to an additional extant parent.
+%
+% Arguments: 
+% \begin{itemize}[label={}]
+%   \item prepend\textbar append (\textbar other??)
+%   \item xshift for tree rooted at current node
+%   \item yshift for tree rooted at current node
+%   \item out to structural parent
+%   \item out to node
+%   \item node
+% \end{itemize}
+% Parameterised from \url{https://tex.stackexchange.com/a/249615/}.
+%    \begin{macrocode}
+  multidom/.style n args=6{%
+%<debug>    debug@multidom=Executing style multidom at,
+%<debug>    debug@multidom@option=id,
+%<debug>    debug@multidom=Executing style also parent with #1 #5 and #6,
+    also parent={#1}{%
+      #6:{%
+        multidom@curved@edge=from (!c fosterling.#5) 
+          to (#6.parent anchor)%
+      }%
+    },
+%<debug>    debug@multidom=Executing style multidom@curved@edge from #4 to parent,
+    multidom@curved@edge=from (.#4) to (!u.parent anchor),
+%<debug>    debug@multidom=Moving sub-tree by #2 and #3,
+    before drawing tree={%
+      for tree={x'+=#2,y'+=#3},
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}
+% \begin{fstyle}{multidom@curved@edge}
+%   Draw a curved edge from a child to its natural or additional parent.
+%   Ultra simple.
+%    \begin{macrocode}
+  multidom@curved@edge/.style args={from (#1.#2) to (#3)}{%
+    edge path'={(#1.#2) to [looseness=.5, out=#2] (#3)},
+  },
+%    \end{macrocode}
+% \end{fstyle}
+% \begin{fstyle}{other multidom parents}
+%   Convenience wrapper in case many additional parents are required.
+%    \begin{macrocode}
+  other multidom parents/.style={%
+    split={#1}{,}{multidom@aux},
+  },
+%    \end{macrocode}
+% \end{fstyle}
+% \begin{fstyle}{multidom prepend,multidom append}
+%    \begin{macrocode}
+  multidom prepend/.style n args=5{%
+    multidom={prepend}{#1}{#2}{#3}{#4}{#5}%
+  },
+  multidom append/.style n args=5{%
+    multidom={append}{#1}{#2}{#3}{#4}{#5}%
+  },
+%    \end{macrocode}
+% \end{fstyle}
+% Add code to default preamble to check for multi-dominance flags.
+%
+% Path here is based on builtin \pkg{forest} libraries, which should (hopefully?) hook into the same mechanisms, but this is not really documented??
+%
+% Dependence on another library is also not really documented \dots.
+% It's not really clear to me whether other people are just not expected to write libraries \dots, but it is such a standard mechanism in \pgftikz, that would seem odd?
+%    \begin{macrocode}
+%<!debug>      libraries/ext.ling/defaults/.style={%
+%<debug>      libraries/ext.ling-debug/defaults/.style={%
+%<!debug>      libraries/ext.multi/defaults,
+%<debug>      libraries/ext.multi-debug/defaults,
+  },
+%    \end{macrocode}
+% \begin{fstyle}{debug@multidom,debug@multidom@register,debug@multidom@option}
+%   Internal styles for debugging.
+%   Should not be used directly, but may be applied by loading the debugging code.
+%    \begin{macrocode}
+%<debug>    debug@multidom/.code={%
+%<debug>      \ExpandArgs {e} \typeout{[Forest ext.ling debug]:: \detokenize{#1}}%
+%<debug>    },
+%<debug>    debug@multidom@register/.code={%
+%<debug>      \ExpandArgs {e} \typeout{[Forest ext.ling debug]:: \detokenize{#1}
+%<debug>        = \foresteregister{#1}%
+%<debug>      }%
+%<debug>    },
+%<debug>    debug@multidom@option/.code={%
+%<debug>      \ExpandArgs {e} \typeout{[Forest ext.ling debug]:: \detokenize{#1}
+%<debug>        = \foresteoption{#1}%
+%<debug>      }%
+%<debug>    },
+%<debug>    debug multidom phantoms/.forward to=/forest/debug multi phantoms,
+%    \end{macrocode}
+% \end{fstyle}
+% \begin{fstyle}{debug multidom phantoms}
+%   Supply a code key as substitute for the boolean if the debugging code isn't loaded.
+%    \begin{macrocode}
+%<!debug>    debug multidom phantoms/.code={%
+%<!debug>      \PackageWarning{forest-lib-ext.ling}{%
+%<!debug>       You requested the style 'debug multidom phantoms', 
+%<!debug>       but did not load the debugging code. 
+%<!debug>       Either load 'ext.ling-debug' instead of 
+%<!debug>       'ext.ling' or remove this style.%
+%<!debug>     }%
+%<!debug>    }, 
+%    \end{macrocode}
+% \end{fstyle}
+%    \begin{macrocode}
+}
+%    \end{macrocode}
+% ^^A >>> multidom
+%
+% ^^A <<< pretty nice empty nodes
+% \begin{fstyle}{pretty nice empty nodes}
+%   This is in the \pkg{ext.ling} library mostly because \texttt{nice empty nodes} is in the \pkg{linguistics} library and not because linguists are more picky about their empty nodes than anybody else.
+% 
+%   Is this even still useful?
+% 
+%   \texseans{717677} i gwestiwn \texseqn{717592}[argo] 
+%    \begin{macrocode}
+\forestset{%
+  pretty nice empty nodes/.style={%
+    for tree={%
+      calign=fixed edge angles,
+      parent anchor=children,
+      delay={%
+        if content={}{%
+          inner sep=0pt,
+          edge path'={(!u.parent anchor) -- (.children)},
+          #1,
+        }{},
+      },
+    },
+  },
+}
+%    \end{macrocode}
+% \end{fstyle}
+% ^^A >>> pretty nice empty nodes
+% \iffalse
+%</sty>
+% \fi
+%^^A >>>
+%
+% ^^A \Finale
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:
