@@ -1,0 +1,122 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: utils-keylists-manip
+============================================================
+[Forest ext.utils debug]:: Declaring tagging keylist my toks
+[Forest ext.utils debug]:: with default calign=midpoint,l sep'+=5mm,before typesetting nodes={blue,font=\sffamily ,},.
+[Forest ext.utils debug]:: Declare my toks with calign=midpoint,l sep'+=5mm,before typesetting nodes={blue,font=\sffamily ,},.
+[Forest ext.utils debug]:: Processing calign=midpoint,l sep'+=5mm,before typesetting nodes={blue,font=\sffamily ,}, for my toks.
+[tagforext debug]:: my toks: 
+The property list \l__forestext_my toks_prop contains the pairs (without outer braces):
+>  {calign}  =>  {midpoint}
+>  {l sep'+}  =>  {5mm}
+>  {before typesetting nodes}  =>  {blue,font=\sffamily ,}.
+[tagforext debug]:: my toks: 
+The property list \l__forestext_my toks_prop contains the pairs (without outer braces):
+>  {calign}  =>  {midpoint}
+>  {l sep'+}  =>  {5mm}
+>  {before typesetting nodes}  =>  {blue,font=\sffamily ,}.
+declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, 
+[Forest ext.utils debug]:: Declaring tagging keylist my keys
+[Forest ext.utils debug]:: with default circle,calign=first.
+[Forest ext.utils debug]:: Declare my keys with circle,calign=first.
+[Forest ext.utils debug]:: Processing circle,calign=first for my keys.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {first}.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {first}.
+declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, declare keylist/.process={_x{my keys}{circle,calign={first},}}, 
+[Forest ext.utils debug]:: Processing draw=green,rectangle,fill=red for my keys.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {first}
+>  {draw}  =>  {green}
+>  {rectangle}  =>  {\q_no_value }
+>  {fill}  =>  {red}.
+[Forest ext.utils debug]:: Processing fill=yellow for my keys.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {first}
+>  {draw}  =>  {green}
+>  {rectangle}  =>  {\q_no_value }
+>  {fill}  =>  {yellow}.
+[Forest ext.utils debug]:: Remove draw=green from my keys if value match.
+[Forest ext.utils debug]:: Remove draw if value is green.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {first}
+>  {rectangle}  =>  {\q_no_value }
+>  {fill}  =>  {yellow}.
+[Forest ext.utils debug]:: Processing font=\sffamily  for my keys.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {first}
+>  {rectangle}  =>  {\q_no_value }
+>  {fill}  =>  {yellow}
+>  {font}  =>  {\sffamily }.
+[Forest ext.utils debug]:: Processing calign=child edge for my keys.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {child edge}
+>  {rectangle}  =>  {\q_no_value }
+>  {fill}  =>  {yellow}
+>  {font}  =>  {\sffamily }.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {child edge}
+>  {rectangle}  =>  {\q_no_value }
+>  {font}  =>  {\sffamily }.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {circle}  =>  {\q_no_value }
+>  {calign}  =>  {child edge}
+>  {font}  =>  {\sffamily }.
+[Forest ext.utils debug]:: Creating options set with declare tagging keylist.
+declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, declare keylist/.process={_x{my keys}{circle,calign={child edge},font={\sffamily },}}, 
+calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},
+circle,calign={child edge},font={\sffamily },
+calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},
+circle,calign={child edge},font={\sffamily },
+============================================================
+============================================================
+TEST 2: utils-keylists-redeclare
+============================================================
+[Forest ext.utils debug]:: Redeclaring tagging keylist my keys
+[Forest ext.utils debug]:: with default calign=child,blue,delay={content+={wff}},.
+[Forest ext.utils debug]:: Redeclare my keys with calign=child,blue,delay={content+={wff}},.
+[Forest ext.utils debug]:: Processing calign=child,blue,delay={content+={wff}}, for my keys.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {calign}  =>  {child}
+>  {blue}  =>  {\q_no_value }
+>  {delay}  =>  {content+={wff}}.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {calign}  =>  {child}
+>  {blue}  =>  {\q_no_value }
+>  {delay}  =>  {content+={wff}}.
+[Forest ext.utils debug]:: Redeclaring tagging keylist my keys
+[Forest ext.utils debug]:: with default fill=magenta,.
+[Forest ext.utils debug]:: Redeclare my keys with fill=magenta,.
+[Forest ext.utils debug]:: Processing fill=magenta, for my keys.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {fill}  =>  {magenta}.
+[tagforext debug]:: my keys: 
+The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
+>  {fill}  =>  {magenta}.
+[Forest ext.utils debug]:: Creating options set with declare tagging keylist.
+\forest@temp 
+\forest@temp 
+============================================================

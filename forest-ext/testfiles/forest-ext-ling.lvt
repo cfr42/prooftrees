@@ -1,0 +1,133 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `forest-ext-tagging.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% forest-ext. You may, however, distribute the package without this file.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: forest-ext-ling.lvt 11427 2026-01-02 01:18:02Z cfrees $}[v0.0 \revinfo][\filebase: linguistics extensions test]
+\input regression-test.tex\relax
+\documentclass{article}
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage[linguistics,ext.ling-debug]{forest}
+% \usepackage[linguistics,ext.ling]{forest}
+\newbox\mybox
+\forestset{draw tree box=\mybox}
+\newcommand*\1{$'$}
+\begin{document}
+% the multi cases are just here to check interaction with linguistics and that ext.multi gets loaded automatically
+\START
+\TEST{multi}{% 1
+  \begin{forest}
+    [A
+      [a,multi=X ]
+    ]
+  \end{forest} 
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{curve to also parent, curve to also parent+, multidom, multi, also parent+}{% 2
+  \begin{forest}
+    [A
+      [a,curve to also parent={insert before}{60}{X},name=a
+        [d]
+      ]
+      [b [c,multi=C,curve to also parent+={north east}{a}
+      ] ]
+      [f [g,also parent+=X] ]
+      [x, name=X
+        [y, multidom={append}{0pt}{0pt}{30}{75}{!up}
+        ]
+      ]
+    ]
+  \end{forest} 
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{pretty nice empty nodes}{% 3
+  \begin{forest}
+    pretty nice empty nodes,
+    [
+      [a]
+      [[[][b][ [c,multi=C] ]]]
+      [f [g][[]] ]
+    ]
+  \end{forest} 
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{multidom prepend}{% 4
+  \begin{forest}
+    [TP,name=TP 
+      [DP,multidom prepend={-.5cm}{-2cm}{north}{east}{VP} 
+        [D\\the ]
+        [NP\\chimney ]
+      ] 
+      [T\1
+        [T ]
+        [VP,name=VP  
+          [V\1  
+            [V\\smokes ] 
+          ]
+        ]
+      ]
+    ]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\TEST{other multidom parents}{% 5
+  \begin{forest}
+    [TP,name=TP 
+      [DP,other multidom parents={prepend:-5mm:-2cm:north:east:VP,prepend:south east:V}
+        [D\\the ]
+        [NP\\chimney ]
+      ] 
+      [T\1
+        [T ]
+        [VP,name=VP  
+          [V\1,name=V
+            [V\\smokes ] 
+          ]
+        ]
+      ]
+    ]
+  \end{forest}
+  \showbox\mybox
+}
+\OMIT
+\box\mybox
+\TIMO
+\end{document}
+\END
+

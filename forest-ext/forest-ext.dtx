@@ -1,0 +1,1995 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% forest-ext.dtx
+% Additions and changes Copyright (C) 2025-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file forest-ext.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% biber --output_format=bibtex --output_resolve forest-ext.bcf to generate .bib for upload
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+\RequirePackage{svn-prov}
+% ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
+\def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
+\ExplSyntaxOff
+\ProvidesFileSVN{$Id: forest-ext.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\DefineFileInfoSVN[forestextdoc]
+\GetFileInfoSVN*
+\let\forestextdocversion\fileversion
+\let\forestextdocrev\filerev
+\let\forestextdocbase\filebase
+\let\forestextdocinfo\fileinfo
+\let\forestextdocdate\filedate
+\let\forestextdocname\filename
+%^^A preamble <<<
+\documentclass[11pt,british]{ltxdoc}
+\partokencontext=0
+% ^^A  l3doc loads fancyvrb
+% ^^A  fancyvrb overwrites svn-prov's macros without warning
+% ^^A  restore \fileversion \filerev in case we're using l3doc
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+% ^^A  \OnlyDescription
+\DoNotIndex{\verb,\ProvidesPackageSVN,\NeedsTeXFormat,\ProcessKeyOptions}
+\usepackage{babel}
+\usepackage{fancyhdr}
+% ^^A  \usepackage{array,tabularx}
+% ^^A  \usepackage{longtable}
+\usepackage[inline]{enumitem}
+\usepackage{forest}
+\useforestlibrary{linguistics,edges,ext.ling-debug,ext.multi-debug,ext.utils-debug}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[tt={mono,tabular,lining}]{cfr-lm}
+% ^^A  \usepackage[referable]{threeparttablex}
+% ^^A  \makeatletter
+% ^^A  \def\TPT@measurement{% ateb David Carlisle: https://tex.stackexchange.com/a/370691/
+% ^^A    \ifdim\wd\@tempboxb<\TPTminimum
+% ^^A      \hsize \TPTminimum
+% ^^A    \else
+% ^^A      \hsize\wd\@tempboxb
+% ^^A    \fi
+% ^^A    \xdef\TPT@hsize{\hsize\the\hsize \noexpand\@parboxrestore}\TPT@hsize
+% ^^A    \ifx\TPT@docapt\@undefined\else
+% ^^A      \TPT@docapt \vskip.2\baselineskip
+% ^^A    \fi \par
+% ^^A    \dimen@\dp\@tempboxb % new
+% ^^A    \box\@tempboxb
+% ^^A    \ifvmode \prevdepth\dimen@ \fi% was \z@ not \dimen@
+% ^^A  }
+% ^^A  \renewlist{tablenotes}{enumerate}{1}
+% ^^A  \setlist[tablenotes]{label=\tnote{\alph*},ref=\alph*,itemsep=\z@,topsep=\z@skip,partopsep=\z@skip,parsep=\z@,itemindent=\z@,labelindent=\tabcolsep,labelsep=.2em,leftmargin=*,align=left,before={\unskip\medskip\footnotesize}}
+% ^^A  \makeatother
+% ^^A  \usepackage{booktabs}
+% ^^A  \usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{xurl}
+\urlstyle{sf}
+\usepackage{microtype}
+\usepackage[a4paper,headheight=14pt,marginparwidth=45mm,hmarginratio=4:1,vscale=.8,hscale=.7,verbose]{geometry}	% use 14pt for 11pt text, 15pt for 12pt text
+%^^A % addaswyd o chronos.tex, prooftrees.dtx
+\newlength\tewadjust
+\newlength\forestextdoctemplgth
+\AddToHook {begindocument/end}[.]
+{%
+  \setlength\tewadjust{\dimeval{\marginparwidth+\marginparsep-\paperwidth+\textwidth+\oddsidemargin+1in}}%
+  \setlength\forestextdoctemplgth{0pt}%
+  \newgeometry{headheight=14pt,scale=.8,marginparwidth=0pt,marginparsep=0pt}%
+  \savegeometry{safonol}%
+  \fancyheadoffset[lh]{0pt}% ^^A REQUIRED - do NOT remove this line!!
+  \pagenumbering{arabic}%
+}
+\newcommand \twmarg {%
+  \restoregeometry
+  \fancyheadoffset[lh]{\tewadjust}%
+}
+\newcommand \twreg {%
+  \loadgeometry{safonol}%
+  \fancyheadoffset[lh]{0pt}% ^^A REQUIRED - do NOT remove this line!!
+}
+\usepackage{csquotes}
+\MakeAutoQuote{‘}{’}
+\MakeAutoQuote*{“}{”}
+\usepackage[citestyle=authoryear-comp,bibstyle=authoryear,mergedate=basic,isbn=false,url=true,sortcites=true,backend=biber,mincrossrefs=6]{biblatex}
+\DeclareFieldFormat{eprint:ctan}{%
+  \mkbibacro{CTAN}\addcolon\space
+  \ifhyperref
+    {\href{https://www.ctan.org/pkg/#1}{\nolinkurl{#1}}}
+  {\nolinkurl{#1}}%
+}
+\DeclareFieldAlias{eprint:CTAN}{eprint:ctan}
+\bibliography{abbrv, authors, journals-series, pub, lleoedd, ref}
+%^^A % \bibliography{forest-ext.bib}% generate for upload (gweler uchod)
+\usepackage[section]{placeins}
+\usepackage{tcolorbox}
+\usepackage{varwidth}
+%^^A \tcbuselibrary{listingsutf8}% ^^A if you use skins, you need to disable externalisation for boxes which use the relevant options - gweler nodiadau/tex/tex.se/tcolorbox-coursepacket-exp.tex
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% ^^A Sašo Živanović: https://github.com/sasozivanovic/memoize/issues/31#issuecomment-2424700001
+%^^A % \csappto{tcb@shield@@externalize}{\ifdefined\memoizefalse\memoizefalse\fi}
+%^^A % \tcbset{shield externalize}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A % sicrhau hyperindex=false: llwytho CYN bookmark
+\usepackage{hypdoc}% ateb Ulrike Fischer: https://tex.stackexchange.com/a/695555/
+\usepackage{bookmark}
+\usepackage{cleveref}
+\hypersetup{%
+  colorlinks=true,
+  citecolor={moss},
+  extension=pdf,
+  linkcolor={strawberry},
+  linktocpage=true,
+  pdfcreator={TeX},
+  pdfproducer={pdfeTeX},
+  urlcolor={blueberry}%
+}
+\makeatletter
+\colorlet{doc@frame@col}{darkgray}
+\colorlet{doc@title@col}{doc@frame@col}
+\colorlet{doc@bg@col}{white}
+%^^A \colorlet{doc@fg@col}{white}
+\setminted{style=sas,breaklines=true,breakafter={\,},}
+\tcbset{%^^A
+  base/.style={%
+    colback=doc@bg@col,
+    colframe=doc@frame@col,
+    listing only,
+  },
+  coeden/.style={
+    colback=doc@bg@col,
+    colframe=doc@frame@col,
+    coltitle=doc@title@col,
+    boxrule=0.4pt, % 0.5mm default
+    halign=center,
+    fonttitle=\sffamily\plstyle\bfseries,
+    title={#1},
+    sharpish corners,
+  },
+  coeden dew/.style={
+    coeden=#1,
+    grow to left by=\tewadjust,
+  },
+  cod coeden/.style={
+    coeden=#1,
+    minted language=latex,
+  },
+  cod coeden dew/.style={
+    cod coeden=#1,
+    grow to left by=\tewadjust,
+  },
+  coeden float/.style={
+    coeden,
+    boxrule=0.5mm, % 0.5mm default
+    float,
+    floatplacement={!tbp},
+    list entry={\protect\numberline{\thetcbcounter\textbar}#1},
+    title={Box~\thetcbcounter\hskip 1.5em #1},
+    % tcolorbox manual 189
+    skin=enhanced, 
+    attach boxed title to top left={xshift=1em,yshift=-\tcboxedtitleheight/2},
+    boxed title style={colback=doc@bg@col,sharpish corners},
+    % default uses 2mm top, 2mm bottom, 4mm left, 4mm right (p 51)
+    top=2mm+\tcboxedtitleheight/2,
+  },
+  coeden dew float/.style={
+    coeden float=#1,
+    grow to left by=\tewadjust,
+  },
+  cod coeden float/.style={
+    coeden float=#1,
+    minted language=latex,
+  },
+  cod coeden dew float/.style={
+    cod coeden float=#1,
+    grow to left by=\tewadjust,
+  },
+  every float=\centering,
+}
+\NewTColorBox[auto counter, crefname={box}{boxes}, Crefname={Box}{Boxes}, number within=section]{coeden}{s t{+} O {} +m }
+{%^^A
+  IfBooleanTF={#2}{
+    IfBooleanTF={#1}{coeden dew=#4}{coeden=#4},
+  }{
+    IfBooleanTF={#1}{coeden dew float=#4}{coeden float=#4},
+  },
+  #3,
+}
+\NewTCBListing[use counter from=coeden, crefname={box}{boxes}, Crefname={Box}{Boxes}]{codcoeden}{ s t{+} O {} +m }
+{%^^A
+  IfBooleanTF={#2}{
+    IfBooleanTF={#1}{cod coeden dew=#4}{cod coeden=#4},
+  }{
+    IfBooleanTF={#1}{cod coeden dew float=#4}{cod coeden float=#4},
+  },
+  listing side text,
+  halign lower=center,
+  #3,
+}
+\NewTCBListing{codsiml}{ O {} }
+{%^^A
+  empty,
+  listing side text,
+  halign lower=center,
+  #1,
+}
+\newminted {latex}{frame=single,rulecolor=doc@frame@col,}
+\newminted {xml}{frame=single,rulecolor=doc@frame@col,}
+%^^A % \NewTCBListing{xmlbox}{ O{} }{%
+%^^A %   base,
+%^^A %   minted language=xml,
+%^^A %   #1,
+%^^A % }
+%^^A % \NewTCBListing{latexbox}{ O{} }{%
+%^^A %   base,
+%^^A %   minted language=latex,
+%^^A %   #1,
+%^^A % }
+%^^A \NewTCBListing[use counter from=coeden, crefname={box}{boxes}, Crefname={Box}{Boxes}]{codcoedenhir}{
+%^^A  s O {} m }
+%^^A {%^^A
+%^^A   IfBooleanTF={#1}{cod coeden dew=#3}{cod coeden=#3},
+
+%^^A \NewTCBListing[use counter from=coeden, crefname={box}{boxes}, Crefname={Box}{Boxes}]{codcoedenhir}{
+%^^A  s O {} m }
+%^^A {%^^A
+%^^A   IfBooleanTF={#1}{cod coeden dew=#3}{cod coeden=#3},
+%^^A   listing above text,
+%^^A   halign lower=center,
+%^^A   #2,
+%^^A }
+\defbibheading{bibliography}[\refname]{%^^A
+  \section*{#1}%^^A
+  \markboth{#1}{}}
+\errorcontextlines=10
+\newcommand\orig@xobey@sp{}
+\newcommand\permissivelines{%
+  \def\@xobeysp{\leavevmode\penalty100\ }%
+}
+\newcommand\strictlines{%
+  \let\@xobey@sp\orig@xobey@sp
+}
+\AddToHook{begindocument}[forestextdoc]{%
+  \let\orig@xobey@sp\@xobey@sp
+}
+\makeatother
+\NewDocElement[%
+  idxtype=step,
+  idxgroup=steps,
+  printtype=\textit{step},
+]{Step}{fstep}
+\NewDocElement[%
+  idxtype=bool.,
+  idxgroup=booleans,
+  printtype=\textit{bool.},
+]{Boolo}{booleano}
+\NewDocElement[%
+  idxtype=bool.\ reg.,
+  idxgroup=boolean registers,
+  printtype=\textit{bool.\ reg.},
+]{Boolr}{booleanr}
+\NewDocElement[%
+  idxtype=autowrapped toks,
+  idxgroup=autowrapped toks,
+  printtype=\textit{autowrapped toks},
+]{Awtoks}{autotoks}
+\NewDocElement[%
+  idxtype=autowrapped toks reg.,
+  idxgroup=autowrapped toks registers,
+  printtype=\textit{autowrapped toks reg.},
+]{Awtoksr}{autotoksr}
+\NewDocElement[%
+  idxtype=style,
+  idxgroup=styles,
+  printtype=\textit{style},
+]{Style}{fstyle}
+% \NewDocElement[%
+%   idxtype=lib.,
+%   idxgroup=libraries,
+%   printtype=\textit{lib.},
+% ]{Lib}{library}
+\NewDocElement[%
+  idxtype=pkg.,
+  idxgroup=,
+  printtype=\textit{pkg.},
+]{Pkg}{package}
+\NewDocElement[%
+  printtype=\textit{choice},
+  idxtype=choice key,
+  idxgroup=choice keys,
+]{Choice}{choicekey}
+\NewDocElement[%
+  idxtype=code key,
+  idxgroup=code keys,
+  printtype=\textit{code},
+]{Code}{fcodekey}
+\NewDocElement[%
+  idxtype=stage,
+  idxgroup=stages,
+  printtype=\textit{stage},
+]{Stage}{fstage}
+\NewDocElement[%
+  idxtype=count,
+  idxgroup=counts,
+  printtype=\textit{cnt.},
+]{Count}{fcount}
+\NewDocElement[%
+  idxtype=keylist,
+  idxgroup=keylists,
+  printtype=\textit{keylist},
+]{Keylist}{fkeylist}
+\NewDocElement[%
+  idxtype=tagging keylist,
+  idxgroup=tagging keylists,
+  printtype=\textit{tag.\ keylist},
+]{TagKeylist}{ftagkeylist}
+\NewDocElement[%
+  idxtype=keylist register,
+  idxgroup=keylists registers,
+  printtype=\textit{keylist reg.},
+]{Keylistr}{fkeylistr}
+\NewDocElement[%
+  idxtype=lib.,
+  idxgroup=libraries,
+  printtype=\textit{lib.},
+]{Lib}{library}
+\NewDocElement[%
+  idxtype=toks,
+  idxgroup=toks,
+  printtype=\textit{toks},
+]{Toks}{ftoks}
+\NewDocElement[%
+  idxtype=toks register,
+  idxgroup=toks registers,
+  printtype=\textit{toks reg.},
+]{Toksr}{ftoksr}
+\NewDocElement[%
+  idxtype=tex toks,
+  idxgroup=tex toks,
+  printtype=\textit{\TeX{} toks},
+]{Ttoks}{textoks}
+\NewDocElement[%
+  idxtype=socket,
+  idxgroup=sockets,
+  printtype=\textit{socket},
+]{Sock}{socket}
+\NewDocElement[%
+  idxtype=plug,
+  idxgroup=plugs,
+  printtype=\textit{plug},
+]{Plug}{splug}
+\newcommand*\is{\texttt{=\,}}
+\NewDocumentCommand \val { m }
+{%
+  {\ttfamily =\,}\meta{#1}%
+}
+\ExplSyntaxOn
+\NewDocumentCommand \vals { m }
+{
+  {
+    \ttfamily = \, 
+    \clist_use:nn { #1 } { \textbar }
+  }
+} 
+\keys_define:nn { forest-ext / doc }
+{
+  unknown .code:n = {
+    \cs_if_free:cT { \l_keys_key_str }
+    {
+      \tl_gset:cn { \l_keys_key_str } { #1 }
+    }
+  },
+}
+\NewDocumentCommand \forestextdocset { +m }
+{
+  \keys_set:nn { forest-ext / doc } { #1 }
+}
+\ExplSyntaxOff
+\forestextdocset{%
+  bug={\href{https://codeberg.org/cfr/forest-ext/issues}{\textsc{bugtracker}}},
+  codeberg={\href{https://codeberg.org/cfr/forest-ext}{\textsc{codeberg}}},
+  github={\href{https://github.com/cfr42/forest-ext}{\textsc{github}}},
+  ctan={\href{https://ctan.org/}{\textsc{ctan}}},
+}
+% \usepackage{cleveref}
+\newcommand*{\pgf}{\textsc{pgf}}
+\newcommand*{\pdfTeX}{\textsc{pdf}\TeX}
+\newcommand*\TikZ{Ti\emph{k}Z}
+\newcommand*\pgftikz{\pgf/\TikZ}
+\newcommand*\texse{\textsc{\TeX{} se}}
+\newcommand*{\lpack}[1]{\textsf{#1}}
+\newcommand*{\fgroup}[1]{\textsf{#1}}
+\newcommand*{\fname}[1]{\textsf{#1}}
+\newcommand*{\file}[1]{\texttt{#1}}
+\newcommand*{\env}[1]{\texttt{#1}}
+\NewDocumentCommand\texseans{O{Based on \texse{} answer:} m o}{%
+  #1 \href{https://tex.stackexchange.com/a/#2}{#2}%
+  \IfValueT{#3}{ by #3}.%
+}
+\NewDocumentCommand\texseqn{O{Based on \texse{} question} m o}{%
+  #1 \href{https://tex.stackexchange.com/q/#2}{#2}%
+  \IfValueT{#3}{ by #3}.%
+}
+\title{\filebase}
+\author{Clea F. Rees\thanks{%
+    Bug tracker:
+    \href{https://codeberg.org/cfr/forest-ext/issues}{\url{codeberg.org/cfr/forest-ext/issues}}
+    \textbar{} Code:
+    \href{https://codeberg.org/cfr/forest-ext}{\url{codeberg.org/cfr/forest-ext}}
+    % \textbar{} Mirror:
+    % \href{https://github.com/cfr42/forest-ext}{\url{github.com/cfr42/forest-ext}}% 
+}}
+\date{\forestextdocdate}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhf[lh]{\itshape\forestextdocbase}
+% ^^A \fancyhf[rh]{\itshape\filetoday}
+\fancyhf[rh]{\itshape\thepage~/~\lastpage{}}
+\ExplSyntaxOn
+\hook_gput_code:nnn {shipout/lastpage} {.}
+{
+  \property_record:nn {t:lastpage}{abspage,page,pagenum}
+}
+\cs_new_protected_nopar:Npn \lastpage 
+{
+  \property_ref:nn {t:lastpage}{page}
+}
+\cs_new_eq:NN \OrigMakePrivateLetters \MakePrivateLetters
+\ExplSyntaxOff
+\definecolor{strawberry}{rgb}{1.000,0.000,0.502}
+\definecolor{blueberry}{rgb}{0.000,0.000,1.000}
+\definecolor{moss}{rgb}{0.000,0.502,0.251}
+\partokencontext=0
+% ^^A >>> preamble
+\begin{document}
+%^^A \let\MakePrivateLetters\MyMakePrivateLetters
+\DocInput{\forestextdocname}
+\end{document}
+%</driver>
+% \fi
+%^^A %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% \maketitle
+% \thispagestyle{empty}
+% \bigskip
+%
+% \pdfinfo{% ^^A pam mae hyn yma?
+% 	/Creator		(TeX)
+% 	/Producer		(pdfTeX)
+% 	/Author			(Clea F. Rees)
+% 	/Title			(forest-ext)
+% 	/Subject		(TeX)
+% 	/Keywords		(TeX,LaTeX,Clea,Rees)}
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{0.5em}
+% 
+% ^^A lua will replace v0.0 and 0000/00/00 when tagging in the non-tagging sense
+% \changes{v0.0}{0000-00-00}{First public release.}
+%
+% \begin{abstract}
+%   \noindent\lpack{forest-ext} consists of various libraries for Sašo Živanović's package \pkg{forest} \autocite*{saso-forest}.
+%   The aim of the libraries is to provide bug fixes or extensions currently unavailable in \pkg{forest} itself.
+%   I hope that this package --- or at least many of its constituents --- will eventually be rendered unnecessary by an updated \pkg{forest} and disappear.
+% \end{abstract}
+%
+% \tableofcontents
+%
+% \twmarg
+% \section{Basic usage}\label{sec:usage}% ^^A <<< usage
+%
+% This package currently provides the following libraries:
+%
+% \DescribeLib{ext.ling} Experimental elementary support for trees involving multi-dominance, based on \pkg{ext.multi}.
+% See \cref{sec:ling}.
+%
+% \DescribeLib{ext.multi} Experimental elementary support for nodes with multiple parents.
+% See \cref{sec:multi}.
+%
+% \DescribeLib{ext.tagging} Experimental automatic tagging of \lpack{forest} trees.
+% See \cref{sec:tag}.
+%
+%   Although this relies only on documented public interfaces provided by \pkg{forest} --- no \pkg{forest} internals are patched or redefined --- the library does change the same \pgf{} internals as the tagging support in \pkg{latex-lab-tikz-testphase} \autocite{latex-project-latex-lab-tikz}.
+% 
+% \DescribeLib{ext.utils} Bits 'n bobs.
+% See \cref{sec:utils}.
+%
+% For debugging, the following alternative libraries are provided:
+%
+% \DescribeLib{ext.ling-debug} \pkg{ext.ling} plus debugging. 
+% See \cref{sec:ling}.
+%
+% \DescribeLib{ext.multi-debug} \pkg{ext.multi} plus debugging. 
+% See \cref{sec:multi}.
+%
+% \DescribeLib{ext.tagging-debug} \pkg{ext.tagging} plus debugging. 
+% See \cref{sec:tag}.
+%
+% \DescribeLib{ext.utils-debug} \pkg{ext.utils} plus debugging. 
+% See \cref{sec:utils}.
+%
+% Load the libraries in the same way as standard libraries:
+% \iffalse
+%<*verb>
+% \fi
+% \begin{minted}{latex}
+\usepackage[<comma-separated-list of libraries>]{forest}
+% \end{minted}
+% \iffalse
+%</verb>
+% \fi
+% or
+% \iffalse
+%<*verb>
+% \fi
+% \begin{minted}{latex}
+\usepackage{forest}
+\useforestlibrary{<comma-separated-list of libraries>}
+% \end{minted}
+% \iffalse
+%</verb>
+% \fi
+%
+% For example, the following line would load \pkg{forest-lib-ext.multi} and apply any defaults globally.
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\usepackage[ext.multi]{forest}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% The following lines would load the same library, but without applying any defaults.
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\usepackage{forest}
+\useforestlibrary{ext.multi}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% Any default settings can then be applied locally using \cs{forestapplylibrarydefaults}\marg{list of libraries}, if desired.
+% ^^A >>> usage
+%
+% \section[Tagging]{Tagging\footnote{%
+%   For an introduction to support for tagged PDF in \LaTeXe{}, see \textcite{ulrike-tagpdf}.
+%   For gorier details see, for example, \textcite{pdf-assoc-pdf2,pdf-assoc-wtpdf2,pdf-assoc-pdfua2} and related publications.}}\label{sec:tag}% ^^A <<< forestextdoc-tagging{-debug}
+%
+% Note that this library requires \pkg{ext.utils}, described in \cref{sec:utils}.
+%
+% ^^A <<< syntax
+%
+% \DescribeLib{ext.tagging} Experimental semi-automatic tagging of \lpack{forest} trees.
+%
+% \DescribeLib{ext.tagging-debug} \pkg{ext.tagging} plus debugging.
+% 
+% \pkg{forest-lib-ext.tagging} (and \pkg{forest-lib-ext.tagging-debug}) are based on the ‘first-aid’ in \pkg{latex-lab-tikz-testphase} by Ulrike Fischer \autocite{latex-project-latex-lab-tikz}.
+% Those patches do not work with \pkg{forest} because a \env{forest} tree includes many \env{tikzpicture} environments, some of which may never be typeset and all of which are used only indirectly \emph{via} low-level \TeX{} boxes.
+% Moreover, the \pkg{latex-lab} code depends on \pgf's ‘remember picture’ feature, which is not compatible with \pkg{forest} with or without tagging.
+%
+% In addition to making it possible to tag \env{forest} environments in tagged documents, the library produces an alternative text describing the tree semi-automatically. 
+% This is important because trees are unlike some other images, where relatively short summaries provide a reasonable alternative to the picture.
+% To provide high quality access to the information contained in a typical tree, it is necessary to describe it in detail.
+% Both the content of the nodes and their structural relationships must be described, together with any labels and annotations.
+% 
+% The current implementation does not do all of the work: it does not include information from regular labels or the content of annotations added using regular \TikZ{} or \pgf{} techniques. 
+% However, it does describe the main tree's structure, together with the content of its nodes and edge labels, though you may need to override the generated content for content which includes special characters, in a quite broad sense of ‘special’.
+%
+% The support for tagging adds the following \pkg{forest} \emph{stages} which are executed in order, sandwiched between \texttt{compute xy stage} and \texttt{before drawing tree}.
+%
+% \textbf{If you redefine (or load code which redefines) the default implementation of \texttt{stages}, you must include or replace the additions from this library.}
+% For an example of how to do this, see \pkg{prooftrees}, which includes, redefines, supplements or replaces these additions.
+% 
+% \DescribeKeylist{before tagging nodes} Empty by default.
+%     Analogous to \texttt{before typesetting nodes}, \texttt{before packing} etc.
+% 
+% \DescribeTagKeylist{tag nodes} Executes code to assign tagging code to each node in the tree.
+%
+% Note this is a \emph{\textbf{tagging}} keylist.
+% See \cref{subsec:utils-tag-props}.
+% 
+% \DescribeKeylist{before collating tags} Empty by default.
+%     Analogous to \texttt{before typesetting nodes}, \texttt{before packing} etc.
+% 
+% \DescribeTagKeylist{collate tags} Walks the tree to collate the tags into a single alternative text for the tree.
+% 
+% Note this is a \emph{\textbf{tagging}} keylist.
+% See \cref{subsec:utils-tag-props}.
+% 
+% \DescribeKeylist{before tagging tree} Empty by default.
+%     Analogous to \texttt{before typesetting nodes}, \texttt{before packing} etc.
+% 
+% \DescribeStage{tag tree stage} Calculates an approximate bounding box for the tree and inserts the collated tagging data into the document's tagging structure using \pkg{tagpdf}.
+% 
+%
+% The code inserts a tagged structure analogous to (and heavily derived from) the \texttt{alt} plug provided by \pkg{latex-lab-tikz-testphase}.
+% However, unlike the \pkg{latex-lab} plug, the library generates the \texttt{alt} text automatically by default.
+% The result can be configured using a small number of keys.
+% The keys' scope is the entire tree, except that the scope of \texttt{alt text} is \emph{the current node}.
+% 
+% \DescribeAwtoks{alt text}\val{tokens}
+% 
+% Override the automatic generation of alternative text for the current node.
+% 
+% Internally, the code uses the further key \texttt{node@ttoks}.
+% In essence, if \texttt{alt text} is empty, \texttt{node@ttoks} is constructed from the node's \texttt{content}, \texttt{edge label} and any applicable structural descriptors, as specified by \texttt{is root}, \texttt{is branch} and so on.
+% If \texttt{alt text} is not empty, it is used as-is.
+% The reason for this indirect assignment --- first constructing \texttt{node@ttoks} and only then assigning it to \texttt{alt text} --- is that the value of \texttt{node@ttoks} is constructed incrementally (i.e.~partially by \texttt{delayed} keys) and keeping \texttt{alt text} as-is makes it easy to test during every cycle.
+%
+% \texttt{node@ttoks} is intended for purely internal use and should \textbf{NOT} be used outside the library code.
+% \texttt{alt text} is the public face of this key.
+%
+% Note that tagging content is always attached to nodes\footnote{%
+%   I'm not altogether happy with this implementation, so this may change, but I want to keep things relatively simple for now.%
+% }.
+% Labels, edge labels and structures are not (currently?) tagged independently.
+% So, if you specify \texttt{alt text}, you replace not only the \texttt{content} of the node in the corresponding tag, but the content of any \texttt{edge label} and any relevant structural information.
+% So if you want, say, a branch number prepended or an indication that the node is a `\texttt{child}` or `\texttt{leaf}`, say, or that the tree forks from this node, you must include that information into the \meta{tokens} when specifying \texttt{alt text}.
+%
+% \DescribeAwtoksr{is root}\val{tokens} 
+% 
+% Specify text to insert when describing the root.
+%     Default is \texttt{root}.
+% 
+% \DescribeAwtoksr{is child}\val{tokens} 
+% 
+% Specify text to insert when describing a child.
+%     Default is \texttt{child}.
+% 
+% \DescribeAwtoksr{is leaf}\val{tokens} 
+% 
+% Specify text to insert when describing a leaf node.
+%     Default is \texttt{end branch}.
+% 
+% \DescribeAwtoksr{is edge label}\val{tokens} 
+% 
+% Specify text to insert when describing an edge label.
+%     Default is \texttt{edge label}.
+% 
+% \DescribeAwtoksr{has branches}\val{tokens} 
+% 
+% Specify text to insert when describing a parent's branches.
+%     Default is \texttt{branches}.
+%     A number is inserted before to indicate the number of branches.
+% 
+% \DescribeAwtoksr{is branch}\val{tokens} 
+% 
+% Specify text to insert when describing node's (and, hence, this subtree's) position in the tree.
+%     Default is \texttt{branch}.
+%     A number is appended to indicate which branch.
+%
+% \subsubsection{Customisation}\label{subsubsec:tag-aopts}% ^^A <<<
+%
+% Most users will not need the options explained in this section.
+%
+% \DescribeBoolr{tagging}
+% 
+% \texttt{tagging} may be used to make code conditional on the activation status of tagging.
+% For this reason, it has a public name.
+% However, it should \textbf{NOT} be changed.
+%
+% More generally, you should not suspend, resume, enable or disable tagging inside a \env{forest} environment unless you understand what you are doing with respect to \emph{both} the tagging code \emph{and} \pkg{forest}\footnote{Possibly nobody currently meets both of these requirements.}.
+%
+% \DescribeChoice{tag nodes uses}\vals{none,alt text}
+%
+% Configures the keylist \texttt{tag nodes}.
+% \texttt{alt text} installs the default auto-generation code which constructs a value if \texttt{alt text} is unspecified for a (non-phantom) node.
+%
+% The order in which nodes are tagged may be set using \texttt{tag nodes processing order}.
+% The default is \texttt{unique=tree}.
+%
+% \DescribeChoice{collate tags uses}\vals{none,alt text}
+%
+% Configures the keylist \texttt{collate tags}.
+% \texttt{alt text} installs code to collate the values of the autowrapped toks option \texttt{alt text}.
+%
+% The order of collation may be set using \texttt{collate tags processing order}.
+% The default is \texttt{unique=tree depth first}.
+%
+% \DescribeChoice{tag tree uses}\vals{none,alt text}
+%
+% Configures the style \texttt{tag tree}.
+% \texttt{alt text} installs the default keys used to calculate approximate dimensions for the bounding box and to pass the collated tags to the \emph{plug} responsible for tagging the tree.
+%
+% This style is used by the default implementation of \texttt{tag tree stage}:
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  tag tree stage/.style={for root'=tag tree},
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% ^^A >>> subsubsec:tag-aopts
+%
+% \subsubsection{Custom plugs}\label{subsubsec:tag-cp}% ^^A <<<
+%
+% By default, everything is \texttt{noop}.
+% If the user does nothing and tagging is active, the \texttt{alt} plug is used.
+% If this is not desired, it is sufficient to use \forestset{plug=noop}, which will make everything (remain) \texttt{noop} or \forestset{custom tagging}, which will allow the \pkg{latex-lab} patches to mix explosively with your \pkg{forest} trees.
+% This is not recommended unless you plan to prevent such encounters yourself.
+% In the worse cases, the combination will result in fatal compilation errors.
+% In the best cases, the document will compile, but tagging will almost certainly be broken.
+%
+% However, it is possible to strike a middle course and use the infrastructure provided by this library as the basis for custom tagging.
+% Some approaches were explained in \cref{subsubsec:tag-aopts}.
+% If those are not sufficient, you may define custom plugs.
+% This section explains the minimal requirements for such plugs to be used by this library i.e.~without using \texttt{custom tagging}.
+%
+% \paragraph{Requirements}
+% \newcommand\percy{\texttt{Percy}}
+% Let \percy{} be the name of your custom plug. 
+% Then \pkg{ext.tagging} requires:
+% \begin{enumerate}
+%   \item a plug named \percy{} for socket \texttt{tagsupport/forest/setup};
+%   \item a plug named \percy{} for socket \texttt{tagsupport/forest/tag}.
+% \end{enumerate}
+% If both conditions are satisfied, writing
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  \forestset{%
+    plug=Percy,
+  }
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% will not result in an immediate error.
+% 
+% In order to do something useful, of course, \percy{} must do rather more than this, so let's see what \texttt{alt} is used.
+% \texttt{tagsupport/forest/setup} is used right at the start of the tree.
+% This happens before any parenthetical argument is processed, before any star is used, before the default preamble and well before any tree-specific preamble\footnote{%
+%   It uses a generic hook to inject code before an internal macro.
+%   This ensures it works for both the environment and command forms without adding an additional \TeX{} group, but is clearly not ideal.%
+% }.
+% In particular, the default values of \emph{tagging keylists} may still be manipulated at this point, since the socket is used before they are transformed into regular keylist options.
+% The \texttt{alt} plug exploits this using the following code:
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\socket_new_plug:nnn {tagsupport/forest/setup}{alt}
+{
+  \forestset{
+    plug=alt,
+    tag nodes uses=alt text,
+    collate tags uses=alt text,
+    tag tree uses=alt,
+  }
+}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% Note that it is good practice to set \texttt{plug} here, even if the code is already plug-specific, since the value is used later when calling the \texttt{tagsupport/forest/tag} socket.
+% The content of the \texttt{alt} \texttt{tagsupport/forest/tag} plug is very similar to the \pkg{latex-lab} patch for \tikz{}.
+%
+% So let's assume that \percy{} should use the same code as the \texttt{alt} plug for the \texttt{tagsupport/forest/tag} socket, but something different for \texttt{tagsupport/forest/setup}.
+%
+% As noted above, \texttt{tag nodes uses}, \texttt{collate tags uses} and \texttt{tag tree uses} are choice keys.
+% Given the way \pkg{pgfkeys} implements such keys, \percy{} might do something like this:
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\NewSocketPlug {tagsupport/forest/setup}{percy}
+{%
+  \forestset{%
+    plug=percy,
+    tag nodes uses=percy,
+    collate tags uses=percy,
+    tag tree uses=alt,
+  }%
+}
+\forestset{%
+  declare autowrapped toks={percy text}{},
+  tag nodes uses/percy/.style={%
+    redeclare tagging keylist={tag nodes}{%
+      if percy text={}{%
+        percy text/.option=content,
+        +percy text={Percy: },
+      }{%
+        percy text+={: },
+        percy text+/.option=content,
+      },
+    },
+  },
+  collate tags uses/percy/.style={%
+    redeclare tagging keylist={collate tags}{%
+      collate tag/.option=percy text,
+    },
+  },
+}
+\NewSocketPlug {tagsupport/forest/tag}{percy}
+{%
+  \AssignSocketPlug {tagsupport/forest/tag}{alt}%
+  \UseSocket {tagsupport/forest/tag}%
+}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% This would result in each node in the tree contributing both its content and a prefix specified by option \texttt{percy text} to the alternative text provided in the tagging structure of the \textsc{pdf}.
+% No structural information is added here i.e.~there are no descriptions of branching or of the relationships between nodes\footnote{%
+%   For a more realistic implementation, see \cref{sec:imp} for the code used for the \texttt{alt} plug.
+%   For a more elaborate example of customisation, see \pkg{prooftrees}.%
+% }. 
+%
+% ^^A >>> subsubsec:tag-cp
+%
+% \subsubsection{Complete control}\label{subsubsec:tag-cc}% ^^A <<<
+%
+% \DescribeCode{custom tagging}\vals{true,false}
+%
+% \DescribeCode{not custom tagging}
+%
+% If true, do not tag following trees in the current \TeX{} group.
+%
+% \textbf{This key must be used BEFORE \cs{begin}\texttt{\{forest\}} or \cs{Forest}.}
+% This is because the library adds code to the \texttt{default preamble} if it is tagging the tree.
+% Since the tree's \texttt{preamble} is executed later, it is then too late to disable the library code.
+% 
+% If you do not want to use the library's tagging code, you can easily avoid it by simply not using it.
+% However, you might want to use it for only some trees or you might wish to use the pre-defined stages as a basis for a custom configuration.
+% In such cases, \texttt{custom tagging} may be used to tell the library that it should not tag trees in the local \TeX{} group even if tagging is active.
+% In this case, the user (or another package) is entirely responsible for tagging.
+% The custom tagging code may nonetheless test \texttt{tagging} and use the additional stages, if desired.
+% For example, it could redefine the stages which generate and concatenate the tags or it could install alternative plugs into appropriate sockets.
+%
+% Note that \pkg{latex-lab}'s code is still active in this scenario, so you are responsible for dealing with the patches it applies for \texttt{tikzpicture} environments. 
+% Note also that \texttt{custom tagging} is \emph{not} a boolean register or option --- it is simply designed to emulate one.
+% It in fact uses the \texttt{.code} handler to set an \pkg{expl3} boolean variable.
+%
+% The default \texttt{alt} plug is implemented in modular fashion, so it is possible, with care, to take a pick-'n-mix approach.
+% 
+% ^^A >>> end subsubsec:tag-cc
+% ^^A >>> end syntax
+%
+% \subsection{Workflow}\label{subsec:tagging-wf}% ^^A <<<
+%
+% \pkg{ext.tagging} redefines \pkg{forest}'s \texttt{stages}.
+% If you just wish to use the library to tag ordinary trees, you can ignore the details of this definition.
+% However, should you wish to use the library with a custom definition of \texttt{stages}, the details below should enable you to do so.
+% As with \texttt{forest}'s own definitions, the various steps may be redefined, replaced, removed or extended as required. 
+% The library also follows the \pkg{forest} package's convention in providing \texttt{before} keylists reserved for user use i.e.~all such keylists are empty by default.
+%
+% Tagging is initialised and finalised by code added to the hooks \texttt{env/forest/begin} and \texttt{env/forest/end}.
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+  stages/.style={
+    for root'={
+      process keylist register=default preamble,
+      process keylist register=preamble
+    },
+    process keylist=given options,
+    process keylist=before typesetting nodes,
+    typeset nodes stage,
+    process keylist=before packing,
+    pack stage,
+    process keylist=before computing xy,
+    compute xy stage,
+    process keylist=before tagging nodes,
+    process keylist=tag nodes,
+    process keylist=before collating tags,
+    process keylist=collate tags,
+    process keylist=before tagging tree,
+    tag tree stage,
+    process keylist=before drawing tree,
+    draw tree stage
+  },
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% \begin{enumerate}
+%   \item \textcolor{gray}{\texttt{default preamble} \autocite[see][]{saso-forest}}
+%     \begin{itemize}
+%       \item \textbf{\pkg{ext.tagging} adds code to this keylist in order to setup tagging appropriately.
+%         Replacing it without duplicating this code will, therefore, break tagging support.}
+%     \end{itemize}
+%   \item \textcolor{gray}{\texttt{preamble} \autocite[see][]{saso-forest}}
+%   \item \textcolor{gray}{\texttt{given options} \autocite[see][]{saso-forest}}
+%   \item \textcolor{gray}{\texttt{before typesetting nodes} \autocite[see][]{saso-forest}}
+%   \item \textcolor{gray}{\texttt{typeset nodes stage} \autocite[see][]{saso-forest}}
+%   \item \textcolor{gray}{\texttt{before packing} \autocite[see][]{saso-forest}}
+%   \item \textcolor{gray}{\texttt{pack stage} \autocite[see][]{saso-forest}}
+%   \item \textcolor{gray}{\texttt{before computing xy} \autocite[see][]{saso-forest}}
+%   \item \textcolor{gray}{\texttt{compute xy stage} \autocite[see][]{saso-forest}}
+%   \item \texttt{before tagging nodes}
+%     Empty by default.
+%     Use in the same way as \pkg{forest}'s \texttt{before} keylists.
+%   \item \texttt{tag nodes}
+%     A \emph{tagging keylist} which should, when processed, ensure that each node which requires tagging is correctly tagged with \texttt{alt text} (in the default implementation).
+%   \item \texttt{before collating tags}
+%     Empty by default.
+%     Use in the same way as \pkg{forest}'s \texttt{before} keylists.
+%   \item \texttt{collate tags}
+%     A \emph{tagging keylist} which should, when processed, result in the collation of all tags for the tree in the form expected by \texttt{tag tree stage}.
+%   \item \texttt{before tagging tree}
+%     Empty by default.
+%     Use in the same way as \pkg{forest}'s \texttt{before} keylists.
+%   \item \texttt{tag tree stage}
+%     Executes code to actually tag the tree using the data finalised in \texttt{collate tags} (possibly modified by \texttt{before tagging tree}).
+%   \item \textcolor{gray}{\texttt{before drawing tree} \autocite[see][]{saso-forest}}
+%   \item \textcolor{gray}{\texttt{draw tree stage} \autocite[see][]{saso-forest}}
+% \end{enumerate}
+% ^^A >>> subsec:tagging-wf
+%
+% \twreg
+% \let\MakePrivateLetters\MyMakePrivateLetters
+% \subsection{Example}\label{subsec:tagging-eg}% ^^A <<<
+% 
+% Here is a complete example\footnote{%
+%   Note that the recommended syntax for invoking and using tagging support in \LaTeXe{} changes very frequently. 
+%   In particular, the recommended options for \cs{DocumentMetadata} and \cs{tagpdfsetup}, including whether to use the latter at all, are not at all stable.
+%   You should therefore check and use the recommended options at the time your document is written --- there is nothing in the code before \cs{documentclass} which is in any way particular to using the libraries provided by this package.
+%   That is, deviations from documented best practice in the use of \cs{DocumentMetadata} and \cs{tagpdfsetup} are either due to mistakes on my part or the result of updates following the publication of this document.
+%   In either case, you should avoid replicating the deviations in your own code.
+% }:
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\DocumentMetadata{
+ tagging=on,
+ lang=en-GB,
+ pdfversion=2.0,
+ pdfstandard=ua-2,
+}
+\tagpdfsetup{
+  math/mathml/structelem,
+}
+\documentclass{article}
+\usepackage[ext.tagging]{forest}
+\ifcsname directlua\endcsname
+  \usepackage{unicode-math}
+\else
+  \usepackage[T1]{fontenc}
+\fi
+\title{This Test Needs No Title}
+\begin{document}
+  ABC apple banana pear
+  \begin{forest}
+    % This example is from Jasper Habicht.
+    [VP
+      [DP[John]]
+      [V’, alt text=V prime,
+        [V[sent]]
+        [DP[Mary]]
+        [DP[D[a]][NP[letter]]]
+      ]
+    ]
+  \end{forest}
+  ABC apple banana pear
+}
+\end{document}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% Note the use of \texttt{alt text} to avoid problems due to the use of \verb|'| with \pdfTeX.
+% If the (\LaTeX{} Project recommended) engine Lua\LaTeX{} is used, you need not be quite so careful, but you should always check the content of the \texttt{alt} text for unpleasant surprises.
+%
+% If compiled with pdf\LaTeX, the above example yields the following structure:
+% \iffalse
+%<*verb>
+% \fi
+% \permissivelines
+\begin{xmlcode}
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>ABC apple banana pear 
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="root VP 2 branches   branch 1 DP  child John end branch  V prime V  child sent end branch  DP  child Mary end branch  DP 2 branches   branch 1 D  child a end branch   branch 2 NP  child letter end branch  "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 259.4641, 542.90266, 407.35223, 667.19801 }"
+       >
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?> ABC apple ba­nana pear 
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+\end{xmlcode}
+% \strictlines
+% \iffalse
+%</verb>
+% \fi
+% A similar result is obtained with Lua\LaTeX, but the output is a bit longer as it includes many empty \texttt{MarkedContent}s. 
+% ^^A >>> subsec:example
+% \let\MakePrivateLetters\OrigMakePrivateLetters
+% ^^A >>> forestextdoc-tagging{-debug}
+%
+% \twmarg
+% \section{Multiple parents}\label{sec:multi}% ^^A <<<
+%
+% This library provides some basic facilities for formatting trees which are not technically trees in \pkg{forest}'s sense.
+% In the (one) strict sense of ‘tree’, every node but one has exactly one parent, while the one has none.
+% 
+% However, in a different/looser sense of ‘tree’, every node but one has at least one parent, while the one has none.
+% This library makes it a bit easier to draw such trees with \pkg{forest}.
+%
+% The library began in response to a query from Alan Munn on \texse{} and initially focused entirely on \emph{multi-dominance} structures in linguistics.
+% Support for those structures is available in the \pkg{ext.ling} library, which now uses the more general \pkg{ext.multi}.
+%
+% The styles in \cref{subsec:multi-new} support drawing connections from a child to additional parents not currently in the tree, while those in \cref{subsec:multi-conn} support adding connections to additional extant parents.
+% 
+% Note that
+% \begin{itemize}
+%   \item styles are always specified for the child node;
+%   \item the child must have exactly one ‘natural’ parent i.e.~it must be part of the existing tree structure when the style is used.
+% \end{itemize}
+%
+% Load \texttt{ext.multi} or \texttt{ext.multi-debug} as described in \cref{sec:usage}.
+%
+% {%
+%   \forestapplylibrarydefaults{ext.multi-debug}%
+%
+% \subsection{Creating multiple parents}\label{subsec:multi-new}
+%
+% Note:
+% \begin{itemize}
+%   \item the child should be created as the \emph{child} of its ultimate grandparent;
+%   \item the child's parents will all be children of the child's grandparent.
+% \end{itemize}
+%
+% For example, consider the tree,
+%
+% \begin{forest}
+%   [Grandparent [Child, multi={Parent 1,Parent 2,Parent 3}] ]
+% \end{forest}
+%
+% This structure can be conveniently created using \texttt{multi}, but to translate it into the bracket notation \pkg{forest} uses, all of Child's parents should first be omitted and Child should instead be specified as the child of Grandparent.
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{forest}
+  [Grandparent [Child]]
+\end{forest}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% Parents 1, 2 and 3 should be specified as an option to Child:
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\begin{forest}
+  [Grandparent [Child, multi={Parent 1,Parent 2,Parent 3}]]
+\end{forest}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+%
+% {%
+%   \forestset{%
+%     default preamble+={%
+%       for tree={font=\sffamily\lstyle,},
+%     },
+%   }%
+%
+% \DescribeStyle{multi}\is\marg{content of parent 1, \dots, content of parent $n$} where $n \in \mathbb{N}, n > 1$
+%
+% For every $i \in \mathbb{N}$ such that $0<i\leq n$, create a new child of the current node's parent with content \meta{content of parent $i$}.
+% Then detach the current node from its parent and attach it as the child of its $n$ parents.
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}+{}
+\begin{forest}
+  [A
+    [D,
+      multi={B,D} 
+    ]
+  ]
+\end{forest} 
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+%
+% If \texttt{parent anchor} and/or \texttt{child anchor} are set, edges are drawn to/from these points as one would expect.
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}+{}
+\begin{forest}
+  [A
+    [D, multi={B,C}, ]
+    [E, parent anchor=children, 
+      [J, multi={F,G,H,I}, ] 
+    ]
+    [K 
+      [N, multi={L,M}, child anchor=parent, ] 
+    ]
+  ]
+\end{forest} 
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+% If the \pkg{edges} library is loaded, the \pkg{multi} library loads the \TikZ{} library, \pkg{ext.paths.ortho} and tries to emulate \texttt{forked edge} appropriately\footnote{The alignment seems to me to be close, but not always quite perfect, though I do not know why at the moment.}. 
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}+{}
+\begin{forest}
+  forked edges,
+  [A
+    [D, multi={B,C} ]
+    [E 
+      [I, multi={F,G,H} ] 
+    ]
+    [J 
+      [N, multi={K,L,M} ] 
+    ]
+  ]
+\end{forest} 
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+% If we apply \texttt{forked edges} to only part of a tree, we can produce the rather ugly, but hopefully informative, structure below.
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}+{}
+\begin{forest}
+  for tree={%
+    child anchor=parent,
+    parent anchor=children,
+    fork sep'=1em,
+  },
+  [O 
+    [P
+      [S, multi={Q,R} ]
+    ]
+    [T, forked edges=descendants, 
+      [Z,multi={U,V,W,X,Y} ]
+    ]
+  ]
+\end{forest}
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+% Note that the change to \texttt{fork sep} for the tree in \env{forest}'s preamble affects the edges drawn from and to the nodes inserted by \texttt{multi}.
+% This is because the library forwards values given to \texttt{fork sep} and applications of \texttt{forked edge} so that \pkg{forest} keys work in (hopefully) reasonably intuitive ways.
+%
+% Should you \emph{not} want such keys forwarded, either load the library without defaults (see \cref{sec:usage}) or override the behaviour for the current \TeX{} group with, say,
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\forestset{%
+  unautoforward=fork sep,
+  null/.style={},
+  forked edge'/.forward to=/forest/null,
+}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% The \texttt{phantom style} is needed because, unlike \pkg{forest}'s provision for its own forwarding facilities, \pkg{pgfkeys} provides no easy way to undo the effects of the \texttt{.forward to} handler.
+% }
+% 
+% Since the library is currently experimental and implementation is complicated if one wants to avoid avoid using \pkg{forest} internals, configuration options are currently limited.
+%
+% \DescribeKeylist{every parent}\is\marg{key-value list}
+%
+% Apply \meta{key-value list} to all the current node's parents.
+% If \texttt{multi} is used, these are the parents created as a result; otherwise, it is the current node's singular parent or none, if the node has no parent.
+%
+% Initial value: empty.
+%
+% \Cref{box:multi-ep} illustrates usage with a simple example.
+%
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}*[label=box:multi-ep]{}
+\begin{forest}
+  [R [Child, multi={P1,P2,P3},every parent=blue,] [Aunt [Cousin 1][Cousin 2]]]
+\end{forest}
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+%
+% \subsection{Connecting multiple parents}\label{subsec:multi-conn}
+%
+% Sometimes one wants instead to give the current node an additional parent without removing the existing one and one does not wish to add the additional parent, but rather to specify some other extant node in the tree. 
+%
+% This kind of structure cannot be so easily automated, especially if one wants to avoid edges crossing each other or nodes.
+% However, it is possible to provide some convenient styles to assist in manually specifying such structures.
+% 
+% \DescribeStyle{also parent}\is\marg{dynamic tree operation}\marg{\meta{extant node}:\meta{keylist}}
+%
+% \is\marg{dynamic tree operation}\marg{extant node}
+%
+% \DescribeStyle{+also parent}\is\marg{\meta{extant node}:\meta{keylist}}
+%
+% \is\marg{extant node}
+%                                                   
+% \DescribeStyle{also parent+}\is\marg{\meta{extant node}:\meta{keylist}}
+%
+% \is\marg{extant node}
+%
+% Adds \meta{extant node} as an additional parent of the current node.
+% \meta{keylist} specifies a list of key-values for the connecting node (see below).
+%
+% The current node becomes \meta{extant node}'s \emph{fosterling}, while \meta{extant node} becomes the current node's \emph{foster parent}.
+%
+% The styles work by creating a new child of \meta{extant node}.
+% This node affects the structure of the tree and can be configured in the usual way, but it is not visible.
+% One might say it is ‘semi-phantom’: it is not quite \texttt{phantom} because, for instance, it has visible edges which serve to connect the current node with the additional parent.
+%
+% For an illustration, see the (rather odd-looking) family tree in \cref{box:fam}\footnote{The names are from the children's novels by Cynthia Voigt.}.
+%
+% \texttt{+also parent} prepends the new child to \meta{extant node}; \texttt{also parent+} appends it.
+% These are just shorthand wrappers around \texttt{also parent} using the \texttt{prepend} and \texttt{append} dynamic tree operations.
+%
+% Note that \meta{dynamic tree operation} should create a new node, though this is not enforced.
+%
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}*[label=box:fam,sidebyside=false,text and listing]{}
+\begin{forest}
+  forked edges,
+  delay={%
+    for tree={%
+      +content=\strut,
+    },
+  },
+  [,coordinate,calign primary child=1,calign secondary child=2,calign=midpoint,
+    [Cilla
+      [Eunice]
+    ]
+    [Abigail Tillerman
+      [John,also parent={append}{j}]
+      [Liza, also parent={append}{!r3}, for children={also parent={append}{!un}}
+        [Dicey]
+        [James]
+        [Maybeth]
+        [Sammy]
+      ]
+      [Francis Verricker,no edge]
+      [Samuel, also parent+={!r3}]
+    ]
+    [John, name=j, no edge
+    ]
+  ]
+\end{forest}
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+%
+% \DescribeStep{fosterlings} Visit the current node's \emph{fosterlings}.
+%
+% \DescribeStep{foster parents} Visit the current node's \emph{foster parents}.
+%
+% \DescribeStep{every fosterling}\is\marg{nodewalk}
+%
+% Visit every \emph{fosterling} in \meta{nodewalk}.
+%
+% \DescribeStep{every foster parent}\is\marg{nodewalk}
+%
+% Visit every \emph{foster parent} in \meta{nodewalk}.
+%
+% \DescribeStep{c fosterling} Visit the \emph{fosterling} which the current node connects to a \emph{foster parent}.
+%
+% \DescribeStep{c foster parent} Visit the \emph{foster parent} which the current node connects to a \emph{fosterling}.
+% 
+% This last pair of steps are only really useful if you want to change \texttt{edge path}, since they are only accessible from a constructed, typically invisible node.
+%
+% \DescribeBoolr{debug multi phantoms}\vals{true,false}
+%
+% \DescribeBoolr{not debug multi phantoms}
+%
+% Render the normally invisible nodes created by \texttt{also parent} etc.\ visible for debugging purposes.
+% If the nodes have no content, their borders are drawn in red; otherwise, their contents are rendered in red.
+% Visible rendering does not change the remainder of the tree e.g.~it does not alter the spacing of nodes or the paths of edges.
+% However, if the nodes occur near the tree's boundaries, the bounding box may expand to accommodate them\footnote{%
+%   It should not be hard to prevent this, but does not seem worth the trouble.%
+% }.
+%
+% \textbf{Requires \pkg{ext.multi-debug}.}
+% If the debugging code is not loaded, use of these keys will do nothing but write a warning to the console and log.
+%
+% For an example, see \cref{box:multi-debug}.
+% Note that the content of the \texttt{forest} environment is identical to that in \cref{box:fam}.
+% The red squares are the effect of toggling \texttt{debug multi phantoms} beforehand.
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}*[label=box:multi-debug,sidebyside=false,text and listing]{}
+{%
+  \forestset{debug multi phantoms}%
+  \begin{forest}
+    forked edges,
+    delay={%
+      for tree={%
+        +content=\strut,
+      },
+    },
+    [,coordinate,calign primary child=1,calign secondary child=2,calign=midpoint,
+      [Cilla
+        [Eunice]
+      ]
+      [Abigail Tillerman
+        [John,also parent={append}{j}]
+        [Liza, also parent={append}{!r3}, for children={also parent={append}{!un}}
+          [Dicey]
+          [James]
+          [Maybeth]
+          [Sammy]
+        ]
+        [Francis Verricker,no edge]
+        [Samuel, also parent+={!r3}]
+      ]
+      [John, name=j, no edge
+      ]
+    ]
+  \end{forest}%
+}
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+% } % ^^A end apply multi library defaults
+% ^^A >>>
+%
+%
+% \section{Linguistics extensions}\label{sec:ling}% ^^A <<<
+%
+% This library provides some elementary styles for formatting trees involving \emph{multi-dominance}, together with a style for dealing with empty nodes resistant to the \pkg{linguistics} library's \texttt{nice empty nodes}.
+% These former were developed in response to a query from Alan Munn on \texse.
+%
+% See also \cref{sec:multi}, especially for straight connections to multiple parents and dynamic creation of multiple parents as children of a single grandparent.
+%
+% {%
+%   \forestapplylibrarydefaults{linguistics,ext.ling-debug,ext.utils-debug}%
+%
+% \DescribeStyle{pretty nice empty nodes}\is\marg{keylist} 
+%
+% Make empty nodes prettier in cases where \texttt{nice empty nodes} cannot be used.
+% \meta{keylist} permits supplementing or overriding what is done for empty nodes.
+%
+% Note that \texttt{nice empty nodes} is preferable, so should be used where possible.
+% For details, see the documentation of \texttt{nice empty nodes} in \textcite{saso-forest}.
+%
+% For example\footnote{\texseans{717677} \texseqn{717592}[argo]},
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}+[label=box:pretty-nice]{}
+\begin{forest} 
+  for tree={
+    calign angle=60, 
+    align middle child,
+  },
+  pretty nice empty nodes={
+    for current and siblings={anchor=parent},
+    parent anchor=children, 
+    calign with current edge,
+  },
+  [a
+    [b]
+    [
+      [
+        [d]
+        [e
+          [f]
+          [g]
+          [h]
+        ]
+      ]
+      [c]
+    ]
+  ]   
+\end{forest}
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+%
+% \subsection{Multiple dominance}\label{subsec:ling-multidom}% ^^A <<<
+%
+% The \texttt{multidom} styles are \texseans[based on code posted at]{695602}, which was \texseans[based on code]{695600}[Alan Munn], which was based on my code, which was based on his question, and parameterisation of \texseans[]{249615}.%
+% They now depend on the more generic implementation of related styles in \pkg{ext.multi}.
+% The basic behaviour of these keys is therefore very similar: only the syntax permits more concise specifications in some cases.
+% All examples in this section are shown with equivalent code using only \pkg{ext.multi}.
+%
+% \DescribeStyle{multidom prepend}\is\marg{x shift}\marg{y shift}\marg{out i}\marg{out ii}\marg{node}        
+%
+% \DescribeStyle{multidom append}\is\marg{x shift}\marg{y shift}\marg{out i}\marg{out ii}\marg{node}
+%
+% \DescribeStyle{multidom}\is\marg{dynamic tree operation}\marg{x shift}\marg{y shift}\marg{out i}\marg{out ii}\marg{node}
+%
+% Intuitively, these styles say that the current node has two parents, namely its ‘natural’ parent and \meta{node}.
+%
+% \texttt{prepend} (\texttt{append}) is intended for cases where \meta{node} is to the right (left) of the current node.
+%
+% \meta{x shift} and \meta{y shift} shift the current node (and its descendants) by the specified distances in the \texttt{x} and \texttt{y} directions respectively.
+%
+% The connections from the current node to its two parents are \texttt{to} paths which leave the current node in the directions specified by \meta{out i} (to its original parent) and \meta{out ii} (to \meta{node}).
+%
+% \Cref{box:multidom-prepend} demonstrates the intended usage.
+% {%
+%   \forestset{default preamble+={for tree={align=center,},},}
+% \iffalse
+%<*verb>
+% \fi
+\begin{coeden}*[label=box:multidom-prepend]{}
+\begin{codsiml}[minted language=latex]
+\newcommand*\1{$'$}
+\begin{forest}
+  [TP,name=TP 
+  [DP,multidom prepend={-.5cm}{-2cm}{north}{east}{VP} 
+    [D\\the ]
+    [NP\\chimney ]
+    ] 
+    [T\1
+      [T ]
+      [VP,name=VP  
+        [V\1  
+          [V\\smokes ] 
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+\end{codsiml}
+\begin{codsiml}[minted language=latex]
+\newcommand*\1{$'$}
+\begin{forest}
+  curved edge/.style args={from (#1.#2) to (#3.#4)}{%
+    edge path'={(#1.#2) to [looseness=.5, out=#2] (#3.#4)},
+  },
+  curve edge/.style={%
+    curved edge=from (.#1) to (!u.parent anchor),
+  },
+  [TP,name=TP 
+    [DP,+also parent={VP:{%
+        curved edge=from (!{c fosterling}.east) to (!{c foster parent}.parent anchor),
+      }%
+    },
+    before drawing tree={%
+      for tree={x'-=0.5cm,y'-=2cm,},
+    },
+    curve edge=north,
+    [D\\the ]
+    [NP\\chimney ]
+    ] 
+    [T\1
+      [T ]
+      [VP,name=VP  
+        [V\1  
+          [V\\smokes ] 
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+\end{codsiml}
+\end{coeden}
+% \iffalse
+%</verb>
+% \fi
+%
+% \texttt{multidom prepend} and \texttt{multidom append} are wrappers around \texttt{multidom}. 
+% If \texttt{multidom} is used directly, \textbf{the first argument MUST be a dynamic tree style which creates a new node}.
+% Most users should never need to use \texttt{multidom} directly.
+% Should you need an operation other than \texttt{prepend} or \texttt{append}, see \textcite{saso-forest} for other possibilities.
+% Note, however, that many operations supported by \pkg{forest} simply do not make sense as arguments to \texttt{multidom}.
+%
+% More precisely, these styles do approximately the following:
+% \begin{itemize}
+%   \item Shift the current node and its descendants by \meta{x shift} horizontally and \meta{y shift} vertically.
+%   \item Prepend or append a phantom child to \meta{node}.
+%     (Or, for the generic style, change the nodes of the tree and/or their structural relations according to the specified \pkg{forest} key.
+%   \item Change the edge path for the current node to a curve in direction \meta{out i} to it's ‘natural’ parent.
+%   \item Draw a curve leaving the current node in the directions specified \meta{out ii} to \meta{node}.
+% \end{itemize}
+%
+% \DescribeStyle{curve to also parent}\is\marg{dynamic tree operation}\marg{out i}\marg{node}
+%
+% Connects an additional, extant parent \meta{node} to the current node, drawing a curve between them.
+% \meta{out i} specifies the direction of the \texttt{to} path on leaving the current node.
+%
+% A bit more precisely, \texttt{curve to also parent} alters the nodes in the tree or their structural relationship according to \meta{dynamic tree operation}. 
+% \textbf{This operation MUST create a new node.}
+% The new node is not visible, but its \texttt{edge} constitutes the visible connection between the current node and the additional parent, \meta{node}.
+%
+% \DescribeStyle{+curve to also parent}\is\marg{out i}\marg{node}
+% \DescribeStyle{curve to also parent+}
+%
+% Equivalent to \texttt{curve to also parent\is\{prepend\textbar append\}}\marg{direction}\marg{node}.
+%
+% \texttt{curve to also parent}, \texttt{+curve to also parent} and \texttt{curve to also parent+} are wrappers around \texttt{also parent}, \texttt{+also parent} and \texttt{also parent+} from \texttt{ext.multi}.
+% They may be used either directly or \emph{via} wrappers such as \texttt{multidom prepend} or by setting a keylist such as \texttt{other multidom parents}.
+%
+% \DescribeKeylist{other multidom parents}\is\marg{keylist}
+%
+% This node has additional parents.
+% \meta{keylist} should consist of a comma-separated list of additional parents.
+% The ‘normal’ \pkg{forest} parent should not be included.
+% So if a node has $n$ parents, where $n>1$, \meta{keylist} should consist of $n-1$ elements.
+%
+% Each element in \meta{keylist} should consist of a \emph{colon}-separated list of elements describing the position and relationship of that additional parent to the current node.
+% If a sixth parameter is present, the information is passed to \texttt{multidom}.
+% Otherwise, it is passed to \texttt{curve to also parent}.
+%
+% A complete example\footnote{\texseans[Modified example from Alan Munn]{695600}.} is shown in \cref{box:other-parents}.
+% \iffalse
+%<*verb>
+% \fi
+\begin{coeden}*[label=box:other-parents]{}
+\begin{codsiml}[minted language=latex]
+\newcommand*\1{$'$}
+\begin{forest}
+  [TP,name=TP 
+    [DP,
+      other multidom parents={%
+        prepend:-5mm:-2cm:north:east:VP,
+        prepend:south east:V,
+      }
+      [D\\the ]
+      [NP\\chimney ]
+    ] 
+    [T\1
+      [T ]
+      [VP,name=VP  
+        [V\1,name=V
+          [V\\smokes ] 
+        ] ] ] ]
+\end{forest}
+\end{codsiml}
+\begin{codsiml}[minted language=latex]
+\newcommand*\1{$'$}
+\begin{forest}
+  curved edge/.style args={from (#1.#2) to (#3.#4)}{%
+    edge path'={(#1.#2) to [looseness=.5, out=#2] (#3.#4)},
+  },
+  curve edge/.style={%
+    curved edge=from (.#1) to (!u.parent anchor),
+  },
+  [TP,name=TP 
+    [DP,
+      +also parent=VP:{%
+        curved edge=from (!c fosterling.east) to (!c foster parent.parent anchor),
+      },
+      +also parent=V:{%
+        curved edge=from (!c fosterling.south east) to (!c foster parent.parent anchor),
+      },
+      curve edge=north,
+      before drawing tree={%
+        for tree={x'-=5mm,y'-=2cm,},
+      },
+      [D\\the ]
+      [NP\\chimney ]
+    ] 
+    [T\1
+      [T ]
+      [VP,name=VP  
+        [V\1,name=V
+          [V\\smokes ] 
+        ] ] ] ]
+\end{forest}
+\end{codsiml}
+\end{coeden}
+% \iffalse
+%</verb>
+% \fi
+% \texttt{other multidom parents} here has the value
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+prepend:-5mm:-2cm:north:east:VP,
+prepend:south east:V,
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
+% The first element consists of six colon-separated arguments.
+% \texttt{prepend} says the additional parent is to the right of the current node.
+% The second and third elements say that this node (\texttt{DP}) and its descendants should be shifted \texttt{5cm} left and \texttt{2cm} down.
+% \texttt{north} determines the direction in which the curve from the current node (\texttt{DP}) to its ‘natural’ parent (\texttt{TP}) should leave the current node.
+% \texttt{east} determines the direction in which the curve from the current node (\texttt{DP}) to its ‘additional’ parent (\texttt{VP}) should leave the current node.
+% Finally, \texttt{VP} specifies the additional parent.
+%
+% The second element consists of three colon-separated arguments.
+% \texttt{prepend} again says the additional parent is to the current node's right.
+% \texttt{south east} determines the direction of the curve to the additional parent when leaving the current node.
+% \texttt{V} specifies the additional parent.
+%
+% Note that, however long the list of additions, the first element must always specify six arguments and each subsequent element must specify three.
+%
+% \DescribeBoolr{debug multidom phantoms}\vals{true,false}
+%
+% \DescribeBoolr{not debug multidom phantoms}
+%
+% A wrapper around (\texttt{not}) \texttt{debug multi phantoms}.
+% \textbf{Requires \pkg{ext.ling-debug}.}
+%
+% \iffalse
+%<*verb>
+% \fi
+\begin{coeden}*[label=box:other-parents-debug]{}
+\begin{codsiml}[minted language=latex]
+\newcommand*\1{$'$}%
+\forestset{debug multidom phantoms}%
+\begin{forest}
+  [TP,name=TP 
+    [DP,
+      other multidom parents={%
+        prepend:-5mm:-2cm:north:east:VP,
+        prepend:south east:V,
+      }
+      [D\\the ]
+      [NP\\chimney ]
+    ] 
+    [T\1
+      [T ]
+      [VP,name=VP  
+        [V\1,name=V
+          [V\\smokes ] 
+        ] ] ] ]
+\end{forest}
+\end{codsiml}
+\begin{codsiml}[minted language=latex]
+\newcommand*\1{$'$}%
+\forestset{debug multi phantoms}%
+\begin{forest}
+  curved edge/.style args={from (#1.#2) to (#3.#4)}{%
+    edge path'={(#1.#2) to [looseness=.5, out=#2] (#3.#4)},
+  },
+  curve edge/.style={%
+    curved edge=from (.#1) to (!u.parent anchor),
+  },
+  [TP,name=TP 
+    [DP,
+      +also parent=VP:{%
+        curved edge=from (!c fosterling.east) to (!c foster parent.parent anchor),
+      },
+      +also parent=V:{%
+        curved edge=from (!c fosterling.south east) to (!c foster parent.parent anchor),
+      },
+      curve edge=north,
+      before drawing tree={%
+        for tree={x'-=5mm,y'-=2cm,},
+      },
+      [D\\the ]
+      [NP\\chimney ]
+    ] 
+    [T\1
+      [T ]
+      [VP,name=VP  
+        [V\1,name=V
+          [V\\smokes ] 
+        ] ] ] ]
+\end{forest}
+\end{codsiml}
+\end{coeden}
+% \iffalse
+%</verb>
+% \fi
+% }
+% }
+% ^^A >>>
+% ^^A >>>
+% 
+% \section{Utilities}\label{sec:utils}% ^^A <<<
+%
+% This library provides \emph{tagging keylists}, together with a few styles which do not really fit anywhere else.
+%
+%
+% \subsection{Alignment}\label{subsec:utils-align}% ^^A <<<
+%
+% \DescribeStyle{align middle child}\val{option}
+%
+% If the current node has an odd number of children, sets \texttt{calign child} to the middle child and sets \texttt{calign}\val{option}.
+% \meta{option} should, therefore, be a valid value for \texttt{calign}.
+%
+% If \meta{option} is omitted, a default of \texttt{child edge} is applied.
+%
+% See \cref{box:pretty-nice} for an example.
+%
+% \DescribeStyle{align middle children}\val{option}
+%
+% Sets \texttt{align middle child}\val{option} for the tree.
+%
+% ^^A >>>
+%
+% \subsection{Outer labels}\label{subsec:utils-outer}% ^^A <<<
+%
+% \emph{Outer labels} are nodes added after the tree is drawn, aligned with a boundary of the bounding box of the completed tree and nodes within the tree.
+% The idea is to enable the addition of labels such as those shown in \cref{box:prob}.
+%
+% {\forestapplylibrarydefaults{ext.utils-debug}%
+% \iffalse
+%<*verb>
+% \fi
+\begin{codcoeden}*[label=box:prob,sidebyside=false,text and listing]{}
+\begin{forest}
+  for tree={
+    parent anchor=children,
+    child anchor=parent,
+  },
+  delay={
+    for descendants={
+      content/.process={Ow{level}{$\frac{1}{2^{#1}}$}},
+    },
+    for nodewalk={
+      fake=root,
+      while nodewalk valid={1}{1}%
+    }{
+      outer label/.process={Ow{level}{{$n=#1$}:{anchor=west}}}%
+    },
+  },
+  [ [ [ [][] ] [ [][] ] ] [ [ [][] ] [ [][] ] ] ]
+\end{forest}
+\end{codcoeden}
+% \iffalse
+%</verb>
+% \fi
+% }
+%
+% \DescribeToksr{outer labels at}\val{anchor}
+%
+% Additional alignment point for any outer labels.
+% \meta{anchor} should be a valid anchor for the `current bounding box` when the tree has been drawn, but additional \tikz{} code is not yet executed.
+%
+% The default is \texttt{east}, which is probably what is wanted for most trees using the \pkg{forest} default value of \texttt{grow} etc.
+%
+% Note that this is a \emph{register}.
+% You cannot use different values for different parts of a tree. 
+%
+% \DescribeKeylistr{outer labels}\is\marg{keylist}
+%
+% \pgftikz{} key-values applied to all nodes where \texttt{outer label} is set.
+% Options passed to \texttt{outer label} are applied later, so may override defaults for the tree.
+%
+% The default is \texttt{anchor=base west}.
+%
+% Note that this is a \emph{register}.
+% You cannot use different values for different parts of a tree. 
+%
+% \DescribeStyle{outer label}\is\marg{content}
+%
+% \is\marg{content}\texttt{:}\marg{options}
+%
+% Create a label aligned with the current node and the additional alignment point specified by \texttt{outer labels at} with content \meta{content}.
+% If \meta{options} are given, they are passed to the \tikz{} code responsible for creating the node.
+%
+% ^^A >>>
+%
+% \subsection{‘Tagging’ keylists}\label{subsec:utils-tag-props}% ^^A <<<
+%
+% A ‘tagging keylist’ is very similar to a \pkg{forest} \emph{keylist option}, but its default value can be changed and/or it can be redeclared\footnote{%
+%   As far as I can tell, this is not possible for regular \pkg{forest} keylist options.
+%   Once declared, their default values are fixed.%
+% }.
+% For motivation, see \cref{sec:tag}.
+% 
+% More specifically, \emph{inside} a \env{forest} environment, it behaves exactly like a regular \pkg{forest} keylist option\footnote{%
+%   This is because it \emph{is} a regular keylist option at this point.%
+% }.
+% However, \emph{outside} a \env{forest} environment, its default value can be modified and/or replaced.
+% Where this is not a requirement, you should use a regular \emph{keylist} option since \emph{tagging keylists} are subject to additional limitations and the implementation is significantly less efficient.
+%
+% Important:
+% \begin{enumerate}
+%   \item These keys are not really tagging-specific and do not require tagging to be active, despite the names, so may be useful in other contexts.
+%   \item These keys are only available \emph{outside} \env{forest} environments.
+%   \item \emph{Tagging keylists} cannot be declared as registers\footnote{%
+%       This is not a limitation since changing the default value of a \emph{keylist register} is trivial.%
+%     }.
+%     Each tagging keylist corresponds to a \emph{keylist option}.
+%     The option is automatically declared just before every \env{forest} environment in the current \TeX{} group.
+%   \item An additional \TeX{} group is added to all \env{forest} environments.
+%     This ensures that the option declaration is properly localised, which in turn allows any tagging keylists' default values to be further manipulated after the current \env{forest} is finished.
+%   \item \emph{Outside} \env{forest} environments, unlike \pkg{forest} keylists, tagging keylists are \emph{not} ordered and do \emph{not} store more than one instance of any key.
+%     The underlying implementation uses \pkg{l3prop} property lists.
+%
+%     \emph{Inside} \env{forest} environments, tagging keylists \emph{are} ordered and behave as regular \pkg{forest} keylist options.
+%     \pkg{l3prop} property lists are \emph{not} used inside \env{forest} environments.
+%   \item \emph{Outside the \env{forest} environment, they may be manipulated \textbf{only} using the keys defined by this library.}
+%   \item \emph{Inside the \env{forest} environment, they may be manipulated \textbf{only} using regular \pkg{forest} methods.}
+% \end{enumerate}
+%
+% Note that to actually influence a tree, any tagging keylist must be processed during the construction of that tree.
+% Simply declaring a tagging keylist with some set of options will not, in itself, affect the typeset result in anyway.
+% This is equally true of regular \pkg{forest} keylists. 
+% Please see \textcite{saso-forest} for details.
+%
+% \DescribeCode{declare tagging keylist,redeclare tagging keylist}\is\marg{keylist}\marg{key-value list}
+%
+% Declares or redeclares a \pkg{forest} \emph{keylist option}.
+%
+% \textbf{Available ONLY outside \env{forest} environments.}
+%
+% Since keylists cannot actually be redeclared, what really happens is this:
+% \begin{itemize}
+%   \item An internal property list is defined to hold \meta{default}.
+%      This may then be manipulated using the various keys explained below.
+%   \item At the start of each \env{forest} environment (within the current \TeX{} group), a keylist option is declared.
+%     The default value passed to \texttt{declare keylist} is \emph{not} necessarily \meta{key-value list}.
+%     It is, rather, a key-value list derived from the contents of the underlying property list at the time.
+%     Hence, the default may be further manipulated after the keylist option is declared.
+% \end{itemize}
+%
+% Note that if you do not want the default be be manipulable after the keylist is declared, you should use the \pkg{forest} key \texttt{declare keylist}\is\marg{keylist}\marg{key-value list} instead, as this will be far more efficient.
+%
+% \DescribeCode{tagging keylist put}\is\marg{keylist}\marg{key-value list}
+%
+% Adds the contents of \meta{key-value list} to a \meta{keylist} declared with \texttt{declare tagging keylist}.
+% 
+% Note that if \meta{key-value list} includes an occurrence of a key already in the list, the key will be replaced, even if the value differs.
+%
+% \DescribeCode{tagging keylist remove key}\is\marg{keylist}\marg{key}
+%
+% Removes \meta{key} from \meta{keylist}, where \meta{keylist} was previously declared with \texttt{declare tagging keylist}.
+%
+% \textbf{Available ONLY outside \env{forest} environments.}
+%
+% \textbf{Available ONLY outside \env{forest} environments.}
+%
+% Note this removes the \meta{key} regardless of its current value (if any).
+%
+% \DescribeCode{tagging keylist remove}\is\marg{keylist}\marg{key-value list}
+%
+% For each \meta{key} or \meta{key}\is\meta{value} pair in \meta{key-value list}, removes \meta{key} from \meta{keylist} iff it has the specified \meta{value} (if given) or no value (otherwise), where \meta{keylist} was previously declared with \texttt{declare tagging keylist}.
+% 
+% \textbf{Available ONLY outside \env{forest} environments.}
+%
+% Note that a valueless key is distinct from one with an empty value.
+% To remove \meta{key} iff it has no value, use \texttt{\meta{key}}.
+% To remove \meta{key} iff it's value is empty, use \texttt{\meta{key}={}} or \texttt{\meta{key}=}.
+%
+% ^^A >>> subsec:utils-tag-props 
+%
+% ^^A >>>
+%
+%
+% \MaybeStop{%
+%   \def\glossaryname{Changes}%
+%   \twreg
+%   \printbibliography
+%   \PrintChanges
+%   \PrintIndex
+% }
+% 
+%^^A \twreg
+%
+% \section{Implementation}\label{sec:imp} % ^^A <<<
+%
+% A double underscore (\texttt{\_\_}) \emph{or} an ‘at’ (\texttt{@}) indicates an internal macro or key. 
+% These are liable to change without notice and should not be used elsewhere.
+%
+% \NewDocumentCommand \libinput {m}{%
+%   \AddToHookNext{cmd/maketitle/after}{%
+%    \phantomsection
+%    \addcontentsline{toc}{section}{ext.#1}%
+%    \fancyhf[lh]{\itshape forest-lib-ext.#1}%
+%   }%
+%   \input{\forestextdocbase -#1.dtx}%
+% }
+%
+% \twmarg
+%
+% \libinput{ling}
+%
+% \libinput{multi}
+%
+% {%
+%   \let\MakePrivateLetters\MyMakePrivateLetters
+%   \libinput{tagging}
+%
+%   \libinput{utils}%
+% }
+% 
+% \twreg
+%
+%
+% ^^A >>>
+%
+%^^A doc guards <<<
+% \iffalse
+%<*doc>
+\RequirePackage{svn-prov}
+\def\GetFileBaseName#1-#2-#3\nil{#1-#2}
+\edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo]
+\DefineFileInfoSVN
+\AddToHook{begindocument}{\OnlyDescription}
+\input{\MyFileBaseName.dtx}
+%</doc>
+% \fi
+%^^A doc guards >>>
+% 
+%^^A doc-code guards <<<
+% \iffalse
+%<*doc-code>
+\RequirePackage{svn-prov}
+\def\GetFileBaseName#1-#2-#3\nil{#1-#2}
+\edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo]
+\DefineFileInfoSVN
+\AddToHook{begindocument}{\AlsoImplementation}
+\input{\MyFileBaseName.dtx}
+%</doc-code>
+% \fi
+%^^A doc-code guards >>>
+% 
+% 
+%\Finale
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:

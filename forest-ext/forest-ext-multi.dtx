@@ -1,0 +1,510 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% forest-ext-multi.dtx
+% Additions and changes Copyright (C) 2025-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file forest-ext-multi.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+\RequirePackage{svn-prov}
+% ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
+\def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
+\ExplSyntaxOff
+\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\DefineFileInfoSVN[forest-ext-multi]
+\documentclass[11pt,british]{ltxdoc}
+% ^^A l3doc, minted both load fancyvrb
+% ^^A fancyvrb overwrites svn-prov's macros without warning
+% ^^A restore \fileversion \filerev in case we're using something troublesome
+\GetFileInfoSVN{forest-ext-multi}
+\begin{document}
+\DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+%
+% \title{ext.multi}
+% \author{Clea F. Rees\thanks{%
+%     Bug tracker:
+%     \href{https://codeberg.org/cfr/forest-ext/issues}{\url{codeberg.org/cfr/forest-ext/issues}}
+%     \textbar{} Code:
+%     \href{https://codeberg.org/cfr/forest-ext}{\url{codeberg.org/cfr/forest-ext}}
+%     % \textbar{} Mirror:
+%     % \href{https://github.com/cfr42/forest-ext}{\url{github.com/cfr42/forest-ext}}% 
+% }}
+% \date{\forestextdocdate}
+% \maketitle
+%
+% ^^A forest-lib-ext.multi{-debug} 
+% ^^A <<< 
+% \iffalse
+%<*sty>
+% \fi
+% \permissivelines
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+%% $Id: forest-ext-multi.dtx 11471 2026-01-14 21:49:31Z cfrees $}
+%<!debug>    \ProvidesForestLibrary{ext.multi}[2025-12-05 v0.0]
+%<debug>    \ProvidesForestLibrary{ext.multi-debug}[2025-12-05 v0.0]
+%    \end{macrocode}
+% \iffalse
+% ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
+% \fi
+%    \begin{macrocode}
+\forestset{
+%    \end{macrocode}
+% Public options.
+% ^^A % Booleans.
+% ^^A %    \begin{macrocode}
+% ^^A %    \end{macrocode}
+% ^^A % Counts.
+% ^^A %    \begin{macrocode}
+% ^^A %    \end{macrocode}
+% \begin{fkeylist}{every parent,other parents}
+% Keylists.
+%    \begin{macrocode}
+  declare keylist={every parent}{},
+  declare keylist={other parents}{},
+%    \end{macrocode}
+% \end{fkeylist}
+% Generic toks.
+%    \begin{macrocode}
+%    \end{macrocode}
+% Internal options.
+%    \begin{macrocode}
+  declare boolean={multi@connector}{0},
+  declare count={multi@n@parents}{0},
+  declare count={multi@connects@fosterling}{-1},
+  declare count={multi@connects@foster@parent}{-1},
+  declare keylist={multi@foster@parents}{},
+  declare keylist={multi@fosterlings}{},
+  declare keylist={multi@all@parents}{},
+  declare toks={multi@edge}{},
+  declare toks={multi@edge@subpath}{edge},
+  declare toks={multi@edge@sublast}{--},
+  declare toks={multi@edge@route}{--},
+  declare toks={multi@parent@of}{},
+%    \end{macrocode}
+% My answer: \url{https://tex.stackexchange.com/a/695602/}.
+% Based on an answer by Alan Munn: \url{https://tex.stackexchange.com/a/695600/}, which was based on my original answer.
+%
+% Public registers.
+%    \begin{macrocode}
+%<debug>      declare boolean register={debug multi phantoms},
+%<debug>      not debug multi phantoms,
+%    \end{macrocode}
+% Internal scratch registers.
+%    \begin{macrocode}
+  declare count register={multi@temp@counta},
+  multi@temp@counta=0,
+  declare toks register={multi@temp@toksa},
+  multi@temp@toksa={},
+  declare toks register={multi@temp@toksb},
+  multi@temp@toksb={},
+%    \end{macrocode}
+% \begin{fstep}{fosterlings,foster parents,every fosterling,every foster parent,c fosterling,c foster parent}
+%   Convenience multi-step nodewalk steps.
+%    \begin{macrocode}
+  define long step={fosterlings}{}{%
+    if multi@fosterlings={}{}{%
+      split option={multi@fosterlings}{,}{id}%
+    }%
+  },
+  define long step={foster parents}{}{%
+    if multi@foster@parents={}{}{%
+      split option={multi@foster@parents}{,}{id}%
+    }%
+  },
+  define long step={every fosterling}{n args=1}{%
+    filter={#1}{>O_=!{multi@foster@parents}{}}%
+  },
+  define long step={every foster parent}{n args=1}{%
+    filter={#1}{>O_=!{multi@fosterlings}{}}%
+  },
+  define long step={c fosterling}{}{%
+    id/.option=multi@connects@fosterling%
+  },
+  define long step={c foster parent}{}{%
+    id/.option=multi@connects@foster@parent%
+  },
+%    \end{macrocode}
+% \end{fstep}
+% \begin{fstyle}{multi}% ^^A <<<
+%   Make this node a grandchild of its current parent and insert specified parents.
+%    \begin{macrocode}
+  multi/.style={%
+%<debug>      debug@multi=Execute style multi at,
+%<debug>      debug@multi@option=id,
+    split={#1}{,}{multi@parent},
+%<debug>      debug@multi@option=multi@n@parents,
+%<debug>      debug@multi@option=multi@all@parents,
+    before typesetting nodes={%
+      multi@parents/.process={%
+        OOOw
+        {name}
+        {multi@n@parents}
+        {multi@all@parents}
+        {{##1}}%
+      },
+      delay n=2{%
+        multi@edge+= {(.child anchor) },
+        multi@temp@counta'=0,
+        split option={multi@all@parents}{,}{multi@also@parent},
+      },
+      delay n=3{%
+%<debug>      debug@multi@option=id,
+%<debug>      debug@multi@option=multi@edge,
+        edge path'/.option=multi@edge,
+      },
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{multi@also@parent}% ^^A <<<
+%   Auxiliary.
+%    \begin{macrocode}
+  multi@also@parent/.style={%
+%<debug>      debug@multi=Execute style multi@also@parent to for #1 at,
+%<debug>      debug@multi@option=id,
+    multi@temp@counta'+=1,
+    multi@edge+/.process={ 
+      OR= ? O w 
+      {multi@n@parents}{multi@temp@counta}
+      {multi@edge@sublast}{multi@edge@subpath}
+      {##1 (#1.parent anchor) }
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{multi@parent}% ^^A <<<
+%   Insert a co-parent.
+%
+%   Note \texttt{delay} required in case \texttt{name} specified by user.
+%    \begin{macrocode}
+  multi@parent/.style={%
+%<debug>      debug@multi=Execute style multi@parent to add #1 at,
+%<debug>      debug@multi@option=id,
+%<debug>      debug@multi@option=every parent,
+    multi@n@parents'+=1,
+    delay/.process={Ow{multi@n@parents}{%
+        multi@all@parents+/.process={Ow{name}{parent ##1 of ####1}},
+        insert before/.process={%
+          OOw2{name}{every parent}
+          {%
+            [#1,name=parent ##1 of ####1,multi@parent@of=####1, 
+              ####2]%
+          }%
+        },
+      }%
+    },
+  },
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{multi@parents}% ^^A <<<
+%   Adjust relns.
+%
+%   Arguments: name, no.~parents, parents
+%    \begin{macrocode}
+  multi@parents/.style n args=3{%
+%<debug>      debug@multi=Executing style multi@parents with,
+%<debug>      debug@multi=options #1 #2 and #3,
+    if={>nw+P{#2}{isodd(##1)}}{%
+      multi@temp@counta/.expanded=\inteval{(#2 + 1)/2},
+      for nodewalk={%
+        name/.expanded=parent \foresteregister{multi@temp@counta} of #1 %
+      }{%
+        append=#1,
+      },
+    }{%
+      multi@temp@counta/.expanded=\inteval{#2/2},
+%<debug>      debug@multi@register=multi@temp@counta,
+      for nodewalk={%
+        name/.expanded=parent \foresteregister{multi@temp@counta} of #1 %
+      }{%
+        insert after={%
+          [,coordinate,no edge, 
+            tier=multi@tier@#1@parents,
+            delay={%
+%<debug>      debug@multi=Appending #1 to,
+%<debug>      debug@multi@option=name,
+              append=#1,
+            },
+          ]%
+        },
+      },
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+%    \begin{macrocode}
+%    \end{macrocode}
+% \begin{fstyle}{multi@add@parent}% ^^A <<<
+%   Connect an additional parent.
+%
+%   Argument: id of current node; dynamic tree operation; keylist for child; id of additional parent (extant).
+%    \begin{macrocode}
+  multi@add@parent/.style n args=4{%
+%<debug>      debug@multi=Execute style multi@add@parent to add #4 at,
+%<debug>      debug@multi@option=id,
+%<debug>      debug@multi=Arguments: #1: #2: #3: #4,
+%<debug>      debug@multi@option=every parent,
+    delay n=2{%
+      for nodewalk={%
+        id=#4%
+      }{%
+        multi@fosterlings+=#1,
+%<debug>      debug@multi=dynamic action #2,
+%<debug>      debug@multi@option=parent anchor,
+        #2={%
+          [,
+            multi@phantom,
+            multi@connector,
+            multi@connects@fosterling=#1,
+            multi@connects@foster@parent=#4,
+            for current/.option=!{id=#1}.every parent,
+            delay n=3{%
+              do dynamics,
+              edge path'/.process={%
+                Ow {!{id=#1}.multi@edge@route} {%
+                  (!c fosterling.child anchor) ##1 (!c foster parent.parent anchor) %
+                }%
+              },
+              also={#3},
+%<debug>      debug@multi@option=id,
+%<debug>      debug@multi=edge path and edge,
+%<debug>      typeout/.option=edge path,
+%<debug>      debug@multi@option=edge,
+            },
+          ]%
+        },%
+      },
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{also parent,+also parent,also parent+}% ^^A <<<
+%   Make an existing node in the tree an additional parent of the current node.
+%   What actually happens is that the specified node gets a new child with a copy of the current node's content.
+%   However, this child is just like a \texttt{phantom}, except that it has a visible edge.
+%   This edge can then be defined to look as if it connects the current node to the additional parent.
+%
+%   Arguments: dynamic tree operation; parent:options for new node 
+%
+%   Why do I need to double hashes twice here?
+%    \begin{macrocode}
+  also parent/.style 2 args={%
+%<debug>    debug@multi=Executing style also parent at,
+%<debug>    debug@multi@option=id,
+    delay={%
+      split={#2}{:}{multi@temp@toksa,multi@temp@toksb},
+%<debug>    debug@multi@register=multi@temp@toksa,
+%<debug>    debug@multi@register=multi@temp@toksb,
+      if nodewalk valid={name/.register=multi@temp@toksa}{%
+        multi@temp@counta/.option=!{name/.register=multi@temp@toksa}.id,
+      }{%
+        multi@temp@counta/.option/.process={Rw{multi@temp@toksa}{##1.id}},
+      },
+%<debug>    debug@multi@register=multi@temp@counta,
+      multi@foster@parents+/.register=multi@temp@counta,
+      multi@add@parent/.process={%
+        O_RwR
+        {id}
+        {#1}
+        {multi@temp@toksb}
+        {{##1}}
+        {multi@temp@counta}%
+      },
+    },
+  },
+  +also parent/.style={%
+%<debug>    debug@multi=Executing style +also parent at,
+%<debug>    debug@multi@option=id,
+    also parent={prepend}{#1},
+  },
+  also parent+/.style={%
+%<debug>    debug@multi=Executing style also parent+ at,
+%<debug>    debug@multi@option=id,
+    also parent={append}{#1},
+  },
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{}% ^^A <<<
+%    \begin{macrocode}
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{multi@phantom}% ^^A <<<
+%   Not really phantoms.
+%    \begin{macrocode}
+  multi@phantom/.style={
+    before drawing tree={%
+%<debug>      if debug multi phantoms={%
+%<debug>        rectangle,
+%<debug>        if content={}{,
+%<debug>          draw=red,
+%<debug>        }{%
+%<debug>          red,
+%<debug>        },
+%<debug>      }{%
+      coordinate,
+%<debug>      },
+      typeset node,
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{add parent}% ^^A <<<
+%   Add a new node to the tree and connect it to the current node.
+%    \begin{macrocode}
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{debug@multi,debug@multi@register,debug@multi@option}% ^^A <<<
+%   Internal styles for debugging.
+%   Should not be used directly, but may be applied by loading the debugging code.
+%    \begin{macrocode}
+%<debug>    debug@multi/.code={%
+%<debug>      \ExpandArgs {e} \typeout{[Forest ext.multi debug]:: \detokenize{#1}}%
+%<debug>    },
+%<debug>    debug@multi@register/.code={%
+%<debug>      \ExpandArgs {e} \typeout{[Forest ext.multi debug]:: \detokenize{#1}
+%<debug>        = \foresteregister{#1}%
+%<debug>      }%
+%<debug>    },
+%<debug>    debug@multi@option/.code={%
+%<debug>      \ExpandArgs {e} \typeout{[Forest ext.multi debug]:: \detokenize{#1}
+%<debug>        = \foresteoption{#1}%
+%<debug>      }%
+%<debug>    },
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% \begin{fstyle}{debug multi phantoms,not debug multi phantoms}% ^^A <<<
+%   Supply a code key as substitute for the boolean if the debugging code isn't loaded.
+%    \begin{macrocode}
+%<!debug>    debug multi phantoms/.code={%
+%<!debug>      \PackageWarning{forest-lib-ext.multi}{%
+%<!debug>        You requested the style 'debug multi phantoms', 
+%<!debug>        but did not load the debugging code. 
+%<!debug>        Either load 'ext.multi-debug' instead of 
+%<!debug>        'ext.multi' or remove this style.
+%<!debug>      }%
+%<!debug>    }, 
+%<!debug>    node debug multi phantoms/.code={%
+%<!debug>      \PackageWarning{forest-lib-ext.multi}{%
+%<!debug>        You requested the style 'not debug multi phantoms', 
+%<!debug>        but did not load the debugging code. 
+%<!debug>        Either load 'ext.multi-debug' instead of 
+%<!debug>        'ext.multi' or remove this style.
+%<!debug>      }%
+%<!debug>    }, 
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+% We need empty defaults here so that e.g.~\pkg{ext.ling} can be loaded without \pkg{edges}, in which case the set of default is empty.
+% If \pkg{edges} is loaded, we overwrite this style in a hook at \texttt{begindocument}.
+%    \begin{macrocode}
+%<!debug>      libraries/ext.multi/defaults/.style=
+%<debug>      libraries/ext.multi-debug/defaults/.style=
+  {},
+}
+%    \end{macrocode}
+% We need conditional code in case \pkg{edges} is loaded.
+%    \begin{macrocode}
+\AddToHook{begindocument}{%
+  \IfPackageLoadedT{forest-lib-edges}{%
+%<!debug>        \PackageInfo{forest-lib-ext.multi}
+%<debug>        \PackageInfo{forest-lib-ext.multi-debug}
+    {Found the edges library. Enabling support code.}%
+    \usetikzlibrary{ext.paths.ortho}%
+    \forestset{%
+%    \end{macrocode}
+% \begin{fstyle}{multi@forked@edge}% ^^A <<<
+%   I wish \pkg{forest} used booleans or similar a bit more extensively here so this was easier to handle (without clobbering).
+%    \begin{macrocode}
+      multi@forked@edge/.style={%
+        /forest/.cd,
+        /tikz/ext/ortho/distance/.process={Ow{fork sep}{-##1}},
+        every parent+={%
+          forked edge,
+          /tikz/ext/ortho/distance/.process={Ow{fork sep}{-##1}},
+        },
+        multi@edge@subpath={%
+          (.child anchor) -|-
+        },
+        multi@edge@sublast={%
+          (.child anchor) -|-
+        },
+        multi@edge@route={%
+          -|-
+        },
+      },
+%    \end{macrocode}
+% \end{fstyle}% ^^A >>>
+%   Setup some (hopefully) intuitive defaults.
+%
+%   A negative value for \texttt{ext/ortho/distance} is measured from the target coordinate rather than the start.
+%   We are constructing the paths backwards in comparison with \pkg{forest}.
+%   \texttt{0.5em} is the \pkg{forest} default.
+%   Do \textbf{not} try passing the option value here!
+%    \begin{macrocode}
+%<!debug>      libraries/ext.multi/defaults/.style=
+%<debug>      libraries/ext.multi-debug/defaults/.style=
+      {%
+        default preamble+={
+          Autoforward={fork sep}{%
+            every parent+={%
+              fork sep=##1,
+              edge+={/tikz/ext/ortho/distance=-##1},
+            },
+            edge+={/tikz/ext/ortho/distance=-##1},
+          },
+          fork sep'=0.5em,
+          forked edge'/.forward to=/forest/multi@forked@edge,
+        },
+      },
+%    \end{macrocode}
+% There's no ‘hook’ mechanism for this, so there is not really a nice or robust way of doing this, I don't think.
+% For the \pkg{edges} library, in particular, there are, in fact, no defaults at all ....
+%
+%    \begin{macrocode}
+      libraries/edges/defaults/.append style={%
+%<!debug>      libraries/ext.multi/defaults,
+%<debug>      libraries/ext.multi-debug/defaults,
+        /utils/exec={%
+%<!debug>      \PackageInfo{forest-lib-ext.multi}
+%<debug>      \PackageInfo{forest-lib-ext.multi-debug}
+          {%
+            Appending compatibility code for forked edges to default settings.%
+          }%
+        },
+      }%
+    }%
+  }%
+}
+%    \end{macrocode}
+% \iffalse
+%</sty>
+% \fi
+%^^A >>>
+%
+% ^^A \Finale
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:

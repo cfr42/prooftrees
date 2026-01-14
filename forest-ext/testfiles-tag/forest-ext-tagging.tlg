@@ -1,0 +1,255 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: tagforest
+============================================================
+[tagforest debug]:: Tagging active.
+[tagforest debug]:: Custom tagging not configured.
+Package ext.tagging (forest lib) Warning: Using alt plug for tagging as no match exists for plug selected for tikz pictures. on input line ....
+[Forest ext.utils debug]:: Redeclaring tagging keylist tag nodes
+[Forest ext.utils debug]:: with default delay={if level=0{if alt text={}{+node@ttoks/.process={Rw{is root}{##1\ }}, }{}, }{}, }, if phantom={}{if alt text={}{if edge label={}{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{content}{No edge label. Content is ##1}}, node@ttoks/.process={Ow{content}{##1}}, }{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{edge label}{Edge label is ##1}}, debug tagforest/.process={Ow{content}{Content is ##1}}, node@ttoks/.process={ROOw3{is edge label}{content}{edge label}{\ ##1 ##2 ##3\ }}, }, if={>O_>{n children}{1}}{debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}}, node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }}, delay={for children={debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{n}{Branch no. is ##1}}, +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }}, }, }, }{if n children=1{delay={debug tagforest/.process={Ow {id}{Node id: ##1 has 1 child}}, !1.+node@ttoks/.process={Rw{is child}{\ ##1\ }}, }, }{debug tagforest/.process={Ow {id}{Node id: ##1 is a leaf}}, node@ttoks+/.process={Rw{is leaf}{\ ##1\ }}, }, }, delay n=2{alt text'/.option=node@ttoks, }, }{}, }, .
+[Forest ext.utils debug]:: Redeclare tag nodes with delay={if level=0{if alt text={}{+node@ttoks/.process={Rw{is root}{##1\ }}, }{}, }{}, }, if phantom={}{if alt text={}{if edge label={}{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{content}{No edge label. Content is ##1}}, node@ttoks/.process={Ow{content}{##1}}, }{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{edge label}{Edge label is ##1}}, debug tagforest/.process={Ow{content}{Content is ##1}}, node@ttoks/.process={ROOw3{is edge label}{content}{edge label}{\ ##1 ##2 ##3\ }}, }, if={>O_>{n children}{1}}{debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}}, node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }}, delay={for children={debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{n}{Branch no. is ##1}}, +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }}, }, }, }{if n children=1{delay={debug tagforest/.process={Ow {id}{Node id: ##1 has 1 child}}, !1.+node@ttoks/.process={Rw{is child}{\ ##1\ }}, }, }{debug tagforest/.process={Ow {id}{Node id: ##1 is a leaf}}, node@ttoks+/.process={Rw{is leaf}{\ ##1\ }}, }, }, delay n=2{alt text'/.option=node@ttoks, }, }{}, }, .
+[Forest ext.utils debug]:: Processing delay={if level=0{if alt text={}{+node@ttoks/.process={Rw{is root}{##1\ }}, }{}, }{}, }, if phantom={}{if alt text={}{if edge label={}{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{content}{No edge label. Content is ##1}}, node@ttoks/.process={Ow{content}{##1}}, }{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{edge label}{Edge label is ##1}}, debug tagforest/.process={Ow{content}{Content is ##1}}, node@ttoks/.process={ROOw3{is edge label}{content}{edge label}{\ ##1 ##2 ##3\ }}, }, if={>O_>{n children}{1}}{debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}}, node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }}, delay={for children={debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{n}{Branch no. is ##1}}, +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }}, }, }, }{if n children=1{delay={debug tagforest/.process={Ow {id}{Node id: ##1 has 1 child}}, !1.+node@ttoks/.process={Rw{is child}{\ ##1\ }}, }, }{debug tagforest/.process={Ow {id}{Node id: ##1 is a leaf}}, node@ttoks+/.process={Rw{is leaf}{\ ##1\ }}, }, }, delay n=2{alt text'/.option=node@ttoks, }, }{}, },  for tag nodes.
+[tagforext debug]:: tag nodes: 
+The property list \l__forestext_tag nodes_prop contains the pairs (without outer braces):
+>  {delay}  =>  {if level=0{if alt text={}{+node@ttoks/.process={Rw{is root}{##1\ }}, }{}, }{}, }
+>  {if phantom}  =>  {{}{if alt text={}{if edge label={}{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{content}{No edge label. Content is ##1}}, node@ttoks/.process={Ow{content}{##1}}, }{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{edge label}{Edge label is ##1}}, debug tagforest/.process={Ow{content}{Content is ##1}}, node@ttoks/.process={ROOw3{is edge label}{content}{edge label}{\ ##1 ##2 ##3\ }}, }, if={>O_>{n children}{1}}{debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}}, node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }}, delay={for children={debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{n}{Branch no. is ##1}}, +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }}, }, }, }{if n children=1{delay={debug tagforest/.process={Ow {id}{Node id: ##1 has 1 child}}, !1.+node@ttoks/.process={Rw{is child}{\ ##1\ }}, }, }{debug tagforest/.process={Ow {id}{Node id: ##1 is a leaf}}, node@ttoks+/.process={Rw{is leaf}{\ ##1\ }}, }, }, delay n=2{alt text'/.option=node@ttoks, }, }{}, }}.
+[tagforext debug]:: tag nodes: 
+The property list \l__forestext_tag nodes_prop contains the pairs (without outer braces):
+>  {delay}  =>  {if level=0{if alt text={}{+node@ttoks/.process={Rw{is root}{##1\ }}, }{}, }{}, }
+>  {if phantom}  =>  {{}{if alt text={}{if edge label={}{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{content}{No edge label. Content is ##1}}, node@ttoks/.process={Ow{content}{##1}}, }{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{edge label}{Edge label is ##1}}, debug tagforest/.process={Ow{content}{Content is ##1}}, node@ttoks/.process={ROOw3{is edge label}{content}{edge label}{\ ##1 ##2 ##3\ }}, }, if={>O_>{n children}{1}}{debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}}, node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }}, delay={for children={debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{n}{Branch no. is ##1}}, +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }}, }, }, }{if n children=1{delay={debug tagforest/.process={Ow {id}{Node id: ##1 has 1 child}}, !1.+node@ttoks/.process={Rw{is child}{\ ##1\ }}, }, }{debug tagforest/.process={Ow {id}{Node id: ##1 is a leaf}}, node@ttoks+/.process={Rw{is leaf}{\ ##1\ }}, }, }, delay n=2{alt text'/.option=node@ttoks, }, }{}, }}.
+[Forest ext.utils debug]:: Redeclaring tagging keylist collate tags
+[Forest ext.utils debug]:: with default collate tag/.option=alt text, .
+[Forest ext.utils debug]:: Redeclare collate tags with collate tag/.option=alt text, .
+[Forest ext.utils debug]:: Processing collate tag/.option=alt text,  for collate tags.
+[tagforext debug]:: collate tags: 
+The property list \l__forestext_collate tags_prop contains the pairs (without outer braces):
+>  {collate tag/.option}  =>  {alt text}.
+[tagforext debug]:: collate tags: 
+The property list \l__forestext_collate tags_prop contains the pairs (without outer braces):
+>  {collate tag/.option}  =>  {alt text}.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: tagforest [on line ...]
+[Forest ext.utils debug]:: Creating options set with declare tagging keylist.
+declare keylist/.process={_x{tag nodes}{delay={if level=0{if alt text={}{+node@ttoks/.process={Rw{is root}{##1\ }}, }{}, }{}, },if phantom={{}{if alt text={}{if edge label={}{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{content}{No edge label. Content is ##1}}, node@ttoks/.process={Ow{content}{##1}}, }{debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{edge label}{Edge label is ##1}}, debug tagforest/.process={Ow{content}{Content is ##1}}, node@ttoks/.process={ROOw3{is edge label}{content}{edge label}{\ ##1 ##2 ##3\ }}, }, if={>O_>{n children}{1}}{debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}}, node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }}, delay={for children={debug tagforest/.process={Ow {id}{Node id: ##1}}, debug tagforest/.process={Ow{n}{Branch no. is ##1}}, +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }}, }, }, }{if n children=1{delay={debug tagforest/.process={Ow {id}{Node id: ##1 has 1 child}}, !1.+node@ttoks/.process={Rw{is child}{\ ##1\ }}, }, }{debug tagforest/.process={Ow {id}{Node id: ##1 is a leaf}}, node@ttoks+/.process={Rw{is leaf}{\ ##1\ }}, }, }, delay n=2{alt text'/.option=node@ttoks, }, }{}, }},}}, declare keylist/.process={_x{collate tags}{collate tag/.option={alt text},}}, 
+[tagforest debug]:: Process keylist: before tagging nodes ...
+[tagforest debug]:: Process keylist: tag nodes ...
+[tagforest debug]:: Node id: 2
+[tagforest debug]:: No edge label. Content is VP
+[tagforest debug]:: Node id: 2 has 2 branches
+[tagforest debug]:: Node id: 3
+[tagforest debug]:: No edge label. Content is DP
+[tagforest debug]:: Node id: 4
+[tagforest debug]:: No edge label. Content is John
+[tagforest debug]:: Node id: 4 is a leaf
+[tagforest debug]:: Node id: 6
+[tagforest debug]:: No edge label. Content is V
+[tagforest debug]:: Node id: 7
+[tagforest debug]:: No edge label. Content is sent
+[tagforest debug]:: Node id: 7 is a leaf
+[tagforest debug]:: Node id: 8
+[tagforest debug]:: No edge label. Content is DP
+[tagforest debug]:: Node id: 9
+[tagforest debug]:: No edge label. Content is Mary
+[tagforest debug]:: Node id: 9 is a leaf
+[tagforest debug]:: Node id: 10
+[tagforest debug]:: No edge label. Content is DP
+[tagforest debug]:: Node id: 10 has 2 branches
+[tagforest debug]:: Node id: 11
+[tagforest debug]:: No edge label. Content is D
+[tagforest debug]:: Node id: 12
+[tagforest debug]:: No edge label. Content is a
+[tagforest debug]:: Node id: 12 is a leaf
+[tagforest debug]:: Node id: 13
+[tagforest debug]:: No edge label. Content is NP
+[tagforest debug]:: Node id: 14
+[tagforest debug]:: No edge label. Content is letter
+[tagforest debug]:: Node id: 14 is a leaf
+[tagforest debug]:: Node id: 3
+[tagforest debug]:: Branch no. is 1
+[tagforest debug]:: Node id: 5
+[tagforest debug]:: Branch no. is 2
+[tagforest debug]:: Node id: 3 has 1 child
+[tagforest debug]:: Node id: 6 has 1 child
+[tagforest debug]:: Node id: 8 has 1 child
+[tagforest debug]:: Node id: 11
+[tagforest debug]:: Branch no. is 1
+[tagforest debug]:: Node id: 13
+[tagforest debug]:: Branch no. is 2
+[tagforest debug]:: Node id: 11 has 1 child
+[tagforest debug]:: Node id: 13 has 1 child
+[tagforest debug]:: Process keylist: before collating tags ...
+[tagforest debug]:: Process keylist: collate tags ...
+[tagforest debug]:: Appending toks root\ VP\ 2 branches\  .
+[tagforest debug]:: Appending toks \ branch 1\ DP .
+[tagforest debug]:: Appending toks \ child\ John\ end branch\  .
+[tagforest debug]:: Appending toks V prime .
+[tagforest debug]:: Appending toks V .
+[tagforest debug]:: Appending toks \ child\ sent\ end branch\  .
+[tagforest debug]:: Appending toks DP .
+[tagforest debug]:: Appending toks \ child\ Mary\ end branch\  .
+[tagforest debug]:: Appending toks DP\ 2 branches\  .
+[tagforest debug]:: Appending toks \ branch 1\ D .
+[tagforest debug]:: Appending toks \ child\ a\ end branch\  .
+[tagforest debug]:: Appending toks \ branch 2\ NP .
+[tagforest debug]:: Appending toks \ child\ letter\ end branch\  .
+[tagforest debug]:: Process keylist: before tagging tree ...
+[tagforest debug]:: Stage: tag tree stage ...
+[tagforest debug]:: Dimensions (x then y) are
+[tagforest debug]:: 148.39047pt
+[tagforest debug]:: 124.06189pt
+[tagforest debug]:: Tagging tree now ...
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: tagforest [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: tagforest [on line ...]
+[tagforest debug]:: Completed all tagging stages!
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: tagforest [on line ...]
+Package tagpdf Info: current MC: abscnt=2, tag=Figure
+============================================================
+============================================================
+TEST 2: Show PDF Tags
+============================================================
+-------- forest-ext-tagging.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>ABC apple banana pear
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="root VP 2 branches   branch 1 DP  child John end branch  V prime V  child sent end branch  DP  child Mary end branch  DP 2 branches   branch 1 D  child a end branch   branch 2 NP  child letter end branch  "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 259.48477, 543.59961, 407.32085, 667.19801 }"
+       >
+      <?MarkedContent page="1" ?>VPDPJohnV’VsentDPMaryDPDaNPletter
+     </Figure>
+     <?MarkedContent page="1" ?>ABC apple ba-nana pear
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- forest-ext-tagging.xml (end) ---------
+============================================================
+============================================================
+TEST 3: tagforest-taginfo
+============================================================
+The sequence \g__tag_struct_tag_stack_seq contains the items (without outer braces):
+>  {{Document}{Document}}
+>  {{Root}{StructTreeRoot}}.
+=========================
+The structure 1 contains:
+>  Type  =>  /StructTreeRoot
+>  S  =>  /StructTreeRoot
+>  tag  =>  {StructTreeRoot}{pdf}
+>  rolemap  =>  {StructTreeRoot}{pdf}
+>  parentrole  =>  {StructTreeRoot}{pdf}
+The structure has the following kids:
+>  Struct 2
+=========================
+=========================
+The structure 2 contains:
+>  Type  =>  /StructElem
+>  S  =>  /Document
+>  NS  =>  pdf2
+>  tag  =>  {Document}{pdf2}
+>  rolemap  =>  {Document}{pdf2}
+>  parentrole  =>  {Document}{pdf2}
+>  parentnum  =>  1 = /StructTreeRoot
+The structure has the following kids:
+>  Struct 5
+=========================
+=========================
+The structure 3 contains:
+>  Type  =>  /StructElem
+>  S  =>  /figures
+>  NS  =>  latex
+>  tag  =>  {figures}{latex}
+>  rolemap  =>  {Sect}{pdf2}
+>  parentrole  =>  {Sect}{pdf2}
+>  parentnum  =>  no parent: stashed
+The structure has the following kids:
+> NONE
+=========================
+=========================
+The structure 4 contains:
+>  Type  =>  /StructElem
+>  S  =>  /tables
+>  NS  =>  latex
+>  tag  =>  {tables}{latex}
+>  rolemap  =>  {Sect}{pdf2}
+>  parentrole  =>  {Sect}{pdf2}
+>  parentnum  =>  no parent: stashed
+The structure has the following kids:
+> NONE
+=========================
+=========================
+The structure 5 contains:
+>  Type  =>  /StructElem
+>  S  =>  /text-unit
+>  NS  =>  latex
+>  tag  =>  {text-unit}{latex}
+>  rolemap  =>  {Part}{pdf2}
+>  parentrole  =>  {Document}{pdf2}
+>  parentnum  =>  2 = /Document
+The structure has the following kids:
+>  Struct 6
+=========================
+=========================
+The structure 6 contains:
+>  Type  =>  /StructElem
+>  C  =>  /justify
+>  S  =>  /text
+>  NS  =>  latex
+>  tag  =>  {text}{latex}
+>  rolemap  =>  {P}{pdf2}
+>  parentrole  =>  {P}{pdf2}
+>  parentnum  =>  5 = /text-unit
+The structure has the following kids:
+>  MC 1
+>  Struct 7
+>  MC 3
+=========================
+=========================
+The structure 7 contains:
+>  Type  =>  /StructElem
+>  Alt  =>  <FEFF0072006F006F0074002000560050002000320020006200720061006E0063006800650073002000200020006200720061006E006300680020003100200044005000200020006300680069006C00640020004A006F0068006E00200065006E00640020006200720061006E006300680020002000560020007000720069006D00650020005600200020006300680069006C0064002000730065006E007400200065006E00640020006200720061006E00630068002000200044005000200020006300680069006C00640020004D00610072007900200065006E00640020006200720061006E006300680020002000440050002000320020006200720061006E0063006800650073002000200020006200720061006E00630068002000310020004400200020006300680069006C00640020006100200065006E00640020006200720061006E00630068002000200020006200720061006E00630068002000320020004E005000200020006300680069006C00640020006C0065007400740065007200200065006E00640020006200720061006E0063006800200020>
+>  S  =>  /Figure
+>  NS  =>  pdf2
+>  tag  =>  {Figure}{pdf2}
+>  rolemap  =>  {Figure}{pdf2}
+>  parentrole  =>  {Figure}{pdf2}
+>  parentnum  =>  6 = /text
+The structure has the following kids:
+>  MC 2
+=========================
+============================================================
+<<latex-list-css.html>><<latex-align-css.html>> (forest-ext-tagging.aux)
+Package tagpdf Info: Finalizing the tagging structure:
+(tagpdf)             Writing out ~7 structure objects
+(tagpdf)             with ~5 'MC' leaf nodes.
+(tagpdf)             Be patient if there are lots of objects!
+Package tagpdf Info: writing ParentTree
+Package tagpdf Info: writing IDTree
+Package tagpdf Info: writing RoleMap
+Package tagpdf Info: writing ClassMap
+Package tagpdf Info: writing NameSpaces
+Package tagpdf Info: writing StructElems
+Package tagpdf Info: writing Root
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
