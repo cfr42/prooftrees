@@ -1,4 +1,4 @@
--- $Id: config-mem.lua 10525 2024-10-24 06:31:34Z cfrees $
+-- $Id: config-mem.lua 11470 2026-01-14 21:23:24Z cfrees $
 -- Build configuration for prooftrees
 testfiledir = "testfiles-mem"
 checkruns = 3

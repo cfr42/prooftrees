@@ -1,4 +1,4 @@
--- $Id: config-tag-mem.lua 11201 2025-09-04 00:52:06Z cfrees $
+-- $Id: config-tag-mem.lua 11470 2026-01-14 21:23:24Z cfrees $
 -- Build configuration for prooftrees
 testfiledir = "testfiles-tag-mem"
 -- checkengines = { "pdftex", "luatex" }
