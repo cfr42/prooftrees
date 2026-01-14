@@ -1,0 +1,2835 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `prooftrees-memoize-t1.lvt',
+%%
+%% Copyright (C) 2024 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% prooftrees. 
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: prooftrees-egs.lvt 10527 2024-10-25 19:13:21Z cfrees $}[\filebase \revinfo]
+\input regression-test.tex\relax
+\PassOptionsToPackage{rgb,x11names,svgnames,dvipsnames}{xcolor}
+\documentclass{article}
+\usepackage{prooftrees}
+\useforestlibrary*{edges}
+\usepackage{amssymb}
+\usepackage{mathtools,turnstile}
+% change these back to make sure it still works before releasing anything on the basis that it is llwyddianus 'ma <<<< ?????
+% \newcommand*{\tnot}{\ensuremath{\mathord{\sim}}}
+% \newcommand*{\lif}{\ensuremath{\mathbin{\rightarrow}}}
+% \newcommand*{\liff}{\ensuremath{\mathbin{\leftrightarrow}}}
+\newcommand*{\tnot}{\mathord{\sim}}
+\newcommand*{\lif}{\mathbin{\rightarrow}}
+\newcommand*{\liff}{\mathbin{\leftrightarrow}}
+\DeclareMathSymbol{\aand}{\mathbin}{operators}{38}
+\newcommand*{\elim}{\,\text{E}}
+\newbox\tableaubox
+\forestset{draw tree box=\tableaubox}
+
+% note that many examples in this file are invalid or otherwise maladjusted as they've been randomly altered to test 'what if...?' scenarios with scant attention to the niceties of logic!
+\begin{document}
+\START
+\TEST{prooftrees-egs-t1}{%
+  \begin{prooftree}
+    {
+      to prove={proof statement},
+      for tree={%
+        plain content,
+        font=\itshape,
+      },
+      wff format={gray, draw},
+      proof statement format={Purple3},
+      proof tree dadfygio,
+      line no format={blue},
+      just format={red},
+      highlight format={cyan},
+    }
+    [wff, just=justification
+      [wff
+        [wff, edge=red, just=symud
+          [wff, just=justification [wff, just=justification]
+          ]
+        ]
+      ]
+      [wff, just=justification xx, line options={orange, font=\bfseries, draw},
+        [wff
+          [wff, just=justification
+            [wff, just=justification
+              [wff, just=justification]
+            ]
+          ]
+        ]
+        [wff, just=justification yy, highlight line
+          [wff, just=justification, just=justification $x^2$, line no options=purple, ]
+          [wff, just=justification $x^4$, highlight just
+            [wff, just=justification, wff options=green]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t2}{%
+  \begin{prooftree}
+    {
+      to prove={proof statement},
+      for tree={%
+        plain content,
+        font=\itshape,
+      },
+      proof tree dadfygio,
+    }
+    [wff 3, just=justification
+      [wff 4, just=justification
+        [wff 5, edge=red, just=justification
+          [wff 6, just=justification [wff 7, just=justification]
+          ]
+        ]
+      ]
+      [wff 8, just=justification
+        [wff 9, just=justification
+          [wff 10, just=justification
+            [wff 11, just=justification
+              [wff 12, just=justification]
+            ]
+          ]
+        ]
+        [wff 13, just=justification
+          [wff 14, just=justification]
+          [wff 15, just=justification
+            [wff 16, just=justification]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t3}{%
+  \begin{prooftree}
+    {
+      to prove={proof statement},
+      for tree={%
+        plain content,
+        font=\itshape,
+      },
+      proof tree dadfygio,
+    }
+    [wff 3, just=justification
+      [wff 4, just=justification
+        [wff 5, edge=red, just=justification
+          [wff 6, just=justification [wff 7, just=justification]
+          ]
+        ]
+      ]
+      [wff 8, just=justification
+        [wff 9, just=justification
+          [wff 10, just=justification
+          ]
+        ]
+        [wff 11, just=justification
+          [wff 12, just=justification]
+          [wff 13, just=justification
+            [wff 14, just=justification]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t4}{%
+  \begin{prooftree}
+    {
+      to prove={proof statement},
+      for tree={%
+        plain content,
+        font=\itshape,
+      },
+      proof tree dadfygio,
+    }
+    [wff 3, just=justification
+      [wff 4, just=justification
+        [wff 5, edge=red, just=justification
+          [wff 6, just=justification
+          ]
+        ]
+      ]
+      [wff 7, just=justification
+        [wff 8, just=justification
+          [wff 9, just=justification]
+        ]
+        [wff 10, just=justification
+          [wff 11]
+          [wff 12, just=justificationx
+            [wff 13, just=justificationx]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t5}{%
+  \begin{prooftree}
+    {}
+    [a
+      [b
+        [c
+          [j]
+        ]
+      ]
+      [d
+        [e
+          [f
+          ]
+        ]
+        [g
+          [h
+            [i
+              [k[l[m[n]]]]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t6}{%
+  \begin{prooftree}
+    {}
+    [a
+      [h
+        [i, just=from 1
+          [j, just=from 1
+            [b, just=from 2
+              [d, just=from 3, move by=2]
+              [e, move by=2]
+            ]
+            [c
+              [f, just=from 4[k]]
+              [g[l]]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t7}{%
+  \begin{prooftree}
+    {}
+    [a
+      [h
+        [i, just=from 1
+          [j, just=from 1
+            [b, just=from 2
+              [d, just=from 3, move by=1]
+              [e, move by=1]
+            ]
+            [c
+              [f, just=from 4]
+              [g]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t8}{%
+  \begin{prooftree}
+    {
+      to prove={proof statement},
+      for tree={%
+        plain content,
+        font=\itshape,
+      },
+      proof tree dadfygio,
+    }
+    [wff, just=justification
+      [wff, just=justification
+        [wff, edge=red, just=justification
+          [wff, just=justification [wff, just=justification]
+          ]
+        ]
+      ]
+      [wff, just=justification
+        [wff, just=justification
+          [wff, just=justification
+          ]
+        ]
+        [wff, just=justification
+          [wff, just=justification]
+          [wff, just=justification
+            [wff, just=justification]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t9}{%
+  \begin{prooftree}
+    {
+      to prove={proof statement},
+      for tree={%
+        plain content,
+        font=\itshape,
+      },
+      before typesetting nodes={%
+        for tree={content/.wrap pgfmath arg={#1}{id}}
+      },
+      proof tree dadfygio,
+    }
+    [wff 3, just=justification
+      [wff 4, just=justification
+        [wff 5, edge=red, just=justification
+          [wff 6, just=justification
+          ]
+        ]
+      ]
+      [wff 7, just=justification
+        [wff 8, just=justification
+          [wff 9, just=justification]
+        ]
+        [wff 10, just=justification
+          [wff 11, just=justification]
+          [wff 12, just=justification
+            [wff 13, just=justification]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t10}{%
+  \begin{prooftree}{single branches}
+    [P \vee (Q \vee \lnot R), grouped,  just=Ass
+      [P \supset \lnot R, grouped,  just=Ass
+        [Q \supset \lnot R, grouped,  just=Ass
+          [\lnot\lnot R, grouped, just={Negated conclusion}
+            [P,  just={1 $\vee$ Elim}
+              [\lnot R,  close, just={2,5 $\supset$ Elim}
+              ]
+            ]
+            [Q \vee \lnot R, just={5 $\vee$ Elim}
+              [Q
+                [\lnot R,  close, just={3,6 $\supset$ Elim}
+                ]
+              ]
+              [\lnot R, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t11}{%
+  \begin{prooftree}{}
+    [P \vee (Q \vee \lnot R), grouped,  just=Ass
+      [P \supset \lnot R, grouped,  just=Ass
+        [Q \supset \lnot R, grouped,  just=Ass
+          [\lnot\lnot R, grouped, just={Negated conclusion}, name=nc
+            [P,  just={$\vee$ Elim:!r1}
+              [\lnot P, close={:!u,!c}
+              ]
+              [\lnot R,  close={:nc,!c}, just={$\supset$ Elim:!r11}
+              ]
+            ]
+            [Q \vee \lnot R
+              [Q, just={$\vee$ Elim:!u}
+                [\lnot Q, , close={:!u,!c}
+                ]
+                [\lnot R,  close={:nc,!c}, just={$\supset$ Elim:!r111}
+                ]
+              ]
+              [\lnot R, close={:nc,!c}
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t12}{%
+  \begin{prooftree}{single branches}
+    [P \vee (Q \vee \lnot R), grouped
+      [P \supset \lnot R, grouped
+        [Q \supset \lnot R, grouped
+          [\lnot\lnot R, grouped
+            [P
+              [\lnot P, close
+              ]
+              [\lnot R,  close
+              ]
+            ]
+            [Q \vee \lnot R
+              [Q
+                [\lnot Q, close
+                ]
+                [\lnot R,  close
+                ]
+              ]
+              [\lnot R, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t13}{%
+  \begin{prooftree}
+    {
+      single branches,
+      not line numbering,
+    }
+    [P \vee (Q \vee \lnot R), grouped
+      [P \supset \lnot R, grouped
+        [Q \supset \lnot R, grouped
+          [\lnot\lnot R, grouped
+            [P
+              [\lnot P, close
+              ]
+              [\lnot R,  close
+              ]
+            ]
+            [Q \vee \lnot R
+              [Q
+                [\lnot Q, close
+                ]
+                [\lnot R,  close
+                ]
+              ]
+              [\lnot R, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t14}{%
+  \begin{prooftree}
+    {
+      single branches,
+      not line numbering,
+    }
+    [P \vee (Q \vee \lnot R), grouped,  just=Ass
+      [P \supset \lnot R, grouped,  just=Ass
+        [Q \supset \lnot R, grouped,  just=Ass
+          [\lnot\lnot R, grouped, just={Negated conclusion}
+            [P,  just={$\vee$ Elim}
+              [\lnot R,  close, just={$\supset$ Elim}
+              ]
+            ]
+            [Q \vee \lnot R, just={$\vee$ Elim}
+              [Q
+                [\lnot R,  close, just={$\supset$ Elim}
+                ]
+              ]
+              [\lnot R, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t15}{%
+  \begin{prooftree}{%
+      proof tree dadfygio,
+    }
+    [P \vee (Q \vee \lnot R),  just=Ass, checked
+      [P \lif \lnot R,  just=Ass, checked
+        [Q \lif \lnot R,  just=Ass, checked
+          [\lnot\lnot R, just={Negated conclusion}
+            [P,  just={1 $\vee$ Elim}
+              [\lnot R,  close, just={2,5 $\lif$ Elim}
+              ]
+            ]
+            [Q \vee \lnot R
+              [Q
+                [\lnot R, just={3,6 $\lif$ Elim}, close
+                ]
+              ]
+              [\lnot R, just={5 $\vee$ Elim}, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t16}{%
+  \begin{prooftree}{not line numbering}
+    [P \vee (Q \vee \lnot R),  just=Ass, checked
+      [P \lif \lnot R,  just=Ass, checked
+        [Q \lif \lnot R,  just=Ass, checked
+          [\lnot\lnot R, just={Negated conclusion}
+            [P,  just={1 $\vee$ Elim}
+              [\lnot R,  close, just={2,5 $\lif$ Elim}
+              ]
+            ]
+            [Q \vee \lnot R
+              [Q
+                [\lnot R, just={3,6 $\lif$ Elim}, close
+                ]
+              ]
+              [\lnot R, just={5 $\vee$ Elim}, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t17}{%
+  \begin{prooftree}{}
+    [P \vee (Q \vee \lnot R),  just=Ass, checked
+      [P \lif \lnot R,  just=Ass, checked
+        [Q \lif \lnot R,  just=Ass, checked
+          [\lnot\lnot R, just={Negated conclusion}
+            [P,  just={1 $\vee$ Elim}
+              [\lnot R,  close, just={2,5 $\lif$ Elim}
+              ]
+            ]
+            [Q \vee \lnot R
+              [Q
+                [\lnot R, just={3,6 $\lif$ Elim}, close
+                ]
+              ]
+              [\lnot R, just={5 $\vee$ Elim}, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t18}{%
+  \begin{prooftree}{}
+    [P \vee (Q \vee \lnot R),  just=Ass, checked
+      [P \lif \lnot R,  just=Ass, checked
+        [Q \lif \lnot R,  just=Ass, checked
+          [\lnot\lnot R, just={Negated conclusion}
+            [P,  just={1 $\vee$ Elim}
+              [\lnot R,  close, just={2,5 $\lif$ Elim}, move by=2
+              ]
+            ]
+            [Q \vee \lnot R
+              [Q
+                [\lnot R, just={3,6 $\lif$ Elim}, close
+                ]
+              ]
+              [\lnot R, just={5 $\vee$ Elim}, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t19}{%
+  \begin{prooftree}{not line numbering}
+    [P \vee (Q \vee \lnot R),  just=Ass, checked
+      [P \lif \lnot R,  just=Ass, checked
+        [Q \lif \lnot R,  just=Ass, checked
+          [\lnot\lnot R, just={Negated conclusion}
+            [P,  just={1 $\vee$ Elim}
+              [\lnot R,  close, just={2,5 $\lif$ Elim}, move by=2
+              ]
+            ]
+            [Q \vee \lnot R
+              [Q
+                [\lnot R, just={3,6 $\lif$ Elim}, close
+                ]
+              ]
+              [\lnot R, just={5 $\vee$ Elim}, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+
+\TEST{prooftrees-egs-t20}{%
+  \begin{prooftree} % uses Ignasi's code for the main tree (http://tex.stackexchange.com/a/233576/)
+    {
+      single branches,
+      to prove={(\exists x)Fx \supset (\forall x)Fx \sststile{}{} (\forall x) (Fx \supset (\forall y) Fy)},
+      for tree={edge={thick, draw=blue}},
+    }
+    [(\exists x) Fx \supset (\forall x) Fx, checked, just=SM
+      [\tnot (\forall x) (Fx \supset (\forall y) Fy), checked, grouped, just=SM
+        [(\exists x) \tnot (Fx \supset (\forall y) Fy), checked, just={2 $\tnot\forall$D}
+          [\tnot (Fa \supset (\forall y) Fy), checked, just={3 $\exists$E}
+            [Fa, just={4 $\tnot\supset$D}
+              [\tnot (\forall y) Fy, checked, grouped, just={4 $\tnot\supset$D}
+                [(\exists y) \tnot Fy, checked, just={6 $\tnot\forall$D}
+                  [\tnot Fb, just={7 $\exists$D}
+                    [\tnot (\exists x) Fx, checked, just={1 $\supset$D}
+                      [(\forall x) \tnot Fx, checked, just={9 $\tnot\exists$D}
+                        [\tnot Fa, close, just={10 $\forall$D}
+                        ]
+                      ]
+                    ]
+                    [(\forall x) Fx, checked
+                      [Fb, close, just={9 $\forall$D}, move by=2
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t21}{%
+  \begin{prooftree} % uses Ignasi's code for the main tree (http://tex.stackexchange.com/a/233576/)
+    {
+      to prove={(\exists x)Fx \supset (\forall x)Fx \sststile{}{} (\forall x) (Fx \supset (\forall y) Fy)}
+    }
+    [(\exists x) Fx \supset (\forall x) Fx, checked, just=SM
+      [\tnot (\forall x) (Fx \supset (\forall y) Fy), checked, grouped, just=SM
+        [(\exists x) \tnot (Fx \supset (\forall y) Fy), checked, just={2 $\tnot\forall$D}
+          [\tnot (Fa \supset (\forall y) Fy), checked, just={3 $\exists$E}
+            [Fa, just={4 $\tnot\supset$D}
+              [\tnot (\forall y) Fy, checked, grouped, just={4 $\tnot\supset$D}
+                [(\exists y) \tnot Fy, checked, just={6 $\tnot\forall$D}
+                  [\tnot Fb, just={7 $\exists$D}
+                    [\tnot (\exists x) Fx, checked, just={1 $\supset$D}
+                      [(\forall x) \tnot Fx, checked, just={9 $\tnot\exists$D}
+                        [\tnot Fa, close, just={10 $\forall$D}
+                        ]
+                      ]
+                    ]
+                    [(\forall x) Fx, checked
+                      [Fb, close, just={9 $\forall$D}, move by=2
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t22}{%
+  \begin{prooftree} % uses Ignasi's code for the main tree (http://tex.stackexchange.com/a/233576/)
+    {
+      to prove={(\exists x)Fx \supset (\forall x)Fx \sststile{}{} (\forall x) (Fx \supset (\forall y) Fy)}
+    }
+    [(\exists x) Fx \supset (\forall x) Fx, checked, just=SM, name=pr
+      [\tnot (\forall x) (Fx \supset (\forall y) Fy), checked, grouped, just=SM
+        [(\exists x) \tnot (Fx \supset (\forall y) Fy), checked=a, just={$\tnot\forall$D:!u}
+          [\tnot (Fa \supset (\forall y) Fy), checked, just={$\exists$D:!u}
+            [Fa, just={$\tnot\supset$D:!u}, name=fa
+              [\tnot (\forall y) Fy, checked, grouped, just={$\tnot\supset$D:!uu}
+                [(\exists y) \tnot Fy, checked=b, just={$\tnot\forall$D:!u}
+                  [\tnot Fb, just={$\exists$D:!u}, name=nofb
+                    [\tnot (\exists x) Fx, checked, just={$\supset$D:pr}
+                      [(\forall x) \tnot Fx, subs=a, just={$\tnot\exists$D:!u}
+                        [\tnot Fa, close={:fa,!c}, just={$\forall$D:!u}
+                        ]
+                      ]
+                    ]
+                    [(\forall x) Fx, subs=b
+                      [Fb, close={:nofb,!c}, just={$\forall$D:!u}, move by=2
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t23}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)(\forall y)(Py \equiv x = y) \vdash (\exists x)((\forall y)(Py \supset x = y) \aand Px)},
+      subs left,
+      check left,
+      not just refs left
+    }
+    [{(\exists x)(\forall y)(Py \equiv x = y)}, just={Premise}, checked=a
+      [{\tnot (\exists x)((\forall y)(Py \supset x = y) \aand Px)}, subs=a, just={Conclusion negated}
+        [{(\forall y)(Py \equiv a = y)}, just={From:!uu}, subs={a,b}
+          [{\tnot ((\forall y)(Py \supset a = y) \aand Pa)}, just={From:!uu}, checked
+            [{Pa \equiv a = a}, just={From:!uu}, checked
+              [{Pa}, just={From:!u}
+                [{a = a}, just={From:!uu}
+                  [{\tnot (\forall y)(Py \supset a = y)}, checked=b, just={From:!uuuu}
+                    [{\tnot (Pb \supset a = b)}, just={From:!u}, checked
+                      [{Pb}, just={From:!u}
+                        [{a \neq b}, just={From:!uu}
+                          [{Pb \equiv a = b}, just={From:!r111}, checked
+                            [{Pb}, just={From:!u}
+                              [{a = b}, just={From:!uu}
+                                [{a \neq a}, just={From:!uuuu,!u}, close={:!c}
+                                ]
+                              ]
+                            ]
+                            [{\tnot Pb}
+                              [{a \neq b}, close={:!uuuu,!u}
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                  [{\tnot Pa}, close={:!uu,!c}
+                  ]
+                ]
+              ]
+              [{\tnot Pa}
+                [{a \neq a}, close={:!c}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t24}{%
+  \begin{prooftree}
+    {
+      close with={$\times$},
+    }
+    [A \aand \tnot B, just=SM, checked
+      [C, just=SM
+        [\tnot A \lor \tnot C, just=SM, checked
+          [A, just=1 $\aand$D
+            [\tnot B, just=1 $\aand$D
+              [\tnot A, just=3 $\lor$D, close]
+              [\tnot B, close]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t25}{%
+  \begin{prooftree}
+    {
+      close with={\ensuremath{\ast}},
+    }
+    [P \land (Q \lor \lnot R), checked
+      [\lnot ((P \land Q) \land S), checked
+        [\lnot (P \land S) \lor R, checked
+          [\lnot\lnot S
+            [P
+              [Q \lor \lnot R, checked
+                [\lnot (P \land Q), checked
+                  [\lnot P, close]
+                  [\lnot Q
+                    [Q, close]
+                    [\lnot R
+                      [\lnot (P \land S), checked
+                        [\lnot P, close]
+                        [\lnot S, close]
+                      ]
+                      [R, close]
+                    ]
+                  ]
+                ]
+                [\lnot S, close]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+{\renewcommand*\linenumberstyle[1]{(#1)}
+  \TEST{prooftrees-egs-t26}{%
+    \begin{prooftree}
+      {
+        close with={\ensuremath{\ast}},
+      }
+      [P \land (Q \lor \lnot R), checked
+        [\lnot ((P \land Q) \land S), checked
+          [\lnot (P \land S) \lor R, checked
+            [\lnot\lnot S
+              [P, just=from 1
+                [Q \lor \lnot R, checked, just=from 1
+                  [\lnot (P \land Q), checked, just=from 2
+                    [\lnot P, close, just=from 7]
+                    [\lnot Q
+                      [Q, close]
+                      [\lnot R, just=from 6
+                        [\lnot (P \land S), checked, just=from 3
+                          [\lnot P, close, just=from 10]
+                          [\lnot S, close]
+                        ]
+                        [R, close]
+                      ]
+                    ]
+                  ]
+                  [\lnot S, close]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    \end{prooftree}
+    \showbox\tableaubox
+  }%
+\OMIT
+\box\tableaubox
+\TIMO}
+\TEST{prooftrees-egs-t27}{%
+  \begin{prooftree}
+    {
+      close with={\ensuremath{\ast}},
+      to prove={ \{P \land (Q \lor \lnot R), \lnot ((P \land Q) \land S), \lnot (P \land S) \lor R \} \sststile{L}{} \lnot S },
+      just format={font=\itshape, text=gray},
+      line no format={text=gray},
+      check left,
+    }
+    [P \land (Q \lor \lnot R), checked, just=Ass
+      [\lnot ((P \land Q) \land S), checked, just=Ass
+        [\lnot (P \land S) \lor R, checked, just=Ass
+          [\lnot\lnot S, just=Negated Conc
+            [P
+              [Q \lor \lnot R, checked
+                [\lnot (P \land Q), checked
+                  [\lnot P, close]
+                  [\lnot Q
+                    [Q, close]
+                    [\lnot R
+                      [\lnot (P \land S), checked
+                        [\lnot P, close]
+                        [\lnot S, close]
+                      ]
+                      [R, close]
+                    ]
+                  ]
+                ]
+                [\lnot S, close]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t28}{%
+  \begin{prooftree}{}
+    [P \vee (Q \vee \lnot R),  just=Ass
+      [P \supset \lnot R,  just=Ass
+        [Q \supset \lnot R,  just=Ass
+          [\lnot\lnot R, just={Negated conclusion}
+            [P,  just={1 $\vee$ Elim}
+              [\lnot R,  close, just={2,5 $\supset$ Elim}
+              ]
+            ]
+            [Q \vee \lnot R,  just={1 $\vee$ Elim}
+              [Q, just={5 $\vee$ Elim}
+                [\lnot R,  close, just={3,6 $\supset$ Elim}
+                ]
+              ]
+              [\lnot R, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t29}{%
+  \begin{prooftree}{single branches}
+    [P \vee (Q \vee \lnot R),  just=Ass
+      [P \supset \lnot R,  just=Ass
+        [Q \supset \lnot R,  just=Ass
+          [\lnot\lnot R, just={Negated conclusion}
+            [P,  just={1 $\vee$ Elim}
+              [\lnot R,  close, just={2,5 $\supset$ Elim}
+              ]
+            ]
+            [Q \vee \lnot R,  just={1 $\vee$ Elim}
+              [Q, just={5 $\vee$ Elim}
+                [\lnot R,  close, just={3,6 $\supset$ Elim}
+                ]
+              ]
+              [\lnot R, close
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t30}{%
+  \begin{prooftree}
+    {
+      to prove={proof statement},
+      for tree={%
+        plain content,
+        font=\itshape,
+      },
+      proof tree dadfygio,
+    }
+    [wff
+      [wff
+        [wff, edge=red
+          [wff
+          ]
+        ]
+      ]
+      [wff
+        [wff
+          [wff]
+        ]
+        [wff
+          [wff]
+          [wff
+            [wff]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t31}{%
+  \begin{prooftree}
+    {
+      to prove={abc},
+      proof tree dadfygio
+    }
+    [a, checked, just=Premise
+      [b, just=Premise , checked
+        [c, checked, just=Premise
+          [d, checked, just=Conclusion neg
+            [e, just={From 1}
+              [f, close, just={From 2}
+              ]
+              [h
+                [i, close, just={From 3}
+                ]
+                [j
+                  [k, close, just={From 4}
+                  ]
+                  [l, close
+                  ]
+                ]
+              ]
+            ]
+            [m
+              [n
+                [o
+                  [p, close
+                  ]
+                ]
+              ]
+              [q
+                [r, close
+                ]
+                [s
+                  [t, close
+                  ]
+                  [u, close
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t32}{%
+  \begin{prooftree}
+    {
+      to prove={\tnot p \lor q \sststile{}{} p \lif q},
+      not just refs left
+    }
+    [\tnot p \lor q, checked, just=Premise
+      [\tnot (p \lif q), checked, just=Conclusion negated
+        [p, just=From:!u
+          [\tnot q, just=From:!uu
+            [\tnot p, close={:!uu,!c}, just=From:!r1]
+            [q, close={:!u,!c}]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t33}{%
+  \begin{prooftree}
+    {
+      to prove={p \lif q \sststile{}{} \tnot p \lor q}
+    }
+    [{p \lif q}, checked,  just=Premise
+      [\tnot(\tnot p \lor q), checked, just=Conclusion negated
+        [{\tnot \tnot p}, checked,  just={From 2}
+          [\tnot q, just={From 2}
+            [{\tnot p}, just={From 1}
+              [p, close={5,6} , just={From 3}
+              ]
+            ]
+            [q, close={4,5}
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t34}{%
+  \begin{prooftree}
+    {
+      to prove={\sststile{}{} \tnot (p \lif q) \lif (q \lif p)},
+    }
+    [{\tnot(\tnot (p \lif q) \lif (q \lif p))}, checked, just=Conclusion negated
+      [{\tnot (p \lif q)}, checked, just={From 1}
+        [\tnot(q \lif p), checked, just={From 1}
+          [p, just={From 2}
+            [\tnot q, just={From 2}
+              [q, just={From 3}
+                [\tnot p, close, just=From 3 % 4,7 (or 5,6)}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+
+\TEST{prooftrees-egs-t35}{%
+  \begin{prooftree}
+    {
+      to prove={p \lif (q \lor r), \tnot q \aand \tnot r \sststile{}{} \tnot p},
+    }
+    [{p \lif (q \lor r)}, checked, just=Premise
+      [{\tnot q \aand \tnot r}, checked, just=Premise
+        [\tnot\tnot p, checked, just=Conclusion negated
+          [p, just={From 3}
+            [\tnot q, just={From 2}
+              [\tnot r, just={From 2}
+                [\tnot p, close, just={From 1} % {4,7}
+                ]
+                [q \lor r, checked
+                  [q, close, just={From 7} % {5,8}
+                  ]
+                  [r, close % {6,8}
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t36}{%
+  \begin{prooftree}
+    {
+      to prove={(p \lor q), p \lif q, q \lif p \sststile{}{} p \aand q},
+    }
+    [(p \lor q), checked, just=Premise
+      [p \lif q, just=Premise , checked
+        [q \lif p, checked, just=Premise
+          [{\tnot(p \aand q)}, checked, just=Conclusion neg
+            [p, just={From 1}
+              [\tnot p, close, just={From 2} % {5,6}
+              ]
+              [q
+                [\tnot q, close, just={From 3} % {6,7}
+                ]
+                [p
+                  [\tnot p, close, just={From 4} % {7,8}
+                  ]
+                  [\tnot q, close % {6,8}
+                  ]
+                ]
+              ]
+            ]
+            [q
+              [{\tnot p}
+                [\tnot q, close % {5,7}
+                ]
+                [p, close % {6,7}
+                ]
+              ]
+              [q
+                [\tnot q, close % {5,7}
+                ]
+                [p
+                  [\tnot p, close % {7,8}
+                  ]
+                  [\tnot q, close % {6,8}
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t37}{%
+  \begin{prooftree}
+    {
+      to prove={\tnot p \lor q \sststile{}{} p \lif q},
+    }
+    [\tnot p \lor q, checked, just=Premise
+      [\tnot (p \lif q), checked, just=Conclusion negated
+        [p, just={From 2}
+          [\tnot q, just={From 2} % {4,5}
+            [\tnot p, close={3,5} , just={From 1}
+            ]
+            [q, close, just={From 1}
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t38}{%
+  \begin{prooftree}
+    {
+      to prove={p \lif q \sststile{}{} \tnot p \lor q},
+    }
+    [{p \lif q}, checked , just=Premise
+      [\tnot(\tnot p \lor q), checked, just=Conclusion negated
+        [\tnot \tnot p, checked, just={From 2}
+          [\tnot q, just={From 2}
+            [\tnot p, just={From 1}
+              [p, close={5,6} , just={From 3}
+              ]
+            ]
+            [q, close={4,5}
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t39}{%
+  \begin{prooftree}
+    {
+      to prove={\sststile{}{} \tnot (p \lif q) \lif (q \lif p)},
+    }
+    [{\tnot(\tnot (p \lif q) \lif (q \lif p))}, checked, just=Conclusion negated
+      [{\tnot (p \lif q)}, checked , just={From 1}
+        [\tnot(q \lif p), checked , just={From 1}
+          [p, just={From 2}
+            [\tnot q , just={From 2}
+              [q, just={From 3}
+                [\tnot p, close, just=From 3 % 4,7 (or 5,6)}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t40}{%
+  \begin{prooftree}
+    {
+      to prove={p \lif (q \lor r), \tnot q \aand \tnot r \sststile{}{} \tnot p},
+    }
+    [{p \lif (q \lor r)}, checked, just=Premise
+      [\tnot q \aand \tnot r, checked, just=Premise
+        [\tnot\tnot p, checked, just=Conclusion negated
+          [p, just={From 3}
+            [\tnot q, just=From 2
+              [\tnot r, just={From 2}
+                [\tnot p, close={4,7} , just={From 1}
+                ]
+                [{q \lor r}, checked
+                  [q, close % 5,8} {
+                  ]
+                  [r, close={6,8} , just={From 7}
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t41}{%
+  \begin{prooftree}
+    {
+      to prove={(p \lor q), p \lif q, q \lif p \sststile{}{} p \aand q},
+    }
+    [{(p \lor q)}, checked , just=Premise
+      [p \lif q, checked , just=Premise
+        [q \lif p, checked, just=Premise
+          [\tnot(p \aand q), checked, just=Conclusion neg.
+            [p
+              [\tnot p, close={5,6}
+              ]
+              [q, just={From 2}
+                [\tnot q, close={6,7}
+                ]
+                [p, just={From 3}
+                  [\tnot p, close={7,8}
+                  ]
+                  [\tnot q, close={6,8} , just={From 4}
+                  ]
+                ]
+              ]
+            ]
+            [q, just={From 1}
+              [\tnot p
+                [\tnot q, close={5,7}
+                ]
+                [p, close={6,7}
+                ]
+              ]
+              [q
+                [\tnot q, close={5,7}
+                ]
+                [p
+                  [\tnot p, close={7,8}
+                  ]
+                  [\tnot q, close={6,8}
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t42}{%
+  \begin{prooftree}
+    {
+      to prove={ \tnot p \lor q, p \aand \tnot r, r \lor \tnot q \sststile{}{} \bot },
+    }
+    [{\tnot p \lor q}, checked, just=Sentence 1
+      [p \aand \tnot r, checked, just=Sentence 2
+        [r \lor \tnot q, checked, just=Sentence 3
+          [p, just={From 2}
+            [\tnot r , just={From 2}
+              [\tnot p, just={From 1}, close={4,6}
+              ]
+              [q
+                [r, just={From 3}, close={5,7}
+                ]
+                [\tnot q, close={6,7}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t43}{%
+  \begin{prooftree}
+    {
+      to prove={ p \lor (q \lor r), \tnot q, \tnot (p \lor r) \sststile{}{} \bot }
+    }
+    [{p \lor (q \lor r)}, checked, just=Sentence 1
+      [\tnot q, just=Sentence 2
+        [\tnot (p \lor r), checked, just=Sentence 3
+          [\tnot p, just={From 3}
+            [\tnot r, just={From 3}
+              [p, close={4,6}
+              ]
+              [(q \lor r), checked, just={From 1}
+                [q, close={2,7}
+                ]
+                [r, close={5,7} , just={From 6}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t44}{%
+  \begin{prooftree}
+    {
+      to prove={ p \lor q, r \aand \tnot p, \tnot (r \aand q) \sststile{}{} \bot }
+    }
+    [{p \lor q}, checked, just=Sentence 1
+      [r \aand \tnot p, checked, just=Sentence 2
+        [\tnot (r \aand q), checked, just=Sentence 3
+          [r, just={From 2}
+            [\tnot p, just={From 2}
+              [p, close={5,6} , just={From 1}
+              ]
+              [q
+                [\tnot r, close={4,7}
+                ]
+                [\tnot q, close={6,7} , just={From 3}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t45}{%
+  \begin{prooftree}
+    {
+      to prove={ p \lor q, q \lor \tnot r \nvdash q}
+    }
+    [{p \lor q}, checked, just=Premise
+      [q \lor \tnot r, checked, just=Premise
+        [\tnot q, just=Conclusion negated
+          [p, just={From 1}
+            [q, close={3,5} , just={From 2}
+            ]
+            [\tnot r
+            ]
+          ]
+          [q, close={3,4}
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t46}{%
+  \begin{prooftree}
+    {
+      to prove={ p \aand r, \tnot (p \aand \tnot q) \sststile{}{} r \aand q}
+    }
+    [{p \aand r}, checked, just=Premise
+      [\tnot (p \aand \tnot q), checked, just=Premise
+        [\tnot(r \aand q), checked, just=Conclusion negated
+          [p, just={From 1}
+            [r, just={From 1}
+              [\tnot p, just={From 2}, close={4,6}
+              ]
+              [\tnot \tnot q, checked
+                [\tnot r, close={5,7} , just={From 3}
+                ]
+                [\tnot q
+                  [q, close={7,8} , just={From 6}
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t47}{%
+  \begin{prooftree}
+    {
+      to prove={ q \sststile{}{} p \lor q},
+    }
+    [q, just=Premise
+      [\tnot(p \lor q), just=Conclusion negated, checked
+        [\tnot p, just={From 2}
+          [\tnot q, just={From 2}, close={1,4}
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t48}{%
+  \begin{prooftree}
+    {
+      to prove={\tnot p, p \equiv q \therefore \tnot q},
+    }
+    [\tnot p, just=Premise
+      [p \equiv q, checked, just=Premise
+        [\tnot \tnot q, checked, just=Conclusion negated
+          [p
+            [q, close={1,4}
+            ]
+          ]
+          [\tnot p, just={From 2}
+            [\tnot q, just={From 2}
+              [q, close={5,6} , just={From 3}
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t49}{%
+  \begin{prooftree}
+    {
+      to prove={\tnot p \equiv \tnot q \therefore p \equiv q},
+    }
+    [{\tnot p \equiv \tnot q}, checked, just=Premise
+      [\tnot (p \equiv q), checked, just=Conclusion negated
+        [\tnot p, just={From 1}
+          [\tnot q, just={From 1}
+            [p, just={From 2}
+              [\tnot q, close={3,5} , just={From 2}
+              ]
+            ]
+            [\tnot p
+              [q, close={4,6}
+              ]
+            ]
+          ]
+        ]
+        [{\tnot \tnot p}, checked
+          [\tnot \tnot q, checked
+            [p, just={From 2}
+              [\tnot q
+                [q, close={6,7} , just={From 4}
+                ]
+              ]
+            ]
+            [\tnot p
+              [q
+                [p, close={5,8} , move by=1, just={From 3}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t50}{%
+  \begin{prooftree}
+    {
+      to prove={p \equiv q \therefore \tnot p \equiv \tnot q},
+    }
+    [{p \equiv q}, checked, just=Premise
+      [\tnot (\tnot p \equiv \tnot q), checked, just=Conclusion negated
+        [p, just={From 1}
+          [q, just={From 1}
+            [\tnot\tnot p, just={From 2}
+              [\tnot q, close={4,6} , just={From 2}
+              ]
+            ]
+            [\tnot p
+              [\tnot\tnot q, close={3,5}
+              ]
+            ]
+          ]
+        ]
+        [\tnot p
+          [\tnot q
+            [\tnot\tnot p, checked
+              [\tnot q
+                [p, close={3,7} , just=From 5
+                ]
+              ]
+            ]
+            [\tnot p
+              [\tnot\tnot q, checked
+                [q, close={4,7} , just=From 6
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t51}{%
+  \begin{prooftree}
+    {
+      to prove={p \aand q \therefore p \equiv q},
+    }
+    [{p \aand q}, checked, just=Premise
+      [\tnot (p \equiv q), checked, just=Conclusion negated
+        [p, just={From 1}
+          [q, just={From 1}
+            [p, just={From 2}
+              [\tnot q, close={4,6} , just={From 2}
+              ]
+            ]
+            [\tnot p
+              [q, close={3,5}
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t52}{%
+  \begin{prooftree}
+    {
+      to prove={(p \lor q) \lor r, q \equiv r \therefore r \lor p},
+    }
+    [{(p \lor q) \lor r}, checked, just=Premise
+      [q \equiv r, checked, just=Premise
+        [\tnot (r \lor p), checked, just=Conclusion negated
+          [\tnot r, just={From 3}
+            [\tnot p, just=From 3
+              [{p \lor q}, checked, just={From 1}
+                [p, close={5,7} , just={From 6}
+                ]
+                [q
+                  [q, just={From 2}
+                    [r, close={4,9}  , just=From 2
+                    ]
+                  ]
+                  [\tnot q
+                    [\tnot r, close={7,8}
+                    ]
+                  ]
+                ]
+              ]
+              [r, close={4,6}
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t53}{%
+  \begin{prooftree}
+    {
+      to prove={p \equiv \tnot q, q \equiv \tnot r \therefore p \equiv r},
+    }
+    [{p \equiv \tnot q}, checked, just=Premise
+      [q \equiv \tnot r, checked, just=Premise
+        [\tnot(p \equiv r), checked, just=Conclusion negated
+          [p,  just={From 1}
+            [\tnot q , just={From 1}
+              [q, just={From 2}
+                [\tnot r, close={5,8} , just={From 2}
+                ]
+              ]
+              [\tnot q
+                [\tnot \tnot r, checked
+                  [\tnot p, just=From 3
+                    [r, just=From 3, close
+                    ]
+                  ]
+                  [p
+                    [\tnot r
+                      [r, just=From 7, close={7,10}
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+          [\tnot p,  just={From 1}
+            [\tnot \tnot q, just={From 1}, checked
+              [q, just={From 2}
+                [\tnot r, just={From 2}
+                  [\tnot p, just=From 3
+                    [r, just=From 3, close
+                    ]
+                  ]
+                  [p
+                    [\tnot r, close
+                    ]
+                  ]
+                ]
+              ]
+              [\tnot q
+                [\tnot \tnot r, checked
+                  [q, close={8,10} , just=From 5
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t54}{%
+  \begin{prooftree}
+    {
+      to prove={S \liff \lnot T, T \liff \lnot R \therefore S \liff R},
+      proof tree dadfygio
+    }
+    [{S \liff \lnot T}, checked, just=pr.
+      [T \liff \lnot R, checked, just=pr.
+        [\lnot(S \liff R), checked, just=Conc. negated
+          [S,  just={$\liff$E:!uuu}
+            [\lnot T , just={$\liff$E:!uuuu}
+              [T, just={$\liff$E:!uuuu}
+                [\lnot R, close={:!uu,!u} , just={$\liff$E:!uuuuu}
+                ]
+              ]
+              [\lnot T
+                [\lnot \lnot R, checked
+                  [\lnot S, just={$\lnot\liff$E:!r111}
+                    [R, just={$\lnot\liff$E:!r111}, close={:!uuuuu,!u}
+                    ]
+                  ]
+                  [S
+                    [\lnot R
+                      [R, just={$\lnot\lnot$E:!uuu}, close={:!u,!c}
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+          [\lnot S,  just={$\liff$E:!uuu}
+            [\lnot \lnot T, just={$\liff$E:!uuuu}, checked
+              [T, just={$\liff$E:!uuuu}
+                [\lnot R, just={$\liff$E:!uuuuu}
+                  [\lnot S, just={$\lnot\liff$E:!r111}
+                    [R, just={$\lnot\liff$E:!r111}, close={:!uu,!c}
+                    ]
+                  ]
+                  [S
+                    [\lnot R, close={:!r1111,!u}
+                    ]
+                  ]
+                ]
+              ]
+              [\lnot T
+                [\lnot \lnot R, checked
+                  [T, close={:!uu,!c}, just={$\lnot\lnot$E:!uuu}
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t55}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)(Fx \lor Gx) \therefore (\exists x) Fx \lor (\exists x) Gx},
+    }
+    [(\exists x)(Fx \lor Gx), just=Premise, checked=a
+      [\tnot ((\exists x) Fx \lor (\exists x) Gx), checked, just=Conclusion negated
+        [{Fa \lor Ga}, checked, just={From 1}
+          [\tnot (\exists x)Fx, subs=a, just={From 2}
+            [\tnot (\exists x)Gx, just={From 2}, subs=a
+              [\tnot Fa, just={From 4}
+                [\tnot Ga, just={From 5}
+                  [Fa, close % 6,8} {
+                  ]
+                  [Ga, close={7,8} , just={From 3}
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+
+\TEST{prooftrees-egs-t56}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)Fx \lor (\exists x)Gx \therefore (\exists x)(Fx \lor Gx)},
+    }
+    [(\exists x)Fx \lor (\exists x)Gx, checked, just=Premise
+      [\tnot (\exists x)(Fx \lor Gx), just=Conclusion negated, subs={a,b}
+        [(\exists x)Fx, checked=a, just={From 1}
+          [Fa, just={From 3}
+            [\tnot(Fa \lor Ga), checked, just={From 2}
+              [\tnot Fa , just={From 5}% 4,6}
+                [\tnot Ga, just={From 5}, close
+                ]
+              ]
+            ]
+          ]
+        ]
+        [(\exists x)Gx, checked=b
+          [Gb
+            [{\tnot(Fb \lor Gb)}, checked
+              [\tnot Fb
+                [\tnot Gb, close={4,7}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t57}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)(Fx \aand Gx) \therefore (\exists x)Fx \aand (\exists x)Gx},
+    }
+    [(\exists x)(Fx \aand Gx), just=Premise, checked=a
+      [\tnot ((\exists x)Fx \aand (\exists x)Gx), just=Conclusion negated, checked
+        [{Fa \aand Ga}, checked, just={From 1}
+          [Fa, just={From 3}
+            [Ga, just={From 3}
+              [\tnot (\exists x)Fx, subs=a, just={From 2}
+                [\tnot Fa, close={4,7} , just={From 6}
+                ]
+              ]
+              [\tnot (\exists x)Gx, subs=a
+                [\tnot Ga, close={5,7}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t58}{%
+  \begin{prooftree}
+    {
+      to prove={\tnot (\forall x)\tnot Fx \therefore (\exists x)Fx},
+    }
+    [\tnot (\forall x)\tnot Fx, just=Premise, checked=a
+      [\tnot (\exists x)Fx, just=Conclusion negated, subs=a
+        [{\tnot \tnot Fa}, checked, just={From 1}
+          [\tnot Fa, just={From 2}
+            [Fa, close={4,5} , just={From 3}
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t59}{%
+  \begin{prooftree}
+    {
+      to prove={(\forall x)(Fx \lif \tnot Gx), (\forall x)(Hx \lif Gx) \therefore (\forall x) (Fx \lif \tnot Hx)},
+    }
+    [(\forall x)(Fx \lif \tnot Gx), just=Premise, subs=a
+      [(\forall x)(Hx \lif Gx), just=Premise, subs=a
+        [\tnot (\forall x) (Fx \lif \tnot Hx), just=Conclusion negated, checked=a
+          [{\tnot (Fa \lif \tnot Ha)}, checked, just={From 3}
+            [Fa, checked, just={From 4}
+              [\tnot \tnot Ha, checked, just={From 4}
+                [{Fa \lif \tnot Ga}, checked, just={From 1}
+                  [{Ha \lif Ga}, just={From 2}
+                    [{Ha}, just=From 6
+                      [\tnot Ha, close={9,10}
+                      ]
+                      [{Ga}, just={From 8}
+                        [\tnot Fa, close={5,11} , just={From 7}
+                        ]
+                        [\tnot Ga, close={10,11}
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t60}{%
+  \begin{prooftree}
+    {
+      to prove={(\forall x)(Fx \lif Gx), (\forall x)(Hx \lif \tnot Gx) \therefore (\forall x)(Fx \lif \tnot Hx)},
+    }
+    [(\forall x)(Fx \lif Gx), just=Premise, subs=a
+      [(\forall x)(Hx \lif \tnot Gx), just=Premise, subs=a
+        [\tnot (\forall x)(Fx \lif \tnot Hx), just=Conclusion negated, checked=a
+          [{\tnot (Fa \lif \tnot Ha)}, checked, just={From 3}
+            [Fa, just={From 4}
+              [\tnot \tnot Ha, checked, just={From 4}
+                [{Fa \lif Ga}, checked, just={From 1}
+                  [{Ha \lif \tnot Ga}, checked, just={From 2}
+                    [Ha, just=From 6
+                      [\tnot Fa, close={5,10} , just={From 7}
+                      ]
+                      [Ga
+                        [\tnot Ha, close, just={From 8} % 9,11} {}
+                        ]
+                        [\tnot Ga, close={10,11}
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t61}{%
+  \begin{prooftree}
+    {
+      to prove={(\forall x)(Gx \lif \tnot Fx), (\forall x)(Hx \lif Gx) \therefore (\forall x)(Fx \lif \tnot Hx)},
+    }
+    [(\forall x)(Gx \lif \tnot Fx), just=Premise, subs=a
+      [(\forall x)(Hx \lif Gx), just=Premise, subs=a
+        [\tnot (\forall x)(Fx \lif \tnot Hx), just=Conclusion negated, checked=a
+          [{\tnot (Fa \lif \tnot Ha)}, checked, just={From 3}
+            [Fa, just={From 4}
+              [\tnot\tnot Ha, checked, just={From 4}
+                [{Ga \lif \tnot Fa}, checked, just={From 1}
+                  [{Ha \lif Ga}, checked, just={From 2}
+                    [Ha, just=From 6
+                      [\tnot Ha, close={9,10} , just={From 8}
+                      ]
+                      [Ga
+                        [\tnot Ga, close={10,11} , just={From 7}
+                        ]
+                        [\tnot Fa, close={5,11}
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t62}{%
+  \begin{prooftree}
+    {
+      to prove={(\forall x)((Fx \lor Gx) \lif Hx), (\forall x) \tnot Hx \therefore (\forall x)\tnot Fx},
+    }
+    [(\forall x)((Fx \lor Gx) \lif Hx), just=Premise, subs=a
+      [(\forall x) \tnot Hx, just=Premise, subs=a
+        [\tnot (\forall x)\tnot Fx, just=Conclusion negated, checked=a
+          [{\tnot \tnot Fa}, checked, just={From 3}
+            [\tnot Ha, just={From 2}
+              [{(Fa \lor Ga) \lif Ha}, checked, just=From 1
+                [{\tnot (Fa \lor Ga)}, checked, just={From 6}
+                  [\tnot Fa, just={From 7}
+                    [\tnot Ga, just={From 7}
+                      [Fa, close={8,10} , just={From 4}
+                      ]
+                    ]
+                  ]
+                ]
+                [Ha, close={5,7}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t63}{%
+  \begin{prooftree}
+    {
+      to prove={(\forall x)(Fx \lif Gx),(\forall x)(Gx \lif Hx),Fb \aand \tnot Hc \sststile{}{} b \neq c },
+    }
+    [(\forall x)(Fx \lif Gx), subs=b, just=Premise
+      [(\forall x)(Gx \lif Hx), subs=b, just=Premise
+        [Fb \aand \tnot Hc, checked, just=Premise
+          [\tnot(b \neq c), checked, just=Conclusion negated
+            [Fb, just={From 3}
+              [\tnot Hc , just={From 3}
+                [{b = c}, just={From 4}
+                  [Fb \lif Gb, checked, just={From 1}
+                    [Gb \lif Hb, checked, just={From 2}
+                      [\tnot Fb, close={5,10} , just={From 8}
+                      ]
+                      [Gb
+                        [\tnot Gb, close={10,11} , just={From 9}
+                        ]
+                        [Hb
+                          [Hc, close={6,12} , just={From 7,11}
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t64}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)(Fx \aand ((\forall y)(Fy \lif y = x) \aand Gx)), \tnot (\exists x) \tnot(\tnot Fx \lor Hx) \sststile{}{} (\exists x)(Hx \aand Gx)},
+      for tree={fit=tight}
+    }
+    [(\exists x)(Fx \aand ((\forall y)(Fy \lif y = x) \aand Gx)), checked=a, just=Premise
+      [\tnot (\exists x) \tnot(\tnot Fx \lor Hx), subs=a, just=Premise
+        [\tnot (\exists x)(Hx \aand Gx), subs=a, just=Conclusion negated
+          [{Fa \aand ((\forall y)(Fy \lif y = a) \aand Ga)}, checked, just={From 1}
+            [Fa , just={From 4}
+              [{(\forall y)(Fy \lif y = a) \aand Ga}, checked, just=From 4
+                [{(\forall y)(Fy \lif y = a)}, just={From 6}
+                  [Ga, just={From 6}
+                    [\tnot (Ha \aand Ga), checked, just=From 3
+                      [\tnot Ha, just={From 9}
+                        [\tnot \tnot (\tnot Fa \lor Ha), checked, just={From 2}
+                          [\tnot Fa \lor Ha, checked, just={From 11}
+                            [\tnot Fa, close={5,13}
+                            ]
+                            [Ha, close={10,13}, just={From 12}
+                            ]
+                          ]
+                        ]
+                      ]
+                      [\tnot Ga, close={8,10}
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t65}{%
+  \begin{prooftree}
+    {
+      to prove={(\forall x)(\forall y)(Px \lif (Py \lif \tnot (x = y))) \nvdash (\exists x)(\exists y) \tnot (x = y)},
+    }
+    [{(\forall x)(\forall y)(Px \lif (Py \lif \tnot (x = y)))}, subs=a, just=Premise
+      [{\tnot (\exists x)(\exists y) \tnot (x = y)}, subs=a, just=Conclusion negated
+        [{(\forall y)(Pa \lif (Py \lif \tnot (a = y)))}, subs=a, just={From 1}
+          [{Pa \lif (Pa \lif \tnot (a = a))}, checked, just={From 3}
+            [{\tnot (\exists y) \tnot (a = y)}, subs=a, just={From 2}
+              [{\tnot \tnot (a = a)}, checked, just={From 5}
+                [{a = a}, just=From 6
+                  [\tnot Pa, just={From 4}
+                  ]
+                  [{Pa \lif \tnot (a = a)}, checked
+                    [{\tnot Pa}, just={From 8}
+                    ]
+                    [{\tnot (a = a)}, close={9}
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+% The next two should give the same output except for differences in spacing following commas in closures and justifications
+\TEST{prooftrees-egs-t66}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)((\forall y)(Py \lif x = y) \aand Px) \sststile{}{} (\exists x)(\forall y)(Py \equiv x = y)},
+    }
+    [{(\exists x)((\forall y)(Py \lif x = y) \aand Px)}, checked=a, just=Premise
+      [{\tnot (\exists x)(\forall y)(Py \equiv x = y)}, subs=a, just=Conclusion negated
+        [{(\forall y)(Py \lif a = y) \aand Pa}, checked, just={From 1}
+          [{(\forall y)(Py \lif a = y)}, subs=b, just={From 3}
+            [Pa, just=From 3
+              [{\tnot (\forall y)(Py \equiv a = y)}, checked=b, just={From 2}
+                [{\tnot (Pb \equiv a = b)}, checked, just={From 6}
+                  [Pb, just={From 7}
+                    [a \neq b , just={From 7}
+                      [{Pb \lif a = b}, checked, just=From 4, move by=1
+                        [\tnot Pb, close={8,12} , just=From 11
+                        ]
+                        [{a = b}
+                          [a \neq a, close={13} , just={From 9, 12}
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                  [\tnot Pb
+                    [{a = b}
+                      [Pb, just={From 5, 9}, close={8,10} ,
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{prooftree}
+\showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t67}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)((\forall y)(Py \lif x = y) \aand Px) \sststile{}{} (\exists x)(\forall y)(Py \equiv x = y)},
+      not just refs left
+    }
+    [{(\exists x)((\forall y)(Py \lif x = y) \aand Px)}, checked=a, just=Premise
+      [{\tnot (\exists x)(\forall y)(Py \equiv x = y)}, subs=a, just=Conclusion negated
+        [{(\forall y)(Py \lif a = y) \aand Pa}, checked, just={From:!uu}
+          [{(\forall y)(Py \lif a = y)}, subs=b, just={From:!u}
+            [Pa, just=From:!uu
+              [{\tnot (\forall y)(Py \equiv a = y)}, checked=b, just={From:!r11}
+                [{\tnot (Pb \equiv a = b)}, checked, just={From:!u}
+                  [Pb, just={From:!u}
+                    [a \neq b , just={From:!uu}, name=fred
+                      [{Pb \lif a = b}, checked, just=From:!r1111, move by=1
+                        [\tnot Pb, close={:!uuu,!c} , just=From:!u
+                        ]
+                        [{a = b}
+                          [a \neq a, close={:!c} , just={From:fred,!u}
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                  [\tnot Pb
+                    [{a = b}
+                      [Pb, just={From:!r11111,!u}, close={:!uu,!c} ,
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{prooftree}
+\showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t68}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)(\forall y)(Py \equiv x = y) \sststile{}{} (\exists x)((\forall y)(Py \lif x = y) \aand Px)},
+      just refs right
+    }
+    [{(\exists x)(\forall y)(Py \equiv x = y)}, checked=a, just=Premise
+      [{\tnot (\exists x)((\forall y)(Py \lif x = y) \aand Px)}, subs=a, just=Conclusion negated
+        [{(\forall y)(Py \equiv a = y)}, subs={a,b} , just={From 1}
+          [{\tnot ((\forall y)(Py \lif a = y) \aand Pa)}, checked, just={From 2}
+            [{Pa \equiv a = a}, checked, just=From 3
+              [Pa, just={From 5}
+                [{a = a}, just=From 5
+                  [{\tnot (\forall y)(Py \lif a = y)}, checked=b, just={From 4}
+                    [{\tnot (Pb \lif a = b)}, checked, just={From 8}
+                      [Pb, just={From 9}
+                        [a \neq b, just={From 9}
+                          [{Pb \equiv a = b}, checked, just={From 3}, name=pbab
+                            [Pb, just={From:pbab}
+                              [{a = b}, just={From:!uu}
+                                [a \neq a, close={15} , just={From 11,14}
+                                ]
+                              ]
+                            ]
+                            [\tnot Pb
+                              [a \neq b, close={10,13}
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+              [\tnot Pa
+                [a \neq a, close={7}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t69}{%
+  \begin{prooftree}
+    {
+      to prove={(\exists x)(Lx \lor Mx) \sststile{}{} (\exists x) Lx \lor (\exists x) Mx},
+      highlight format={text=blue!50!cyan},
+      line no sep=.5em,
+      just sep=.5em,
+    }
+    [(\exists x) (Lx \lor Mx), checked=a, just=Ass
+      [\lnot ((\exists x) Lx \lor (\exists x) Mx), checked, just=Neg Conc
+        [La \lor Ma, checked, just={$\exists$\elim:!uu}
+          [\lnot (\exists x) Lx, subs=a, just={$\lnot\lor$\elim:!uu}, highlight line
+            [\lnot (\exists x) Mx, subs=a, highlight line, highlight line no
+              [\lnot La, just={$\lnot\exists$\elim:!uu}
+                [\lnot Ma, just={$\lnot\exists$\elim:!uu}, move by=-1
+                  [La, close, just={$\lor$\elim:!r111}, highlight just]
+                  [Ma, close, just={0 $\lor$\elim}]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t70}{%
+  \begin{prooftree}
+    {
+      proof tree dadfygio,
+      single branches
+    }
+    [a
+      [b
+        [d[e[f]]]
+      ]
+      [c
+        [h[i[j]]]
+        [k[l][m[n][o]]]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t71}{%
+  \begin{prooftree}
+    {
+      proof tree dadfygio
+    }
+    [a
+      [b
+        [d[e[f]]]
+      ]
+      [c
+        [h[i[j]]]
+        [k[l][m[n][o]]]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t72}{%
+  \begin{prooftree}
+    {
+      proof tree dadfygio
+    }
+    [a
+      [b
+        [d[e[f]]]
+      ]
+      [c
+        [h[i]]
+        [k[l][m[n][o]]]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t73}{%
+  \begin{prooftree}
+    {
+      proof tree dadfygio
+    }
+    [a
+      [b
+        [d[e[f]]]
+      ]
+      [c
+        [h]
+        [k[l][m[n][o]]]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t74}{%
+  \begin{prooftree}
+    {
+      line no shift=5,
+      just refs right,
+    }
+    [Fa, name=fa
+      [{\lnot((Fa \land \forall y (Fy \supset y=a))} \land Ga), checked
+        [{\lnot(Fa \land \forall y (Fy \supset y=a))}, checked
+          [\lnot Fa, just={from:!u}, close={:!uuu,!c}
+          ]
+          [{\lnot \forall y (Fy \supset y=a)}, checked
+            [{\exists y \lnot (Fy \supset y=a)}, just={from:!u}, checked=b
+              [{\lnot (Fb \supset b=a)}, just={from:!u}
+              ]
+            ]
+          ]
+        ]
+        [\lnot Ga
+          [Fa \supset Ga, just=from 3
+            [\lnot Fa, close={:fa,!c}]
+            [Ga, close={:!uu,!c}]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+% ateb: http://tex.stackexchange.com/a/335932/ addaswyd o gôd Rasmus Michelsen: http://tex.stackexchange.com/q/335723/
+\forestset{
+  smullyan tableaux/.style={
+    close with=\ensuremath{\times},
+    my text/.style={% don't overwrite a standard TikZ key!
+      label={[yshift=-5pt]below:{##1}},
+      l sep'+=5pt,
+    },
+    not line numbering,
+    single branches
+  },
+}
+\TEST{prooftrees-egs-t75}{%
+  \begin{prooftree}
+    {
+      smullyan tableaux
+    }
+    [\forall{x}(P(x) \rightarrow Q(x)) \land \forall{x}P(x) \rightarrow \forall{x}Q(x): F
+      [\forall{x}(P(x) \rightarrow Q(x)) \land \forall{x}P(x): T
+        [\forall{x}Q(x): F, grouped
+          [Q(t): F
+            [\forall{x}(P(x) \rightarrow Q(x)): T
+              [\forall{x}P(x): T, grouped
+                [P(t) \rightarrow Q(t): T, my text={Hey}
+                  [P(t): F
+                    [P(t): T, close
+                    ]
+                  ]
+                  [Q(t): T, close
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t76}{%
+  \begin{prooftree}{}% ref.: https://tex.stackexchange.com/q/456254/
+    [A
+      [A
+        [A
+          [A
+            [A
+              [A
+                [A]
+              ]
+            ]
+          ]
+        ]
+      ]
+      [A
+        [A
+          [A
+            [A]
+            [A]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t77}{%
+  \begin{prooftree}{}
+    [A
+      [A
+        [A
+          [A
+            [A
+              [A
+                [A]
+              ]
+            ]
+          ]
+        ]
+      ]
+      [A
+        [A
+          [A
+            [A, move by=1]
+            [A, move by=1]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t78}{%
+  \begin{prooftree}{}
+    [A
+      [A
+        [A
+          [A
+            [A, move by=1, edge+={draw=none}
+              [A
+                [A]
+              ]
+            ]
+          ]
+        ]
+      ]
+      [A
+        [A
+          [A
+            [A]
+            [A]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+\TEST{prooftrees-egs-t79}{%
+  \begin{prooftree}{close with=$\times$, single branches=true, align=center}% https://tex.stackexchange.com/q/479263/39222
+    [Mary: \neg CatLady \sqcup \exists hasPet.Cat, just={$\sqsubseteq$}
+      [Mary: \exists hasPet.Cat, just={$\sqcup$}, close]
+      [Mary: \neg CatLady
+        [John: \neg CatLady \sqcup \exists hasPet.Cat, just={$\sqsubseteq$}, move by=1, edge=green
+          [John: \exists hasPet.Cat, just={$\sqcup$}, edge=dashed
+            [(John{, }Y): hasPet{, } Y: Cat, just={$\exists$}, close={$\sqsubseteq$}, move by=2, edge=dashed, edge+=red]
+          ]
+        ]
+      ]
+    ]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+% ateb https://tex.stackexchange.com/a/691311/ i gwestiwn arkh3us https://tex.stackexchange.com/q/691265/
+\TEST{prooftrees-egs-t80}{%
+  \begin{prooftree}
+    {
+      to prove={
+        $\forall x ((Mx \wedge Cx) \rightarrow \forall y(Py \rightarrow Sxy)).\, \exists x Px.$\\
+        $\forall x((Cx \wedge \exists y(Py \wedge Sxy)) \rightarrow Bx).\, (Mb \wedge Cb).$\\
+      $\textit{Therefore}\, Bb.$},
+      proof statement format'={align=l,anchor=south},
+      forked edges,
+    }
+    [\forall x ((Mx \wedge Cx) \rightarrow \forall y (Py \rightarrow Sxy))
+      [\exists xPx
+        [\forall x((Cx \wedge \exists y(Py \wedge Sxy)) \rightarrow Bx)
+          [(Mb \wedge Cb)
+            [\lnot Bb
+              [((Mb \wedge Cb) \rightarrow \forall y(Py \rightarrow Sby))
+                [\lnot (Mb \wedge Cb), close]
+                [\forall y(Py \rightarrow Sby)
+                  [Pd
+                    [Pd \rightarrow Sbd
+                      [\lnot Pd, close]
+                      [Sbd
+                        [((Cb \wedge \exists y(Py \wedge Sby)) \rightarrow Bb)
+                          [\lnot (Cb \wedge \exists y(Py \wedge Sby))
+                            [\lnot Cb  
+                              [Mb
+                                [Cb, close]
+                              ]
+                            ]
+                            [\lnot \exists y(Py \wedge Sby)
+                              [\forall y \lnot (Py \wedge Sby)
+                                [\lnot (Pd \wedge Sbd)
+                                  [\lnot Pd, close]
+                                  [\lnot Sbd, close]
+                                ]
+                              ]
+                            ]
+                          ]
+    [Bb,close]]]]]]]]]]]]
+  \end{prooftree}
+  \showbox\tableaubox
+}%
+\OMIT
+\box\tableaubox
+\TIMO
+
+% \usepackage{amsmath}
+% \usepackage{mathtools}
+% \usepackage{newpxtext,newpxmath}
+% \usepackage{mathastext}
+
+\forestset{
+  branchcomment/.style={
+    my text/.style={
+      label={[yshift=-5pt]below:{##1}},
+      l sep'+=5pt,
+    },
+  },
+  append wffs/.style={% ateb https://tex.stackexchange.com/a/691771/ i gwestiwn arkh3us https://tex.stackexchange.com/q/691551/
+    before typesetting nodes={%
+      for nodewalk={fake=c,*{#1}u}{just=}%
+    },
+    before drawing tree={
+      tikz+/.process={Ow1{name}{%
+          \node (##1 append box) [inner sep=0pt, fit to={c*{#1}u}] {};
+          \draw (##1 append box.north east) ++(-2.5pt,0pt) -| (##1 append box.south east) -- ++(-2.5pt,0pt);
+        }%
+      },
+      tempdima/.max={>O{max x}}{c*{#1}u},
+      for nodewalk/.process={%
+        O Rw1+d OOw2+d w3 {proof tree proof line no}{tempdima}{##1+2.5pt}{y}{!*{#1}u.y}{(##1+##2)/2}
+        {%
+          {name=just ##1}{x'=##2,y'=##3}%
+        }%
+      },
+    },
+  },
+}
+{%
+  \renewcommand*\linenumberstyle[1]{(#1)}%
+  \TEST{prooftrees-egs-t81}{%
+    \begin{prooftree}
+      {
+        to prove={\forall x(Fx \rightarrow \lnot Gx),\, \exists x(Hx \wedge Fx) \therefore \exists x(Hx \wedge \lnot Gx)},
+        auto move=false,
+        single branches=false,
+        for tree={s sep'=10mm},
+        just sep'=2.5em,
+        close with={\ensuremath{\bigtimes}},
+        branchcomment,
+      }
+      [{\forall x(Fx \rightarrow \lnot Gx)},just={(Ön)}, line no override={3}
+        [{\exists x(Hx \wedge Fx)},just={(Ön)}, line no override={2}
+          [{\lnot \exists x(Hx \wedge \lnot Gx)},just={($\lnot$Sn)}, line no override={1}
+            [{\forall x \lnot (Hx \wedge \lnot Gx)},just={(1. N.D.K)}, line no override={4}
+              [{Ha \wedge Fa},just={(2. Özelleme)}, line no override={5}
+                [{Fa \rightarrow \lnot Ga}, just={(3. Özelleme)}, line no override={6}
+                  [{\lnot (Ha \wedge \lnot Ga)},just={(4. Özelleme)}, line no override={7}
+                    [{Ha}, no line no
+                      [{Fa}, no line no, my text={6}, just=(5), append wffs=1
+                        [{\lnot Fa}, no line no, close]
+                        [{\lnot Ga}, no line no, my text={7}
+                          [{\lnot Ha}, no line no, close]
+      [{Ga}, no line no, close]]]]]]]]]]]
+    \end{prooftree}
+    \showbox\tableaubox
+  }%
+  \OMIT
+  \box\tableaubox
+  \TIMO
+}
+
+% \TEST{prooftrees-egs-t82-broken-or-unsupported}{%
+%   \begin{prooftree}
+%     {
+%       to prove={proof statement},
+%       for tree={%
+%         plain content,
+%         font=\itshape,
+%       }
+%     }
+%     [wff, just=justification
+%       [wff, just=justification
+%         [wff, just=justification
+%           [wff, just=justification
+%             [wff, just=justification
+%               [wff, just=justification
+%                 [wff, just=justification, move by=3
+%                 ]
+%               ]
+%             ]
+%             [wff, just=justification
+%               [wff, just=justification]
+%               [wff, just=justification
+%                 [wff, just=justification
+%                   [wff, just=justification]
+%                 ]
+%               ]
+%             ]
+%           ]
+%         ]
+%       ]
+%     ]
+%   \end{prooftree}
+%   \showbox\tableaubox
+% }%
+% \OMIT
+% \box\tableaubox
+% \TIMO
+
+\end{document}
