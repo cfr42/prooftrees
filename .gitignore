@@ -359,3 +359,16 @@ cmds-manifest
 peter-smith
 _hen
 prooftrees-egs-nonstandard.*
+
+###############################################################################
+## cfr
+###############################################################################
+build
+forest-ext.pdf
+forest-ext-imp.pdf
+forest-ext-code.pdf
+forest-ext-doc.pdf
+forest-lib-ext.tagging.sty
+forest-lib-ext.tagging-debug.sty
+memos
+logs

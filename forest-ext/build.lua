@@ -1,8 +1,8 @@
 -- $Id: build.lua 11471 2026-01-14 21:49:31Z cfrees $
 -- Build configuration for forest-ext
 --------------------------------------------------------------------------------
-maindir = maindir or "."
-sourcedir = sourcedir or maindir
+maindir = maindir or ".."
+sourcedir = sourcedir or "."
 --------------------------------------------------------------------------------
 ctanpkg = "forest-ext"
 module = "forest-ext"
@@ -38,9 +38,9 @@ uploadconfig = {
 }
 --------------------------------------------------------------------------------
 date = "2025-2026"
-if direxists(sourcedir .. "/../adnoddau/l3build") then
-  dofile(sourcedir .. "/../adnoddau/l3build/manifest.lua")
-  dofile(sourcedir .. "/../adnoddau/l3build/tag.lua")
+if direxists(maindir .. "/../adnoddau/l3build") then
+  dofile(maindir .. "/../adnoddau/l3build/manifest.lua")
+  dofile(maindir .. "/../adnoddau/l3build/tag.lua")
 end
 --------------------------------------------------------------------------------
 function docinit_hook()
