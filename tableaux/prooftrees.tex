@@ -1,0 +1,2199 @@
+\iffalse
+%% Copyright 2016-2024 Clea F. Rees
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is Clea F. Rees.
+%%
+%% This file may only be distributed together with a copy of the package
+%% prooftrees. 
+%%
+%% This work consists of all files listed in manifest.txt.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arara: pdflatex: { synctex: true, shell: false }
+% arara: biber
+% arara: makeindex 
+% arara: pdflatex: { synctex: true, shell: false }
+% arara: pdflatex: { synctex: true, shell: false }
+% biber --output_format=bibtex --output_resolve prooftrees.bcf to generate .bib for upload
+% sed -i '/1977/s/DATE/YEAR'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi
+\pdfminorversion=7
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: prooftrees.tex 10576 2024-11-05 04:45:53Z cfrees $}[v0.9 \revinfo]
+\GetFileInfoSVN*
+\let\prooftreesdocversion\fileversion
+\let\prooftreesdocbase\filebase
+\let\prooftreesdocinfo\fileinfo
+\let\prooftreesdocdate\filedate
+% BEGIN preamble
+\documentclass[10pt,british,a4paper,doc2]{ltxdoc}
+\usepackage[extract=python]{memoize}
+\mmzset{%
+  prefix={memos/},
+  include context in ccmemo,
+  auto=\cref{multiref},
+  auto=\Cref{multiref},
+  auto=\labelcref{multiref},
+  auto=\cpageref{multiref},
+  auto=\labelcpageref{multiref},
+  auto=\namecref{ref},
+  auto=\nameCref{ref},
+  auto=\namecrefs{ref},
+  auto=\nameCrefs{ref},
+  auto=\lcnamecrefs{ref},
+  auto=\lcnamecrefs{ref},
+  auto=\crefrange{refrange},
+  auto=\cpagerefrange{refrange},
+  auto=\Cpagerefrange{refrange},
+  mkdir,
+}
+% \CodelineIndex
+% \RecordChanges
+% \EnableCrossrefs
+\usepackage{babel,geometry,fancyhdr,enumitem}
+\usepackage{csquotes}
+  \MakeAutoQuote{‘}{’}
+  \MakeAutoQuote*{“}{”}
+\usepackage[rm={lining},sf={lining},tt={tabular,lining,monowidth}]{cfr-lm}
+\usepackage{microtype}
+\usepackage[section]{placeins}
+\usepackage[citestyle=authoryear-comp,bibstyle=authoryear,mergedate=basic,isbn=false,url=true,sortcites=true,backend=biber,mincrossrefs=6]{biblatex}
+% \bibliography{abbrv, authors, journals-series, pub, lleoedd, phil, ref}
+\bibliography{prooftrees_biber.bib}% generate for upload (gweler uchod)
+\usepackage{etoolbox,verbatim,parskip,changepage,titling,makeidx}
+\usepackage[dvipsnames,svgnames,rgb,x11names]{xcolor}
+\usepackage[tableaux]{prooftrees}
+\usepackage{mathtools,turnstile,pifont}
+\newcommand*{\fycheck}{\text{\ding{52}}}
+\newcommand*{\fycross}{\text{\ding{56}}}
+\usetikzlibrary{decorations.pathreplacing,arrows.meta,positioning,calc,arrows.meta,fit,backgrounds,tikzmark}
+\tikzset{%
+  nodiad/.style={text=#1, draw=#1, font=\footnotesize\scshape, align=left, shorten >=-1.5pt, shorten <=-1.5pt, {Circle[width=3pt, length=3pt, fill=#1]}-{Circle[width=3pt, length=3pt, fill=#1]}, fill=none},
+  grwp/.style={fill opacity=.25, fill=#1, rounded corners, draw=#1},
+  post grwp/.style={fill=white, postaction={fill opacity=.25, fill=#1}, draw=#1, rounded corners},
+}
+\forestset{%
+  nyth/.style n args=3{%
+    tikz+={%
+      \pgfmathsetmacro\lliw{#2*100/14}
+      \scoped[on background layer]\node [fit=(.west) (.east) (!F) (!L) (!1) (!11) (!l) (!ll) #1 (#3#2.center), inner xsep=28-2*#2 pt, inner ysep=0pt, draw=WildStrawberry!\lliw!blue, rounded corners] {};
+    },
+  },
+}
+\usepackage{tcolorbox}
+\tcbuselibrary{listingsutf8}% if you use skins, you need to disable externalisation for boxes which use the relevant options - gweler nodiadau/tex/tex.se/tcolorbox-coursepacket-exp.tex
+%%%%%%%%%%%%%%%%
+% Sašo Živanović: https://github.com/sasozivanovic/memoize/issues/31#issuecomment-2424700001
+\csappto{tcb@shield@@externalize}{\ifdefined\memoizefalse\memoizefalse\fi}
+\tcbset{shield externalize}
+%%%%%%%%%%%%%%%%
+\usepackage[%
+  loadHyperref=true,
+  createIndexEntries=false,
+]{doctools}
+\usepackage{bookmark}
+\hypersetup{%
+  colorlinks=true,
+  citecolor={moss},
+  extension=pdf,
+  linkcolor={strawberry},
+  linktocpage=true,
+  pdfcreator={TeX},
+  pdfproducer={pdfeTeX},
+  urlcolor={blueberry}%
+}
+\usepackage{cleveref}
+\makeatletter
+% Joseph Wright: from \file{siunitx.sty} ; \url{https://chat.stackexchange.com/transcript/message/64327823#64327823}
+\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+\IfFormatAtLeastTF {2024-11-01}
+{% ateb sgwrsio Ulrike Fischer: https://chat.stackexchange.com/transcript/message/66562343#66562343
+  \NewSocketPlug{refstepcounter}{cleveref}{%
+    \ifHy@pdfstring\else#1
+      {%
+        \firstaid@cref@updatelabeldata{\@currentcounter}%
+      }%
+    \fi
+  }%
+  \AssignSocketPlug{refstepcounter}{cleveref}%
+}{}
+\renewcommand*\Describe@Macro[1]{\endgroup
+  \marginpar{%
+    \raggedleft\PrintDescribeMacro{#1}\par
+    \PrintLabelName[\macrolabelfont]{\macrolabelname}%
+  }%
+  \expandafter\prooftrees@index{\macrolabelname}{\protect\ttfamily\protect\string\protect#1}\@esphack\ignorespaces}
+\renewcommand*\Describe@Env[1]{\endgroup
+  \marginpar{%
+    \raggedleft\PrintDescribeMacro{#1}\par
+    \PrintLabelName[\macrolabelfont]{\envlabelname}%
+  }%
+  \expandafter\prooftrees@index{\envlabelname}{#1}\@esphack\ignorespaces}
+\newcommand*\DescribeKey{\leavevmode\@bsphack
+  \begingroup\MakePrivateLetters\Describe@Key}
+\newcommand*\Describe@Key[2][key]{\endgroup
+  \marginpar{%
+    \raggedleft\PrintDescribeMacro{#2}\par
+    \PrintLabelName[\macrolabelfont]{\csname #1labelname\endcsname}%
+  }%
+  \edef\tempa{\csname #1labelname\endcsname}%
+  \expandafter\prooftrees@index{\tempa}{#2}\@esphack\ignorespaces}
+\newcommand*\DescribeKeys{\leavevmode\@bsphack
+  \begingroup\MakePrivateLetters\Describe@Keys}
+\newif\ifcyntafun
+\newcommand*\Describe@Keys[2][key]{\endgroup
+  \renewcommand*\do[1]{\ifcyntafun ##1\else\\##1\fi\cyntafunfalse}%
+  \cyntafuntrue
+  \marginpar{%
+    \raggedleft\PrintDescribeMacro{ % paid â dileu'r gwagle hwn!!
+      \expandafter\docsvlist{#2}%
+    }\par
+    \PrintLabelName[\macrolabelfont]{\csname #1labelname\endcsname}%
+  }%
+  \edef\tempa{\csname #1labelname\endcsname}%
+  \renewcommand*\do[1]{\expandafter\prooftrees@index{\tempa}{##1}}%
+  \expandafter\docsvlist{#2}\@esphack\ignorespaces}
+\def\get@first#1,#2\@null{#1}
+\def\get@rest#1,#2\@null{#2}
+\newcommand*\vals[1]{%
+  \edef\tempa{\expandafter\get@first #1\@null}%
+  \edef\tempb{\expandafter\get@rest #1\@null}%
+  \renewcommand*\do[1]{\textbar ##1}%
+  {\ttfamily = \tempa
+    \expandafter\docsvlist{\tempb}%
+  }%
+}
+\newcommand*\val[1]{{\ttfamily = \meta{#1}}}
+\newcommand*\valmarg[1]{{\ttfamily = \marg{#1}}}
+\newcommand*\pkg[1]{\textsf{#1}}
+\DeclareRobustCommand\macrolabelfont{\normalfont\footnotesize\em\normalcolor}
+\newcommand*\macrolabelname{macro}
+\newcommand*\PrintLabelName[2][\normalfont\normalsize\normalcolor]{#1#2}
+\newcommand*\envlabelname{environment}
+\newcommand*\keylabelname{key}
+\newcommand*\fkeylistlabelname{Forest keylist}
+\newcommand*\fregkeylistlabelname{Forest keylist register}
+\newcommand*\foptkeylistlabelname{Forest keylist option}
+\newcommand*\freglabelname{Forest register}
+\newcommand*\foptlabelname{Forest option}
+\newcommand*\fregdimlabelname{Forest dimension register}
+\newcommand*\fregcountlabelname{Forest count register}
+\newcommand*\fregtokslabelname{Forest toks register}
+\newcommand*\fopttokslabelname{Forest toks option}
+\newcommand*\fregboollabelname{Forest boolean register}
+\newcommand*\foptboollabelname{Forest boolean option}
+\newcommand*\fregautotokslabelname{Forest autowrapped toks register}
+\newcommand*\foptautotokslabelname{Forest autowrapped toks option}
+\newcommand*\fstylelabelname{Forest style}
+\newcommand*\pkgoptlabelname{package option}
+\newcommand*\pkglabelname{package}
+\let\PrintDescribeKey\PrintDescribeMacro
+\newcommand*\keyval[1]{\texttt{#1}}
+\NewDocumentCommand\keyname { s O {key} m }{%
+  \texttt{#3}%
+  \IfBooleanTF {#1}{}{%
+    \edef\tempa{\csname #2labelname\endcsname}%
+    \expandafter\prooftrees@index{\tempa}{#3}%
+  }%
+}
+\def\prooftrees@index#1#2{%
+  \index{\doctools@indexHeadFont{#1s}!#2}%
+}
+\renewenvironment{theindex}
+{%
+  \twocolumn[\section*{\indexname}
+    \emph{%
+      Features are sorted by kind.
+      Page references are given for both definitions and comments on use.}\bigskip
+  ]%
+  \markboth{\indexname}%
+  {\indexname}%
+  \pagestyle{fancyplain}%
+  \thispagestyle{plain}%
+  \parindent\z@
+  \parskip\z@ \@plus .3\p@\relax
+  \let\item\@idxitem}
+{}
+\makeatother
+\lstdefinestyle{lstcoeden}{% modified from style used by doctools.sty for the latexcode environment
+  style=lstDocStyleBase,
+  numbers=none,
+  stringstyle=\color{doc@stringcolor},
+  keywordstyle=\color{doc@keywordcolor},
+  commentstyle=\color{doc@commentcolor},
+  frame=none,
+}
+\lstdefinestyle{lstsrc}{%
+  style=lstDemoStyleLaTeXCode,
+  stringstyle=\color{doc@stringcolor},
+  keywordstyle=\color{doc@keywordcolor},
+  commentstyle=\color{doc@commentcolor},
+  texcsstyle=\color{doc@keywordcolor},
+  frame=none,
+  numbers=left,
+  moretexcs={forestset,linenumberstyle,ifcsname,ProcessOptions,DeclareOption,ProvidesPackageSVN,bracketset,NewDocumentEnvironment,ExplSyntaxOn,mmzset,ExplSyntaxOff,forest,prooftrees@enw,foresteregister,foresteoption,forestregister,forestoption,PackageError,PackageWarning,PassOptionsToPackage,CurrentOption,@ifpackageloaded,endforest,draw},
+}
+\geometry{headheight=12pt,marginparwidth=45mm,hmarginratio=4:1,vscale=.8,hscale=.7,verbose}
+\newlength\tewadjust
+\setlength\tewadjust{\marginparwidth+\marginparsep-\paperwidth+\textwidth+\oddsidemargin+1in}
+\tcbset{%
+  coeden/.style={
+    colback=doc@demo@backcolor,
+    colframe=doc@rulecolor,
+    halign=center,
+    fonttitle=\sffamily\plstyle\bfseries,
+    sharpish corners,
+    list entry={\protect\numberline{\thetcbcounter\textbar}#1},
+    title={\fbox{\plstyle\thetcbcounter}\hskip 1.5em #1},
+    float,
+    floatplacement={!tbp},
+  },
+  coeden dew/.style={
+    coeden=#1,
+    grow to left by=\tewadjust,
+  },
+  cod coeden/.style={
+    coeden=#1,
+    listing style=lstcoeden,
+  },
+  cod coeden dew/.style={
+    cod coeden=#1,
+    grow to left by=\tewadjust,
+  },
+  every float=\centering,
+}
+\NewTColorBox[auto counter, crefname={box}{boxes}, Crefname={Box}{Boxes},]{coeden}{s O {} m }
+{%
+  IfBooleanTF={#1}{coeden dew=#3}{coeden=#3},
+  #2,
+}
+\NewTCBListing[use counter from=coeden, crefname={box}{boxes}, Crefname={Box}{Boxes}]{codcoeden}{ s O {} m }
+{%
+  IfBooleanTF={#1}{cod coeden dew=#3}{cod coeden=#3},
+  listing side text,
+  halign lower=center,
+  #2,
+}
+\NewTCBListing[use counter from=coeden, crefname={box}{boxes}, Crefname={Box}{Boxes}]{codcoedenhir}{ s O {} m }
+{%
+  IfBooleanTF={#1}{cod coeden dew=#3}{cod coeden=#3},
+  listing above text,
+  halign lower=center,
+  #2,
+}
+\newcommand*{\tnot}{\ensuremath{\mathord{\sim}}}
+\newcommand*{\lif}{\ensuremath{\mathbin{\rightarrow}}}
+\newcommand*{\liff}{\ensuremath{\mathbin{\leftrightarrow}}}
+\DeclareMathSymbol{\aand}{\mathbin}{operators}{38}
+\newcommand*\TikZ{Ti\emph{k}Z}
+\newcommand*{\elim}{\,\text{E}}
+\newcommand*\wff{\emph{wff}}
+\newcounter{lliw}
+\setcounter{lliw}{0}
+\newcounter{rhiflliwnyth}
+\setcounter{rhiflliwnyth}{0}
+\def\rhiflliw{14}
+\colorlet{fylliw}{WildStrawberry!\rhiflliw!blue}
+\NewDocumentCommand\nyth { s o }{%
+  \IfBooleanTF {#1}{%
+    \stepcounter{lliw}%
+  }{}%
+  \IfValueTF {#2}{%
+    \setcounter{rhiflliwnyth}{#2}%
+  }{%
+    \setcounter{rhiflliwnyth}{\value{lliw}}%
+  }%
+  \pgfmathsetmacro\rhiflliw{int(\value{rhiflliwnyth}*100/14)}%
+  \colorlet{fylliw}{WildStrawberry!\rhiflliw!blue}%
+  \tikz[baseline=(a.base)]{%
+    \node (a) [circle, fill=fylliw, inner sep=0pt, font=\sffamily, text width=12pt, text depth=0pt, text centered, text=white] {\arabic{rhiflliwnyth}};
+  }%
+}
+\NewDocumentCommand\bocsnyth { O {} }{%
+  \tikz[baseline=(a.base)]{\node (a) [rounded corners, draw=fylliw, text width=15pt, text height=10pt, inner sep=0pt] {#1};
+  }%
+}
+\renewcommand\maketitlehookb{%
+  \begin{center}
+    Version \prooftreesdocversion{} \prooftreesdocinfo
+  \end{center}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ExplSyntaxOn
+% \NewDocumentCommand \ivals { +m }
+% {
+%   {
+%     \clist_if_empty:nF { #1 }
+%     {
+%       \normalfont
+%       \itshape
+%       < \clist_use:nn { #1 } { >\texttt{,} ~ < } >
+%     }
+%   }
+% }
+\keys_define:nn { prooftrees / doc }
+{
+  unknown .code:n = {
+    \cs_if_free:cT { \l_keys_key_str }
+    {
+      \tl_gset:cn { \l_keys_key_str } { #1 }
+    }
+  },
+}
+\NewDocumentCommand \prooftreesdocset { +m }
+{
+  \keys_set:nn { prooftrees / doc } { #1 }
+}
+\ExplSyntaxOff
+\prooftreesdocset{%
+  bug={\href{https://codeberg.org/cfr/prooftrees/issues}{\textsc{bugtracker}}},
+  codeberg={\href{https://codeberg.org/cfr/prooftrees}{\textsc{codeberg}}},
+  github={\href{https://github.com/cfr42/prooftrees}{\textsc{github}}},
+  ctan={\href{https://ctan.org/}{\textsc{ctan}}},
+}
+% \newcommand*{\lpack}[1]{\textsf{#1}}
+\title{\filebase}
+\author{Clea F. Rees\thanks{%
+    Bug tracker:
+    \href{https://codeberg.org/cfr/prooftrees/issues}{\url{codeberg.org/cfr/prooftrees/issues}}
+    \textbar{} Code:
+    \href{https://codeberg.org/cfr/prooftrees}{\url{codeberg.org/cfr/prooftrees}}
+    \textbar{} Mirror:
+    \href{https://github.com/cfr42/prooftrees}{\url{github.com/cfr42/prooftrees}}%
+}}
+% \date{\fileversion~\filedate}
+\date{\prooftreesdocdate}%
+\title{\prooftreesdocbase}%
+\ExplSyntaxOn
+\hook_gput_code:nnn {shipout/lastpage} {.}
+{
+  \property_record:nn {t:lastpage}{abspage,page,pagenum}
+}
+\cs_new_protected_nopar:Npn \lastpage 
+{
+  \property_ref:nn {t:lastpage}{page}
+}
+% \NewDocumentCommand \plarg {+m} {{\ttfamily (\ivals{#1})}}
+\ExplSyntaxOff
+% \NewDocumentCommand \istable{m}{\texttt{= \{}\ivals{#1}\texttt{\}}\par\noindent} 
+% \NewDocumentCommand \isstring{m}{\texttt{= ''}\meta{#1}\texttt{''}\par\noindent} 
+% \definecolor{strawberry}{rgb}{1.000,0.000,0.502}
+% \definecolor{blueberry}{rgb}{0.000,0.000,1.000}
+% \definecolor{moss}{rgb}{0.000,0.502,0.251}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhf[lh]{\textit{\leftmark}}
+\fancyhf[rh]{\textit{\rightmark}}
+\fancyhf[cf]{\textit{--- \thepage{} of \lastpage{} ---}}
+\fancypagestyle{fancyplain}{%
+  \fancyhf{}%
+  \fancyhf[lh]{\textit{\leftmark}}%
+  \renewcommand*\headrulewidth{0pt}%
+  \fancyhf[cf]{\textit{--- \thepage{} of \lastpage{} ---}}}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand*\headrulewidth{0pt}%
+  \fancyhf[cf]{\textit{--- \thepage{} of \lastpage{} ---}}}
+\patchcmd{\sectionmark}{\MakeUppercase}{}{\typeout{sectionmark patched OK!}}{\typeout{sectionmark patch failed!}}
+\patchcmd{\tableofcontents}{\MakeUppercase}{}{\typeout{sectionmark patched OK!}}{\typeout{sectionmark patch failed!}}
+\patchcmd{\tableofcontents}{\MakeUppercase\contentsname}{}{\typeout{sectionmark patched OK!}}{\typeout{sectionmark patch failed!}}
+% Really, why on Earth does Biblatex do something this obnoxious?
+% It is all for unilaterally declaring standard LaTeX macros 'deprecated' and trying to replace them with its own less convenient versions.
+% It could at least do us the favour of holding some of its much less defensible and much more inconvenient design decisions in equal contempt!!
+\defbibheading{bibliography}[\refname]{%
+  \section*{#1}%
+  \markboth{#1}{}}
+
+\makeindex
+
+% END preamble
+\begin{document}
+\newgeometry{headheight=12pt,scale=.8,marginparwidth=0pt,marginparsep=0pt}%
+\savegeometry{safonol}%
+\setlength\tewadjust{\marginparwidth+\marginparsep}%
+\fancyheadoffset[lh]{0pt}% REQUIRED - do NOT remove this line!!
+\pagenumbering{arabic}%
+\maketitle
+\bigskip
+
+\begin{abstract}
+  \noindent \keyname[pkg]{\pkg{prooftrees}} is a \LaTeXe{} package, based on \keyname[pkg]{\pkg{forest}}, designed to support the typesetting of logical tableaux --- ‘proof trees’ or ‘truth trees’ --- in styles sometimes used in teaching introductory logic courses, especially those aimed at students without a strong background in mathematics.
+  One textbook which uses proofs of this kind is \textcite{hodges-logic}.
+  Like \pkg{forest}, \pkg{prooftrees} supports \keyname[pkg]{\pkg{memoize}} out-of-the-box.
+\end{abstract}
+\bigskip
+
+\begin{figure}[!b]
+\begin{adjustwidth}{-3em}{-5em}
+  \centering
+  \begin{minipage}[t]{.475\linewidth}
+    \begin{tableau}
+      {
+        to prove={S \liff \lnot T, T \liff \lnot R \sststile{\mathcal{L}}{} S \liff R},
+        highlight format={text=WildStrawberry},
+        line no sep=.35em,
+        just sep=.35em,
+        wff format={Purple4},
+        line no format={Purple4},
+        just format={Purple4},
+        close format={Purple4},
+        for tree={edge=Purple4},
+        close with format={Purple4},
+        where level=0{%
+          tikz+={%
+            \draw [Purple4, thick] (current bounding box.north west) rectangle (current bounding box.south east);
+            \draw [Purple4, semithick] (.south -| current bounding box.west) -- (.south -| current bounding box.east);
+          },
+        }{},
+      }
+      [{S \liff \lnot T}, checked, just=pr.
+        [T \liff \lnot R, checked, just=pr.
+          [\lnot(S \liff R), checked, just=$\lnot$ conc.
+            [S,  just={$\liff$\elim:!uuu}
+              [\lnot T , just={$\liff$\elim:!uuuu}
+                [T, just={$\liff$\elim:!uuuu}
+                  [\lnot R, close={:!uu,!u} , just={$\liff$\elim:!uuuuu}
+                  ]
+                ]
+                [\lnot T
+                  [\lnot \lnot R, checked
+                  [\lnot S, just={$\lnot\liff$\elim:!r111}, highlight line
+                  [R, just={$\lnot\liff$\elim:!r111}, close={:!uuuuu,!u}, highlight line
+                      ]
+                    ]
+                    [S
+                      [\lnot R
+                        [R, just={$\lnot\lnot$\elim:!uuu}, close={:!u,!c}
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+            [\lnot S,  just={$\liff$\elim:!uuu}
+              [\lnot \lnot T, just={$\liff$\elim:!uuuu}, checked
+                [T, just={$\liff$\elim:!uuuu}
+                  [\lnot R, just={$\liff$\elim:!uuuuu}
+                    [\lnot S, just={$\lnot\liff$\elim:!r111}
+                    [R, just={$\lnot\liff$\elim:!r111}, close={:!uu,!c}
+                      ]
+                    ]
+                    [S
+                      [\lnot R, close={:!r1111,!u}
+                      ]
+                    ]
+                  ]
+                ]
+                [\lnot T
+                  [\lnot \lnot R, checked
+                  [T, close={:!uu,!c}, just={$\lnot\lnot$\elim:!uuu}
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    \end{tableau}%
+  \end{minipage}\hfill
+  \begin{minipage}[t]{.525\linewidth}
+    \begin{tableau}
+      {
+        to prove={(\exists x)((\forall y)(Py \Rightarrow (x = y)) \cdot Px) \sststile{\mathcal{L}_1}{} (\exists x)(\forall y)(Py \Leftrightarrow (x = y))},
+        line no sep=.35em,
+        just sep=.35em,
+        wff format={RoyalBlue4},
+        line no format={RoyalBlue4},
+        just format={RoyalBlue4},
+        close format={RoyalBlue4},
+        for tree={edge=RoyalBlue4},
+        close with format={RoyalBlue4},
+        where level=0{%
+          tikz+={%
+            \draw [RoyalBlue4, thick] (current bounding box.north west) rectangle (current bounding box.south east);
+            \draw [RoyalBlue4, semithick] (.south -| current bounding box.west) -- (.south -| current bounding box.east);
+          },
+        }{},
+      }
+      [{(\exists x)((\forall y)(Py \Rightarrow (x = y)) \cdot Px)}, checked=d, just=pr.
+        [{\tnot (\exists x)(\forall y)(Py \Leftrightarrow (x = y))}, subs=d, just=$\lnot$ conc.
+          [{(\forall y)(Py \Rightarrow (d = y)) \cdot Pd}, checked, just={$\exists$\elim:!uu}
+            [{(\forall y)(Py \Rightarrow (d = y))}, subs=c, just={$\cdot$\elim:!u}
+              [Pd, just=$\cdot$\elim:!uu
+                [{\tnot (\forall y)(Py \Leftrightarrow (d = y))}, checked=c, just={$\tnot\exists$\elim:!r11}
+                  [{\tnot (Pc \Leftrightarrow (d = c))}, checked, just={$\tnot\forall$\elim:!u}
+                    [Pc, just={$\tnot\Leftrightarrow$\elim:!u}
+                      [d \neq c, just={$\tnot\Leftrightarrow$\elim:!uu}, name=fred
+                        [{Pc \Rightarrow (d = c)}, checked, just=$\forall$\elim:!r1111, move by=1
+                          [\tnot Pc, close={:!uuu,!c} , just=$\Rightarrow$\elim:!u, wff options=WildStrawberry, !uuu.wff options=WildStrawberry
+                          ]
+                          [{d = c}
+                            [d \neq d, close={:!c} , just={$=$:fred,!u}, wff options=red
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                    [\tnot Pc
+                      [{d = c}
+                        [Pc, just={$=$:!r11111,!u}, close={:!uu,!c}, wff options=blue!50!cyan, !uu.wff options=blue!50!cyan
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    \end{tableau}%
+  \end{minipage}%
+\end{adjustwidth}
+\end{figure}
+
+\emph{\bfseries Note that this package requires version 2.1 (2016/12/04) of \keyname[pkg]{\pkg{forest}} \autocite{saso-forest-manual}.
+  It will not work with versions prior to 2.1.}
+\bigskip
+
+\emph{I would like to thank \citeauthor{saso-forest-manual} both for developing \pkg{forest} and for considerable patience in answering my questions, addressing my confusions and correcting my mistakes.
+The many remaining errors are, of course, entirely my own.
+This package's deficiencies would be considerably greater and more numerous were it not for his assistance.}
+
+
+\clearpage
+
+\tableofcontents
+
+\section{Raison d'être}\label{sec:raisondetre}
+% BEGIN raisondetre
+
+Suppose that we wish to typeset a typical proof tree demonstrating the following entailment
+\[
+  \{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile{}{} \lnot R
+\]
+
+We start by typesetting the tree using \pkg{forest}'s default settings (\cref{fordefaults}) and find our solution has several advantages: the proof is specified concisely and the code reflects the structure of the tree.
+\begin{codcoeden}[label=fordefaults,floatplacement=bp!]{\pkg{forest}: default settings}
+\begin{forest}
+  [$P \vee (Q \vee \lnot R)$
+    [$P \lif \lnot R$
+      [$Q \lif \lnot R$
+        [$\lnot\lnot R$
+          [$P$
+            [$\lnot P$]
+            [$\lnot R$]
+          ]
+          [$Q \vee \lnot R$
+            [$Q$
+              [$\lnot Q$]
+              [$\lnot R$]
+            ]
+            [$\lnot R$]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+\end{codcoeden}
+It is relatively straightforward to specify a proof using \pkg{forest}'s bracket notation, and the spacing of nodes and branches is automatically calculated.
+
+Despite this, the results are not quite what we might have hoped for in a proof tree.
+The assumptions should certainly be grouped more closely together and no edges (lines) should be drawn between them because these are not steps in the proof --- they do not represent inferences.
+Preferably, edges should start from a common point in the case of branching inferences, rather than there being a gap.
+
+Moreover, proof trees are often compacted so that \emph{non-branching} inferences are grouped together, like assumptions, without explicitly drawn edges.
+Although explicit edges to represent non-branching inferences are useful when introducing students to proof trees, more complex proofs grow unwieldy and the more compact presentation becomes essential.
+
+Furthermore, it is useful to have the option of \emph{annotating} proof trees by numbering the lines of the proof on the left and entering the justification for each line on the right.
+
+\pkg{forest} is a powerful and flexible package capable of all this and, indeed, a good deal more.
+It is not enormously difficult to customise particular trees to meet most of our desiderata.
+However, it is difficult to get things perfectly aligned even in simple cases, requires the insertion of ‘phantom’ nodes and management of several sub-trees in parallel (one for line numbers, one for the proof and one for the justifications).
+The process requires a good deal of manual intervention, trial-and-error and hard-coding of things it would be better to have \LaTeXe{} manage for us, such as keeping count of lines and line references.
+
+\pkg{prooftrees} aims to make it as easy to specify proof trees as it was to specify our initial tree using \pkg{forest}'s default settings.
+The package supports a small number of options which can be configured to customise the output.
+The code for a \pkg{prooftrees} proof tree is shown in \cref{ptdefaults}, together with the output obtained using the default settings.
+
+\begin{codcoeden}*[label=ptdefaults]{\pkg{prooftrees}: default settings}
+\begin{tableau}
+  {
+    to prove={\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile{}{} \lnot R}
+  }
+  [P \vee (Q \vee \lnot R),  just=Ass, checked
+    [P \lif \lnot R,  just=Ass, checked
+      [Q \lif \lnot R,  just=Ass, checked, name=last premise
+        [\lnot\lnot R, just={$\lnot$ Conc}, name=not conc
+          [P,  just={$\vee$ Elim:!uuuu}
+            [\lnot P, close={:!u,!c}]
+            [\lnot R,  close={:not conc,!c}, just={$\lif$ Elim:!uuuu}]]
+          [Q \vee \lnot R
+            [Q, move by=1
+              [\lnot Q, close={:!u,!c}]
+              [\lnot R,  close={:not conc,!c}, just={$\lif$ Elim:last premise}]]
+            [\lnot R, close={:not conc,!c}, move by=1, just={$\vee$ Elim:!u}]]]]]]
+\end{tableau}
+\end{codcoeden}
+More extensive configuration can be achieved by utilising \pkg{forest} \autocite{saso-forest-manual} and/or \TikZ{} \autocite{tantau-tikz-pgf-manual} directly.
+A sample of supported proof tree styles are shown in \cref{sample}.
+The package is \emph{\bfseries not} intended for the typesetting of proof trees which differ significantly in structure.
+\clearpage
+\thispagestyle{plain}%
+\begin{coeden}[label=sample, floatplacement={!bp}, grow to left by=3em, grow to right by=3em]{\pkg{prooftrees}: sample output}
+  \centering
+  \begin{tableau}
+    {
+      to prove={\{ P \lor (Q \lor \lnot R), P \lif \lnot R, Q \lif \lnot R \} \sststile{}{} \lnot R},
+      line no sep=.35em,
+      just sep=.35em,
+    }
+    [P \lor (Q \lor \lnot R),  just=Ass, checked
+      [P \lif \lnot R,  just=Ass, checked
+        [Q \lif \lnot R,  just=Ass, checked
+          [\lnot\lnot R, just={Neg conc}
+            [P,  just={$\lor$ Elim:!r1}
+              [\lnot P, close={:!u,!c}]
+              [\lnot R,  close={:!uu,!c}, just={$\lif$ Elim:!r11}
+              ]
+            ]
+            [Q \lor \lnot R, checked
+              [Q, move by=1
+                [\lnot Q, close={:!u,!c}
+                ]
+                [\lnot R,  close={:!r1111,!c}, just={$\lif$ Elim:!r111}
+                ]
+              ]
+              [\lnot R, close={:!r1111,!c}, just={$\lor$ Elim:!u}, move by=1
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{tableau}\hfill
+  {\renewcommand*\linenumberstyle[1]{#1)}%
+  \begin{tableau}
+    {
+      close with={\ensuremath{\ast}},
+      just format={text=gray, font=\itshape},
+      line no format={text=gray},
+      for tree={
+        edge path'={(!u.parent anchor) -- +(0,-5pt) -| (.child anchor)},
+        edge={gray},
+      },
+      line no sep=.35em,
+      just sep=.35em,
+    }
+    [P \lor (Q \lor \tnot R),  just=Ass, checked
+      [P \supset \tnot R,  just=Ass, checked
+        [Q \supset \tnot R,  just=Ass, checked
+          [\tnot\tnot R, just={Neg conc}
+            [P,  just={$\lor$ Elim:!r1}
+              [\tnot P, close={:!u,!c}]
+              [\tnot R,  close={:!uu,!c}, just={$\supset$ Elim:!r11}
+              ]
+            ]
+            [Q \lor \tnot R, checked
+              [Q, move by=1
+                [\tnot Q, close={:!u,!c}]
+                [\tnot R,  close={:!r1111,!c}, just={$\supset$ Elim:!r111}
+                ]
+              ]
+              [\tnot R,  close={:!r1111,!c}, just={$\lor$ Elim:!u}, move by=1
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{tableau}}
+
+  \begin{tableau}
+    {
+      not line numbering,
+      single branches,
+      close with={\fycross},
+      check with={\fycheck},
+      check left,
+      line no sep=.35em,
+      just sep=.35em,
+    }
+    [P \lor (Q \lor \lnot R),  just=Ass, checked
+      [P \lif \lnot R,  just=Ass, checked, grouped
+        [Q \lif \lnot R,  just=Ass, checked, grouped
+          [\lnot\lnot R, just={Neg conc}, grouped
+            [P,  just={$\lor$ Elim}
+              [\lnot P, close]
+              [\lnot R,  close, just={$\lif$ Elim}
+              ]
+            ]
+            [Q \lor \lnot R, checked
+              [Q, move by=1
+                [\lnot Q, close]
+                [\lnot R,  close, just={$\lif$ Elim}
+                ]
+              ]
+              [\lnot R, close, just={$\lor$ Elim}, move by=1
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{tableau}%
+  \hfill\begin{tableau}
+    {
+      to prove={\{ P \lor (Q \lor \lnot R), P \lif \lnot R, Q \lif \lnot R \} \therefore \lnot R},
+      close with={\ensuremath{\times}},
+      highlight format={text=red},
+      line no sep=.35em,
+      just sep=.35em,
+    }
+    [P \lor (Q \lor \lnot R),  just=Ass, checked
+      [P \lif \lnot R,  just=Ass, checked
+        [Q \lif \lnot R,  just=Ass, checked
+          [\lnot\lnot R, just={Neg conc}, highlight wff
+            [P,  just={$\lor$ Elim:!r1}
+              [\lnot P, close={:!u,!c}, move by=2]
+              [\lnot R,  close={:!uu,!c}, just={$\lif$ Elim:!r11}, highlight wff, move by=2
+              ]
+            ]
+            [Q \lor \lnot R, checked
+              [Q
+                [\lnot Q, close={:!u,!c}
+                ]
+                [\lnot R,  close={:!r1111,!c}, just={$\lif$ Elim:!r111}, highlight wff
+                ]
+              ]
+              [\lnot R, close={:!r1111,!c}, just={$\lor$ Elim:!u}, highlight wff
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{tableau}
+
+  \begin{tableau}
+    {
+      to prove={(\exists x)(Lx \lor Mx) \sststile{}{} (\exists x) Lx \lor (\exists x) Mx},
+      highlight format={text=blue!50!cyan},
+      line no sep=.5em,
+      just sep=.5em,
+    }
+    [(\exists x) (Lx \lor Mx), checked=a, just=Ass
+      [\lnot ((\exists x) Lx \lor (\exists x) Mx), checked, just=Neg Conc
+        [La \lor Ma, checked, just={1 $\exists$\elim}
+        [\lnot (\exists x) Lx, subs=a, just={2 $\lnot\lor$\elim}, highlight line, tikz+/.wrap pgfmath arg={%
+          \draw [decorate, decoration={brace, mirror}, draw=blue!50!cyan] (!1.south east -| just #1.east) ++(0,5pt) -- (just #1.north east);
+        }{level()}
+            [\lnot (\exists x) Mx, subs=a, highlight line
+              [\lnot La, just={4 $\lnot\exists$\elim}
+                [\lnot Ma, just={5 $\lnot\exists$\elim}
+                [La, close={6,8}, just={3 $\lor$\elim}]
+                  [Ma, close={7,8}]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{tableau}%
+  \hfill\begin{tableau}
+    {
+      for tree={%
+        plain content,
+        edge path'={(!u.parent anchor) -- ++(0,-5pt) -| (.child anchor)},
+        align=center,
+        edge={rounded corners},
+      },
+      not line numbering,
+      just sep=.5em,
+    }
+    [Either Alice saw nobody\\or she didn't see nobody.
+      [Alice saw nobody., just={$\vee$\elim}, subs=Jones
+        [Alice didn't see Jones., just={$\forall$\elim}]
+      ]
+      [Alice didn't see nobody., move by=2, just={$\vee$\elim}
+        [Alice saw somebody., just={$\lnot\lnot$\elim}, checked=Jones
+        [Alice saw Jones., just={$\exists$\elim}, before typesetting nodes={for current and ancestors/.wrap pgfmath arg={edge+/.wrap pgfmath arg={red!##1!blue}{100*(level)/#1}, text/.wrap pgfmath arg={red!##1!blue}{100*(level)/#1}}{level}}]
+        ]
+      ]
+    ]
+  \end{tableau}
+
+\end{coeden}
+% END sec:raisondetre
+\clearpage
+
+\section{Assumptions \& Limitations}\label{sec:ass}
+% BEGIN sec:ass
+
+\pkg{prooftrees} makes certain assumptions about the nature of the proof system, $\mathcal{L}$, on which proofs are based.
+\begin{itemize}
+  \item All derivation rules yield equal numbers of \wff{}s on all branches.
+  \begin{center}
+    \begin{tableau}
+      {
+        not line numbering,
+        for tree={plain content},
+        for root={s sep+=10pt}
+      }
+      [\wff[\wff][\wff[\phantom{\wff}, label={[text=Green3]right:{\fycheck}}]]]
+      [\wff[\wff[\wff]][\wff[\wff, label={[text=Green3]right:{\fycheck}}]]]
+      [\wff[\wff][\wff[\wff, label={[text=red]right:{\fycross}}]]]
+      [\wff[\wff[\wff]][\wff[\phantom{\wff}, label={[text=red]right:{\fycross}}]]]
+    \end{tableau}
+  \end{center}
+  If $\mathcal{L}$ fails to satisfy this condition, \pkg{prooftrees} is likely to violate the requirements of affected derivation rules by splitting branches ‘mid-inference’.
+  \item No derivation rule yields \wff{}s on more than two branches.
+  \item All derivation rules proceed in a downwards direction at an angle of -90\textdegree{} i.e.~from north to south.
+  \item Any justifications are set on the far right of the proof tree.
+  \item Any line numbers are set on the far left of the proof tree.
+  \item Justifications can refer only to earlier lines in the proof.
+  \pkg{prooftrees} can typeset proofs if $\mathcal{L}$ violates this condition, but the cross-referencing system explained in \cref{subsec:lo} cannot be used for affected justifications.
+\end{itemize}
+\pkg{prooftrees} does not support the automatic breaking of proof trees across pages.
+Proof trees can be manually broken by using \keyname[fregcount]{line no shift} with an appropriate value for parts after the first (\cref{subsec:go}).
+However, horizontal alignment across page breaks will not be consistent in this case.
+
+In addition, \pkg{prooftrees} almost certainly relies on additional assumptions not articulated above and certainly depends on a feature of \pkg{forest} which its author classifies as experimental (\keyname*{do dynamics}).
+
+% END sec:ass
+
+\section{Typesetting a Proof Tree}\label{sec:ee}
+% BEGIN sec:ee
+
+After loading \pkg{prooftrees} in the document preamble:
+\begin{latexcode}
+% in document's preamble
+\usepackage{prooftrees}
+\end{latexcode}
+the \env{prooftree} environment is available for typesetting proof trees.
+This takes an argument used to specify a \meta{tree preamble}, with the body of the environment consisting of a \meta{tree specification} in \pkg{forest}'s notation.
+The \meta{tree preamble} can be as simple as an empty argument --- \arg{} --- or much more complex.
+
+Customisation options and further details concerning loading and invocation are explained in \cref{sec:llwytho}, \cref{sec:invoke}, \cref{sec:anatomy}, \cref{sec:ops} and \cref{sec:macros}.
+In this section, we begin by looking at a simple example using the default settings.
+
+Suppose that we wish to typeset the proof tree for
+\[
+  (\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)
+\]
+and we would like to typeset the entailment established by our proof at the top of the tree.
+Then we should begin like this:
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+\end{tableau}
+\end{latexcode}
+That is all the preamble we want, so we move onto consider the \meta{tree specification}.
+\pkg{forest} uses square brackets to specify trees' structures.
+To typeset a proof, think of it as consisting of nested trees, trunks upwards, and work from the outside in and the trunks down (\cref{nythod}).
+\begin{coeden}[label=nythod]{Nested structure of proof tree}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)},
+    just sep*=3,
+    line no sep*=3,
+    for root={%
+      tikz+={%
+        \foreach \i [evaluate=\i as \j using 100*\i/14, evaluate=\i as \k using (11*(\i-7))-30, evaluate=\i as \m using (11*(7-\i))-30] in {13,...,1}
+        {%
+          \ifnum\i<8
+            \coordinate (p\i) at ([yshift=-1 pt,xshift=\k pt]current bounding box.south);
+          \else
+            \ifnum\i<10
+              \coordinate (p\i) at ([yshift=-1 pt,xshift=\m pt]current bounding box.south);
+            \else
+              \ifnum\i=10
+                \coordinate (p\i) at ([yshift=-1 pt,xshift=\k+40 pt]current bounding box.south);
+              \else
+                \coordinate (p\i) at ([yshift=-1 pt,xshift=\k-52 pt]current bounding box.south);
+              \fi
+            \fi
+          \fi
+          \node [fill=WildStrawberry!\j!blue, circle, font=\sffamily\small, text width=12pt, text centered, text=white, inner sep=0pt] at (p\i) {\i};
+          \ifnum\i>7
+            \ifnum\i<10
+              \coordinate (q\i) at ([xshift=\k+40 pt]current bounding box.south |- p\i);
+              \node [fill=WildStrawberry!\j!blue, circle, font=\sffamily\small, text width=12pt, text centered, text=white, inner sep=0pt] at (q\i) {\i};
+            \else
+              \ifnum\i<13
+                \ifnum\i>11
+                  \coordinate (q\i) at ([xshift=\m pt]current bounding box.south |- p\i);
+                  \node [fill=WildStrawberry!\j!blue, circle, font=\sffamily\small, text width=12pt, text centered, text=white, inner sep=0pt] at (q\i) {\i};
+                \fi
+              \fi
+            \fi
+          \fi
+        }
+      },
+    },
+    for tree={%
+      s sep+=30pt,
+      if={((level()>=1)&&(proof_tree_rhifo()==1)))}{%
+        node options/.wrap pgfmath arg={draw, rounded corners, WildStrawberry!#1!blue}{(level()+proof_tree_toing_by())*100/14},
+        fill=white,
+        delay={%
+          tempcounta=int(level()+proof_tree_toing_by()),
+          if={(tempcounta)<=7}{% proof_tree_toing_by is zero here
+            nyth/.wrap pgfmath arg={{(!r211111111112111) (!Luu) (!Luuu) (!11) (!Fuu) (!r21111111111)}{#1}{p}}{tempcounta},
+          }{%
+            if={(tempcounta)>9}{%
+              if={n("!uu")==2}{}{%
+                tempcounta'+=1,
+                if={(n()==1)&&(n_children("!u")==2)}{%
+                  nyth/.wrap pgfmath arg={{}{#1}{q}}{tempcounta},
+                }{%
+                  nyth/.wrap pgfmath arg={{}{#1}{p}}{tempcounta},
+                },
+              },
+            }{%
+              if={((tempcounta)==8)&&(n()==1)}{%
+                nyth={(!1111) (!llll) (!lllll)}{8}{p},
+                !1.nyth={(!111) (!lll) (!llll)}{9}{p},
+              }{%
+                if={n()==2}{%
+                  nyth/.wrap pgfmath arg={{(!1)}{#1}{q}}{tempcounta},
+                  tempcounta'+=1,
+                  !1.nyth/.wrap pgfmath arg={{(!1)}{#1}{q}}{tempcounta},
+                  tempcounta'+=1,
+                  !11.nyth/.wrap pgfmath arg={{(!1)}{#1}{p}}{tempcounta},
+                }{},
+              },
+            },
+          },
+        },
+      }{},
+    },
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                  [a \neq b, just=$\liff\elim$:!u
+                    [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                        [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+                [\lnot Pb
+                  [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{coeden}
+
+Starting with the outermost tree \nyth*{} and the topmost trunk, we replace the \bocsnyth{} with square brackets and enter the first \wff{} inside, adding \verb|just=Pr.| for the justification on the right and \verb|checked=a| so that the line will be marked as discharged with $a$ substituted for $x$.
+We also use \pkg{forest}'s \keyname*[fopttoks]{name} to label the line for ease of reference later.
+(Technically, it is the node rather than the line which is named, but, for our purposes, this doesn't matter.
+\pkg{forest} will create a name if we don't specify one, but it will not necessarily be one we would have chosen for ease of use!)
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+  ]
+\end{tableau}
+\end{latexcode}
+We can refer to this line later as \verb|pr|.
+
+We then consider the next tree \nyth*{}.
+Its \bocsnyth{} goes inside that for \nyth[1], so the square brackets containing the next \wff{} go inside those we used for \nyth[1].
+Again, we add the justification with \keyname[foptautotoks]{just}, but we use \verb|subs=a| rather than \verb|checked=a| as we want to mark substitution of $a$ for $x$ without discharging the line.
+Again, we use \keyname*[fopttoks]{name} so that we can refer to the line later as \verb|neg conc|.
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+Turning to tree \nyth*{}, we again note that its \bocsnyth{} is nested within the previous two, so the square brackets for its \wff{} need to be nested within those for the previous \wff{}s.
+This time, we want to mark the line as discharged without substitution, so we simply use \keyname[fstyle]{checked} without a value.
+Since the justification for this line includes mathematics, we need to ensure that the relevant part of the justification is surrounded by \verb|$|\dots \verb|$| or \verb|\(|\dots\verb|\)|.
+This justification also refers to an earlier line in the proof.
+We could write this as \verb|just=1 $\exists\elim$|, but instead we use the name we assigned earlier with the referencing feature provided by \pkg{prooftrees}.
+To do this, we put the reference, \verb|pr| \emph{after} the rest of the justification, separating the two parts by a colon i.e.~\verb|$\exists\elim$:pr| and allow \pkg{prooftrees} to figure out the correct number.
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+Continuing in the same way, we surround each of the \wff{}s for \nyth*{}, \nyth*{}, \nyth*{} and \nyth*{} within square brackets nested within those surrounding the previous \wff{} since each of the trees is nested within the previous one.
+Where necessary, we use \keyname*[fopttoks]{name} to label lines we wish to refer to later, but we also use \pkg{forest}'s \emph{relative} naming system when this seems easier.
+For example, in the next line we add, we specify the justification as \verb|just=$\land\elim$:!u|.
+\verb|!| tells \pkg{forest} that the reference specifies a relationship between the current line and the referenced one, rather than referring to the other line by name.
+\verb|!u| refers to the current line's parent line --- in this case, \verb|{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr|.
+\verb|!uu| refers to the current line's parent line's parent line and so on.
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+Reaching \nyth*{}, things get a little more complex since we now have not one, but \emph{two} \bocsnyth{} nested within \nyth[7].
+This means that we need \emph{two} sets of square brackets for \nyth{} --- one for each of its two trees.
+Again, both of these should be nested within the square brackets for \nyth[7] but neither should be nested within the other because the trees for the two branches at \nyth{} are distinct.
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                ]
+                [\lnot Pb
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+At this point, we need to work separately or in parallel on each of our two branches since each constitutes its own tree.
+Turning to trees \nyth*{}, each needs to be nested within the relevant tree \nyth[8], since each \bocsnyth{} is nested within the applicable branch's tree.
+Hence, we nest square brackets for each of the \wff{}s at \nyth{} within the previous set.
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                 ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+We only have one tree \nyth*{} as there is no corresponding tree in the left-hand branch.
+This isn't a problem: we just need to ensure that we nest it within the appropriate tree \nyth[9].
+There are two additional complications here.
+The first is that the justification contains a comma, so we need to surround the argument we give \keyname[foptautotoks]{just} with curly brackets.
+That is, we must write \verb|just={5,9 $=\elim$}| or \verb|just={$=\elim$:{simple,!u}}|.
+The second is that we wish to close this branch with an indication of the line numbers containing inconsistent \wff{}s.
+We can use \verb|close={8,10}| for this or we can use the same referencing system we used to reference lines when specifying justifications and write \verb|close={:to Pb or not to Pb,!c}|.
+In either case, we again surrounding the argument with curly brackets to protect the comma.
+\verb|!c| refers to the current line --- something useful in many close annotations, but not helpful in specifying non-circular justifications.
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                 ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+This completes the main right-hand branch of the tree and we can focus solely on the remaining left-hand one.
+Tree \nyth*{} is straightforward --- we just need to nest it within the left-hand tree \nyth[9].
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=$\forall\elim$:mark%, move by=1
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+At this point, the main left-hand branch itself branches, so we have two trees \nyth*{}.
+Treating this in the same way as the earlier branch at \nyth[8], we use two sets of square brackets nested within those for tree \nyth{}, but with neither nested within the other.
+Since we also want to mark the leftmost branch as closed, we add \verb|close={:to Pb or not to Pb,!c}| in the same way as before.
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=4 $\forall\elim$
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                      ]
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+We complete our initial specification by nesting \nyth*{} within the appropriate tree \nyth[12], again marking closure appropriately.
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=4 $\forall\elim$
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                        [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
+                        ]
+                      ]
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+
+Compiling our code, we find that the line numbering is not quite right:
+
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                  [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=4 $\forall\elim$
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                        [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
+                        ]
+                      ]
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                  [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+
+\pkg{prooftrees} warns us about this:
+\begin{latexcode}
+Package prooftrees Warning: Merging conflicting justifications for line 10! Please examine the output carefully and use "move by" to move lines later in the proof if required. Details of how to do this are included in the documentation.
+\end{latexcode}
+We would like line 10 in the left-hand branch to be moved down by one line, so we add \verb|move by=1| to the relevant line of our proof.
+That is, we replace the line
+\begin{latexcode}
+                  [{Pb \lif a = b}, checked, just=4 $\forall\elim$
+\end{latexcode}
+by
+\begin{latexcode}
+                  [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
+\end{latexcode}
+giving us the following code:
+\begin{latexcode}
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                 [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                        [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
+                        ]
+                      ]
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                 [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                 ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+\end{latexcode}
+which produces our desired result:
+
+\begin{tableau}
+  {
+    to prove={(\exists x)((\forall y)(Py \lif x = y) \land Px) \sststile{}{} (\exists x)(\forall y)(Py \liff x = y)}
+  }
+  [{(\exists x)((\forall y)(Py \lif x = y) \land Px)}, checked=a, just=Pr., name=pr
+    [{\lnot (\exists x)(\forall y)(Py \liff x = y)}, subs=a, just=Conc.~neg., name=neg conc
+      [{(\forall y)(Py \lif a = y) \land Pa}, checked, just=$\exists\elim$:pr
+        [{(\forall y)(Py \lif a = y)}, subs=b, just=$\land\elim$:!u, name=mark
+          [Pa, just=$\land\elim$:!uu, name=simple
+            [{\lnot (\forall y)(Py \liff a = y)}, checked=b, just=$\lnot\exists\elim$:neg conc
+              [{\lnot (Pb \liff a = b)}, checked, just=$\lnot\forall\elim$:!u
+                [Pb, just=$\liff\elim$:!u, name=to Pb or not to Pb
+                  [a \neq b, just=$\liff\elim$:!u
+                  [{Pb \lif a = b}, checked, just=$\forall\elim$:mark, move by=1
+                      [\lnot Pb, close={:to Pb or not to Pb,!c}, just=$\lif\elim$:!u
+                      ]
+                      [{a = b}
+                        [a \neq a, close={:!c}, just={$=\elim$:{!uuu,!u}}
+                        ]
+                      ]
+                  ]
+                ]
+                ]
+                [\lnot Pb
+                  [{a = b}
+                    [Pb, just={$=\elim$:{simple,!u}}, close={:to Pb or not to Pb,!c}
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{tableau}
+
+% END sec:ee
+
+\restoregeometry
+\setlength\tewadjust{\marginparwidth+\marginparsep-\paperwidth+\textwidth+\oddsidemargin+1in}%
+\fancyheadoffset[lh]{\tewadjust}%
+\section{Loading the Package}\label{sec:llwytho}
+% BEGIN sec:llwytho
+
+To load the package simply add the following to your document's preamble.
+\begin{latexcode}
+\usepackage{prooftrees}
+\end{latexcode}
+\keyname[pkg]{\pkg{prooftrees}} will load \keyname[pkg]{\pkg{forest}} automatically.
+
+The only option currently supported is \keyname[pkgopt]{\option{tableaux}}.
+If this option is specified, the \env{prooftree} environment will be called \env{tableau} instead.
+\Example{\cs{usepackage}[tableaux]{prooftrees}} would cause the \env{tableau} environment to be defined \emph{rather than} \env{prooftree}.
+
+Any other options given will be passed to \keyname[pkg]{\pkg{forest}}.
+\Example{\cs{usepackage}[debug]{prooftrees}} would enable \keyname[pkg]{\pkg{forest}}'s debugging.
+
+If one or more of \keyname[pkg]{\pkg{forest}}'s libraries are to be loaded, it is recommended that these be loaded separately and their defaults applied, if applicable, within a local \TeX{} group so that they do not interfere with \keyname[pkg]{\pkg{prooftrees}}'s environment.
+% END sec:llwytho
+
+\section{Invocation}\label{sec:invoke}
+% BEGIN sec:invoke
+\DescribeEnv{prooftree}\cs{begin}\arg{\env{prooftree}}\marg{tree preamble}\meta{tree specification}\cs{end}\arg{\env{prooftree}}\AfterLastParam
+The \meta{tree preamble} is used to specify any non-default options which should be applied to the tree.
+It may contain any code valid in the preamble of a regular \pkg{forest} tree, in addition to setting \pkg{prooftree} options.
+The preamble may be empty, but the argument is \emph{required}\footnote{%
+  Failure to specify a required argument does not always yield a compilation error in the case of environments.
+  However, failure to specify required arguments to environments often fails to achieve the best consequences, even when it does not result in compilation failures, and will, therefore, be avoided by the prudent.}.
+The \meta{tree specification} specifies the tree in the bracket notation parsed by \pkg{forest}.
+
+{\em
+  {\bfseries
+    Users of \keyname[pkg]{\pkg{forest}} should note that the environments \env{prooftree} and \env{forest} differ in important ways.%
+  }%
+  \begin{itemize}
+    \item \env{prooftree}'s argument is \emph{mandatory}.
+    \item The tree's preamble \emph{cannot} be given in the body of the environment.
+    \item \cs{end}\arg{prooftree} \emph{must} follow the \meta{tree specification} \emph{immediately}.
+  \end{itemize}%
+}
+
+\DescribeEnv{tableau}\cs{begin}\arg{\env{tableau}}\marg{tree preamble}\meta{tree specification}\cs{end}\arg{\env{tableau}}\AfterLastParam
+A substitute for \env{prooftree}, defined \emph{instead} of \env{prooftree} if the package option \option{tableaux} is specified or a \cs{prooftree} macro is already defined when \keyname[pkg]{\pkg{prooftrees}} is loaded.
+See \cref{sec:llwytho} for details and \cref{sec:compat} for this option's raison d'être.
+
+% END sec:invoke
+
+\section{Proof Tree Anatomy}\label{sec:anatomy}
+% BEGIN sec:anatomy
+The following diagram provides an overview of the configuration and anatomy of a \pkg{prooftrees} proof tree.
+Detailed documentation is provided in \cref{sec:ops} and \cref{sec:macros}.
+
+\forestset{declare count register={cau},cau'=0}
+\begin{tableau}
+  {
+    to prove={proof statement},
+    for tree={%
+      plain content,
+      font=\itshape,
+      delay={content=wff, shape=rectangle,},
+      if level=0{}{just=justification},
+      if n children=0{%
+        close={$n,m$},
+        cau'+=1,
+        tikz+/.wrap pgfmath arg={%
+          \begin{scope}[on background layer]
+            \node (cau#1) [inner sep=-2pt, post grwp=DarkOrchid4, fit=(!1) (!11)] {};
+          \end{scope}
+        }{cau},
+        if={cau==5}{%
+          tikz+={%
+            \path [nodiad=DarkOrchid4] (cau5.south) -- ++(0,-30pt) |- ++(-50:85pt) node (x2) [anchor=west] {Closure};
+            \begin{scope}[every node/.append style={font=\scriptsize, align=left, inner sep=0pt}]
+              \node [text=DarkOrchid4, anchor=north west, xshift=10pt, text width=.475\textwidth] at (x2.south west) {\textbullet\ closure symbol \& optional annotation\\\textbullet\ location \& annotation content controlled by \keyname[fstyle]{close} within the \meta{tree specification}\\\textbullet\ annotations support cross-references\\\textbullet\ closure symbol controlled by \keyname[fregtoks]{close with} and \keyname[fregkeylist]{close with format}\\\textbullet\ global annotation format controlled by \keyname[fregkeylist]{close format} \& \keyname[fregdim]{close sep}};
+            \end{scope}
+          }
+        }{}
+      }{},
+    },
+    for root={%
+      delay={%
+        tikz+={%
+          \begin{scope}[on background layer]
+            \begin{scope}[inner sep=0pt]
+              \node (cas) [fit=(), grwp=DodgerBlue3] {};
+              \node (rhif) [fit=(!1) (!1F), grwp=Green4] {};
+              \node (nod) [fit=(!3) (!3F), grwp=DarkOrange3] {};
+              \node (wff) [fit=(!2) (!2F) (!2L) (!2LP) (!2LPP), grwp=WildStrawberry] {};
+            \end{scope}
+            \path [nodiad=DodgerBlue3] (cas.north) -- ++(0,7.5pt) |- ++(85:90pt) node (cas2) [anchor=west] {Theorem/Entailment};
+            \path [nodiad=Green4] (rhif.south) -- ++(0,-45pt) |- ++(-85:130pt) node (rhif2) [anchor=west] {Line Numbers};
+            \path [nodiad=DarkOrange3] (nod.north) |- ++(40:35pt) node (nod2) [anchor=west] {Justifications};
+            \path [nodiad=WildStrawberry] (wff.south) |- ++(-50pt,-15pt) -- ++(0,-15pt) node (wff2) [anchor=north] {\wff s};
+            \begin{scope}[every node/.append style={font=\scriptsize, align=left, inner sep=0pt}]
+              \node [text=DodgerBlue3, anchor=north west, xshift=10pt,] at (cas2.south west) {\textbullet\ specified with \texttt{to prove}\\\textbullet\ format controlled by \keyname[fregkeylist]{proof statement format}\\\textbullet\ named \texttt{proof statement}};
+              \node [text=Green4, anchor=north west, xshift=10pt, text width=.6\textwidth] at (rhif2.south west) {\textbullet\ content \& location automatic\\\textbullet\ existence controlled by \texttt{line numbering}\\\textbullet\ global format controlled by \keyname[fregkeylist]{line no format} \& \cs{linenumberstyle}\\\textbullet\ local format controlled by \keyname[foptbool]{highlight line no} \& \keyname[foptautotoks]{line no options}\\\textbullet\ named \texttt{line no $n$} for proof line $n$};
+              \node (nod3) [text=DarkOrange3, anchor=north west, xshift=10pt, text width=.4\textwidth] at (nod2.south west) {\textbullet\ location automatic\\\textbullet\ existence controlled implicitly or with \texttt{justifications}\\\textbullet\ content specified with \texttt{just}\\\textbullet\ cross-references supported\\\textbullet\ global format controlled by \keyname[fregkeylist]{just format} \& \keyname[fregbool]{just refs left}\\\textbullet\ local format controlled by \keyname[foptbool]{highlight just} \& \keyname[foptautotoks]{just options}\\\textbullet\ named \texttt{just $n$} for proof line $n$};
+              \node [text=WildStrawberry, anchor=north west, xshift=10pt, text width=.25\textwidth] at (wff2.south west) {\textbullet\ from \meta{tree specification}\\\textbullet\ global format controlled by \keyname[fregkeylist]{wff format}\\\textbullet\ local format controlled by \keyname[foptbool]{highlight wff} \& \keyname[foptautotoks]{wff options}\\\textbullet\ \keyname[foptbool]{highlight line} and \keyname[foptautotoks]{line options} control the format of the current \wff's proof line};
+            \end{scope}
+            \node (esb) [below=10pt of nod3.south west, font=\footnotesize, anchor=north west, align=left, text width=.4\textwidth] {\textsc{Anatomy \& Ontology}\\\textbullet\ \pkg{forest} trees consist of  (\TikZ) \texttt{nodes}\\\textbullet\ \pkg{prooftrees} places \wff s, line numbers, justifications \& proof statements into nodes\\\textbullet\ the content \& location of each node depends on its type: line number, \wff{}, justification or proof statement\\\textbullet\ the proof's structure \& appearance is determined by the \meta{tree preamble} \& \meta{tree specification}\\\textbullet\ node content, existence \& location is controlled by one or both of these, depending on the node type};
+            \node [below=5pt of esb.south west, font=\footnotesize, anchor=north west, align=left, text width=.55\textwidth, xshift=-.15\textwidth] {\textsc{Meaning \& Reference}\\\textbullet\ nodes for the proof statement, justifications \& line numbers are given standard names for ease of reference\\\textbullet\ the proof statement node is the \texttt{root}\\\textbullet\ \wff{} nodes may be named as required\\\textbullet\ a cross-referencing system supports annotations in justifications and closures};
+          \end{scope}
+        },
+      },
+    },
+  }
+  [, checked,
+    tikz+={%
+      \node (c1) [anchor=base east] at (.base east) {\phantom{$\checkmark$}};
+      \begin{scope}[on background layer]
+        \node [post grwp=DarkOrchid4,anchor=base east, inner sep=-2pt, fit=(c1)] {};
+        \path [nodiad=DarkOrchid4] ([yshift=-2pt]c1.north) |- ++(80:75pt) node (ann2) [anchor=west] {Discharge \& Substitution};
+        \begin{scope}[every node/.append style={font=\scriptsize, align=left, inner sep=0pt}]
+          \node [text=DarkOrchid4, anchor=north west, xshift=10pt, text width=.7\textwidth] at (ann2.south west) {\textbullet\ location \& annotation content controlled by \keyname[fstyle]{checked} and \keyname[fstyle]{subs} within the \meta{tree specification}\\\textbullet\ discharge \& substitution symbols controlled by \keyname[fregtoks]{check with} \& \keyname[fregtoks]{subs with}\\\textbullet\ \keyname[fregbool]{check right} \& \keyname[fregbool]{subs right} control relative location};
+        \end{scope}
+      \end{scope}
+    }
+    [, checked=a,
+      tikz+={%
+        \node (c2) [anchor=base east] at (.base east) {\phantom{$\checkmark a$}};
+        \begin{scope}[on background layer]
+          \node [post grwp=DarkOrchid4,anchor=base east, inner sep=-2pt, fit=(c2)] {};
+        \end{scope}
+       }
+      [, subs={a,b},
+        tikz+={%
+          \node (s1) [anchor=base east] at (.base east) {\phantom{$\backslash a,b$}};
+          \begin{scope}[on background layer]
+            \node [post grwp=DarkOrchid4,anchor=base east, inner sep=-2.5pt, fit=(s1)] {};
+          \end{scope}
+       }
+        [[[[][]]]][[[[[]][[[]]]][[]]]]]]]
+\end{tableau}
+
+% END sec:anatomy
+
+\section{Options}\label{sec:ops}
+% BEGIN sec:ops
+Most configuration uses the standard key/value interface provided by \TikZ{} and extended by \pkg{forest}.
+These are divided into those which determine the overall appearance of the proof as a whole and those with more local effects.
+
+\subsection{Global Options}\label{subsec:go}
+% BEGIN subsec:go
+
+The following options affect the global style of the tree and should typically be set in the tree's preamble if non-default values are desired.
+The default values for the document can be set outside the \env{prooftree} environment using \cs{forestset}\marg{settings}.
+If \emph{only} proof trees will be typeset, a default style can be configured using \pkg{forest}'s \keyname*[fkeylist]{default preamble}.
+
+\DescribeKeys[fregbool]{auto move, not auto move}\vals{true,false}\AfterLastParam
+\Default{true}
+Determines whether \pkg{prooftrees} will move lines automatically, where possible, to avoid combining different justifications when different branches are treated differently.
+The default is to avoid conflicts automatically where possible.
+Turning this off permits finer-grained control of what gets moved using \keyname[fstyle]{move by}.
+The following are equivalent to the default setting:
+\begin{latexcode}
+  auto move
+  auto move=true
+\end{latexcode}
+Either of the following will turn auto move off:
+\begin{latexcode}
+  not auto move
+  auto move=false
+\end{latexcode}
+
+\DescribeKeys[fregbool]{line numbering, not line numbering}\vals{true,false}\AfterLastParam
+\Default{true}
+This determines whether lines should be numbered.
+The default is to number lines.
+The following are equivalent to the default setting:
+\begin{latexcode}
+  line numbering
+  line numbering=true
+\end{latexcode}
+Either of the following will turn line numbering off:
+\begin{latexcode}
+  not line numbering
+  line numbering=false
+\end{latexcode}
+
+\DescribeKeys[fregbool]{justifications, not justifications}\vals{true,false}\AfterLastParam
+This determines whether justifications for lines of the proof should be typeset to the right of the tree.
+It is rarely necessary to set this option explicitly as it will be automatically enabled if required.
+The only exception concerns a proof for which a line should be moved but no justifications are specified.
+In this case either of the following should be used to activate the option:
+\begin{latexcode}
+  justifications
+  justifications=true
+\end{latexcode}
+This is not necessary if \keyname[foptautotoks]{just} is used for any line of the proof.
+
+\DescribeKeys[fregbool]{single branches, not single branches}\vals{true,false}\AfterLastParam
+\Default{false}
+This determines whether inference steps which do not result in at least two branches should draw and explicit branch.
+The default is to not draw single branches explicitly.
+The following are equivalent to the default setting:
+\begin{latexcode}
+  not single branches
+  single branches=false
+\end{latexcode}
+Either of the following will turn line numbering off:
+\begin{latexcode}
+  single branches
+  single branches=true
+\end{latexcode}
+
+\DescribeKey[fregdim]{line no width}\val{dimension}\AfterLastParam
+The maximum width of line numbers.
+By default, this is set to the width of the formatted line number \keyval{99}.
+\Example{line no width=20pt}
+
+\DescribeKey[fregdim]{just sep}\val{dimension}\AfterLastParam
+\Default{1.5em}
+Amount by which to shift justifications away from the tree.
+A larger value will shift the justifications further to the right, increasing their distance from the tree, while a smaller one will decrease this distance.
+Note that a negative value ought never be given.
+Although this will not cause an error, it may result in strange things happening.
+If you wish to decrease the distance between the tree and the justifications further, please set \keyname[fregdim]{just sep} to zero and use the options provided by \pkg{forest} and/or \TikZ{} to make further negative adjustments.
+\Example{just sep=.5em}
+
+\DescribeKey[fregdim]{line no sep}\val{dimension}\AfterLastParam
+\Default{1.5em}
+Amount by which to shift line numbers away from the tree.
+A larger value will shift the line numbers further to the left, increasing their distance from the tree, while a smaller one will decrease this distance.
+Note that a negative value ought never be given.
+Although this will not cause an error, it may result in strange things happening.
+If you wish to decrease the distance between the tree and the line numbers further, please set \keyname[fregdim]{line no sep} to zero and use the options provided by \pkg{forest} and/or \TikZ{} to make further negative adjustments.
+\Example{line no sep=5pt}
+
+\DescribeKey[fregdim]{close sep}\val{dimension}\AfterLastParam
+\Default{.75\cs{baselineskip}}
+Distance between the symbol marking branch closure and any following annotation.
+If the format of such annotations is changed with \keyname[fregkeylist]{close format}, this dimension may require adjustment.
+\Example{close sep=\cs{baselineskip}}
+
+\DescribeKey[fregdim]{proof tree inner proof width}\val{dimension}\AfterLastParam
+\Default{0pt}
+
+\DescribeKey[fregdim]{proof tree inner proof midpoint}\val{dimension}\AfterLastParam
+\Default{0pt}
+
+\DescribeKey[fregcount]{line no shift}\val{integer}\AfterLastParam
+\Default{0}
+This value increments or decrements the number used for the first line of the proof.
+By default, line numbering starts at \texttt{1}.
+\Example{line no shift=3} would begin numbering the lines at 4.
+
+\DescribeKey[fstyle]{zero start}
+Start line numbering from 0 rather than 1.
+The following are equivalent:
+\begin{latexcode}
+  zero start
+  line no shift=-1
+\end{latexcode}
+
+\DescribeKey[fstyle]{to prove}\val{wff}\AfterLastParam
+Statement of theorem or entailment to be typeset above the proof.
+In many cases, it will be necessary to enclose the statement in curly brackets.
+\Example{to prove=\arg{\cs{sststile}\arg{}\arg{} P \cs{lif} P}}
+By default, the content is expected to be suitable for typesetting in maths mode and should \emph{not}, therefore, be enclosed by dollar signs or equivalent.
+
+\DescribeKey[fregtoks]{check with}\val{symbol}\AfterLastParam
+\Default{\cs{ensuremath}\arg{\cs{checkmark}} (\ensuremath{\checkmark})}
+Symbol with which to mark discharged lines.
+\Example{check with=\arg{\cs{text}\arg{\cs{ding}\arg{52}}}}
+Within the tree, \keyname[fstyle]{checked} is used to identify discharged lines.
+
+\DescribeKeys[fregbool]{check right, not check right}\vals{true,false}\AfterLastParam
+\Default{true}
+Determines whether the symbol indicating that a line is discharged should be placed to the right of the \wff{}.
+The alternative is, unsurprisingly, to place it to the left of the \wff{}.
+The following are equivalent to the default setting:
+\begin{latexcode}
+  check right
+  check right=true
+\end{latexcode}
+\DescribeKeys[fstyle]{check left}%
+Set \keyname[fregbool]{check right}\verb|=false|.
+The following are equivalent ways to place the markers to the left:
+\begin{latexcode}
+  check right=false
+  not check right
+  check left
+\end{latexcode}
+
+\DescribeKey[fregtoks]{close with}\val{symbol}\AfterLastParam
+\Default{\cs{ensuremath}\arg{\cs{otimes}} (\ensuremath{\otimes})}
+Symbol with which to close branches.
+\Example{close with=\arg{\cs{ensuremath}\arg{\cs{ast}}}}
+Within the tree, \keyname[fstyle]{close} is used to identify closed branches.
+
+\DescribeKey[fregkeylist]{close with format}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to the closure symbol.
+Empty by default.
+\Example{close with format=\arg{red, font=\Huge}}
+To replace a previously set value, rather than adding to it, use \keyname[fregkeylist]{close with format\textquotesingle} rather than \keyname[fregkeylist]{close with format}.
+
+\DescribeKey[fregkeylist]{close format}\val{key-value list}\AfterLastParam
+\Default{font=\cs{scriptsize}}
+Additional \TikZ{} keys to apply to any annotation following closure of a branch.
+\Example{close format=\arg{font=\cs{footnotesize}\cs{sffamily}, text=gray!75}}
+To replace the default value of \keyname[fregkeylist]{close format}, rather than adding to it, use \keyname[fregkeylist]{close format\textquotesingle} rather than \keyname[fregkeylist]{close format}.
+\Example{close format\textquotesingle=\arg{text=red}} will produce red annotations in the default font size, whereas
+\Example{close format=\arg{text=red}} will produce red annotations in \verb|\scriptsize|.
+
+\DescribeKey[fregtoks]{subs with}\val{symbol}\AfterLastParam
+\Default{\cs{ensuremath}\arg{\cs{backslash}} (\ensuremath{\backslash})}
+Symbol to indicate variable substitution.
+\Example{\cs{text}\arg{:}}
+Within the tree, \keyname[fstyle]{subs} is used to indicate variable substitution.
+
+\DescribeKeys[fregbool]{subs right, not subs right}\vals{true,false}\AfterLastParam
+\Default{true}
+Determines whether variable substitution should be indicated to the right of the \wff{}.
+The alternative is, again, to place it to the left of the \wff{}.
+The following are equivalent to the default setting:
+\begin{latexcode}
+  subs right
+  subs right=true
+\end{latexcode}
+\DescribeKeys[fstyle]{subs left}%
+Set \keyname[fregbool]{subs right}\verb|=false|.
+The following are equivalent ways to place the annotations to the left:
+\begin{latexcode}
+  subs right=false
+  not subs right
+  subs left
+\end{latexcode}
+
+\DescribeKeys[fregbool]{just refs left, not just refs left}\vals{true,false}\AfterLastParam
+\Default{true}
+Determines whether line number references should be placed to the left of justifications.
+The alternative is to place them to the right of justifications.
+The following are equivalent to the default setting:
+\begin{latexcode}
+  just refs left
+  just refs left=true
+\end{latexcode}
+\DescribeKeys[fstyle]{just refs right}%
+Set \keyname[fregbool]{just refs left}\verb|=false|.
+The following are equivalent ways to place the references to the right:
+\begin{latexcode}
+  just refs left=false
+  not just refs left
+  just refs right
+\end{latexcode}
+Note that this setting \emph{only affects the placement of line numbers specified using the cross-referencing system} explained in \cref{subsec:lo}.
+Hard-coded line numbers in justifications will be typeset as is.
+
+\DescribeKey[fregkeylist]{just format}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to line justifications.
+Empty by default.
+\Example{just format=\arg{red, font=\itshape}}
+To replace a previously set value, rather than adding to it, use \keyname[fregkeylist]{just format\textquotesingle} rather than \keyname[fregkeylist]{just format}.
+
+\DescribeKey[fregkeylist]{line no format}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to line numbers.
+Empty by default.
+\Example{line no format=\arg{align=right, text=gray}}
+To replace a previously set value, rather than adding to it, use \keyname[fregkeylist]{line no format\textquotesingle} rather than \keyname[fregkeylist]{line no format}.
+To change the way the number itself is formatted --- to eliminate the dot, for example, or to put the number in brackets --- redefine \cs{linenumberstyle} (see \cref{sec:macros}).
+
+\DescribeKey[fregkeylist]{wff format}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to \wff s.
+Empty by default.
+\Example{wff format=\arg{draw=orange}}
+To replace a previously set value, rather than adding to it, use \keyname[fregkeylist]{wff format\textquotesingle} rather than \keyname[fregkeylist]{wff format}.
+
+\DescribeKey[fregkeylist]{proof statement format}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to the proof statement.
+Empty by default.
+\Example{proof statement format=\arg{text=gray, draw=gray}}
+To replace a previously set value, rather than adding to it, use \keyname[fregkeylist]{proof statement format\textquotesingle} rather than \keyname[fregkeylist]{proof statement format}.
+
+\DescribeKey[fregautotoks]{highlight format}\val{key-value list}\AfterLastParam
+\Default{draw=gray, rounded corners}
+Additional \TikZ{} keys to apply to highlighted \wff s.
+\Example{highlight format=\arg{text=red}}
+To apply highlighting, use the \keyname[foptbool]{highlight wff}, \keyname[foptbool]{highlight just}, \keyname[foptbool]{highlight line no} and/or \keyname[foptbool]{highlight line} keys (see \cref{subsec:lo}).
+
+\DescribeKey[fregtoks]{merge delimiter}\val{punctuation}\AfterLastParam
+\Default{\cs{text}\arg{; } (\text{; })}
+Punctuation to separate distinct justifications for a single proof line.
+Note that \pkg{prooftrees} will issue a warning if it detects different justifications for a single proof line and will suggest using \keyname[fstyle]{move by} to avoid the need for merging justifications.
+In general, justifications ought not be merged because it is then less clear to which \wff(s) each justification applies.
+Moreover, later references to the proof line will be similarly ambiguous.
+That is, \keyname[fregtoks]{merge delimiter} ought almost never be necessary because it is almost always better to restructure the proof to avoid ambiguity.
+
+% END subsec:go
+
+\subsection{Local Options}\label{subsec:lo}
+% BEGIN subsec:lo
+
+The following options affect the local structure or appearance of the tree and should typically be passed as options to the relevant node(s) within the tree.
+
+\DescribeKeys[foptbool]{grouped, not grouped}
+Indicate that a line is not an inference.
+When \keyname[fregbool]{single branches} is false, as it is with the default settings, this key is applied automatically and need not be given in the specification of the tree.
+When \keyname[fregbool]{single branches} is true, however, this key must be specified for any line which ought not be treated as an inference.
+\Example{grouped}
+
+\DescribeKey[fstyle]{checked}
+Mark a complex \wff{} as resolved, discharging the line.
+\Example{checked}
+\DescribeKey[fstyle]{checked}\val{name}\AfterLastParam
+Existential elimination, discharge by substituting \meta{name}.
+\Example{checked=a}
+
+\DescribeKey[fstyle]{close}
+Close branch.
+\Example{close}
+\DescribeKey[fstyle]{close}\val{annotation}\AfterLastParam
+\val{annotation prefix}\texttt{:}\meta{references}\AfterLastParam
+Close branch with annotation.
+In the simplest case, \meta{annotation} contains no colon and is typeset simply as it is.
+Any required references to other lines of the proof are assumed to be given explicitly.
+\Example{close=\arg{12,14}}
+If \meta{annotation} includes a colon, \pkg{prooftrees} assumes that it is of the form \meta{annotation prefix}\texttt{:}\meta{references}.
+In this case, the material prior to the colon should include material to be typeset before the line numbers and the material following the colon should consist of one or more references to other lines in the proof.
+In typical cases, no prefix will be required so that the colon will be the first character.
+In case there is a prefix, \pkg{prooftrees} will insert a space prior to the line numbers.
+\meta{references} may consist of either \pkg{forest} names (e.g.~given by \keyname*[fopttoks]{name}\val{name label} and then used as \meta{name label}) or \pkg{forest} relative node names (e.g.~\meta{nodewalk}) or a mixture.
+\Example{close=\arg{:negated conclusion}} where \verb|name=negated conclusion| was used to label an earlier proof line \verb|negated conclusion|.
+If multiple references are given, they should be separated by commas and either \meta{references} or the entire \meta{annotation} must be enclosed in curly brackets, as is usual for \TikZ{} and \pkg{forest} values containing commas.
+\Example{close=\arg{:!c,!uuu}}
+
+\DescribeKey[fstyle]{subs}\val{name}/\meta{names}\AfterLastParam
+Universal instantiation, instantiate with \meta{name} or \meta{names}.
+\Example{subs=\arg{a,b}}
+
+\DescribeKey[foptautotoks]{just}\val{justification}\AfterLastParam
+\val{justification prefix/suffix}\texttt{:}\meta{references}\AfterLastParam
+Justification for inference.
+This is typeset in text mode.
+Hence, mathematical expressions must be enclosed suitably in dollar signs or equivalent.
+In the simplest case, \meta{justification} contains no colon and is typeset simply as it is.
+Any required references to other lines of the proof are assumed to be given explicitly.
+\Example{just=3 \$\cs{lor}\$D}
+If \meta{justification} includes a colon, \pkg{prooftrees} assumes that it is of the form \meta{justification prefix/suffix}\texttt{:}\meta{references}.
+In this case, the material prior to the colon should include material to be typeset before or after the line numbers and the material following the colon should consist of one or more references to other lines in the proof.
+Whether the material prior to the colon is interpreted as a \meta{justification prefix} or a \meta{justification suffix} depends on the value of \keyname[fregbool]{just refs left}.
+\meta{references} may consist of either \pkg{forest} names (e.g.~given by \keyname*[fopttoks]{name}\val{name label} and then used as \meta{name label}) or \pkg{forest} relative node names (e.g.~\meta{nodewalk}) or a mixture.
+If multiple references are given, they should be separated by commas and \meta{references} must be enclosed in curly brackets.
+If \keyname[fregbool]{just refs left} is true, as it is by default, then the appropriate line number(s) will be typeset before the \meta{justification suffix}.
+\Example{just=\$\cs{lnot}\cs{exists}\$\cs{elim}:\arg{!uu,!u}}
+If \keyname[fregbool]{just refs left} is false, then the appropriate line number(s) will be typeset after the \meta{justification prefix}.
+\Example{just=From:bertha}
+
+\DescribeKey[fstyle]{move by}\val{positive integer}\AfterLastParam
+Move the content of the current line \meta{positive integer} lines later in the proof.
+If the current line has a justification and the content is moved, the justification will be moved with the line.
+Later lines in the same branch will be moved appropriately, along with their justifications.
+\Example{move by=3}
+Note that, in many cases, \pkg{prooftrees} will automatically move lines later in the proof.
+It does this when it detects a condition in which it expects conflicting justifications may be required for a line while initially parsing the tree.
+Essentially, \pkg{prooftrees} tries to detect cases in which a branch is followed closely by asymmetry in the structure of the branches.
+This happens, for example, when the first branch's first \wff{} is followed by a single \wff{}, while the second branch's first \wff{} is followed by another branch.
+Diagrammatically:
+\begin{center}
+  \forestset{declare boolean={go iawn}{1}}
+  \begin{forest}
+    for root={%
+      shape=coordinate,
+      for children={%
+        shape=coordinate,
+        no edge
+      },
+    },
+    for tree={%
+      delay={content={\wff}},
+      if level=3{WildStrawberry}{},
+      if level=2{edge={densely dashed},not go iawn}{},
+      parent anchor=children,
+      child anchor=parent,
+    },
+    before computing xy={%
+      where={n_children()==1}{%
+        for children={%
+          if go iawn={%
+            l=\baselineskip, no edge,
+          }{},
+        },
+      }{},
+    }
+    [
+      [[[[]][[][]]]]
+      [[[[[[,edge={densely dashed}, shape=coordinate, not go iawn, before drawing tree={for tree={fill=none, content={}, typeset node}}[,edge={densely dashed,-{Stealth[]}}, not go iawn]]]]][[][]]]]
+    ]
+  \end{forest}
+\end{center}
+In this case, \pkg{prooftrees} tries to adjust the tree by moving lines appropriately if required.
+
+However, this detection is merely structural --- \pkg{prooftrees} does not examine the content of the \wff s or justifications for this purpose.
+Nor does it look for slightly more distant structural asymmetries, conflicting justifications in the absence of structural asymmetry or potential conflicts with justifications for lines in other, more distant parallel branches.
+Although it is not that difficult to detect the \emph{need} to move lines in a greater proportion of cases, the problem lies in providing general rules for deciding \emph{how} to resolve such conflicts.
+(Indeed, some such conflicts might be better left unresolved e.g.~to fit a proof on a single Beamer slide.)
+In these cases, a human must tell \pkg{prooftrees} if something should be moved, what should be moved and how far it should be moved.
+
+Because simple cases are automatically detected, it is best to typeset the proof before deciding whether or where to use this option since \pkg{prooftrees} will assume that this option specifies movements which are required \emph{in addition to} those it automatically detects.
+Attempting to move a line ‘too far’ is not advisable.
+\pkg{prooftrees} tries to simply ignore such instructions, but the results are likely to be unpredictable.
+
+Not moving a line far enough --- or failing to move a line at all --- may result in the content of one justification being combined with that of another.
+This happens if \keyname[foptautotoks]{just} is specified more than once for the same proof line with differing content.
+\pkg{prooftrees} \emph{does} examine the content of justifications for \emph{this} purpose.
+When conflicting justifications are detected for the same proof line, the justifications are merged and a warning issued suggesting the use of \keyname[fstyle]{move by}.
+
+\DescribeKeys[foptbool]{highlight wff, not hightlight wff}
+Highlight \wff{}.
+\Example{highlight wff}
+
+\DescribeKeys[foptbool]{highlight just, not hightlight just}
+Highlight justification.
+\Example{highlight just}
+
+\DescribeKeys[foptbool]{highlight line no, not highlight line no}
+Highlight line number.
+\Example{highlight line no}
+
+\DescribeKeys[foptbool]{highlight line, not highlight line}
+Highlight proof line.
+\Example{highlight line}
+
+\DescribeKey[foptautotoks]{line no options}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to the line number for this line.
+\Example{line no options=\arg{blue}}
+
+\DescribeKey[foptautotoks]{just options}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to the justification for this line.
+\Example{just options=\arg{draw, font=\cs{bfseries}}}
+
+\DescribeKey[foptautotoks]{wff options}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to the \wff{} for this line.
+\Example{wff options=\arg{magenta, draw}}
+Note that this key is provided primarily for symmetry as it is faster to simply give the options directly to \pkg{forest} to pass on to \TikZ{}.
+Unless \keyname[fregkeylist]{wff format} is set to a non-default value, the following are equivalent:
+\begin{latexcode}
+  wff options={magenta, draw}
+  magenta, draw
+\end{latexcode}
+
+\DescribeKey[foptautotoks]{line options}\val{key-value list}\AfterLastParam
+Additional \TikZ{} keys to apply to this proof line.
+\Example{line options=\arg{draw, rounded corners}}
+
+\DescribeKey[fstyle]{line no override}\val{text}\AfterLastParam
+Substitute \meta{text} for the programmatically-assigned line number.
+\meta{text} will be wrapped by \keyname[macro]{\cs{linenumberstyle}}, so should not be anything which would not make sense in that context.
+\Example{line no override=\arg{n}}
+
+\DescribeKey[fstyle]{no line no}\AfterLastParam
+Do not typeset a line number for this line.
+Intended for use in trees where \keyname[foptbool]{line numbering} is activated, but some particular line should not have its number typeset.
+Note that the number for the line is still assigned and the node which would otherwise contain that number is still typeset.
+If the next line is automatically numbered, the line numbering will, therefore, ‘jump’, skipping the omitted number.
+\Example{no line no}
+
+% END subsec:lo
+% END sec:ops
+
+\section{Macros}\label{sec:macros}
+% BEGIN sec:macros
+
+\DescribeMacro{\linenumberstyle}\marg{number}\AfterLastParam
+This macro is responsible for formatting the line numbers.
+The default definition is
+\begin{latexcode}
+  \newcommand*\linenumberstyle[1]{#1.}
+\end{latexcode}
+It may be redefined with \cs{renewcommand*} in the usual way.
+For example, if for some reason you would like bold line numbers, try
+\begin{latexcode}
+  \renewcommand*\linenumberstyle[1]{\textbf{#1.}}
+\end{latexcode}
+
+% END sec:macros
+
+\section{Memoization}\label{sec:memoize}
+% BEGIN sec:memoize
+
+Tableaux created by \pkg{prooftrees} cannot, in general, be externalised with \TikZ's \keyname[pkg]{\pkg{external}} library.
+Since \keyname[pkg]{\pkg{pgf}}/\TikZ{}, in general, and \pkg{prooftrees}, in particular, can be rather slow to compile, this is a serious issue.
+If you only have a two or three small tableaux, the compilation time will be negligible.
+But if you have large, complex proofs or many smaller ones, compilation time will quickly become excessive.
+
+Version 0.9 does not cure the disease, but it does offer an extremely effective remedy for the condition.
+While it does not make \pkg{prooftrees} any faster, it supports the \keyname[pkg]{\pkg{memoize}} package developed by \pkg{forest}'s author, Sašo Živanović \autocite*{saso-memoize-manual}.
+Memoization is faster, more secure, more robust and easier to use than \TikZ's externalisation.
+\begin{description}
+  \item[It is faster.] It does not require separate compilations for each memoized object, so it is comparatively fast even when memoizing.
+  \item[It is more secure.] It requires only restricted shell-escape, which almost all \TeX{} installations enable by default, so it is considerably more secure and can be utilised even where shell-escape is disabled.
+  \item[It is more robust.] It can successfully memoize code which defeats all ordinary mortals' attempts to externalize with the older \TikZ{} library.
+  \item[It is easier to use.] It requires less configuration and less intervention.
+  For example, it detects problematic code and aborts memoization automatically in many cases in which \TikZ's \pkg{external} would either cause a compilation error or silently produce nonsense output, forcing the user to manually disable the process for relevant code.
+\end{description}
+
+There is always a ‘but’, but this is a pretty small ‘but’ as ‘but’s go.
+\begin{description}
+  \item[But installation requires slightly more work.] To reap the full benefits, you want to use either the \texttt{perl} or the \texttt{python} ‘extraction’ method.
+  There is a third method, which does not require any special installation, but this lacks several of the advantages explained above and is not recommended.
+  
+  If you use \TeX{} Live, you have \texttt{perl} already, but you may need to install a couple of libraries.
+  \texttt{python} is not a prerequisite for \TeX{} Live but, if you happen to have it installed, you will probably only need an additional library to use this method.
+
+  See \citetitle{saso-memoize-manual} \autocite{saso-memoize-manual} for further details.
+\end{description}
+
+Once you have the prerequisites setup, all you need do is load \pkg{memoize} \emph{before} \pkg{prooftrees}.
+
+\begin{latexcode}
+\usepackage[extraction method=perl]{memoize}% or python
+\usepackage{prooftrees}
+\end{latexcode}
+
+After a single compilation, your document will have expanded to include extra pages.
+At this point, it will look pretty weird.
+After the next compilation, your document will return to its normal self, the only difference being the speed with which it does so as all your memoized tableaux will simply be included, as opposed to recompiled.
+Only when you alter the code for a tableau, delete the generated files, disable memoization or explicitly request it will the proof be recompiled.
+
+Memoization is compatible with both \pkg{prooftrees}'s cross-referencing system and \LaTeXe's cross-references, but the latter require an additional compilation.
+In general, if a document element takes $n$ compilations to stabilise, it will take $n+1$ compilations to complete the memoization process.
+See \citetitle{saso-memoize-manual} \autocite{saso-memoize-manual} for details.
+
+% END sec:memoize
+
+\section{Compatibility}\label{sec:compat}
+% BEGIN sec:compat
+
+Versions of \pkg{prooftrees} prior to 0.5 are incompatible with \pkg{bussproofs}, which also defines a \env{prooftree} environment.
+Version 0.6 is compatible with \env{bussproofs} provided
+\begin{description}[font=\itshape]
+  \item[either] \pkg{bussproofs} is loaded \emph{before} \pkg{prooftrees}
+  \item[or] \pkg{prooftrees} is loaded with option \option{tableaux} (see \cref{sec:llwytho}).
+\end{description}
+In either case, \pkg{prooftrees} will \emph{not} define a \env{prooftree} environment, but will instead define \env{tableau}.
+This allows you to use \env{tableau} for \pkg{prooftrees} trees and \env{prooftree} for \pkg{bussproofs} trees.
+
+% END sec:compat
+
+\section{Version History}\label{sec:hanes}
+% BEGIN sec:hanes
+
+\subsection{0.9}\label{subsec:0.9}
+% BEGIN subsec:0.9
+Add support for \pkg{memoize} and utilise for documentation.
+
+Use \cs{NewDocumentEnvironment}, removing direct dependency on \pkg{environ}.
+% END subsec:0.9
+
+\subsection{0.8}
+Add previously unnoticed dependency on \pkg{amstext}.
+Attempt to fix straying closure symbols evident in documentation and a \TeX\ SE question\footnote{\url{https://tex.stackexchange.com/q/619314/}.}
+
+Documentation now loads \pkg{enumitem}, since it depended on it already anyway and specifies \verb|doc2| in options for \cls{ltxdoc} as the code is incompatible with the current version.
+
+\subsection{0.7}\label{subsec:v0.7}
+
+% BEGIN subsec:v0.7
+
+Implement \keyname[fregbool]{auto move}.
+See \cref{subsec:go}.
+The main point of this option is to allow automatic moves to be switched off if one teaches students to first apply  all available non-branching rules for the tableau as a whole, as opposed to all non-branching rules for the sub-tree.
+The automatic algorithm is consistent with the latter, but not former, approach.
+The algorithm favours compact trees, which are more likely to fit on \pkg{beamer} slides.
+Switching the algorithm off permits users to specify exactly how things should or should not be moved.
+Thanks to Peter Smith for prompting this.
+
+Fix bug reported at \href{https://tex.stackexchange.com/q/479263/39222}{tex.stackexchange.com/q/479263/39222}.
+
+% END subsec:v0.7
+
+\subsection{0.6}\label{subsec:v0.6}
+
+% BEGIN subsec:v0.6
+
+Add compatibility option for use with \pkg{bussproofs}.
+See \cref{sec:llwytho}.
+Thanks to Peter Smith for suggesting this.
+
+% END subsec:v0.6
+
+\subsection{0.5}\label{subsec:v0.5}
+% BEGIN subsec:v0.5
+
+Significant re-implementation leveraging the new argument processing facilities in \pkg{forest} 2.1.
+This significantly improves performance as the code is executed much faster than the previous \pkg{pgfmath} implementation.
+
+% END subsec:v0.5
+
+\subsection{0.41}\label{subsec:v0.41}
+% BEGIN subsec:v0.41
+
+Update for compatibility with \pkg{forest} 2.1.
+
+% END subsec:v0.41
+
+\subsection{0.4}\label{subsec:v0.4}
+% BEGIN subsec:v0.4
+
+Bug fix release:
+\begin{itemize}
+  \item \keyname[fregcount]{line no shift} was broken;
+  \item in some cases, an edge was drawn where no edge belonged.
+\end{itemize}
+
+% END subsec:v0.4
+
+\subsection{0.3}\label{subsec:v0.3}
+% BEGIN subsec:v0.3
+
+First CTAN release.
+
+% END subsec:v0.3
+
+% END sec:hanes
+
+\printbibliography
+
+\loadgeometry{safonol}%
+\fancyheadoffset[lh]{0pt}%
+
+\printindex
+
+
+\onecolumn
+\appendix
+
+\section{Implementation}\label{sec:imp}
+
+{%
+  % \makeatletter
+  % \def\@xobeysp{\leavevmode\penalty100\ }%
+  % \makeatother
+  % \verbatiminput{prooftrees.sty}%
+}
+\lstinputlisting[style=lstsrc,numbers=left,inputencoding=utf8/latin1]{prooftrees.sty}
+
+
+\end{document}
