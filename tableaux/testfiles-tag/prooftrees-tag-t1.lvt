@@ -1,0 +1,64 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `prooftrees-ebproof-t1.lvt',
+%%
+%% Copyright (C) 2025 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% prooftrees. You may however distribute the package prooftrees without
+%% such generated files.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{
+ tagging=on,
+ lang=en-GB,
+ pdfversion=2.0,
+ pdfstandard=ua-2,
+ uncompress,
+}
+\tagpdfsetup{
+  math/mathml/structelem,
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: prooftrees-tag-t1.lvt 11150 2025-08-27 16:17:35Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\input regression-test.tex\relax
+\documentclass{article}
+\usepackage[tableaux]{prooftrees}
+\usepackage{prooftrees-debug}
+\usepackage{turnstile}
+\usepackage{unicode-math}
+\makeatletter
+\@ttableau@dadfygiotrue
+\makeatother
+\title{This Test Needs No Title}
+\begin{document}
+\START
+\TEST{prooftrees-tag-t1}{%
+  \showoutput
+  \begin{tableau}{%
+      to prove=\sststile{}{}p\vee\lnot p,
+    }
+    [\lnot(p\vee\lnot p),just=$\lnot$ conc
+      [\lnot p,just=$\vee$E:!u,
+        [\lnot\lnot p,just=$\vee$E:!uu,close={:!u,!c},]
+      ]
+    ]
+  \end{tableau}%
+}
+\end{document}
+\END
+

@@ -1,0 +1,85 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `prooftrees-memoize-t1.lvt',
+%%
+%% Copyright (C) 2024 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% prooftrees. You may however distribute the package prooftrees without
+%% such generated files.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: prooftrees-memoize-t1.lvt 10540 2024-10-29 04:41:14Z cfrees $}[v0.0 \revinfo][\filebase: memoization test]
+\input regression-test.tex\relax
+\documentclass{article}
+\START
+\TEST{prooftrees-memoize-t1-mmz}{%
+  \IfFileExists{prooftrees-memoize-t1.mmz}{%
+    \TYPE{prooftrees-memoize-t1.mmz:}%
+    \NEWLINE
+    \SHOWFILE{prooftrees-memoize-t1.mmz}%
+  }{%
+    \TYPE{CANNOT FIND prooftrees-memoize-t1.mmz}%
+  }%
+}
+\OMIT
+\usepackage[extract=python]{memoize}
+\mmzset{%
+  prefix={memos/},
+  include context in ccmemo,
+}
+\usepackage{prooftrees}
+\begin{document}
+\TIMO
+\TEST{prooftrees-memoize-t1}{%
+\showoutput
+\begin{prooftree}
+  {%
+    to prove = \alpha   \land \lnot \alpha   \vdash \beta,
+  }
+  [\alpha   \land \lnot \alpha  , just=ass
+    [\lnot \beta  , just=ass
+      [\alpha  , just=$\land$ elim:!r1
+        [\lnot \alpha  , just=$\land$ elim:!r1, close=:{!u,!c}
+        ]
+      ]
+    ]
+  ]
+\end{prooftree}%
+}
+\TEST{prooftrees-memoize-t1-cmemo}{%
+  \IfFileExists{memos/7121941879D6FB13ABCA25F26E053B07.memo}{%
+    \TYPE{memos/7121941879D6FB13ABCA25F26E053B07.memo:}%
+    \NEWLINE
+    \SHOWFILE{memos/7121941879D6FB13ABCA25F26E053B07.memo}%
+  }{%
+    \TYPE{CANNOT FIND memos/7121941879D6FB13ABCA25F26E053B07.memo!}%
+  }%
+}
+\TEST{prooftrees-memoize-t1-ccmemo}{%
+  \IfFileExists{memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}{%
+    \TYPE{memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:}%
+    \NEWLINE
+    \SHOWFILE{memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}%
+  }{%
+    \TYPE{CANNOT FIND memos/7121941879D6FB13ABCA25F26E053B07-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo!}%
+  }%
+}
+
+\END
+\end{document}
