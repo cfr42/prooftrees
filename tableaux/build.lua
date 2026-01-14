@@ -1,8 +1,8 @@
--- $Id: build.lua 11470 2026-01-14 21:23:24Z cfrees $
+-- $Id: build.lua 11473 2026-01-14 23:52:07Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
-maindir = maindir or "."
-sourcedir = sourcedir or maindir
+maindir = maindir or ".."
+sourcedir = sourcedir or "."
 --------------------------------------------------------------------------------
 ctanpkg = "prooftrees"
 module = "prooftrees"
@@ -15,6 +15,8 @@ tagfiles = { "*.dtx", "*.ins", "README.md", "build.lua", "manifest.txt" }
 typesetfiles = {"prooftrees-doc.tex","prooftrees-code.tex"}
 -- typesetopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 typesetopts = "-interaction=errorstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
+typesetdeps = {maindir .. "/forest-ext"}
+checkdeps = {maindir .. "/forest-ext"}
 --------------------------------------------------------------------------------
 -- indexstyle = ""
 typesetruns = 4
@@ -35,9 +37,9 @@ uploadconfig = {
   topic = {"logic", "pgf-tikz", "proof", "tree"},
 }
 --------------------------------------------------------------------------------
-date = "2016-2025"
-if direxists(sourcedir .. "/../adnoddau/l3build") then
-  dofile(sourcedir .. "/../adnoddau/l3build/manifest.lua")
-  dofile(sourcedir .. "/../adnoddau/l3build/tag.lua")
+date = "2016-2026"
+if direxists(maindir .. "/../adnoddau/l3build") then
+  dofile(maindir .. "/../adnoddau/l3build/manifest.lua")
+  dofile(maindir .. "/../adnoddau/l3build/tag.lua")
 end
 -- vim: ts=2:sw=2:et:
