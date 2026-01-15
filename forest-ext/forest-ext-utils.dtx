@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11477 2026-01-15 16:46:47Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-utils]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-utils.dtx 11471 2026-01-14 21:49:31Z cfrees $}
+%% $Id: forest-ext-utils.dtx 11477 2026-01-15 16:46:47Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.utils}[2025-12-05 v0.0]
 %<debug>    \ProvidesForestLibrary{ext.utils-debug}[2025-12-05 v0.0]
 %    \end{macrocode}
@@ -125,6 +125,9 @@
   \prop_new:c {l_@@_#1_prop}
   \@@_fkeylist_put_from_keyval:nn {#1}{#2}
 %<debug>      \@@_fkeylist_log:n {#1}
+%<debug>      \typeout{[Forest~ext.utils~debug]::~Set~processing~order~to~unique=tree.}
+  \tl_new:c { l_@@_#1_order_tl }
+  \tl_set:cn { l_@@_#1_order_tl } {unique=tree}
 }
 %    \end{macrocode}
 % \end{macro}% ^^A >>>
@@ -265,13 +268,33 @@
 }
 %    \end{macrocode}
 % \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_set_order:nn}% ^^A <<< 
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_fkeylist_set_order:nn #1#2
+{
+%<debug>      \typeout{[Forest~ext.utils~debug]::~Set~tagging~keylist~#1~processing~order~to~#2.}
+  \tl_set:cn { l_@@_#1_order_tl } {#2}
+}
+% \end{macro}% ^^A >>>
+% \begin{macro}{\@@_fkeylist_order:n}% ^^A <<< 
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_fkeylist_order:n #1
+{
+% ^^A paid â wneud hwn.
+% ^^A %<debug>      \typeout{[Forest~ext.utils~debug]::~Get~tagging~keylist~#1~processing~order.}
+  \exp_not:N { \tl_use:c { l_@@_#1_order_tl } \exp_not:N }
+}
+%    \end{macrocode}
+% \end{macro}% ^^A >>>
 % \begin{macro}{% ^^A <<< 2e aliases
 %   \forestext@keylist@declare,
 %   \forestext@prop@to@keylist,
 %   \forestext@keylist@put,
 %   \forestext@keylist@remove@key,
 %   \forestext@keylist@remove,
-%   \forestext@keylist@redeclare 
+%   \forestext@keylist@redeclare,
+%   \forestext@keylist@set@order,
+%   \forestext@keylist@order
 % }
 % 2e aliases.
 %    \begin{macrocode}
@@ -281,6 +304,8 @@
 \cs_new_eq:NN \forestext@keylist@remove@key \@@_fkeylist_remove:nn
 \cs_new_eq:NN \forestext@keylist@remove \@@_fkeylist_remove_if_match:nn
 \cs_new_eq:NN \forestext@keylist@redeclare \@@_fkeylist_redeclare:nn
+\cs_new_eq:NN \forestext@keylist@set@order \@@_fkeylist_set_order:nn
+\cs_new_eq:NN \forestext@keylist@order \@@_fkeylist_order:n
 %    \end{macrocode}
 % \end{macro}% ^^A >>>
 % \begin{macro}{\@@_fkeylist_protected_show:n,\forestext@keylist@log}% ^^A <<< 
@@ -313,6 +338,7 @@
 %<debug>          \forestext@keylist@log{#1}%
     \forestext@toksapp\forestext@toksa{%
       declare keylist/.process={_x{#1}{\forestext@prop@to@keylist{#1}}},
+      #1 processing order=\forestext@keylist@order{#1},
     }%
 %<debug>          \expandafter\typeout\expandafter{\the\forestext@toksa}%
   },
@@ -321,6 +347,15 @@
 %<debug>          \typeout{[Forest ext.utils debug]:: with default #2.}%
     \forestext@keylist@redeclare {#1}{#2}%
 %<debug>          \forestext@keylist@log{#1}%
+  },
+%    \end{macrocode}
+% \begin{fcodekey}{tagging~keylist~processing~order}
+%   Wrapper. 
+%    \begin{macrocode}
+  tagging keylist processing order/.code 2 args={%
+%<debug>          \typeout{[Forest ext.utils debug]:: Setting processing order for tagging keylist #1}%
+%<debug>          \typeout{[Forest ext.utils debug]:: to #2.}%
+    \forestext@keylist@set@order {#1}{#2}%
   },
 %    \end{macrocode}
 % \end{fcodekey}
