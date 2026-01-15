@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11476 2026-01-15 13:15:33Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11471 2026-01-14 21:49:31Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11476 2026-01-15 13:15:33Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.0]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.0]
 %    \end{macrocode}
@@ -240,7 +240,7 @@
 \socket_new_plug:nnn {tagsupport/forest/setup}{alt}
 {
   \forestset{
-    plug=alt,
+    tag~plug=alt,
     tag~nodes~uses=alt~text,
     collate~tags~uses=alt~text,
     tag~tree~uses=alt,
@@ -322,31 +322,48 @@
       \cs_set_eq:NN \_@@_end: \_@@_noop:n
     }{
 %<debug>    \tagforest@debug@typeout{Custom~tagging~not~configured.}
-      \str_if_eq:eeT {tagforest@plug@NONE} {\foresteregister{plug}}
+      \str_if_eq:eeT {tagforest@plug@NONE} {\foresteregister{setup~plug}}
       {
+%<debug>    \tagforest@debug@typeout{Looking~for~setup~plug~as~none~configured.}
         \socket_get_plug:nN {tagsupport/tikz/picture/begin} \l_@@_tmpa_str
-        \bool_lazy_and:nnTF
+        \exp_args:NnV \socket_if_plug_exist:nnTF {tagsupport/forest/setup} 
+        \l_@@_tmpa_str
         {
-          \exp_args:NnV \socket_if_plug_exist_p:nn {tagsupport/forest/tag} 
-          \l_@@_tmpa_str
-        } {
-          \exp_args:NnV \socket_if_plug_exist_p:nn {tagsupport/forest/setup} 
-          \l_@@_tmpa_str
-        } {
-          \PackageInfo{ext.tagging~(forest~lib)}{%
-            Installing~plug~for~tagging~forest~trees~to~match~selection~for~
+          \PackageInfo{ext.tagging~(forest~lib)}{
+            Installing~setup~plug~for~tagging~forest~trees~to~match~selection~for~
             tikz~pictures.
           }
-          \exp_args:Ne \forestset{plug \exp_not:N = \l_@@_tmpa_str}
+          \exp_args:Ne \forestset{setup~plug \exp_not:N = \l_@@_tmpa_str}
         } {
-          \PackageWarning{ext.tagging~(forest~lib)}{%
-            Using~alt~plug~for~tagging~as~no~match~exists~for~plug~selected~for~
-            tikz~pictures.
+          \PackageWarning{ext.tagging~(forest~lib)}{
+            Using~alt~setup~plug~for~tagging~as~no~match~exists~for~plug~
+            selected~for~tikz~pictures
           }
-          \forestset{plug=alt}
+          \forestset{setup~plug=alt}
         }
       }
+      \str_if_eq:eeT {tagforest@plug@NONE} {\foresteregister{tag~plug}}
+      {
+%<debug>    \tagforest@debug@typeout{Looking~for~tag~plug~as~none~configured.}
+        \exp_args:NnV \socket_if_plug_exist:nnTF {tagsupport/forest/tag} 
+        \l_@@_tmpa_str
+        {
+          \PackageInfo{ext.tagging~(forest~lib)}{
+            Installing~tag~plug~for~tagging~forest~trees~to~match~selection~for~
+            tikz~pictures.
+          }
+          \exp_args:Ne \forestset{tag~plug \exp_not:N = \l_@@_tmpa_str}
+        } {
+          \PackageWarning{ext.tagging~(forest~lib)}{
+            Using~alt~tag~plug~for~tagging~as~no~match~exists~for~plug~
+            selected~for~tikz~pictures
+          }
+          \forestset{tag~plug=alt}
+        }
+      }
+%<debug>    \tagforest@debug@typeout{Assigning~plug~tag~to~tagsupport/forest/init.}
       \socket_assign_plug:nn {tagsupport/forest/init}{tag}
+%<debug>    \tagforest@debug@typeout{Using~socket~tagsupport/forest/init.}
       \socket_use:n {tagsupport/forest/init}
 %    \end{macrocode}
 %   We also do what we can to stop the residual tagging code from marking up useless content.
@@ -490,29 +507,39 @@
 %    \begin{macrocode}
   declare boolean register={tagging},
   tagging=0,
-  declare toks register={plug},
-  plug=tagforest@plug@NONE,
-  Autoforward register={plug}{%
+  declare toks register={setup plug},
+  setup plug=tagforest@plug@NONE,
+  declare toks register={tag plug},
+  tag plug=tagforest@plug@NONE,
+  Autoforward register={setup plug}{%
     TeX={%
       \IfSocketPlugExistsTF {tagsupport/forest/setup}{#1}{%
-        \IfSocketPlugExistsTF {tagsupport/forest/tag}{#1}{%
-          \AssignSocketPlug {tagsupport/forest/setup}{#1}%
-          \AssignSocketPlug {tagsupport/forest/tag}{#1}%
-        }{%
-          \PackageError{ext.tagging (forest library)}{%
-            No plug named '#1' exists for socket 'tagsupport/forest/tag'.%
-          }{%
-            Tagging a forest tree requires plugs with identical names for the sockets 'tagsupport/forest/setup' and 'tagsupport/forest/tag'. See the forest-ext manual for details.%
-          }%
-        }%
+        \AssignSocketPlug {tagsupport/forest/setup}{#1}%
       }{%
         \PackageError{ext.tagging (forest library)}{%
           No plug named '#1' exists for socket 'tagsupport/forest/setup'.%
         }{%
-          Tagging a forest tree requires plugs with identical names for the sockets 'tagsupport/forest/setup' and 'tagsupport/forest/tag'. See the forest-ext manual for details.%
+          See the forest-ext manual for details.%
         }%
       }%
     },
+  },
+  Autoforward register={tag plug}{%
+    TeX={%
+      \IfSocketPlugExistsTF {tagsupport/forest/tag}{#1}{%
+        \AssignSocketPlug {tagsupport/forest/tag}{#1}%
+      }{%
+        \PackageError{ext.tagging (forest library)}{%
+          No plug named '#1' exists for socket 'tagsupport/forest/tag'.%
+        }{%
+          See the forest-ext manual for details.%
+        }%
+      }%
+    },
+  },
+  plug/.style={%
+    setup plug={#1},
+    tag plug={#1},
   },
 %    \end{macrocode}
 % \begin{ftagkeylist}{%
@@ -731,7 +758,7 @@
 % The next line should create the tagging structure and insert the assembled \texttt{alt} text.
 %    \begin{macrocode}
 %<debug>    debug tagforest={Tagging tree now ...},
-      TeX/.process={RRRw3{plug}{tempdimc}{tempdimd}{%
+      TeX/.process={RRRw3{tag plug}{tempdimc}{tempdimd}{%
         \tagforest@tag@tree@tag{####1}{####2}{####3}}%
       },
     },

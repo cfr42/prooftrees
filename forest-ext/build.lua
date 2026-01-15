@@ -1,4 +1,4 @@
--- $Id: build.lua 11471 2026-01-14 21:49:31Z cfrees $
+-- $Id: build.lua 11476 2026-01-15 13:15:33Z cfrees $
 -- Build configuration for forest-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."

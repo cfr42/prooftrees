@@ -2854,11 +2854,8 @@ for root'={%
 %    \end{macrocode}
 % \end{macro}
 % \changes{v0.9.1}{2025-08-25}{Added for tagging experiments.}
-% \changes{v0.0}{0000-00-00}{Remove duplicate toks.}
-% ^^A % How am I meant to describe these things when they aren't macros or environments?!
-% ^^A %    \begin{macrocode}
-% ^^A % ^^A \newtoks\prooftrees@tableau@toks
-% ^^A %    \end{macrocode}
+% \changes{v0.0}{0000-00-00}{Remove duplicate toks \cs{prooftrees@tableau@toks}.}
+%
 % Currently, keys starting \texttt{proof tree} or \texttt{tableau} and macros starting \texttt{prooftree} or \texttt{prooftree@} are intended for internal use only.
 %
 % This does not apply to the environment \texttt{prooftree}.
@@ -3342,20 +3339,10 @@ for root'={%
 % \changes{v0.0.0}{0000-00-00}{Add to \texttt{alt text} if tagging.}
 %    \begin{macrocode}
         if={>R{tag}}{%
-%    \end{macrocode}
-%    \begin{macrocode}
 %<debug>          debug tagging=Copying to prove to alt text,
-%    \end{macrocode}
-%    \begin{macrocode}
           alt text/.process={ORw2{content}{tag to prove}{##2\ \ensuremath{##1}}},
-%    \end{macrocode}
-%    \begin{macrocode}
 %<debug>          debug tagging/.option=alt text,
-%    \end{macrocode}
-%    \begin{macrocode}
 % ^^A           collate tags={%
-%    \end{macrocode}
-%    \begin{macrocode}
 % ^^A %<debug>            debug tagging=Pick up alt text from to prove,
 %    \end{macrocode}
 % \changes{v0.0}{0000-00-00}{Use \texttt{collate} from \pkg{ext.tagging} instead of \texttt{pick up tags}.}
@@ -4235,15 +4222,15 @@ for root'={%
 % \texttt{debug tagging} is more expensive, so split this out.
 %
 % ANGEN: dw i ddim yn meddwl bod crefs yn cynnwys explicit closures?
-%    \begin{macrocode}
+% ^^A %    \begin{macrocode}
 % ^^A   ttableau/.style={%
-%    \end{macrocode}
-%    \begin{macrocode}
-    if={>R{tag}}{%
-      proof tree copy content to tags,
-% ^^A       proof tree tag nodes,
-    }{},
-%    \end{macrocode}
+% ^^A %    \end{macrocode}
+% ^^A %    \begin{macrocode}
+% ^^A     if={>R{tag}}{%
+% ^^A       proof tree copy content to tags,
+% ^^A % ^^A       proof tree tag nodes,
+% ^^A     }{},
+% ^^A %    \end{macrocode}
 % \begin{fstyle}{proof tree copy content to tags}
 %   Reset \texttt{proof tree copy content}.
 %   \changes{v0.0}{0000-00-00}{\texttt{proof tree copy content to tags} style.}
@@ -4279,11 +4266,11 @@ for root'={%
 %    \begin{macrocode}
   tag nodes uses/tableaux alt text/.style={%
     redeclare tagging keylist={tag nodes}{%
-%    \end{macrocode}
-%    \begin{macrocode}
-%<debug>    debug tagging=Making tags,
-%    \end{macrocode}
-%    \begin{macrocode}
+%<debug>    debug tagging/.process={Ow{id}{Making tags for node with id ##1:}},
+%<debug>    debug tagging/.process={Ow{alt text}{alt text=##1}},
+%<debug>    debug tagging/.process={Ow{content}{content=##1}},
+%<debug>    debug tagging/.process={Ow{proof tree proof line no}{proof tree proof line no=##1}},
+%<debug>    debug tagging/.process={Ow{just}{just=##1}},
       if={>OO!&{proof tree rhifo}{proof tree phantom}}
       {%
         if line numbering={%
@@ -4424,7 +4411,7 @@ for root'={%
 \NewDocumentEnvironment{\prooftrees@enw}{ m +b }
 {%
   \global\advance\prooftrees@tableau@id by 1
-  \prooftrees@ttableau@init
+  \prooftrees@init
   \forest
     (%
 %    \end{macrocode}
@@ -4528,7 +4515,7 @@ for root'={%
     #1,
     [, name=proof statement @#2]%
   \endforest
-% ^^A   \prooftrees@ttableau@end
+  \prooftrees@end
 }{}
 %    \end{macrocode}
 % ^^A >>>
@@ -4639,16 +4626,6 @@ for root'={%
   }
 %    \end{macrocode}
 % \end{macro}
-% ^^A % \begin{macro}{\l_forestext_tagging_custom_bool}
-% ^^A %   Provide custom tagging boolean if ext.tagging isn't loaded.
-% ^^A %   Probably there must be some nicer way to do this which doesn't require faking the other package?
-% ^^A %    \begin{macrocode}
-% ^^A   \@ifpackageloaded{forest-lib-ext.tagging}{}{
-% ^^A     \bool_new:N \l_forestext_tagging_custom_bool
-% ^^A     \bool_set_false:N \l_forestext_tagging_custom_bool
-% ^^A   }
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
 %    \begin{macrocode}
 }
 %    \end{macrocode}
@@ -4730,9 +4707,11 @@ for root'={%
 \cs_new_eq:NN \@@_tag_resume:n \tag_resume:n
 %    \end{macrocode}
 % \end{macro}
+% \begin{macro}{\@@_noop:}
 % \begin{macro}{\@@_noop:n}
 %   Something to \cs{let} the suspend/resume functions to.
 %    \begin{macrocode}
+\cs_new_nopar:Npn \@@_noop: {}
 \cs_new_nopar:Npn \@@_noop:n #1 {}
 %    \end{macrocode}
 % \end{macro}
@@ -4885,20 +4864,16 @@ for root'={%
   }
 }
 %    \end{macrocode}
-% \begin{macro}{\prooftrees@ttableau@init}
-% \begin{macro}{\@@_ttableau_init:}
+% \begin{macro}{\prooftrees@init}
+% \begin{macro}{\@@_init:}
 % \changes{v0.9.1}{2025-08-25}{Added \ecs{@@_ttableau_init:}.}
+% \changes{v0.0.0}{0000-00-00}{Remove \ecs{@@_ttableau_init:}, \cs{prooftrees@ttableau@init}; add \ecs{@@_init:}, \cs{prooftrees@init}.}
 %   I think I don't really get the ‘plug’ concept.
 %   It is surely pointless to assign and immediately use one in a package which defines the relevant socket?
 %   That is, wouldn't a macro or just the code do equally well but faster?
 %    \begin{macrocode}
-\cs_new_nopar:Npn \@@_ttableau_init: 
+\cs_new_protected_nopar:Npn \@@_init: 
 {
-% ^^A %    \end{macrocode}
-% ^^A % \iffalse
-% ^^A %<*!debug>
-% ^^A % \fi
-% ^^A %    \begin{macrocode}
 % ^^A   \tag_if_active:T{
 % ^^A     \PackageError{prooftrees}{Prooftrees~is~currently~incompatible~with~
 % ^^A       tagging.~
@@ -4912,24 +4887,13 @@ for root'={%
 % ^^A       I~do~not~know~how~to~make~the~structure~valid.~
 % ^^A       For~a~logic~package,~this~is~doubly~unfortunate.
 % ^^A     }
-% ^^A     \def\forest##1\endforest{Tableau~\the\prooftrees@tableau@id}
 % ^^A   }
-% ^^A %    \end{macrocode}
-% ^^A % \iffalse
-% ^^A %</!debug>
-% ^^A %<*tag>
-% ^^A % \fi
-% ^^A %    \begin{macrocode}
   \tag_if_active:TF{
     \forestset{
       tag=1,
-      plug=tableaux/alt,
+      setup~plug=tableaux/alt,
+      tag~plug=alt,
     }
-% ^^A %    \end{macrocode}
-% ^^A % Prevents \pkg{ext.tagging} from interfering.
-% ^^A % If the library isn't loaded, we define the boolean at the start of the document.
-% ^^A %    \begin{macrocode}
-% ^^A     \bool_set_true:N \l_forestext_tagging_custom_bool
 % ^^A     \global\prooftrees@tableau@toks{}
 %<debug>    \if@ttableau@dadfygio 
 %<debug>      \typeout{Tagging~is~active.}
@@ -4938,12 +4902,24 @@ for root'={%
 %<debug>          \typeout{[Tag~tableau~debug]::~##1}
 %<debug>        },
 %<debug>      }
-%<debug>      \typeout{Assigning~plug~tableaux/alt~for~ext.tagging.}
+%<debug>      \typeout{[Tag~tableau~debug]::~Assigning~setup~plug~
+%<debug>      tableaux/alt~for~ext.tagging.}
+%<debug>      \typeout{[Tag~tableau~debug]::~Using~hook~
+%<debug>      env/forest/begin.}
 %<debug>    \fi
 % ^^A     \socket_assign_plug:nn {tagsupport/tableaux/tableau/init}{tag}
 % ^^A     \socket_use:n {tagsupport/tableaux/tableau/init}
 % ^^A     \def\pgfsys@begin@text{}
 % ^^A     \def\pgfsys@end@text{}
+    \cs_set_protected_nopar:Npn \@@_end:
+    {
+%<debug>    \if@ttableau@dadfygio 
+%<debug>      \typeout{[Tag~tableau~debug]::~Using~hook~
+%<debug>      env/forest/end.}
+%<debug>    \fi
+      \hook_use:n {env/forest/end}
+    }
+    \hook_use:n {env/forest/begin}
   }{
     \forestset{tag=0}
 %<debug>    \if@ttableau@dadfygio 
@@ -4951,22 +4927,17 @@ for root'={%
 %<debug>    \fi
   }
 }
-\cs_new_eq:NN \prooftrees@ttableau@init \@@_ttableau_init:
+\cs_new_eq:NN \prooftrees@init \@@_init:
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
-% ^^A % \begin{macro}{\prooftrees@ttableau@end}
-% ^^A % \begin{macro}{\@@_ttableau_end:}
-% ^^A %   From \pkg{ext.tagging}.
-% ^^A %    \begin{macrocode}
-% ^^A % ^^A %<!debug> \cs_new_nopar:Npn \@@_ttableau_end:
-% ^^A % ^^A %<debug&tag>  \cs_set_nopar:Npn \@@_ttableau_end:
-% ^^A % ^^A {
-% ^^A %    \end{macrocode}
-% ^^A % ^^A % \iffalse
-% ^^A % ^^A %<*tag>
-% ^^A % ^^A % \fi
-% ^^A % ^^A %    \begin{macrocode}
+% \begin{macro}{\prooftrees@end}
+% \begin{macro}{\@@_end:}
+%   \changes{v0.0}{0000-00-00}{Remove \ecs{@@_ttableau_end:}, \cs{prooftrees@ttableau@end}; add \ecs{@@_end:}, \cs{prooftrees@end}.}
+%   From \pkg{ext.tagging}.
+%    \begin{macrocode}
+\cs_new_eq:NN \@@_end: \@@_noop:
+\cs_new_protected_nopar:Npn \prooftrees@end { \@@_end: }
 % ^^A % ^^A   \@@_tag_resume:n {tagforest}
 % ^^A % ^^A   \cs_set_eq:NN \tag_suspend:n \@@_tag_suspend:n
 % ^^A % ^^A   \cs_set_eq:NN \tag_resume:n \@@_tag_resume:n
@@ -4977,19 +4948,12 @@ for root'={%
 % ^^A % ^^A % \iffalse
 % ^^A % ^^A %</tag>
 % ^^A % ^^A % \fi
-% ^^A %    \begin{macrocode}
-% ^^A % ^^A }
-% ^^A % ^^A %<!debug>\cs_new_eq:NN \prooftrees@ttableau@end \@@_ttableau_end:
-% ^^A % ^^A %<debug>\cs_set_eq:NN \prooftrees@ttableau@end \@@_ttableau_end:
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
-% ^^A % \end{macro}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
 % ^^A % \begin{macro}{\prooftrees@ttableau}
 % ^^A % \begin{macro}{\@@_ttableau:nnn}
-% \changes{v0.9.1}{2025-08-25}{Added \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
-% \changes{v0.0.0}{0000-00-00}{Removed \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
-% \mbox{}
-% ^^A %    \begin{macrocode}
+%    \begin{macrocode}
 % ^^A %<!debug> \cs_new_nopar:Npn \@@_ttableau:nnn #1#2#3
 % ^^A %<debug&tag>  \cs_set_nopar:Npn \@@_ttableau:nnn #1#2#3
 % ^^A {
@@ -5000,7 +4964,6 @@ for root'={%
 % ^^A %    \begin{macrocode}
 % ^^A \tag_resume:n {\tableau}
 % ^^A %    \end{macrocode}
-% \changes{v0.0}{2025-09-04}{Purify \cs{the}\cs{prooftrees@tableau@toks} before setting \ecs{l_@@_toks_tl}.}
 % ^^A %    \begin{macrocode}
 % ^^A % ^^A   \tl_set:Ne \l_@@_toks_tl {
 % ^^A % ^^A     \exp_args:No \text_purify:n { \the\prooftrees@tableau@toks }
@@ -5026,6 +4989,10 @@ for root'={%
 % ^^A tagsupport >>>
 % ^^A % \iffalse
 % ^^A % \fi
+%    \end{macrocode}
+% \changes{v0.9.1}{2025-08-25}{Added \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
+% \changes{v0.0.0}{0000-00-00}{Removed \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
+% \changes{v0.0}{2025-09-04}{Purify \cs{the}\cs{prooftrees@tableau@toks} before setting \ecs{l_@@_toks_tl}.}
 % \changes{v0.0}{0000-00-00}{Use \pkg{ext.tagging} library for tagging.}
 % Custom version of \texttt{alt} plugs for \texttt{tagsupport/forest/setup} and \texttt{tagsupport/forest/tag}.
 % The latter is only necessary because the library code insists the plug must exist.
@@ -5036,8 +5003,8 @@ for root'={%
 {
   \forestset{
 %<debug>    debug~tagging={Using~tagsupport/forest/setup~plug~tableaux/alt.},
-%<debug>    debug~tagging={Setting~plug=alt.},
-    plug=alt,
+%<debug>    debug~tagging={Setting~tag~plug=alt.},
+    tag~plug=alt,
 %<debug>    debug~tagging={Executing~proof~tree~copy~content~to~tags.},
     proof~tree~copy~content~to~tags,
 %<debug>    debug~tagging={Executing~tag~nodes~uses~with~value~tableaux~alt~text.},
@@ -5049,15 +5016,6 @@ for root'={%
 %<debug>    debug~tagging={Finishing~plug~code.},
   }
 }
-\socket_new_plug:nnn {tagsupport/forest/tag}{tableaux/alt}
-{
-%<debug>    \typeout{[Tag~tableau~debug]::~Assign~plug~alt~to~
-%<debug>      tagsupport/forest/tag.}
-  \socket_assign_plug:inn {tagsupport/forest/tag}{alt}
-  \socket_use:n {tagsupport/forest/tag}
-}
-%    \end{macrocode}
-%    \begin{macrocode}
 \ExplSyntaxOff
 %    \end{macrocode}
 % \iffalse
