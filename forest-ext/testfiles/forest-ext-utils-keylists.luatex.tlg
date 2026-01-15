@@ -12,12 +12,13 @@ The property list \l__forestext_my toks_prop contains the pairs (without outer b
 >  {calign}  =>  {midpoint}
 >  {l sep'+}  =>  {5mm}
 >  {before typesetting nodes}  =>  {blue,font=\sffamily ,}.
+[Forest ext.utils debug]:: Set processing order to unique=tree.
 [tagforext debug]:: my toks: 
 The property list \l__forestext_my toks_prop contains the pairs (without outer braces):
 >  {calign}  =>  {midpoint}
 >  {l sep'+}  =>  {5mm}
 >  {before typesetting nodes}  =>  {blue,font=\sffamily ,}.
-declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, 
+declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, my toks processing order={unique=tree}, 
 [Forest ext.utils debug]:: Declaring tagging keylist my keys
 [Forest ext.utils debug]:: with default circle,calign=first.
 [Forest ext.utils debug]:: Declare my keys with circle,calign=first.
@@ -26,11 +27,12 @@ declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typ
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
 >  {circle}  =>  {\q_no_value }
 >  {calign}  =>  {first}.
+[Forest ext.utils debug]:: Set processing order to unique=tree.
 [tagforext debug]:: my keys: 
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
 >  {circle}  =>  {\q_no_value }
 >  {calign}  =>  {first}.
-declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, declare keylist/.process={_x{my keys}{circle,calign={first},}}, 
+declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, my toks processing order={unique=tree}, declare keylist/.process={_x{my keys}{circle,calign={first},}}, my keys processing order={unique=tree}, 
 [Forest ext.utils debug]:: Processing draw=green,rectangle,fill=red for my keys.
 [tagforext debug]:: my keys: 
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
@@ -83,7 +85,7 @@ The property list \l__forestext_my keys_prop contains the pairs (without outer b
 >  {calign}  =>  {child edge}
 >  {font}  =>  {\sffamily }.
 [Forest ext.utils debug]:: Creating options set with declare tagging keylist.
-declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, declare keylist/.process={_x{my keys}{circle,calign={child edge},font={\sffamily },}}, 
+declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, my toks processing order={unique=tree}, declare keylist/.process={_x{my keys}{circle,calign={child edge},font={\sffamily },}}, my keys processing order={unique=tree}, 
 calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},
 circle,calign={child edge},font={\sffamily },
 calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},
