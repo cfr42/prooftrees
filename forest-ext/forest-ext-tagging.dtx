@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11478 2026-01-15 17:08:25Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11481 2026-01-15 20:39:45Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11478 2026-01-15 17:08:25Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11481 2026-01-15 20:39:45Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.0]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.0]
 %    \end{macrocode}
@@ -637,8 +637,8 @@
     process keylist=before drawing tree,
     draw tree stage
   },
-  tagging keylist processing order={tag nodes}{unique=tree},
-  tagging keylist processing order={collate tags}{unique=tree depth first},
+  tag nodes processing order/.nodewalk style={unique=tree},
+  collate tags processing order={unique=tree depth first},
   tag tree stage/.style={for root'=tag tree},
 %    \end{macrocode}
 % By default, the crucial stage does nothing.
@@ -757,8 +757,9 @@
 %    \end{macrocode}
 % The next line should create the tagging structure and insert the assembled \texttt{alt} text.
 %    \begin{macrocode}
-%<debug>    debug tagforest={Tagging tree now ...},
-      TeX/.process={RRRw3{tag plug}{tempdimc}{tempdimd}{%
+%<debug>    debug tagforest/.process={RRRw3{tag plug}{tempdimc}{tempdimd}{%
+%<debug>      Tagging tree now with tag plug=####1, x=####2, y=####3 ...}},
+    TeX/.process={RRRw3{tag plug}{tempdimc}{tempdimd}{%
         \tagforest@tag@tree@tag{####1}{####2}{####3}}%
       },
     },
