@@ -37,8 +37,7 @@
 \ProvidesFileSVN{$Id: prooftrees-tag-t1.lvt 11150 2025-08-27 16:17:35Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
-\usepackage[tableaux]{prooftrees}
-\usepackage{prooftrees-debug}
+\usepackage[tableaux]{prooftrees-debug}
 \usepackage{turnstile}
 \usepackage{unicode-math}
 \makeatletter
