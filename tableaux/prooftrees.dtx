@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11375 2025-11-30 07:03:54Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11474 2026-01-15 01:01:23Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2777,8 +2777,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11375 2025-11-30 07:03:54Z cfrees $}[v0.9.1 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11375 2025-11-30 07:03:54Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11474 2026-01-15 01:01:23Z cfrees $}[v0.9.1 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11474 2026-01-15 01:01:23Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2826,22 +2826,22 @@ for root'={%
 % \changes{v0.0}{0000-00-00}{Load the \pkg{ext.tagging} library.}
 %    \begin{macrocode}
 \RequirePackage{forest}[2016/12/04]
-\AddToHook{begindocument/before}[.]{%
-  \@ifpackageloaded{forest-lib-ext.tagging}{}{%
-    \@ifpackageloaded{forest-lib-ext.tagging-debug}{}{%
-      \IfFileExists{forest-lib-ext.tagging.sty}{%
-        \useforestlibrary{ext.tagging}%
+\@ifpackageloaded{forest-lib-ext.tagging}{}{%
+  \@ifpackageloaded{forest-lib-ext.tagging-debug}{}{%
+%<!debug>        \IfFileExists{forest-lib-ext.tagging.sty}{%
+%<!debug>          \useforestlibrary*{ext.tagging}%
+%<debug>        \IfFileExists{forest-lib-ext.tagging-debug.sty}{%
+%<debug>          \useforestlibrary*{ext.tagging-debug}%
+    }{%
+      \PackageError{prooftrees}{This version of prooftrees requires the
+        forest library ext.tagging, part of the forest-ext package.%
       }{%
-        \PackageError{prooftrees}{This version of prooftrees requires the
-          forest library ext.tagging, part of the forest-ext package.%
-        }{%
-          This version of prooftrees will not be pushed to CTAN until TeX
-          Live includes forest-ext. Hence, you should see this error only if
-          you installed the updated prooftrees manually or your TeX 
-          distribution updated prooftrees without including the new dependency.
-          In the former case, please don't do that. In the latter case, please
-          report the problem using your distribution's bug tracker.%
-        }%
+        This version of prooftrees will not be pushed to CTAN until TeX
+        Live includes forest-ext. Hence, you should see this error only if
+        you installed the updated prooftrees manually or your TeX 
+        distribution updated prooftrees without including the new dependency.
+        In the former case, please don't do that. In the latter case, please
+        report the problem using your distribution's bug tracker.%
       }%
     }%
   }%
@@ -2854,10 +2854,11 @@ for root'={%
 %    \end{macrocode}
 % \end{macro}
 % \changes{v0.9.1}{2025-08-25}{Added for tagging experiments.}
-% How am I meant to describe these things when they aren't macros or environments?!
-%    \begin{macrocode}
-\newtoks\prooftrees@tableau@toks
-%    \end{macrocode}
+% \changes{v0.0}{0000-00-00}{Remove duplicate toks.}
+% ^^A % How am I meant to describe these things when they aren't macros or environments?!
+% ^^A %    \begin{macrocode}
+% ^^A % ^^A \newtoks\prooftrees@tableau@toks
+% ^^A %    \end{macrocode}
 % Currently, keys starting \texttt{proof tree} or \texttt{tableau} and macros starting \texttt{prooftree} or \texttt{prooftree@} are intended for internal use only.
 %
 % This does not apply to the environment \texttt{prooftree}.
@@ -4409,7 +4410,7 @@ for root'={%
 % ^^A % ^^A %<debug&tag>      \fi
 % ^^A % ^^A %<tag>    },
 % ^^A %<tag>  },
-  plug={tableaux/alt},
+% ^^A   plug={tableaux/alt},
 %<debug>  debug tagging/.code={},
 % ^^A dadfygio >>>
 }
@@ -4518,15 +4519,16 @@ for root'={%
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{Experimental tagging style, \texttt{ttableau}.}
 % Isolate (partly) for now.
+% \changes{v0.0.0}{0000-00-00}{Remove tagging style, \texttt{ttableau}.}
 %    \begin{macrocode}
-    ttableau,
+% ^^A     ttableau,
 %    \end{macrocode}
 % Insert user's preamble, empty or otherwise - this allows the user both to override our defaults (e.g.~by setting a non-empty proof statement or a custom format for line numbers) and to customise the tree using forest's facilities in the usual way - BUT customisations of the latter kind may or may not be effective, may or may not have undesirable - not to say chaotic - consequences, and may or may not cause compilation failures (structural changes, in particular, should be avoided completely).
 %    \begin{macrocode}
     #1,
     [, name=proof statement @#2]%
   \endforest
-  \prooftrees@ttableau@end
+% ^^A   \prooftrees@ttableau@end
 }{}
 %    \end{macrocode}
 % ^^A >>>
@@ -4577,18 +4579,18 @@ for root'={%
 %    \begin{macrocode}
   \@ifpackageloaded{memoize-ext}{
     \cs_new_eq:NN \@@_property_ref_orig:nn \__mmzx_property_ref_orig:nn
-    \cs_new_eq:NN \\c_@@_nexpl_at_cctab  \c__mmzx_nexpl_at_cctab 
+    \cs_new_eq:NN \c_@@_nexpl_at_cctab  \c__mmzx_nexpl_at_cctab 
   }{
     \cs_new_eq:NN \@@_property_ref_orig:nn \property_ref:nn
 %    \end{macrocode}
 % Otherwise \dots
 %
-% \begin{macro}{\\c_@@_nexpl_at_cctab}
+% \begin{macro}{\c_@@_nexpl_at_cctab}
 % \changes{v0.9.1}{2025-08-25}{Add \ecs{\c_@@_nexpl_at_cctab}.}
 %   Not a macro but a constant.
 %   Allow \texttt{@} and \pkg{expl3} syntax in memos, but don't change cat codes of spaces or newlines.
 %    \begin{macrocode}
-    \cctab_const:Nn \\c_@@_nexpl_at_cctab {
+    \cctab_const:Nn \c_@@_nexpl_at_cctab {
       \cctab_select:N \c_code_cctab 
       \makeatletter
       \int_set:Nn \tex_endlinechar:D { 13 }
@@ -4741,7 +4743,7 @@ for root'={%
 % ^^A %    \begin{macrocode}
 % ^^A \socket_new:nn {tagsupport/tableaux/tableau/init}{0}
 % ^^A \socket_new:nn {tagsupport/tableaux/tableau}{2}
-% ^^A \socket_new:nn {tagsupport/tableaux/tableau/mmzx}{2}
+\socket_new:nn {tagsupport/tableaux/tableau/mmzx}{2}
 % ^^A \socket_new_plug:nnn {tagsupport/tableaux/tableau/init}{tag}
 % ^^A {
 % ^^A %    \end{macrocode}
@@ -4910,7 +4912,7 @@ for root'={%
 % ^^A       I~do~not~know~how~to~make~the~structure~valid.~
 % ^^A       For~a~logic~package,~this~is~doubly~unfortunate.
 % ^^A     }
-    \def\forest##1\endforest{Tableau~\the\prooftrees@tableau@id}
+% ^^A     \def\forest##1\endforest{Tableau~\the\prooftrees@tableau@id}
 % ^^A   }
 % ^^A %    \end{macrocode}
 % ^^A % \iffalse
@@ -5049,7 +5051,9 @@ for root'={%
 }
 \socket_new_plug:nnn {tagsupport/forest/tag}{tableaux/alt}
 {
-  \socket_assign_plug:nn {tagsupport/forest/tag}{alt}
+%<debug>    \typeout{[Tag~tableau~debug]::~Assign~plug~alt~to~
+%<debug>      tagsupport/forest/tag.}
+  \socket_assign_plug:inn {tagsupport/forest/tag}{alt}
   \socket_use:n {tagsupport/forest/tag}
 }
 %    \end{macrocode}
@@ -5067,7 +5071,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11375 2025-11-30 07:03:54Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11474 2026-01-15 01:01:23Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -5083,7 +5087,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11375 2025-11-30 07:03:54Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11474 2026-01-15 01:01:23Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
