@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11479 2026-01-15 18:30:34Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11481 2026-01-15 20:39:45Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-utils]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-utils.dtx 11479 2026-01-15 18:30:34Z cfrees $}
+%% $Id: forest-ext-utils.dtx 11481 2026-01-15 20:39:45Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.utils}[2025-12-05 v0.0]
 %<debug>    \ProvidesForestLibrary{ext.utils-debug}[2025-12-05 v0.0]
 %    \end{macrocode}
@@ -125,9 +125,6 @@
   \prop_new:c {l_@@_#1_prop}
   \@@_fkeylist_put_from_keyval:nn {#1}{#2}
 %<debug>      \@@_fkeylist_log:n {#1}
-%<debug>      \typeout{[Forest~ext.utils~debug]::~Set~processing~order~to~unique=tree.}
-  \tl_new:c { l_@@_#1_order_tl }
-  \tl_set:cn { l_@@_#1_order_tl } {unique=tree}
 }
 %    \end{macrocode}
 % \end{macro}% ^^A >>>
@@ -326,6 +323,10 @@
       declare keylist/.process={_x{#1}{\forestext@prop@to@keylist{#1}}},
     }%
 %<debug>          \expandafter\typeout\expandafter{\the\forestext@toksa}%
+    \pgfqkeys{/forest}{%
+      forestext utils debug={Setting processing order for #1 to unique=tree.},
+      #1 processing order/.nodewalk style={unique=tree},
+    }%
   },
   redeclare tagging keylist/.code 2 args={%
 %<debug>          \typeout{[Forest ext.utils debug]:: Redeclaring tagging keylist #1}%
@@ -334,16 +335,7 @@
 %<debug>          \forestext@keylist@log{#1}%
   },
 %    \end{macrocode}
-% \begin{fstyle}{tagging~keylist~processing~order}
-%   Wrapper. 
-%    \begin{macrocode}
-  tagging keylist processing order/.style 2 args={%
-%<debug>          forestext utils debug=Setting processing order for tagging keylist #1,
-%<debug>          forestext utils debug=to #2.,
-    #1 processing order/.nodewalk style={#2},
-  },
-%    \end{macrocode}
-% \end{fstyle}
+% \end{fcodekey}
 % \begin{fcodekey}{%
 %   tagging~keylist~put,
 %   tagging~keylist~remove~key,
