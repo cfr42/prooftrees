@@ -3040,7 +3040,11 @@ for root'={%
 %    \begin{macrocode}
   declare keylist={before copying content}{},
   declare tagging keylist={proof tree copy content}{},
-  tagging keylist processing order={proof tree copy content}{unique=proof tree wffs},
+%    \end{macrocode}
+% Line nos and justifications don't exist yet, even if they are requested, so \texttt{proof tree wffs} is not an option, for instance.
+%    \begin{macrocode}
+% ^^A   tagging keylist processing order={proof tree copy content}{unique={fake=root,descendants}},
+  proof tree copy content processing order/.nodewalk style={unique={fake=root,descendants}},
   declare keylist={proof tree after copying content}{},
   declare keylist={proof tree before typesetting nodes}{},
   declare keylist={proof tree before packing}{},
@@ -5015,9 +5019,11 @@ for root'={%
 %<debug>    debug~tagging={Executing~tag~tree~uses~with~value~alt.},
     tag~tree~uses=alt,
 %<debug>    debug~tagging={Resetting~tag~nodes~processing~order.},
-    tagging~keylist~processing~order={tag~nodes}{unique=proof~tree~wffs},
+% ^^A     tagging~keylist~processing~order={tag~nodes}{unique=proof~tree~wffs},
+    tag~nodes~processing~order/.nodewalk~style={unique=proof~tree~wffs},
 %<debug>    debug~tagging={Resetting~collate~tags~processing~order.},
-    tagging~keylist~processing~order={collate~tags}{every~wff},
+% ^^A     tagging~keylist~processing~order={collate~tags}{every~wff},
+    collate~tags~processing~order/.nodewalk~style={every~wff},
 %<debug>    debug~tagging={Finishing~plug~code.},
   }
 }
