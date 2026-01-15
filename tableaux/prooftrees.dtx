@@ -3040,6 +3040,7 @@ for root'={%
 %    \begin{macrocode}
   declare keylist={before copying content}{},
   declare tagging keylist={proof tree copy content}{},
+  tagging keylist processing order={proof tree copy content}{unique=proof tree wffs},
   declare keylist={proof tree after copying content}{},
   declare keylist={proof tree before typesetting nodes}{},
   declare keylist={proof tree before packing}{},
@@ -3111,12 +3112,12 @@ for root'={%
 % \changes{v0.9.1}{2025-08-31}{Renamed \texttt{every wff}.}
 % \changes{v0.0}{2026-01-14}{Use the \emph{tagging keylists} \texttt{tag nodes} and \texttt{collate tags} provided by the library \pkg{ext.tagging}, part of  \pkg{forest-ext}.}
 % Unlike the previous step, this includes any proof statement and ensures nodes are only visited once, which we want for tagging.
+% \changes{v0.0}{2026-01-15}{Move \texttt{tag nodes processing order}, \texttt{collate tags processing order} into setup somewhere.
+%   It doesn't seem to work here, which is bad, but, if it did work, it would clobber global settings, which would also be bad.}
 %    \begin{macrocode}
   define long step={every wff}{}{%
     unique={name=proof statement,proof tree wffs}%
   },
-  tag nodes processing order={unique={proof tree wffs}},
-  collate tags processing order=every wff,
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-30}{New long step \texttt{wff from proof line no to}.}
 % See \url{https://tex.stackexchange.com/a/749854/39222} for example usage.
@@ -5003,8 +5004,8 @@ for root'={%
 {
   \forestset{
 %<debug>    debug~tagging={Using~tagsupport/forest/setup~plug~tableaux/alt.},
-%<debug>    debug~tagging={Setting~tag~plug=alt.},
-    tag~plug=alt,
+% ^^A %<debug>    debug~tagging={Setting~tag~plug=alt.},
+% ^^A     tag~plug=alt,
 %<debug>    debug~tagging={Executing~proof~tree~copy~content~to~tags.},
     proof~tree~copy~content~to~tags,
 %<debug>    debug~tagging={Executing~tag~nodes~uses~with~value~tableaux~alt~text.},
@@ -5013,6 +5014,10 @@ for root'={%
     collate~tags~uses=alt~text,
 %<debug>    debug~tagging={Executing~tag~tree~uses~with~value~alt.},
     tag~tree~uses=alt,
+%<debug>    debug~tagging={Resetting~tag~nodes~processing~order.},
+    tagging~keylist~processing~order={tag~nodes}{unique=proof~tree~wffs},
+%<debug>    debug~tagging={Resetting~collate~tags~processing~order.},
+    tagging~keylist~processing~order={collate~tags}{every~wff},
 %<debug>    debug~tagging={Finishing~plug~code.},
   }
 }
