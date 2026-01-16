@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11486 2026-01-16 07:59:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-multi]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -65,7 +65,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-multi.dtx 11471 2026-01-14 21:49:31Z cfrees $}
+%% $Id: forest-ext-multi.dtx 11486 2026-01-16 07:59:31Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.multi}[2025-12-05 v0.0]
 %<debug>    \ProvidesForestLibrary{ext.multi-debug}[2025-12-05 v0.0]
 %    \end{macrocode}
@@ -287,7 +287,8 @@
               do dynamics,
               edge path'/.process={%
                 Ow {!{id=#1}.multi@edge@route} {%
-                  (!c fosterling.child anchor) ##1 (!c foster parent.parent anchor) %
+                  (!c fosterling.child anchor) 
+                  ##1 (!c foster parent.parent anchor) %
                 }%
               },
               also={#3},

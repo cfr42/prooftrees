@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11486 2026-01-16 07:59:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-utils]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-utils.dtx 11485 2026-01-16 07:39:11Z cfrees $}
+%% $Id: forest-ext-utils.dtx 11486 2026-01-16 07:59:31Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.utils}[2025-12-05 v0.0]
 %<debug>    \ProvidesForestLibrary{ext.utils-debug}[2025-12-05 v0.0]
 %    \end{macrocode}
@@ -375,11 +375,16 @@
         Please see forest-ext's documentation for details.%
       }%
     },
-    declare tagging keylist/.style 2 args={tagging keylist error=declare tagging keylist},
-    redeclare tagging keylist/.style 2 args={tagging keylist error=redeclare tagging keylist},
-    tagging keylist put/.style 2 args={tagging keylist error=tagging keylist put},
-    tagging keylist remove/.style 2 args={tagging keylist error=tagging keylist remove},
-    tagging keylist remove key/.style 2 args={tagging keylist error=tagging keylist remove key},
+    declare tagging keylist/.style 2 args={%
+      tagging keylist error=declare tagging keylist},
+    redeclare tagging keylist/.style 2 args={%
+      tagging keylist error=redeclare tagging keylist},
+    tagging keylist put/.style 2 args={%
+      tagging keylist error=tagging keylist put},
+    tagging keylist remove/.style 2 args={%
+      tagging keylist error=tagging keylist remove},
+    tagging keylist remove key/.style 2 args={%
+      tagging keylist error=tagging keylist remove key},
   }%
 }
 %    \end{macrocode}
