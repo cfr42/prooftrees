@@ -77,35 +77,35 @@ TEST 2: Show PDF Tags
 ============================================================
 -------- forest-ext-tagging-iso.xml (start) ---------
 <PDF>
-<StructTreeRoot>
-<Document xmlns="http://iso.org/pdf2/ssn"
-id="ID.02"
->
-<text-unit xmlns="https://www.latex-project.org/ns/dflt"
-id="ID.05"
-rolemaps-to="Part"
->
-<text xmlns="https://www.latex-project.org/ns/dflt"
-id="ID.06"
-xmlns:Layout="http://iso.org/pdf/ssn/Layout"
-Layout:TextAlign="Justify"
-rolemaps-to="P"
->
-<Figure xmlns="http://iso.org/pdf2/ssn"
-id="ID.07"
-alt="root a 2 branches   branch 1 b end branch   branch 2 c end branch  "
-xmlns:Layout="http://iso.org/pdf/ssn/Layout"
-Layout:BBox="{ 133.76837, 667.19801, 164.05347, 706.09697 }"
->
-<?MarkedContent page="1" ?>
-<?MarkedContent page="1" ?>
-<?MarkedContent page="1" ?>
-<?MarkedContent page="1" ?>
-</Figure>
-</text>
-</text-unit>
-</Document>
-</StructTreeRoot>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="root a 2 branches   branch 1 b end branch   branch 2 c end branch  "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 133.76837, 667.19801, 164.05347, 706.09697 }"
+       >
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+     </Figure>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
 </PDF>
 -------- forest-ext-tagging-iso.xml (end) ---------
 ============================================================

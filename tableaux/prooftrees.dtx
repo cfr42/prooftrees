@@ -239,6 +239,10 @@
   flstep,
   fsstep,
   fstep,
+  fchoice,
+  fcodekey,
+  ftagkeylist,
+  flib,
 }
 \seq_set_split:Nnn \l_tmpb_seq {,}
 {
@@ -261,6 +265,10 @@
   long~step,
   short~step,
   step,
+  choice~key,
+  code~key,
+  tagging~keylist,
+  library,
 }
 \seq_map_pairwise_function:NNN \l_tmpa_seq \l_tmpb_seq \__prooftreesdo_new_forest_label:nn
 \ExplSyntaxOff
@@ -2572,23 +2580,56 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % \section{Tagging}\label{sec:tag}
 % ^^A sec:tag <<<
 %
+% The infrastructure for tagging is provided by the \pkg{ext.tagging} and \pkg{ext.utils} \pkg{forest} libraries, which are part of \pkg{forest-ext}.
+% \textbf{These libraries are required regardless of whether tagging is used.}
+%
+% Tagging is \emph{highly experimental} and the implementation will certainly change, as well, possibly, as the interface.
+% Changes to the public interface will be avoided where reasonable.
+% If documented interfaces do change, compatibility options will be provided if possible.
+%
+% By default, tagging should largely ‘just work’ for straightforward tableaux.
+% If tagging is active, an ‘alternative text’ (\texttt{alt text}) is automatically generated based on the tableau content\footnote{%
+%   Whether this is a useful way to tag them I do not know.
+%   Some input from users of tableaux with screen-reading software is required.
+%   Contributions, suggestions or feedback are unlikely, but would be appreciated.%
+% }.
+% The aim is to tag tableaux \emph{syntactically}, as opposed to semantically, in accordance with typical usage in logic\footnote{%
+%   Note that this is in some sense at odds with the \LaTeX{} Project's efforts to tag mathematical content which, as I understand it, is a \emph{semantic} project.
+%   But the tension here is, of course, merely apparent, since the intended semantic content of tableaux is syntactic.
+%   That is, we have here two quite different distinctions between ‘syntax’ and ‘semantics’.
+%   In the \LaTeX{} Project's sense, this package tries to provide \emph{semantic} tagging.
+%   It just so happens that the relevant semantic content is concerned with \emph{syntactic}, as opposed to \emph{semantic}, methods.%
+% }.
+%
 % See also \cref{sec:keylists}.
-% Most options here are global and fairly straightforward.
+
+% Most of the few options are global and fairly straightforward.
 %
 % \subsection{Global Tagging Options}\label{subsec:tag-go}
 % ^^A subsec:tag-go <<<
-%
+% 
+\iffalse
 % \DescribeKey[fregbool]{tag}\vals{true,false}\AfterLastParam
 % \Default{\texttt{true} {\normalfont if tagging is active; otherwise} \texttt{false}}
 % Whether to tag the tableau or not.
-% This register should not generally be set by the user, as \pkg{prooftrees} adjusts it automatically.
-% However, it might be useful in exceptional cases.
+% \textbf{This register should not be set by the user\footnote{%
+%   Note that setting this false will not result in an untagged tableau.
+%   Nor will it allow the user to tag the tableau manually.
+%   If you want to do either of those, see \pkg{tagpdf} (for the former) or \pkg{ext.tagging} (for the latter).%
+% }!}
+% However, it may be safely read to conditionalise code.
 % 
-% \DescribeKey[fregtoks]{plug}\texttt{alt}\AfterLastParam
-% \Default{alt}
-% The only choice with package-specific support is currently \texttt{alt}.
+% \DescribeKey[fregtoks]{setup plug}\texttt{tableaux/alt}\AfterLastParam
+% \DescribeKey[fregtoks]{tag plug}\texttt{alt}\AfterLastParam
+% \Default{setup plug=tableaux/alt,tag plug=alt}
+% Note these keys are provided by \pkg{ext.tagging}.
+%
+% The only choice with package-specific support is currently the \texttt{tableaux/alt} \texttt{setup plug}, which uses the library's default \texttt{alt} option for \texttt{tag plug}.
+% It provides a customised configuration for \texttt{tag nodes} which constructs an \texttt{alt text} for all \emph{wffs} and the \texttt{to prove} statement, if present.
+% It also modifies the order in which tags are collated.
 % Use of \pkg{latex-lab}'s plugs for \pkg{tikz} will yield chaotic results at best, but more likely invalid structures or compilation errors.
-% If you need something other than the current \texttt{alt}, file a feature request.
+% If you need something other than the current \texttt{tableaux/alt} and the options provided by the \pkg{ext.tagging} library do not suffice, file a feature request.
+\fi
 % 
 % \DescribeKey[fregtoks]{tag check with}\val{text}\AfterLastParam
 % \Default{discharged}
@@ -2641,17 +2682,31 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % \begin{enumerate}
 %   \item Increment a count and determine whether to tag the tableau.
 %   \item Initialise tagging, if applicable.
-%     This is largely a matter of setting \pkg{latex-lab}'s plug for \pkg{tikz} to \texttt{artifact}.
+%     This is largely a matter of setting \pkg{latex-lab}'s plug for \pkg{tikz} to \texttt{noop}, setting some options for \pkg{ext.tagging} and resetting the \emph{tagging keylist} \texttt{tag nodes}.
 %     This is necessary because a \pkg{forest} tree involves \emph{many} uses of \env{tikzpicture} and the default tagging can result in erroneous structures and/or compilation errors and produces at best chaotic \texttt{marked content}.
 %   \item\label{enum:stages} Starts \env{forest} with a custom definition of \keyname[foptkeylist]{stages}.
-% Any \foptkeylistshortname{} prefixed with \texttt{proof tree} is used internally by \pkg{prooftrees} to process the tableau.
+% ^^A Any \foptkeylistshortname{} prefixed with \texttt{proof tree} is used internally by \pkg{prooftrees} to process the tableau.
 % \keyname[fstyle]{tag tree stage} executes the code actually responsible for tagging the proof. 
+%
 % Any \foptkeylistshortname{} described as ‘Does nothing by default.’ is explicitly intended for users to customise the process.
-% See \cref{sec:keylists} for details.
+%
+% Any key marked ‘\pkg{forest}’ is provided by \pkg{forest} and used unaltered.
+%
+% Any key marked ‘\pkg{ext.tagging}’ is provided by \pkg{forest-ext} and used unaltered.
+%
+% Any key marked ‘\emph{Internal}’ is used by this package in constructing and/or tagging the tableau.
+% Like those used by \pkg{ext.tagging} and \pkg{forest} itself, you are both welcome to redefine these and welcome to keep the itsy-bitsy teeny-weeny little pieces if stuff breaks.
+%
+% Note that only those intended explicitly for user use \emph{by this package} are marked as  ‘Does nothing by default.’, but several other such items are similarly provided by \pkg{forest} and \pkg{ext.tagging}\footnote{%
+%   Anything \emph{beginning} \texttt{before} is probably OK, but you should check the other package's documentation to be sure.%
+% }
+%
+% See \cref{sec:keylists}, \textcite{saso-forest} and \pkg{forest-ext} for details.
 %
 % Here is a (long!) step-by-step description of \pkg{prooftrees}'s redefinition of \texttt{stages}.
 %     \begin{enumerate}[label={Stage \arabic*},align=left,leftmargin=*,widest=99]
 %       \item Execute the standard \pkg{forest} parsing for the \keyname[fregkeylist]{default preamble} and \keyname[fregkeylist]{preamble} with
+%         \pkg{forest}.
 % \iffalse
 %<*verb>
 % \fi
@@ -2665,43 +2720,61 @@ for root'={%
 %</verb>
 % \fi
 %       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{given options}.
+%         \pkg{forest}.
 %       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before copying content}.
 %         Does nothing by default.
-%       \item Process the \foptkeylistshortname{}  \keyname[foptkeylist]{proof tree copy content}.
-%         Does nothing unless tagging.
+%       \item Process the \foptkeylistshortname{}  \keyname[ftagkeylist]{proof tree copy content}.
+%         \emph{Internal.}
 %       \item Process the \foptkeylistshortname{}  \keyname[foptkeylist]{proof tree after copying content}.
+%         Does nothing by default.
 %       \item Process the \foptkeylistshortname{}  \keyname[foptkeylist]{proof tree before typesetting nodes}.
+%         \emph{Internal.}
 %       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{before typesetting nodes}.
+%         \pkg{forest}.
 %       \item Process  the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree ffurf}.
+%         \emph{Internal.}
 %       \item Process  the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree symud awto}.
+%         \emph{Internal.}
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{typeset nodes stage}.
+%         \pkg{forest}.
 %       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree before packing}.
+%         \emph{Internal.}
 %       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{before packing}.
+%         \pkg{forest}.
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{pack stage}.
+%         \pkg{forest}.
 %       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree before computing xy}.
+%         \emph{Internal.}
 %       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{before computing xy}.
+%         \pkg{forest}.
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{compute xy stage}.
+%         \pkg{forest}.
 %       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before making annotations}.
 %         Does nothing by default.
 %       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree creu nodiadau}.
+%         \emph{Internal.}
 %       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before annotating}.
 %         Does nothing by default.
 %       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree nodiadau}.
+%         \emph{Internal.}
 %       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{proof tree after annotations}.
-%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before tagging nodes}.
-%         Does nothing by default.
-%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{tag nodes}.
-%         Does nothing unless tagging.
-%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before collating tags}.
-%         Does nothing by default.
-%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{collate tags}.
-%         Does nothing unless tagging.
-%       \item Process the \foptkeylistshortname{} \keyname[foptkeylist]{before tagging tree}.
-%         Does nothing by default.
-%       \item Execute \keyname[fstyle]{tag tree stage}.
-%         Does nothing unless tagging.
+%         \emph{Internal.}
+%       \item Process the \pkg{ext.tagging} \foptkeylistshortname{} \keyname[foptkeylist]{before tagging nodes}.
+%         \pkg{ext.tagging}.
+%       \item Process the \pkg{ext.tagging} \foptkeylistshortname{} \keyname[ftagkeylist]{tag nodes}.
+%         \pkg{ext.tagging}.
+%       \item Process the \pkg{ext.tagging} \foptkeylistshortname{} \keyname[foptkeylist]{before collating tags}.
+%         \pkg{ext.tagging}.
+%       \item Process the \pkg{ext.tagging} \foptkeylistshortname{} \keyname[ftagkeylist]{collate tags}.
+%         \pkg{ext.tagging}.
+%       \item Process the \pkg{ext.tagging} \foptkeylistshortname{} \keyname[foptkeylist]{before tagging tree}.
+%         \pkg{ext.tagging}.
+%       \item Execute \pkg{ext.tagging}'s \keyname[fstyle]{tag tree stage}.
+%         \pkg{ext.tagging}.
 %       \item Process the \pkg{forest} \foptkeylistshortname{} \keyname[foptkeylist]{before drawing tree}.
+%         \pkg{forest}.
 %       \item Execute \pkg{forest}'s \keyname[fstyle]{draw tree stage}.
+%         \pkg{forest}.
 %     \end{enumerate}
 %   \item Applies \fstyleshortname{} \keyname[fstyle]{proof tree}.
 %     \textbf{This style should NOT be used directly.}
@@ -2732,12 +2805,15 @@ for root'={%
 %
 % \changes{v0.8}{}{Documentation now loads \pkg{enumitem}, since it depended on it already anyway and specifies \pkg{doc2} in options for \cls{ltxdoc} as the code is incompatible with the current version.}
 %
+% \changes{v0.0}{0000-00-00}{\pkg{forest-ext} is now required, since two of its libraries provide a framework for tagging \pkg{forest} trees.
+%   This applies even if tagging is not used.}
 %
 % \printbibliography
 %
 % ^^A \loadgeometry{safonol}%
 % ^^A \fancyheadoffset[lh]{0pt}%
 % 
+% \changes{v0.0}{0000-00-00}{Experimental support for tagging based on \pkg{forest-ext}.}
 % \changes{v0.9.1}{2025-08-20}{Switch to \pkg{docstrip}.}
 % \changes{v0.9}{0001-01-01}{Use \cs{NewDocumentEnvironment}, removing direct dependency on \pkg{environ}.}
 % \changes{v0.8}{0001-01-01}{Add previously unnoticed dependency on \pkg{amstext}.}
@@ -4227,15 +4303,6 @@ for root'={%
 % \texttt{debug tagging} is more expensive, so split this out.
 %
 % ANGEN: dw i ddim yn meddwl bod crefs yn cynnwys explicit closures?
-% ^^A %    \begin{macrocode}
-% ^^A   ttableau/.style={%
-% ^^A %    \end{macrocode}
-% ^^A %    \begin{macrocode}
-% ^^A     if={>R{tag}}{%
-% ^^A       proof tree copy content to tags,
-% ^^A % ^^A       proof tree tag nodes,
-% ^^A     }{},
-% ^^A %    \end{macrocode}
 % \begin{fstyle}{proof tree copy content to tags}
 %   Reset \texttt{proof tree copy content}.
 %   \changes{v0.0}{0000-00-00}{\texttt{proof tree copy content to tags} style.}
@@ -4243,27 +4310,19 @@ for root'={%
   proof tree copy content to tags/.style={%
     redeclare tagging keylist={proof tree copy content}{%
 %<debug>        debug tagging=Copying node contents,
-%    \end{macrocode}
-%    \begin{macrocode}
       if content={}{}{%
-%    \end{macrocode}
-%    \begin{macrocode}
 %<debug>          debug tagging=Copying node content to alt text,
-%    \end{macrocode}
-%    \begin{macrocode}
         alt text+/.process={Ow{content}{\ensuremath{##1}}},
-%    \end{macrocode}
-%    \begin{macrocode}
 %<debug>          debug tagging/.process={Ow{alt text}{alt text is ##1}},
-%    \end{macrocode}
-%    \begin{macrocode}
       },
     },
   },
 %    \end{macrocode}
 % \end{fstyle}
-% ^^A \begin{fstyle}{tableaux tag nodes}
-%   Reset \texttt{tag nodes}.
+% \begin{fchoice}{tableaux alt text}
+%   \textbf{This is not a choice key.}
+%   It is an additional choice for the \texttt{tag nodes uses} key provided by \pkg{ext.tagging}.
+%   Resets \texttt{tag nodes}.
 %   \changes{v0.0}{0000-00-00}{Use \emph{tagging keylist} \texttt{tag nodes} from \pkg{ext.tagging}.
 %   Replaces \texttt{proof tree tag nodes}.%
 % }
@@ -4314,27 +4373,13 @@ for root'={%
             alt text+/.process={%
               Ow{just}{\ ##1\ }%
             },
-% ^^A                Ow+pw {proof tree proof line no}{%
-% ^^A                  O{!{name=just ##1}.content}%
-% ^^A                }{\ ##1\ }%
           },
 %<debug>      debug tagging/.process={Ow{alt text}{alt text is now ##1}},
         }{},
-%    \end{macrocode}
-%    \begin{macrocode}
 %<debug>    debug tagging/.process={Ow{alt text}{alt text is now ##1}},
-%    \end{macrocode}
-%    \begin{macrocode}
-% ^^A             collate tags={%
-%    \end{macrocode}
-%    \begin{macrocode}
-% ^^A %<debug>      debug tagging=Get tag from wff,
-% ^^A %<debug>      debug tagging/.process={Ow{alt text}{alt text is now ##1}},
 %    \end{macrocode}
 % \changes{v0.0}{0000-00-00}{Replace \texttt{pick up tags} by \texttt{collate}.}
 %    \begin{macrocode}
-% ^^A               collate/.option=alt text,
-% ^^A             },
       }{%
         if n children=0{%
           delay={%
@@ -4357,52 +4402,16 @@ for root'={%
     },
   },
 %    \end{macrocode}
-% ^^A \end{fstyle}
+% \end{fchoice}
 % \changes{v0.9.1}{2025-08-25}{Try to tag tableau.}
 % Note that this method would not work for many \pkg{forest} trees and may fail for some tableaux, but should work for most proofs, I think.
-% ^^A %    \begin{macrocode}
-% ^^A       tag tableau/.style={
-% ^^A %    \end{macrocode}
-% ^^A %    \begin{macrocode}
-% ^^A %<debug>        debug tagging=Tag tableau,
-% ^^A %    \end{macrocode}
-% ^^A %    \begin{macrocode}
-% ^^A         tempdima/.max={>OOw2+d{x}{max x}{####1+####2}}{tree},
-% ^^A         tempdima-/.min={>OOw2+d{x}{min x}{####1+####2}}{tree},
-% ^^A         tempdimb/.max={>OOw2+d{y}{max y}{####1+####2}}{tree},
-% ^^A         tempdimb-/.min={>OOw2+d{y}{min y}{####1+####2}}{tree},
-% ^^A         TeX/.process={%
-% ^^A           RRRw3{plug}{tempdima}{tempdimb}{\prooftrees@ttableau{####1}{####2}{####3}}%
-% ^^A         },
-% ^^A       },
-% ^^A %    \end{macrocode}
-% ^^A % \iffalse
-% ^^A %</tag>
-% ^^A % \fi
-%    \begin{macrocode}
-% ^^A   },
-%    \end{macrocode}
+% \changes{v0.0.0}{0000-00-00}{\texttt{tag tableau} replaced by \pkg{ext.tagging} library.}
 % \changes{v0.9.1}{2025-08-25}{\texttt{tag tableau stage} following \pkg{forest} pattern and noop default style.}
-% ^^A %    \begin{macrocode}
-% ^^A %<!debug>  tag tableau stage/.style={for root'=tag tableau,},
-% ^^A %<!debug>  tag tableau/.style={},
-% ^^A %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{Experimental \texttt{alt} plug for tagging.}
 % \changes{v0.0}{0000-00-00}{\texttt{alt} plug renamed \texttt{tableaux/alt}.}
 % Note this is not just default.
 % It is the \textbf{only} option even vaguely compatible with tagging.
 %    \begin{macrocode}
-% ^^A %<tag>  alt/.style={%
-% ^^A %<tag>    plug=alt,
-% ^^A %<debug&tag>    debug tagging=Using plug alt,
-% ^^A % ^^A %<tag>    pick up tag/.code={%
-% ^^A % ^^A %<tag>      \toksapp\prooftrees@tableau@toks{##1 }%
-% ^^A % ^^A %<debug&tag>      \if@ttableau@dadfygio
-% ^^A % ^^A %<debug&tag>        \typeout{[Tag tableau debug]:: Appending toks ##1.}%
-% ^^A % ^^A %<debug&tag>      \fi
-% ^^A % ^^A %<tag>    },
-% ^^A %<tag>  },
-% ^^A   plug={tableaux/alt},
 %<debug>  debug tagging/.code={},
 % ^^A dadfygio >>>
 }
@@ -4421,11 +4430,10 @@ for root'={%
     (%
 %    \end{macrocode}
 % Customised definition of stages - we don't use any custom stages, but we do use several custom keylists, where the processing order of these is critical.
-%    \begin{macrocode}
-      stages={%
-%    \end{macrocode}
+% 
 % Nothing is removed from the standard forest definition - we only change it by adding to it. 
 %    \begin{macrocode}
+      stages={%
         for root'={%
           process keylist register=default preamble,
           process keylist register=preamble,
@@ -4433,20 +4441,27 @@ for root'={%
         process keylist=given options,
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-23}{Adjust stage processing for new keylists.}
-% \texttt{proof tree before typesetting nodes}, \texttt{proof tree after copying content}, \texttt{proof tree before packing}, \texttt{proof tree before computing xy} and \texttt{proof tree after annotations} just avoid polluting \pkg{forest}'s keylists so they can be used to customise the tableau.
+% \texttt{proof tree before typesetting nodes}, 
+%   \texttt{proof tree after copying content}, 
+%   \texttt{proof tree before packing}, 
+%   \texttt{proof tree before computing xy} and 
+%   \texttt{proof tree after annotations} 
+%   just avoid polluting \pkg{forest}'s keylists so they can be used to customise the tableau.
 % \texttt{proof tree copy content} is used only for tagging.
 % These are internal lists.
 % They should not generally be redefined or customised by users, as doing so may render the tree structure invalid or cause unexpected results.
 %
-% In addition to the keylists provided by \pkg{forest} and \pkg{ext.tagging}, \texttt{before copying content}, \texttt{before making annotations} and  \texttt{before annotating} are intended for users to customise the tableau at these points, if required.
+% In addition to the keylists provided by \pkg{forest} and \pkg{ext.tagging}, 
+%   \texttt{before copying content}, 
+%   \texttt{before making annotations} and  
+%   \texttt{before annotating} 
+%   are intended for users to customise the tableau at these points, if required.
 %    \begin{macrocode}
         process keylist=before copying content,
         process keylist=proof tree copy content,
         process keylist=proof tree after copying content,
         process keylist=proof tree before typesetting nodes,
         process keylist=before typesetting nodes,
-%    \end{macrocode}
-%    \begin{macrocode}
 %    \end{macrocode}
 % First two structural additions: process two custom keylists after before typesetting nodes and before typesetting nodes to shape the tree.
 %    \begin{macrocode}
@@ -4493,7 +4508,6 @@ for root'={%
 % Does nothing right now.
 % \changes{v0.0}{0000-00-00}{Requires \pkg{forest-lib-ext.tagging}.}
 %    \begin{macrocode}
-% ^^A %<tag>        tag tableau stage,
         process keylist=before tagging tree,
         tag tree stage,
 %    \end{macrocode}
@@ -4669,43 +4683,6 @@ for root'={%
 \newtoks \prooftrees@tableau@toks
 %    \end{macrocode}
 % \end{macro}
-% ^^A % \begin{macro}{\@@_pgftikz_tag_bbox:nnn}
-% ^^A % \begin{macro}{\@@_pgftikz_tag_bbox:enn}
-% ^^A % \mbox{}
-% ^^A %    \begin{macrocode}
-% ^^A \cs_new_nopar:Npn \@@_pgftikz_tag_bbox:nnn #1#2#3
-% ^^A {
-% ^^A   \@@_pgftikz_tag_bbox_aux:eenn
-% ^^A   {
-% ^^A     \@@_property_ref_orig:ee {#1}{xpos}
-% ^^A   }
-% ^^A   {
-% ^^A     \@@_property_ref_orig:ee {#1}{ypos}
-% ^^A   }
-% ^^A   {#2}{#3}
-% ^^A }
-% ^^A \cs_generate_variant:Nn \@@_pgftikz_tag_bbox:nnn {enn}
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
-% ^^A % \end{macro}
-% ^^A % \begin{macro}{\@@_pgftikz_tag_bbox_aux:nnnn}
-% ^^A % \begin{macro}{\@@_pgftikz_tag_bbox_aux:eenn}
-% ^^A % \mbox{}
-% ^^A %    \begin{macrocode}
-% ^^A \cs_new_nopar:Npn \@@_pgftikz_tag_bbox_aux:nnnn #1#2#3#4
-% ^^A {
-% ^^A   \dim_to_decimal_in_bp:n {#1sp}
-% ^^A   \c_space_tl
-% ^^A   \dim_to_decimal_in_bp:n {#2sp}
-% ^^A   \c_space_tl
-% ^^A   \dim_to_decimal_in_bp:n {#1sp+#3}
-% ^^A   \c_space_tl
-% ^^A   \dim_to_decimal_in_bp:n {#2sp+#4}
-% ^^A }
-% ^^A \cs_generate_variant:Nn \@@_pgftikz_tag_bbox_aux:nnnn {eenn}
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
-% ^^A % \end{macro}
 % \begin{macro}{%
 %   \@@_tag_suspend:n,
 %   \@@_tag_resume:n,
@@ -4724,95 +4701,31 @@ for root'={%
 \cs_new_nopar:Npn \@@_noop:n #1 {}
 %    \end{macrocode}
 % \end{macro}
+% \end{macro}
 % ^^A % Sockets. 
 % ^^A % No idea how to index.
 % ^^A % 
 % ^^A % I am not sure \texttt{init} does anything at all useful which couldn't be done better with a macro?
-% ^^A %    \begin{macrocode}
-% ^^A \socket_new:nn {tagsupport/tableaux/tableau/init}{0}
-% ^^A \socket_new:nn {tagsupport/tableaux/tableau}{2}
+%    \begin{macrocode}
 \socket_new:nn {tagsupport/tableaux/tableau/mmzx}{2}
-% ^^A \socket_new_plug:nnn {tagsupport/tableaux/tableau/init}{tag}
-% ^^A {
-% ^^A %    \end{macrocode}
-% ^^A % Can't use noop due to collection of mcs even if tagging suspended;
-% ^^A % \texttt{artifact} gets rid of these.
+%    \end{macrocode}
 % ^^A % I think some combination of:
 % ^^A %   \ecs{tag_suspend:n} \{\cs{tableau}\}
 % ^^A %   \ecs{tag_resume:n} \{\cs{tableau}\}
 % ^^A %   \ecs{luamml_ignore:}
-% ^^A % should work, but I have no idea how to get it right.
-% ^^A % I also suspect I'm not \emph{meant} to get rid of mcs, but the result is so horribly chaotic otherwise.
-% ^^A %
-% ^^A % Assigning these \pkg{labex-lab} plugs prevents the chaos of errors produced by the defaults.
-% ^^A % Basically, if the tableau will involve $n$ \texttt{tikzpicture} environments, we have to completely ignore the first $n-1$, even though this means we also lose all marked content.
 % ^^A %
 % ^^A % From \pkg{ext.tagging}.
 % ^^A %    \begin{macrocode}
-% ^^A   \mode_if_vertical:T
-% ^^A   {
-% ^^A     \if@inlabel 
-% ^^A       \mode_leave_vertical:
-% ^^A     \fi
-% ^^A   } 
-% ^^A   \tag_mc_end_push:
-% ^^A   \socket_assign_plug:nn {tagsupport/tikz/picture/init}{noop}
-% ^^A   \socket_assign_plug:nn {tagsupport/tikz/picture/begin}{noop}
-% ^^A   \socket_assign_plug:nn {tagsupport/tikz/picture/end}{noop}
 % ^^A   \cs_set_eq:NN \tag_suspend:n \@@_noop:n
 % ^^A   \cs_set_eq:NN \tag_resume:n \@@_noop:n
 % ^^A   \@@_tag_suspend:n {tagtableaux}
 % ^^A }
 % ^^A %    \end{macrocode}
 % ^^A % Shamelessly copied from \pkg{latex-lab}.
-% ^^A %    \begin{macrocode}
-% ^^A \socket_new_plug:nnn {tagsupport/tableaux/tableau}{alt}
-% ^^A {
-% ^^A % ^^A   \ifvmode
-% ^^A % ^^A     {
-% ^^A % ^^A       \if@inlabel 
-% ^^A % ^^A         \leavevmode 
-% ^^A % ^^A % ^^A      \else 
-% ^^A % ^^A % ^^A        \tag_socket_use:n{para/begin}
-% ^^A % ^^A       \fi
-% ^^A % ^^A     }
-% ^^A % ^^A   \fi
-% ^^A   \tag_struct_begin:n
-% ^^A   {
-% ^^A     tag=Figure,
-% ^^A     alt=\l_@@_toks_tl
-% ^^A   }
-% ^^A   \tag_mc_begin:n {tag=Figure}
-% ^^A %    \end{macrocode}
 % ^^A % \begin{macro}{\prooftrees@tableau@mark@pos@\the\prooftrees@tableau@id}
 % ^^A %   Modified version of the \pkg{latex-lab} code as we can't use \pkg{pgf} \texttt{remember picture} etc.
 % ^^A % \changes{v0.0}{2025-09-04}{Move pos marking here to follow \pkg{latex-lab} more closely.
 % ^^A %   It does not help, but does not seem to hinder.}
-% ^^A %    \begin{macrocode}
-% ^^A   \tex_savepos:D
-% ^^A   \property_record:ee {prooftrees-tableau-id\the\prooftrees@tableau@id}
-% ^^A   {xpos,ypos}
-% ^^A   \tex_savepos:D
-% ^^A   \cs_new:cpe {prooftrees@tableau@mark@pos@\the\prooftrees@tableau@id}
-% ^^A   {
-% ^^A     \@@_pgftikz_tag_bbox:enn {prooftrees-tableau-id\the\prooftrees@tableau@id}
-% ^^A     {#1}{#2}
-% ^^A   }
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
-% ^^A %    \begin{macrocode}
-% ^^A   \tag_struct_gput:ene
-% ^^A   {\tag_get:n {struct_num}}
-% ^^A   {attribute}
-% ^^A   {
-% ^^A     /O /Layout /BBox~
-% ^^A     [
-% ^^A       \use:c
-% ^^A       {prooftrees@tableau@mark@pos@\the\prooftrees@tableau@id}
-% ^^A     ]
-% ^^A   }
-% ^^A }
-% ^^A %    \end{macrocode}
 % A version of the above which appends to the context memo rather than executing the code.
 % For \texttt{alt}, externalisation seems to work at least somewhat with tagging.
 % (Also \texttt{actualtext}.
@@ -4883,20 +4796,6 @@ for root'={%
 %    \begin{macrocode}
 \cs_new_protected_nopar:Npn \@@_init: 
 {
-% ^^A   \tag_if_active:T{
-% ^^A     \PackageError{prooftrees}{Prooftrees~is~currently~incompatible~with~
-% ^^A       tagging.~
-% ^^A       The~safest~approach~is~to~compile~tableaux~standalone~and~include~
-% ^^A       as~images~with~detailed~alt~text.
-% ^^A     }{Since~you~insist,~you~can~enable~basic~tagging~support~by~loading~
-% ^^A       prooftrees-debug~after~prooftrees.~
-% ^^A       The~code~certainly~requires~LuaLaTeX~and~probably~produces~an~
-% ^^A       invalid~structure,~but~verapdf~validates~it~and~the~code~produces~
-% ^^A       alt~text~automatically.~
-% ^^A       I~do~not~know~how~to~make~the~structure~valid.~
-% ^^A       For~a~logic~package,~this~is~doubly~unfortunate.
-% ^^A     }
-% ^^A   }
   \tag_if_active:TF{
     \forestset{
       tag=1,
@@ -4916,10 +4815,6 @@ for root'={%
 %<debug>      \typeout{[Tag~tableau~debug]::~Using~hook~
 %<debug>      env/forest/begin.}
 %<debug>    \fi
-% ^^A     \socket_assign_plug:nn {tagsupport/tableaux/tableau/init}{tag}
-% ^^A     \socket_use:n {tagsupport/tableaux/tableau/init}
-% ^^A     \def\pgfsys@begin@text{}
-% ^^A     \def\pgfsys@end@text{}
     \cs_set_protected_nopar:Npn \@@_end:
     {
 %<debug>    \if@ttableau@dadfygio 
@@ -4947,62 +4842,15 @@ for root'={%
 %    \begin{macrocode}
 \cs_new_eq:NN \@@_end: \@@_noop:
 \cs_new_protected_nopar:Npn \prooftrees@end { \@@_end: }
-% ^^A % ^^A   \@@_tag_resume:n {tagforest}
-% ^^A % ^^A   \cs_set_eq:NN \tag_suspend:n \@@_tag_suspend:n
-% ^^A % ^^A   \cs_set_eq:NN \tag_resume:n \@@_tag_resume:n
-% ^^A % ^^A   \tag_mc_end:
-% ^^A % ^^A   \tag_struct_end:
-% ^^A % ^^A   \tag_mc_begin_pop:n{}
-% ^^A % ^^A %    \end{macrocode}
-% ^^A % ^^A % \iffalse
-% ^^A % ^^A %</tag>
-% ^^A % ^^A % \fi
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
-% ^^A % \begin{macro}{\prooftrees@ttableau}
-% ^^A % \begin{macro}{\@@_ttableau:nnn}
-%    \begin{macrocode}
-% ^^A %<!debug> \cs_new_nopar:Npn \@@_ttableau:nnn #1#2#3
-% ^^A %<debug&tag>  \cs_set_nopar:Npn \@@_ttableau:nnn #1#2#3
-% ^^A {
-% ^^A %    \end{macrocode}
-% ^^A % \iffalse
-% ^^A %<*tag>
-% ^^A % \fi
-% ^^A %    \begin{macrocode}
-% ^^A \tag_resume:n {\tableau}
-% ^^A %    \end{macrocode}
-% ^^A %    \begin{macrocode}
-% ^^A % ^^A   \tl_set:Ne \l_@@_toks_tl {
-% ^^A % ^^A     \exp_args:No \text_purify:n { \the\prooftrees@tableau@toks }
-% ^^A % ^^A   }
-% ^^A % ^^A   \socket_assign_plug:nn {tagsupport/forest/tag}{#1}
-% ^^A   \ifmemoizing
-% ^^A     \socket_assign_plug:nn {tagsupport/tableaux/tableau/mmzx}{#1}
-% ^^A   \fi
-% ^^A % ^^A   \socket_use:nnn {tagsupport/tableaux/tableau} {#2}{#3}
-% ^^A   \socket_use:nnn {tagsupport/tableaux/tableau/mmzx} {#2}{#3}
-% ^^A % ^^A  \tag_suspend:n {\tableau}
-% ^^A %    \end{macrocode}
-% ^^A % \iffalse
-% ^^A %</tag>
-% ^^A % \fi
-% ^^A %    \begin{macrocode}
-% ^^A % ^^A }
-% ^^A % ^^A %<!debug> \cs_new_eq:NN \prooftrees@ttableau \@@_ttableau:nnn
-% ^^A % ^^A %<debug&tag>  \cs_set_eq:NN \prooftrees@ttableau \@@_ttableau:nnn
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
-% ^^A % \end{macro}
-% ^^A tagsupport >>>
-% ^^A % \iffalse
-% ^^A % \fi
-%    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{Added \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
 % \changes{v0.0.0}{0000-00-00}{Removed \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
 % \changes{v0.0}{2025-09-04}{Purify \cs{the}\cs{prooftrees@tableau@toks} before setting \ecs{l_@@_toks_tl}.}
-% \changes{v0.0}{0000-00-00}{Use \pkg{ext.tagging} library for tagging.}
+% \changes{v0.0}{0000-00-00}{Use \pkg{ext.tagging} library for tagging.%
+%   Many of the experimental functions/macros/sockets have either been moved there or removed altogether.%
+% }
 % Custom version of \texttt{alt} plugs for \texttt{tagsupport/forest/setup} and \texttt{tagsupport/forest/tag}.
 % The latter is only necessary because the library code insists the plug must exist.
 % I should probably change this.
@@ -5023,10 +4871,8 @@ for root'={%
 %<debug>    debug~tagging={Executing~tag~tree~uses~with~value~alt.},
     tag~tree~uses=alt,
 %<debug>    debug~tagging={Resetting~tag~nodes~processing~order.},
-% ^^A     tagging~keylist~processing~order={tag~nodes}{unique=proof~tree~wffs},
     tag~nodes~processing~order/.nodewalk~style={unique=proof~tree~wffs},
 %<debug>    debug~tagging={Resetting~collate~tags~processing~order.},
-% ^^A     tagging~keylist~processing~order={collate~tags}{every~wff},
     collate~tags~processing~order/.nodewalk~style={every~wff},
 %<debug>    debug~tagging={Finishing~plug~code.},
   }
