@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11486 2026-01-16 07:59:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11485 2026-01-16 07:39:11Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11486 2026-01-16 07:59:31Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.0]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.0]
 %    \end{macrocode}
@@ -466,7 +466,8 @@
 %    \begin{macrocode}
 \newtoks\tagforest@toks
 %<debug>    \newcommand \LogTagForestToks{%
-%<debug>      \expandafter\typeout\expanded{[tagforest debug]:: current id: \expandafter\noexpand\the\tagforest@toks}%
+%<debug>      \expandafter\typeout\expanded{[tagforest debug]:: current id: 
+%<debug>        \expandafter\noexpand\the\tagforest@toks}%
 %<debug>    }
 %    \end{macrocode}
 % \end{macro}
@@ -477,7 +478,8 @@
 %    \begin{macrocode}
 \newcount\tagforest@id
 %<debug>    \newcommand \LogTagForestId{%
-%<debug>      \expandafter\typeout\expanded{[tagforest debug]:: current id: \the\tagforest@id}%
+%<debug>      \expandafter\typeout\expanded{[tagforest debug]:: 
+%<debug>        current id: \the\tagforest@id}%
 %<debug>    }
 %    \end{macrocode}
 % \end{macro}
