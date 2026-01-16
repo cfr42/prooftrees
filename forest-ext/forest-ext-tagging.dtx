@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11481 2026-01-15 20:39:45Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11482 2026-01-15 23:59:12Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11481 2026-01-15 20:39:45Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11482 2026-01-15 23:59:12Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.0]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.0]
 %    \end{macrocode}
@@ -199,14 +199,17 @@
 \socket_new_plug:nnn {tagsupport/forest/init}{tag}
 {
 %    \end{macrocode}
-%   This part is modified from \pkg{latex-lab} to avoid trying to start a paragraph in horizontal mode, which we don't want, but runs in a different socket.
+%   This part is modified from \pkg{latex-lab}, but runs in a different socket.
+%   I had a note that using socket \texttt{para/begin} didn't work here.
+%   That's probably from tableaux?
+%   But I can't remember what I thought the problem was \dots.
 %    \begin{macrocode}
-%^^A the tikz plug in latex-lab does the following, but that does not work here
-%^^A     \if@inlabel \leavevmode \else \tag_socket_use:n{para/begin}\fi
   \mode_if_vertical:T
   {
     \if@inlabel 
       \mode_leave_vertical:
+    \else
+      \tag_socket_use:n {para/begin}
     \fi
   } 
   \tag_mc_end_push:
