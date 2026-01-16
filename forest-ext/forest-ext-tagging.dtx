@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11484 2026-01-16 06:12:02Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11484 2026-01-16 06:12:02Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11485 2026-01-16 07:39:11Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.0]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.0]
 %    \end{macrocode}
@@ -658,9 +658,6 @@
 %    \begin{macrocode}
   tag tree/.style={},
 %    \end{macrocode}
-% If tagging is active, the hook code above alters the default preamble to install additional code.
-% This is the code which actually adds the processing required to tag the tree.
-%
 % Redefine various of the additions to \texttt{stages} to do something useful.
 % The remaining additions are to allow user interventions.
 % 
