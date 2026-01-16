@@ -36,7 +36,7 @@
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forestextdoc]
 \GetFileInfoSVN*
 \let\forestextdocversion\fileversion
@@ -856,8 +856,6 @@
 % If true, do not tag following trees in the current \TeX{} group.
 %
 % \textbf{This key must be used BEFORE \cs{begin}\texttt{\{forest\}} or \cs{Forest}.}
-% This is because the library adds code to the \texttt{default preamble} if it is tagging the tree.
-% Since the tree's \texttt{preamble} is executed later, it is then too late to disable the library code.
 % 
 % If you do not want to use the library's tagging code, you can easily avoid it by simply not using it.
 % However, you might want to use it for only some trees or you might wish to use the pre-defined stages as a basis for a custom configuration.
@@ -913,12 +911,16 @@
 % \iffalse
 %</verb>
 % \fi
+% This describes the default implementation with \texttt{setup plug=alt} and \texttt{tag plug=alt}\footnote{%
+%   Strictly speaking, the non-trivial claims in \crefrange{enum:btn}{enum:tts} are almost entirely false as stated.
+%   For example, \texttt{tag nodes} could construct an entirely new branch and put all the tagging information there, \texttt{collate tags} could then collect that information and write it to an external file and \texttt{tag tree stage} could embed or attach that file.
+%   But that is not very useful to know.
+%   The proof of this is simple: if such radical divergence features in your tagging plans, you do not need this package, while, if you do, it shouldn't.
+%   $\textsc{qed}$.
+%   It follows that you should skip this footnote.%
+% }.
 % \begin{enumerate}
 %   \item \textcolor{gray}{\texttt{default preamble} \autocite[see][]{saso-forest}}
-%     \begin{itemize}
-%       \item \textbf{\pkg{ext.tagging} adds code to this keylist in order to setup tagging appropriately.
-%         Replacing it without duplicating this code will, therefore, break tagging support.}
-%     \end{itemize}
 %   \item \textcolor{gray}{\texttt{preamble} \autocite[see][]{saso-forest}}
 %   \item \textcolor{gray}{\texttt{given options} \autocite[see][]{saso-forest}}
 %   \item \textcolor{gray}{\texttt{before typesetting nodes} \autocite[see][]{saso-forest}}
@@ -927,11 +929,11 @@
 %   \item \textcolor{gray}{\texttt{pack stage} \autocite[see][]{saso-forest}}
 %   \item \textcolor{gray}{\texttt{before computing xy} \autocite[see][]{saso-forest}}
 %   \item \textcolor{gray}{\texttt{compute xy stage} \autocite[see][]{saso-forest}}
-%   \item \texttt{before tagging nodes}
+%   \item\label{enum:btn} \texttt{before tagging nodes}
 %     Empty by default.
 %     Use in the same way as \pkg{forest}'s \texttt{before} keylists.
 %   \item \texttt{tag nodes}
-%     A \emph{tagging keylist} which should, when processed, ensure that each node which requires tagging is correctly tagged with \texttt{alt text} (in the default implementation).
+%     A \emph{tagging keylist} which should, when processed, ensure that each node which requires tagging is correctly tagged in whichever way the installed \texttt{tag plug} and associated code requires e.g.~for the default \texttt{alt} configuration, \texttt{alt text}.
 %   \item \texttt{before collating tags}
 %     Empty by default.
 %     Use in the same way as \pkg{forest}'s \texttt{before} keylists.
@@ -940,7 +942,7 @@
 %   \item \texttt{before tagging tree}
 %     Empty by default.
 %     Use in the same way as \pkg{forest}'s \texttt{before} keylists.
-%   \item \texttt{tag tree stage}
+%   \item\label{enum:tts} \texttt{tag tree stage}
 %     Executes code to actually tag the tree using the data finalised in \texttt{collate tags} (possibly modified by \texttt{before tagging tree}).
 %   \item \textcolor{gray}{\texttt{before drawing tree} \autocite[see][]{saso-forest}}
 %   \item \textcolor{gray}{\texttt{draw tree stage} \autocite[see][]{saso-forest}}
@@ -1874,7 +1876,7 @@ prepend:south east:V,
 %
 % Declares or redeclares a \pkg{forest} \emph{keylist option}.
 %
-% \textbf{Available ONLY outside \env{forest} environments.}
+% \textbf{Available only outside \env{forest} environments.}
 %
 % Since keylists cannot actually be redeclared, what really happens is this:
 % \begin{itemize}
@@ -1898,9 +1900,7 @@ prepend:south east:V,
 %
 % Removes \meta{key} from \meta{keylist}, where \meta{keylist} was previously declared with \texttt{declare tagging keylist}.
 %
-% \textbf{Available ONLY outside \env{forest} environments.}
-%
-% \textbf{Available ONLY outside \env{forest} environments.}
+% \textbf{Available only outside \env{forest} environments.}
 %
 % Note this removes the \meta{key} regardless of its current value (if any).
 %
@@ -1908,7 +1908,7 @@ prepend:south east:V,
 %
 % For each \meta{key} or \meta{key}\is\meta{value} pair in \meta{key-value list}, removes \meta{key} from \meta{keylist} iff it has the specified \meta{value} (if given) or no value (otherwise), where \meta{keylist} was previously declared with \texttt{declare tagging keylist}.
 % 
-% \textbf{Available ONLY outside \env{forest} environments.}
+% \textbf{Available only outside \env{forest} environments.}
 %
 % Note that a valueless key is distinct from one with an empty value.
 % To remove \meta{key} iff it has no value, use \texttt{\meta{key}}.
@@ -1967,7 +1967,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 \input{\MyFileBaseName.dtx}
@@ -1981,9 +1981,9 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo]
 \DefineFileInfoSVN
-\AddToHook{begindocument}{\AlsoImplementation}
+\AddToHook{begindocument}{\AlsoImplementation\setcounter{IndexColumns}{2}}
 \input{\MyFileBaseName.dtx}
 %</doc-code>
 % \fi
