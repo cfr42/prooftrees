@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11482 2026-01-15 23:59:12Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11484 2026-01-16 06:12:02Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -66,7 +66,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11482 2026-01-15 23:59:12Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11484 2026-01-16 06:12:02Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.0]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.0]
 %    \end{macrocode}
@@ -461,16 +461,26 @@
 \ExplSyntaxOff
 %    \end{macrocode}
 % \begin{macro}{\tagforest@toks}
-%   Name for a new toks.
+% \begin{macro}{\LogTagForestToks}
+%   Name for a new toks and some ways to peek when debugging.
 %    \begin{macrocode}
 \newtoks\tagforest@toks
+%<debug>    \newcommand \LogTagForestToks{%
+%<debug>      \expandafter\typeout\expanded{[tagforest debug]:: current id: \expandafter\noexpand\the\tagforest@toks}%
+%<debug>    }
 %    \end{macrocode}
 % \end{macro}
+% \end{macro}
 % \begin{macro}{\tagforest@id}
+% \begin{macro}{\LogTagForestId}
 %   Name for a new count.
 %    \begin{macrocode}
 \newcount\tagforest@id
+%<debug>    \newcommand \LogTagForestId{%
+%<debug>      \expandafter\typeout\expanded{[tagforest debug]:: current id: \the\tagforest@id}%
+%<debug>    }
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 % \begin{macro}{%
 %   \if@tagforest@debug,%
