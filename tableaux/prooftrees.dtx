@@ -85,8 +85,8 @@
 \usepackage{microtype}
 \usepackage[section]{placeins}
 \usepackage[citestyle=authoryear-comp,bibstyle=authoryear,mergedate=basic,isbn=false,url=true,sortcites=true,backend=biber,mincrossrefs=6]{biblatex}
-% ^^A \bibliography{abbrv, authors, journals-series, pub, lleoedd, phil, ref}
-\bibliography{prooftrees_biber.bib}% generate for upload (gweler uchod)
+\bibliography{abbrv, authors, journals-series, pub, lleoedd, phil, ref}
+% ^^A \bibliography{prooftrees_biber.bib}% generate for upload (gweler uchod)
 \usepackage{etoolbox,verbatim,parskip,changepage,titling,makeidx}
 \usepackage[dvipsnames,svgnames,rgb,x11names]{xcolor}
 \usepackage[tableaux]{prooftrees}
@@ -660,6 +660,9 @@
 %
 % \emph{\bfseries Note that this package requires version 2.1 (2016/12/04) of \keyname[pkg]{\pkg{forest}} \autocite{saso-forest-manual}.
 %   It will not work with versions prior to 2.1.}
+%
+% \emph{\bfseries Versions 0.9.2 and later require \keyname[pkg]{\pkg{forest-ext}} \autocite{cfr-forest-ext}.}
+%
 % \bigskip
 %
 % \emph{I would like to thank \citeauthor{saso-forest-manual} both for developing \pkg{forest} and for considerable patience in answering my questions, addressing my confusions and correcting my mistakes.
@@ -2846,10 +2849,8 @@ for root'={%
 % \let\endmacro\enddocmacro
 %
 %^^A sty guards <<<
-% \iffalse
 %<*sty>
 %<@@=tableaux>
-% \fi
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
@@ -4496,13 +4497,16 @@ for root'={%
         process keylist=before collating tags,
         process keylist=collate tags,
 %    \end{macrocode}
+% \changes{v0.0}{0000-00-00}{Use \cs{LogTagForestId} and \cs{LogTagForestToks}.}
 %    \begin{macrocode}
-% ^^A <debug&tag>        TeX={%
-% ^^A <debug&tag>          \if@ttableau@dadfygio
-% ^^A <debug&tag>            \typeout{[Tag tableau debug]:: Accumulated toks:}%
-% ^^A <debug&tag>            \ExpandArgs {o} \typeout{\the\prooftrees@tableau@toks}%
-% ^^A <debug&tag>          \fi
-% ^^A <debug&tag>        },
+%<debug>        TeX={%
+%<debug>          \if@ttableau@dadfygio
+%<debug>            \typeout{[Tag tableau debug]:: ID:}%
+%<debug>            \LogTagForestId
+%<debug>            \typeout{[Tag tableau debug]:: Accumulated toks:}%
+%<debug>            \LogTagForestToks
+%<debug>          \fi
+%<debug>        },
 %    \end{macrocode}
 % Try to produce some kind of useful stuff for tagging, if active.
 % Does nothing right now.
@@ -4879,13 +4883,10 @@ for root'={%
 }
 \ExplSyntaxOff
 %    \end{macrocode}
-% \iffalse
 %</sty>
-% \fi
 %^^A sty guards >>>
 % 
 %^^A doc guards <<<
-% \iffalse
 %<*doc>
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
@@ -4897,11 +4898,9 @@ for root'={%
 % ^^A \prooftreescodetoofalse
 \input{\MyFileBaseName.dtx}
 %</doc>
-% \fi
 %^^A doc guards >>>
 % 
 %^^A doc-code guards <<<
-% \iffalse
 %<*doc-code>
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
@@ -4913,7 +4912,6 @@ for root'={%
 % ^^A \prooftreescodetootrue
 \input{\MyFileBaseName.dtx}
 %</doc-code>
-% \fi
 %^^A doc-code guards >>>
 % 
 % \loadgeometry{safonol}%
