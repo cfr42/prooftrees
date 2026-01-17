@@ -4,47 +4,106 @@ Don't change this file in any respect.
 TEST 1: prooftrees-tag-t1
 ============================================================
 Tagging is active.
-Assigning and using tag plug to socket tableaux/tagsupport/tableau/init.
+[Tag tableau debug]:: Assigning setup plug tableaux/alt for ext.tagging.
+[Tag tableau debug]:: Using hook env/forest/begin.
+[tagforest debug]:: Tagging active.
+[tagforest debug]:: Custom tagging not configured.
+[tagforest debug]:: Assigning plug tag to tagsupport/forest/init.
+[tagforest debug]:: Using socket tagsupport/forest/init.
+[Tag tableau debug]:: Using tagsupport/forest/setup plug tableaux/alt.
+[Tag tableau debug]:: Executing proof tree copy content to tags.
+[Forest ext.utils debug]:: Redeclaring tagging keylist proof tree copy content
+[Forest ext.utils debug]:: with default debug tagging=Copying node contents, if content={}{}{debug tagging=Copying node content to alt text, alt text+/.process={Ow{content}{\ensuremath {##1}}}, debug tagging/.process={Ow{alt text}{alt text is ##1}}, }, .
+[Forest ext.utils debug]:: Redeclare proof tree copy content with debug tagging=Copying node contents, if content={}{}{debug tagging=Copying node content to alt text, alt text+/.process={Ow{content}{\ensuremath {##1}}}, debug tagging/.process={Ow{alt text}{alt text is ##1}}, }, .
+[Forest ext.utils debug]:: Processing debug tagging=Copying node contents, if content={}{}{debug tagging=Copying node content to alt text, alt text+/.process={Ow{content}{\ensuremath {##1}}}, debug tagging/.process={Ow{alt text}{alt text is ##1}}, },  for proof tree copy content.
+[tagforext debug]:: proof tree copy content: 
+The property list \l__forestext_proof tree copy content_prop contains the pairs (without outer braces):
+>  {debug tagging}  =>  {Copying node contents}
+>  {if content}  =>  {{}{}{debug tagging=Copying node content to alt text, alt text+/.process={Ow{content}{\ensuremath {##1}}}, debug tagging/.process={Ow{alt text}{alt text is ##1}}, }}.
+[tagforext debug]:: proof tree copy content: 
+The property list \l__forestext_proof tree copy content_prop contains the pairs (without outer braces):
+>  {debug tagging}  =>  {Copying node contents}
+>  {if content}  =>  {{}{}{debug tagging=Copying node content to alt text, alt text+/.process={Ow{content}{\ensuremath {##1}}}, debug tagging/.process={Ow{alt text}{alt text is ##1}}, }}.
+[Tag tableau debug]:: Executing tag nodes uses with value tableaux alt text.
+[Forest ext.utils debug]:: Redeclaring tagging keylist tag nodes
+[Forest ext.utils debug]:: with default debug tagging/.process={Ow{id}{Making tags for node with id ##1:}}, debug tagging/.process={Ow{alt text}{alt text=##1}}, debug tagging/.process={Ow{content}{content=##1}}, debug tagging/.process={Ow{proof tree proof line no}{proof tree proof line no=##1}}, debug tagging/.process={Ow{just}{just=##1}}, if={>OO!&{proof tree rhifo}{proof tree phantom}} {if line numbering={+alt text={\ }, +alt text/.option=proof tree proof line no, }{}, if justifications={debug tagging={Looking for a justification ...}, if just={}{if={> O_= {!u.n children}{2}}{if={>O_={!s.just}{}}{}{just/.option=!s.just,}, debug tagging/.process={Ow{just}{from sibling just is ##1}}, }{temptoksa=, for nodewalk={while nodewalk valid={u}{u, if proof tree phantom={}{if n children=2{back=1, s, temptoksa/.option=just}{}, break, }}}{}, just/.register=temptoksa, debug tagging/.process={Ow{just}{from ancestor sibling just is ##1}}, }, }{}, if just={}{}{alt text+/.process={Ow{just}{\ ##1\ }}, }, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{}, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{if n children=0{delay={debug tagging=Leaf node, debug tagging=Get closure status, if={> O_=! O_=! | {proof tree crefs}{} {!uu.proof tree close}{}} {debug tagging=Branch is closed, debug tagging/.process={Ow{proof tree crefs}{crefs: ##1}}, debug tagging/.process={Ow{!uu.proof tree close}{!uu.proof tree close: ##1}}, debug tagging/.process={Ow{content}{content: ##1}}, !uu.alt text+/.process={ORw2{content}{tag close with}{\ ##2\ ##1\ }}, debug tagging/.process={Ow{!uu.alt text}{!uu.alt text is now ##1}}, }{debug tagging=Branch is open, }, }, }{}, }, .
+[Forest ext.utils debug]:: Redeclare tag nodes with debug tagging/.process={Ow{id}{Making tags for node with id ##1:}}, debug tagging/.process={Ow{alt text}{alt text=##1}}, debug tagging/.process={Ow{content}{content=##1}}, debug tagging/.process={Ow{proof tree proof line no}{proof tree proof line no=##1}}, debug tagging/.process={Ow{just}{just=##1}}, if={>OO!&{proof tree rhifo}{proof tree phantom}} {if line numbering={+alt text={\ }, +alt text/.option=proof tree proof line no, }{}, if justifications={debug tagging={Looking for a justification ...}, if just={}{if={> O_= {!u.n children}{2}}{if={>O_={!s.just}{}}{}{just/.option=!s.just,}, debug tagging/.process={Ow{just}{from sibling just is ##1}}, }{temptoksa=, for nodewalk={while nodewalk valid={u}{u, if proof tree phantom={}{if n children=2{back=1, s, temptoksa/.option=just}{}, break, }}}{}, just/.register=temptoksa, debug tagging/.process={Ow{just}{from ancestor sibling just is ##1}}, }, }{}, if just={}{}{alt text+/.process={Ow{just}{\ ##1\ }}, }, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{}, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{if n children=0{delay={debug tagging=Leaf node, debug tagging=Get closure status, if={> O_=! O_=! | {proof tree crefs}{} {!uu.proof tree close}{}} {debug tagging=Branch is closed, debug tagging/.process={Ow{proof tree crefs}{crefs: ##1}}, debug tagging/.process={Ow{!uu.proof tree close}{!uu.proof tree close: ##1}}, debug tagging/.process={Ow{content}{content: ##1}}, !uu.alt text+/.process={ORw2{content}{tag close with}{\ ##2\ ##1\ }}, debug tagging/.process={Ow{!uu.alt text}{!uu.alt text is now ##1}}, }{debug tagging=Branch is open, }, }, }{}, }, .
+[Forest ext.utils debug]:: Processing debug tagging/.process={Ow{id}{Making tags for node with id ##1:}}, debug tagging/.process={Ow{alt text}{alt text=##1}}, debug tagging/.process={Ow{content}{content=##1}}, debug tagging/.process={Ow{proof tree proof line no}{proof tree proof line no=##1}}, debug tagging/.process={Ow{just}{just=##1}}, if={>OO!&{proof tree rhifo}{proof tree phantom}} {if line numbering={+alt text={\ }, +alt text/.option=proof tree proof line no, }{}, if justifications={debug tagging={Looking for a justification ...}, if just={}{if={> O_= {!u.n children}{2}}{if={>O_={!s.just}{}}{}{just/.option=!s.just,}, debug tagging/.process={Ow{just}{from sibling just is ##1}}, }{temptoksa=, for nodewalk={while nodewalk valid={u}{u, if proof tree phantom={}{if n children=2{back=1, s, temptoksa/.option=just}{}, break, }}}{}, just/.register=temptoksa, debug tagging/.process={Ow{just}{from ancestor sibling just is ##1}}, }, }{}, if just={}{}{alt text+/.process={Ow{just}{\ ##1\ }}, }, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{}, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{if n children=0{delay={debug tagging=Leaf node, debug tagging=Get closure status, if={> O_=! O_=! | {proof tree crefs}{} {!uu.proof tree close}{}} {debug tagging=Branch is closed, debug tagging/.process={Ow{proof tree crefs}{crefs: ##1}}, debug tagging/.process={Ow{!uu.proof tree close}{!uu.proof tree close: ##1}}, debug tagging/.process={Ow{content}{content: ##1}}, !uu.alt text+/.process={ORw2{content}{tag close with}{\ ##2\ ##1\ }}, debug tagging/.process={Ow{!uu.alt text}{!uu.alt text is now ##1}}, }{debug tagging=Branch is open, }, }, }{}, },  for tag nodes.
+[tagforext debug]:: tag nodes: 
+The property list \l__forestext_tag nodes_prop contains the pairs (without outer braces):
+>  {debug tagging/.process}  =>  {Ow{just}{just=##1}}
+>  {if}  =>  {{>OO!&{proof tree rhifo}{proof tree phantom}} {if line numbering={+alt text={\ }, +alt text/.option=proof tree proof line no, }{}, if justifications={debug tagging={Looking for a justification ...}, if just={}{if={> O_= {!u.n children}{2}}{if={>O_={!s.just}{}}{}{just/.option=!s.just,}, debug tagging/.process={Ow{just}{from sibling just is ##1}}, }{temptoksa=, for nodewalk={while nodewalk valid={u}{u, if proof tree phantom={}{if n children=2{back=1, s, temptoksa/.option=just}{}, break, }}}{}, just/.register=temptoksa, debug tagging/.process={Ow{just}{from ancestor sibling just is ##1}}, }, }{}, if just={}{}{alt text+/.process={Ow{just}{\ ##1\ }}, }, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{}, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{if n children=0{delay={debug tagging=Leaf node, debug tagging=Get closure status, if={> O_=! O_=! | {proof tree crefs}{} {!uu.proof tree close}{}} {debug tagging=Branch is closed, debug tagging/.process={Ow{proof tree crefs}{crefs: ##1}}, debug tagging/.process={Ow{!uu.proof tree close}{!uu.proof tree close: ##1}}, debug tagging/.process={Ow{content}{content: ##1}}, !uu.alt text+/.process={ORw2{content}{tag close with}{\ ##2\ ##1\ }}, debug tagging/.process={Ow{!uu.alt text}{!uu.alt text is now ##1}}, }{debug tagging=Branch is open, }, }, }{}, }}.
+[tagforext debug]:: tag nodes: 
+The property list \l__forestext_tag nodes_prop contains the pairs (without outer braces):
+>  {debug tagging/.process}  =>  {Ow{just}{just=##1}}
+>  {if}  =>  {{>OO!&{proof tree rhifo}{proof tree phantom}} {if line numbering={+alt text={\ }, +alt text/.option=proof tree proof line no, }{}, if justifications={debug tagging={Looking for a justification ...}, if just={}{if={> O_= {!u.n children}{2}}{if={>O_={!s.just}{}}{}{just/.option=!s.just,}, debug tagging/.process={Ow{just}{from sibling just is ##1}}, }{temptoksa=, for nodewalk={while nodewalk valid={u}{u, if proof tree phantom={}{if n children=2{back=1, s, temptoksa/.option=just}{}, break, }}}{}, just/.register=temptoksa, debug tagging/.process={Ow{just}{from ancestor sibling just is ##1}}, }, }{}, if just={}{}{alt text+/.process={Ow{just}{\ ##1\ }}, }, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{}, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{if n children=0{delay={debug tagging=Leaf node, debug tagging=Get closure status, if={> O_=! O_=! | {proof tree crefs}{} {!uu.proof tree close}{}} {debug tagging=Branch is closed, debug tagging/.process={Ow{proof tree crefs}{crefs: ##1}}, debug tagging/.process={Ow{!uu.proof tree close}{!uu.proof tree close: ##1}}, debug tagging/.process={Ow{content}{content: ##1}}, !uu.alt text+/.process={ORw2{content}{tag close with}{\ ##2\ ##1\ }}, debug tagging/.process={Ow{!uu.alt text}{!uu.alt text is now ##1}}, }{debug tagging=Branch is open, }, }, }{}, }}.
+[Tag tableau debug]:: Executing collate tags uses with value alt text.
+[Forest ext.utils debug]:: Redeclaring tagging keylist collate tags
+[Forest ext.utils debug]:: with default collate tag/.option=alt text, .
+[Forest ext.utils debug]:: Redeclare collate tags with collate tag/.option=alt text, .
+[Forest ext.utils debug]:: Processing collate tag/.option=alt text,  for collate tags.
+[tagforext debug]:: collate tags: 
+The property list \l__forestext_collate tags_prop contains the pairs (without outer braces):
+>  {collate tag/.option}  =>  {alt text}.
+[tagforext debug]:: collate tags: 
+The property list \l__forestext_collate tags_prop contains the pairs (without outer braces):
+>  {collate tag/.option}  =>  {alt text}.
+[Tag tableau debug]:: Executing tag tree uses with value alt.
+[Tag tableau debug]:: Resetting tag nodes processing order.
+[Tag tableau debug]:: Resetting collate tags processing order.
+[Tag tableau debug]:: Finishing plug code.
+[Forest ext.utils debug]:: Creating options set with declare tagging keylist.
+declare keylist/.process={_x{tag nodes}{debug tagging/.process={Ow{just}{just=##1}},if={{>OO!&{proof tree rhifo}{proof tree phantom}} {if line numbering={+alt text={\ }, +alt text/.option=proof tree proof line no, }{}, if justifications={debug tagging={Looking for a justification ...}, if just={}{if={> O_= {!u.n children}{2}}{if={>O_={!s.just}{}}{}{just/.option=!s.just,}, debug tagging/.process={Ow{just}{from sibling just is ##1}}, }{temptoksa=, for nodewalk={while nodewalk valid={u}{u, if proof tree phantom={}{if n children=2{back=1, s, temptoksa/.option=just}{}, break, }}}{}, just/.register=temptoksa, debug tagging/.process={Ow{just}{from ancestor sibling just is ##1}}, }, }{}, if just={}{}{alt text+/.process={Ow{just}{\ ##1\ }}, }, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{}, debug tagging/.process={Ow{alt text}{alt text is now ##1}}, }{if n children=0{delay={debug tagging=Leaf node, debug tagging=Get closure status, if={> O_=! O_=! | {proof tree crefs}{} {!uu.proof tree close}{}} {debug tagging=Branch is closed, debug tagging/.process={Ow{proof tree crefs}{crefs: ##1}}, debug tagging/.process={Ow{!uu.proof tree close}{!uu.proof tree close: ##1}}, debug tagging/.process={Ow{content}{content: ##1}}, !uu.alt text+/.process={ORw2{content}{tag close with}{\ ##2\ ##1\ }}, debug tagging/.process={Ow{!uu.alt text}{!uu.alt text is now ##1}}, }{debug tagging=Branch is open, }, }, }{}, }},}}, declare keylist/.process={_x{collate tags}{collate tag/.option={alt text},}}, declare keylist/.process={_x{proof tree copy content}{debug tagging={Copying node contents},if content={{}{}{debug tagging=Copying node content to alt text, alt text+/.process={Ow{content}{\ensuremath {##1}}}, debug tagging/.process={Ow{alt text}{alt text is ##1}}, }},}}, 
 [Tag tableau debug]:: Copying node contents
-[Tag tableau debug]:: Copying node content to ttoks
-[Tag tableau debug]:: ttoks is \ensuremath {\lnot (p\vee \lnot p)}
-[Tag tableau debug]:: Copying node content to ttoks
-[Tag tableau debug]:: ttoks is \ensuremath {\lnot p}
-[Tag tableau debug]:: Copying node content to ttoks
-[Tag tableau debug]:: ttoks is \ensuremath {\lnot \lnot p}
-[Tag tableau debug]:: Copying to prove to ttoks
+[Tag tableau debug]:: Copying node content to alt text
+[Tag tableau debug]:: alt text is \ensuremath {\lnot (p\vee \lnot p)}
+[Tag tableau debug]:: Copying node contents
+[Tag tableau debug]:: Copying node content to alt text
+[Tag tableau debug]:: alt text is \ensuremath {\lnot p}
+[Tag tableau debug]:: Copying node contents
+[Tag tableau debug]:: Copying node content to alt text
+[Tag tableau debug]:: alt text is \ensuremath {\lnot \lnot p}
+[Tag tableau debug]:: Copying to prove to alt text
 [Tag tableau debug]:: To prove:\ \ensuremath {\sststile{}{}p\vee \lnot p}
-[Tag tableau debug]:: Making tags
+[Tag tableau debug]:: just=$\lnot $ conc
 [Tag tableau debug]:: Looking for a justification ...
-[Tag tableau debug]:: ttoks is now 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\ 
-[Tag tableau debug]:: ttoks is now 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\ 
+[Tag tableau debug]:: alt text is now 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\ 
+[Tag tableau debug]:: alt text is now 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\ 
+[Tag tableau debug]:: just={1}{\ }$\vee $E
 [Tag tableau debug]:: Looking for a justification ...
-[Tag tableau debug]:: ttoks is now 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\ 
-[Tag tableau debug]:: ttoks is now 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\ 
+[Tag tableau debug]:: alt text is now 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\ 
+[Tag tableau debug]:: alt text is now 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\ 
+[Tag tableau debug]:: just={1}{\ }$\vee $E
 [Tag tableau debug]:: Looking for a justification ...
-[Tag tableau debug]:: ttoks is now 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ 
-[Tag tableau debug]:: ttoks is now 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ 
+[Tag tableau debug]:: alt text is now 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ 
+[Tag tableau debug]:: alt text is now 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ 
+[Tag tableau debug]:: just=
+[Tag tableau debug]:: just=
 [Tag tableau debug]:: Leaf node
 [Tag tableau debug]:: Get closure status
 [Tag tableau debug]:: Branch is closed
 [Tag tableau debug]:: crefs: node@4,node@5
 [Tag tableau debug]:: !uu.proof tree close:
 [Tag tableau debug]:: content: 2,\,3
-[Tag tableau debug]:: !uu.ttoks is now 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\ 
-[Tag tableau debug]:: Pick up ttoks from to prove
-[Tag tableau debug]:: Appending toks To prove:\ \ensuremath {\sststile{}{}p\vee \lnot p}.
-[Tag tableau debug]:: Get tag from wff
-[Tag tableau debug]:: ttoks is now 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\ 
-[Tag tableau debug]:: Appending toks 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\ .
-[Tag tableau debug]:: Get tag from wff
-[Tag tableau debug]:: ttoks is now 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\ 
-[Tag tableau debug]:: Appending toks 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\ .
-[Tag tableau debug]:: Get tag from wff
-[Tag tableau debug]:: ttoks is now 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\ 
-[Tag tableau debug]:: Appending toks 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\ .
+[Tag tableau debug]:: !uu.alt text is now 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\ 
+[tagforest debug]:: Appending toks To prove:\ \ensuremath {\sststile {}{}p\vee \lnot p} .
+[tagforest debug]:: Appending toks 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\  .
+[tagforest debug]:: Appending toks 2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\  .
+[tagforest debug]:: Appending toks 3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\  .
+[tagforest debug]:: Appending toks  .
+[tagforest debug]:: Appending toks  .
+[Tag tableau debug]:: ID:
+[tagforest debug]:: current id: 1
 [Tag tableau debug]:: Accumulated toks:
-To prove:\ \ensuremath {\sststile{}{}p\vee \lnot p} 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\  2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\  3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\  
-[Tag tableau debug]:: Tag tableau
+[tagforest debug]:: current toks: To prove:\ \ensuremath {\sststile {}{}p\vee \lnot p} 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\  2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\  3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\    
+[tagforest debug]:: Dimensions (x then y) are
+[tagforest debug]:: 128.3462pt
+[tagforest debug]:: 80.93695pt
+[tagforest debug]:: Tagging tree now with tag plug=alt, x=128.3462pt, y=80.93695pt ...
+[Tag tableau debug]:: Executing \prooftrees@end .
+[Tag tableau debug]:: Using hook env/forest/end.
+tagpdf: mc-current: abscnt=2==2 =>tag=Figure=30
+[Tag tableau debug]:: Executing .
 ============================================================
 [1
 ]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-t1.aux)
@@ -57,7 +116,7 @@ MathML statistic
 ==> 0 MathML AF attached
 Package tagpdf Info: Finalizing the tagging structure:
 (tagpdf)             Writing out ~7 structure objects
-(tagpdf)             with ~27 'MC' leaf nodes.
+(tagpdf)             with ~5 'MC' leaf nodes.
 (tagpdf)             Be patient if there are lots of objects!
 Package tagpdf Info: writing ParentTree
 Package tagpdf Info: writing IDTree

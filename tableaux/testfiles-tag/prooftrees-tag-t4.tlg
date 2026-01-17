@@ -3,18 +3,14 @@ Don't change this file in any respect.
 ============================================================
 TEST 1: prooftrees-tag-t4
 ============================================================
-! Package prooftrees Error: Prooftrees is currently incompatible with tagging. The safest approach is to compile tableaux standalone and include as images with detailed alt text..
-See the prooftrees package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-l. ...}
-Since you insist, you can enable basic tagging support by loading prooftrees-debug after prooftrees. The code certainly requires LuaLaTeX and probably produces an invalid structure, but verapdf validates it and the code produces alt text automatically. I do not know how to make the structure valid. For a logic package, this is doubly unfortunate.
+LaTeX Font Info:    Trying to load font information for U+msa on input line ....
+LaTeX Font Info:    Trying to load font information for U+msb on input line ....
 ============================================================
 [1
 ]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-t4.aux)
 Package tagpdf Info: Finalizing the tagging structure:
-(tagpdf)             Writing out ~6 structure objects
-(tagpdf)             with ~3 'MC' leaf nodes.
+(tagpdf)             Writing out ~7 structure objects
+(tagpdf)             with ~5 'MC' leaf nodes.
 (tagpdf)             Be patient if there are lots of objects!
 Package tagpdf Info: writing ParentTree
 Package tagpdf Info: writing IDTree
