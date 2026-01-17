@@ -1,4 +1,4 @@
--- $Id: build.lua 11490 2026-01-16 19:31:55Z cfrees $
+-- $Id: build.lua 11507 2026-01-17 19:15:32Z cfrees $
 -- Build configuration for forest-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -23,18 +23,19 @@ typesetruns = 4
 -- typesetruns = 1
 --------------------------------------------------------------------------------
 uploadconfig = {
-  ctanPath = "/macros/latex/contrib/forest-ext",
+  ctanPath = "/graphics/pgf/contrib/forest-ext",
   pkg = "forest-ext",
   version = "v0.1",
   author = "Clea F. Rees",
   uploader = "Clea F. Rees",
   license = "lppl1.3c",
-  update = false,
+  update = true,
   summary = "Additional Forest libraries providing bug fixes, extensions and support for tagging",
   description = "Additional Forest libraries providing bug fixes, extensions and support for tagging",
 	bugtracker = "https://codeberg.org/cfr/prooftrees/issues",
 	repository = {"https://codeberg.org/cfr/prooftrees", "https://github.com/cfr42/prooftrees"},
-  topic = {"accessibility", "logic", "linguistics", "pgf-tikz", "tree"},
+  topic = {"tagged", "logic", "linguistic", "pgf-tikz", "tree"},
+  note = "The catalogue description shown in search results for this package appears to be from of my other packages. Could this be corrected, please?",
 }
 --------------------------------------------------------------------------------
 date = "2025-2026"
