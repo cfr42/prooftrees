@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11486 2026-01-16 07:59:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11495 2026-01-17 00:08:58Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-multi]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -48,26 +48,39 @@
 % \title{ext.multi}
 % \author{Clea F. Rees\thanks{%
 %     Bug tracker:
-%     \href{https://codeberg.org/cfr/forest-ext/issues}{\url{codeberg.org/cfr/forest-ext/issues}}
+%     \href{https://codeberg.org/cfr/prooftrees/issues}{\url{codeberg.org/cfr/prooftrees/issues}}
 %     \textbar{} Code:
-%     \href{https://codeberg.org/cfr/forest-ext}{\url{codeberg.org/cfr/forest-ext}}
+%     \href{https://codeberg.org/cfr/prooftrees}{\url{codeberg.org/cfr/prooftrees}}
 %     % \textbar{} Mirror:
-%     % \href{https://github.com/cfr42/forest-ext}{\url{github.com/cfr42/forest-ext}}% 
+%     % \href{https://github.com/cfr42/prooftrees}{\url{github.com/cfr42/prooftrees}}% 
 % }}
 % \date{\forestextdocdate}
 % \maketitle
 %
 % ^^A forest-lib-ext.multi{-debug} 
 % ^^A <<< 
-% \iffalse
 %<*sty>
-% \fi
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-multi.dtx 11486 2026-01-16 07:59:31Z cfrees $}
-%<!debug>    \ProvidesForestLibrary{ext.multi}[2025-12-05 v0.0]
-%<debug>    \ProvidesForestLibrary{ext.multi-debug}[2025-12-05 v0.0]
+%% $Id: forest-ext-multi.dtx 11495 2026-01-17 00:08:58Z cfrees $}
+%<!debug>    \ProvidesForestLibrary{ext.multi}[2025-12-05 v0.1]
+%<debug>    \ProvidesForestLibrary{ext.multi-debug}[2025-12-05 v0.1]
+%
+%<!debug>    \disable@package@load {forest-lib-ext.multi-debug}
+%<debug>    \disable@package@load {forest-lib-ext.multi}
+{%
+%<!debug>      \PackageWarning {ext.multi (forest library)}
+%<debug>      \PackageWarning {ext.multi-debug (forest library)}
+  {Only one of ext.multi and ext.multi-debug should be loaded.
+    Since the
+%<!debug>        ext.multi
+%<debug>        ext.multi-debug
+    library has already been loaded, I will ignore your request for
+%<!debug>        ext.multi-debug.%
+%<debug>        ext.multi.%
+  }%
+}
 %    \end{macrocode}
 % \iffalse
 % ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
@@ -107,8 +120,8 @@
   declare toks={multi@edge@route}{--},
   declare toks={multi@parent@of}{},
 %    \end{macrocode}
-% My answer: \url{https://tex.stackexchange.com/a/695602/}.
-% Based on an answer by Alan Munn: \url{https://tex.stackexchange.com/a/695600/}, which was based on my original answer.
+% \texseans[My answer:]{695602}.
+% \texseans{695600}[Alan Munn], which was based on my original answer.
 %
 % Public registers.
 %    \begin{macrocode}
@@ -501,9 +514,7 @@
   }%
 }
 %    \end{macrocode}
-% \iffalse
 %</sty>
-% \fi
 %^^A >>>
 %
 % ^^A \Finale

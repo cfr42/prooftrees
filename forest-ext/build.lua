@@ -1,4 +1,4 @@
--- $Id: build.lua 11476 2026-01-15 13:15:33Z cfrees $
+-- $Id: build.lua 11490 2026-01-16 19:31:55Z cfrees $
 -- Build configuration for forest-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -32,8 +32,8 @@ uploadconfig = {
   update = false,
   summary = "Additional Forest libraries providing bug fixes, extensions and support for tagging",
   description = "Additional Forest libraries providing bug fixes, extensions and support for tagging",
-	bugtracker = "https://codeberg.org/cfr/forest-ext/issues",
-	repository = {"https://codeberg.org/cfr/forest-ext", "https://github.com/cfr42/forest-ext"},
+	bugtracker = "https://codeberg.org/cfr/prooftrees/issues",
+	repository = {"https://codeberg.org/cfr/prooftrees", "https://github.com/cfr42/prooftrees"},
   topic = {"accessibility", "logic", "linguistics", "pgf-tikz", "tree"},
 }
 --------------------------------------------------------------------------------
@@ -53,7 +53,9 @@ function docinit_hook()
   f:close()
   lines = {}
   for line in io.lines(typesetdir .. "/forest-ext-utils.dtx") do
-    table.insert(lines, (string.gsub(line,"%_*%@%@%_","__forestext_")))
+    if not (string.match(line, "^%% *%^%^A")) then
+      table.insert(lines, (string.gsub(line,"%_*%@%@%_","__forestext_")))
+    end
   end
   local f = assert(io.open(typesetdir .. "/forest-ext-utils.dtx", "w"))
   f:write(table.concat(lines,"\n") .. "\n")

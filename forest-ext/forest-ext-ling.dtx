@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-ling.dtx 11471 2026-01-14 21:49:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-ling.dtx 11498 2026-01-17 00:35:22Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-ling]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -48,38 +48,51 @@
 % \title{ext.ling}
 % \author{Clea F. Rees\thanks{%
 %     Bug tracker:
-%     \href{https://codeberg.org/cfr/forest-ext/issues}{\url{codeberg.org/cfr/forest-ext/issues}}
+%     \href{https://codeberg.org/cfr/prooftrees/issues}{\url{codeberg.org/cfr/prooftrees/issues}}
 %     \textbar{} Code:
-%     \href{https://codeberg.org/cfr/forest-ext}{\url{codeberg.org/cfr/forest-ext}}
+%     \href{https://codeberg.org/cfr/prooftrees}{\url{codeberg.org/cfr/prooftrees}}
 %     % \textbar{} Mirror:
-%     % \href{https://github.com/cfr42/forest-ext}{\url{github.com/cfr42/forest-ext}}% 
+%     % \href{https://github.com/cfr42/prooftrees}{\url{github.com/cfr42/prooftrees}}% 
 % }}
 % \date{\forestextdocdate}
 % \maketitle
 %
 % ^^A forest-lib-ext.ling{-debug} 
 % ^^A <<< 
-% \iffalse
 %<*sty>
-% \fi
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-ling.dtx 11471 2026-01-14 21:49:31Z cfrees $}
-%<!debug>    \ProvidesForestLibrary{ext.ling}[2025-12-05 v0.0]
-%<debug>    \ProvidesForestLibrary{ext.ling-debug}[2025-12-05 v0.0]
+%% $Id: forest-ext-ling.dtx 11498 2026-01-17 00:35:22Z cfrees $}
+%<!debug>    \ProvidesForestLibrary{ext.ling}[2025-12-05 v0.1]
+%<debug>    \ProvidesForestLibrary{ext.ling-debug}[2025-12-05 v0.1]
+%
+%<!debug>    \disable@package@load {forest-lib-ext.ling-debug}
+%<debug>    \disable@package@load {forest-lib-ext.ling}
+{%
+%<!debug>      \PackageWarning {ext.ling (forest library)}
+%<debug>      \PackageWarning {ext.ling-debug (forest library)}
+  {Only one of ext.ling and ext.ling-debug should be loaded.
+    Since the
+%<!debug>        ext.ling
+%<debug>        ext.ling-debug
+    library has already been loaded, I will ignore your request for
+%<!debug>        ext.ling-debug.%
+%<debug>        ext.ling.%
+  }%
+}
 %    \end{macrocode}
-% \iffalse
+%<*debug>
 % ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
-% \fi
 % ^^A multidom <<<
+% \begin{drop}
 %    \begin{macrocode}
 %<!debug>    \useforestlibrary{ext.multi}
 %<debug>    \useforestlibrary{ext.multi-debug}
 \forestset{
 %    \end{macrocode}
-% My answer: \url{https://tex.stackexchange.com/a/695602/}.
-% Based on an answer by Alan Munn: \url{https://tex.stackexchange.com/a/695600/}, which was based on my original answer.
+% \texseans[My answer:]{695602}.
+% \texseans{695600}[Alan Munn], which was based on my original answer.
 %
 % Internal registers.
 %    \begin{macrocode}
@@ -145,8 +158,7 @@
 %    \end{macrocode}
 % \end{fstyle}
 % \begin{fstyle}{curve to also parent,curve to also parent+,+curve to also parent}
-%   Draws a curved edge from the current node to an additional extant parent.
-%   Parameterised from \url{https://tex.stackexchange.com/a/249615/}.
+%   Draws a curved edge from the current node to an additional extant parent\texseans[Parameterised from \texse{}:]{249615}.
 %
 %   Why do I need to double hashes twice here?
 %    \begin{macrocode}
@@ -183,7 +195,7 @@
 %    \end{macrocode}
 % \end{fstyle}
 % \begin{fstyle}{multidom}
-%   Based on an answer by Alan Munn: \url{https://tex.stackexchange.com/a/695600/}, which was based on my original answer.
+%   \texseans{695600}[Alan Munn], which was based on my original answer.
 %   Draws a curved edge from the current node to its parent and from the current node to an additional extant parent.
 %
 % Arguments: 
@@ -195,7 +207,7 @@
 %   \item out to node
 %   \item node
 % \end{itemize}
-% Parameterised from \url{https://tex.stackexchange.com/a/249615/}.
+% \texseans[Parameterised from]{249615}.
 %    \begin{macrocode}
   multidom/.style n args=6{%
 %<debug>    debug@multidom=Executing style multidom at,
@@ -292,6 +304,8 @@
 %    \begin{macrocode}
 }
 %    \end{macrocode}
+% \end{drop}
+%</debug>
 % ^^A >>> multidom
 %
 % ^^A <<< pretty nice empty nodes
@@ -320,9 +334,7 @@
 %    \end{macrocode}
 % \end{fstyle}
 % ^^A >>> pretty nice empty nodes
-% \iffalse
 %</sty>
-% \fi
 %^^A >>>
 %
 % ^^A \Finale
