@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11499 2026-01-17 00:49:37Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11502 2026-01-17 02:31:22Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-utils]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-utils.dtx 11499 2026-01-17 00:49:37Z cfrees $}
+%% $Id: forest-ext-utils.dtx 11502 2026-01-17 02:31:22Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.utils}[2025-12-05 v0.1]
 %<debug>    \ProvidesForestLibrary{ext.utils-debug}[2025-12-05 v0.1]
 %
@@ -384,7 +384,7 @@
       \PackageError{ext.tagging (forest library)}{%
         The key '#1' cannot be used inside a forest environment.%
       }{%
-        You need to use this key inside the document but outside the forest.
+        You need to use this key outside forest environments.
         Please see forest-ext's documentation for details.%
       }%
     },
