@@ -36,7 +36,7 @@
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext.dtx 11495 2026-01-17 00:08:58Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forestextdoc]
 \GetFileInfoSVN*
 \let\forestextdocversion\fileversion
@@ -46,8 +46,10 @@
 \let\forestextdocdate\filedate
 \let\forestextdocname\filename
 %^^A preamble <<<
-\documentclass[11pt,british]{ltxdoc}
+\documentclass[10pt,british]{ltxdoc}
 \partokencontext=0
+% ^^A % if hiding first level of docstrip guards
+% ^^A \setcounter{StandardModuleDepth}{0}
 % ^^A  l3doc loads fancyvrb
 % ^^A  fancyvrb overwrites svn-prov's macros without warning
 % ^^A  restore \fileversion \filerev in case we're using l3doc
@@ -58,36 +60,12 @@
 \DoNotIndex{\verb,\ProvidesPackageSVN,\NeedsTeXFormat,\ProcessKeyOptions}
 \usepackage{babel}
 \usepackage{fancyhdr}
-% ^^A  \usepackage{array,tabularx}
-% ^^A  \usepackage{longtable}
 \usepackage[inline]{enumitem}
 \usepackage{forest}
 \useforestlibrary{linguistics,edges,ext.ling-debug,ext.multi-debug,ext.utils-debug}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[tt={mono,tabular,lining}]{cfr-lm}
-% ^^A  \usepackage[referable]{threeparttablex}
-% ^^A  \makeatletter
-% ^^A  \def\TPT@measurement{% ateb David Carlisle: https://tex.stackexchange.com/a/370691/
-% ^^A    \ifdim\wd\@tempboxb<\TPTminimum
-% ^^A      \hsize \TPTminimum
-% ^^A    \else
-% ^^A      \hsize\wd\@tempboxb
-% ^^A    \fi
-% ^^A    \xdef\TPT@hsize{\hsize\the\hsize \noexpand\@parboxrestore}\TPT@hsize
-% ^^A    \ifx\TPT@docapt\@undefined\else
-% ^^A      \TPT@docapt \vskip.2\baselineskip
-% ^^A    \fi \par
-% ^^A    \dimen@\dp\@tempboxb % new
-% ^^A    \box\@tempboxb
-% ^^A    \ifvmode \prevdepth\dimen@ \fi% was \z@ not \dimen@
-% ^^A  }
-% ^^A  \renewlist{tablenotes}{enumerate}{1}
-% ^^A  \setlist[tablenotes]{label=\tnote{\alph*},ref=\alph*,itemsep=\z@,topsep=\z@skip,partopsep=\z@skip,parsep=\z@,itemindent=\z@,labelindent=\tabcolsep,labelsep=.2em,leftmargin=*,align=left,before={\unskip\medskip\footnotesize}}
-% ^^A  \makeatother
-% ^^A  \usepackage{booktabs}
-% ^^A  \usepackage{multirow}
-\usepackage{xcolor}
 \usepackage{xurl}
 \urlstyle{sf}
 \usepackage{microtype}
@@ -123,12 +101,12 @@
   {\nolinkurl{#1}}%
 }
 \DeclareFieldAlias{eprint:CTAN}{eprint:ctan}
-\bibliography{abbrv, authors, journals-series, pub, lleoedd, ref}
-%^^A % \bibliography{forest-ext.bib}% generate for upload (gweler uchod)
+%^^A % \bibliography{abbrv, authors, journals-series, pub, lleoedd, ref}
+\bibliography{forest-ext_biber}% generate for upload (gweler uchod)
 \usepackage[section]{placeins}
 \usepackage{tcolorbox}
 \usepackage{varwidth}
-%^^A \tcbuselibrary{listingsutf8}% ^^A if you use skins, you need to disable externalisation for boxes which use the relevant options - gweler nodiadau/tex/tex.se/tcolorbox-coursepacket-exp.tex
+%^^A if you use skins, you need to disable externalisation for boxes which use the relevant options - gweler nodiadau/tex/tex.se/tcolorbox-coursepacket-exp.tex
 \tcbuselibrary{minted}
 \tcbuselibrary{skins}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -151,11 +129,17 @@
   urlcolor={blueberry}%
 }
 \makeatletter
+% ^^A lliwiau <<<
+\definecolor{strawberry}{rgb}{1.000,0.000,0.502}
+\definecolor{blueberry}{rgb}{0.000,0.000,1.000}
+\definecolor{moss}{rgb}{0.000,0.502,0.251}
 \colorlet{doc@frame@col}{darkgray}
 \colorlet{doc@title@col}{doc@frame@col}
 \colorlet{doc@bg@col}{white}
 %^^A \colorlet{doc@fg@col}{white}
+% ^^A lliwiau >>>
 \setminted{style=sas,breaklines=true,breakafter={\,},}
+% ^^A tcolorbox <<<
 \tcbset{%^^A
   base/.style={%
     colback=doc@bg@col,
@@ -239,31 +223,9 @@
   halign lower=center,
   #1,
 }
+% ^^A tcolorbox >>>
 \newminted {latex}{frame=single,rulecolor=doc@frame@col,}
 \newminted {xml}{frame=single,rulecolor=doc@frame@col,}
-%^^A % \NewTCBListing{xmlbox}{ O{} }{%
-%^^A %   base,
-%^^A %   minted language=xml,
-%^^A %   #1,
-%^^A % }
-%^^A % \NewTCBListing{latexbox}{ O{} }{%
-%^^A %   base,
-%^^A %   minted language=latex,
-%^^A %   #1,
-%^^A % }
-%^^A \NewTCBListing[use counter from=coeden, crefname={box}{boxes}, Crefname={Box}{Boxes}]{codcoedenhir}{
-%^^A  s O {} m }
-%^^A {%^^A
-%^^A   IfBooleanTF={#1}{cod coeden dew=#3}{cod coeden=#3},
-
-%^^A \NewTCBListing[use counter from=coeden, crefname={box}{boxes}, Crefname={Box}{Boxes}]{codcoedenhir}{
-%^^A  s O {} m }
-%^^A {%^^A
-%^^A   IfBooleanTF={#1}{cod coeden dew=#3}{cod coeden=#3},
-%^^A   listing above text,
-%^^A   halign lower=center,
-%^^A   #2,
-%^^A }
 \defbibheading{bibliography}[\refname]{%^^A
   \section*{#1}%^^A
   \markboth{#1}{}}
@@ -279,11 +241,18 @@
   \let\orig@xobey@sp\@xobey@sp
 }
 \makeatother
+% ^^A doc DocElement additions <<<
+% ^^A forest
 \NewDocElement[%
-  idxtype=step,
-  idxgroup=steps,
-  printtype=\textit{step},
-]{Step}{fstep}
+  idxtype=autowrapped toks,
+  idxgroup=autowrapped toks,
+  printtype=\textit{auto.\ toks},
+]{Awtoks}{autotoks}
+\NewDocElement[%
+  idxtype=autowrapped toks reg.,
+  idxgroup=autowrapped toks registers,
+  printtype=\textit{auto.\ toks reg.},
+]{Awtoksr}{autotoksr}
 \NewDocElement[%
   idxtype=bool.,
   idxgroup=booleans,
@@ -295,31 +264,6 @@
   printtype=\textit{bool.\ reg.},
 ]{Boolr}{booleanr}
 \NewDocElement[%
-  idxtype=autowrapped toks,
-  idxgroup=autowrapped toks,
-  printtype=\textit{autowrapped toks},
-]{Awtoks}{autotoks}
-\NewDocElement[%
-  idxtype=autowrapped toks reg.,
-  idxgroup=autowrapped toks registers,
-  printtype=\textit{autowrapped toks reg.},
-]{Awtoksr}{autotoksr}
-\NewDocElement[%
-  idxtype=style,
-  idxgroup=styles,
-  printtype=\textit{style},
-]{Style}{fstyle}
-% \NewDocElement[%
-%   idxtype=lib.,
-%   idxgroup=libraries,
-%   printtype=\textit{lib.},
-% ]{Lib}{library}
-\NewDocElement[%
-  idxtype=pkg.,
-  idxgroup=,
-  printtype=\textit{pkg.},
-]{Pkg}{package}
-\NewDocElement[%
   printtype=\textit{choice},
   idxtype=choice key,
   idxgroup=choice keys,
@@ -327,13 +271,8 @@
 \NewDocElement[%
   idxtype=code key,
   idxgroup=code keys,
-  printtype=\textit{code},
+  printtype=\textit{code key},
 ]{Code}{fcodekey}
-\NewDocElement[%
-  idxtype=stage,
-  idxgroup=stages,
-  printtype=\textit{stage},
-]{Stage}{fstage}
 \NewDocElement[%
   idxtype=count,
   idxgroup=counts,
@@ -345,11 +284,6 @@
   printtype=\textit{keylist},
 ]{Keylist}{fkeylist}
 \NewDocElement[%
-  idxtype=tagging keylist,
-  idxgroup=tagging keylists,
-  printtype=\textit{tag.\ keylist},
-]{TagKeylist}{ftagkeylist}
-\NewDocElement[%
   idxtype=keylist register,
   idxgroup=keylists registers,
   printtype=\textit{keylist reg.},
@@ -360,6 +294,21 @@
   printtype=\textit{lib.},
 ]{Lib}{library}
 \NewDocElement[%
+  idxtype=stage,
+  idxgroup=stages,
+  printtype=\textit{stage},
+]{Stage}{fstage}
+\NewDocElement[%
+  idxtype=step,
+  idxgroup=steps,
+  printtype=\textit{step},
+]{Step}{fstep}
+\NewDocElement[%
+  idxtype=style,
+  idxgroup=styles,
+  printtype=\textit{style},
+]{Style}{fstyle}
+\NewDocElement[%
   idxtype=toks,
   idxgroup=toks,
   printtype=\textit{toks},
@@ -369,11 +318,24 @@
   idxgroup=toks registers,
   printtype=\textit{toks reg.},
 ]{Toksr}{ftoksr}
+% ^^A forest-ext
+\NewDocElement[%
+  idxtype=tagging keylist,
+  idxgroup=tagging keylists,
+  printtype=\textit{tag.\ keylist},
+]{TagKeylist}{ftagkeylist}
+% ^^A tex generic
 \NewDocElement[%
   idxtype=tex toks,
   idxgroup=tex toks,
   printtype=\textit{\TeX{} toks},
 ]{Ttoks}{textoks}
+% ^^A latex project
+\NewDocElement[%
+  idxtype=pkg.,
+  idxgroup=,
+  printtype=\textit{pkg.},
+]{Pkg}{package}
 \NewDocElement[%
   idxtype=socket,
   idxgroup=sockets,
@@ -384,6 +346,7 @@
   idxgroup=plugs,
   printtype=\textit{plug},
 ]{Plug}{splug}
+% ^^A doc DocElement additions >>>
 \newcommand*\is{\texttt{=\,}}
 \NewDocumentCommand \val { m }
 {%
@@ -412,9 +375,9 @@
 }
 \ExplSyntaxOff
 \forestextdocset{%
-  bug={\href{https://codeberg.org/cfr/forest-ext/issues}{\textsc{bugtracker}}},
-  codeberg={\href{https://codeberg.org/cfr/forest-ext}{\textsc{codeberg}}},
-  github={\href{https://github.com/cfr42/forest-ext}{\textsc{github}}},
+  bug={\href{https://codeberg.org/cfr/prooftrees/issues}{\textsc{bugtracker}}},
+  codeberg={\href{https://codeberg.org/cfr/prooftrees}{\textsc{codeberg}}},
+  github={\href{https://github.com/cfr42/prooftrees}{\textsc{github}}},
   ctan={\href{https://ctan.org/}{\textsc{ctan}}},
 }
 % \usepackage{cleveref}
@@ -436,20 +399,20 @@
   #1 \href{https://tex.stackexchange.com/q/#2}{#2}%
   \IfValueT{#3}{ by #3}.%
 }
+\NewDocumentEnvironment{drop}{+c}{}{}
 \title{\filebase}
 \author{Clea F. Rees\thanks{%
     Bug tracker:
-    \href{https://codeberg.org/cfr/forest-ext/issues}{\url{codeberg.org/cfr/forest-ext/issues}}
+    \href{https://codeberg.org/cfr/prooftrees/issues}{\url{codeberg.org/cfr/prooftrees/issues}}
     \textbar{} Code:
-    \href{https://codeberg.org/cfr/forest-ext}{\url{codeberg.org/cfr/forest-ext}}
-    % \textbar{} Mirror:
-    % \href{https://github.com/cfr42/forest-ext}{\url{github.com/cfr42/forest-ext}}% 
+    \href{https://codeberg.org/cfr/prooftrees}{\url{codeberg.org/cfr/prooftrees}}
+    \textbar{} Mirror:
+    \href{https://github.com/cfr42/prooftrees}{\url{github.com/cfr42/prooftrees}}% 
 }}
 \date{\forestextdocdate}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhf[lh]{\itshape\forestextdocbase}
-% ^^A \fancyhf[rh]{\itshape\filetoday}
 \fancyhf[rh]{\itshape\thepage~/~\lastpage{}}
 \ExplSyntaxOn
 \hook_gput_code:nnn {shipout/lastpage} {.}
@@ -462,13 +425,8 @@
 }
 \cs_new_eq:NN \OrigMakePrivateLetters \MakePrivateLetters
 \ExplSyntaxOff
-\definecolor{strawberry}{rgb}{1.000,0.000,0.502}
-\definecolor{blueberry}{rgb}{0.000,0.000,1.000}
-\definecolor{moss}{rgb}{0.000,0.502,0.251}
-\partokencontext=0
 % ^^A >>> preamble
 \begin{document}
-%^^A \let\MakePrivateLetters\MyMakePrivateLetters
 \DocInput{\forestextdocname}
 \end{document}
 %</driver>
@@ -489,7 +447,7 @@
 % \setlength{\parskip}{0.5em}
 % 
 % ^^A lua will replace v0.0 and 0000/00/00 when tagging in the non-tagging sense
-% \changes{v0.0}{0000-00-00}{First public release.}
+% \changes{v0.1}{2026-01-16}{First public release.}
 %
 % \begin{abstract}
 %   \noindent\lpack{forest-ext} consists of various libraries for Sašo Živanović's package \pkg{forest} \autocite*{saso-forest}.
@@ -605,7 +563,7 @@
 % The support for tagging adds the following \pkg{forest} \emph{stages} which are executed in order, sandwiched between \texttt{compute xy stage} and \texttt{before drawing tree}.
 %
 % \textbf{If you redefine (or load code which redefines) the default implementation of \texttt{stages}, you must include or replace the additions from this library.}
-% For an example of how to do this, see \pkg{prooftrees}, which includes, redefines, supplements or replaces these additions.
+% For an example of how to do this, see \pkg{prooftrees} \autocite{cfr-prooftrees}, which includes, redefines, supplements or replaces these additions.
 % 
 % \DescribeKeylist{before tagging nodes} Empty by default.
 %     Analogous to \texttt{before typesetting nodes}, \texttt{before packing} etc.
@@ -736,7 +694,7 @@
 % If the user does nothing and tagging is active, the \texttt{alt} plug is used.
 % If this is not desired, it is sufficient to use \forestset{plug=noop}, which will make everything (remain) \texttt{noop} or \forestset{custom tagging}, which will allow the \pkg{latex-lab} patches to mix explosively with your \pkg{forest} trees.
 % This is not recommended unless you plan to prevent such encounters yourself.
-% In the worse cases, the combination will result in fatal compilation errors.
+% In the worst cases, the combination will result in fatal compilation errors.
 % In the best cases, the document will compile, but tagging will almost certainly be broken.
 %
 % However, it is possible to strike a middle course and use the infrastructure provided by this library as the basis for custom tagging.
@@ -842,7 +800,7 @@
 % This would result in each node in the tree contributing both its content and a prefix specified by option \texttt{percy text} to the alternative text provided in the tagging structure of the \textsc{pdf}.
 % No structural information is added here i.e.~there are no descriptions of branching or of the relationships between nodes\footnote{%
 %   For a more realistic implementation, see \cref{sec:imp} for the code used for the \texttt{alt} plug.
-%   For a more elaborate example of customisation, see \pkg{prooftrees}.%
+%   For a more elaborate example of customisation, see \textcite{cfr-prooftrees}.%
 % }. 
 %
 % ^^A >>> subsubsec:tag-cp
@@ -1461,6 +1419,7 @@
 %</verb>
 % \fi
 %
+% \begin{drop}
 % \subsection{Multiple dominance}\label{subsec:ling-multidom}% ^^A <<<
 %
 % The \texttt{multidom} styles are \texseans[based on code posted at]{695602}, which was \texseans[based on code]{695600}[Alan Munn], which was based on my code, which was based on his question, and parameterisation of \texseans[]{249615}.%
@@ -1746,6 +1705,7 @@ prepend:south east:V,
 % }
 % }
 % ^^A >>>
+% \end{drop}
 % ^^A >>>
 % 
 % \section{Utilities}\label{sec:utils}% ^^A <<<
@@ -1967,7 +1927,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11495 2026-01-17 00:08:58Z cfrees $}[v0.1 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 \input{\MyFileBaseName.dtx}
@@ -1981,7 +1941,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11485 2026-01-16 07:39:11Z cfrees $}[v0.0 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11495 2026-01-17 00:08:58Z cfrees $}[v0.1 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation\setcounter{IndexColumns}{2}}
 \input{\MyFileBaseName.dtx}

@@ -1,4 +1,4 @@
-$Id: README.md 11471 2026-01-14 21:49:31Z cfrees $
+$Id: README.md 11496 2026-01-17 00:15:43Z cfrees $
 
 # forest-ext
 
@@ -10,6 +10,7 @@ Currently the package provides the following Forest libraries:
 - ext.tagging   (produce tagged PDF)
 - ext.utils     (minor tweaks)
 
+Debugging versions of all libraries are provided.
 
 ## Licence
 
@@ -38,8 +39,8 @@ This work consists of all files listed in manifest.txt.
 Forest is incompatible with the LaTeX Project's code for producing tagged PDF.
 `ext.tagging` enables Forest trees to be included in tagged documents by
 auto-generating alternative text based on the content of trees' nodes and edge
-labels. The result can be configured to some extent using a small number of
-Forest options and registers.
+labels. The result can be configured using Forest options and registers and/or
+providing custom plugs for the provided sockets.
 
 I find myself using certain style tweaks repeatedly in both my own documents
 and answers on TeX SE. A few of these are provided here for convenience:
@@ -47,7 +48,7 @@ and answers on TeX SE. A few of these are provided here for convenience:
 children;
 - add labels for levels or tiers at the edge of the tree;
 - include children with multiple parents;
-- curved edges of the sort some linguists like.
+- 'pretty nice empty nodes' (for linguists).
 
 ## Limitations
 
@@ -99,18 +100,18 @@ the structure.)
 ## Code Repositories
 
 Code for the package is hosted at 
-  https://codeberg.org/cfr/forest-ext
+  https://codeberg.org/cfr/prooftrees
 For convenience, the repository will be mirrored at
-  https://github.com/cfr42/forest-ext
+  https://github.com/cfr42/prooftrees
 
 ## Contact Details
 
 Bug reports, feature requests etc. should be filed at
-  https://codeberg.org/cfr/forest-ext/issues
+  https://codeberg.org/cfr/prooftrees/issues
 
 
 Clea F. Rees
-Version 0.0
-0000-00-00
+Version 0.1
+2026-01-17
 
 vim: et:tw=80:ts=2:

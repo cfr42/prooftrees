@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11486 2026-01-16 07:59:31Z cfrees $}[v0.0 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11499 2026-01-17 00:49:37Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -48,27 +48,40 @@
 % \title{ext.tagging}
 % \author{Clea F. Rees\thanks{%
 %     Bug tracker:
-%     \href{https://codeberg.org/cfr/forest-ext/issues}{\url{codeberg.org/cfr/forest-ext/issues}}
+%     \href{https://codeberg.org/cfr/prooftrees/issues}{\url{codeberg.org/cfr/prooftrees/issues}}
 %     \textbar{} Code:
-%     \href{https://codeberg.org/cfr/forest-ext}{\url{codeberg.org/cfr/forest-ext}}
+%     \href{https://codeberg.org/cfr/prooftrees}{\url{codeberg.org/cfr/prooftrees}}
 %     % \textbar{} Mirror:
-%     % \href{https://github.com/cfr42/forest-ext}{\url{github.com/cfr42/forest-ext}}% 
+%     % \href{https://github.com/cfr42/prooftrees}{\url{github.com/cfr42/prooftrees}}% 
 % }}
 % \date{\forestextdocdate}
 % \maketitle
 %
 % ^^A forest-lib-ext.tagging{-debug} 
 % ^^A <<< 
-% \iffalse
 %<*sty>
-% \fi
 %<@@=tagforest>
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11486 2026-01-16 07:59:31Z cfrees $}
-%<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.0]
-%<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.0]
+%% $Id: forest-ext-tagging.dtx 11499 2026-01-17 00:49:37Z cfrees $}
+%<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.1]
+%<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.1]
+%
+%<!debug>    \disable@package@load {forest-lib-ext.tagging-debug}
+%<debug>    \disable@package@load {forest-lib-ext.tagging}
+{%
+%<!debug>      \PackageWarning {ext.tagging (forest library)}
+%<debug>      \PackageWarning {ext.tagging-debug (forest library)}
+  {Only one of ext.tagging and ext.tagging-debug should be loaded.
+    Since the
+%<!debug>        ext.tagging
+%<debug>        ext.tagging-debug
+    library has already been loaded, I will ignore your request for
+%<!debug>        ext.tagging-debug.%
+%<debug>        ext.tagging.%
+  }%
+}
 %    \end{macrocode}
 % \iffalse
 % ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
@@ -163,7 +176,7 @@
 %
 % The support for \pkg{memoize} is currently \texttt{noop}, but we create the sockets.
 %
-% \texttt{tagsupport/forest/setup} doesn't correspond to anything in \pkg{latex-lab} because I'm not sure how to make it.
+% \texttt{tagsupport/forest/setup} doesn't correspond to anything in \pkg{latex-lab} \autocite{latex-project-latex-lab} because I'm not sure how to make it.
 %    \begin{macrocode}
 \socket_new:nn {tagsupport/forest/init}{0}
 \socket_new:nn {tagsupport/forest/tag}{2}
@@ -199,7 +212,7 @@
 \socket_new_plug:nnn {tagsupport/forest/init}{tag}
 {
 %    \end{macrocode}
-%   This part is modified from \pkg{latex-lab}, but runs in a different socket.
+%   This part is modified from \textcite{latex-project-latex-lab-tikz}, but runs in a different socket.
 %   I had a note that using socket \texttt{para/begin} didn't work here.
 %   That's probably from tableaux?
 %   But I can't remember what I thought the problem was \dots.
@@ -221,7 +234,7 @@
   \socket_assign_plug:nn {tagsupport/tikz/picture/begin}{noop}
   \socket_assign_plug:nn {tagsupport/tikz/picture/end}{noop}
 %    \end{macrocode}
-% This does the \pkg{forest} setup before the \emph{tagging keylists} are turned into \emph{keylist options}.
+% This does the \pkg{forest} \autocite{saso-forest} setup before the \emph{tagging keylists} are turned into \emph{keylist options}.
 %    \begin{macrocode}
   \socket_use:n {tagsupport/forest/setup}
 %    \end{macrocode}
@@ -237,8 +250,8 @@
 }
 %    \end{macrocode}
 % \end{splug}
-% \begin{splug}{tagsupport/forest/setup alt}
-%   This doesn't correspond to anything in \pkg{latex-lab} because I'm not sure how to make it.
+% \begin{splug}{tagsupport/forest/setup~alt}
+%   This doesn't correspond to anything in \textcite{latex-project-latex-lab-tikz} because I'm not sure how to make it.
 %    \begin{macrocode}
 \socket_new_plug:nnn {tagsupport/forest/setup}{alt}
 {
@@ -251,8 +264,8 @@
 }
 %    \end{macrocode}
 % \end{splug}
-% \begin{splug}{tagsupport/forest/tag alt}
-% This plug corresponds to \pkg{latex-lab}'s \texttt{alt} plug for \pkg{tikz}.
+% \begin{splug}{tagsupport/forest/tag~alt}
+% This plug corresponds to \pkg{latex-lab}'s \texttt{alt} plug for \pkg{tikz} \autocite{latex-project-latex-lab-tikz}.
 % So far as possible, these plugs are verbatim copies of the official plugs\footnote{%
 %   In other words, the bits that work are shamelessly copied from Ulrike Fischer's code, while the bits which don't are mine.%
 % }, but some changes are necessary for \pkg{forest}.
@@ -384,7 +397,7 @@
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\_@@_end:}
-%   Again, analogous to the corresponding \pkg{latex-lab} function.
+%   Again, analogous to the corresponding \pkg{latex-lab} function \autocite{latex-project-latex-lab-tikz}.
 %    \begin{macrocode}
 \cs_new_nopar:Npn \_@@_end: {
   \_@@_tag_resume:n {tagforest}
@@ -506,17 +519,13 @@
 \forestset{
 %    \end{macrocode}
 % For debugging.
-% \iffalse
 %<*debug>
-% \fi
 %    \begin{macrocode}
   debug tagforest/.code={
     \tagforest@debug@typeout{#1}%
   },
 %    \end{macrocode}
-% \iffalse
 %</debug>
-% \fi
 % Various additions in the form of \pkg{forest} options and registers.
 % By default, these are noop.
 %    \begin{macrocode}
@@ -781,9 +790,7 @@
 %    \begin{macrocode}
 }
 %    \end{macrocode}
-% \iffalse
 %</sty>
-% \fi
 %^^A >>>
 %
 % ^^A \Finale
