@@ -73,7 +73,6 @@ jobs:
           release: ${{ contains(github.ref_name, 'prooftrees-') }}
           tds: false
           texlive_cache_key: ${{ needs.texlive-cache.outputs.cache_key }}
-          working_directory: ./
       - name: Save ctan build results
         if: ${{ !cancelled() }}
         id: save-outputs
