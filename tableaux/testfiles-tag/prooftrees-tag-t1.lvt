@@ -34,7 +34,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-tag-t1.lvt 11505 2026-01-17 06:08:53Z cfrees $}[\revinfo][\filebase: tag support test]
+\ProvidesFileSVN{$Id: prooftrees-tag-t1.lvt 11509 2026-01-18 01:43:16Z cfrees $}[\revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
 \usepackage[tableaux]{prooftrees-debug}
@@ -63,6 +63,7 @@
     ]
   \end{tableau}%
 }
+\SHOWPDFTAGS
 \end{document}
 \END
 

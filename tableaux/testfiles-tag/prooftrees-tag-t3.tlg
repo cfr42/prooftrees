@@ -228,6 +228,42 @@ Package prooftrees Warning: Merging conflicting justifications for line 6! Pleas
 Package tagpdf Info: current MC: abscnt=2, tag=Figure
 [Tag tableau debug]:: Executing .
 ============================================================
+============================================================
+TEST 2: Show PDF Tags
+============================================================
+-------- prooftrees-tag-t3.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="To prove: $\{P \vee (Q \vee \tnot R), P \horseshoe \tnot R, Q \horseshoe \tnot R\} \sststile {}{} \tnot R$ 1 $P \vee (Q \vee \tnot R)$discharged Ass  2 $P \horseshoe \tnot R$discharged Ass  3 $Q \horseshoe \tnot R$discharged Ass  4 $\tnot \tnot R$ $\tnot $ Conc  5 $P$ 1 $\vee $ Elim  6 $\tnot P$ 2 $\horseshoe $ Elim  closed 5, 6    6 $\tnot R$ 2 $\horseshoe $ Elim  closed 4, 6    5 $Q \vee \tnot R$ 1 $\vee $ Elim  6 $Q$ 5 $\vee $ Elim  7 $\tnot Q$ 3 $\horseshoe $ Elim  closed 6, 7    7 $\tnot R$ 3 $\horseshoe $ Elim  closed 4, 7    6 $\tnot R$ 5 $\vee $ Elim  closed 4,6    "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 133.76837, 667.19801, 399.20325, 842.34943 }"
+       >
+      <?MarkedContent page="1" ?>{P∨ (Q∨∼R),P⊃∼R,Q⊃∼R}∼R1.2.3.4.5.6.7.P∨ (Q∨∼R)✓P⊃∼R✓Q⊃∼R✓∼∼RP∼P⊗5,6∼R⊗4,6Q∨∼RQ∼Q⊗6,7∼R⊗4,7∼R⊗4,6AssAssAss∼ Conc1∨ Elim2⊃ Elim; 5∨ Elim3⊃ Elim
+     </Figure>
+     <?MarkedContent page="1" ?>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- prooftrees-tag-t3.xml (end) ---------
+============================================================
 [1
 ]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-t3.aux)
 Package tagpdf Info: Finalizing the tagging structure:

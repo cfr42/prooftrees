@@ -105,6 +105,53 @@ declare keylist/.process={_x{tag nodes}{debug tagging/.process={Ow{just}{just=##
 tagpdf: mc-current: abscnt=2==2 =>tag=Figure=30
 [Tag tableau debug]:: Executing .
 ============================================================
+============================================================
+TEST 2: Show PDF Tags
+============================================================
+-------- prooftrees-tag-t1.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="To prove: $\sststile {}{}p\vee \lnot p$ 1 $\lnot (p\vee \lnot p)$ $\lnot $ conc  2 $\lnot p$ 1 $\vee $E  3 $\lnot \lnot p$ 1 $\vee $E  closed 2, 3    "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 133.76837, 667.19801, 261.63507, 747.83258 }"
+       >
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- prooftrees-tag-t1.xml (end) ---------
+============================================================
 [1
 ]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-t1.aux)
 MathML statistic

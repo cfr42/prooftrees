@@ -34,7 +34,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-tag-t3.lvt 11505 2026-01-17 06:08:53Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\ProvidesFileSVN{$Id: prooftrees-tag-t3.lvt 11509 2026-01-18 01:43:16Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
 \usepackage[tableaux]{prooftrees-debug}
@@ -79,6 +79,7 @@
     just={$\vee$ Elim:!u}]]]]]]
   \end{tableau}%
 }
+\SHOWPDFTAGS
 \end{document}
 \END
 
