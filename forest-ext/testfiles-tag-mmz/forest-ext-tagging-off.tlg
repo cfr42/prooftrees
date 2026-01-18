@@ -1,0 +1,32 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: tagforest-off
+============================================================
+[tagforest debug]:: Tagging inactive.
+[Forest ext.utils debug]:: Creating options set with declare tagging keylist.
+declare keylist/.process={_x{tag nodes}{}}, declare keylist/.process={_x{collate tags}{}}, 
+tagging register should be 0:
+0
+[tagforest debug]:: Process keylist: before tagging nodes ...
+[tagforest debug]:: Process keylist: tag nodes ...
+[tagforest debug]:: Process keylist: before collating tags ...
+[tagforest debug]:: Process keylist: collate tags ...
+[tagforest debug]:: Process keylist: before tagging tree ...
+[tagforest debug]:: Stage: tag tree stage ...
+[tagforest debug]:: Completed all tagging stages!
+============================================================
+============================================================
+TEST 2: Show PDF Tags
+============================================================
+-------- forest-ext-tagging-off.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+ </StructTreeRoot>
+</PDF>
+-------- forest-ext-tagging-off.xml (end) ---------
+============================================================
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
