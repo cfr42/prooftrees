@@ -38,11 +38,46 @@ memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\quitvmode \csname cctab_begin:c\endcsname {c__tagforest_nexpl_at_cctab}\global \advance \tagforest@id by 1\relax \tex_savepos:D \property_record:ee {tagforest-id\the \tagforest@id }{xpos,ypos}\tex_savepos:D \mode_if_vertical:T {\if@inlabel \mode_leave_vertical: \else \tag_socket_use:n {para/begin}\fi }\tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={To prove: $\sststile {}{}p\vee \lnot p$ 1 $\lnot (p\vee \lnot p)$ $\lnot $ conc  2 $\lnot p$ 1 $\vee $E  3 $\lnot \lnot p$ 1 $\vee $E  closed 2, 3    }}\tag_mc_begin:n {tag=Figure}\cs_new:cpe {tagforest@mark@pos@\the \tagforest@id }{\__tagforest_pgftikz_tag_bbox:enn {tagforest-id\the \tagforest@id }{128.3462pt}{80.93695pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {tagforest@mark@pos@\the \tagforest@id }]}\tag_mc_end: \tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {128.5462pt}{13.24597pt}{67.69098pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {23}%[nl]
+\quitvmode \csname cctab_begin:c\endcsname {c__tagforest_nexpl_at_cctab}\global \advance \tagforest@id by 1\relax \tex_savepos:D \property_record:ee {tagforest-id\the \tagforest@id }{xpos,ypos}\tex_savepos:D \mode_if_vertical:T {\if@inlabel \mode_leave_vertical: \else \tag_socket_use:n {para/begin}\fi }\tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={To prove: $\sststile {}{}p\vee \lnot p$ 1 $\lnot (p\vee \lnot p)$ $\lnot $ conc  2 $\lnot p$ 1 $\vee $E  3 $\lnot \lnot p$ 1 $\vee $E  closed 2, 3    }}\tag_mc_begin:n {tag=Figure}\cs_new:cpe {tagforest@mark@pos@\the \tagforest@id }{\__tagforest_pgftikz_tag_bbox:enn {tagforest-id\the \tagforest@id }{128.01955pt}{80.92545pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {tagforest@mark@pos@\the \tagforest@id }]}\tag_mc_end: \tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {128.21954pt}{13.23251pt}{67.69293pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {23}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
 -------- memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 5: Show PDF Tags
+============================================================
+-------- prooftrees-tag-mem-t1.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="To prove: $\sststile {}{}p\vee \lnot p$ 1 $\lnot (p\vee \lnot p)$ $\lnot $ conc 2 $\lnot p$ 1 $\vee $E 3 $\lnot \lnot p$ 1 $\vee $E closed 2, 3 "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 148.71233, 654.01494, 276.25359, 734.63805 }"
+       >
+     </Figure>
+     <?MarkedContent page="1" ?>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- prooftrees-tag-mem-t1.xml (end) ---------
 ============================================================
 [1
 <./memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf>]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-mem-t1.aux)

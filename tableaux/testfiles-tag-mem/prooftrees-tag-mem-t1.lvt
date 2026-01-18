@@ -34,7 +34,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-tag-mem-t1.lvt 11523 2026-01-18 22:11:35Z cfrees $}[v0.0 \revinfo][\filebase: tag support memoization test]
+\ProvidesFileSVN{$Id: prooftrees-tag-mem-t1.lvt 11525 2026-01-18 23:22:41Z cfrees $}[v0.0 \revinfo][\filebase: tag support memoization test]
 \input regression-test.tex\relax
 \documentclass{article}
 \START
@@ -95,6 +95,7 @@
   }%
 }
 \ResumeTagging {l3build}%
+\SHOWPDFTAGS
 \end{document}
 \END
 

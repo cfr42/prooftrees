@@ -42,6 +42,42 @@ padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
 -------- memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
+============================================================
+TEST 5: Show PDF Tags
+============================================================
+-------- prooftrees-tag-mem-t2.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="To prove: $\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile {}{} \lnot R$ 1 $P \vee (Q \vee \lnot R)$discharged Ass 2 $P \lif \lnot R$discharged Ass 3 $Q \lif \lnot R$discharged Ass 4 $\lnot \lnot R$ $\lnot $ Conc 5 $P$ 1 $\vee $ Elim 6 $\lnot P$ 2 $\lif $ Elim closed 5, 6 6 $\lnot R$ 2 $\lif $ Elim closed 4, 6 5 $Q \vee \lnot R$ 1 $\vee $ Elim 7 $Q$ 8 $\lnot Q$ 3 $\lif $ Elim closed 7, 8 8 $\lnot R$ 3 $\lif $ Elim closed 4, 8 7 $\lnot R$ 5 $\vee $ Elim closed 4, 7 "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 148.71233, 654.01494, 363.09737, 841.1215 }"
+       >
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- prooftrees-tag-mem-t2.xml (end) ---------
+============================================================
 [1
  <./memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf>]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-mem-t2.aux)
 Package tagpdf Info: Finalizing the tagging structure:

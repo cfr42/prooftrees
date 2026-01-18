@@ -42,6 +42,42 @@ padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
 -------- memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
+============================================================
+TEST 5: Show PDF Tags
+============================================================
+-------- prooftrees-tag-mem-t1.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="To prove: $\sststile {}{}p\vee \lnot p$ 1 $\lnot (p\vee \lnot p)$ $\lnot $ conc 2 $\lnot p$ 1 $\vee $E 3 $\lnot \lnot p$ 1 $\vee $E closed 2, 3 "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 148.71233, 654.01494, 276.25359, 734.63805 }"
+       >
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- prooftrees-tag-mem-t1.xml (end) ---------
+============================================================
 [1
  <./memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf>]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-mem-t1.aux)
 Package tagpdf Info: Finalizing the tagging structure:
