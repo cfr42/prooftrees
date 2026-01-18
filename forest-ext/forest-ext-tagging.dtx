@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11512 2026-01-18 04:02:41Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11513 2026-01-18 06:29:04Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11512 2026-01-18 04:02:41Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11513 2026-01-18 06:29:04Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.1]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.1]
 %
@@ -462,12 +462,6 @@
 \cs_new_eq:NN \tagforest@init \_@@_init:
 %    \end{macrocode}
 % \end{macro}
-% ^^A % \begin{macro}{\tagforest@end}
-% ^^A %   Alias.
-% ^^A %    \begin{macrocode}
-% ^^A \cs_new_nopar:Npn \tagforest@end {\_@@_end:}
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
 % \changes{v0.0}{2026-01-18}{Add hook ordering rule as switching utils (back) to begin env hook.}
 %    \begin{macrocode}
 \hook_gput_code:nnn {env/forest/end}{.}
@@ -806,6 +800,97 @@
 %    \begin{macrocode}
 }
 %    \end{macrocode}
+% \begin{splug}{tagsupport/forest/tag/mmz~alt}
+%   From \pkg{prooftrees}, which will use it from here, hopefully.
+%    \begin{macrocode}
+\ExplSyntaxOn
+\socket_new_plug:nnn {tagsupport/forest/tag/mmz}{alt}
+{
+  \gtoksapp\mmzCCMemo{
+    \csname cctab_begin:c\endcsname {c_@@_nexpl_at_cctab}
+    \global\advance\tagforest@id~by~1\relax
+    \tex_savepos:D
+    \property_record:ee {tagforest-id\the\tagforest@id}
+    {xpos,ypos}
+    \tex_savepos:D
+    \mode_if_vertical:T
+    {
+      \if@inlabel
+        \mode_leave_vertical:
+      \else
+        \tag_socket_use:n {para/begin}
+      \fi
+    }
+    \tag_mc_end_push:
+    \tag_struct_begin:n
+  }
+  \xtoksapp\mmzCCMemo{
+    \c_left_brace_str
+    tag=Figure,
+    alt=
+    \c_left_brace_str
+  }
+  \exp_args:NNV \gtoksapp\mmzCCMemo \l_@@_toks_tl
+  \xtoksapp\mmzCCMemo{
+    \c_right_brace_str
+    \c_right_brace_str
+  }
+  \gtoksapp\mmzCCMemo{
+    \tag_mc_begin:n {tag=Figure}
+  }
+  \gtoksapp\mmzCCMemo{
+    \cs_new:cpe {tagforest@mark@pos@\the\tagforest@id}
+    {
+      \@@_pgftikz_tag_bbox:enn {tagforest-id\the\tagforest@id}
+      {#1}{#2}
+    }
+    \tag_struct_gput:ene
+    {\tag_get:n {struct_num}}
+    {attribute}
+    {
+      /O /Layout /BBox~
+      [
+        \use:c
+        {tagforest@mark@pos@\the\tagforest@id}
+      ]
+    }
+    \tag_mc_end:
+    \tag_struct_end:
+    \tag_mc_begin_pop:n{}
+    \cctab_end:
+  }
+}
+%    \end{macrocode}
+% \end{splug}
+%    \begin{macrocode}
+\hook_gput_code:nnn {begindocument/before}{.}
+{
+  \@ifpackageloaded{memoize}
+  {
+    \tag_if_active:T
+    {
+      \mmzset{direct~ccmemo~input=true,}
+    }
+  }{}
+  \@ifpackageloaded{memoize-ext}
+  {
+    \cs_new_eq:NN \@@_property_ref_orig:nn \__mmzx_property_ref_orig:nn
+    \cs_new_eq:NN \c_@@_nexpl_at_cctab \c__mmzx_nexpl_at_cctab
+  }{
+    \cs_new_eq:NN \@@_property_ref_orig:nn \property_ref:nn
+    \cctab_const:Nn \c_@@_nexpl_at_cctab {
+      \cctab_select:N \c_code_cctab 
+      \makeatletter
+      \int_set:Nn \tex_endlinechar:D { 13 }
+      \char_set_catcode_space:n      { 9 }
+      \char_set_catcode_space:n      { 32 }
+      \char_set_catcode_active:n     { 126 } % tilde
+    }
+  }
+}
+\ExplSyntaxOff
+%    \end{macrocode}
+% \end{splug}
 %</sty>
 %^^A >>>
 %

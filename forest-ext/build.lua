@@ -1,4 +1,4 @@
--- $Id: build.lua 11507 2026-01-17 19:15:32Z cfrees $
+-- $Id: build.lua 11513 2026-01-18 06:29:04Z cfrees $
 -- Build configuration for forest-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -7,7 +7,7 @@ sourcedir = sourcedir or "."
 ctanpkg = "forest-ext"
 module = "forest-ext"
 --------------------------------------------------------------------------------
-checkconfigs = { "build", "config-tag" } --, "config-mem", "config-tag-mem" }
+checkconfigs = { "build", "config-tag", "config-tag-mmz" } --, "config-mem" }
 checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 checkruns = 1
 manifestfile = "manifest.txt"

@@ -1,0 +1,80 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: tagforest-custom-mem-mmz
+============================================================
+forest-ext-tagging-custom.mmz:
+-------- forest-ext-tagging-custom.mmz (start) ---------
+(forest-ext-tagging-custom.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/A3F53F620EFA8C6F85797C6E1C49590B.memo}[nl]
+\mmzUsedExtern {memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\endinput[nl]
+-------- forest-ext-tagging-custom.mmz (end) -----------
+============================================================
+============================================================
+TEST 2: tagforest-custom-mem
+============================================================
+(memos/A3F53F620EFA8C6F85797C6E1C49590B.memo) (memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo)
+============================================================
+============================================================
+TEST 3: Show PDF Tags
+============================================================
+-------- forest-ext-tagging-custom.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>ABC apple banana pearABC apple ba-nana pear
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- forest-ext-tagging-custom.xml (end) ---------
+============================================================
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: l3build [on line ...]
+============================================================
+TEST 4: tagforest-custom-mem-cmemo
+============================================================
+memos/A3F53F620EFA8C6F85797C6E1C49590B.memo:
+-------- memos/A3F53F620EFA8C6F85797C6E1C49590B.memo (start) ---------
+(memos/A3F53F620EFA8C6F85797C6E1C49590B.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\begin {forest} typeout={tagging should be 1:}, typeout/.register=tagging, [VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}[nl]
+-------- memos/A3F53F620EFA8C6F85797C6E1C49590B.memo (end) -----------
+============================================================
+============================================================
+TEST 5: tagforest-custom-mem-ccmemo
+============================================================
+memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {148.39047pt}{124.06189pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),[nl]
+\mmzEndMemo[nl]
+-------- memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: l3build [on line ...]
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0
