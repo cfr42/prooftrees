@@ -1,0 +1,78 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `forest-ext-tagging.lvt',
+%%
+%% Copyright (C) 2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% forest-ext. You may, however, distribute the package without this file.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: forest-ext-utils-keylists-command.lvt 11511 2026-01-18 02:44:50Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\input regression-test.tex\relax
+\documentclass{article}
+\usepackage[ext.utils-debug]{forest}
+\begin{document}
+\START
+\TEST{utils-keylists-manip}{%
+  \forestset{%
+    declare tagging keylist={my toks}{calign=midpoint,l sep'+=5mm,before typesetting nodes={blue,font=\sffamily,},},
+    declare tagging keylist={my keys}{circle,calign=first},
+    tagging keylist put={my keys}{draw=green,rectangle,fill=red},
+    tagging keylist put={my keys}{fill=yellow},
+    tagging keylist remove={my keys}{draw=green},
+    tagging keylist put={my keys}{font=\sffamily},
+    tagging keylist put={my keys}{calign=child edge},
+    tagging keylist remove key={my keys}{fill},
+    tagging keylist remove key={my keys}{rectangle},
+    default preamble+={%
+      delay={%
+        for tree={%
+          typeout/.option=my toks,
+          typeout/.option=my keys,
+        },
+        process keylist=my toks,
+        process keylist=my keys,
+      },
+    },
+  }
+  \begin{forest}
+    [[]]
+  \end{forest}
+}
+\TEST{utils-keylists-redeclare}{%
+  \forestset{%
+    redeclare tagging keylist={my keys}{calign=child,blue,delay={content+={wff}},},
+    redeclare tagging keylist={my keys}{fill=magenta,},
+    default preamble+={%
+      delay={%
+        for tree={%
+          typeout/.option=my keys,
+        },
+        process keylist=my keys,
+      },
+    },
+  }
+  \begin{forest}
+    [[]]
+  \end{forest}
+}
+\OMIT
+\END
+\end{document}
+

@@ -1,0 +1,83 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `forest-ext-tagging.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% forest-ext. You may, however, distribute the package without this file.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{
+ tagging=on,
+ lang=en-GB,
+ pdfversion=2.0,
+ pdfstandard=ua-2,
+ uncompress,
+ debug={tagpdf},
+}
+\tagpdfsetup{
+  math/mathml/structelem,
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: forest-ext-tagging-command.lvt 11511 2026-01-18 02:44:50Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\input regression-test.tex\relax
+\documentclass{article}
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage[ext.tagging-debug]{forest}
+\title{This Test Needs No Title}
+\begin{document}
+\START
+\TEST{tagforest-command}{%
+  \showoutput
+  ABC apple banana pear
+  \Forest{%
+    % This is example is from Jasper Habicht.
+    [VP
+      [DP[John]]
+      [V’, alt text=V prime,
+        [V[sent]]
+        [DP[Mary]]
+        [DP[D[a]][NP[letter]]]
+      ]
+    ]
+  }
+  ABC apple banana pear
+}
+\SHOWPDFTAGS
+\OMIT
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \AddToHook{shipout/after}{%
+    \TIMO
+    \TEST{tagforest-command-taginfo}{%
+      \ShowTagging{%
+        mc-data,
+        struct-stack=log,
+        debug/structures,
+      }%
+    }%
+  }
+\fi
+\end{document}
+\END
+

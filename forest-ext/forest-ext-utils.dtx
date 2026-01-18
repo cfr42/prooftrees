@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11508 2026-01-18 01:33:54Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11511 2026-01-18 02:44:50Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-utils]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-utils.dtx 11508 2026-01-18 01:33:54Z cfrees $}
+%% $Id: forest-ext-utils.dtx 11511 2026-01-18 02:44:50Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.utils}[2025-12-05 v0.1]
 %<debug>    \ProvidesForestLibrary{ext.utils-debug}[2025-12-05 v0.1]
 %
@@ -378,6 +378,8 @@
 % Then zap all the user-facing keys used to manipulate them.
 %
 % We want this to happen really early, but we do need the group or there's no point.
+%
+% \changes{v0.0}{2026-01-18}{Go back to using env begin hook as it won't work with command form anyhow (and just have prooftrees invoke the hook manually as it does anyhow.}
 %    \begin{macrocode}
 \AddToHook{env/forest/begin}[.]{%
 %<debug>    \typeout{[Forest ext.utils debug]:: Creating options set with declare tagging keylist.}%
@@ -402,6 +404,24 @@
       tagging keylist error=tagging keylist remove},
     tagging keylist remove key/.style 2 args={%
       tagging keylist error=tagging keylist remove key},
+  }%
+}
+%    \end{macrocode}
+% Attempt to accommodate command form(s).
+% We want the hook code to be used inside the group, if there is one, so \cs{forest@config} looks the obvious place to hook before (and would work for the environment, too, but it's internal \dots.
+%
+% The ending is rather less obvious \dots.
+% 
+% Probably this should be a macro so we don't run any other code chunks added here?
+% It would be good, too, if we had a check, I guess.
+% That's true for prooftrees, too, but seems less of a risk? (Maybe?)
+%    \begin{macrocode}
+\AddToHook{cmd/Forest/before}[.]{%
+  \AddToHookNext{cmd/forest@config/before}{%
+    \UseHook{env/forest/begin}%
+  }%
+  \AddToHookNext{cmd/forest@node@drawtree/after}{%
+    \UseHook{env/forest/end}%
   }%
 }
 %    \end{macrocode}
