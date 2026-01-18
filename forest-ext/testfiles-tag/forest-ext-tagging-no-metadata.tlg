@@ -1,7 +1,7 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 ============================================================
-TEST 1: tagforest-off
+TEST 1: tagforest-none
 ============================================================
 [tagforest debug]:: Tagging inactive.
 [Forest ext.utils debug]:: Creating options set with declare tagging keylist.
@@ -19,12 +19,12 @@ tagging register should be 0:
 ============================================================
 TEST 2: Show PDF Tags
 ============================================================
--------- forest-ext-tagging-off.xml (start) ---------
+-------- forest-ext-tagging-no-metadata.xml (start) ---------
 <PDF>
  <StructTreeRoot>
  </StructTreeRoot>
 </PDF>
--------- forest-ext-tagging-off.xml (end) ---------
+-------- forest-ext-tagging-no-metadata.xml (end) ---------
 ============================================================
 ***************
 Compilation 1 of test file completed with exit status 0

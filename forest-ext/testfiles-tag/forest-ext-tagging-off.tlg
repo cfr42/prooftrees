@@ -15,7 +15,6 @@ tagging register should be 0:
 [tagforest debug]:: Process keylist: before tagging tree ...
 [tagforest debug]:: Stage: tag tree stage ...
 [tagforest debug]:: Completed all tagging stages!
-Package tagpdf Info: current MC: no MC open, current abscnt=0"
 ============================================================
 ============================================================
 TEST 2: Show PDF Tags

@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11508 2026-01-18 01:33:54Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11512 2026-01-18 04:02:41Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11508 2026-01-18 01:33:54Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11512 2026-01-18 04:02:41Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.1]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.1]
 %
@@ -341,6 +341,7 @@
 %<debug>        \tagforest@debug@typeout{Custom~tagging~configured.}
       \cs_set_eq:NN \_@@_end: \_@@_noop:n
     }{
+      \cs_set_eq:NN \_@@_end: \_@@_tag_end:
 %<debug>    \tagforest@debug@typeout{Custom~tagging~not~configured.}
       \str_if_eq:eeT {tagforest@plug@NONE} {\foresteregister{setup~plug}}
       {
@@ -396,14 +397,17 @@
     \forestset{tagging=0,
 %<debug>    debug~tagforest={Tagging~inactive.},
     }
+    \cs_set_eq:NN \_@@_end: \_@@_noop:n
   }
 }
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{\_@@_end:}
+% \begin{macro}{\_@@_end:,
+%   \_@@_tag_end:}
 %   Again, analogous to the corresponding \pkg{latex-lab} function \autocite{latex-project-latex-lab-tikz}.
 %    \begin{macrocode}
-\cs_new_nopar:Npn \_@@_end: {
+\cs_new_eq:NN \_@@_end: \_@@_noop:n
+\cs_new_nopar:Npn \_@@_tag_end: {
   \_@@_tag_resume:n {tagforest}
 %    \end{macrocode}
 %   Restore the format's definitions of \cs{tag\_suspend:n} and \cs{tag\_resume:n}.
@@ -458,12 +462,12 @@
 \cs_new_eq:NN \tagforest@init \_@@_init:
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{\tagforest@end}
-%   Alias.
-%    \begin{macrocode}
-\cs_new_eq:NN \tagforest@end \_@@_end:
-%    \end{macrocode}
-% \end{macro}
+% ^^A % \begin{macro}{\tagforest@end}
+% ^^A %   Alias.
+% ^^A %    \begin{macrocode}
+% ^^A \cs_new_nopar:Npn \tagforest@end {\_@@_end:}
+% ^^A %    \end{macrocode}
+% ^^A % \end{macro}
 % \changes{v0.0}{2026-01-18}{Add hook ordering rule as switching utils (back) to begin env hook.}
 %    \begin{macrocode}
 \hook_gput_code:nnn {env/forest/end}{.}
