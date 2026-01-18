@@ -1,0 +1,115 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `forest-ext-tagging.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% forest-ext. You may, however, distribute the package without this file.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{
+ tagging=on,
+ lang=en-GB,
+ pdfversion=2.0,
+ pdfstandard=ua-2,
+ uncompress,
+ debug={tagpdf},
+}
+\tagpdfsetup{
+  math/mathml/structelem,
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: forest-ext-tagging.lvt 11517 2026-01-18 18:01:58Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\input regression-test.tex\relax
+\documentclass{article}
+\START
+\TEST{tagforest-mem-mmz}{%
+  \IfFileExists{forest-ext-tagging.mmz}{%
+    \TYPE{forest-ext-tagging.mmz:}%
+    \NEWLINE
+    \SHOWFILE{forest-ext-tagging.mmz}%
+  }{%
+    \TYPE{CANNOT FIND forest-ext-tagging.mmz}%
+  }%
+}
+\OMIT
+\usepackage[extract=python]{memoize}
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage[ext.tagging-debug]{forest}
+\title{This Test Needs No Title}
+\begin{document}
+\TIMO
+\TEST{tagforest-mem}{%
+  \showoutput
+  ABC apple banana pear
+  \begin{forest}
+    % This is example is from Jasper Habicht.
+    [VP
+      [DP[John]]
+      [V’, alt text=V prime,
+        [V[sent]]
+        [DP[Mary]]
+        [DP[D[a]][NP[letter]]]
+      ]
+    ]
+  \end{forest}
+  ABC apple banana pear
+}
+\SHOWPDFTAGS
+\SuspendTagging {l3build}%
+\TEST{tagforest-mem-cmemo}{%
+  \IfFileExists{memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5.memo}{%
+    \TYPE{memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5.memo:}%
+    \NEWLINE
+    \SHOWFILE{memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5.memo}%
+  }{%
+    \TYPE{CANNOT FIND memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5.memo!}%
+  }%
+}
+\TEST{tagforest-mem-ccmemo}{%
+  \IfFileExists{memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}{%
+    \TYPE{memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:}%
+    \NEWLINE
+    \SHOWFILE{memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}%
+  }{%
+    \TYPE{CANNOT FIND memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo!}%
+  }%
+}
+\ResumeTagging {l3build}%
+\OMIT
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \AddToHook{shipout/after}{%
+    \TIMO
+    \TEST{tagforest-taginfo}{%
+      \ShowTagging{%
+        mc-data,
+        struct-stack=log,
+        debug/structures,
+      }%
+    }%
+  }
+\fi
+\end{document}
+\END
+

@@ -1,0 +1,89 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: tagforest-iso-mem-mmz
+============================================================
+forest-ext-tagging-iso.mmz:
+-------- forest-ext-tagging-iso.mmz (start) ---------
+(forest-ext-tagging-iso.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/3B3123F6CC4859EF1D234AF2632EAC38.memo}[nl]
+\mmzUsedExtern {memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\endinput[nl]
+-------- forest-ext-tagging-iso.mmz (end) -----------
+============================================================
+============================================================
+TEST 2: tagforest-iso-mem
+============================================================
+(memos/3B3123F6CC4859EF1D234AF2632EAC38.memo) (memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo
+\g__cctab_next_cctab=\catcodetable...
+)
+============================================================
+============================================================
+TEST 3: Show PDF Tags
+============================================================
+-------- forest-ext-tagging-iso.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="root a 2 branches branch 1 b end branch branch 2 c end branch "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 148.71233, 628.29906, 178.99742, 667.19801 }"
+       >
+     </Figure>
+     <?MarkedContent page="1" ?>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- forest-ext-tagging-iso.xml (end) ---------
+============================================================
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: l3build [on line ...]
+============================================================
+TEST 4: tagforest-iso-mem-cmemo
+============================================================
+memos/3B3123F6CC4859EF1D234AF2632EAC38.memo:
+-------- memos/3B3123F6CC4859EF1D234AF2632EAC38.memo (start) ---------
+(memos/3B3123F6CC4859EF1D234AF2632EAC38.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\begin {forest} [a[b][c]] \end {forest}[nl]
+-------- memos/3B3123F6CC4859EF1D234AF2632EAC38.memo (end) -----------
+============================================================
+============================================================
+TEST 5: tagforest-iso-mem-ccmemo
+============================================================
+memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \csname cctab_begin:c\endcsname {c__tagforest_nexpl_at_cctab}\global \advance \tagforest@id by 1\relax \tex_savepos:D \property_record:ee {tagforest-id\the \tagforest@id }{xpos,ypos}\tex_savepos:D \mode_if_vertical:T {\if@inlabel \mode_leave_vertical: \else \tag_socket_use:n {para/begin}\fi }\tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={root a 2 branches   branch 1 b end branch   branch 2 c end branch  }}\tag_mc_begin:n {tag=Figure}\cs_new:cpe {tagforest@mark@pos@\the \tagforest@id }{\__tagforest_pgftikz_tag_bbox:enn {tagforest-id\the \tagforest@id }{30.39867pt}{39.04483pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {tagforest@mark@pos@\the \tagforest@id }]}\tag_mc_end: \tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {30.39867pt}{39.04483pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {5}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),[nl]
+\mmzEndMemo[nl]
+-------- memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: l3build [on line ...]
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0

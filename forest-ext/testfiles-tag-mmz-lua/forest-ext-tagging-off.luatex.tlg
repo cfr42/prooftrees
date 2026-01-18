@@ -6,16 +6,16 @@ TEST 1: tagforest-off-mem-mmz
 forest-ext-tagging-off.mmz:
 -------- forest-ext-tagging-off.mmz (start) ---------
 (forest-ext-tagging-off.mmz) \mmzPrefix {memos/}[nl]
-\mmzUsedCMemo {memos/01A74BE27D0905D89D108FC951B48D25.memo}[nl]
-\mmzUsedExtern {memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/196E03E873AA4FCEF68973DB4B89AB8B.memo}[nl]
+\mmzUsedExtern {memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 \endinput[nl]
 -------- forest-ext-tagging-off.mmz (end) -----------
 ============================================================
 ============================================================
 TEST 2: tagforest-off-mem
 ============================================================
-(memos/01A74BE27D0905D89D108FC951B48D25.memo)
+(memos/196E03E873AA4FCEF68973DB4B89AB8B.memo)
 ============================================================
 ============================================================
 TEST 3: Show PDF Tags
@@ -30,30 +30,29 @@ TEST 3: Show PDF Tags
 ============================================================
 TEST 4: tagforest-off-mem-cmemo
 ============================================================
-memos/01A74BE27D0905D89D108FC951B48D25.memo:
--------- memos/01A74BE27D0905D89D108FC951B48D25.memo (start) ---------
-(memos/01A74BE27D0905D89D108FC951B48D25.memo) \mmzMemo[nl]
+memos/196E03E873AA4FCEF68973DB4B89AB8B.memo:
+-------- memos/196E03E873AA4FCEF68973DB4B89AB8B.memo (start) ---------
+(memos/196E03E873AA4FCEF68973DB4B89AB8B.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
-\begin {forest} typeout={tagging register should be 0:}, typeout/.register=tagging, [VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}[nl]
--------- memos/01A74BE27D0905D89D108FC951B48D25.memo (end) -----------
+\begin {forest} typeout={tagging register should be 0:}, typeout/.register=tagging, [VP [DP[John]] [V’, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}[nl]
+-------- memos/196E03E873AA4FCEF68973DB4B89AB8B.memo (end) -----------
 ============================================================
 ============================================================
 TEST 5: tagforest-off-mem-ccmemo
 ============================================================
-memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\quitvmode \mmzIncludeExtern {0}\hbox {148.39047pt}{124.06189pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {148.44272pt}{124.76146pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 ***************
 Compilation 1 of test file completed with exit status 0
 Compilation 2 of test file completed with exit status 0
 Compilation 3 of test file completed with exit status 0
-Compilation 4 of test file completed with exit status 0

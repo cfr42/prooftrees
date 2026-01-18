@@ -1,0 +1,100 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `forest-ext-tagging.lvt',
+%%
+%% Copyright (C) 2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% forest-ext. You may, however, distribute the package without this file.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{
+ tagging=off,
+ lang=en-GB,
+ pdfversion=2.0,
+ pdfstandard=ua-2,
+ uncompress,
+ % debug={tagpdf},
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: forest-ext-tagging-off.lvt 11515 2026-01-18 17:23:39Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\input regression-test.tex\relax
+\documentclass{article}
+\START
+\TEST{tagforest-off-mem-mmz}{%
+  \IfFileExists{forest-ext-tagging-off.mmz}{%
+    \TYPE{forest-ext-tagging-off.mmz:}%
+    \NEWLINE
+    \SHOWFILE{forest-ext-tagging-off.mmz}%
+  }{%
+    \TYPE{CANNOT FIND forest-ext-tagging-off.mmz}%
+  }%
+}
+\OMIT
+\usepackage[extract=python]{memoize}
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage[ext.tagging-debug]{forest}
+\title{This Test Needs No Title}
+\begin{document}
+\TIMO
+\TEST{tagforest-off-mem}{%
+  \showoutput
+  ABC apple banana pear
+  \begin{forest}
+    typeout={tagging register should be 0:},
+    typeout/.register=tagging,
+    % This is example is from Jasper Habicht.
+    [VP
+      [DP[John]]
+      [V’, alt text=V prime,
+        [V[sent]]
+        [DP[Mary]]
+        [DP[D[a]][NP[letter]]]
+      ]
+    ]
+  \end{forest}
+  ABC apple banana pear
+}
+\SHOWPDFTAGS
+\SuspendTagging {l3build}%
+\TEST{tagforest-off-mem-cmemo}{%
+  \IfFileExists{memos/196E03E873AA4FCEF68973DB4B89AB8B.memo}{%
+    \TYPE{memos/196E03E873AA4FCEF68973DB4B89AB8B.memo:}%
+    \NEWLINE
+    \SHOWFILE{memos/196E03E873AA4FCEF68973DB4B89AB8B.memo}%
+  }{%
+    \TYPE{CANNOT FIND memos/196E03E873AA4FCEF68973DB4B89AB8B.memo!}%
+  }%
+}
+\TEST{tagforest-off-mem-ccmemo}{%
+  \IfFileExists{memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}{%
+    \TYPE{memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:}%
+    \NEWLINE
+    \SHOWFILE{memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}%
+  }{%
+    \TYPE{CANNOT FIND memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo!}%
+  }%
+}
+\ResumeTagging {l3build}%
+\OMIT
+\end{document}
+\END
+
