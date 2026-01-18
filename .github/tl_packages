@@ -234,3 +234,7 @@ logreq
 # angen am unicode-math
 lualatex-math
 luamml
+
+lua-unicode-math
+
+show-pdf-tags
