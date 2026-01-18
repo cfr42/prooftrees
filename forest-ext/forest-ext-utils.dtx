@@ -83,6 +83,10 @@
   }%
 }
 %    \end{macrocode}
+% We don't want inconsistent names in hooks.
+%    \begin{macrocode}
+\SetDefaultHookLabel{forest-ext/utils}
+%    \end{macrocode}
 % \iffalse
 % ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
 % \fi
@@ -375,7 +379,7 @@
 %
 % We want this to happen really early, but we do need the group or there's no point.
 %    \begin{macrocode}
-\AddToHook{cmd/forest@config/before}[.]{%
+\AddToHook{env/forest/begin}[.]{%
 %<debug>    \typeout{[Forest ext.utils debug]:: Creating options set with declare tagging keylist.}%
 %<debug>          \expandafter\typeout\expandafter{\the\forestext@toksa}%
   \expandafter\forestset\expandafter{\the\forestext@toksa}%

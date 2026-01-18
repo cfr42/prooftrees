@@ -83,6 +83,10 @@
   }%
 }
 %    \end{macrocode}
+% We don't want inconsistent names in hooks.
+%    \begin{macrocode}
+\SetDefaultHookLabel{forest-ext/tagging}
+%    \end{macrocode}
 % \iffalse
 % ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
 % \fi
@@ -460,6 +464,7 @@
 \cs_new_eq:NN \tagforest@end \_@@_end:
 %    \end{macrocode}
 % \end{macro}
+% \changes{v0.0}{2026-01-18}{Add hook ordering rule as switching utils (back) to begin env hook.}
 %    \begin{macrocode}
 \hook_gput_code:nnn {env/forest/end}{.}
 {
@@ -469,6 +474,7 @@
 {
   \_@@_init:
 }
+\hook_gset_rule:nnnn {env/forest/begin}{.}<{forest-ext/utils}
 %    \end{macrocode}
 %    \begin{macrocode}
 \ExplSyntaxOff
