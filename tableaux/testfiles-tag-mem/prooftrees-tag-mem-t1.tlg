@@ -36,7 +36,7 @@ memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\quitvmode \csname cctab_begin:c\endcsname {c__tableau_nexpl_at_cctab}\global \advance \prooftrees@tableau@id by 1\relax \tex_savepos:D \property_record:ee {prooftrees-tableau-id\the \prooftrees@tableau@id }{xpos,ypos}\tex_savepos:D \tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={To prove:\ \ensuremath {\sststile {}{}p\vee \lnot p} 1\ \ensuremath {\lnot (p\vee \lnot p)}\ $\lnot $ conc\  2\ \ensuremath {\lnot p}\ {1}{\ }$\vee $E\  3\ \ensuremath {\lnot \lnot p}\ {1}{\ }$\vee $E\ \ closed\ 2,\,3\  }}\cs_new:cpe {prooftrees@tableau@mark@pos@\the \prooftrees@tableau@id }{\__tableau_pgftikz_tag_bbox:enn {prooftrees-tableau-id\the \prooftrees@tableau@id }{128.01955pt}{80.92545pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {prooftrees@tableau@mark@pos@\the \prooftrees@tableau@id }]}\tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {128.21954pt}{13.23251pt}{67.69293pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {23}%[nl]
+\quitvmode \csname cctab_begin:c\endcsname {c__tagforest_nexpl_at_cctab}\global \advance \tagforest@id by 1\relax \tex_savepos:D \property_record:ee {tagforest-id\the \tagforest@id }{xpos,ypos}\tex_savepos:D \mode_if_vertical:T {\if@inlabel \mode_leave_vertical: \else \tag_socket_use:n {para/begin}\fi }\tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={To prove: $\sststile {}{}p\vee \lnot p$ 1 $\lnot (p\vee \lnot p)$ $\lnot $ conc  2 $\lnot p$ 1 $\vee $E  3 $\lnot \lnot p$ 1 $\vee $E  closed 2, 3    }}\tag_mc_begin:n {tag=Figure}\cs_new:cpe {tagforest@mark@pos@\the \tagforest@id }{\__tagforest_pgftikz_tag_bbox:enn {tagforest-id\the \tagforest@id }{128.01955pt}{80.92545pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {tagforest@mark@pos@\the \tagforest@id }]}\tag_mc_end: \tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {128.21954pt}{13.23251pt}{67.69293pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {23}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
@@ -46,7 +46,7 @@ padding=(1in,1in,1in,1in),[nl]
  <./memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf>]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-mem-t1.aux)
 Package tagpdf Info: Finalizing the tagging structure:
 (tagpdf)             Writing out ~7 structure objects
-(tagpdf)             with ~4 'MC' leaf nodes.
+(tagpdf)             with ~5 'MC' leaf nodes.
 (tagpdf)             Be patient if there are lots of objects!
 Package tagpdf Info: writing ParentTree
 Package tagpdf Info: writing IDTree
@@ -55,3 +55,8 @@ Package tagpdf Info: writing ClassMap
 Package tagpdf Info: writing NameSpaces
 Package tagpdf Info: writing StructElems
 Package tagpdf Info: writing Root
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0

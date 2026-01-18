@@ -38,7 +38,7 @@ memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\quitvmode \csname cctab_begin:c\endcsname {c__tableau_nexpl_at_cctab}\global \advance \prooftrees@tableau@id by 1\relax \tex_savepos:D \property_record:ee {prooftrees-tableau-id\the \prooftrees@tableau@id }{xpos,ypos}\tex_savepos:D \tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={To prove: $\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile {}{} \lnot R$ 1 $P \vee (Q \vee \lnot R)$discharged Ass  2 $P \lif \lnot R$discharged Ass  3 $Q \lif \lnot R$discharged Ass  4 $\lnot \lnot R$ $\lnot $ Conc  5 $P$ 1 $\vee $ Elim  6 $\lnot P$ 2 $\lif $ Elim  closed 5, 6  6 $\lnot R$ 2 $\lif $ Elim  closed 4, 6  5 $Q \vee \lnot R$ 1 $\vee $ Elim  7 $Q$ 8 $\lnot Q$ 3 $\lif $ Elim  closed 7, 8  8 $\lnot R$ 3 $\lif $ Elim  closed 4, 8  7 $\lnot R$ 5 $\vee $ Elim  closed 4, 7  }}\cs_new:cpe {prooftrees@tableau@mark@pos@\the \prooftrees@tableau@id }{\__tableau_pgftikz_tag_bbox:enn {prooftrees-tableau-id\the \prooftrees@tableau@id }{213.69604pt}{188.30359pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {prooftrees@tableau@mark@pos@\the \prooftrees@tableau@id }]}\tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {213.89604pt}{13.24597pt}{175.05762pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {112}%[nl]
+\quitvmode \csname cctab_begin:c\endcsname {c__tagforest_nexpl_at_cctab}\global \advance \tagforest@id by 1\relax \tex_savepos:D \property_record:ee {tagforest-id\the \tagforest@id }{xpos,ypos}\tex_savepos:D \mode_if_vertical:T {\if@inlabel \mode_leave_vertical: \else \tag_socket_use:n {para/begin}\fi }\tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={To prove: $\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile {}{} \lnot R$ 1 $P \vee (Q \vee \lnot R)$discharged Ass  2 $P \lif \lnot R$discharged Ass  3 $Q \lif \lnot R$discharged Ass  4 $\lnot \lnot R$ $\lnot $ Conc  5 $P$ 1 $\vee $ Elim  6 $\lnot P$ 2 $\lif $ Elim  closed 5, 6    6 $\lnot R$ 2 $\lif $ Elim  closed 4, 6    5 $Q \vee \lnot R$ 1 $\vee $ Elim   7 $Q$ 8 $\lnot Q$ 3 $\lif $ Elim  closed 7, 8    8 $\lnot R$ 3 $\lif $ Elim  closed 4, 8     7 $\lnot R$ 5 $\vee $ Elim  closed 4, 7    }}\tag_mc_begin:n {tag=Figure}\cs_new:cpe {tagforest@mark@pos@\the \tagforest@id }{\__tagforest_pgftikz_tag_bbox:enn {tagforest-id\the \tagforest@id }{213.69604pt}{188.30359pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {tagforest@mark@pos@\the \tagforest@id }]}\tag_mc_end: \tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {213.89604pt}{13.24597pt}{175.05762pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {112}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
@@ -55,7 +55,7 @@ MathML statistic
 ==> 0 MathML AF attached
 Package tagpdf Info: Finalizing the tagging structure:
 (tagpdf)             Writing out ~7 structure objects
-(tagpdf)             with ~4 'MC' leaf nodes.
+(tagpdf)             with ~5 'MC' leaf nodes.
 (tagpdf)             Be patient if there are lots of objects!
 Package tagpdf Info: writing ParentTree
 Package tagpdf Info: writing IDTree
@@ -64,3 +64,8 @@ Package tagpdf Info: writing ClassMap
 Package tagpdf Info: writing NameSpaces
 Package tagpdf Info: writing StructElems
 Package tagpdf Info: writing Root
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0

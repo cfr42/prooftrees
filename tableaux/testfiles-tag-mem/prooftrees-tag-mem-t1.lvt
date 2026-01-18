@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% This is file `prooftrees-ebproof-t1.lvt',
 %%
-%% Copyright (C) 2025 Clea F. Rees.
+%% Copyright (C) 2025-2026 Clea F. Rees.
 %% 
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -34,7 +34,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-tag-mem-t1.lvt 11150 2025-08-27 16:17:35Z cfrees $}[v0.0 \revinfo][\filebase: tag support memoization test]
+\ProvidesFileSVN{$Id: prooftrees-tag-mem-t1.lvt 11523 2026-01-18 22:11:35Z cfrees $}[v0.0 \revinfo][\filebase: tag support memoization test]
 \input regression-test.tex\relax
 \documentclass{article}
 \START
@@ -49,10 +49,14 @@
 }
 \OMIT
 \usepackage[extract=python]{memoize}
-\usepackage[tableaux]{prooftrees}
-\usepackage{prooftrees-debug}
+\usepackage[tableaux]{prooftrees-debug}
 \usepackage{turnstile}
-\usepackage{unicode-math}
+\usepackage{amsmath}
+\ifcsname directlua\endcsname
+  \usepackage{unicode-math}
+\else
+  \usepackage[T1]{fontenc}
+\fi
 \makeatletter
 \@ttableau@dadfygiotrue
 \makeatother
