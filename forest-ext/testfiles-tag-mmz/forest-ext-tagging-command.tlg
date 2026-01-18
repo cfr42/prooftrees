@@ -1,0 +1,194 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: tagforest-command-mem-mmz
+============================================================
+forest-ext-tagging-command.mmz:
+-------- forest-ext-tagging-command.mmz (start) ---------
+(forest-ext-tagging-command.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/12E9447C2543CB3310E4CBA06B749B63.memo}[nl]
+\mmzUsedExtern {memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\endinput[nl]
+-------- forest-ext-tagging-command.mmz (end) -----------
+============================================================
+============================================================
+TEST 2: tagforest-command-mem
+============================================================
+(memos/12E9447C2543CB3310E4CBA06B749B63.memo) (memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo)
+============================================================
+============================================================
+TEST 3: Show PDF Tags
+============================================================
+-------- forest-ext-tagging-command.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>ABC apple banana pear
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        alt="root VP 2 branches branch 1 DP child John end branch V prime V child sent end branch DP child Mary end branch DP 2 branches branch 1 D child a end branch branch 2 NP child letter end branch "
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 259.48477, 543.59961, 407.32085, 667.19801 }"
+       >
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?>ABC apple ba-nana pear
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- forest-ext-tagging-command.xml (end) ---------
+============================================================
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: l3build [on line ...]
+============================================================
+TEST 4: tagforest-command-mem-cmemo
+============================================================
+memos/12E9447C2543CB3310E4CBA06B749B63.memo:
+-------- memos/12E9447C2543CB3310E4CBA06B749B63.memo (start) ---------
+(memos/12E9447C2543CB3310E4CBA06B749B63.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\Forest {[VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] }[nl]
+-------- memos/12E9447C2543CB3310E4CBA06B749B63.memo (end) -----------
+============================================================
+============================================================
+TEST 5: tagforest-command-mem-ccmemo
+============================================================
+memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \csname cctab_begin:c\endcsname {c__tagforest_nexpl_at_cctab}\global \advance \tagforest@id by 1\relax \tex_savepos:D \property_record:ee {tagforest-id\the \tagforest@id }{xpos,ypos}\tex_savepos:D \mode_if_vertical:T {\if@inlabel \mode_leave_vertical: \else \tag_socket_use:n {para/begin}\fi }\tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={root VP 2 branches   branch 1 DP  child John end branch  V prime V  child sent end branch  DP  child Mary end branch  DP 2 branches   branch 1 D  child a end branch   branch 2 NP  child letter end branch  }}\tag_mc_begin:n {tag=Figure}\cs_new:cpe {tagforest@mark@pos@\the \tagforest@id }{\__tagforest_pgftikz_tag_bbox:enn {tagforest-id\the \tagforest@id }{148.39047pt}{124.06189pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {tagforest@mark@pos@\the \tagforest@id }]}\tag_mc_end: \tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {148.39047pt}{124.06189pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),[nl]
+\mmzEndMemo[nl]
+-------- memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: l3build [on line ...]
+============================================================
+TEST 6: tagforest-command-taginfo
+============================================================
+The sequence \g__tag_struct_tag_stack_seq contains the items (without outer braces):
+>  {{Document}{Document}}
+>  {{Root}{StructTreeRoot}}.
+=========================
+The structure 1 contains:
+>  Type  =>  /StructTreeRoot
+>  S  =>  /StructTreeRoot
+>  tag  =>  {StructTreeRoot}{pdf}
+>  rolemap  =>  {StructTreeRoot}{pdf}
+>  parentrole  =>  {StructTreeRoot}{pdf}
+The structure has the following kids:
+>  Struct 2
+=========================
+=========================
+The structure 2 contains:
+>  Type  =>  /StructElem
+>  S  =>  /Document
+>  NS  =>  pdf2
+>  tag  =>  {Document}{pdf2}
+>  rolemap  =>  {Document}{pdf2}
+>  parentrole  =>  {Document}{pdf2}
+>  parentnum  =>  1 = /StructTreeRoot
+The structure has the following kids:
+>  Struct 5
+=========================
+=========================
+The structure 3 contains:
+>  Type  =>  /StructElem
+>  S  =>  /figures
+>  NS  =>  latex
+>  tag  =>  {figures}{latex}
+>  rolemap  =>  {Sect}{pdf2}
+>  parentrole  =>  {Sect}{pdf2}
+>  parentnum  =>  no parent: stashed
+The structure has the following kids:
+> NONE
+=========================
+=========================
+The structure 4 contains:
+>  Type  =>  /StructElem
+>  S  =>  /tables
+>  NS  =>  latex
+>  tag  =>  {tables}{latex}
+>  rolemap  =>  {Sect}{pdf2}
+>  parentrole  =>  {Sect}{pdf2}
+>  parentnum  =>  no parent: stashed
+The structure has the following kids:
+> NONE
+=========================
+=========================
+The structure 5 contains:
+>  Type  =>  /StructElem
+>  S  =>  /text-unit
+>  NS  =>  latex
+>  tag  =>  {text-unit}{latex}
+>  rolemap  =>  {Part}{pdf2}
+>  parentrole  =>  {Document}{pdf2}
+>  parentnum  =>  2 = /Document
+The structure has the following kids:
+>  Struct 6
+=========================
+=========================
+The structure 6 contains:
+>  Type  =>  /StructElem
+>  C  =>  /justify
+>  S  =>  /text
+>  NS  =>  latex
+>  tag  =>  {text}{latex}
+>  rolemap  =>  {P}{pdf2}
+>  parentrole  =>  {P}{pdf2}
+>  parentnum  =>  5 = /text-unit
+The structure has the following kids:
+>  MC 1
+>  Struct 7
+>  MC 3
+=========================
+=========================
+The structure 7 contains:
+>  Type  =>  /StructElem
+>  Alt  =>  <FEFF0072006F006F0074002000560050002000320020006200720061006E00630068006500730020006200720061006E00630068002000310020004400500020006300680069006C00640020004A006F0068006E00200065006E00640020006200720061006E00630068002000560020007000720069006D0065002000560020006300680069006C0064002000730065006E007400200065006E00640020006200720061006E006300680020004400500020006300680069006C00640020004D00610072007900200065006E00640020006200720061006E00630068002000440050002000320020006200720061006E00630068006500730020006200720061006E0063006800200031002000440020006300680069006C00640020006100200065006E00640020006200720061006E006300680020006200720061006E00630068002000320020004E00500020006300680069006C00640020006C0065007400740065007200200065006E00640020006200720061006E006300680020>
+>  S  =>  /Figure
+>  NS  =>  pdf2
+>  tag  =>  {Figure}{pdf2}
+>  rolemap  =>  {Figure}{pdf2}
+>  parentrole  =>  {Figure}{pdf2}
+>  parentnum  =>  6 = /text
+The structure has the following kids:
+>  MC 2
+=========================
+============================================================
+<<latex-list-css.html>><<latex-align-css.html>> (forest-ext-tagging-command.aux)
+Package tagpdf Info: Finalizing the tagging structure:
+(tagpdf)             Writing out ~7 structure objects
+(tagpdf)             with ~5 'MC' leaf nodes.
+(tagpdf)             Be patient if there are lots of objects!
+Package tagpdf Info: writing ParentTree
+Package tagpdf Info: writing IDTree
+Package tagpdf Info: writing RoleMap
+Package tagpdf Info: writing ClassMap
+Package tagpdf Info: writing NameSpaces
+Package tagpdf Info: writing StructElems
+Package tagpdf Info: writing Root
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0
