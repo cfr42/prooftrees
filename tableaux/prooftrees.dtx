@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2880,8 +2880,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -3243,6 +3243,7 @@ for root'={%
 % Mark discharge with optional name substituted into existential
 % \changes{v0.9.1}{2025-08-25}{Add checked markers to \texttt{ttoks} if tagging.}
 % \changes{v0.9.2}{2026-01-19}{Add checked markers to \texttt{alt text} if tagging.}
+% \changes{v0.0.0}{2026-01-19}{Additional space in tagged content.}
 %
 % For building \texttt{alt} text, we want to do this after content is copied but still before \texttt{before typesetting nodes} or \texttt{proof tree before typesetting nodes}.
 %    \begin{macrocode}
@@ -3265,6 +3266,7 @@ for root'={%
 % Mark substitution of name into universal
 % \changes{v0.9.1}{2025-08-25}{Add substitution markers to \texttt{ttoks} if tagging.}
 % \changes{v0.9.2}{2026-01-19}{Add substitution markers to \texttt{alt text} if tagging.}
+% \changes{v0.0.0}{2026-01-19}{Additional space in tagged content.}
 %    \begin{macrocode}
   subs/.style={% 
     proof tree after copying content={%
@@ -4766,7 +4768,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 %    \end{macrocode}
@@ -4784,7 +4786,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 %    \end{macrocode}

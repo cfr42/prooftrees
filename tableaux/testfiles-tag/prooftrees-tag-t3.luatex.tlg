@@ -95,16 +95,16 @@ declare keylist/.process={_x{tag nodes}{debug tagging/.process={Ow{just}{just=##
 Package prooftrees Warning: Merging conflicting justifications for line 6! Please examine the output carefully and use "move by" to move lines later in the proof if required. Details of how to do this are included in the documentation. on input line ....
 [Tag tableau debug]:: just=Ass
 [Tag tableau debug]:: Looking for a justification ...
-[Tag tableau debug]:: alt text is now 1\ \ensuremath {P \vee (Q \vee \ensuremath {\mathord {\sim }}R)}discharged\ Ass\ 
-[Tag tableau debug]:: alt text is now 1\ \ensuremath {P \vee (Q \vee \ensuremath {\mathord {\sim }}R)}discharged\ Ass\ 
+[Tag tableau debug]:: alt text is now 1\ \ensuremath {P \vee (Q \vee \ensuremath {\mathord {\sim }}R)}\ discharged\ Ass\ 
+[Tag tableau debug]:: alt text is now 1\ \ensuremath {P \vee (Q \vee \ensuremath {\mathord {\sim }}R)}\ discharged\ Ass\ 
 [Tag tableau debug]:: just=Ass
 [Tag tableau debug]:: Looking for a justification ...
-[Tag tableau debug]:: alt text is now 2\ \ensuremath {P \ensuremath {\mathbin {\supset }}\ensuremath {\mathord {\sim }}R}discharged\ Ass\ 
-[Tag tableau debug]:: alt text is now 2\ \ensuremath {P \ensuremath {\mathbin {\supset }}\ensuremath {\mathord {\sim }}R}discharged\ Ass\ 
+[Tag tableau debug]:: alt text is now 2\ \ensuremath {P \ensuremath {\mathbin {\supset }}\ensuremath {\mathord {\sim }}R}\ discharged\ Ass\ 
+[Tag tableau debug]:: alt text is now 2\ \ensuremath {P \ensuremath {\mathbin {\supset }}\ensuremath {\mathord {\sim }}R}\ discharged\ Ass\ 
 [Tag tableau debug]:: just=Ass
 [Tag tableau debug]:: Looking for a justification ...
-[Tag tableau debug]:: alt text is now 3\ \ensuremath {Q \ensuremath {\mathbin {\supset }}\ensuremath {\mathord {\sim }}R}discharged\ Ass\ 
-[Tag tableau debug]:: alt text is now 3\ \ensuremath {Q \ensuremath {\mathbin {\supset }}\ensuremath {\mathord {\sim }}R}discharged\ Ass\ 
+[Tag tableau debug]:: alt text is now 3\ \ensuremath {Q \ensuremath {\mathbin {\supset }}\ensuremath {\mathord {\sim }}R}\ discharged\ Ass\ 
+[Tag tableau debug]:: alt text is now 3\ \ensuremath {Q \ensuremath {\mathbin {\supset }}\ensuremath {\mathord {\sim }}R}\ discharged\ Ass\ 
 [Tag tableau debug]:: just=$\ensuremath {\mathord {\sim }}$ Conc
 [Tag tableau debug]:: Looking for a justification ...
 [Tag tableau debug]:: alt text is now 4\ \ensuremath {\ensuremath {\mathord {\sim }}\ensuremath {\mathord {\sim }}R}\ $\ensuremath {\mathord {\sim }}$ Conc\ 
@@ -191,9 +191,9 @@ Package prooftrees Warning: Merging conflicting justifications for line 6! Pleas
 [Tag tableau debug]:: content: 4,6
 [Tag tableau debug]:: !uu.alt text is now 6\ \ensuremath {\ensuremath {\mathord {\sim }}R}\ {5}{\ }$\vee $ Elim\ \ closed\ 4,6\ 
 [tagforest debug]:: Appending toks To prove:\ \ensuremath {\{P \vee (Q \vee \tnot R), P \horseshoe \tnot R, Q \horseshoe \tnot R\} \sststile {}{} \tnot R} .
-[tagforest debug]:: Appending toks 1\ \ensuremath {P \vee (Q \vee \tnot R)}discharged\pgfkeysnovalue \ Ass\  .
-[tagforest debug]:: Appending toks 2\ \ensuremath {P \horseshoe \tnot R}discharged\pgfkeysnovalue \ Ass\  .
-[tagforest debug]:: Appending toks 3\ \ensuremath {Q \horseshoe \tnot R}discharged\pgfkeysnovalue \ Ass\  .
+[tagforest debug]:: Appending toks 1\ \ensuremath {P \vee (Q \vee \tnot R)}\ discharged\pgfkeysnovalue \ Ass\  .
+[tagforest debug]:: Appending toks 2\ \ensuremath {P \horseshoe \tnot R}\ discharged\pgfkeysnovalue \ Ass\  .
+[tagforest debug]:: Appending toks 3\ \ensuremath {Q \horseshoe \tnot R}\ discharged\pgfkeysnovalue \ Ass\  .
 [tagforest debug]:: Appending toks 4\ \ensuremath {\tnot \tnot R}\ $\tnot $ Conc\  .
 [tagforest debug]:: Appending toks 5\ \ensuremath {P}\ {1}{\ }$\vee $ Elim\  .
 [tagforest debug]:: Appending toks 6\ \ensuremath {\tnot P}\ {2}{\ }$\horseshoe $ Elim\ \ closed\ 5,\,6\  .
@@ -216,7 +216,7 @@ Package prooftrees Warning: Merging conflicting justifications for line 6! Pleas
 [Tag tableau debug]:: ID:
 [tagforest debug]:: current id: 1
 [Tag tableau debug]:: Accumulated toks:
-[tagforest debug]:: current toks: To prove:\ \ensuremath {\{P \vee (Q \vee \tnot R), P \horseshoe \tnot R, Q \horseshoe \tnot R\} \sststile {}{} \tnot R} 1\ \ensuremath {P \vee (Q \vee \tnot R)}discharged\pgfkeysnovalue \ Ass\  2\ \ensuremath {P \horseshoe \tnot R}discharged\pgfkeysnovalue \ Ass\  3\ \ensuremath {Q \horseshoe \tnot R}discharged\pgfkeysnovalue \ Ass\  4\ \ensuremath {\tnot \tnot R}\ $\tnot $ Conc\  5\ \ensuremath {P}\ {1}{\ }$\vee $ Elim\  6\ \ensuremath {\tnot P}\ {2}{\ }$\horseshoe $ Elim\ \ closed\ 5,\,6\    6\ \ensuremath {\tnot R}\ {2}{\ }$\horseshoe $ Elim\ \ closed\ 4,\,6\    5\ \ensuremath {Q \vee \tnot R}\ {1}{\ }$\vee $ Elim\  6\ \ensuremath {Q}\ {5}{\ }$\vee $ Elim\  7\ \ensuremath {\tnot Q}\ 3 $\horseshoe $ Elim\ \ closed\ 6,\,7\    7\ \ensuremath {\tnot R}\ 3 $\horseshoe $ Elim\ \ closed\ 4,\,7\    6\ \ensuremath {\tnot R}\ {5}{\ }$\vee $ Elim\ \ closed\ 4,6\    
+[tagforest debug]:: current toks: To prove:\ \ensuremath {\{P \vee (Q \vee \tnot R), P \horseshoe \tnot R, Q \horseshoe \tnot R\} \sststile {}{} \tnot R} 1\ \ensuremath {P \vee (Q \vee \tnot R)}\ discharged\pgfkeysnovalue \ Ass\  2\ \ensuremath {P \horseshoe \tnot R}\ discharged\pgfkeysnovalue \ Ass\  3\ \ensuremath {Q \horseshoe \tnot R}\ discharged\pgfkeysnovalue \ Ass\  4\ \ensuremath {\tnot \tnot R}\ $\tnot $ Conc\  5\ \ensuremath {P}\ {1}{\ }$\vee $ Elim\  6\ \ensuremath {\tnot P}\ {2}{\ }$\horseshoe $ Elim\ \ closed\ 5,\,6\    6\ \ensuremath {\tnot R}\ {2}{\ }$\horseshoe $ Elim\ \ closed\ 4,\,6\    5\ \ensuremath {Q \vee \tnot R}\ {1}{\ }$\vee $ Elim\  6\ \ensuremath {Q}\ {5}{\ }$\vee $ Elim\  7\ \ensuremath {\tnot Q}\ 3 $\horseshoe $ Elim\ \ closed\ 6,\,7\    7\ \ensuremath {\tnot R}\ 3 $\horseshoe $ Elim\ \ closed\ 4,\,7\    6\ \ensuremath {\tnot R}\ {5}{\ }$\vee $ Elim\ \ closed\ 4,6\    
 [tagforest debug]:: Dimensions (x then y) are
 [tagforest debug]:: 264.74667pt
 [tagforest debug]:: 176.30359pt
@@ -247,7 +247,7 @@ TEST 2: Show PDF Tags
       >
      <Figure xmlns="http://iso.org/pdf2/ssn"
         id="ID.07"
-        alt="To prove: $\{P \vee (Q \vee \tnot R), P \horseshoe \tnot R, Q \horseshoe \tnot R\} \sststile {}{} \tnot R$ 1 $P \vee (Q \vee \tnot R)$discharged Ass  2 $P \horseshoe \tnot R$discharged Ass  3 $Q \horseshoe \tnot R$discharged Ass  4 $\tnot \tnot R$ $\tnot $ Conc  5 $P$ 1 $\vee $ Elim  6 $\tnot P$ 2 $\horseshoe $ Elim  closed 5, 6    6 $\tnot R$ 2 $\horseshoe $ Elim  closed 4, 6    5 $Q \vee \tnot R$ 1 $\vee $ Elim  6 $Q$ 5 $\vee $ Elim  7 $\tnot Q$ 3 $\horseshoe $ Elim  closed 6, 7    7 $\tnot R$ 3 $\horseshoe $ Elim  closed 4, 7    6 $\tnot R$ 5 $\vee $ Elim  closed 4,6    "
+        alt="To prove: $\{P \vee (Q \vee \tnot R), P \horseshoe \tnot R, Q \horseshoe \tnot R\} \sststile {}{} \tnot R$ 1 $P \vee (Q \vee \tnot R)$ discharged Ass  2 $P \horseshoe \tnot R$ discharged Ass  3 $Q \horseshoe \tnot R$ discharged Ass  4 $\tnot \tnot R$ $\tnot $ Conc  5 $P$ 1 $\vee $ Elim  6 $\tnot P$ 2 $\horseshoe $ Elim  closed 5, 6    6 $\tnot R$ 2 $\horseshoe $ Elim  closed 4, 6    5 $Q \vee \tnot R$ 1 $\vee $ Elim  6 $Q$ 5 $\vee $ Elim  7 $\tnot Q$ 3 $\horseshoe $ Elim  closed 6, 7    7 $\tnot R$ 3 $\horseshoe $ Elim  closed 4, 7    6 $\tnot R$ 5 $\vee $ Elim  closed 4,6    "
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 133.76837, 667.19801, 397.52596, 842.84293 }"
        >
