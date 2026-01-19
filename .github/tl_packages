@@ -237,4 +237,8 @@ luamml
 
 lua-unicode-math
 
+# needed for tagging tests
 show-pdf-tags
+
+# needed by ext.multi
+tikz-ext
