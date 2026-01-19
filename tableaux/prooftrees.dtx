@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11527 2026-01-19 00:14:36Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11528 2026-01-19 01:32:24Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2861,8 +2861,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11527 2026-01-19 00:14:36Z cfrees $}[v0.9.1 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11527 2026-01-19 00:14:36Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11528 2026-01-19 01:32:24Z cfrees $}[v0.9.1 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11528 2026-01-19 01:32:24Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4311,7 +4311,7 @@ for root'={%
 % \texttt{debug tagging} is more expensive, so split this out.
 %
 % ANGEN: dw i ddim yn meddwl bod crefs yn cynnwys explicit closures?
-% \begin{fstyle}{proof tree copy content to tags}
+% ^^A \begin{fstyle}{proof tree copy content to tags}
 %   Reset \texttt{proof tree copy content}.
 %   \changes{v0.0}{0000-00-00}{\texttt{proof tree copy content to tags} style.}
 %    \begin{macrocode}
@@ -4326,8 +4326,8 @@ for root'={%
     },
   },
 %    \end{macrocode}
-% \end{fstyle}
-% \begin{fchoice}{tableaux alt text}
+% ^^A \end{fstyle}
+% ^^A \begin{fchoice}{tableaux alt text}
 %   \textbf{This is not a choice key.}
 %   It is an additional choice for the \texttt{tag nodes uses} key provided by \pkg{ext.tagging}.
 %   Resets \texttt{tag nodes}.
@@ -4410,7 +4410,7 @@ for root'={%
     },
   },
 %    \end{macrocode}
-% \end{fchoice}
+% ^^A \end{fchoice}
 % \changes{v0.9.1}{2025-08-25}{Try to tag tableau.}
 % Note that this method would not work for many \pkg{forest} trees and may fail for some tableaux, but should work for most proofs, I think.
 % \changes{v0.0.0}{0000-00-00}{\texttt{tag tableau} replaced by \pkg{ext.tagging} library.}
@@ -4432,7 +4432,6 @@ for root'={%
 %    \begin{macrocode}
 \NewDocumentEnvironment{\prooftrees@enw}{ m +b }
 {%
-  \global\advance\prooftrees@tableau@id by 1
   \prooftrees@init
   \forest
     (%
@@ -4535,14 +4534,12 @@ for root'={%
     proof tree,
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{Experimental tagging style, \texttt{ttableau}.}
-% Isolate (partly) for now.
 % \changes{v0.0.0}{0000-00-00}{Remove tagging style, \texttt{ttableau}.}
-%    \begin{macrocode}
-% ^^A     ttableau,
-%    \end{macrocode}
+%   Tagging code still conditional, but no longer isolated, so the style which was here can disappear.
+%
 % Insert user's preamble, empty or otherwise - this allows the user both to override our defaults (e.g.~by setting a non-empty proof statement or a custom format for line numbers) and to customise the tree using forest's facilities in the usual way - BUT customisations of the latter kind may or may not be effective, may or may not have undesirable - not to say chaotic - consequences, and may or may not cause compilation failures (structural changes, in particular, should be avoided completely).
 %
-    % Ref.\ re.\ ordering of \cs{prooftrees@end} before \cs{endforest}: sylwad David Carlisle: \url{https://chat.stackexchange.com/transcript/message/68681858#68681858}.
+% Ref.\ re.\ ordering of \cs{prooftrees@end} before \cs{endforest}: sylwad David Carlisle: \url{https://chat.stackexchange.com/transcript/message/68681858#68681858}.
 %    \begin{macrocode}
     #1,
     [, name=proof statement @#2]%
@@ -4585,92 +4582,49 @@ for root'={%
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{Adapt \pkg{memoize} config if tagging or provide conditional.}
 %    \begin{macrocode}
-% ^^A     \tag_if_active:T
-% ^^A     {
-% ^^A       \mmzset{direct~ccmemo~input=true,}
-% ^^A     }
-  }{
-% ^^A %<!debug>    \newif\ifmemoizing\memoizingfalse
-  }
-%    \end{macrocode}
-% ^^A % \begin{macro}{\@@_property_ref_orig:nn}
-% ^^A % \begin{macro}{\@@_property_ref_orig:ee}
-% ^^A % \mbox{}
-% ^^A % \changes{v0.9.1}{2025-08-25}{Use \pkg{mmzx-ext} stuff if loaded, but don't require for now, anyway.}
-% ^^A %    \begin{macrocode}
-% ^^A   \@ifpackageloaded{memoize-ext}{
-% ^^A     \cs_new_eq:NN \@@_property_ref_orig:nn \__mmzx_property_ref_orig:nn
-% ^^A     \cs_new_eq:NN \c_@@_nexpl_at_cctab  \c__mmzx_nexpl_at_cctab 
-% ^^A   }{
-% ^^A     \cs_new_eq:NN \@@_property_ref_orig:nn \property_ref:nn
-% ^^A %    \end{macrocode}
-% ^^A % Otherwise \dots
-% ^^A %
-% ^^A % \begin{macro}{\c_@@_nexpl_at_cctab}
-% ^^A % \changes{v0.9.1}{2025-08-25}{Add \ecs{\c_@@_nexpl_at_cctab}.}
-% ^^A %   Not a macro but a constant.
-% ^^A %   Allow \texttt{@} and \pkg{expl3} syntax in memos, but don't change cat codes of spaces or newlines.
-% ^^A %    \begin{macrocode}
-% ^^A     \cctab_const:Nn \c_@@_nexpl_at_cctab {
-% ^^A       \cctab_select:N \c_code_cctab 
-% ^^A       \makeatletter
-% ^^A       \int_set:Nn \tex_endlinechar:D { 13 }
-% ^^A       \char_set_catcode_space:n      { 9 }
-% ^^A       \char_set_catcode_space:n      { 32 }
-% ^^A       \char_set_catcode_active:n     { 126 } % tilde
-% ^^A     }
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
-%    \begin{macrocode}
-% ^^A   }
-% ^^A   \cs_generate_variant:Nn \@@_property_ref_orig:nn {ee}
-% ^^A %    \end{macrocode}
-% ^^A % \end{macro}
-% ^^A % \end{macro}
-% \changes{v0.9.1}{2025-08-27}{Use \pkg{unicode-math} rather than \pkg{amssymb} and \pkg{amstext} on Unicode engines, but, in any case, only load what's needed.}
+  }{}
+% \begin{macro}{\checkmark}
+%   \changes{v0.9.1}{2025-08-27}{Use \pkg{unicode-math} rather than \pkg{amssymb} and \pkg{amstext} on Unicode engines, but, in any case, only load what's needed.}
+%   \changes{v0.0}{0000-00-00}{Don't load \pkg{unicode-math}/\pkg{amssymb} just to get \cs{checkmark}.}
+%   Definition of \cs{checkmark} pilfered from \pkg{amsfonts}.
 %    \begin{macrocode}
   \cs_if_exist:NF \checkmark
   {
-    \sys_if_engine_opentype:TF
-    {
-      \RequirePackage{unicode-math}
-    }{
-      \RequirePackage{amssymb}
-    }
+%    \end{macrocode}
+% This is wasteful, but less wasteful.
+% \cs{DeclareSymbolFont} defines \verb|\csname sym#1\endcsname|.
+% \cs{mathhexbox}, \cs{hexnumber@} are in the format.
+%    \begin{macrocode}
+    \DeclareSymbolFont{AMSa}{U}{msa}{m}{n}
+    \edef\checkmark{\noexpand\mathhexbox{\hexnumber@\symAMSa}58}
   }
+%    \begin{macrocode}
+% \end{macro}
+% \begin{macro}{\text}
+%   \changes{v0.0}{0000-00-00}{Don't load \pkg{unicode-math}/\pkg{amstext} just to get \cs{text}.}
+%   Definition of \cs{text} pilfered from \pkg{amstext}.
+%   I think \cs{DeclareRobustCommand} is meant to be deprecated, but it still seems to be the go-to for font style definitions (also in the format as far as I know).
+%    \end{macrocode}
   \cs_if_exist:NF \text
   {
-    \sys_if_engine_opentype:TF
+    \DeclareRobustCommand{\text}
     {
-      \RequirePackage{unicode-math}
-    }{
-      \RequirePackage{amstext}
+      \ifmmode\expandafter\text@\else\expandafter\mbox\fi
     }
-  }
-%    \end{macrocode}
-% \begin{macro}{\toksapp}
-%   \changes{v0.9.1}{2025-08-28}{Add \cs{toksapp} using format definition of \cs{addto@hook}, in case this is not primitive/already defined.}
-%   Copy of \LaTeX{}'s \cs{addto@hook}.
-%   Not used if Lua\TeX{} is used, which defines it as a primitive, or if \pkg{collargs} is loaded (e.g.~for \pkg{memoize}), which provides a more complicated version.
-%   David Carlisle: \url{https://chat.stackexchange.com/transcript/message/68194858#68194858}.
-%    \begin{macrocode}
-  \cs_if_free:NT \toksapp
-  {
-    \cs_new:Npn \toksapp#1#2{#1\expandafter{\the #1#2}}
   }
 %    \end{macrocode}
 % \end{macro}
+% \changes{v0.9.1}{2025-08-28}{Add \cs{toksapp} using format definition of \cs{addto@hook}, in case this is not primitive/already defined.}
+% Copy of \LaTeX{}'s \cs{addto@hook}.
+% Not used if Lua\TeX{} is used, which defines it as a primitive, or if \pkg{collargs} is loaded (e.g.~for \pkg{memoize}), which provides a more complicated version.
+% David Carlisle: \url{https://chat.stackexchange.com/transcript/message/68194858#68194858}.
+% \changes{v0.0.0}{0000-00-00}{Remove \cs{toksapp} after moving to \pkg{forest-ext}.}
 %    \begin{macrocode}
 }
 %    \end{macrocode}
 % ^^A delay to begindocument/before >>>
-% \begin{macro}{\prooftrees@tableau@id}
 %   \changes{v0.9.1}{2025-08-25}{Add \cs{prooftrees@tableau@id}.}
-%   Not a macro, but no idea how to mark it in \pkg{ltxdoc} correctly. 
-%    \begin{macrocode}
-\newcount\prooftrees@tableau@id
-%    \end{macrocode}
-% \end{macro}
+%   \changes{v0.0.0}{0000-00-00}{Remove \cs{prooftrees@tableau@id}.}
 % ^^A tagsupport <<<
 % \begin{macro}{\if@ttableau@dadfygio}
 %   \changes{v0.9.1}{2025-08-25}{Add \cs{if@ttableau@dadfygio}.}
@@ -4680,123 +4634,18 @@ for root'={%
 \@ttableau@dadfygiofalse
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{\l_@@_toks_tl}
 %   \changes{v0.9.1}{2025-08-25}{Add \ecs{l_@@_toks_tl}.}
-%   Variable because I can't work out how to pass the toks directly.
-%    \begin{macrocode}
-\tl_new:N \l_@@_toks_tl
-%    \end{macrocode}
-% \end{macro}
-% \begin{macro}{\prooftrees@tableau@toks}
+%   \changes{v0.0.0}{0000-00-00}{Remove \ecs{l_@@_toks_tl}.}
 %   \changes{v0.9.1}{2025-08-25}{Add \cs{prooftrees@tableau@toks}.}
-%   Not a macro, but no idea how to mark it in \pkg{ltxdoc} correctly. 
-%    \begin{macrocode}
-\newtoks \prooftrees@tableau@toks
-%    \end{macrocode}
-% \end{macro}
-% \begin{macro}{%
-%   \@@_tag_suspend:n,
-%   \@@_tag_resume:n,
-% }
+%   \changes{v0.0.0}{0000-00-00}{Remove \cs{prooftrees@tableau@toks}.}
+%   \changes{v0.0.0}{0000-00-00}{Remove \ecs{@@_tag_suspend:n}, \ecs{@@_tag_resume:n.}}
 %   Copied from \pkg{ext.tagging}.
-%    \begin{macrocode}
-\cs_new_eq:NN \@@_tag_suspend:n \tag_suspend:n
-\cs_new_eq:NN \@@_tag_resume:n \tag_resume:n
-%    \end{macrocode}
-% \end{macro}
 % \begin{macro}{\@@_noop:}
-% \begin{macro}{\@@_noop:n}
-%   Something to \cs{let} the suspend/resume functions to.
+%   Something to \cs{let} the end function to.
 %    \begin{macrocode}
 \cs_new_nopar:Npn \@@_noop: {}
-\cs_new_nopar:Npn \@@_noop:n #1 {}
 %    \end{macrocode}
 % \end{macro}
-% \end{macro}
-% ^^A % ^^A % Sockets. 
-% ^^A % ^^A % No idea how to index.
-% ^^A % ^^A % 
-% ^^A % ^^A % I am not sure \texttt{init} does anything at all useful which couldn't be done better with a macro?
-% ^^A %    \begin{macrocode}
-% ^^A \socket_new:nn {tagsupport/tableaux/tableau/mmzx}{2}
-% ^^A %    \end{macrocode}
-% ^^A % I think some combination of:
-% ^^A %   \ecs{tag_suspend:n} \{\cs{tableau}\}
-% ^^A %   \ecs{tag_resume:n} \{\cs{tableau}\}
-% ^^A %   \ecs{luamml_ignore:}
-% ^^A %
-% ^^A % From \pkg{ext.tagging}.
-% ^^A %    \begin{macrocode}
-% ^^A   \cs_set_eq:NN \tag_suspend:n \@@_noop:n
-% ^^A   \cs_set_eq:NN \tag_resume:n \@@_noop:n
-% ^^A   \@@_tag_suspend:n {tagtableaux}
-% ^^A }
-% ^^A %    \end{macrocode}
-% ^^A % Shamelessly copied from \pkg{latex-lab}.
-% ^^A % \begin{macro}{\prooftrees@tableau@mark@pos@\the\prooftrees@tableau@id}
-% ^^A %   Modified version of the \pkg{latex-lab} code as we can't use \pkg{pgf} \texttt{remember picture} etc.
-% ^^A % \changes{v0.0}{2025-09-04}{Move pos marking here to follow \pkg{latex-lab} more closely.
-% ^^A %   It does not help, but does not seem to hinder.}
-% ^^A % A version of the above which appends to the context memo rather than executing the code.
-% ^^A % For \texttt{alt}, externalisation seems to work at least somewhat with tagging.
-% ^^A % (Also \texttt{actualtext}.
-% ^^A % That seems a bad choice for a tableau, but could be provided if required.)
-% ^^A % But it changes the structure, so I'm not at all sure here.
-% ^^A % 
-% ^^A % This requires modifying the cat code regime inside the context memo (or providing 2e-style names for all the cases where these aren't available, including ones internal to \pkg{prooftrees}.
-% ^^A %
-% ^^A % Somewhere, the memoization code introduces extra space when tagging, but since it doesn't work properly anyway, I find myself lacking the will to pin it down.
-% ^^A % Not even the non-memoized version works, for that matter, so worrying about this version is for the birds' birds, indeed.
-% ^^A %    \begin{macrocode}
-% ^^A \socket_new_plug:nnn {tagsupport/tableaux/tableau/mmzx}{alt}
-% ^^A {
-% ^^A   \gtoksapp\mmzCCMemo{
-% ^^A     \csname cctab_begin:c\endcsname {\c_@@_nexpl_at_cctab}
-% ^^A     \global\advance\prooftrees@tableau@id~by~1\relax
-% ^^A     \tex_savepos:D
-% ^^A     \property_record:ee {prooftrees-tableau-id\the\prooftrees@tableau@id}
-% ^^A     {xpos,ypos}
-% ^^A     \tex_savepos:D
-% ^^A     \tag_mc_end_push:
-% ^^A     \tag_struct_begin:n
-% ^^A   }
-% ^^A   \xtoksapp\mmzCCMemo{
-% ^^A     \c_left_brace_str
-% ^^A     tag=Figure,
-% ^^A     alt=
-% ^^A     \c_left_brace_str
-% ^^A   }
-% ^^A   \gtoksapp\mmzCCMemo{
-% ^^A     \tag_mc_begin:n {tag=Figure}
-% ^^A   }
-% ^^A   \exp_args:NNV \gtoksapp\mmzCCMemo \l_@@_toks_tl
-% ^^A   \xtoksapp\mmzCCMemo{
-% ^^A     \c_right_brace_str
-% ^^A     \c_right_brace_str
-% ^^A   }
-% ^^A   \gtoksapp\mmzCCMemo{
-% ^^A     \cs_new:cpe {prooftrees@tableau@mark@pos@\the\prooftrees@tableau@id}
-% ^^A     {
-% ^^A       \@@_pgftikz_tag_bbox:enn {prooftrees-tableau-id\the\prooftrees@tableau@id}
-% ^^A       {#1}{#2}
-% ^^A     }
-% ^^A     \tag_struct_gput:ene
-% ^^A     {\tag_get:n {struct_num}}
-% ^^A     {attribute}
-% ^^A     {
-% ^^A       /O /Layout /BBox~
-% ^^A       [
-% ^^A         \use:c
-% ^^A         {prooftrees@tableau@mark@pos@\the\prooftrees@tableau@id}
-% ^^A       ]
-% ^^A     }
-% ^^A     \tag_mc_end:
-% ^^A     \tag_struct_end:
-% ^^A     \tag_mc_begin_pop:n{}
-% ^^A     \cctab_end:
-% ^^A   }
-% ^^A }
-% ^^A %    \end{macrocode}
 % \begin{macro}{\prooftrees@init}
 % \begin{macro}{\@@_init:}
 % \changes{v0.9.1}{2025-08-25}{Added \ecs{@@_ttableau_init:}.}
@@ -4813,7 +4662,6 @@ for root'={%
       setup~plug=tableaux/alt,
       tag~plug=alt,
     }
-% ^^A     \global\prooftrees@tableau@toks{}
 %<debug>    \if@ttableau@dadfygio 
 %<debug>      \typeout{Tagging~is~active.}
 %<debug>      \forestset{
@@ -4871,8 +4719,6 @@ for root'={%
 {
   \forestset{
 %<debug>    debug~tagging={Using~tagsupport/forest/setup~plug~tableaux/alt.},
-% ^^A %<debug>    debug~tagging={Setting~tag~plug=alt.},
-% ^^A     tag~plug=alt,
 %<debug>    debug~tagging={Executing~proof~tree~copy~content~to~tags.},
     proof~tree~copy~content~to~tags,
 %<debug>    debug~tagging={Executing~tag~nodes~uses~with~value~tableaux~alt~text.},
@@ -4898,7 +4744,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11527 2026-01-19 00:14:36Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11528 2026-01-19 01:32:24Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
@@ -4912,7 +4758,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11527 2026-01-19 00:14:36Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11528 2026-01-19 01:32:24Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
