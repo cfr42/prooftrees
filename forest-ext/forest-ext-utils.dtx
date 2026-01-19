@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11511 2026-01-18 02:44:50Z cfrees $}[v0.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11545 2026-01-19 07:08:04Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-utils]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-utils.dtx 11511 2026-01-18 02:44:50Z cfrees $}
+%% $Id: forest-ext-utils.dtx 11545 2026-01-19 07:08:04Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.utils}[2025-12-05 v0.1]
 %<debug>    \ProvidesForestLibrary{ext.utils-debug}[2025-12-05 v0.1]
 %
@@ -379,7 +379,7 @@
 %
 % We want this to happen really early, but we do need the group or there's no point.
 %
-% \changes{v0.0}{2026-01-18}{Go back to using env begin hook as it won't work with command form anyhow (and just have prooftrees invoke the hook manually as it does anyhow.}
+% \changes{v0.2}{2026-01-18}{Go back to using env begin hook as it won't work with command form anyhow (and just have prooftrees invoke the hook manually as it does anyhow.}
 %    \begin{macrocode}
 \AddToHook{env/forest/begin}[.]{%
 %<debug>    \typeout{[Forest ext.utils debug]:: Creating options set with declare tagging keylist.}%
