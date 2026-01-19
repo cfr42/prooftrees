@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2834,7 +2834,7 @@ for root'={%
 %
 % \changes{v0.8}{}{Documentation now loads \pkg{enumitem}, since it depended on it already anyway and specifies \pkg{doc2} in options for \cls{ltxdoc} as the code is incompatible with the current version.}
 %
-% \changes{v0.0}{0000-00-00}{\pkg{forest-ext} is now required, since two of its libraries provide a framework for tagging \pkg{forest} trees.
+% \changes{v0.9.2}{2026-01-19}{\pkg{forest-ext} is now required, since two of its libraries provide a framework for tagging \pkg{forest} trees.
 %   This applies even if tagging is not used.}
 %
 % \printbibliography
@@ -2842,7 +2842,7 @@ for root'={%
 % ^^A \loadgeometry{safonol}%
 % ^^A \fancyheadoffset[lh]{0pt}%
 % 
-% \changes{v0.0}{0000-00-00}{Experimental support for tagging based on \pkg{forest-ext}.}
+% \changes{v0.9.2}{2026-01-19}{Experimental support for tagging based on \pkg{forest-ext}.}
 % \changes{v0.9.1}{2025-08-20}{Switch to \pkg{docstrip}.}
 % \changes{v0.9}{0001-01-01}{Use \cs{NewDocumentEnvironment}, removing direct dependency on \pkg{environ}.}
 % \changes{v0.8}{0001-01-01}{Add previously unnoticed dependency on \pkg{amstext}.}
@@ -2880,8 +2880,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9.1 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2926,7 +2926,7 @@ for root'={%
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-27}{Don't load \pkg{amssymb} or \pkg{amstext} unconditionally.}
 % Load \pkg{forest}, but load maths packages later only if needed.
-% \changes{v0.0}{0000-00-00}{Load the \pkg{ext.tagging} library.}
+% \changes{v0.9.2}{2026-01-19}{Load the \pkg{ext.tagging} library.}
 %    \begin{macrocode}
 \RequirePackage{forest}[2016/12/04]
 \@ifpackageloaded{forest-lib-ext.tagging}{}{%
@@ -2957,7 +2957,7 @@ for root'={%
 %    \end{macrocode}
 % \end{macro}
 % \changes{v0.9.1}{2025-08-25}{Added for tagging experiments.}
-% \changes{v0.0}{0000-00-00}{Remove duplicate toks \cs{prooftrees@tableau@toks}.}
+% \changes{v0.9.2}{2026-01-19}{Remove duplicate toks \cs{prooftrees@tableau@toks}.}
 %
 % Currently, keys starting \texttt{proof tree} or \texttt{tableau} and macros starting \texttt{prooftree} or \texttt{prooftree@} are intended for internal use only.
 %
@@ -3152,7 +3152,7 @@ for root'={%
   declare keylist={proof tree before packing}{},
   declare keylist={proof tree before computing xy}{},
 %    \end{macrocode}
-% \changes{v0.0}{0000-00-00}{\texttt{proof tree before drawing tree} renamed \texttt{proof tree after annotations}.}
+% \changes{v0.9.2}{2026-01-19}{\texttt{proof tree before drawing tree} renamed \texttt{proof tree after annotations}.}
 %    \begin{macrocode}
   declare keylist={proof tree after annotations}{},
 %    \end{macrocode}
@@ -3166,9 +3166,9 @@ for root'={%
 % \changes{v0.9.1}{2025-08-25}{Additions for tagging: 
 %   tag, plug, tag check with, tag close with, tag subs with, tag to prove, proof tree get tags, before getting tags, before making tags, proof tree make tags, ttoks
 % }
-% \changes{v0.0}{0000-00-00}{Remove \texttt{before making tags}, \texttt{before getting tags}, \texttt{proof tree get tags}, \texttt{ttoks}. 
+% \changes{v0.9.2}{2026-01-19}{Remove \texttt{before making tags}, \texttt{before getting tags}, \texttt{proof tree get tags}, \texttt{ttoks}. 
 %   See the \pkg{ext.tagging} library's \texttt{alt text}, \texttt{before tagging nodes}, \texttt{before collating tags} and \texttt{collate tags}.}
-% \changes{v0.0}{0000-00-00}{Remove \texttt{proof tree make tags}; use \texttt{tag nodes}.}
+% \changes{v0.9.2}{2026-01-19}{Remove \texttt{proof tree make tags}; use \texttt{tag nodes}.}
 % Additions for tagging.
 % These are not actually used yet, but make experimenting (with \pkg{prooftrees-debug} easier.
 %    \begin{macrocode}
@@ -3217,9 +3217,9 @@ for root'={%
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{New long step \texttt{proof tree every wff}.}
 % \changes{v0.9.1}{2025-08-31}{Renamed \texttt{every wff}.}
-% \changes{v0.0}{2026-01-14}{Use the \emph{tagging keylists} \texttt{tag nodes} and \texttt{collate tags} provided by the library \pkg{ext.tagging}, part of  \pkg{forest-ext}.}
+% \changes{v0.9.2}{2026-01-14}{Use the \emph{tagging keylists} \texttt{tag nodes} and \texttt{collate tags} provided by the library \pkg{ext.tagging}, part of  \pkg{forest-ext}.}
 % Unlike the previous step, this includes any proof statement and ensures nodes are only visited once, which we want for tagging.
-% \changes{v0.0}{2026-01-15}{Move \texttt{tag nodes processing order}, \texttt{collate tags processing order} into setup somewhere.
+% \changes{v0.9.2}{2026-01-15}{Move \texttt{tag nodes processing order}, \texttt{collate tags processing order} into setup somewhere.
 %   It doesn't seem to work here, which is bad, but, if it did work, it would clobber global settings, which would also be bad.}
 %    \begin{macrocode}
   define long step={every wff}{}{%
@@ -3242,7 +3242,7 @@ for root'={%
 %    \end{macrocode}
 % Mark discharge with optional name substituted into existential
 % \changes{v0.9.1}{2025-08-25}{Add checked markers to \texttt{ttoks} if tagging.}
-% \changes{v0.0.0}{0000-00-00}{Add checked markers to \texttt{alt text} if tagging.}
+% \changes{v0.9.2}{2026-01-19}{Add checked markers to \texttt{alt text} if tagging.}
 %
 % For building \texttt{alt} text, we want to do this after content is copied but still before \texttt{before typesetting nodes} or \texttt{proof tree before typesetting nodes}.
 %    \begin{macrocode}
@@ -3264,7 +3264,7 @@ for root'={%
 %    \end{macrocode}
 % Mark substitution of name into universal
 % \changes{v0.9.1}{2025-08-25}{Add substitution markers to \texttt{ttoks} if tagging.}
-% \changes{v0.0.0}{0000-00-00}{Add substitution markers to \texttt{alt text} if tagging.}
+% \changes{v0.9.2}{2026-01-19}{Add substitution markers to \texttt{alt text} if tagging.}
 %    \begin{macrocode}
   subs/.style={% 
     proof tree after copying content={%
@@ -3297,7 +3297,7 @@ for root'={%
     },
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-26}{Delay appending closures to avoid copying into \texttt{ttoks} when tagging.}
-% \changes{v0.0.0}{0000-00-00}{Delay appending closures to avoid copying into \texttt{alt text} when tagging.}
+% \changes{v0.9.2}{2026-01-19}{Delay appending closures to avoid copying into \texttt{alt text} when tagging.}
 %    \begin{macrocode}
     proof tree after copying content={%
 %    \end{macrocode}
@@ -3444,7 +3444,7 @@ for root'={%
         process keylist register=proof statement format,
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{Add to \texttt{ttoks} if tagging.}
-% \changes{v0.0.0}{0000-00-00}{Add to \texttt{alt text} if tagging.}
+% \changes{v0.9.2}{2026-01-19}{Add to \texttt{alt text} if tagging.}
 %    \begin{macrocode}
         if={>R{tag}}{%
 %<debug>          debug tagging=Copying to prove to alt text,
@@ -3453,7 +3453,7 @@ for root'={%
 % ^^A           collate tags={%
 % ^^A %<debug>            debug tagging=Pick up alt text from to prove,
 %    \end{macrocode}
-% \changes{v0.0}{0000-00-00}{Use \texttt{collate} from \pkg{ext.tagging} instead of \texttt{pick up tags}.}
+% \changes{v0.9.2}{2026-01-19}{Use \texttt{collate} from \pkg{ext.tagging} instead of \texttt{pick up tags}.}
 %    \begin{macrocode}
 % ^^A             collate/.option=alt text,
 % ^^A           },
@@ -4332,7 +4332,7 @@ for root'={%
 % ANGEN: dw i ddim yn meddwl bod crefs yn cynnwys explicit closures?
 % ^^A \begin{fstyle}{proof tree copy content to tags}
 %   Reset \texttt{proof tree copy content}.
-%   \changes{v0.0}{0000-00-00}{\texttt{proof tree copy content to tags} style.}
+%   \changes{v0.9.2}{2026-01-19}{\texttt{proof tree copy content to tags} style.}
 %    \begin{macrocode}
   proof tree copy content to tags/.style={%
     redeclare tagging keylist={proof tree copy content}{%
@@ -4350,7 +4350,7 @@ for root'={%
 %   \textbf{This is not a choice key.}
 %   It is an additional choice for the \texttt{tag nodes uses} key provided by \pkg{ext.tagging}.
 %   Resets \texttt{tag nodes}.
-%   \changes{v0.0}{0000-00-00}{Use \emph{tagging keylist} \texttt{tag nodes} from \pkg{ext.tagging}.
+%   \changes{v0.9.2}{2026-01-19}{Use \emph{tagging keylist} \texttt{tag nodes} from \pkg{ext.tagging}.
 %   Replaces \texttt{proof tree tag nodes}.%
 % }
 % Adds an option to \texttt{tag nodes uses}.
@@ -4405,7 +4405,7 @@ for root'={%
         }{},
 %<debug>    debug tagging/.process={Ow{alt text}{alt text is now ##1}},
 %    \end{macrocode}
-% \changes{v0.0}{0000-00-00}{Replace \texttt{pick up tags} by \texttt{collate}.}
+% \changes{v0.9.2}{2026-01-19}{Replace \texttt{pick up tags} by \texttt{collate}.}
 %    \begin{macrocode}
       }{%
         if n children=0{%
@@ -4432,10 +4432,10 @@ for root'={%
 % ^^A \end{fchoice}
 % \changes{v0.9.1}{2025-08-25}{Try to tag tableau.}
 % Note that this method would not work for many \pkg{forest} trees and may fail for some tableaux, but should work for most proofs, I think.
-% \changes{v0.0.0}{0000-00-00}{\texttt{tag tableau} replaced by \pkg{ext.tagging} library.}
+% \changes{v0.9.2}{2026-01-19}{\texttt{tag tableau} replaced by \pkg{ext.tagging} library.}
 % \changes{v0.9.1}{2025-08-25}{\texttt{tag tableau stage} following \pkg{forest} pattern and noop default style.}
 % \changes{v0.9.1}{2025-08-25}{Experimental \texttt{alt} plug for tagging.}
-% \changes{v0.0}{0000-00-00}{\texttt{alt} plug renamed \texttt{tableaux/alt}.}
+% \changes{v0.9.2}{2026-01-19}{\texttt{alt} plug renamed \texttt{tableaux/alt}.}
 % Note this is not just default.
 % It is the \textbf{only} option even vaguely compatible with tagging.
 %    \begin{macrocode}
@@ -4515,14 +4515,14 @@ for root'={%
 % Hopefully for doing something useful for tagging.
 % \texttt{proof tree tag nodes} and \texttt{collate tags} currently do nothing, but will hopefully eventually be used to collect information for tagging the tableau.
 % The ‘public’ keylists are described above.
-% \changes{v0.0}{0000-00-00}{\texttt{proof tree tag nodes} now a style setting \texttt{tag nodes}.}
+% \changes{v0.9.2}{2026-01-19}{\texttt{proof tree tag nodes} now a style setting \texttt{tag nodes}.}
 %    \begin{macrocode}
         process keylist=before tagging nodes,
         process keylist=tag nodes,
         process keylist=before collating tags,
         process keylist=collate tags,
 %    \end{macrocode}
-% \changes{v0.0}{0000-00-00}{Use \cs{LogTagForestId} and \cs{LogTagForestToks}.}
+% \changes{v0.9.2}{2026-01-19}{Use \cs{LogTagForestId} and \cs{LogTagForestToks}.}
 %    \begin{macrocode}
 %<debug>        TeX={%
 %<debug>          \if@ttableau@dadfygio
@@ -4535,13 +4535,13 @@ for root'={%
 %    \end{macrocode}
 % Try to produce some kind of useful stuff for tagging, if active.
 % Does nothing right now.
-% \changes{v0.0}{0000-00-00}{Requires \pkg{forest-lib-ext.tagging}.}
+% \changes{v0.9.2}{2026-01-19}{Requires \pkg{forest-lib-ext.tagging}.}
 %    \begin{macrocode}
         process keylist=before tagging tree,
         tag tree stage,
 %    \end{macrocode}
 % Standard.
-% \changes{v0.0}{0000-00-00}{Move \texttt{before drawing tree} to allow user changes in more natural place.}
+% \changes{v0.9.2}{2026-01-19}{Move \texttt{before drawing tree} to allow user changes in more natural place.}
 %    \begin{macrocode}
         process keylist=before drawing tree,
         draw tree stage,
@@ -4553,7 +4553,7 @@ for root'={%
     proof tree,
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{Experimental tagging style, \texttt{ttableau}.}
-% \changes{v0.0.0}{0000-00-00}{Remove tagging style, \texttt{ttableau}.}
+% \changes{v0.9.2}{2026-01-19}{Remove tagging style, \texttt{ttableau}.}
 %   Tagging code still conditional, but no longer isolated, so the style which was here can disappear.
 %
 % Insert user's preamble, empty or otherwise - this allows the user both to override our defaults (e.g.~by setting a non-empty proof statement or a custom format for line numbers) and to customise the tree using forest's facilities in the usual way - BUT customisations of the latter kind may or may not be effective, may or may not have undesirable - not to say chaotic - consequences, and may or may not cause compilation failures (structural changes, in particular, should be avoided completely).
@@ -4575,7 +4575,7 @@ for root'={%
 \ExplSyntaxOn
 %    \end{macrocode}
 % \changes{v0.9}{}{Add support for \pkg{memoize} and utilise for documentation.}
-% \changes{v0.0}{0000-00-00}{Rename internal function \ecs{@@_memoize:n} for consistency (because I named all the new ones with a different prefix \dots.}
+% \changes{v0.9.2}{2026-01-19}{Rename internal function \ecs{@@_memoize:n} for consistency (because I named all the new ones with a different prefix \dots.}
 % \begin{macro}{\@@_memoize:n}
 % \begin{macro}{\@@_memoize:V}
 % ^^A memoize <<<
@@ -4606,7 +4606,7 @@ for root'={%
 %    \end{macrocode}
 % \begin{macro}{\checkmark}
 %   \changes{v0.9.1}{2025-08-27}{Use \pkg{unicode-math} rather than \pkg{amssymb} and \pkg{amstext} on Unicode engines, but, in any case, only load what's needed.}
-%   \changes{v0.0}{0000-00-00}{Don't load \pkg{unicode-math}/\pkg{amssymb} just to get \cs{checkmark}.}
+%   \changes{v0.9.2}{2026-01-19}{Don't load \pkg{unicode-math}/\pkg{amssymb} just to get \cs{checkmark}.}
 %   Definition of \cs{checkmark} pilfered from \pkg{amsfonts}.
 %    \begin{macrocode}
   \cs_if_exist:NF \checkmark
@@ -4622,7 +4622,7 @@ for root'={%
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\text}
-%   \changes{v0.0}{0000-00-00}{Don't load \pkg{unicode-math}/\pkg{amstext} just to get \cs{text}.}
+%   \changes{v0.9.2}{2026-01-19}{Don't load \pkg{unicode-math}/\pkg{amstext} just to get \cs{text}.}
 %   Definition of \cs{text} pilfered from \pkg{amstext}.
 %   I think \cs{DeclareRobustCommand} is meant to be deprecated, but it still seems to be the go-to for font style definitions (also in the format as far as I know).
 %    \begin{macrocode}
@@ -4639,13 +4639,13 @@ for root'={%
 % Copy of \LaTeX{}'s \cs{addto@hook}.
 % Not used if Lua\TeX{} is used, which defines it as a primitive, or if \pkg{collargs} is loaded (e.g.~for \pkg{memoize}), which provides a more complicated version.
 % David Carlisle: \url{https://chat.stackexchange.com/transcript/message/68194858#68194858}.
-% \changes{v0.0.0}{0000-00-00}{Remove \cs{toksapp} after moving to \pkg{forest-ext}.}
+% \changes{v0.9.2}{2026-01-19}{Remove \cs{toksapp} after moving to \pkg{forest-ext}.}
 %    \begin{macrocode}
 }
 %    \end{macrocode}
 % ^^A delay to begindocument/before >>>
 %   \changes{v0.9.1}{2025-08-25}{Add \cs{prooftrees@tableau@id}.}
-%   \changes{v0.0.0}{0000-00-00}{Remove \cs{prooftrees@tableau@id}.}
+%   \changes{v0.9.2}{2026-01-19}{Remove \cs{prooftrees@tableau@id}.}
 % ^^A tagsupport <<<
 % \begin{macro}{\if@ttableau@dadfygio}
 %   \changes{v0.9.1}{2025-08-25}{Add \cs{if@ttableau@dadfygio}.}
@@ -4656,10 +4656,10 @@ for root'={%
 %    \end{macrocode}
 % \end{macro}
 %   \changes{v0.9.1}{2025-08-25}{Add \ecs{l_@@_toks_tl}.}
-%   \changes{v0.0.0}{0000-00-00}{Remove \ecs{l_@@_toks_tl}.}
+%   \changes{v0.9.2}{2026-01-19}{Remove \ecs{l_@@_toks_tl}.}
 %   \changes{v0.9.1}{2025-08-25}{Add \cs{prooftrees@tableau@toks}.}
-%   \changes{v0.0.0}{0000-00-00}{Remove \cs{prooftrees@tableau@toks}.}
-%   \changes{v0.0.0}{0000-00-00}{Remove \ecs{@@_tag_suspend:n}, \ecs{@@_tag_resume:n.}}
+%   \changes{v0.9.2}{2026-01-19}{Remove \cs{prooftrees@tableau@toks}.}
+%   \changes{v0.9.2}{2026-01-19}{Remove \ecs{@@_tag_suspend:n}, \ecs{@@_tag_resume:n.}}
 %   Copied from \pkg{ext.tagging}.
 % \begin{macro}{\@@_noop:}
 %   Something to \cs{let} the end function to.
@@ -4670,7 +4670,7 @@ for root'={%
 % \begin{macro}{\prooftrees@init}
 % \begin{macro}{\@@_init:}
 % \changes{v0.9.1}{2025-08-25}{Added \ecs{@@_ttableau_init:}.}
-% \changes{v0.0.0}{0000-00-00}{Remove \ecs{@@_ttableau_init:}, \cs{prooftrees@ttableau@init}; add \ecs{@@_init:}, \cs{prooftrees@init}.}
+% \changes{v0.9.2}{2026-01-19}{Remove \ecs{@@_ttableau_init:}, \cs{prooftrees@ttableau@init}; add \ecs{@@_init:}, \cs{prooftrees@init}.}
 %   I think I don't really get the ‘plug’ concept.
 %   It is surely pointless to assign and immediately use one in a package which defines the relevant socket?
 %   That is, wouldn't a macro or just the code do equally well but faster?
@@ -4717,7 +4717,7 @@ for root'={%
 % \end{macro}
 % \begin{macro}{\prooftrees@end}
 % \begin{macro}{\@@_end:}
-%   \changes{v0.0}{0000-00-00}{Remove \ecs{@@_ttableau_end:}, \cs{prooftrees@ttableau@end}; add \ecs{@@_end:}, \cs{prooftrees@end}.}
+%   \changes{v0.9.2}{2026-01-19}{Remove \ecs{@@_ttableau_end:}, \cs{prooftrees@ttableau@end}; add \ecs{@@_end:}, \cs{prooftrees@end}.}
 %   From \pkg{ext.tagging}.
 %    \begin{macrocode}
 \cs_new_eq:NN \@@_end: \@@_noop:
@@ -4726,9 +4726,9 @@ for root'={%
 % \end{macro}
 % \end{macro}
 % \changes{v0.9.1}{2025-08-25}{Added \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
-% \changes{v0.0.0}{0000-00-00}{Removed \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
-% \changes{v0.0}{2025-09-04}{Purify \cs{the}\cs{prooftrees@tableau@toks} before setting \ecs{l_@@_toks_tl}.}
-% \changes{v0.0}{0000-00-00}{Use \pkg{ext.tagging} library for tagging.%
+% \changes{v0.9.2}{2026-01-19}{Removed \ecs{@@_ttableau:nnn}, \cs{prooftrees@ttableau}.}
+% \changes{v0.9.2}{2025-09-04}{Purify \cs{the}\cs{prooftrees@tableau@toks} before setting \ecs{l_@@_toks_tl}.}
+% \changes{v0.9.2}{2026-01-19}{Use \pkg{ext.tagging} library for tagging.%
 %   Many of the experimental functions/macros/sockets have either been moved there or removed altogether.%
 % }
 % Custom version of \texttt{alt} plugs for \texttt{tagsupport/forest/setup} and \texttt{tagsupport/forest/tag}.
@@ -4766,7 +4766,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 %    \end{macrocode}
@@ -4784,7 +4784,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 %    \end{macrocode}

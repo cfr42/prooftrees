@@ -1,4 +1,4 @@
--- $Id: build.lua 11538 2026-01-19 06:14:03Z cfrees $
+-- $Id: build.lua 11540 2026-01-19 06:46:23Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -25,7 +25,7 @@ typesetruns = 4
 uploadconfig = {
   ctanPath = "/macros/latex/contrib/prooftrees",
   pkg = "prooftrees",
-  version = "v0.9.1",
+  version = "v0.9.2",
   author = "Clea F. Rees",
   uploader = "Clea F. Rees",
   license = "lppl1.3c",
