@@ -1,4 +1,4 @@
--- $Id: build.lua 11473 2026-01-14 23:52:07Z cfrees $
+-- $Id: build.lua 11538 2026-01-19 06:14:03Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -42,4 +42,16 @@ if direxists(maindir .. "/../adnoddau/l3build") then
   dofile(maindir .. "/../adnoddau/l3build/manifest.lua")
   dofile(maindir .. "/../adnoddau/l3build/tag.lua")
 end
+--------------------------------------------------------------------------------
+function docinit_hook()
+  local lines = {}
+  for line in io.lines(typesetdir .. "/prooftrees.dtx") do
+    table.insert(lines, (string.gsub(line,"%_*%@%@%_","__tableaux_")))
+  end
+  local f = assert(io.open(typesetdir .. "/prooftrees.dtx", "w"))
+  f:write(table.concat(lines,"\n") .. "\n")
+  f:close()
+  return 0
+end
+--------------------------------------------------------------------------------
 -- vim: ts=2:sw=2:et:

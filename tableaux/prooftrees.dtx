@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11537 2026-01-19 05:13:11Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -223,7 +223,7 @@
   \cs_new_nopar:cpn {#1labelname} {#2}
   \cs_new_nopar:cpn {#1shortname} {#3}
 }
-\cs_new_nopar:Npn \__prooftreesdo_new_forest_label:nn #1#2
+\cs_new_nopar:Npn \__prooftreesdoc_new_forest_label:nn #1#2
 {
   \prooftreesdoc_new_label:nnn {#1}{Forest~#2}{#2}
 }
@@ -279,7 +279,7 @@
   tagging~keylist,
   library,
 }
-\seq_map_pairwise_function:NNN \l_tmpa_seq \l_tmpb_seq \__prooftreesdo_new_forest_label:nn
+\seq_map_pairwise_function:NNN \l_tmpa_seq \l_tmpb_seq \__prooftreesdoc_new_forest_label:nn
 \ExplSyntaxOff
 \newcommand*\macrolabelname{macro}
 \newcommand*\PrintLabelName[2][\normalfont\normalsize\normalcolor]{#1#2}
@@ -531,6 +531,7 @@
 %   \noindent \keyname[pkg]{\pkg{prooftrees}} is a \LaTeXe{} package, based on \keyname[pkg]{\pkg{forest}}, designed to support the typesetting of logical tableaux --- ‘proof trees’ or ‘truth trees’ --- in styles sometimes used in teaching introductory logic courses, especially those aimed at students without a strong background in mathematics.
 %   One textbook which uses proofs of this kind is \textcite{hodges-logic}.
 %   Like \pkg{forest}, \pkg{prooftrees} supports \keyname[pkg]{\pkg{memoize}} out-of-the-box.
+%   \pkg{prooftrees} uses \pkg{forest-ext} to support tagged \textsc{pdf}s out-of-the-box.
 % \end{abstract}
 % \bigskip
 % 
@@ -2551,11 +2552,15 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 %   \item[It is more robust.] It can successfully memoize code which defeats all ordinary mortals' attempts to externalize with the older \TikZ{} library.
 %   \item[It is easier to use.] It requires less configuration and less intervention.
 %   For example, it detects problematic code and aborts memoization automatically in many cases in which \TikZ's \pkg{external} would either cause a compilation error or silently produce nonsense output, forcing the user to manually disable the process for relevant code.
+%   \item[It is compatible with tagging.] The library used for tagging ensures that tagging data is not lost when \pkg{forest} trees are externalised with \pkg{memoize}.
 % \end{description}
 %
 % There is always a ‘but’, but this is a pretty small ‘but’ as ‘but’s go.
 % \begin{description}
-%   \item[But installation requires slightly more work.] To reap the full benefits, you want to use either the \texttt{perl} or the \texttt{python} ‘extraction’ method.
+%   \item[But installation requires slightly more work.] To reap the full benefits, you want to use either the \texttt{perl} or the \texttt{python} ‘extraction’ method\footnote{%
+%     A better \texttt{lua}-based solution is currently under development.
+%     Once this is available, no additional software will be required, at least for users of \TeX{} Live.%
+%   }.
 %   There is a third method, which does not require any special installation, but this lacks several of the advantages explained above and is not recommended.
 %
 %   If you use \TeX{} Live, you have \texttt{perl} already, but you may need to install a couple of libraries.
@@ -2709,12 +2714,10 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % The details may be of use to users who wish to modify tableaux in ways unsupported by the features documented in previous sections.
 %
 % \begin{enumerate}
-%   \item Increment a count and determine whether to tag the tableau.
 %   \item Initialise tagging, if applicable.
 %     This is largely a matter of setting \pkg{latex-lab}'s plug for \pkg{tikz} to \texttt{noop}, setting some options for \pkg{ext.tagging} and resetting the \emph{tagging keylist} \texttt{tag nodes}.
 %     This is necessary because a \pkg{forest} tree involves \emph{many} uses of \env{tikzpicture} and the default tagging can result in erroneous structures and/or compilation errors and produces at best chaotic \texttt{marked content}.
 %   \item\label{enum:stages} Starts \env{forest} with a custom definition of \keyname[foptkeylist]{stages}.
-% ^^A Any \foptkeylistshortname{} prefixed with \texttt{proof tree} is used internally by \pkg{prooftrees} to process the tableau.
 % \keyname[fstyle]{tag tree stage} executes the code actually responsible for tagging the proof. 
 %
 % Any \foptkeylistshortname{} described as ‘Does nothing by default.’ is explicitly intended for users to customise the process.
@@ -2807,9 +2810,6 @@ for root'={%
 %     \end{enumerate}
 %   \item Applies \fstyleshortname{} \keyname[fstyle]{proof tree}.
 %     \textbf{This style should NOT be used directly.}
-%   \item Applies \fstyleshortname{} \keyname[fstyle]{ttableau}.
-%     This does nothing unless tagging is enabled.
-%     \textbf{This style should NOT be used directly.}
 %   \item Executes the content of \env{prooftree}/\env{tableau}'s mandatory argument.
 %   \item Creates a root node with \keyname[fopttoks]{name}\val{proof statement}.
 %   \item Integrates the contents of the \env{prooftree}/\env{tableau}.
@@ -2880,8 +2880,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11537 2026-01-19 05:13:11Z cfrees $}[v0.9.1 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11537 2026-01-19 05:13:11Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9.1 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -3146,7 +3146,6 @@ for root'={%
 %    \end{macrocode}
 % Line nos and justifications don't exist yet, even if they are requested, so \texttt{proof tree wffs} is not an option, for instance.
 %    \begin{macrocode}
-% ^^A   tagging keylist processing order={proof tree copy content}{unique={fake=root,descendants}},
   proof tree copy content processing order/.nodewalk style={unique={fake=root,descendants}},
   declare keylist={proof tree after copying content}{},
   declare keylist={proof tree before typesetting nodes}{},
@@ -3167,7 +3166,8 @@ for root'={%
 % \changes{v0.9.1}{2025-08-25}{Additions for tagging: 
 %   tag, plug, tag check with, tag close with, tag subs with, tag to prove, proof tree get tags, before getting tags, before making tags, proof tree make tags, ttoks
 % }
-% \changes{v0.0}{0000-00-00}{Remove \texttt{before making tags}, \texttt{before getting tags}, \texttt{proof tree get tags}, \texttt{ttoks}. See the \pkg{ext.tagging} library's \texttt{alt text}, \texttt{before tagging nodes}, \texttt{before collating tags} and \texttt{collate tags}.}
+% \changes{v0.0}{0000-00-00}{Remove \texttt{before making tags}, \texttt{before getting tags}, \texttt{proof tree get tags}, \texttt{ttoks}. 
+%   See the \pkg{ext.tagging} library's \texttt{alt text}, \texttt{before tagging nodes}, \texttt{before collating tags} and \texttt{collate tags}.}
 % \changes{v0.0}{0000-00-00}{Remove \texttt{proof tree make tags}; use \texttt{tag nodes}.}
 % Additions for tagging.
 % These are not actually used yet, but make experimenting (with \pkg{prooftrees-debug} easier.
@@ -4575,18 +4575,19 @@ for root'={%
 \ExplSyntaxOn
 %    \end{macrocode}
 % \changes{v0.9}{}{Add support for \pkg{memoize} and utilise for documentation.}
-% \begin{macro}{\__prooftrees_memoize:n}
-% \begin{macro}{\__prooftrees_memoize:V}
+% \changes{v0.0}{0000-00-00}{Rename internal function \ecs{@@_memoize:n} for consistency (because I named all the new ones with a different prefix \dots.}
+% \begin{macro}{\@@_memoize:n}
+% \begin{macro}{\@@_memoize:V}
 % ^^A memoize <<<
 %   Internal macro so we don't memoize \pkg{bussproofs}'s \texttt{prooftree} by mistake.
 %    \begin{macrocode}
-\cs_new_protected_nopar:Npn \__prooftrees_memoize:n #1
+\cs_new_protected_nopar:Npn \@@_memoize:n #1
 {
   \mmzset{
     auto = { #1 } { memoize },
   }
 }
-\cs_generate_variant:Nn \__prooftrees_memoize:n { V }
+\cs_generate_variant:Nn \@@_memoize:n { V }
 %    \end{macrocode}
 % ^^A memoize >>>
 % \end{macro}
@@ -4597,7 +4598,7 @@ for root'={%
 \hook_gput_code:nnn { begindocument / before } { . }
 {%
   \@ifpackageloaded{memoize}{
-    \__prooftrees_memoize:V \prooftrees@enw
+    \@@_memoize:V \prooftrees@enw
 %    \end{macrocode}
 % \changes{v0.9.1}{2025-08-25}{Adapt \pkg{memoize} config if tagging or provide conditional.}
 %    \begin{macrocode}
@@ -4765,7 +4766,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11537 2026-01-19 05:13:11Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 %    \end{macrocode}
@@ -4783,7 +4784,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11537 2026-01-19 05:13:11Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11538 2026-01-19 06:14:03Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 %    \end{macrocode}
