@@ -3,10 +3,15 @@ Don't change this file in any respect.
 ============================================================
 TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ============================================================
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+LaTeX Font Info:    Trying to load font information for U+msa on input line ....
 > \box...=
-\hbox(13.24597+163.45761)x186.31032, direction TLT
-.\hbox(176.70358+0.0)x186.31032, shifted 163.45761, direction TLT
-..\glue 89.74185
+\hbox(13.24597+163.45761)x187.45372, direction TLT
+.\hbox(176.70358+0.0)x187.45372, shifted 163.45761, direction TLT
+..\glue 91.10352
 ..\hbox(0.0+0.0)x0.0, shifted -163.45761, direction TLT
 ...\pdfliteral origin{q }
 ...\pdfliteral origin{0 G }
@@ -17,7 +22,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -89.74185
+.....\glue -91.10352
 .....\hbox(0.0+0.0)x0.0, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -35,50 +40,51 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(9.913+3.017)x179.44438, direction TLT
+............\hbox(9.913+3.017)x180.58777, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(9.913+3.017)x179.44438, direction TLT
+.............\hbox(9.913+3.017)x180.58777, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 {
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑃
-..............\kern1.4 (italic)
+..............\OMS/cmsy/m/n/10 f
+..............\OML/cmm/m/it/10 P
+..............\kern1.3889 (italic)
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\TU/latinmodern-math.otf(1)/m/n/10 ∨
+..............\OMS/cmsy/m/n/10 _
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\TU/latinmodern-math.otf(1)/m/n/10 (
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑄
+..............\OT1/cmr/m/n/10 (
+..............\OML/cmm/m/it/10 Q
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\TU/latinmodern-math.otf(1)/m/n/10 ∨
+..............\OMS/cmsy/m/n/10 _
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
-..............\kern0.24 (italic)
-..............\TU/latinmodern-math.otf(1)/m/n/10 )
-..............\TU/latinmodern-math.otf(1)/m/n/10 ,
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
+..............\OT1/cmr/m/n/10 )
+..............\OML/cmm/m/it/10 ;
 ..............\glue(\thinmuskip) 1.66663
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑃
+..............\OML/cmm/m/it/10 P
+..............\kern1.3889 (italic)
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(5.43+0.43)x7.78, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ⊃
+..............\hbox(5.39098+0.39098)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^[
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
-..............\kern0.24 (italic)
-..............\TU/latinmodern-math.otf(1)/m/n/10 ,
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
+..............\OML/cmm/m/it/10 ;
 ..............\glue(\thinmuskip) 1.66663
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑄
+..............\OML/cmm/m/it/10 Q
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(5.43+0.43)x7.78, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ⊃
+..............\hbox(5.39098+0.39098)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^[
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
-..............\kern0.24 (italic)
-..............\TU/latinmodern-math.otf(1)/m/n/10 }
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
+..............\OMS/cmsy/m/n/10 g
 ..............\glue(\thickmuskip) 2.77771 plus 2.77771
 ..............\hbox(9.913+3.017)x8.4784, direction TLT
 ...............\pdfcolorstack 0 push {0 g 0 G}
@@ -116,9 +122,10 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .................\mathoff
 ...............\pdfcolorstack 0 pop
 ..............\glue(\thickmuskip) 2.77771 plus 2.77771
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -136,7 +143,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -89.54185
+.....\glue -90.90352
 .....\hbox(0.0+0.0)x0.0, shifted 18.0, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -188,7 +195,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -89.54185
+.....\glue -90.90352
 .....\hbox(0.0+0.0)x0.0, shifted 30.0, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -240,7 +247,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -89.54185
+.....\glue -90.90352
 .....\hbox(0.0+0.0)x0.0, shifted 42.0, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -292,7 +299,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -89.54185
+.....\glue -90.90352
 .....\hbox(0.0+0.0)x0.0, shifted 54.0, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -344,7 +351,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -89.54185
+.....\glue -90.90352
 .....\hbox(0.0+0.0)x0.0, shifted 81.78888, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -396,7 +403,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -89.54185
+.....\glue -90.90352
 .....\hbox(0.0+0.0)x0.0, shifted 109.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -448,7 +455,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -89.54185
+.....\glue -90.90352
 .....\hbox(0.0+0.0)x0.0, shifted 137.36664, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -513,31 +520,31 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -30.64932
+..........\glue -30.58119
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(7.48+2.48)x61.29866, direction TLT
+............\hbox(7.5+2.5)x61.16238, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(7.48+2.48)x61.29866, direction TLT
+.............\hbox(7.5+2.5)x61.16238, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑃
-..............\kern1.4 (italic)
+..............\OML/cmm/m/it/10 P
+..............\kern1.3889 (italic)
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\TU/latinmodern-math.otf(1)/m/n/10 ∨
+..............\OMS/cmsy/m/n/10 _
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\TU/latinmodern-math.otf(1)/m/n/10 (
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑄
+..............\OT1/cmr/m/n/10 (
+..............\OML/cmm/m/it/10 Q
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\TU/latinmodern-math.otf(1)/m/n/10 ∨
+..............\OMS/cmsy/m/n/10 _
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
-..............\kern0.24 (italic)
-..............\TU/latinmodern-math.otf(1)/m/n/10 )
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
+..............\OT1/cmr/m/n/10 )
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -568,24 +575,26 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -16.98216
+..........\glue -17.73956
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(6.83+0.43)x33.96432, direction TLT
+............\hbox(6.83331+0.39098)x35.47913, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(6.83+0.43)x33.96432, direction TLT
+.............\hbox(6.83331+0.39098)x35.47913, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑃
+..............\OML/cmm/m/it/10 P
+..............\kern1.3889 (italic)
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(5.43+0.43)x7.78, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ⊃
+..............\hbox(5.39098+0.39098)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^[
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -620,25 +629,26 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\pdfliteral origin{Q }
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -17.72716
+..........\glue -17.78781
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(7.05+1.94)x35.45433, direction TLT
+............\hbox(6.83331+1.94444)x35.57564, direction TLT
 .............\pdfliteral origin{0 0 1 RG }
 .............\pdfliteral origin{0 0 1 rg }
-.............\hbox(7.05+1.94)x35.45433, direction TLT
+.............\hbox(6.83331+1.94444)x35.57564, direction TLT
 ..............\pdfcolorstack 0 push {0 0 1 rg 0 0 1 RG}
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑄
+..............\OML/cmm/m/it/10 Q
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(5.43+0.43)x7.78, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ⊃
+..............\hbox(5.39098+0.39098)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^[
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
 ..............\mathoff
 ..............\pdfcolorstack 0 pop
 .............\glue(\spaceskip) 0.0
@@ -674,22 +684,23 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\pdfliteral origin{Q }
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -11.525
+..........\glue -11.61287
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(6.83+0.22)x23.04999, direction TLT
+............\hbox(6.83331+0.0)x23.22575, direction TLT
 .............\pdfliteral origin{0 0 1 RG }
 .............\pdfliteral origin{0 0 1 rg }
-.............\hbox(6.83+0.22)x23.04999, direction TLT
+.............\hbox(6.83331+0.0)x23.22575, direction TLT
 ..............\pdfcolorstack 0 push {0 0 1 rg 0 0 1 RG}
 ..............\mathon
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
 ..............\mathoff
 ..............\pdfcolorstack 0 pop
 .............\glue(\spaceskip) 0.0
@@ -708,7 +719,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -37.1197
+.....\glue -37.37248
 .....\hbox(0.0+0.0)x0.0, shifted 81.78888, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -725,18 +736,19 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\pdfliteral origin{Q }
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -3.20999
+..........\glue -3.90451
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(6.83+0.0)x6.42, direction TLT
+............\hbox(6.83331+0.0)x7.80904, direction TLT
 .............\pdfliteral origin{0 0 1 RG }
 .............\pdfliteral origin{0 0 1 rg }
-.............\hbox(6.83+0.0)x6.42, direction TLT
+.............\hbox(6.83331+0.0)x7.80904, direction TLT
 ..............\pdfcolorstack 0 push {0 0 1 rg 0 0 1 RG}
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑃
+..............\OML/cmm/m/it/10 P
+..............\kern1.3889 (italic)
 ..............\mathoff
 ..............\pdfcolorstack 0 pop
 .............\glue(\spaceskip) 0.0
@@ -755,7 +767,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -51.35388
+.....\glue -51.99713
 .....\hbox(0.0+0.0)x0.0, shifted 109.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -768,19 +780,20 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -7.075
+..........\glue -7.79341
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(6.83+0.0)x14.15, direction TLT
+............\hbox(6.83331+0.0)x15.58684, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(6.83+0.0)x14.15, direction TLT
+.............\hbox(6.83331+0.0)x15.58684, direction TLT
 ..............\mathon
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑃
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 P
+..............\kern1.3889 (italic)
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -798,7 +811,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -51.35388
+.....\glue -51.99713
 .....\hbox(0.0+0.0)x0.0, shifted 121.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -811,17 +824,17 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -3.89
+..........\glue -3.8889
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(5.92+0.92)x7.78, direction TLT
+............\hbox(5.83333+0.83333)x7.7778, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(5.92+0.92)x7.78, direction TLT
+.............\hbox(5.83333+0.83333)x7.7778, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 ⊗
+..............\OMS/cmsy/m/n/10 
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -839,7 +852,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -51.35388
+.....\glue -51.99713
 .....\hbox(0.0+0.0)x0.0, shifted 130.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -852,18 +865,18 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -5.69696
+..........\glue -5.69685
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(4.648+1.358)x11.39392, direction TLT
+............\hbox(4.648+1.358)x11.3937, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(4.648+1.358)x11.39392, direction TLT
+.............\hbox(4.648+1.358)x11.3937, direction TLT
 ..............\TU/lmr/m/n/7 5
 ..............\TU/lmr/m/n/7 ,
-..............\kern1.16692
+..............\kern1.1667
 ..............\TU/lmr/m/n/7 6
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -881,7 +894,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -22.88554
+.....\glue -22.74785
 .....\hbox(0.0+0.0)x0.0, shifted 109.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -894,19 +907,20 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -7.65999
+..........\glue -7.72397
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(6.83+0.22)x15.31999, direction TLT
+............\hbox(6.83331+0.0)x15.44795, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(6.83+0.22)x15.31999, direction TLT
+.............\hbox(6.83331+0.0)x15.44795, direction TLT
 ..............\mathon
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -924,7 +938,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -22.88554
+.....\glue -22.74785
 .....\hbox(0.0+0.0)x0.0, shifted 121.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -937,17 +951,17 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -3.89
+..........\glue -3.8889
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(5.92+0.92)x7.78, direction TLT
+............\hbox(5.83333+0.83333)x7.7778, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(5.92+0.92)x7.78, direction TLT
+.............\hbox(5.83333+0.83333)x7.7778, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 ⊗
+..............\OMS/cmsy/m/n/10 
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -965,7 +979,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue -22.88554
+.....\glue -22.74785
 .....\hbox(0.0+0.0)x0.0, shifted 130.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -978,18 +992,18 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -5.69696
+..........\glue -5.69685
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(4.718+1.358)x11.39392, direction TLT
+............\hbox(4.718+1.358)x11.3937, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(4.718+1.358)x11.39392, direction TLT
+.............\hbox(4.718+1.358)x11.3937, direction TLT
 ..............\TU/lmr/m/n/7 4
 ..............\TU/lmr/m/n/7 ,
-..............\kern1.16692
+..............\kern1.1667
 ..............\TU/lmr/m/n/7 6
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1007,7 +1021,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 37.11969
+.....\glue 37.37247
 .....\hbox(0.0+0.0)x0.0, shifted 81.78888, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1024,24 +1038,25 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\pdfliteral origin{Q }
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -17.17216
+..........\glue -17.23225
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(7.05+1.94)x34.34433, direction TLT
+............\hbox(6.83331+1.94444)x34.46452, direction TLT
 .............\pdfliteral origin{0 0 1 RG }
 .............\pdfliteral origin{0 0 1 rg }
-.............\hbox(7.05+1.94)x34.34433, direction TLT
+.............\hbox(6.83331+1.94444)x34.46452, direction TLT
 ..............\pdfcolorstack 0 push {0 0 1 rg 0 0 1 RG}
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑄
+..............\OML/cmm/m/it/10 Q
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\TU/latinmodern-math.otf(1)/m/n/10 ∨
+..............\OMS/cmsy/m/n/10 _
 ..............\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
 ..............\mathoff
 ..............\pdfcolorstack 0 pop
 .............\glue(\spaceskip) 0.0
@@ -1060,7 +1075,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 17.17348
+.....\glue 17.37231
 .....\hbox(0.0+0.0)x0.0, shifted 109.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1073,17 +1088,17 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -3.955
+..........\glue -3.95277
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(7.05+1.94)x7.91, direction TLT
+............\hbox(6.83331+1.94444)x7.90555, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(7.05+1.94)x7.91, direction TLT
+.............\hbox(6.83331+1.94444)x7.90555, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑄
+..............\OML/cmm/m/it/10 Q
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1101,7 +1116,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 2.56631
+.....\glue 2.72256
 .....\hbox(0.0+0.0)x0.0, shifted 137.36664, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1114,19 +1129,19 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -7.81999
+..........\glue -7.84167
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(7.05+1.94)x15.64, direction TLT
+............\hbox(6.83331+1.94444)x15.68335, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(7.05+1.94)x15.64, direction TLT
+.............\hbox(6.83331+1.94444)x15.68335, direction TLT
 ..............\mathon
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑄
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 Q
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1144,7 +1159,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 2.56631
+.....\glue 2.72256
 .....\hbox(0.0+0.0)x0.0, shifted 149.36664, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1157,17 +1172,17 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -3.89
+..........\glue -3.8889
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(5.92+0.92)x7.78, direction TLT
+............\hbox(5.83333+0.83333)x7.7778, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(5.92+0.92)x7.78, direction TLT
+.............\hbox(5.83333+0.83333)x7.7778, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 ⊗
+..............\OMS/cmsy/m/n/10 
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1185,7 +1200,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 2.56631
+.....\glue 2.72256
 .....\hbox(0.0+0.0)x0.0, shifted 158.36664, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1198,18 +1213,18 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -5.69696
+..........\glue -5.69685
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(4.732+1.358)x11.39392, direction TLT
+............\hbox(4.732+1.358)x11.3937, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(4.732+1.358)x11.39392, direction TLT
+.............\hbox(4.732+1.358)x11.3937, direction TLT
 ..............\TU/lmr/m/n/7 6
 ..............\TU/lmr/m/n/7 ,
-..............\kern1.16692
+..............\kern1.1667
 ..............\TU/lmr/m/n/7 7
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1227,7 +1242,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 31.78064
+.....\glue 32.02205
 .....\hbox(0.0+0.0)x0.0, shifted 137.36664, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1240,19 +1255,20 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -7.65999
+..........\glue -7.72397
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(6.83+0.22)x15.31999, direction TLT
+............\hbox(6.83331+0.0)x15.44795, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(6.83+0.22)x15.31999, direction TLT
+.............\hbox(6.83331+0.0)x15.44795, direction TLT
 ..............\mathon
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1270,7 +1286,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 31.78064
+.....\glue 32.02205
 .....\hbox(0.0+0.0)x0.0, shifted 149.36664, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1283,17 +1299,17 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -3.89
+..........\glue -3.8889
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(5.92+0.92)x7.78, direction TLT
+............\hbox(5.83333+0.83333)x7.7778, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(5.92+0.92)x7.78, direction TLT
+.............\hbox(5.83333+0.83333)x7.7778, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 ⊗
+..............\OMS/cmsy/m/n/10 
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1311,7 +1327,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 31.78064
+.....\glue 32.02205
 .....\hbox(0.0+0.0)x0.0, shifted 158.36664, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1324,18 +1340,18 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -5.69696
+..........\glue -5.69685
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(4.732+1.358)x11.39392, direction TLT
+............\hbox(4.732+1.358)x11.3937, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(4.732+1.358)x11.39392, direction TLT
+.............\hbox(4.732+1.358)x11.3937, direction TLT
 ..............\TU/lmr/m/n/7 4
 ..............\TU/lmr/m/n/7 ,
-..............\kern1.16692
+..............\kern1.1667
 ..............\TU/lmr/m/n/7 7
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1353,7 +1369,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 57.0659
+.....\glue 57.3726
 .....\hbox(0.0+0.0)x0.0, shifted 109.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1366,19 +1382,20 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -7.65999
+..........\glue -7.72397
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(6.83+0.22)x15.31999, direction TLT
+............\hbox(6.83331+0.0)x15.44795, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(6.83+0.22)x15.31999, direction TLT
+.............\hbox(6.83331+0.0)x15.44795, direction TLT
 ..............\mathon
-..............\hbox(3.66+0.0)x7.73, direction TLT
-...............\TU/latinmodern-math.otf(1)/m/n/10 ∼
-..............\TU/latinmodern-math.otf(1)/m/n/10 𝑅
+..............\hbox(3.66875+0.0)x7.7778, direction TLT
+...............\OMS/cmsy/m/n/10 ^^X
+..............\OML/cmm/m/it/10 R
+..............\kern0.07726 (italic)
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1396,7 +1413,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 57.0659
+.....\glue 57.3726
 .....\hbox(0.0+0.0)x0.0, shifted 121.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1409,17 +1426,17 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -3.89
+..........\glue -3.8889
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(5.92+0.92)x7.78, direction TLT
+............\hbox(5.83333+0.83333)x7.7778, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(5.92+0.92)x7.78, direction TLT
+.............\hbox(5.83333+0.83333)x7.7778, direction TLT
 ..............\mathon
-..............\TU/latinmodern-math.otf(1)/m/n/10 ⊗
+..............\OMS/cmsy/m/n/10 
 ..............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1437,7 +1454,7 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\pdfliteral origin{q }
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 57.0659
+.....\glue 57.3726
 .....\hbox(0.0+0.0)x0.0, shifted 130.57776, direction TLT
 ......\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ......\pdfliteral origin{q }
@@ -1450,18 +1467,18 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 .........\glue(\spaceskip) 0.0
 .........\pdfliteral origin{q }
 .........\hbox(0.0+0.0)x0.0, direction TLT
-..........\glue -5.69696
+..........\glue -5.69685
 ..........\hbox(0.0+0.0)x0.0, direction TLT
 ...........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ...........\pdfliteral origin{q }
 ...........\hbox(0.0+0.0)x0.0, direction TLT
-............\hbox(4.718+1.358)x11.39392, direction TLT
+............\hbox(4.718+1.358)x11.3937, direction TLT
 .............\pdfliteral origin{0 G }
 .............\pdfliteral origin{0 g }
-.............\hbox(4.718+1.358)x11.39392, direction TLT
+.............\hbox(4.718+1.358)x11.3937, direction TLT
 ..............\TU/lmr/m/n/7 4
 ..............\TU/lmr/m/n/7 ,
-..............\kern1.16692
+..............\kern1.1667
 ..............\TU/lmr/m/n/7 6
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
@@ -1534,33 +1551,15 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
-....\pdfliteral origin{0.0 -57.53795 m }
-....\pdfliteral origin{-36.98149 -71.15999 l }
+....\pdfliteral origin{0.0 -57.31876 m }
+....\pdfliteral origin{-37.23334 -71.15666 l }
 ....\pdfliteral origin{S }
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
-....\pdfliteral origin{-36.98149 -85.00418 m }
-....\pdfliteral origin{-51.16267 -98.8454 l }
-....\pdfliteral origin{S }
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\pdfliteral origin{-36.98149 -85.00418 m }
-....\pdfliteral origin{-22.80032 -98.8454 l }
+....\pdfliteral origin{-37.23334 -85.00418 m }
+....\pdfliteral origin{-51.80353 -98.84209 l }
 ....\pdfliteral origin{S }
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
@@ -1577,22 +1576,8 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
-....\pdfliteral origin{0.0 -57.53795 m }
-....\pdfliteral origin{36.98148 -70.9408 l }
-....\pdfliteral origin{S }
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\pdfliteral origin{36.98148 -86.93697 m }
-....\pdfliteral origin{17.10953 -98.62622 l }
-....\pdfliteral origin{S }
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\glue(\spaceskip) 0.0
-....\pdfliteral origin{17.10953 -114.62238 m }
-....\pdfliteral origin{2.55675 -126.31163 l }
+....\pdfliteral origin{-37.23334 -85.00418 m }
+....\pdfliteral origin{-22.66315 -98.84209 l }
 ....\pdfliteral origin{S }
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
@@ -1609,8 +1594,22 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
-....\pdfliteral origin{17.10953 -114.62238 m }
-....\pdfliteral origin{31.66231 -126.53082 l }
+....\pdfliteral origin{0.0 -57.31876 m }
+....\pdfliteral origin{37.23332 -71.15666 l }
+....\pdfliteral origin{S }
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\pdfliteral origin{37.23332 -86.94138 m }
+....\pdfliteral origin{17.30763 -98.84209 l }
+....\pdfliteral origin{S }
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\pdfliteral origin{17.30763 -114.62679 m }
+....\pdfliteral origin{2.71242 -126.5275 l }
 ....\pdfliteral origin{S }
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
@@ -1627,8 +1626,26 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
-....\pdfliteral origin{36.98148 -86.93697 m }
-....\pdfliteral origin{56.85342 -98.8454 l }
+....\pdfliteral origin{17.30763 -114.62679 m }
+....\pdfliteral origin{31.90282 -126.5275 l }
+....\pdfliteral origin{S }
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\glue(\spaceskip) 0.0
+....\pdfliteral origin{37.23332 -86.94138 m }
+....\pdfliteral origin{57.159 -98.84209 l }
 ....\pdfliteral origin{S }
 ....\glue(\spaceskip) 0.0
 ....\glue(\spaceskip) 0.0
@@ -1719,33 +1736,33 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ......\pdfliteral origin{q }
 ......\pdfliteral origin{0 1 0 0 K }
 ......\pdfliteral origin{1 0.5 0 RG }
-......\pdfliteral origin{64.01959 -98.62622 m }
-......\pdfliteral origin{-57.74605 -98.62622 l }
-......\pdfliteral origin{-59.94699 -98.62622 -61.73116 -100.41039 -61.73116 -102.61133 c }
-......\pdfliteral origin{-61.73116 -158.66467 l }
-......\pdfliteral origin{-61.73116 -160.86562 -59.94699 -162.64978 -57.74605 -162.64978 c }
-......\pdfliteral origin{64.01959 -162.64978 l }
-......\pdfliteral origin{66.22054 -162.64978 68.0047 -160.86562 68.0047 -158.66467 c }
-......\pdfliteral origin{68.0047 -102.61133 l }
-......\pdfliteral origin{68.0047 -100.41039 66.22054 -98.62622 64.01959 -98.62622 c }
+......\pdfliteral origin{64.38892 -98.84209 m }
+......\pdfliteral origin{-59.10265 -98.84209 l }
+......\pdfliteral origin{-61.30359 -98.84209 -63.08775 -100.62625 -63.08775 -102.8272 c }
+......\pdfliteral origin{-63.08775 -158.66467 l }
+......\pdfliteral origin{-63.08775 -160.86562 -61.30359 -162.64978 -59.10265 -162.64978 c }
+......\pdfliteral origin{64.38892 -162.64978 l }
+......\pdfliteral origin{66.58986 -162.64978 68.37402 -160.86562 68.37402 -158.66467 c }
+......\pdfliteral origin{68.37402 -102.8272 l }
+......\pdfliteral origin{68.37402 -100.62625 66.58986 -98.84209 64.38892 -98.84209 c }
 ......\pdfliteral origin{h }
-......\pdfliteral origin{-61.73116 -162.64978 m }
+......\pdfliteral origin{-63.08775 -162.64978 m }
 ......\pdfliteral origin{S }
 ......\glue(\spaceskip) 0.0
 ......\pdfliteral origin{Q }
 ......\pdfliteral origin{q }
 ......\hbox(0.0+0.0)x0.0, direction TLT
-.......\glue -61.96185
-.......\hbox(0.0+0.0)x0.0, shifted 131.1262, direction TLT
+.......\glue -63.32352
+.......\hbox(0.0+0.0)x0.0, shifted 131.23454, direction TLT
 ........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ........\pdfliteral origin{q }
 ........\hbox(0.0+0.0)x0.0, direction TLT
-.........\hbox(32.13141+32.13141)x130.22072, direction TLT
+.........\hbox(32.02307+32.02307)x131.95306, direction TLT
 ..........\pdfliteral origin{0 G }
 ..........\pdfliteral origin{0 g }
-..........\hbox(32.13141+32.13141)x130.22072, direction TLT
-...........\vbox(0.0+0.0)x130.22072, direction TLT
-............\hbox(0.0+0.0)x130.22072, glue set 65.11037fil, direction TLT
+..........\hbox(32.02307+32.02307)x131.95306, direction TLT
+...........\vbox(0.0+0.0)x131.95306, direction TLT
+............\hbox(0.0+0.0)x131.95306, glue set 65.97653fil, direction TLT
 .............\glue(\leftskip) 0.0 plus 1.0fil
 .............\localpar
 ..............\localinterlinepenalty=0
@@ -1790,33 +1807,33 @@ TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ......\pdfliteral origin{q }
 ......\pdfliteral origin{0 1 0 0 K }
 ......\pdfliteral origin{1 0.5 0 RG }
-......\pdfliteral origin{17.19586 -19.56392 m }
-......\pdfliteral origin{-17.19586 -19.56392 l }
-......\pdfliteral origin{-19.3968 -19.56392 -21.18097 -21.34808 -21.18097 -23.54903 c }
-......\pdfliteral origin{-21.18097 -53.55284 l }
-......\pdfliteral origin{-21.18097 -55.75378 -19.3968 -57.53795 -17.19586 -57.53795 c }
-......\pdfliteral origin{17.19586 -57.53795 l }
-......\pdfliteral origin{19.3968 -57.53795 21.18097 -55.75378 21.18097 -53.55284 c }
-......\pdfliteral origin{21.18097 -23.54903 l }
-......\pdfliteral origin{21.18097 -21.34808 19.3968 -19.56392 17.19586 -19.56392 c }
+......\pdfliteral origin{17.25629 -19.56061 m }
+......\pdfliteral origin{-17.25629 -19.56061 l }
+......\pdfliteral origin{-19.45723 -19.56061 -21.2414 -21.34477 -21.2414 -23.54572 c }
+......\pdfliteral origin{-21.2414 -53.33365 l }
+......\pdfliteral origin{-21.2414 -55.53459 -19.45723 -57.31876 -17.25629 -57.31876 c }
+......\pdfliteral origin{17.25629 -57.31876 l }
+......\pdfliteral origin{19.45723 -57.31876 21.2414 -55.53459 21.2414 -53.33365 c }
+......\pdfliteral origin{21.2414 -23.54572 l }
+......\pdfliteral origin{21.2414 -21.34477 19.45723 -19.56061 17.25629 -19.56061 c }
 ......\pdfliteral origin{h }
-......\pdfliteral origin{-21.18097 -57.53795 m }
+......\pdfliteral origin{-21.2414 -57.31876 m }
 ......\pdfliteral origin{S }
 ......\glue(\spaceskip) 0.0
 ......\pdfliteral origin{Q }
 ......\pdfliteral origin{q }
 ......\hbox(0.0+0.0)x0.0, direction TLT
-.......\glue -21.26013
-.......\hbox(0.0+0.0)x0.0, shifted 38.695, direction TLT
+.......\glue -21.32079
+.......\hbox(0.0+0.0)x0.0, shifted 38.58334, direction TLT
 ........\pdfliteral origin{1.0 0.0 0.0 1.0 0.0 0.0 cm }
 ........\pdfliteral origin{q }
 ........\hbox(0.0+0.0)x0.0, direction TLT
-.........\hbox(19.05797+19.05797)x42.52026, direction TLT
+.........\hbox(18.94963+18.94963)x42.64157, direction TLT
 ..........\pdfliteral origin{0 G }
 ..........\pdfliteral origin{0 g }
-..........\hbox(19.05797+19.05797)x42.52026, direction TLT
-...........\vbox(0.0+0.0)x42.52026, direction TLT
-............\hbox(0.0+0.0)x42.52026, glue set 21.26013fil, direction TLT
+..........\hbox(18.94963+18.94963)x42.64157, direction TLT
+...........\vbox(0.0+0.0)x42.64157, direction TLT
+............\hbox(0.0+0.0)x42.64157, glue set 21.32079fil, direction TLT
 .............\glue(\leftskip) 0.0 plus 1.0fil
 .............\localpar
 ..............\localinterlinepenalty=0

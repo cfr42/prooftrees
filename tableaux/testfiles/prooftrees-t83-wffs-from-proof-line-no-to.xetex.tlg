@@ -3,22 +3,15 @@ Don't change this file in any respect.
 ============================================================
 TEST 1: prooftrees-t83-wffs-from-proof-line-no-to
 ============================================================
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line ....
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line ....
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line ....
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line ....
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line ....
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+LaTeX Font Info:    Trying to load font information for U+msa on input line ....
 > \box...=
-\hbox(13.24597+163.45758)x187.95326
-.\hbox(176.70355+0.0)x187.95326, shifted 163.45758
-..\glue 91.1319
+\hbox(13.24597+163.45758)x187.45372
+.\hbox(176.70355+0.0)x187.45372, shifted 163.45758
+..\glue 91.10352
 ..\hbox(0.0+0.0)x0.0, shifted -163.45758
 ...\special{pdf:bcontent}
 ...\special{pdf:code q }
@@ -38,7 +31,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.79259 0.0}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.76431 0.0}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -59,52 +52,52 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:bcolor [0]}
 .......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 3.5198 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(9.913+3.017)x181.08731
+........\hbox(9.913+3.017)x180.58777
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(9.913+3.017)x181.08731
+.........\hbox(9.913+3.017)x180.58777
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#92
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1285
-..........\kern1.4
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2770
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#9
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1286
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2770
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#10
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#13
-..........\glue(\thinmuskip) 1.66681
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1285
-..........\kern1.4
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(5.43+0.43)x7.78
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2915
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#13
-..........\glue(\thinmuskip) 1.66681
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1286
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(5.43+0.43)x7.78
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2915
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#94
-..........\glue(\thickmuskip) 2.77802 plus 2.77802
+..........\OMS/cmsy/m/n/10 f
+..........\OML/cmm/m/it/10 P
+..........\kern1.3889
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\OMS/cmsy/m/n/10 _
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\OT1/cmr/m/n/10 (
+..........\OML/cmm/m/it/10 Q
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\OMS/cmsy/m/n/10 _
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
+..........\OT1/cmr/m/n/10 )
+..........\OML/cmm/m/it/10 ;
+..........\glue(\thinmuskip) 1.66663
+..........\OML/cmm/m/it/10 P
+..........\kern1.3889
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(5.39098+0.39098)x7.7778
+...........\OMS/cmsy/m/n/10 ^^[
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
+..........\OML/cmm/m/it/10 ;
+..........\glue(\thinmuskip) 1.66663
+..........\OML/cmm/m/it/10 Q
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(5.39098+0.39098)x7.7778
+...........\OMS/cmsy/m/n/10 ^^[
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
+..........\OMS/cmsy/m/n/10 g
+..........\glue(\thickmuskip) 2.77771 plus 2.77771
 ..........\hbox(9.913+3.017)x8.4784
 ...........\special{color push gray 0}
 ...........\hbox(9.913+3.017)x8.4784
@@ -140,11 +133,11 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ................\glue 0.0 plus 1.0fil minus 1.0fil
 .............\mathoff
 ...........\special{color pop}
-..........\glue(\thickmuskip) 2.77802 plus 2.77802
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
+..........\glue(\thickmuskip) 2.77771 plus 2.77771
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -177,7 +170,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.59334 -17.93298}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.56506 -17.93298}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -241,7 +234,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.59334 -29.8883}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.56506 -29.8883}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -305,7 +298,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.59334 -41.84363}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.56506 -41.84363}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -369,7 +362,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.59334 -53.79895}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.56506 -53.79895}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -433,7 +426,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.59334 -81.48436}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.56506 -81.48436}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -497,7 +490,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.59334 -109.16978}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.56506 -109.16978}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -561,7 +554,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.59334 -136.8552}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -90.56506 -136.8552}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -644,28 +637,28 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -30.53569 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -30.46733 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(7.48+2.48)x61.29964
+........\hbox(7.5+2.5)x61.16238
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(7.48+2.48)x61.29964
+.........\hbox(7.5+2.5)x61.16238
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1285
-..........\kern1.4
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2770
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#9
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1286
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2770
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#10
+..........\OML/cmm/m/it/10 P
+..........\kern1.3889
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\OMS/cmsy/m/n/10 _
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\OT1/cmr/m/n/10 (
+..........\OML/cmm/m/it/10 Q
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\OMS/cmsy/m/n/10 _
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
+..........\OT1/cmr/m/n/10 )
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -717,23 +710,23 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -17.73611 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -17.67351 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(6.83+0.43)x35.60481
+........\hbox(6.83331+0.39098)x35.47913
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(6.83+0.43)x35.60481
+.........\hbox(6.83331+0.39098)x35.47913
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1285
-..........\kern1.4
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(5.43+0.43)x7.78
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2915
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
+..........\OML/cmm/m/it/10 P
+..........\kern1.3889
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(5.39098+0.39098)x7.7778
+...........\OMS/cmsy/m/n/10 ^^[
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -789,23 +782,23 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -17.78096 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -17.72157 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(7.05+1.94)x35.69482
+........\hbox(6.83331+1.94444)x35.57564
 .........\special{pdf:code 0 0 1 RG }
 .........\special{pdf:code 0 0 1 rg }
-.........\hbox(7.05+1.94)x35.69482
+.........\hbox(6.83331+1.94444)x35.57564
 ..........\special{color push rgb 0 0 1}
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1286
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(5.43+0.43)x7.78
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2915
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
+..........\OML/cmm/m/it/10 Q
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(5.39098+0.39098)x7.7778
+...........\OMS/cmsy/m/n/10 ^^[
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
 ..........\mathoff
 ..........\special{color pop}
 .........\glue 0.0
@@ -862,20 +855,20 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -11.60162 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -11.56963 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(6.83+0.22)x23.29
+........\hbox(6.83331+0.0)x23.22575
 .........\special{pdf:code 0 0 1 RG }
 .........\special{pdf:code 0 0 1 rg }
-.........\hbox(6.83+0.22)x23.29
+.........\hbox(6.83331+0.0)x23.22575
 ..........\special{color push rgb 0 0 1}
 ..........\mathon
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
 ..........\mathoff
 ..........\special{color pop}
 .........\glue 0.0
@@ -909,7 +902,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -37.2605 -81.48436}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -37.23334 -81.48436}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -932,16 +925,16 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.89542 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.88997 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(6.83+0.0)x7.81999
+........\hbox(6.83331+0.0)x7.80904
 .........\special{pdf:code 0 0 1 RG }
 .........\special{pdf:code 0 0 1 rg }
-.........\hbox(6.83+0.0)x7.81999
+.........\hbox(6.83331+0.0)x7.80904
 ..........\special{color push rgb 0 0 1}
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1285
-..........\kern1.4
+..........\OML/cmm/m/it/10 P
+..........\kern1.3889
 ..........\mathoff
 ..........\special{color pop}
 .........\glue 0.0
@@ -975,7 +968,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -51.85016 -109.16978}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -51.80353 -109.16978}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -994,17 +987,17 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.74603 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.76439 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(6.83+0.0)x15.54999
+........\hbox(6.83331+0.0)x15.58684
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(6.83+0.0)x15.54999
+.........\hbox(6.83331+0.0)x15.58684
 ..........\mathon
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1285
-..........\kern1.4
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 P
+..........\kern1.3889
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1037,7 +1030,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -51.85016 -121.1251}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -51.80353 -121.1251}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1056,14 +1049,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.8755 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87442 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(5.92+0.92)x7.78
+........\hbox(5.83333+0.83333)x7.7778
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(5.92+0.92)x7.78
+.........\hbox(5.83333+0.83333)x7.7778
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2810
+..........\OMS/cmsy/m/n/10 
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1096,7 +1089,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -51.85016 -130.0916}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -51.80353 -130.0916}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1115,14 +1108,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67574 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67563 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(4.648+1.35799)x11.39392
+........\hbox(4.648+1.35799)x11.3937
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(4.648+1.35799)x11.39392
+.........\hbox(4.648+1.35799)x11.3937
 ..........\TU/lmr/m/n/7 5,
-..........\kern 1.16692
+..........\kern 1.1667
 ..........\TU/lmr/m/n/7 6
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1155,7 +1148,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -22.67084 -109.16978}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -22.66315 -109.16978}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1174,17 +1167,17 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.75102 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.6952 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(6.83+0.22)x15.56
+........\hbox(6.83331+0.0)x15.44795
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(6.83+0.22)x15.56
+.........\hbox(6.83331+0.0)x15.44795
 ..........\mathon
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1217,7 +1210,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -22.67084 -121.1251}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -22.66315 -121.1251}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1236,14 +1229,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.8755 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87442 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(5.92+0.92)x7.78
+........\hbox(5.83333+0.83333)x7.7778
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(5.92+0.92)x7.78
+.........\hbox(5.83333+0.83333)x7.7778
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2810
+..........\OMS/cmsy/m/n/10 
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1276,7 +1269,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -22.67084 -130.0916}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -22.66315 -130.0916}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1295,14 +1288,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67574 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67563 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(4.718+1.35799)x11.39392
+........\hbox(4.718+1.35799)x11.3937
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(4.718+1.35799)x11.39392
+.........\hbox(4.718+1.35799)x11.3937
 ..........\TU/lmr/m/n/7 4,
-..........\kern 1.16692
+..........\kern 1.1667
 ..........\TU/lmr/m/n/7 6
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1335,7 +1328,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 37.26048 -81.48436}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 37.23332 -81.48436}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1358,22 +1351,22 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -17.22801 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -17.16809 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(7.05+1.94)x34.58482
+........\hbox(6.83331+1.94444)x34.46452
 .........\special{pdf:code 0 0 1 RG }
 .........\special{pdf:code 0 0 1 rg }
-.........\hbox(7.05+1.94)x34.58482
+.........\hbox(6.83331+1.94444)x34.46452
 ..........\special{color push rgb 0 0 1}
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1286
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2770
-..........\glue(\medmuskip) 2.22241 plus 1.1112 minus 2.22241
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
+..........\OML/cmm/m/it/10 Q
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\OMS/cmsy/m/n/10 _
+..........\glue(\medmuskip) 2.22217 plus 1.11108 minus 2.22217
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
 ..........\mathoff
 ..........\special{color pop}
 .........\glue 0.0
@@ -1407,7 +1400,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 17.29884 -109.16978}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 17.30763 -109.16978}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1426,14 +1419,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.94026 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.93805 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(7.05+1.94)x7.91
+........\hbox(6.83331+1.94444)x7.90555
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(7.05+1.94)x7.91
+.........\hbox(6.83331+1.94444)x7.90555
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1286
+..........\OML/cmm/m/it/10 Q
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1466,7 +1459,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 2.68628 -136.8552}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 2.71242 -136.8552}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1485,16 +1478,16 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.79086 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.81247 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(7.05+1.94)x15.64
+........\hbox(6.83331+1.94444)x15.68335
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(7.05+1.94)x15.64
+.........\hbox(6.83331+1.94444)x15.68335
 ..........\mathon
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1286
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 Q
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1527,7 +1520,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 2.68628 -148.81052}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 2.71242 -148.81052}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1546,14 +1539,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.8755 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87442 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(5.92+0.92)x7.78
+........\hbox(5.83333+0.83333)x7.7778
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(5.92+0.92)x7.78
+.........\hbox(5.83333+0.83333)x7.7778
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2810
+..........\OMS/cmsy/m/n/10 
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1586,7 +1579,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 2.68628 -157.77701}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 2.71242 -157.77701}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1605,14 +1598,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67574 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67563 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(4.732+1.35799)x11.39392
+........\hbox(4.732+1.35799)x11.3937
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(4.732+1.35799)x11.39392
+.........\hbox(4.732+1.35799)x11.3937
 ..........\TU/lmr/m/n/7 6,
-..........\kern 1.16692
+..........\kern 1.1667
 ..........\TU/lmr/m/n/7 7
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1645,7 +1638,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 31.91139 -136.8552}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 31.90282 -136.8552}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1664,17 +1657,17 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.75102 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.6952 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(6.83+0.22)x15.56
+........\hbox(6.83331+0.0)x15.44795
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(6.83+0.22)x15.56
+.........\hbox(6.83331+0.0)x15.44795
 ..........\mathon
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1707,7 +1700,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 31.91139 -148.81052}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 31.90282 -148.81052}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1726,14 +1719,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.8755 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87442 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(5.92+0.92)x7.78
+........\hbox(5.83333+0.83333)x7.7778
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(5.92+0.92)x7.78
+.........\hbox(5.83333+0.83333)x7.7778
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2810
+..........\OMS/cmsy/m/n/10 
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1766,7 +1759,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 31.91139 -157.77701}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 31.90282 -157.77701}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1785,14 +1778,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67574 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67563 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(4.732+1.35799)x11.39392
+........\hbox(4.732+1.35799)x11.3937
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(4.732+1.35799)x11.39392
+.........\hbox(4.732+1.35799)x11.3937
 ..........\TU/lmr/m/n/7 4,
-..........\kern 1.16692
+..........\kern 1.1667
 ..........\TU/lmr/m/n/7 7
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1825,7 +1818,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 57.2221 -109.16978}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 57.159 -109.16978}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1844,17 +1837,17 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.75102 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -7.6952 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(6.83+0.22)x15.56
+........\hbox(6.83331+0.0)x15.44795
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(6.83+0.22)x15.56
+.........\hbox(6.83331+0.0)x15.44795
 ..........\mathon
-..........\hbox(3.66+0.0)x7.73
-...........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2941
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#1287
-..........\kern0.24
+..........\hbox(3.66875+0.0)x7.7778
+...........\OMS/cmsy/m/n/10 ^^X
+..........\OML/cmm/m/it/10 R
+..........\kern0.07726
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1887,7 +1880,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 57.2221 -121.1251}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 57.159 -121.1251}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1906,14 +1899,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.8755 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -3.87442 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(5.92+0.92)x7.78
+........\hbox(5.83333+0.83333)x7.7778
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(5.92+0.92)x7.78
+.........\hbox(5.83333+0.83333)x7.7778
 ..........\mathon
-..........\TU/latinmodern-math.otf(1)/m/n/10 glyph#2810
+..........\OMS/cmsy/m/n/10 
 ..........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -1946,7 +1939,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\special{pdf:code 0 J [] 0 d}
 ....\special{pdf:bcolor [1]}
 ....\special{pdf:bcolor [0]}
-....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 57.2221 -130.0916}
+....\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 57.159 -130.0916}
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(0.0+0.0)x0.0
 ......\special{pdf:bcontent}
@@ -1965,14 +1958,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 .......\special{pdf:code 0 J [] 0 d}
 .......\special{pdf:bcolor [1]}
 .......\special{pdf:bcolor [0]}
-.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67574 0.0}
+.......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -5.67563 0.0}
 .......\hbox(0.0+0.0)x0.0
-........\hbox(4.718+1.35799)x11.39392
+........\hbox(4.718+1.35799)x11.3937
 .........\special{pdf:code 0 G }
 .........\special{pdf:code 0 g }
-.........\hbox(4.718+1.35799)x11.39392
+.........\hbox(4.718+1.35799)x11.3937
 ..........\TU/lmr/m/n/7 4,
-..........\kern 1.16692
+..........\kern 1.1667
 ..........\TU/lmr/m/n/7 6
 .........\glue 0.0
 .......\special{pdf:etrans}
@@ -2052,33 +2045,15 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\glue 0.0
 ....\glue 0.0
 ....\glue 0.0
-....\special{pdf:code 0.0 -57.53795 m }
-....\special{pdf:code -37.2605 -71.15999 l }
+....\special{pdf:code 0.0 -57.31876 m }
+....\special{pdf:code -37.23334 -71.15666 l }
 ....\special{pdf:code S }
 ....\glue 0.0
 ....\glue 0.0
 ....\glue 0.0
 ....\glue 0.0
-....\special{pdf:code -37.2605 -85.00418 m }
-....\special{pdf:code -51.85016 -98.8454 l }
-....\special{pdf:code S }
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\special{pdf:code -37.2605 -85.00418 m }
-....\special{pdf:code -22.67084 -98.8454 l }
+....\special{pdf:code -37.23334 -85.00418 m }
+....\special{pdf:code -51.80353 -98.84209 l }
 ....\special{pdf:code S }
 ....\glue 0.0
 ....\glue 0.0
@@ -2095,22 +2070,8 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\glue 0.0
 ....\glue 0.0
 ....\glue 0.0
-....\special{pdf:code 0.0 -57.53795 m }
-....\special{pdf:code 37.26048 -70.9408 l }
-....\special{pdf:code S }
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\special{pdf:code 37.26048 -86.93697 m }
-....\special{pdf:code 17.29884 -98.62622 l }
-....\special{pdf:code S }
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\glue 0.0
-....\special{pdf:code 17.29884 -114.62238 m }
-....\special{pdf:code 2.68628 -126.31163 l }
+....\special{pdf:code -37.23334 -85.00418 m }
+....\special{pdf:code -22.66315 -98.84209 l }
 ....\special{pdf:code S }
 ....\glue 0.0
 ....\glue 0.0
@@ -2127,8 +2088,22 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\glue 0.0
 ....\glue 0.0
 ....\glue 0.0
-....\special{pdf:code 17.29884 -114.62238 m }
-....\special{pdf:code 31.91139 -126.53082 l }
+....\special{pdf:code 0.0 -57.31876 m }
+....\special{pdf:code 37.23332 -71.15666 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 37.23332 -86.94138 m }
+....\special{pdf:code 17.30763 -98.84209 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 17.30763 -114.62679 m }
+....\special{pdf:code 2.71242 -126.5275 l }
 ....\special{pdf:code S }
 ....\glue 0.0
 ....\glue 0.0
@@ -2145,8 +2120,26 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ....\glue 0.0
 ....\glue 0.0
 ....\glue 0.0
-....\special{pdf:code 37.26048 -86.93697 m }
-....\special{pdf:code 57.2221 -98.8454 l }
+....\special{pdf:code 17.30763 -114.62679 m }
+....\special{pdf:code 31.90282 -126.5275 l }
+....\special{pdf:code S }
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\glue 0.0
+....\special{pdf:code 37.23332 -86.94138 m }
+....\special{pdf:code 57.159 -98.84209 l }
 ....\special{pdf:code S }
 ....\glue 0.0
 ....\glue 0.0
@@ -2237,17 +2230,17 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ......\special{pdf:code q }
 ......\special{pdf:code 0 1 0 0 K }
 ......\special{pdf:code 1 0.5 0 RG }
-......\special{pdf:code 64.50786 -98.62622 m }
-......\special{pdf:code -59.13092 -98.62622 l }
-......\special{pdf:code -61.33186 -98.62622 -63.11603 -100.41039 -63.11603 -102.61133 c }
-......\special{pdf:code -63.11603 -158.66464 l }
-......\special{pdf:code -63.11603 -160.86559 -61.33186 -162.64975 -59.13092 -162.64975 c }
-......\special{pdf:code 64.50786 -162.64975 l }
-......\special{pdf:code 66.7088 -162.64975 68.49297 -160.86559 68.49297 -158.66464 c }
-......\special{pdf:code 68.49297 -102.61133 l }
-......\special{pdf:code 68.49297 -100.41039 66.7088 -98.62622 64.50786 -98.62622 c }
+......\special{pdf:code 64.38892 -98.84209 m }
+......\special{pdf:code -59.10265 -98.84209 l }
+......\special{pdf:code -61.30359 -98.84209 -63.08775 -100.62625 -63.08775 -102.8272 c }
+......\special{pdf:code -63.08775 -158.66464 l }
+......\special{pdf:code -63.08775 -160.86559 -61.30359 -162.64975 -59.10265 -162.64975 c }
+......\special{pdf:code 64.38892 -162.64975 l }
+......\special{pdf:code 66.58986 -162.64975 68.37402 -160.86559 68.37402 -158.66464 c }
+......\special{pdf:code 68.37402 -102.8272 l }
+......\special{pdf:code 68.37402 -100.62625 66.58986 -98.84209 64.38892 -98.84209 c }
 ......\special{pdf:code h }
-......\special{pdf:code -63.11603 -162.64975 m }
+......\special{pdf:code -63.08775 -162.64975 m }
 ......\special{pdf:code S }
 ......\glue 0.0
 ......\special{pdf:code Q }
@@ -2261,14 +2254,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ......\special{pdf:code 0 J [] 0 d}
 ......\special{pdf:bcolor [1]}
 ......\special{pdf:bcolor [0]}
-......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -63.11603 -130.63799}
+......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -63.08775 -130.74591}
 ......\hbox(0.0+0.0)x0.0
-.......\hbox(32.1314+32.1314)x132.10083
+.......\hbox(32.02306+32.02306)x131.95306
 ........\special{pdf:code 0 G }
 ........\special{pdf:code 0 g }
-........\hbox(32.1314+32.1314)x132.10083
-.........\vbox(0.0+0.0)x132.10083
-..........\hbox(0.0+0.0)x132.10083, glue set 66.05042fil
+........\hbox(32.02306+32.02306)x131.95306
+.........\vbox(0.0+0.0)x131.95306
+..........\hbox(0.0+0.0)x131.95306, glue set 65.97653fil
 ...........\glue(\leftskip) 0.0 plus 1.0fil
 ...........\hbox(0.0+0.0)x0.0
 ...........\hbox(0.0+0.0)x0.0
@@ -2311,17 +2304,17 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ......\special{pdf:code q }
 ......\special{pdf:code 0 1 0 0 K }
 ......\special{pdf:code 1 0.5 0 RG }
-......\special{pdf:code 17.31567 -19.56392 m }
-......\special{pdf:code -17.31567 -19.56392 l }
-......\special{pdf:code -19.51662 -19.56392 -21.30078 -21.34808 -21.30078 -23.54903 c }
-......\special{pdf:code -21.30078 -53.55284 l }
-......\special{pdf:code -21.30078 -55.75378 -19.51662 -57.53795 -17.31567 -57.53795 c }
-......\special{pdf:code 17.31567 -57.53795 l }
-......\special{pdf:code 19.51662 -57.53795 21.30078 -55.75378 21.30078 -53.55284 c }
-......\special{pdf:code 21.30078 -23.54903 l }
-......\special{pdf:code 21.30078 -21.34808 19.51662 -19.56392 17.31567 -19.56392 c }
+......\special{pdf:code 17.25629 -19.56061 m }
+......\special{pdf:code -17.25629 -19.56061 l }
+......\special{pdf:code -19.45723 -19.56061 -21.2414 -21.34477 -21.2414 -23.54572 c }
+......\special{pdf:code -21.2414 -53.33365 l }
+......\special{pdf:code -21.2414 -55.53459 -19.45723 -57.31876 -17.25629 -57.31876 c }
+......\special{pdf:code 17.25629 -57.31876 l }
+......\special{pdf:code 19.45723 -57.31876 21.2414 -55.53459 21.2414 -53.33365 c }
+......\special{pdf:code 21.2414 -23.54572 l }
+......\special{pdf:code 21.2414 -21.34477 19.45723 -19.56061 17.25629 -19.56061 c }
 ......\special{pdf:code h }
-......\special{pdf:code -21.30078 -57.53795 m }
+......\special{pdf:code -21.2414 -57.31876 m }
 ......\special{pdf:code S }
 ......\glue 0.0
 ......\special{pdf:code Q }
@@ -2335,14 +2328,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ......\special{pdf:code 0 J [] 0 d}
 ......\special{pdf:bcolor [1]}
 ......\special{pdf:bcolor [0]}
-......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -21.30078 -38.55093}
+......\special{pdf:btrans matrix 1.0 0.0 0.0 1.0 -21.2414 -38.43968}
 ......\hbox(0.0+0.0)x0.0
-.......\hbox(19.05797+19.05797)x42.76077
+.......\hbox(18.94963+18.94963)x42.64157
 ........\special{pdf:code 0 G }
 ........\special{pdf:code 0 g }
-........\hbox(19.05797+19.05797)x42.76077
-.........\vbox(0.0+0.0)x42.76077
-..........\hbox(0.0+0.0)x42.76077, glue set 21.38039fil
+........\hbox(18.94963+18.94963)x42.64157
+.........\vbox(0.0+0.0)x42.64157
+..........\hbox(0.0+0.0)x42.64157, glue set 21.32079fil
 ...........\glue(\leftskip) 0.0 plus 1.0fil
 ...........\hbox(0.0+0.0)x0.0
 ...........\hbox(0.0+0.0)x0.0
