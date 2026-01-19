@@ -242,3 +242,6 @@ show-pdf-tags
 
 # needed by ext.multi
 tikz-ext
+
+# needed for forest-ext-doc
+minted
