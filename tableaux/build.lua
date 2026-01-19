@@ -19,8 +19,8 @@ typesetdeps = {maindir .. "/forest-ext"}
 checkdeps = {maindir .. "/forest-ext"}
 --------------------------------------------------------------------------------
 -- indexstyle = ""
-typesetruns = 4
--- typesetruns = 1
+-- typesetruns = 4
+typesetruns = 1
 --------------------------------------------------------------------------------
 uploadconfig = {
   ctanPath = "/macros/latex/contrib/prooftrees",
