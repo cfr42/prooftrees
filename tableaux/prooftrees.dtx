@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2880,8 +2880,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -3251,12 +3251,12 @@ for root'={%
       if check right={%
         content+'={\ \forestregister{check with}#1},
         if tag={%
-          alt text+/.process={Rw{tag check with}{ ##1#1}},
+          alt text+/.process={Rw{tag check with}{\ ##1#1}},
         }{},
       }{%
         +content'={\forestregister{check with}#1\ },
         if tag={%
-          +alt text/.process={Rw{tag check with}{##1#1 }},
+          +alt text/.process={Rw{tag check with}{##1#1\ }},
         }{},
       },
     },
@@ -3271,12 +3271,12 @@ for root'={%
       if subs right={%
         content+'={\ \forestregister{subs with}#1},
         if tag={%
-          alt text+/.process={Rw{tag subs with}{ ##1#1}},
+          alt text+/.process={Rw{tag subs with}{\ ##1#1}},
         }{},
       }{%
         +content'={\forestregister{subs with}#1\ },
         if tag={%
-          +alt text/.process={Rw{tag subs with}{##1#1 }},
+          +alt text/.process={Rw{tag subs with}{##1#1\ }},
         }{},
       },
     },
@@ -4766,7 +4766,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 %    \end{macrocode}
@@ -4784,7 +4784,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11540 2026-01-19 06:46:23Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11548 2026-01-19 18:48:16Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 %    \end{macrocode}
