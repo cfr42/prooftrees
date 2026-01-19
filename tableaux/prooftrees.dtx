@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11535 2026-01-19 02:57:30Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11536 2026-01-19 04:58:03Z cfrees $}[v0.9.1 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2507,7 +2507,7 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % The remaining options in this section are applicable only if tagging is active.
 %
 % \DescribeKey[foptkeylist]{before copying content}\val{key-value list}\AfterLastParam
-% Only relevant if tagging is active.
+% Only really useful if tagging is active.
 % This \foptkeylistlabelname{} allows the content of a node to be altered before it is copied for tagging.
 % Changes made after \keyname[foptkeylist]{proof tree copy content} will affect only the visual representation.
 % \Example{P \cs{supset} Q, before copying content=\{content+=\{*\}\}, before typesetting nodes=\{blue\},}
@@ -2515,7 +2515,7 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 %
 % \DescribeKey[foptkeylist]{before tagging nodes}\val{key-value list}\AfterLastParam
 % Provided by the \pkg{ext.tagging} library.
-% Only relevant if tagging is active (see \cref{sec:tag}).
+% Only really useful if tagging is active (see \cref{sec:tag}).
 % Allow changes before tagged content for a node is finalised.
 % This \foptkeylistlabelname{} is processed before annotations are added to a node's tagged content.
 % \Example{P \cs{supset} Q, before tagging nodes=\{alt text'=\{P horseshoe Q\},\},}
@@ -2526,7 +2526,7 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % 
 % \DescribeKey[foptkeylist]{before collating tags}\val{key-value list}\AfterLastParam
 % Provided by the \pkg{ext.tagging} library.
-% Only relevant if tagging is active (see \cref{sec:tag}).
+% Only really useful if tagging is active (see \cref{sec:tag}).
 % This \foptkeylistlabelname{} is processed after annotations are added to a node's tagged content, but before that content is used for tagging.
 % \Example{P \cs{supset} Q, just=Ass, before collating tags=\{alt text'=\{P horseshoe Q\},\}}
 % This would prevent \texttt{Ass} from being used in the tagged content.
@@ -2588,11 +2588,10 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 %
 %^^A END sec:memoize >>>
 %
-% \iffalse
 % \section{Tagging}\label{sec:tag}
 % ^^A sec:tag <<<
 %
-% The infrastructure for tagging is provided by the \pkg{ext.tagging} and \pkg{ext.utils} \pkg{forest} libraries, which are part of \pkg{forest-ext}.
+% The infrastructure for tagging is provided by the \pkg{ext.tagging} and \pkg{ext.utils} \pkg{forest} libraries, which are part of \pkg{forest-ext}\footcite{cfr-forest-ext}.
 % \textbf{These libraries are required regardless of whether tagging is used.}
 %
 % Tagging is \emph{highly experimental} and the implementation will certainly change, as well, possibly, as the interface.
@@ -2603,15 +2602,16 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % If tagging is active, an ‘alternative text’ (\texttt{alt text}) is automatically generated based on the tableau content\footnote{%
 %   Whether this is a useful way to tag them I do not know.
 %   Some input from users of tableaux with screen-reading software is required.
-%   Contributions, suggestions or feedback are unlikely, but would be appreciated.%
+%   Contributions, suggestions or feedback seem exceedingly unlikely, but would be appreciated.%
 % }.
-% The aim is to tag tableaux \emph{syntactically}, as opposed to semantically, in accordance with typical usage in logic\footnote{%
-%   Note that this is in some sense at odds with the \LaTeX{} Project's efforts to tag mathematical content which, as I understand it, is a \emph{semantic} project.
+% The default aim is to tag tableaux \emph{syntactically}, as opposed to semantically, in accordance with typical usage in logic\footnote{%
+%   This might seem at odds with the \LaTeX{} Project's efforts to tag mathematical content which, as I understand it, is a \emph{semantic} project.
 %   But the tension here is, of course, merely apparent, since the intended semantic content of tableaux is syntactic.
-%   That is, we have here two quite different distinctions between ‘syntax’ and ‘semantics’.
 %   In the \LaTeX{} Project's sense, this package tries to provide \emph{semantic} tagging.
 %   It just so happens that the relevant semantic content is concerned with \emph{syntactic}, as opposed to \emph{semantic}, methods.%
 % }.
+% If your document is not written in English, you will need to configure a few global options to provide translations.
+% See \cref{subsec:tag-go}.
 %
 % See also \cref{sec:keylists}.
 
@@ -2620,10 +2620,10 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % \subsection{Global Tagging Options}\label{subsec:tag-go}
 % ^^A subsec:tag-go <<<
 % 
-\iffalse
 % \DescribeKey[fregbool]{tag}\vals{true,false}\AfterLastParam
-% \Default{\texttt{true} {\normalfont if tagging is active; otherwise} \texttt{false}}
-% Whether to tag the tableau or not.
+% \textbf{\emph{Automatically set according to current status of tagging.
+%   Alter at your peril!}}
+% Whether tagging is active or not.
 % \textbf{This register should not be set by the user\footnote{%
 %   Note that setting this false will not result in an untagged tableau.
 %   Nor will it allow the user to tag the tableau manually.
@@ -2641,7 +2641,6 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % It also modifies the order in which tags are collated.
 % Use of \pkg{latex-lab}'s plugs for \pkg{tikz} will yield chaotic results at best, but more likely invalid structures or compilation errors.
 % If you need something other than the current \texttt{tableaux/alt} and the options provided by the \pkg{ext.tagging} library do not suffice, file a feature request.
-\fi
 % 
 % \DescribeKey[fregtoks]{tag check with}\val{text}\AfterLastParam
 % \Default{discharged}
@@ -2658,6 +2657,25 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % \DescribeKey[fregtoks]{tag to prove}\val{text}\AfterLastParam
 % \Default{To prove: }
 % Text to prepend to the proof statement when tagging.
+%
+% For example, here's a possible setup for Welsh\footnote{%
+%   I do not know if there is an extant terminology for logic.
+%   If you know of one, I'd be grateful if you could file a feature request letting me know.%
+% }.
+% \iffalse
+%<*verb>
+% \fi
+\begin{latexcode}
+\forestset{%
+  tag check with={cyflawnedig},
+  tag close with={caeëdig},
+  tag sub with={enghreifftiwyd},
+  tag to prove={Profir: },
+}
+\end{latexcode}
+% \iffalse
+%</verb>
+% \fi
 % ^^A subsec:tag-go >>>
 % 
 % \subsection{Local Tagging Options}\label{subsec:tag-lo}
@@ -2679,7 +2697,6 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % See \cref{sec:keylists,sec:manylion}.
 % ^^A subsec:tag-lo >>>
 % ^^A sec:tag >>>
-% \fi
 %
 % \section{Typesetting Process}\label{sec:manylion}
 % ^^A sec:manylion <<<
@@ -2863,8 +2880,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11535 2026-01-19 02:57:30Z cfrees $}[v0.9.1 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11535 2026-01-19 02:57:30Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11536 2026-01-19 04:58:03Z cfrees $}[v0.9.1 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11536 2026-01-19 04:58:03Z cfrees $}[v0.9.1 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4744,29 +4761,37 @@ for root'={%
 % 
 %^^A doc guards <<<
 %<*doc>
+%    \begin{macrocode}
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11535 2026-01-19 02:57:30Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11536 2026-01-19 04:58:03Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
+%    \end{macrocode}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
 % ^^A \prooftreescodetoofalse
+%    \begin{macrocode}
 \input{\MyFileBaseName.dtx}
+%    \end{macrocode}
 %</doc>
 %^^A doc guards >>>
 % 
 %^^A doc-code guards <<<
 %<*doc-code>
+%    \begin{macrocode}
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11535 2026-01-19 02:57:30Z cfrees $}[v0.9 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11536 2026-01-19 04:58:03Z cfrees $}[v0.9 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
+%    \end{macrocode}
 % ^^A \expandafter\newif\csname ifprooftreescodetoo\endcsname
 % ^^A \prooftreescodetootrue
+%    \begin{macrocode}
 \input{\MyFileBaseName.dtx}
+%    \end{macrocode}
 %</doc-code>
 %^^A doc-code guards >>>
 % 
