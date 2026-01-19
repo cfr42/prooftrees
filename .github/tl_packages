@@ -245,3 +245,5 @@ tikz-ext
 
 # needed for forest-ext-doc
 minted
+upquote
+latex2pydata
