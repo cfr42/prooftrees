@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11545 2026-01-19 07:08:04Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11551 2026-01-21 07:13:48Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-multi]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -63,7 +63,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-multi.dtx 11545 2026-01-19 07:08:04Z cfrees $}
+%% $Id: forest-ext-multi.dtx 11551 2026-01-21 07:13:48Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.multi}[2025-12-05 v0.1]
 %<debug>    \ProvidesForestLibrary{ext.multi-debug}[2025-12-05 v0.1]
 %
@@ -85,7 +85,9 @@
 % \iffalse
 % ^^A Paid â defnyddio \GetFileInfoSVN*/\GetFileInfoSVN{} yn y fan hon!!
 % \fi
+% We don't want inconsistent names in hooks.
 %    \begin{macrocode}
+\SetDefaultHookLabel{forest-ext/multi}
 \forestset{
 %    \end{macrocode}
 % Public options.
@@ -512,6 +514,37 @@
       }%
     }%
   }%
+%    \end{macrocode}
+% \changes{v0.0}{2026-01-21}{Try to add something if tagging. But order is wrong. I think the whole specific approach here is misguided. But the basic infrastructure I think is maybe OK. Just I don't think producing alt text for arbitrary trees is good like this. Maybe just drop the structural descriptions? And just read the node content? Or what?}
+%    \begin{macrocode}
+  \ifcsname l_forestext_tagging_custom_bool\endcsname
+%<!debug>        \PackageInfo{forest-lib-ext.multi}
+%<debug>        \PackageInfo{forest-lib-ext.multi-debug}
+    {%
+      Found the ext.tagging or ext.tagging-debug library. 
+      Enabling support code.%
+    }%
+    \forestset{%
+%<!debug>      libraries/ext.multi/defaults/.append style=
+%<debug>      libraries/ext.multi-debug/defaults/.append style=
+      {%
+        also parent/.append style={%
+          before collating tags={%
+            alt text+/.process={Ow{##2.content}{ also child of ####1 }},
+          },
+        },
+        multi/.append style={%
+          before collating tags={%
+            alt text+={multiple parents: },
+            split={#1}{,}{multi@to@alt},
+          },
+          multi@to@alt/.style={%
+            alt text+={#1, },
+          },
+        },
+      },
+    }%
+  \fi
 }
 %    \end{macrocode}
 %</sty>

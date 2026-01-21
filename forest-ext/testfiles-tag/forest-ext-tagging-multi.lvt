@@ -1,0 +1,91 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `forest-ext-tagging.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% forest-ext. You may, however, distribute the package without this file.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{
+ tagging=on,
+ lang=en-GB,
+ pdfversion=2.0,
+ pdfstandard=ua-2,
+ uncompress,
+ debug={tagpdf},
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: forest-ext-tagging-multi.lvt 11415 2025-12-26 23:16:17Z cfrees $}[v0.0 \revinfo][\filebase: multi extensions test]
+\input regression-test.tex\relax
+\documentclass{article}
+\ifcsname directlua\endcsname
+  \relax
+\else
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage[ext.multi,ext.tagging]{forest}
+\useforestlibrary{edges}
+\title{This Test Needs No Title}
+\begin{document}
+\begin{forest}
+  [A
+    [D, multi={B,C}, ]
+    [E, parent anchor=children,
+      [J, multi={F,G,H,I}, ]
+    ]
+    [K
+      [N, multi={L,M}, child anchor=parent, 
+      ]
+    ]
+  ]
+\end{forest}
+\begingroup
+\forestapplylibrarydefaults{edges}%
+\begin{forest}
+  forked edges,
+  delay={%
+    for tree={%
+      +content=\strut,
+    },
+  },
+  [,coordinate,calign primary child=1,calign secondary child=2,calign=midpoint,
+    [Cilla
+      [Eunice]
+    ]
+    [Abigail Tillerman
+      [John,also parent={append}{j}]
+      [Liza, also parent={append}{!r3}, for children={also parent={append}{!un}}
+        [Dicey]
+        [James]
+        [Maybeth]
+        [Sammy]
+      ]
+      [Francis Verricker,no edge]
+      [Samuel, also parent+={!r3}]
+    ]
+    [John, name=j, no edge
+    ]
+  ]
+\end{forest}
+\endgroup
+\START
+\SHOWPDFTAGS
+\end{document}
+\END
+
