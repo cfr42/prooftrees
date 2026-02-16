@@ -31,7 +31,7 @@
  debug={tagpdf},
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: forest-ext-tagging-multi.lvt 11415 2025-12-26 23:16:17Z cfrees $}[v0.0 \revinfo][\filebase: multi extensions test]
+\ProvidesFileSVN{$Id: forest-ext-tagging-multi.lvt 11551 2026-01-21 07:13:48Z cfrees $}[v0.0 \revinfo][\filebase: multi extensions test]
 \input regression-test.tex\relax
 \documentclass{article}
 \ifcsname directlua\endcsname

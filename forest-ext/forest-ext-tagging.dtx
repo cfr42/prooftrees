@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11545 2026-01-19 07:08:04Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11605 2026-02-16 18:05:43Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11545 2026-01-19 07:08:04Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11605 2026-02-16 18:05:43Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.1]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.1]
 %
@@ -94,6 +94,14 @@
 %    \begin{macrocode}
 %<!debug>    \useforestlibrary*{ext.utils}
 %<debug>    \useforestlibrary*{ext.utils-debug}
+%    \end{macrocode}
+% \changes{v0.0}{0000-00-00}{Require \pkg{memoize-ext}.}
+% If \pkg{memoize} is loaded, we need \pkg{memoize-ext}.
+%    \begin{macrocode}
+\@ifpackageloaded{memoize}{%
+%<!debug>    \RequirePackage{memoize-ext}%
+%<debug>    \RequirePackage{memoize-ext-debug}%
+}{}
 \ExplSyntaxOn
 %    \end{macrocode}
 % \begin{macro}{\l_@@_toks_tl}
@@ -137,10 +145,10 @@
 {
   \_@@_pgftikz_tag_bbox_aux:eenn
   {
-    \property_ref:ee {#1}{xpos}
+    \@@_property_ref_orig:ee {#1}{xpos}
   }
   {
-    \property_ref:ee {#1}{ypos}
+    \@@_property_ref_orig:ee {#1}{ypos}
   }
   {#2}{#3}
 }
@@ -621,21 +629,46 @@
 %  is~branch%
 % }
 %   Structural descriptors.
+% \changes{v0.0}{2026-01-21}{Reduce default structural descriptors.}
 %    \begin{macrocode}
   declare autowrapped toks register={is root},
-  is root={root},
+  is root={},
   declare autowrapped toks register={is leaf},
-  is leaf={end branch},
+  is leaf={},
   declare autowrapped toks register={is child},
   is child={child},
   declare autowrapped toks register={is edge label},
   is edge label={edge label},
   declare autowrapped toks register={has branches},
-  has branches={branches},
+  has branches={children},
   declare autowrapped toks register={is branch},
-  is branch={branch},
+  is branch={},
 %    \end{macrocode}
-  % \end{autotoksr}
+% \end{autotoksr}
+% \begin{autotoks}{alt~pre,alt~post}
+% \changes{v0.0}{2026-01-21}{Add \texttt{alt pre}, \texttt{alt post}.}
+%   Options to prepend/append to \texttt{alt text}, especially in combination with auto-generation.
+%   These are per-node options.
+%    \begin{macrocode}
+  declare autowrapped toks={alt text pre}{},
+  declare autowrapped toks={alt text post}{},
+%    \end{macrocode}
+% \end{autotoks}
+% \begin{ftoksr}{%
+%   punctuation~after~parent,%
+%   punctuation~after~leaf%
+% }
+% \begin{ftoks}{punct@mark}
+% Punctuation.
+% \chantes{v0.0}{2026-01-22}{Punctuation registers and options.}
+%    \begin{macrocode}
+  declare toks register={punctuation after parent},
+  punctuation after parent={:\ },
+  declare toks register={punctuation after leaf},
+  punctuation after leaf={;\ },
+%    \end{macrocode}
+% \end{ftoks}
+% \end{ftoksr}
 % The tagging code depends on injecting additional processing steps into \pkg{forest}'s processing of the tree. 
 % This requires redefining \texttt{stages} to include the extra steps.
 % This has global effect, but hopefully does no harm \dots.
@@ -672,7 +705,14 @@
     draw tree stage
   },
   tag nodes processing order/.nodewalk style={unique=tree},
-  collate tags processing order={unique=tree depth first},
+%    \end{macrocode}
+% \changes{v0.0}{2026-01-22}{Apply \texttt{filter} to nodewalk used when collating tags.}
+%    \begin{macrocode}
+  collate tags processing order={%
+    filter={%
+      unique=tree depth first%
+    }{>Ot=!{alt text}{}}%
+  },
   tag tree stage/.style={for root'=tag tree},
 %    \end{macrocode}
 % By default, the crucial stage does nothing.
@@ -695,6 +735,10 @@
   },
   tag nodes uses/alt text/.style={%
     redeclare tagging keylist={tag nodes}{%
+      punct@mark/.process={%
+        O_=? p {n children}{0} 
+          {RR{punctuation after leaf}{punctuation after parent}}
+      },
       delay={%
         if level=0{%
           if alt text={}{%
@@ -705,24 +749,57 @@
       if phantom={}{%
         if alt text={}{%
           if edge label={}{%
+%    \end{macrocode}
+% \changes{v0.0}{2026-01-21}{Add pre/post for alt.}
+% \changes{v0.0}{2026-01-22}{Add punctuation.}
+%    \begin{macrocode}
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
-%<debug>    debug tagforest/.process={Ow{content}{No edge label. 
-%<debug>    Content is ##1}},
-            node@ttoks/.process={Ow{content}{##1}},
+%<debug>    debug tagforest/.process={OOOw3{content}{alt pre}{alt post}{No edge label. 
+%<debug>      alt pre is ##1.
+%<debug>      Content is ##2.
+%<debug>      alt post is ##3.}%
+%<debug>    },
+            node@ttoks/.process={OOOw3{alt pre}{content}{alt post}{\ ##1 ##2 ##3\ }},
           }{%
+%    \end{macrocode}
+% \changes{v0.0}{2026-01-21}{Correct ordering of content and label; add pre/post for alt.}
+%    \begin{macrocode}
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
 %<debug>    debug tagforest/.process={Ow{edge label}{Edge label is ##1}},
-%<debug>    debug tagforest/.process={Ow{content}{Content is ##1}},
-            node@ttoks/.process={ROOw3{is edge label}{content}{edge label}{\ ##1 ##2 ##3\ }},
+%<debug>    debug tagforest/.process={OOOw3{content}{alt pre}{alt post}{No edge label. 
+%<debug>      alt pre is ##1.
+%<debug>      Content is ##2.
+%<debug>      alt post is ##3.}%
+%<debug>    },
+            node@ttoks/.process={%
+              ROOOOw5
+              {is edge label}
+              {edge label}
+              {alt pre}
+              {content}
+              {alt post}
+              {\ ##1 ##2 ##3 ##4 ##5\ }%
+            },
           },
           if={>O_>{n children}{1}}{%
 %<debug>    debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}},
             node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }},
             delay={%
-              for children={%
-%<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
-%<debug>    debug tagforest/.process={Ow{n}{Branch no. is ##1}},
-                +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }},
+%    \end{macrocode}
+% \changes{v0.0}{2026-01-21}{Prepend \texttt{is branch} and number only if register not empty.}
+%    \begin{macrocode}
+              if={>Rt={is branch}{}}{%
+%<debug>                    for children={%
+%<debug>    debug tagforest/.process={Ow {id}{Node id: ####1}},
+%<debug>    debug tagforest/.process={Ow{n}{Branch no. is ####1}},
+%<debug>    debug tagforest=Nothing to prepend.,
+%<debug>                    },
+              }{%
+                for children={%
+%<debug>    debug tagforest/.process={Ow {id}{Node id: ####1}},
+%<debug>    debug tagforest/.process={Ow{n}{Branch no. is ####1}},
+                  +node@ttoks/.process={ROw2{is branch}{n}{\ ####1 ####2\ }},
+                },
               },
             },
           }{%
@@ -738,6 +815,9 @@
           },
           delay n=2{%
             alt text'/.option=node@ttoks,
+            if alt text={}{}{%
+              alt text+/.option=punct@mark,
+            },
           },
         }{},
       },
@@ -799,94 +879,130 @@
 % \end{choicekey}
 %    \begin{macrocode}
 }
+\ExplSyntaxOn
 %    \end{macrocode}
+% ^^A % \begin{splug}{tagsupport/memoize/include/extern/after~tagforest/alt}
+% ^^A %   \changes{v0.0}{2026-02-16}{Use sockets from \pkg{memoize-ext}.}
+% ^^A %    \begin{macrocode}
+% ^^A \socket_new_plug:nnn {tagsupport/memoize/include/extern/after} {tagforest/alt}
+% ^^A {
+% ^^A   \tag_mc_end:
+% ^^A   \tag_struct_end:
+% ^^A   \tag_mc_begin_pop:n{}
+% ^^A }
+% ^^A %    \end{macrocode}
+% ^^A % \end{splug}
+% ^^A % \begin{splug}{tagsupport/memoize/include/extern/before~tagforest/alt}
+% ^^A %   \changes{v0.0}{2026-02-16}{Use sockets from \pkg{memoize-ext}.}
+% ^^A %    \begin{macrocode}
+% ^^A \socket_new_plug:nnn {tagsupport/memoize/include/extern/before} {tagforest/alt}
+% ^^A {
+% ^^A   \global\advance\tagforest@id~by~1\relax
+% ^^A   \mode_if_vertical:T
+% ^^A   {
+% ^^A     \if@inlabel
+% ^^A       \mode_leave_vertical:
+% ^^A     \else
+% ^^A       \tag_socket_use:n {para/begin}
+% ^^A     \fi
+% ^^A   }
+% ^^A   \tag_mc_end_push:
+% ^^A   \tl_set:No \l_@@_toks_tl {\the\tagforesttoks}
+% ^^A   \tag_struct_begin:n
+% ^^A   {
+% ^^A     tag=Figure,
+% ^^A     alt=\l_@@_toks_tl,
+% ^^A   }
+% ^^A   \tag_mc_begin:n {tag=Figure}
+% ^^A   \cs_new:cpe {tagforest@mark@pos@\the\tagforest@id}
+% ^^A   {
+% ^^A     \@@_pgftikz_tag_bbox:ennn {tagforest-id\the\tagforest@id}
+% ^^A     {#1}{#2}{#3}
+% ^^A   }
+% ^^A   \tag_struct_gput:ene
+% ^^A   {\tag_get:n {struct_num}}
+% ^^A   {attribute}
+% ^^A   {
+% ^^A     /O /Layout /BBox~
+% ^^A     [
+% ^^A       \use:c
+% ^^A       {tagforest@mark@pos@\the\tagforest@id}
+% ^^A     ]
+% ^^A   }
+% ^^A   \tex_savepos:D
+% ^^A   \property_record:ee {tagforest-id\the\tagforest@id}
+% ^^A   {xpos,ypos}
+% ^^A   \tex_savepos:D
+% ^^A }
+% ^^A %    \end{macrocode}
+% ^^A % \end{splug}
 % \begin{splug}{tagsupport/forest/tag/mmz~alt}
 %   From \pkg{prooftrees}, which will use it from here, hopefully.
+%
+%   \changes{v0.0}{0000-00-00}{Use extern sockets from \pkg{memoize-ext}.}
+%   This greatly simplifies the syntax here and avoids complications with \pkg{expl3} in memos etc.
+%   We also no longer need use \texttt{direct input}, so drop its limitations.
 %    \begin{macrocode}
-\ExplSyntaxOn
 \socket_new_plug:nnn {tagsupport/forest/tag/mmz}{alt}
 {
-  \gtoksapp\mmzCCMemo{
-    \csname cctab_begin:c\endcsname {c_@@_nexpl_at_cctab}
-    \global\advance\tagforest@id~by~1\relax
-    \tex_savepos:D
-    \property_record:ee {tagforest-id\the\tagforest@id}
-    {xpos,ypos}
-    \tex_savepos:D
-    \mode_if_vertical:T
-    {
-      \if@inlabel
-        \mode_leave_vertical:
-      \else
-        \tag_socket_use:n {para/begin}
-      \fi
-    }
-    \tag_mc_end_push:
-    \tag_struct_begin:n
-  }
   \xtoksapp\mmzCCMemo{
+    \exp_not:N \mmzxtagtoks
+    =
     \c_left_brace_str
-    tag=Figure,
-    alt=
+    \the\tagforest@toks
+    \c_right_brace_str
+    \exp_not:N \AssignSocketPlug
     \c_left_brace_str
-  }
-  \exp_args:NNV \gtoksapp\mmzCCMemo \l_@@_toks_tl
-  \xtoksapp\mmzCCMemo{
+    tagsupport/memoize/include/extern/before
     \c_right_brace_str
+    \c_left_brace_str
+    alt
     \c_right_brace_str
-  }
-  \gtoksapp\mmzCCMemo{
-    \tag_mc_begin:n {tag=Figure}
-  }
-  \gtoksapp\mmzCCMemo{
-    \cs_new:cpe {tagforest@mark@pos@\the\tagforest@id}
-    {
-      \@@_pgftikz_tag_bbox:enn {tagforest-id\the\tagforest@id}
-      {#1}{#2}
-    }
-    \tag_struct_gput:ene
-    {\tag_get:n {struct_num}}
-    {attribute}
-    {
-      /O /Layout /BBox~
-      [
-        \use:c
-        {tagforest@mark@pos@\the\tagforest@id}
-      ]
-    }
-    \tag_mc_end:
-    \tag_struct_end:
-    \tag_mc_begin_pop:n{}
-    \cctab_end:
+    \exp_not:N \AssignSocketPlug
+    \c_left_brace_str
+    tagsupport/memoize/include/extern/after
+    \c_right_brace_str
+    \c_left_brace_str
+    alt
+    \c_right_brace_str
   }
 }
 %    \end{macrocode}
 % \end{splug}
+% \changes{v0.0}{0000-00-00}{Code for memos is now much simpler!
+% But need to allow for possible redefinition of \cs{property_ref:nn} for memoization.}
 %    \begin{macrocode}
 \hook_gput_code:nnn {begindocument/before}{.}
 {
-  \@ifpackageloaded{memoize}
+  \cs_if_free:NTF \mmzx_property_ref_orig:nn
   {
-    \tag_if_active:T
-    {
-      \mmzset{direct~ccmemo~input=true,}
-    }
-  }{}
-  \@ifpackageloaded{memoize-ext}
-  {
-    \cs_new_eq:NN \@@_property_ref_orig:nn \__mmzx_property_ref_orig:nn
-    \cs_new_eq:NN \c_@@_nexpl_at_cctab \c__mmzx_nexpl_at_cctab
-  }{
     \cs_new_eq:NN \@@_property_ref_orig:nn \property_ref:nn
-    \cctab_const:Nn \c_@@_nexpl_at_cctab {
-      \cctab_select:N \c_code_cctab 
-      \makeatletter
-      \int_set:Nn \tex_endlinechar:D { 13 }
-      \char_set_catcode_space:n      { 9 }
-      \char_set_catcode_space:n      { 32 }
-      \char_set_catcode_active:n     { 126 } % tilde
-    }
+  } {
+    \cs_new_eq:NN \@@_property_ref_orig:nn \mmzx_property_ref_orig:nn
   }
+  \cs_generate_variant:Nn \@@_property_ref_orig:nn {ee}
+% ^^A   \@ifpackageloaded{memoize}
+% ^^A   {
+% ^^A     \tag_if_active:T
+% ^^A     {
+% ^^A       \mmzset{direct~ccmemo~input=true,}
+% ^^A     }
+% ^^A   }{}
+% ^^A   \@ifpackageloaded{memoize-ext}
+% ^^A   {
+% ^^A   \cs_new_eq:NN \@@_property_ref_orig:nn \__mmzx_property_ref_orig:nn
+% ^^A   \cs_new_eq:NN \c_@@_nexpl_at_cctab \c__mmzx_nexpl_at_cctab
+% ^^A   }{
+% ^^A     \cs_new_eq:NN \@@_property_ref_orig:nn \property_ref:nn
+% ^^A     \cctab_const:Nn \c_@@_nexpl_at_cctab {
+% ^^A       \cctab_select:N \c_code_cctab 
+% ^^A       \makeatletter
+% ^^A       \int_set:Nn \tex_endlinechar:D { 13 }
+% ^^A       \char_set_catcode_space:n      { 9 }
+% ^^A       \char_set_catcode_space:n      { 32 }
+% ^^A       \char_set_catcode_active:n     { 126 } % tilde
+% ^^A     }
+% ^^A   }
 }
 \ExplSyntaxOff
 %    \end{macrocode}

@@ -36,7 +36,7 @@
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext.dtx 11545 2026-01-19 07:08:04Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext.dtx 11605 2026-02-16 18:05:43Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forestextdoc]
 \GetFileInfoSVN*
 \let\forestextdocversion\fileversion
@@ -611,10 +611,11 @@
 % So, if you specify \texttt{alt text}, you replace not only the \texttt{content} of the node in the corresponding tag, but the content of any \texttt{edge label} and any relevant structural information.
 % So if you want, say, a branch number prepended or an indication that the node is a `\texttt{child}` or `\texttt{leaf}`, say, or that the tree forks from this node, you must include that information into the \meta{tokens} when specifying \texttt{alt text}.
 %
+% \changes{v0.0}{2026-01-21}{Make default structure description slightly less verbose.}
 % \DescribeAwtoksr{is root}\val{tokens} 
 % 
 % Specify text to insert when describing the root.
-%     Default is \texttt{root}.
+%     Default is empty.
 % 
 % \DescribeAwtoksr{is child}\val{tokens} 
 % 
@@ -624,7 +625,7 @@
 % \DescribeAwtoksr{is leaf}\val{tokens} 
 % 
 % Specify text to insert when describing a leaf node.
-%     Default is \texttt{end branch}.
+%     Default is empty.
 % 
 % \DescribeAwtoksr{is edge label}\val{tokens} 
 % 
@@ -634,14 +635,22 @@
 % \DescribeAwtoksr{has branches}\val{tokens} 
 % 
 % Specify text to insert when describing a parent's branches.
-%     Default is \texttt{branches}.
+%     Default is \texttt{children}.
 %     A number is inserted before to indicate the number of branches.
 % 
 % \DescribeAwtoksr{is branch}\val{tokens} 
 % 
 % Specify text to insert when describing node's (and, hence, this subtree's) position in the tree.
-%     Default is \texttt{branch}.
+%     Default is empty.
 %     A number is appended to indicate which branch.
+%
+% \DescribeAwtotoks{alt pre}\val{tokens}
+%
+% \DescribeAwtotoks{alt post}\val{tokens}
+%
+% Default is empty.
+% These are per-node options intended to allow adding to auto-generated \texttt{alt text}.
+% They wrap around the content of the node.
 %
 % \subsubsection{Customisation}\label{subsubsec:tag-aopts}% ^^A <<<
 %
@@ -1927,7 +1936,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11545 2026-01-19 07:08:04Z cfrees $}[v0.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11605 2026-02-16 18:05:43Z cfrees $}[v0.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 \input{\MyFileBaseName.dtx}
@@ -1941,7 +1950,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11545 2026-01-19 07:08:04Z cfrees $}[v0.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11605 2026-02-16 18:05:43Z cfrees $}[v0.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation\setcounter{IndexColumns}{2}}
 \input{\MyFileBaseName.dtx}
