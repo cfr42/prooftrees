@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11608 2026-02-17 18:07:12Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11609 2026-02-17 19:00:55Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11608 2026-02-17 18:07:12Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11609 2026-02-17 19:00:55Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.1]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.1]
 %
@@ -726,6 +726,25 @@
 % We split this up so bits can be used more flexibly e.g.~by \pkg{prooftrees}.
 % \pkg{prooftrees} doesn't want the code which generates tags, but it does want \texttt{tag tree}.
 % (Well, \pkg{prooftrees} had this code first, so it wants what \pkg{ext.tagging} is pinching.
+% \begin{fstyle}{tag@nodes@aux@l,tag@nodes@aux@r}
+%   Auxiliaries.
+%    \begin{macrocode}
+  tag@nodes@aux@l/.style 2 args={%
+    if={>__={#1}{}}{#1={#2}}{%
+      if={>__={#2}{}}{}{%
+        +#1={#2\ },
+      },
+    },
+  },
+  tag@nodes@aux@r/.style 2 args={%
+    if={>__={#1}{}}{#1=#2}{%
+      if={>__={#2}{}}{}{%
+        #1+={\ #2},
+      },
+    },
+  },
+%    \end{macrocode}
+% \end{fstyle}
 % \begin{choicekey}{tag~nodes~uses}
 %   How to tag individual nodes.
 %   Currently, only nodes can be tagged.
@@ -745,7 +764,7 @@
       delay={%
         if level=0{%
           if alt text={}{%
-            +node@ttoks/.process={Rw{is root}{##1\ }},
+            tag@nodes@aux@l/.process={Rw{is root}{{node@ttoks}{##1}}},
           }{},
         }{},
       },
@@ -762,7 +781,9 @@
 %<debug>      Content is ##1.
 %<debug>      alt post is ##3.}%
 %<debug>    },
-            node@ttoks/.process={OOOw3{alt pre}{content}{alt post}{\ ##1 ##2 ##3\ }},
+            node@ttoks/.option=content,
+            tag@nodes@aux@l/.process={Ow{alt pre}{{node@ttoks}{##1}}},
+            tag@nodes@aux@r/.process={Ow{alt post}{{node@ttoks}{##1}}},
           }{%
 %    \end{macrocode}
 % \changes{v0.0}{2026-01-21}{Correct ordering of content and label; add pre/post for alt.}
@@ -774,19 +795,17 @@
 %<debug>      Content is ##1.
 %<debug>      alt post is ##3.}%
 %<debug>    },
-            node@ttoks/.process={%
-              ROOOOw5
-              {is edge label}
-              {edge label}
-              {alt pre}
-              {content}
-              {alt post}
-              {\ ##1 ##2 ##3 ##4 ##5\ }%
-            },
+            node@ttoks/.option=content,
+            tag@nodes@aux@l/.process={Ow{alt pre}{{node@ttoks}{##1}}},
+            tag@nodes@aux@r/.process={Ow{alt post}{{node@ttoks}{##1}}},
+            tag@nodes@aux@l/.process={Ow{edge label}{{node@ttoks}{##1}}},
+            tag@nodes@aux@l/.process={Rw{is edge label}{{node@ttoks}{##1}}},
           },
           if={>O_>{n children}{1}}{%
 %<debug>    debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}},
-            node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }},
+            if={>Rt={has branches}{}}{}{%
+              node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }},
+            },
             delay={%
 %    \end{macrocode}
 % \changes{v0.0}{2026-01-21}{Prepend \texttt{is branch} and number only if register not empty.}
@@ -808,12 +827,13 @@
           }{%
             if n children=1{%
               delay={%
-%<debug>    debug tagforest/.process={Ow {id}{Node id: ##1 has 1 child}},
-                !1.+node@ttoks/.process={Rw{is child}{\ ##1\ }},
+%<debug>    debug tagforest/.process={OOw2 {id}{!1.id}{Node id: ##1 has 1 child with id ##2}},
+% ^^A tag@nodes@aux@l does not work here ...
+                !1.+node@ttoks/.process={Rw{is child}{##1\ }},
               },
             }{%
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1 is a leaf}},
-              node@ttoks+/.process={Rw{is leaf}{\ ##1\ }},
+              tag@nodes@aux@r/.process={Rw{is leaf}{{node@ttoks}{##1}}},
             },
           },
           delay n=2{%
