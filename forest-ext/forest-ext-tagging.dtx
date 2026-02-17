@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11605 2026-02-16 18:05:43Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11608 2026-02-17 18:07:12Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11605 2026-02-16 18:05:43Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11608 2026-02-17 18:07:12Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.1]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.1]
 %
@@ -440,7 +440,7 @@
 \cs_new_nopar:Npn \_@@_tag_tree_tag:nnn #1#2#3
 {
   \tex_savepos:D
-  \property_record:ee {tagforest-id\the\tagforest@id}
+  \@@_property_record_orig:ee {tagforest-id\the\tagforest@id}
   {xpos,ypos}
   \tex_savepos:D
   \tl_set:Ne \l_@@_toks_tl {
@@ -650,8 +650,8 @@
 %   Options to prepend/append to \texttt{alt text}, especially in combination with auto-generation.
 %   These are per-node options.
 %    \begin{macrocode}
-  declare autowrapped toks={alt text pre}{},
-  declare autowrapped toks={alt text post}{},
+  declare autowrapped toks={alt pre}{},
+  declare autowrapped toks={alt post}{},
 %    \end{macrocode}
 % \end{autotoks}
 % \begin{ftoksr}{%
@@ -666,6 +666,7 @@
   punctuation after parent={:\ },
   declare toks register={punctuation after leaf},
   punctuation after leaf={;\ },
+  declare toks option={punct@mark}{},
 %    \end{macrocode}
 % \end{ftoks}
 % \end{ftoksr}
@@ -733,12 +734,14 @@
   tag nodes uses/noop/.style={%
     redeclare tagging keylist={tag nodes}{},
   },
+%    \end{macrocode}
+% \changes{v0.0}{2026-02-17}{Correct processor input.}
+% \changes{v0.0}{2026-02-17}{Work around my failure to figure out how to process the punctuation.}
+% The punctuations works this way, but I've no idea why it only works this way or why it otherwise fails so utterly.
+% NOTE: KEYLIST ORDER NOT GUARANTEED!!!
+%    \begin{macrocode}
   tag nodes uses/alt text/.style={%
     redeclare tagging keylist={tag nodes}{%
-      punct@mark/.process={%
-        O_=? p {n children}{0} 
-          {RR{punctuation after leaf}{punctuation after parent}}
-      },
       delay={%
         if level=0{%
           if alt text={}{%
@@ -755,8 +758,8 @@
 %    \begin{macrocode}
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
 %<debug>    debug tagforest/.process={OOOw3{content}{alt pre}{alt post}{No edge label. 
-%<debug>      alt pre is ##1.
-%<debug>      Content is ##2.
+%<debug>      alt pre is ##2.
+%<debug>      Content is ##1.
 %<debug>      alt post is ##3.}%
 %<debug>    },
             node@ttoks/.process={OOOw3{alt pre}{content}{alt post}{\ ##1 ##2 ##3\ }},
@@ -766,9 +769,9 @@
 %    \begin{macrocode}
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
 %<debug>    debug tagforest/.process={Ow{edge label}{Edge label is ##1}},
-%<debug>    debug tagforest/.process={OOOw3{content}{alt pre}{alt post}{No edge label. 
-%<debug>      alt pre is ##1.
-%<debug>      Content is ##2.
+%<debug>    debug tagforest/.process={OOOw3{content}{alt pre}{alt post}{% 
+%<debug>      alt pre is ##2.
+%<debug>      Content is ##1.
 %<debug>      alt post is ##3.}%
 %<debug>    },
             node@ttoks/.process={%
@@ -790,15 +793,15 @@
 %    \begin{macrocode}
               if={>Rt={is branch}{}}{%
 %<debug>                    for children={%
-%<debug>    debug tagforest/.process={Ow {id}{Node id: ####1}},
-%<debug>    debug tagforest/.process={Ow{n}{Branch no. is ####1}},
+%<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
+%<debug>    debug tagforest/.process={Ow{n}{Branch no. is ##1}},
 %<debug>    debug tagforest=Nothing to prepend.,
 %<debug>                    },
               }{%
                 for children={%
-%<debug>    debug tagforest/.process={Ow {id}{Node id: ####1}},
-%<debug>    debug tagforest/.process={Ow{n}{Branch no. is ####1}},
-                  +node@ttoks/.process={ROw2{is branch}{n}{\ ####1 ####2\ }},
+%<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
+%<debug>    debug tagforest/.process={Ow{n}{Branch no. is ##1}},
+                  +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }},
                 },
               },
             },
@@ -816,7 +819,11 @@
           delay n=2{%
             alt text'/.option=node@ttoks,
             if alt text={}{}{%
-              alt text+/.option=punct@mark,
+              if n children=0{% ^^A why does *only* here work, plîs?
+                alt text+/.register=punctuation after leaf,
+              }{%
+                alt text+/.register=punctuation after parent,
+              },
             },
           },
         }{},
@@ -930,7 +937,7 @@
 % ^^A     ]
 % ^^A   }
 % ^^A   \tex_savepos:D
-% ^^A   \property_record:ee {tagforest-id\the\tagforest@id}
+% ^^A   \@@_property_record_orig:ee {tagforest-id\the\tagforest@id}
 % ^^A   {xpos,ypos}
 % ^^A   \tex_savepos:D
 % ^^A }
@@ -981,6 +988,13 @@
     \cs_new_eq:NN \@@_property_ref_orig:nn \mmzx_property_ref_orig:nn
   }
   \cs_generate_variant:Nn \@@_property_ref_orig:nn {ee}
+  \cs_if_free:NTF \mmzx_property_record_orig:nn
+  {
+    \cs_new_eq:NN \@@_property_record_orig:nn \property_record:nn
+  } {
+    \cs_new_eq:NN \@@_property_record_orig:nn \mmzx_property_record_orig:nn
+  }
+  \cs_generate_variant:Nn \@@_property_record_orig:nn {ee}
 % ^^A   \@ifpackageloaded{memoize}
 % ^^A   {
 % ^^A     \tag_if_active:T

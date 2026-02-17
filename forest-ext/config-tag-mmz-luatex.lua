@@ -1,8 +1,9 @@
--- $Id: config-tag-mmz-luatex.lua 11516 2026-01-18 17:24:13Z cfrees $
+-- $Id: config-tag-mmz-luatex.lua 11608 2026-02-17 18:07:12Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 testfiledir = "testfiles-tag-mmz-lua"
 checkengines = { "luatex" }
+checkdepends = { maindir .. "/memoize-ext" }
 checkruns = 3
 recordstatus = true
 --------------------------------------------------------------------------------
