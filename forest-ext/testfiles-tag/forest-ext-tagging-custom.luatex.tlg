@@ -6,7 +6,7 @@ TEST 1: tagforest-custom
 [tagforest debug]:: Tagging active.
 [tagforest debug]:: Custom tagging configured.
 [Forest ext.utils debug]:: Creating options set with declare tagging keylist.
-declare keylist/.process={_x{tag nodes}{}}, declare keylist/.process={_x{collate tags}{}}, 
+declare keylist/.process={_x{tag nodes}{\forestext@prop@to@keylist {tag nodes}}}, declare keylist/.process={_x{collate tags}{\forestext@prop@to@keylist {collate tags}}}, 
 tagpdf DEBUG Info: Tagging suspended
 (tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed

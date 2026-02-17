@@ -5,7 +5,7 @@ TEST 1: tagforest-none
 ============================================================
 [tagforest debug]:: Tagging inactive.
 [Forest ext.utils debug]:: Creating options set with declare tagging keylist.
-declare keylist/.process={_x{tag nodes}{}}, declare keylist/.process={_x{collate tags}{}}, 
+declare keylist/.process={_x{tag nodes}{\forestext@prop@to@keylist {tag nodes}}}, declare keylist/.process={_x{collate tags}{\forestext@prop@to@keylist {collate tags}}}, 
 tagging register should be 0:
 0
 [tagforest debug]:: Process keylist: before tagging nodes ...
