@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11545 2026-01-19 07:08:04Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-utils.dtx 11607 2026-02-17 17:58:37Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-utils]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-utils.dtx 11545 2026-01-19 07:08:04Z cfrees $}
+%% $Id: forest-ext-utils.dtx 11607 2026-02-17 17:58:37Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.utils}[2025-12-05 v0.1]
 %<debug>    \ProvidesForestLibrary{ext.utils-debug}[2025-12-05 v0.1]
 %
@@ -202,7 +202,7 @@
 }
 %    \end{macrocode}
 % \end{macro}% ^^A >>>
-% \begin{macro}{\@@_fkeylist_tokeyval:n}% ^^A <<<
+% \begin{macro}{\@@_fkeylist_to_keyval:n}% ^^A <<<
 %   Wrapper.
 %    \begin{macrocode}
 \cs_new_nopar:Npn  \@@_fkeylist_to_keyval:n #1
@@ -220,7 +220,8 @@
 %    \begin{macrocode}
 \cs_new_nopar:Npn  \@@_fkeylist_to_keyval_aux:nn #1#2
 {
-  \str_if_eq:nnTF {\q_no_value} {#2}
+% ^^A   \str_if_eq:nnTF {\q_no_value} {#2}
+  \quark_if_no_value:nTF {#2}
   {\exp_not:n{#1},}{\exp_not:n{#1}=\exp_not:n{{#2}},}
 }
 %    \end{macrocode}
@@ -306,6 +307,8 @@
 %<debug>    {
 %<debug>      \typeout{[tagforext~debug]::~ #1:~}
 %<debug>      \prop_log:c {l_@@_#1_prop} 
+%<debug>      \expandafter\typeout{\the\forestext@toksa}
+%<debug>      \showthe\forestext@toksa
 %<debug>    }
 %<debug>    \cs_new_eq:NN \forestext@keylist@log \@@_fkeylist_log:n
 %    \end{macrocode}
@@ -339,7 +342,8 @@
     \forestext@toksapp\forestext@toksa{%
       declare keylist/.process={_x{#1}{\forestext@prop@to@keylist{#1}}},
     }%
-%<debug>          \expandafter\typeout\expandafter{\the\forestext@toksa}%
+%<debug>          \typeout{[Forest ext.utils debug]:: forestext@toksa:}%
+%<debug>          \expandafter\typeout{\the\forestext@toksa}%
     \pgfqkeys{/forest}{%
       forestext utils debug={Setting processing order for #1 to unique=tree.},
       #1 processing order/.nodewalk style={unique=tree},
@@ -383,7 +387,7 @@
 %    \begin{macrocode}
 \AddToHook{env/forest/begin}[.]{%
 %<debug>    \typeout{[Forest ext.utils debug]:: Creating options set with declare tagging keylist.}%
-%<debug>          \expandafter\typeout\expandafter{\the\forestext@toksa}%
+%<debug>          \expandafter\typeout{\the\forestext@toksa}%
   \expandafter\forestset\expandafter{\the\forestext@toksa}%
   \forestset{%
     tagging keylist error/.code={%
