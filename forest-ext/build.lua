@@ -1,4 +1,4 @@
--- $Id: build.lua 11545 2026-01-19 07:08:04Z cfrees $
+-- $Id: build.lua 11612 2026-02-18 02:13:50Z cfrees $
 -- Build configuration for forest-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -10,10 +10,12 @@ module = "forest-ext"
 checkconfigs = { "build", "config-tag", "config-tag-mmz" } --, "config-mem" }
 checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 checkruns = 1
+checkdeps = { maindir .. "/memoize-ext" }
 manifestfile = "manifest.txt"
 sourcefiles = {"*.dtx","*.ins"}
 tagfiles = { "*.dtx", "*.ins", "README.md", "build.lua", "manifest.txt" }
 typesetfiles = {"forest-ext-doc.tex","forest-ext-code.tex"}
+typesetdeps = { maindir .. "/memoize-ext" }
 -- typesetopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 typesetopts = "-interaction=errorstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 -- typesetdemofiles{"tagging-eg.tex"}

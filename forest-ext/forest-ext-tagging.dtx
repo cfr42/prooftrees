@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11609 2026-02-17 19:00:55Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11612 2026-02-18 02:13:50Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11609 2026-02-17 19:00:55Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11612 2026-02-18 02:13:50Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.1]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.1]
 %
@@ -136,14 +136,14 @@
 % \end{fcodekey}
 % \end{macro}
 % \begin{macro}{%
-%   \_@@_pgftikz_tag_bbox:nnn,
-%   \_@@_pgftikz_tag_bbox:enn,
+%   \@@_pgftikz_tag_bbox:nnn,
+%   \@@_pgftikz_tag_bbox:enn,
 %   }
 %   Retrieve saved coordinates.
 %    \begin{macrocode}
-\cs_new_nopar:Npn \_@@_pgftikz_tag_bbox:nnn #1#2#3
+\cs_new_nopar:Npn \@@_pgftikz_tag_bbox:nnn #1#2#3
 {
-  \_@@_pgftikz_tag_bbox_aux:eenn
+  \@@_pgftikz_tag_bbox_aux:eenn
   {
     \@@_property_ref_orig:ee {#1}{xpos}
   }
@@ -152,12 +152,12 @@
   }
   {#2}{#3}
 }
-\cs_generate_variant:Nn \_@@_pgftikz_tag_bbox:nnn {enn}
+\cs_generate_variant:Nn \@@_pgftikz_tag_bbox:nnn {enn}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{%
-%   \_@@_pgftikz_tag_bbox_aux:nnnn,
-%   \_@@_pgftikz_tag_bbox_aux:eenn,
+%   \@@_pgftikz_tag_bbox_aux:nnnn,
+%   \@@_pgftikz_tag_bbox_aux:eenn,
 % }
 %   The tagging code requires the bounding box for \emph{alt}.
 %   Getting the exact value would require something more complicated, but this calculates a reasonable approximation for simple cases.
@@ -170,7 +170,7 @@
 %   Or maybe it would be better to just save the tokens and write this after the tree is drawn?
 %   But then we probably have to save them globally in order to ‘smuggle’ them out, which is a bit obnoxious.
 %    \begin{macrocode}
-\cs_new_nopar:Npn \_@@_pgftikz_tag_bbox_aux:nnnn #1#2#3#4
+\cs_new_nopar:Npn \@@_pgftikz_tag_bbox_aux:nnnn #1#2#3#4
 {
   \dim_to_decimal_in_bp:n {#1sp}
   \c_space_tl
@@ -180,7 +180,7 @@
   \c_space_tl
   \dim_to_decimal_in_bp:n {#2sp+#4}
 }
-\cs_generate_variant:Nn \_@@_pgftikz_tag_bbox_aux:nnnn {eenn}
+\cs_generate_variant:Nn \@@_pgftikz_tag_bbox_aux:nnnn {eenn}
 %    \end{macrocode}
 % \end{macro}
 % \begin{socket}{tagsupport/forest/init,tagsupport/forest/tag,tagsupport/forest/tag/mmz,tagsupport/forest/setup}
@@ -197,8 +197,8 @@
 %    \end{macrocode}
 % \end{socket}
 % \begin{macro}{%
-%   \_@@_tag_suspend:n,
-%   \_@@_tag_resume:n,
+%   \@@_tag_suspend:n,
+%   \@@_tag_resume:n,
 % }
 %   We are going to redefine the standard \cs{tag\_suspend:n} and \cs{tag\_resume:n} to prevent the tagging code being continuously stopped and started during tree construction.
 %   Before doing that, we make private copies of both commands so that we can \begin{enumerate*}[label=(\roman*)]\item still stop/start tagging ourselves and \item restore the original definitions when we're done\end{enumerate*}.
@@ -208,14 +208,17 @@
 %   We just want to stop it interfering in \env{forest} trees.
 %   Hence the hacks.
 %    \begin{macrocode}
-\cs_new_eq:NN \_@@_tag_suspend:n \tag_suspend:n
-\cs_new_eq:NN \_@@_tag_resume:n \tag_resume:n
+\cs_new_eq:NN \@@_tag_suspend:n \tag_suspend:n
+\cs_new_eq:NN \@@_tag_resume:n \tag_resume:n
+\tl_new:N \mmzxSpace
+\tl_set:NV \mmzxSpace \c_space_tl
+\text_declare_purify_equivalent:Nn \mmzxSpace {~}
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{\_@@_noop:n}
+% \begin{macro}{\@@_noop:n}
 %   Something to \cs{let} the suspend/resume functions to.
 %    \begin{macrocode}
-\cs_new_nopar:Npn \_@@_noop:n #1 {}
+\cs_new_nopar:Npn \@@_noop:n #1 {}
 %    \end{macrocode}
 % \end{macro}
 % \begin{splug}{tagsupport/forest/init tag}
@@ -253,12 +256,12 @@
 % Since we can't disable that code only locally, we instead redefine the relevant commands.
 % Even this does not completely pause the tagging code, but it stops enough to yield a valid structure, albeit one with a lot of empty \texttt{mc}s.
 %    \begin{macrocode}
-  \cs_set_eq:NN \tag_suspend:n \_@@_noop:n
-  \cs_set_eq:NN \tag_resume:n \_@@_noop:n
+  \cs_set_eq:NN \tag_suspend:n \@@_noop:n
+  \cs_set_eq:NN \tag_resume:n \@@_noop:n
 %    \end{macrocode}
 % Suspend tagging using private copy of public function.
 %    \begin{macrocode}
-  \_@@_tag_suspend:n {tagforest}
+  \@@_tag_suspend:n {tagforest}
 }
 %    \end{macrocode}
 % \end{splug}
@@ -304,7 +307,7 @@
 % However, \pkg{latex-lab}'s bounding box calculation is \emph{far} superior to the method used here, so it would be useful to see if that can be modified for use once the rest of the code works.
 % (It should also be significantly faster.)
 %    \begin{macrocode}
-    \_@@_pgftikz_tag_bbox:enn {tagforest-id\the\tagforest@id}
+    \@@_pgftikz_tag_bbox:enn {tagforest-id\the\tagforest@id}
     {#1}{#2}
   }
 %    \end{macrocode}
@@ -323,11 +326,11 @@
 }
 %    \end{macrocode}
 % \end{splug}
-% \begin{macro}{\_@@_init:}
+% \begin{macro}{\@@_init:}
 %   Corresponds to the analogous \pkg{latex-lab} function. 
 %   Tests whether tagging is active and sets a \pkg{forest} boolean accordingly.
 %    \begin{macrocode}
-\cs_new_nopar:Npn \_@@_init:
+\cs_new_nopar:Npn \@@_init:
 {
   \global\advance\tagforest@id~by~1\relax
   \tag_if_active:TF
@@ -347,9 +350,9 @@
     \bool_if:NTF \l_forestext_tagging_custom_bool
     {
 %<debug>        \tagforest@debug@typeout{Custom~tagging~configured.}
-      \cs_set_eq:NN \_@@_end: \_@@_noop:n
+      \cs_set_eq:NN \@@_end: \@@_noop:n
     }{
-      \cs_set_eq:NN \_@@_end: \_@@_tag_end:
+      \cs_set_eq:NN \@@_end: \@@_tag_end:
 %<debug>    \tagforest@debug@typeout{Custom~tagging~not~configured.}
       \str_if_eq:eeT {tagforest@plug@NONE} {\foresteregister{setup~plug}}
       {
@@ -405,23 +408,23 @@
     \forestset{tagging=0,
 %<debug>    debug~tagforest={Tagging~inactive.},
     }
-    \cs_set_eq:NN \_@@_end: \_@@_noop:n
+    \cs_set_eq:NN \@@_end: \@@_noop:n
   }
 }
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{\_@@_end:,
-%   \_@@_tag_end:}
+% \begin{macro}{\@@_end:,
+%   \@@_tag_end:}
 %   Again, analogous to the corresponding \pkg{latex-lab} function \autocite{latex-project-latex-lab-tikz}.
 %    \begin{macrocode}
-\cs_new_eq:NN \_@@_end: \_@@_noop:n
-\cs_new_nopar:Npn \_@@_tag_end: {
-  \_@@_tag_resume:n {tagforest}
+\cs_new_eq:NN \@@_end: \@@_noop:n
+\cs_new_nopar:Npn \@@_tag_end: {
+  \@@_tag_resume:n {tagforest}
 %    \end{macrocode}
 %   Restore the format's definitions of \cs{tag\_suspend:n} and \cs{tag\_resume:n}.
 %    \begin{macrocode}
-  \cs_set_eq:NN \tag_suspend:n \_@@_tag_suspend:n
-  \cs_set_eq:NN \tag_resume:n \_@@_tag_resume:n
+  \cs_set_eq:NN \tag_suspend:n \@@_tag_suspend:n
+  \cs_set_eq:NN \tag_resume:n \@@_tag_resume:n
 %    \end{macrocode}
 %   Standardish?
 %    \begin{macrocode}
@@ -434,10 +437,10 @@
 }
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{\_@@_tag_tree_tag:nnn,\tagforest@tag@tree@tag}
+% \begin{macro}{\@@_tag_tree_tag:nnn,\tagforest@tag@tree@tag}
 %   This function is responsible for recording the tree's page coordinates, tidying up the collected tokens for the \texttt{alt} text and utilising the tagging socket.
 %    \begin{macrocode}
-\cs_new_nopar:Npn \_@@_tag_tree_tag:nnn #1#2#3
+\cs_new_nopar:Npn \@@_tag_tree_tag:nnn #1#2#3
 {
   \tex_savepos:D
   \@@_property_record_orig:ee {tagforest-id\the\tagforest@id}
@@ -449,36 +452,36 @@
 %    \end{macrocode}
 %   Utilising the socket requires briefly reenabling tagging else the commands would have no useful effects.
 %    \begin{macrocode}
-  \_@@_tag_resume:n {tagforest}
+  \@@_tag_resume:n {tagforest}
   \socket_assign_plug:nn {tagsupport/forest/tag}{#1}
   \ifmemoizing
     \socket_assign_plug:nn {tagsupport/forest/tag/mmz}{#1}
   \fi
   \socket_use:nnn {tagsupport/forest/tag}{#2}{#3}
   \socket_use:nnn {tagsupport/forest/tag/mmz}{#2}{#3}
-  \_@@_tag_suspend:n {tagforest}
+  \@@_tag_suspend:n {tagforest}
 }
 %    \end{macrocode}
 %   Alias for use in \env{pgf} syntax.
 %    \begin{macrocode}
-\cs_new_eq:NN \tagforest@tag@tree@tag \_@@_tag_tree_tag:nnn
+\cs_new_eq:NN \tagforest@tag@tree@tag \@@_tag_tree_tag:nnn
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\tagforest@init}
 %   Alias.
 %    \begin{macrocode}
-\cs_new_eq:NN \tagforest@init \_@@_init:
+\cs_new_eq:NN \tagforest@init \@@_init:
 %    \end{macrocode}
 % \end{macro}
 % \changes{v0.2}{2026-01-18}{Add hook ordering rule as switching utils (back) to begin env hook.}
 %    \begin{macrocode}
 \hook_gput_code:nnn {env/forest/end}{.}
 {
-  \_@@_end:
+  \@@_end:
 }
 \hook_gput_code:nnn {env/forest/begin}{.}
 {
-  \_@@_init:
+  \@@_init:
 }
 \hook_gset_rule:nnnn {env/forest/begin}{.}<{forest-ext/utils}
 %    \end{macrocode}
@@ -663,9 +666,9 @@
 % \chantes{v0.0}{2026-01-22}{Punctuation registers and options.}
 %    \begin{macrocode}
   declare toks register={punctuation after parent},
-  punctuation after parent={:\ },
+  punctuation after parent={:\mmzxSpace },
   declare toks register={punctuation after leaf},
-  punctuation after leaf={;\ },
+  punctuation after leaf={;\mmzxSpace },
   declare toks option={punct@mark}{},
 %    \end{macrocode}
 % \end{ftoks}
@@ -732,14 +735,14 @@
   tag@nodes@aux@l/.style 2 args={%
     if={>__={#1}{}}{#1={#2}}{%
       if={>__={#2}{}}{}{%
-        +#1={#2\ },
+        +#1={#2\mmzxSpace },
       },
     },
   },
   tag@nodes@aux@r/.style 2 args={%
     if={>__={#1}{}}{#1=#2}{%
       if={>__={#2}{}}{}{%
-        #1+={\ #2},
+        #1+={\mmzxSpace #2},
       },
     },
   },
@@ -804,7 +807,7 @@
           if={>O_>{n children}{1}}{%
 %<debug>    debug tagforest/.process={OOw2 {id}{n children}{Node id: ##1 has ##2 branches}},
             if={>Rt={has branches}{}}{}{%
-              node@ttoks+/.process={ORw2{n children}{has branches}{\ ##1 ##2\ }},
+              node@ttoks+/.process={ORw2{n children}{has branches}{\mmzxSpace ##1 ##2\mmzxSpace }},
             },
             delay={%
 %    \end{macrocode}
@@ -820,7 +823,7 @@
                 for children={%
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
 %<debug>    debug tagforest/.process={Ow{n}{Branch no. is ##1}},
-                  +node@ttoks/.process={ROw2{is branch}{n}{\ ##1 ##2\ }},
+                  +node@ttoks/.process={ROw2{is branch}{n}{\mmzxSpace ##1 ##2\mmzxSpace }},
                 },
               },
             },
@@ -829,7 +832,7 @@
               delay={%
 %<debug>    debug tagforest/.process={OOw2 {id}{!1.id}{Node id: ##1 has 1 child with id ##2}},
 % ^^A tag@nodes@aux@l does not work here ...
-                !1.+node@ttoks/.process={Rw{is child}{##1\ }},
+                !1.+node@ttoks/.process={Rw{is child}{##1\mmzxSpace }},
               },
             }{%
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1 is a leaf}},
@@ -976,21 +979,21 @@
     \exp_not:N \mmzxtagtoks
     =
     \c_left_brace_str
-    \the\tagforest@toks
+    \exp_args:No \text_purify:n {\the\tagforest@toks}
     \c_right_brace_str
     \exp_not:N \AssignSocketPlug
     \c_left_brace_str
     tagsupport/memoize/include/extern/before
     \c_right_brace_str
     \c_left_brace_str
-    alt
+    mmzx/alt
     \c_right_brace_str
     \exp_not:N \AssignSocketPlug
     \c_left_brace_str
     tagsupport/memoize/include/extern/after
     \c_right_brace_str
     \c_left_brace_str
-    alt
+    mmzx/alt
     \c_right_brace_str
   }
 }

@@ -31,7 +31,7 @@
  % debug={tagpdf},
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: forest-ext-tagging-off.lvt 11515 2026-01-18 17:23:39Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\ProvidesFileSVN{$Id: forest-ext-tagging-off.lvt 11612 2026-02-18 02:13:50Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
 \START
@@ -45,7 +45,7 @@
   }%
 }
 \OMIT
-\usepackage[extract=python]{memoize}
+\usepackage[extract=perl]{memoize}
 \ifcsname directlua\endcsname
   \relax
 \else

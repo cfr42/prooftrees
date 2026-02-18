@@ -15,7 +15,15 @@ forest-ext-tagging-no-metadata.mmz:
 ============================================================
 TEST 2: tagforest-none-mem
 ============================================================
+[tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
+[tracing memoize]   Code: \begin {forest} typeout={tagging register should be 0:}, typeout/.register=tagging, [VP [DP[John]] [V’, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}
+[tracing memoize]   Code md5sum: 196E03E873AA4FCEF68973DB4B89AB8B
+[tracing memoize]   Attempting to utilize c-memo memos/196E03E873AA4FCEF68973DB4B89AB8B.memo
 (memos/196E03E873AA4FCEF68973DB4B89AB8B.memo)
+[tracing memoize]   C-memo was processed successfully
+[tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
+[tracing memoize]   Attempting to utilize cc-memo memos/196E03E873AA4FCEF68973DB4B89AB8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[tracing memoize]   Utilization successful
 ============================================================
 ============================================================
 TEST 3: Show PDF Tags

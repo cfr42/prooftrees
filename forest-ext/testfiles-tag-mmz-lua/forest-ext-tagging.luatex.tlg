@@ -15,9 +15,22 @@ forest-ext-tagging.mmz:
 ============================================================
 TEST 2: tagforest-mem
 ============================================================
-(memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5.memo) (memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo
-\g__cctab_next_cctab=\catcodetable...
-)
+[tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
+[tracing memoize]   Code: \begin {forest} [VP [DP[John]] [V’, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}
+[tracing memoize]   Code md5sum: D77C0F8CAB7DC6EB5069B1A6CCA195C5
+[tracing memoize]   Attempting to utilize c-memo memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5.memo
+(memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5.memo)
+[tracing memoize]   C-memo was processed successfully
+[tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
+[tracing memoize]   Attempting to utilize cc-memo memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[mmzx debug]:: Args: 0; \hbox ; 148.44272pt; 124.76146pt; 0.0pt; 72.26999pt; 72.26999pt; 72.26999pt; 72.26999pt
+[mmzx debug]:: Executing plug mmzx/alt in socket tagsupport/memoize/include/extern/before.
+> \mmzx@tag@tikz@mark@pos@1=\long macro:->259.4641 542.90266 407.35223 667.19801.
+[mmzx debug]:: Recording xpos, ypos of mmxc-id1.
+[mmzx debug]:: Executing original inclusion macro.
+[mmzx debug]:: Closing tagging structures.
+[mmzx debug]:: Executing plug mmzx/alt in socket tagsupport/memoize/include/extern/after.
+[tracing memoize]   Utilization successful
 ============================================================
 ============================================================
 TEST 3: Show PDF Tags
@@ -41,12 +54,14 @@ TEST 3: Show PDF Tags
      <?MarkedContent page="1" ?>ABC apple banana pear 
      <Figure xmlns="http://iso.org/pdf2/ssn"
         id="ID.07"
-        alt="root VP 2 branches branch 1 DP child John end branch V prime V child sent end branch DP child Mary end branch DP 2 branches branch 1 D child a end branch branch 2 NP child letter end branch "
+        alt="VP 2 children : DP: child John; V prime V: child sent; DP: child Mary; DP 2 children : D: child a; NP: child letter; "
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 259.4641, 542.90266, 407.35223, 667.19801 }"
        >
+      <?MarkedContent page="1" ?>
      </Figure>
-     <?MarkedContent page="1" ?> ABC apple ba­nana pear 
+     <?MarkedContent page="1" ?> ABC apple ba
+     <?MarkedContent page="1" ?>nana pear 
     </text>
    </text-unit>
   </Document>
@@ -75,7 +90,7 @@ memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{D77C0F8CAB7DC6EB5069B1A6CCA195C5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\quitvmode \csname cctab_begin:c\endcsname {c__tagforest_nexpl_at_cctab}\global \advance \tagforest@id by 1\relax \tex_savepos:D \property_record:ee {tagforest-id\the \tagforest@id }{xpos,ypos}\tex_savepos:D \mode_if_vertical:T {\if@inlabel \mode_leave_vertical: \else \tag_socket_use:n {para/begin}\fi }\tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={root VP 2 branches   branch 1 DP  child John end branch  V prime V  child sent end branch  DP  child Mary end branch  DP 2 branches   branch 1 D  child a end branch   branch 2 NP  child letter end branch  }}\tag_mc_begin:n {tag=Figure}\cs_new:cpe {tagforest@mark@pos@\the \tagforest@id }{\__tagforest_pgftikz_tag_bbox:enn {tagforest-id\the \tagforest@id }{148.44272pt}{124.76146pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {tagforest@mark@pos@\the \tagforest@id }]}\tag_mc_end: \tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {148.44272pt}{124.76146pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
+\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={VP 2 children :  DP:  child John;  V prime V:  child sent;  DP:  child Mary;  DP 2 children :  D:  child a;  NP:  child letter;  }\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {148.44272pt}{124.76146pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]

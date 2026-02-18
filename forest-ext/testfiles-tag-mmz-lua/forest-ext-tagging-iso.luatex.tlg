@@ -15,9 +15,22 @@ forest-ext-tagging-iso.mmz:
 ============================================================
 TEST 2: tagforest-iso-mem
 ============================================================
-(memos/3B3123F6CC4859EF1D234AF2632EAC38.memo) (memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo
-\g__cctab_next_cctab=\catcodetable...
-)
+[tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
+[tracing memoize]   Code: \begin {forest} [a[b][c]] \end {forest}
+[tracing memoize]   Code md5sum: 3B3123F6CC4859EF1D234AF2632EAC38
+[tracing memoize]   Attempting to utilize c-memo memos/3B3123F6CC4859EF1D234AF2632EAC38.memo
+(memos/3B3123F6CC4859EF1D234AF2632EAC38.memo)
+[tracing memoize]   C-memo was processed successfully
+[tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
+[tracing memoize]   Attempting to utilize cc-memo memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[mmzx debug]:: Args: 0; \hbox ; 30.39867pt; 39.04483pt; 0.0pt; 72.26999pt; 72.26999pt; 72.26999pt; 72.26999pt
+[mmzx debug]:: Executing plug mmzx/alt in socket tagsupport/memoize/include/extern/before.
+> \mmzx@tag@tikz@mark@pos@1=\long macro:->148.71233 628.29906 178.99742 667.19801.
+[mmzx debug]:: Recording xpos, ypos of mmxc-id1.
+[mmzx debug]:: Executing original inclusion macro.
+[mmzx debug]:: Closing tagging structures.
+[mmzx debug]:: Executing plug mmzx/alt in socket tagsupport/memoize/include/extern/after.
+[tracing memoize]   Utilization successful
 ============================================================
 ============================================================
 TEST 3: Show PDF Tags
@@ -38,15 +51,14 @@ TEST 3: Show PDF Tags
        Layout:TextAlign="Justify"
        rolemaps-to="P"
       >
-     <?MarkedContent page="1" ?>
      <Figure xmlns="http://iso.org/pdf2/ssn"
         id="ID.07"
-        alt="root a 2 branches branch 1 b end branch branch 2 c end branch "
+        alt="a 2 children : b; c; "
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 148.71233, 628.29906, 178.99742, 667.19801 }"
        >
+      <?MarkedContent page="1" ?>
      </Figure>
-     <?MarkedContent page="1" ?>
     </text>
    </text-unit>
   </Document>
@@ -75,7 +87,7 @@ memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\quitvmode \csname cctab_begin:c\endcsname {c__tagforest_nexpl_at_cctab}\global \advance \tagforest@id by 1\relax \tex_savepos:D \property_record:ee {tagforest-id\the \tagforest@id }{xpos,ypos}\tex_savepos:D \mode_if_vertical:T {\if@inlabel \mode_leave_vertical: \else \tag_socket_use:n {para/begin}\fi }\tag_mc_end_push: \tag_struct_begin:n {tag=Figure,alt={root a 2 branches   branch 1 b end branch   branch 2 c end branch  }}\tag_mc_begin:n {tag=Figure}\cs_new:cpe {tagforest@mark@pos@\the \tagforest@id }{\__tagforest_pgftikz_tag_bbox:enn {tagforest-id\the \tagforest@id }{30.39867pt}{39.04483pt}}\tag_struct_gput:ene {\tag_get:n {struct_num}}{attribute}{/O/Layout/BBox [\use:c {tagforest@mark@pos@\the \tagforest@id }]}\tag_mc_end: \tag_struct_end: \tag_mc_begin_pop:n {}\cctab_end: \mmzIncludeExtern {0}\hbox {30.39867pt}{39.04483pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {5}%[nl]
+\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={a 2 children :  b;  c;  }\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {30.39867pt}{39.04483pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {5}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
