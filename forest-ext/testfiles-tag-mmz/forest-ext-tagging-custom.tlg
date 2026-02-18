@@ -7,15 +7,417 @@ forest-ext-tagging-custom.mmz:
 -------- forest-ext-tagging-custom.mmz (start) ---------
 (forest-ext-tagging-custom.mmz) \mmzPrefix {memos/}[nl]
 \mmzUsedCMemo {memos/A3F53F620EFA8C6F85797C6E1C49590B.memo}[nl]
-\mmzUsedExtern {memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzNewCMemo {memos/A3F53F620EFA8C6F85797C6E1C49590B.memo}[nl]
 \endinput[nl]
 -------- forest-ext-tagging-custom.mmz (end) -----------
 ============================================================
 ============================================================
 TEST 2: tagforest-custom-mem
 ============================================================
-(memos/A3F53F620EFA8C6F85797C6E1C49590B.memo) (memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo)
+[tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
+[tracing memoize]   Code: \begin {forest} typeout={tagging should be 1:}, typeout/.register=tagging, [VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}
+[tracing memoize]   Code md5sum: A3F53F620EFA8C6F85797C6E1C49590B
+[tracing memoize]   Attempting to utilize c-memo memos/A3F53F620EFA8C6F85797C6E1C49590B.memo
+(memos/A3F53F620EFA8C6F85797C6E1C49590B.memo)
+[tracing memoize]   C-memo was processed successfully
+[tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
+[tracing memoize]   Attempting to utilize cc-memo memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[tracing memoize]   CC-memo does not exist
+[tracing memoize]   Cc-memo input failed
+[tracing memoize]   Memoizing
+[tagforest debug]:: Tagging active.
+[tagforest debug]:: Custom tagging configured.
+[Forest ext.utils debug]:: Creating options set with declare tagging keylist.
+declare keylist/.process={_x{tag nodes}{\forestext@prop@to@keylist {tag nodes}}}, declare keylist/.process={_x{collate tags}{\forestext@prop@to@keylist {collate tags}}}, 
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+tagging should be 1:
+1
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor}, anchor/.style={/forest/TeX={\forestanchortotikzanchor {##1}\forest@temp@anchor }, forest@orig@anchor/.expand once=\forest@temp@anchor }.
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+Package tagpdf Warning: there is no mc to end at 85
+[tagforest debug]:: Process keylist: before tagging nodes ...
+[tagforest debug]:: Process keylist: tag nodes ...
+[tagforest debug]:: Process keylist: before collating tags ...
+[tagforest debug]:: Process keylist: collate tags ...
+[tagforest debug]:: Process keylist: before tagging tree ...
+[tagforest debug]:: Stage: tag tree stage ...
+[tagforest debug]:: Completed all tagging stages!
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is .
+[mmzx debug]:: No plug set for utilisation. Trying to match latex-lab plug.
+[mmzx debug]:: Found unsupported text plug.
+Package memoize-ext Warning: Unsupported tag config for tikz picture. Please use one of alt, actualtext and artifact. Note that text (the latex-lab default) is NOT supported. Aborting memoization. on input line ....
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture.
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+tagpdf DEBUG Info: Tagging resumed
+(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+[tracing memoize]   Memoization was aborted
+Package memoize Info: Memoization was aborted on input line ....
 ============================================================
 ============================================================
 TEST 3: Show PDF Tags
@@ -36,7 +438,49 @@ TEST 3: Show PDF Tags
        Layout:TextAlign="Justify"
        rolemaps-to="P"
       >
-     <?MarkedContent page="1" ?>ABC apple banana pearABC apple ba-nana pear
+     <?MarkedContent page="1" ?>ABC apple banana pearVPDPJohnV’VsentDPMaryDPDaNPletterABC apple ba-nana pear
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>VP
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>DP
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>John
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>V’
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>V
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>sent
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>DP
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>Mary
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>DP
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>D
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>a
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>NP
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>letter
+     <?MarkedContent page="1" ?>
+     <?MarkedContent page="1" ?>
     </text>
    </text-unit>
   </Document>
@@ -57,19 +501,6 @@ memos/A3F53F620EFA8C6F85797C6E1C49590B.memo:
 \mmzSource[nl]
 \begin {forest} typeout={tagging should be 1:}, typeout/.register=tagging, [VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}[nl]
 -------- memos/A3F53F620EFA8C6F85797C6E1C49590B.memo (end) -----------
-============================================================
-============================================================
-TEST 5: tagforest-custom-mem-ccmemo
-============================================================
-memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
-\mmzMemo[nl]
-\quitvmode \mmzIncludeExtern {0}\hbox {148.39047pt}{124.06189pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
-\mmzThisContext[nl]
-padding=(1in,1in,1in,1in),[nl]
-\mmzEndMemo[nl]
--------- memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 tagpdf DEBUG Info: Tagging resumed
 (tagpdf DEBUG)     level: 1 ==> 0, label: l3build [on line ...]

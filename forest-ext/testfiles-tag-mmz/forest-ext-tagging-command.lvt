@@ -34,7 +34,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: forest-ext-tagging-command.lvt 11612 2026-02-18 02:13:50Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\ProvidesFileSVN{$Id: forest-ext-tagging-command.lvt 11615 2026-02-18 04:20:08Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
 \START
@@ -49,6 +49,7 @@
 }
 \OMIT
 \usepackage[extract=perl]{memoize}
+\usepackage{memoize-ext-debug}
 \ifcsname directlua\endcsname
   \relax
 \else

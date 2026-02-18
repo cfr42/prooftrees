@@ -34,7 +34,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: forest-ext-tagging-custom.lvt 11612 2026-02-18 02:13:50Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\ProvidesFileSVN{$Id: forest-ext-tagging-custom.lvt 11615 2026-02-18 04:20:08Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
 \START
@@ -49,6 +49,7 @@
 }
 \OMIT
 \usepackage[extract=perl]{memoize}
+\usepackage{memoize-ext-debug}
 \ifcsname directlua\endcsname
   \relax
 \else
@@ -91,15 +92,15 @@
     \TYPE{CANNOT FIND memos/A3F53F620EFA8C6F85797C6E1C49590B.memo!}%
   }%
 }
-\TEST{tagforest-custom-mem-ccmemo}{%
-  \IfFileExists{memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}{%
-    \TYPE{memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:}%
-    \NEWLINE
-    \SHOWFILE{memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}%
-  }{%
-    \TYPE{CANNOT FIND memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo!}%
-  }%
-}
+% \TEST{tagforest-custom-mem-ccmemo}{%
+%   \IfFileExists{memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}{%
+%     \TYPE{memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:}%
+%     \NEWLINE
+%     \SHOWFILE{memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}%
+%   }{%
+%     \TYPE{CANNOT FIND memos/A3F53F620EFA8C6F85797C6E1C49590B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo!}%
+%   }%
+% }
 \ResumeTagging {l3build}%
 \OMIT
 \end{document}
