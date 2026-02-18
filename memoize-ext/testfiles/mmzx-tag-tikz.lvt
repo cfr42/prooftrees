@@ -1,0 +1,67 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `mmzx-tag.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% memoize-ext. You may however distribute the package memoize-ext without
+%% such generated files.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{%
+  tagging=on,
+  lang=en-GB,
+  pdfversion=2.0,
+  pdfstandard=UA-2,
+  uncompress,
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: mmzx-tag-tikz.lvt 11586 2026-02-06 07:15:47Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\input regression-test.tex\relax
+\documentclass{article}
+\input{mmzx-support.cfg}
+\START
+\TYPE{memoize}
+\TESTMMZ
+\OMIT
+\usepackage{memoize}
+\mmzset{prefix=memos/,include context in ccmemo,trace}
+\usepackage{memoize-ext-tag-debug}	
+\usepackage{tikz}
+\title{memoize-ext: tagging tikz pics}
+\begin{document}
+\TIMO
+\TESTMEMOIZATION*{alt}{
+  \begin{tikzpicture}[alt=Square]
+    \draw (0,0) rectangle (1,1);
+  \end{tikzpicture}%
+}{BADC0AA30949AEB754F17F7170D260BF}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION*{actualtext}{
+  \begin{tikzpicture}[actualtext=o]
+    \draw circle (10pt);
+  \end{tikzpicture}%
+}{608761D624C8F4474C490F8F1A4DE768}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION*{artifact}{
+  \begin{tikzpicture}[artifact]
+    \draw (0,0) .. controls +(1,-1) and +(1,1) .. (5,5);
+  \end{tikzpicture}%
+}{F0269457E4045939B5D1E8B500CC3218}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\SHOWPDFTAGS
+\OMIT
+\end{document}
+% vim: ts=2:sw=2:et:

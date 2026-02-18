@@ -1,0 +1,671 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% memoize-ext.dtx
+% Additions and changes Copyright (C) 2024-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file memoize-ext.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+% ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
+\def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
+\GetIdInfo $Id: memoize-ext.dtx 11599 2026-02-16 04:20:40Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\documentclass[11pt,british]{ltxdoc}
+\usepackage{memoize-ext}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+% \OnlyDescription
+\DoNotIndex{\verb,}
+\usepackage{babel}
+\usepackage{fancyhdr}
+\usepackage[plain]{fancyref}
+\usepackage{fixfoot}
+\usepackage{array,tabularx}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage[referable]{threeparttablex}
+\makeatletter
+\def\TPT@measurement{% ateb David Carlisle: https://tex.stackexchange.com/a/370691/
+  \ifdim\wd\@tempboxb<\TPTminimum
+    \hsize \TPTminimum
+  \else
+    \hsize\wd\@tempboxb
+  \fi
+  \xdef\TPT@hsize{\hsize\the\hsize \noexpand\@parboxrestore}\TPT@hsize
+  \ifx\TPT@docapt\@undefined\else
+    \TPT@docapt \vskip.2\baselineskip
+  \fi \par
+  \dimen@\dp\@tempboxb % new
+  \box\@tempboxb
+  \ifvmode \prevdepth\dimen@ \fi% was \z@ not \dimen@
+}
+\renewlist{tablenotes}{enumerate}{1}
+\setlist[tablenotes]{label=\tnote{\alph*},ref=\alph*,itemsep=\z@,topsep=\z@skip,partopsep=\z@skip,parsep=\z@,itemindent=\z@,labelindent=\tabcolsep,labelsep=.2em,leftmargin=*,align=left,before={\unskip\medskip\footnotesize}}
+\makeatother
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{xurl}
+% \urlstyle{tt}
+\urlstyle{sf}
+\usepackage{microtype}
+\usepackage[a4paper,headheight=14pt,marginparwidth=45mm,hmarginratio=4:1,vscale=.8,hscale=.7,verbose]{geometry}	% use 14pt for 11pt text, 15pt for 12pt text
+% addaswyd o chronos.tex
+\newlength\tewadjust
+\newlength\chronosdoctemplgth
+\AddToHook {begindocument/after}[.]
+{%
+  \setlength\tewadjust{\marginparwidth+\marginparsep-\paperwidth+\textwidth+\oddsidemargin+1in}%
+  \setlength\chronosdoctemplgth{0pt}%
+}
+\usepackage{csquotes}
+\MakeAutoQuote{‘}{’}
+\MakeAutoQuote*{“}{”}
+\usepackage{caption}
+\DeclareCaptionFont{lf}{\lstyle}
+\captionsetup[table]{labelfont=lf}
+% sicrhau hyperindex=false: llwytho CYN bookmark
+\usepackage{hypdoc}% ateb Ulrike Fischer: https://tex.stackexchange.com/a/695555/
+\usepackage{bookmark}
+\hypersetup{%
+  colorlinks=true,
+  citecolor={moss},
+  extension=pdf,
+  linkcolor={strawberry},
+  linktocpage=true,
+  pdfcreator={TeX},
+  pdfproducer={pdfeTeX},
+  urlcolor={blueberry}%
+}
+\NewDocElement[%
+  macrolike,
+  idxtype=fn.,
+  idxgroup=expl3 functions,
+  printtype=\textit{fn.},
+]{Fn}{fn}
+\NewDocElement[%
+  idxtype=key,
+  idxgroup=expl3 keys,
+  printtype=\textit{expl3 key},
+]{Key}{key}
+\NewDocElement[%
+  printtype=\textdagger,
+  idxtype=,
+  idxgroup=,
+  macrolike,
+]{DMacro}{dmacro}
+\NewDocElement[%
+  idxtype=opt.,
+  idxgroup=options,
+  printtype=\textit{opt.},
+]{Opt}{option}
+\NewDocElement[%
+  idxtype=pgfkey,
+  idxgroup=pgfkeys,
+  printtype=\textit{pgfkey},
+]{Pgfkey}{pgfkey}
+\NewDocElement[%
+  idxtype=pkg.,
+  idxgroup=,
+  printtype=\textit{pkg.},
+]{Pkg}{package}
+\NewDocElement[%
+  idxtype=plug,
+  idxgroup=plugs,
+  printtype=\textit{plug},
+]{SPlug}{plug}
+\NewDocElement[%
+  idxtype=socket,
+  idxgroup=sockets,
+  printtype=\textit{socket},
+]{Sock}{socket}
+\NewDocElement[%
+  idxtype=var,
+  idxgroup=expl3 variables,
+  printtype=\textit{var.},
+]{Var}{var}
+\NewDocumentCommand \val { m }
+{%
+  {\ttfamily =\,\meta{#1}}%
+}
+\ExplSyntaxOn
+\NewDocumentCommand \vals { m }
+{
+  {
+    \ttfamily = \, 
+    \clist_use:nn { #1 } { \textbar }
+  }
+} 
+\keys_define:nn { memoize-ext / doc }
+{
+  unknown .code:n = {
+    \cs_if_free:cT { \l_keys_key_str }
+    {
+      \tl_gset:cn { \l_keys_key_str } { #1 }
+    }
+  },
+}
+\NewDocumentCommand \memoizeextdocset { +m }
+{
+  \keys_set:nn { memoize-ext / doc } { #1 }
+}
+\ExplSyntaxOff
+\memoizeextdocset{%
+  bug={\href{https://codeberg.org/cfr/memoize-ext/issues}{\textsc{bugtracker}}},
+  codeberg={\href{https://codeberg.org/cfr/memoize-ext}{\textsc{codeberg}}},
+  github={\href{https://github.com/cfr42/memoize-ext}{\textsc{github}}},
+  ctan={\href{https://ctan.org/}{\textsc{ctan}}},
+}
+% \usepackage{cleveref}
+\newcommand*{\gust}{\textsc{Gust}}
+\newcommand*{\lpack}[1]{\textsf{#1}}
+\newcommand*{\fgroup}[1]{\textsf{#1}}
+\newcommand*{\fname}[1]{\textsf{#1}}
+\newcommand*{\file}[1]{\texttt{#1}}
+\NewDocumentCommand\texse{om}{%
+  \href{https://tex.stackexchange.com/#2}{\TeX{} \textsc{se}\IfValueT{#1}{: #1}}%
+}
+\title{\filebase}
+\author{Clea F. Rees\thanks{%
+    Bug tracker:
+    \href{https://codeberg.org/cfr/memoize-ext/issues}{\url{codeberg.org/cfr/memoize-ext/issues}}
+    \textbar{} Code:
+    \href{https://codeberg.org/cfr/memoize-ext}{\url{codeberg.org/cfr/memoize-ext}}
+    \textbar{} Mirror:
+    \href{https://github.com/cfr42/memoize-ext}{\url{github.com/cfr42/memoize-ext}}% 
+}}
+\date{\ExplFileVersion~\ExplFileDate}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhf[lh]{\itshape\ExplFileName}
+\fancyhf[rh]{\itshape\ExplFileVersion}
+\fancyhf[cf]{\itshape--- \thepage~/~\lastpage{} ---}
+\ExplSyntaxOn
+\hook_gput_code:nnn {shipout/lastpage} {.}
+{
+  \property_record:nn {t:lastpage}{abspage,page,pagenum}
+}
+\cs_new_protected_nopar:Npn \lastpage 
+{
+  \property_ref:nn {t:lastpage}{page}
+}
+\cs_new_eq:NN \OrigMakePrivateLetters \MakePrivateLetters
+\ExplSyntaxOff
+\definecolor{strawberry}{rgb}{1.000,0.000,0.502}
+\definecolor{blueberry}{rgb}{0.000,0.000,1.000}
+\definecolor{moss}{rgb}{0.000,0.502,0.251}
+
+\begin{document}
+\let\MakePrivateLetters\MyMakePrivateLetters
+\DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+%
+% ^^A \changes{v1.0}{???}{First public release.}
+% ^^A lua will replace v0.0 and 0000/00/00 when tagging
+% ^^A \changes{v0.0}{0000/00/00}{}
+% 
+% \maketitle\thispagestyle{empty}
+% \pdfinfo{%
+% 	/Creator		(TeX)
+% 	/Producer		(pdfTeX)
+% 	/Author			(Clea F. Rees)
+% 	/Title			(memoize-ext)
+% 	/Subject		(TeX)
+% 	/Keywords		(TeX,LaTeX,Clea,Rees)}
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{0.5em}
+% 
+% 
+% \begin{abstract}
+%   \noindent\lpack{memoize-ext} provides extensions for \citeauthor{saso-memoize}'s package \pkg{memoize} \autocite*{saso-memoize}.
+%   In particular, it supports the memoization of content in tagged \textsc{pdf}s and presentations produced with \citeauthor{joseph-talk}'s \pkg{ltx-talk} \autocite*{joseph-talk}.
+% \end{abstract}
+%
+% \tableofcontents
+%
+% \section{Usage}
+%
+% Usage is simple.
+% \iffalse
+%<*verb>
+% \fi
+\begin{verbatim}
+\usepackage{memoize-ext}
+\end{verbatim}
+% \iffalse
+%</verb>
+% \fi
+% The package will automatically load \pkg{memoize} and pass any unrecognised options onto that package.
+%
+% For use with \pkg{ltx-talk} either
+% \iffalse
+%<*verb>
+% \fi
+\begin{verbatim}
+\DocumentMetadata{}
+\RequirePackage{memoize}
+\documentclass{ltx-talk}
+\usepackage{memoize-ext}
+\end{verbatim}
+% \iffalse
+%</verb>
+% \fi
+% or
+% \iffalse
+%<*verb>
+% \fi
+\begin{verbatim}
+\DocumentMetadata{}
+\RequirePackage{memoize-ext}
+\documentclass{ltx-talk}
+\end{verbatim}
+% \iffalse
+%</verb>
+% \fi
+% may be required.
+% 
+% If necessary, a small number of package options are available to customise which code is loaded.
+% 
+% \DescribeOption{expl3}\vals{true,false}
+% 
+% Loads code supporting \pkg{expl3} syntax.
+%
+% Default is \texttt{true}.
+% Initially \texttt{false}.
+%
+% \DescribeOption{l3draw}\vals{true,false}
+% 
+% Loads code supporting \pkg{l3draw}, if the package is loaded.
+%
+% Default is \texttt{true}.
+% Initially \texttt{true}.
+%
+% \DescribeOption{tag}\vals{true,false}
+% 
+% Loads code supporting tagged \textsc{pdf}, if \LaTeX's tagging code is activated.
+%
+% Default is \texttt{true}.
+% Initially \texttt{true} if tagging is activated; \texttt{false} otherwise.
+% 
+% \DescribeOption{talk}\vals{true,false}
+% 
+% Loads code supporting \cls{ltx-talk}, if the class is loaded.
+%
+% Default is \texttt{true}.
+% Initially \texttt{true}.
+%
+% Note that the additional code is not loaded if a different class is used, regardless of this setting.
+% The option is provided in case it is necessary to disable support for the class, without disabling other parts of \pkg{memoize-ext}.
+%
+% \subsection{\pkg{ltx-talk}}
+%
+% The code is based on that provided by \pkg{memoize} for \pkg{beamer} and supports the same options, except that ‘\texttt{talk}’ is substituted for ‘\texttt{bemaer}’.
+% 
+% \Describe{Pgfkey}{per overlay} Equivalent to the \pkg{beamer} option of the same name.
+%
+% \Describe{Pgfkey}{talk mode to prefix} Equivalent to \pkg{beamer mode to prefix}.
+%
+% The code uses and/or changes internal code from both \cls{ltx-talk} and \pkg{memoize}.
+% While the public interface for \pkg{memoize} is fairly stable, the internals may not be, and \pkg{ltx-talk} is highly experimental. 
+% The latter also uses a large number of experimental packages and makes extensive use of experimental \LaTeX{} features.
+% 
+% The justification for publishing this part of \pkg{memoize-ext} is essentially that anybody using \cls{ltx-talk} and \pkg{memoize} is already playing with fire, so it is better to have an unreliable extinguisher to hand than none at all.
+%
+% A few things you should know, even if you do not want to:
+% \begin{itemize}
+%   \item the code uses an internal \pkg{ltx-talk} boolean to drive extern creation and utilisation;
+%   \item \texttt{talk mode to prefix} relies on an internal \pkg{ltx-talk} string;
+%   \item to workaround incompatibilities between \pkg{memoize} and \pkg{pdfmanagement}, the code redefines an internal \pkg{memoize} macro\footnote{%
+%     The redefinition injects code into the box \pkg{memoize} ships out which resets opacity before and after the memoized code is executed.
+%     This is required because \pkg{memoize} relies on primitive shipout, whereas the implementation of opacity in \pkg{pdfmanagement} relies on \LaTeX's shipout routine.%
+%   }.
+% \end{itemize}
+%
+% \subsection{Tagged \textsc{pdf}}
+%
+% \subsubsection{\TikZ{} pictures}
+%
+% If the content you wish to memoize is a \TikZ{} picture, you probably do not need to do anything special, but note that the default \pkg{latex-lab} plug is \emph{not} supported. 
+% You must use one of \texttt{alt}, \texttt{actualtext} or \texttt{artifact}.
+%
+% If you use \textt{alt} or \texttt{actualtext} in the optional argument to \env{tikzpicture}, the value will be recorded in the \emph{ccmemo} for use during utilisation.
+% If you set the value outside the \env{tikzpicture}, this is not necessary.
+% In the latter case, the \emph{extern} will not depend on the value given (unless you request that specifically).
+%
+% Note that if you change the selected plug \emph{and} you set this \emph{outside} the picture, you must manually tell \pkg{memoize} it should recompile the picture, since the plug is recorded in the ccmemo, but the hash will not have changed.
+%
+% Note that tagging is disabled during memoization and additionally \emph{disabled for content which has just been memoizsed}.
+% So when a run produces an extern, the memoized code will not be tagged at all.
+%
+% \textbf{Note that this package does \emph{not} support \pkg{forest}.}
+% If your document uses \pkg{forest}, you should either disable memoization for these pictures or load \pkg{forest-ext}\footnote{%
+%   This is not necessary if you use \pkg{prooftrees}, which will load the package automatically if required.%
+% }.
+%
+% The \TikZ{} support is implemented by replacing plugs provided by \pkg{latex-lab} with versions designed for memoized content.
+% Code is also installed into the same hooks \pkg{latex-lab} uses with rules to ensure this package's has priority.
+%
+% \DescribeSPlug{mmzx}
+% Plug for \texttt{tagsupport/tikz/picture/init}
+%
+% If memoization is not active, the plug executes the \pkg{latex-lab} \texttt{default} plug.
+%
+% If some option for this package is specifically configured, it is used.
+% Otherwise, the code initialisation code at the start of the picture attempts to find a match for any configured \pkg{latex-lab} plug.
+% In effect, this means that you should not need to change anything in your document if you use one of the three supported plugs.
+%
+% If memoization is enabled but no suitable plug is found, a warning is issued and memoization aborted.  
+% Otherwise, code is inserted into the ccmemo to emulate the appropriate \pkg{latex-lab} plug.
+% In most cases, this code simply calls the relevant \pkg{latex-lab} plugs.
+% 
+%
+% Plugs for \texttt{tagsupport/tikz/picture/begin} and \texttt{tagsupport/tikz/picture/end}:
+%
+% \DescribeSPlug{mmzx/actualtext}
+% Sets up the ccmemo to use the \pkg{latex-lab} \texttt{actualtext} plugs.
+% 
+% \DescribeSPlug{mmzx/artifact}
+% Sets up the ccmemo to use the \pkg{latex-lab} \texttt{artifact} plugs.
+%
+% \DescribeSPlug{mmzx/alt}
+% This pair of plugs is the exception.
+% Rather than writing a ccmemo which will invoke the \pkg{latex-lab} \texttt{alt} plugs, these plugs write a ccmemo which uses an alternative implementation of those plugs.
+% The reimplementation uses \emph{properties} (provided by the \LaTeX{} format) rather than  \emph{rememberpicture} (provided by \pgftikz)\footnote{%
+%   I considered using the support provided for \cs{includegraphic}, but this would require more intrusive changes to the internals of \pkg{memoize} and would essentially duplicate bounding box calculations already completed during memoization.%
+% }.
+%
+% \emph{If everything looks OK, tagging is disabled for the current picture.}
+% This is efficient if memoization is successful, but may be problematic if memoization is aborted or fails. 
+% In this case, it may be necessary to mark the content as unmemoizable or to disable memoization for particular pictures, in order to ensure content is tagged correctly\footnote{%
+%   It would be possible to disable tagging only if memoization succeeds, but I am not sure whether the structure will be right in this case?%
+% }.
+% 
+% \subsubsection{Other content}
+%
+% If the content you wish to memoize is \emph{not} a \TikZ{} picture, you may need to read the remainder of this section.
+%
+% Generic support is provided in the form of two sockets which are used directly before and directly after an extern is included during utilisation.
+% By default, the sockets do nothing, but they may be used to inject code which wraps the included extern in a suitable tagging structure.
+% 
+% Plugs may be assigned to the sockets either by writing suitable code to the ccmemo or in the document itself.
+% The \TikZ{} support, for example, writes commands to the ccmemo which assign plugs analogous to the \pkg{latex-lab} plugs available for non-memoized pictures.
+%
+% \DescribeSock{tagsupport/memoize/include/extern/before}
+%
+% This socket receives three arguments during extern utilisation: the width, height and depth of the memoized content.
+% The \texttt{alt} plug for \TikZ{}, for example, uses these values to calculate the bounding box required to create a \texttt{Figure} structure with \texttt{alt} text.
+%
+% This socket is used just before the extern is included in the document.
+%
+% \DescribeSock{tagsupport/memoize/include/extern/after}
+%
+% This socket absorbs no arguments.
+% During extern utilisation, it is used immediately after inclusion of an extern.
+%
+%
+% 
+% \MaybeStop{%
+% \PrintChanges
+% \PrintIndex
+% }
+% 
+% \section{Implementation}
+%
+% You do not need to read the remainder of this document in order to install or use the package.
+%
+%<*sty>
+%<@@=mmzx>
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}[2021-11-15]% ^^A should be later
+%    \end{macrocode}
+% copied verbatim, excepting format from Joseph Wright's \path{siunitx.sty} under LPPL
+%    \begin{macrocode}
+\@ifundefined{ExplLoaderFileDate}{%
+  \RequirePackage{expl3}%
+}{}
+%    \end{macrocode}
+% almost verbatim from \path{siunitx.sty}
+%
+% should check date requirement (copied from chronos)
+%    \begin{macrocode}
+\@ifl@t@r\ExplLoaderFileDate{2022-02-24}{%
+}{%
+  \PackageError{memoize-ext}{Support package expl3 too old}
+  {%
+    You need to update your installation of the bundles 'l3kernel' and
+    'l3packages'.\MessageBreak
+    Loading memoize-ext will abort!%
+  }%
+  \endinput
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\GetIdInfo $Id: memoize-ext.dtx 11599 2026-02-16 04:20:40Z cfrees $ {Extensions for Memoize}
+%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+%<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+%
+\str_new:N \g_@@_name_str
+\str_gset:NV \g_@@_name_str \ExplFileName
+%
+%<!debug>    \disable@package@load {memoize-ext-debug}
+%<debug>    \disable@package@load {memoize-ext}
+{
+  Only~one~of~memoize-ext~and~memoize-ext-debug~should~be~loaded.~
+  Since~
+%<!debug>    memoize-ext
+%<debug>    memoize-ext-debug
+  ~had~been~loaded,~I~will~ignore~your~request~for~
+%<debug>    memoize-ext
+%<!debug>    memoize-ext-debug
+.}
+\SetDefaultHookLabel{memoize-ext}
+%    \end{macrocode}
+% \begin{var}{\l_@@_opt_tag_bool}
+%   Set according to activation status by default.
+%    \begin{macrocode}
+\bool_new:N \l_@@_opt_tag_bool
+\tag_if_active:TF 
+  { \bool_set_true:N \l_@@_opt_tag_bool }{ \bool_set_false:N \l_@@_opt_tag_bool }
+%    \end{macrocode}
+% \end{var}
+% \begin{var}{\l_@@_opt_draw_bool,\l_@@_opt_expl_bool}
+%   Other bools.
+%    \begin{macrocode}
+\keys_define:nn {memoize-ext}
+{
+%<*!debug>
+  debug       .code:n     = {
+    \PackageWarning{memoize-ext}{
+      To~load~the~debugging~code,~use~memoize-ext-debug~instead~of~this~package.
+    }
+  },
+%</!debug>
+  expl3       .bool_set:N = \l_@@_opt_expl_bool,
+  expl3       .default:n  = true,
+  expl3       .initial:n  = false,
+  l3draw      .bool_set:N = \l_@@_opt_draw_bool,
+  l3draw      .default:n  = true,
+  l3draw      .initial:n  = true,
+  tag         .bool_set:N = \l_@@_opt_tag_bool,
+  tag         .default:n  = true,
+  talk        .bool_set:N = \l_@@_opt_talk_bool,
+  talk        .default:n  = true,
+  talk        .initial:n  = true,
+}
+\DeclareUnknownKeyHandler{
+  \PassOptionsToPackage{\CurrentOption}{memoize}
+}
+%    \end{macrocode}
+% \begin{macro}{\IfFormatAtLeastTF}%^^A <<<
+% Joseph Wright: from \path{siunitx.sty} ; \url{https://chat.stackexchange.com/transcript/message/64327823#64327823}
+%    \begin{macrocode}
+\providecommand \IfFormatAtLeastTF { \@ifl@t@r \fmtversion }
+%    \end{macrocode}
+% \end{macro}%^^A >>>
+%    \begin{macrocode}
+\IfFormatAtLeastTF { 2022-06-01 }
+{
+  \ProcessKeyOptions [ memoize-ext ] 
+}{
+  \RequirePackage { l3keys2e }
+  \ProcessKeysOptions { memoize-ext }
+}
+%    \end{macrocode}
+%^^A if we require 2022-02-24 expl3 above what is this for?
+%^^A is it even possible to use that expl3 with somehow an older format?
+%^^A (wasn't expl3 in the format by then?)
+%    \begin{macrocode}
+\IfFormatAtLeastTF { 2020-10-01 }{
+}{
+  \RequirePackage { xparse }
+  \providecommand \ExpandArgs [1]
+  { \cs_if_exist_use:c { exp_args:N #1 } }
+}
+%    \end{macrocode}
+% Should specify next version here, most probably. 
+% Or conditionalise input switch for ccmemos?
+%    \begin{macrocode}
+\RequirePackage{memoize}
+%<debug>    \mmzset{
+%<debug>      trace,
+%<debug>      include~context~in~ccmemo,
+%<debug>    }
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% temporary variables, quarks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    \begin{macrocode}
+\bool_new:N \l_@@_tmpa_bool
+\fp_new:N \l_@@_tmpa_fp
+\int_new:N \l_@@_tmpa_int
+\quark_new:N \q_@@_stop
+\tl_new:N \l_@@_tmpa_tl
+\tl_new:N \l_@@_tmpb_tl
+\tl_new:N \l_@@_tmpc_tl
+\seq_new:N \l_@@_tmpa_seq
+\str_new:N \l_@@_tmpa_str
+\str_new:N \l_@@_tmpb_str
+%<*debug>
+\cs_new_protected:Npn \@@_debug:n #1
+{
+  \iow_log:n {[mmzx~debug]::~#1}
+}
+\cs_generate_variant:Nn \@@_debug:n {e}
+\cs_new_protected:Npn \@@_debug:N #1
+{
+  \@@_debug:e {\cs_to_str:N #1:~\exp_args:NV \exp_not:n #1}
+}
+%</debug>
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pkg{tag}, \pkg{expl}, \pkg{l3draw}, \pkg{talk} loaded conditionally
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    \begin{macrocode}
+\bool_if:NT \l_@@_opt_tag_bool
+{
+%<!debug>      \RequirePackage{\g_@@_name_str -tag}
+%<debug>      \RequirePackage{\g_@@_name_str -tag-debug}
+  \hook_gput_code:nnn {package/forest/after}{.}
+  {
+    \hook_gput_code:nnn {begindocument/before}{.}
+    {
+      \IfPackageLoadedF {forest-lib-ext.tagging}
+      {
+        \IfPackageLoadedF {forest-lib-ext.tagging-debug}
+        {
+          \msg_warning:nnnnnn {memoize-ext}{unsupported}{forest}
+          {forest-lib-ext.tagging.sty}{forest-ext}
+          {forest~trees~will~not~be~correctly~tagged~and~may~cause~fatal~
+          compilation~errors.}
+        }
+      }
+    }
+  }
+}
+%    \end{macrocode}
+% \pkg{memoize-ext-expl3}[\pkg{-debug}]
+%    \begin{macrocode}
+\bool_if:NT \l_@@_opt_expl_bool
+{
+%<!debug>      \RequirePackage{\g_@@_name_str -expl3}
+%<debug>      \RequirePackage{\g_@@_name_str -expl3-debug}
+}
+%    \end{macrocode}
+% \pkg{memoize-ext-l3draw}[\pkg{-debug}]
+%    \begin{macrocode}
+\hook_gput_code:nnn {package/l3draw/after}{.}
+{
+  \bool_if:NT \l_@@_opt_draw_bool
+  { 
+%<!debug>        \RequirePackage {\g_@@_name_str -l3draw}
+%<debug>      \@@_debug:n {Loading~memoize-ext-l3draw-debug.}
+%<debug>        \RequirePackage {\g_@@_name_str -l3draw-debug}
+  }
+}
+%    \end{macrocode}
+% \pkg{memoize-ext-talk}[\pkg{-debug}]
+%    \begin{macrocode}
+% ^^A \@ifclassloaded{ltx-talk}{
+% ^^A   \PackageError{memoize-ext}{
+% ^^A     memoize-ext~must~be~loaded~before~ltx-talk.
+% ^^A   }{
+% ^^A     For~example,~use~'\RequirePackage{memoize-ext}'~after~'\DocumentMetadata'~
+% ^^A     and~before~'\documentclass{ltx-talk}'.
+% ^^A   }
+% ^^A }
+\hook_gput_code:nnn {class/ltx-talk/after} {.}
+{
+  \bool_if:NT \l_@@_opt_talk_bool
+  {
+%<!debug>      \RequirePackage{memoize-ext-talk}
+%<debug>      \@@_debug:n {Loading~memoize-ext-talk-debug.}
+%<debug>      \RequirePackage{memoize-ext-talk-debug}
+  }
+}
+%    \end{macrocode}
+% \begin{macro}{\@@_noop:,\@@_noop:n}
+%   Do nothing successfully.
+%    \begin{macrocode}
+\cs_new:Npn \@@_noop: {}
+\cs_new:Npn \@@_noop:n {}
+%    \end{macrocode}
+% \end{macro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% messages
+%    \begin{macrocode}
+\msg_new:nnnn {memoize-ext}{unsupported}
+{
+  \msg_warning_text:n {memoize-ext}:~
+  Non-existent~or~inappropriate~version~of~#2~from~#3~\msg_line_context:.~
+  #4
+} {
+  memoize-ext#1~requires~an~appropriate~version~of~#2~from~#3.
+}
+%    \end{macrocode}
+%</sty>
+% 
+%\Finale

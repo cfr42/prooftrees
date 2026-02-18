@@ -1,0 +1,478 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% memoize-ext.dtx
+% Additions and changes Copyright (C) 2024-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file memoize-ext.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11606 2026-02-16 18:08:11Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\begin{document}
+\let\MakePrivateLetters\MyMakePrivateLetters
+\DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+%
+% 
+% \begin{abstract}
+%   \noindent\pkg{memoize-ext-expl3} and \pkg{memoize-ext-expl3-common}.
+% \end{abstract}
+%
+% \tableofcontents
+% 
+% 
+% \MaybeStop{%
+% \PrintChanges
+% \PrintIndex
+% }
+% 
+% \section{Implementation}
+%
+%<@@=mmzx>
+%<*common>
+%    \begin{macrocode}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11606 2026-02-16 18:08:11Z cfrees $ {Extensions for Memoize for expl3 code}
+%<!debug>    \ProvidesExplPackage{\ExplFileName-common}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+%<debug>    \ProvidesExplPackage{\ExplFileName-common-debug}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+%
+%<!debug>    \disable@package@load {memoize-ext-expl3-common-debug}
+%<debug>    \disable@package@load {memoize-ext-expl3-common}
+{ Only~one~of~memoize-ext-expl3-common~and~memoize-ext-expl3-common-debug~
+  should~be~loaded.
+  Since~
+%<!debug>    memoize-ext-expl3-common
+%<debug>    memoize-ext-expl3-common-debug
+  ~has~been~loaded,~I~will~ignore~your~request~for~
+%<debug>    memoize-ext-expl3-common
+%<!debug>    memoize-ext-expl3-common-debug
+.}
+%    \end{macrocode}
+%    \begin{macrocode}
+%<!debug>    \RequirePackage{memoize-ext}
+%<debug>    \RequirePackage{memoize-ext-debug}
+%
+%    \end{macrocode}
+% We don't want inconsistent names in hooks.
+%    \begin{macrocode}
+\SetDefaultHookLabel{memoize-ext}
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{var}{\l_@@_replicating_bool}
+%   Internal variable to track whether currently replicating.
+%    \begin{macrocode}
+\bool_new:N \l_@@_replicating_bool
+\bool_set_false:N \l_@@_replicating_bool
+%    \end{macrocode}
+% \end{var}
+% \begin{fn}{%
+%   \@@_if_replicating:TF,
+%   \@@_if_replicating_p:,
+% }
+%    \begin{macrocode}
+\prg_new_conditional:Npnn \@@_if_replicating: {p,T,TF,F}
+{
+  \if_bool:N \l_@@_replicating_bool
+%<debug>    \@@_debug:n {Replicating~true.} 
+    \prg_return_true: 
+  \else:
+%<debug>    \@@_debug:n {Replicating~false.} 
+    \prg_return_false: 
+  \fi:
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{macro}{\AdviceRunIfNotReplicating}
+%   Run condition.
+%    \begin{macrocode}
+\cs_new:Npn \AdviceRunIfNotReplicating 
+{
+  \@@_if_replicating:F 
+  { 
+%<debug>    \@@_debug:n {Not~replicating,~so~proceeding.}
+    \ifmemoizing \AdviceRuntrue \fi 
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+% ^^A % \begin{pgfkey}{auto/run if not replicating}
+%   Style.
+%    \begin{macrocode}
+\mmzset{
+  auto/run~if~not~replicating/.style = {run~conditions={\AdviceRunIfNotReplicating},},
+}
+%    \end{macrocode}
+% consts
+%    \begin{macrocode}
+\cctab_const:Nn \c_@@_expl_at_cctab {
+  \cctab_select:N \c_code_cctab 
+  \makeatletter
+}
+\cctab_const:Nn \c_@@_nexpl_at_cctab {
+  \cctab_select:N \c_code_cctab 
+  \makeatletter
+  \int_set:Nn \tex_endlinechar:D { 13 }
+  \char_set_catcode_space:n      { 9 }
+  \char_set_catcode_space:n      { 32 }
+  \char_set_catcode_active:n     { 126 } % tilde
+}
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% expl3, memoizing côd ynddo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hooks instead of \texsc[David Carlisle]{a/748807/}
+% \begin{var}{\l_@@_expl_bool}
+% A boolean to track whether \texttt{expl3} syntax is active or not.
+%    \begin{macrocode}
+% ^^A yn lle ateb david carlisle: https://tex.stackexchange.com/a/748807/
+\bool_new:N \l_@@_expl_bool
+%    \end{macrocode}
+% \begin{fn}{%
+%   \@@_restore_ccmemo_input:,
+%   \@@_saved_mmzxExplAtBegin:,
+%   \@@_saved_mmzxExplAtEnd:, 
+% }
+%   Initialise.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_restore_ccmemo_input: {}
+\cs_new_protected_nopar:Npn \@@_saved_mmzxExplAtBegin: {}
+\cs_new_protected_nopar:Npn \@@_saved_mmzxExplAtEnd: {}
+%    \end{macrocode}
+% \end{fn}
+% Auto-switching for \texttt{expl3} syntax.
+%    \begin{macrocode}
+\hook_gput_code:nnn {begindocument/end}{.}
+{
+  \bool_set_false:N \l_@@_expl_bool
+}
+%    \end{macrocode}
+%    \begin{macrocode}
+\hook_gput_code:nnn {begindocument/end}{.}
+{
+%<debug>    \@@_debug:n {Tracking~expl3~syntax~changes.}
+  \bool_set_false:N \l_@@_expl_bool
+  \hook_gput_code:nnn {cmd/ExplSyntaxOn/before} { . }
+  {
+    \bool_if:NF \l_@@_expl_bool
+    {
+      \bool_set_true:N \l_@@_expl_bool
+      \ifmmz@direct@ccmemo@input
+        \relax
+      \else
+        \cs_set_protected_nopar:Npn \@@_restore_ccmemo_input:
+        {
+          \mmz@direct@ccmemo@inputfalse
+        }
+      \fi
+      \mmz@direct@ccmemo@inputtrue
+      \cs_set_eq:NN \@@_saved_mmzxExplAtBegin: \mmzxExplAtBegin
+      \cs_set_eq:NN \@@_saved_mmzxExplAtEnd: \mmzxExplAtEnd
+      \@@_expl_at_start:
+    }
+  }
+%    \end{macrocode}
+% \cs{ExplSyntaxOn} rewrites \cs{ExplSyntaxOff}, so it doesn't work to add hook code to \cs{ExplSyntaxOff} directly.
+%    \begin{macrocode}
+  \hook_gput_code:nnn {cmd/ExplSyntaxOn/after} { . }
+  {
+    \hook_gput_code:nnn {cmd/ExplSyntaxOff/before} { . }
+    {
+      \bool_set_false:N \l_@@_expl_bool
+      \cs_set_eq:NN \mmzxExplAtBegin \@@_saved_mmzxExplAtBegin:
+      \cs_set_eq:NN \mmzxExplAtEnd \@@_saved_mmzxExplAtEnd:
+      \@@_restore_ccmemo_input:
+    }
+  }
+}
+%    \end{macrocode}
+% fns mewnol
+% \begin{fn}{\@@_cctab_end:}
+% just for symmetry \dots
+%    \begin{macrocode}
+\cs_new_eq:NN  \@@_cctab_end: \cctab_end:
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{%
+%   \@@_expl_at_begin:,
+%   \@@_nexpl_at_begin:,
+%   \@@_expl_at_start:,
+%   \@@_nexpl_at_start:,
+%   \@@_cctab_stop:,
+% }
+%   Convenience wrappers for cat code changes.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_expl_at_begin: 
+{
+  \cctab_begin:N \c_@@_expl_at_cctab
+}
+\cs_new_protected_nopar:Npn \@@_nexpl_at_begin: 
+{
+  \cctab_begin:N \c_@@_nexpl_at_cctab
+}
+\cs_new_nopar:Npn \@@_expl_at_start:
+{
+  \cs_set_nopar:Npn \mmzxExplAtBegin {@@_expl_at_begin:}
+  \cs_set_nopar:Npn \mmzxExplAtEnd {@@_cctab_end:}
+}
+\cs_new_nopar:Npn \@@_nexpl_at_start:
+{
+  \cs_set_nopar:Npn \mmzxExplAtBegin {@@_nexpl_at_begin:}
+  \cs_set_nopar:Npn \mmzxExplAtEnd {@@_cctab_end:}
+}
+\cs_new_nopar:Npn \@@_cctab_stop:
+{
+  \cs_set_nopar:Npn \mmzxExplAtBegin {relax}
+  \cs_set_nopar:Npn \mmzxExplAtEnd {relax}
+}
+%    \end{macrocode}
+% \end{fn}
+% toks memoize (cyhoeddus yn unig)
+%
+% The code here is constant but the meaning changes, so what is added to the memos reflects the configuration at the time.
+%    \begin{macrocode}
+\bool_lazy_and:nnTF
+{ \tag_if_active_p: }
+{ \sys_if_engine_pdftex_p: }
+{
+  \appto\mmzAtBeginMemoization{
+%<debug>    \@@_debug:n {Appending~expl~begin~to~ccmemo~at~end~\string\mmzAtBeginMemoization.}
+%<debug>    \@@_debug:n {Working~around~pdfTeX~peculiarity~which~eats~first~noexpand.}
+    \xtoksapp\mmzCCMemo
+    {
+      \exp_not:N \exp_not:N 
+      \exp_not:N \csname \mmzxExplAtBegin \exp_not:N \exp_not:N \exp_not:N \endcsname
+    }
+%<debug>    \exp_args:No \@@_debug:n {\the\mmzCCMemo}
+  }
+} {
+  \appto\mmzAtBeginMemoization{
+%<debug>    \@@_debug:n {Appending~expl~begin~to~ccmemo~at~end~\string\mmzAtBeginMemoization.}
+%<debug>    \@@_debug:n {LuaTeX~doesn't~eat~first~noexpand.}
+    \xtoksapp\mmzCCMemo
+    {
+      \exp_not:N \csname \mmzxExplAtBegin \exp_not:N \endcsname
+    }
+%<debug>    \exp_args:No \@@_debug:n {\the\mmzCCMemo}
+  }
+}
+\preto\mmzAtEndMemoization{
+%<debug>    \@@_debug:n {Appending~expl~end~to~ccmemo~at~start~\string\mmzAtEndMemoization.}
+  \xtoksapp\mmzCCMemo
+  {
+    \exp_not:N \csname \mmzxExplAtEnd \exp_not:N \endcsname
+  }
+}
+%    \end{macrocode}
+% init
+%
+% ^^A If tagging, we allow \texttt{expl3} syntax and \verb|@|, but don't switch spaces or new lines as that would screw up marked content.
+%    \begin{macrocode}
+\hook_gput_code:nnn { begindocument/end } {mmzx}
+{
+% ^^A   \tag_if_active:TF
+% ^^A   {
+% ^^A %<debug>    \@@_debug:n {Enabling~direct~ccmemo~input~and~cat~code}
+% ^^A %<debug>    \@@_debug:n {management~required~for~tagging.}
+% ^^A     \mmz@direct@ccmemo@inputtrue
+% ^^A     \@@_nexpl_at_start:
+% ^^A   } {
+% ^^A %<debug>    \@@_debug:n {Tagging~not~active.~Adjusting~cat~code~management.}
+    \@@_cctab_stop:
+% ^^A   }
+}
+%    \end{macrocode}
+%</common>
+%
+%<*sty>
+%    \begin{macrocode}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11606 2026-02-16 18:08:11Z cfrees $ {Extensions for Memoize for replicating expl3 functions and variables}
+%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+%<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+%
+%<!debug>    \disable@package@load {memoize-ext-expl3-debug}
+%<debug>    \disable@package@load {memoize-ext-expl3}
+{ Only~one~of~memoize-ext-expl3~and~memoize-ext-expl3-debug~
+  should~be~loaded.
+  Since~
+%<!debug>    memoize-ext-expl3
+%<debug>    memoize-ext-expl3-debug
+  ~has~been~loaded,~I~will~ignore~your~request~for~
+%<debug>    memoize-ext-expl3
+%<!debug>    memoize-ext-expl3-debug
+.}
+%    \end{macrocode}
+%    \begin{macrocode}
+%<!debug>    \RequirePackage{memoize-ext}
+%<debug>    \RequirePackage{memoize-ext-debug}
+%<!debug>    \RequirePackage{memoize-ext-expl3-common}
+%<debug>    \RequirePackage{memoize-ext-expl3-common-debug}
+%
+%    \end{macrocode}
+% We don't want inconsistent names in hooks.
+%    \begin{macrocode}
+\SetDefaultHookLabel{memoize-ext}
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% expl3 replicators
+%
+% todo: figure out how to maintain correct grouping \dots
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    \begin{macrocode}
+% \begin{var}{%
+%   \g_@@_expl_replicate__bb_tl,
+%   \g_@@_expl_replicate__ba_tl,
+%   \g_@@_expl_replicate__tb_tl,
+% }
+% Variables
+%    \begin{macrocode}
+\tl_new:N \g_@@_expl_replicate__bb_tl 
+\tl_new:N \g_@@_expl_replicate__ba_tl 
+\tl_new:N \g_@@_expl_replicate__tb_tl 
+\tl_gput_right:NV \g_@@_expl_replicate__bb_tl \c_left_brace_str
+\tl_gput_right:Nn \g_@@_expl_replicate__bb_tl {#}
+\tl_gput_right:NV \g_@@_expl_replicate__ba_tl \c_right_brace_str
+\tl_gput_right:Nn \g_@@_expl_replicate__tb_tl {#}
+%    \end{macrocode}
+% \begin{fn}{%
+%   \@@_expl_replicate_fn_aux:nnN,
+%   \@@_expl_replicate__aux:n, 
+% }
+% Generic auxiliary functions for replication.
+% The first does the actual replicating; the second delegates details according to the argument specification.
+%    \begin{macrocode}
+\cs_new:Npn \@@_expl_replicate_fn_aux:nnN #1#2#3
+{
+  \cs_if_exist:cF { __mmzx_rep_#1:#2 } 
+  { 
+    \int_zero:N \l_@@_tmpa_int
+    \tl_clear:N \l_@@_tmpa_tl
+    \tl_clear:N \l_@@_tmpc_tl
+    \tl_map_function:nN {#2} \@@_expl_replicate__aux:n
+    \cs_if_exist:cF { __mmzx_rep_#1:\l_@@_tmpc_tl }
+    {
+      \cs_gset_protected:ce {__mmzx_rep_#1:\l_@@_tmpc_tl} 
+      {
+        \xtoksapp\mmzCCMemo{ 
+          \exp_after:wN \exp_not:N \cs:w #1:#2 \cs_end: \l_@@_tmpa_tl
+        }
+        \exp_not:N \expandonce \exp_not:N \AdviceOriginal \l_@@_tmpa_tl
+        \exp_not:N \group_end:
+      }
+    }
+    \str_if_eq:eeF {#2}{\l_@@_tmpc_tl}
+    { % ych!
+      \cs_new_eq:cc {__mmzx_rep_#1:#2} {__mmzx_rep_#1:\l_@@_tmpc_tl}
+    }
+  }
+  \use:c { __mmzx_rep_#1:#2 }
+}
+\cs_new:Npn \@@_expl_replicate__aux:n #1
+{
+  \int_incr:N \l_@@_tmpa_int
+  \str_case:nnF { #1 }
+  {
+    {c} { \@@_expl_replicate__b: }
+    {e} { \@@_expl_replicate__b: }
+    {o} { \@@_expl_replicate__b: }
+    {p} { }  
+    {n} { \@@_expl_replicate__b: }
+    {v} { \@@_expl_replicate__b: }
+    {D} { }  
+    {F} { \@@_expl_replicate__b: }
+    {N} { \@@_expl_replicate__t: }
+    {T} { \@@_expl_replicate__b: }
+    {V} { \@@_expl_replicate__t: }
+    {w} { \@@_expl_replicate__e: }  
+  }{                                         
+    \@@_expl_replicate__e:
+  }
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{%
+%   \@@_expl_replicate__b:,
+%   \@@_expl_replicate__t:,
+%   \@@_expl_replicate__e:,
+% }
+% Type-specific auxiliaries.
+% We don't need to be very specific here.
+% We just need to distinguish argument specifiers which expect braced groups from those which expect single tokens and from those we cannot automate.
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_expl_replicate__b:
+{
+  \tl_put_right:Nn \l_@@_tmpc_tl {n}
+  \tl_put_right:NV \l_@@_tmpa_tl \g_@@_expl_replicate__bb_tl
+  \tl_put_right:Ne \l_@@_tmpa_tl { \int_to_arabic:n { \l_@@_tmpa_int } }
+  \tl_put_right:NV \l_@@_tmpa_tl \g_@@_expl_replicate__ba_tl
+}
+\cs_new_nopar:Npn \@@_expl_replicate__t: 
+{
+  \tl_put_right:Nn \l_@@_tmpc_tl {N}
+  \tl_put_right:NV \l_@@_tmpa_tl \g_@@_expl_replicate__tb_tl
+  \tl_put_right:Ne \l_@@_tmpa_tl {  \int_to_arabic:n { \l_@@_tmpa_int }  }
+}
+\cs_new_nopar:Npn \@@_expl_replicate__e:
+{
+  \PackageError{mmzx}{No~do,~sorry.~Use~replicate~with~args~instead.}{}
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{%
+%   \@@_expl_replicate_fn:,
+% }
+% \begin{macro}{\mmzx@expl@replicate@fn}
+% For replicating \texttt{expl3} \emph{functions}.
+%    \begin{macrocode}
+\cs_new:Npn \@@_expl_replicate_fn:
+{
+  \group_begin:
+    \bool_set_true:N \l_@@_replicating_bool
+    \exp_last_unbraced:Ne \@@_expl_replicate_fn_aux:nnN { \exp_args:NV \cs_split_function:N \AdviceReplaced }  
+}
+\cs_new_eq:NN \mmzx@expl@replicate@fn \@@_expl_replicate_fn:
+%    \end{macrocode}
+% \end{macro}
+% \end{fn}
+% \begin{pgfkey}{%
+%   mmz/auto/replicate~expl~fn,
+%   mmz/auto/replicate~expl~var,
+% }
+% By default we handle |\tex_savepos:D| since this commonly requires replication in the kinds of environments typically subject to memoization.
+% Another candidate is |\int_gincr:N|, but that results in a large number of additions and it is not at all clear these are generally required or desirable.
+% Don't do this.
+% It breaks stuff.
+%    \begin{macrocode}
+\mmzset{% config <<<
+  auto/replicate~expl~fn/.style={
+    run~if~not~replicating,
+    outer~handler=\mmzx@expl@replicate@fn,
+  },
+% ^^A   auto~csname={tex_savepos:D}{replicate~expl~fn,},
+}
+%    \end{macrocode}
+%</sty>
+% 
+%\Finale

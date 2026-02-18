@@ -370,5 +370,15 @@ forest-ext-code.pdf
 forest-ext-doc.pdf
 forest-lib-ext.tagging.sty
 forest-lib-ext.tagging-debug.sty
+
+###############################################################################
+## cfr
+###############################################################################
+build
+memoize-ext.pdf
+memoize-ext-imp.pdf
+memoize-ext-code.pdf
+memoize-ext-doc.pdf
+
 memos
 logs

@@ -1,0 +1,71 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `mmzx-sock.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% memoize-ext. You may however distribute the package memoize-ext without
+%% such generated files.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: mmzx-sock.lvt 11589 2026-02-07 05:05:09Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\input regression-test.tex\relax
+\documentclass{article}
+% \input{mmzx-support.cfg}
+\START
+% \TYPE{memoize}
+% \TESTMMZ
+\OMIT
+% \usepackage{memoize}
+% \mmzset{prefix=memos/,include context in ccmemo,trace}
+\usepackage{memoize-ext-debug}	
+\title{memoize-ext: sockets}
+\begin{document}
+\TIMO
+\ExplSyntaxOn
+\socket_new:nn {sock/some} {0}
+\socket_new_plug:nnn {sock/some} {plug/one}
+{
+  \texttt{plug/one}~in~\texttt{sock/some}
+}
+\socket_assign_plug:nn {sock/some} {plug/one}
+\TEST{assigned-plug}
+{
+  \ASSERTSTR{ \__mmzx_socket_assigned_plug:n {sock/some} } {plug/one}
+}
+% \socket_new:nn {sock/more} {4}
+% \socket_new_plug:nnn {sock/more} {plug/one}
+% {
+%   \texttt{plug/one}~in~\texttt{sock/more}:~#1;~#2;~#3;~#4
+% }
+% \socket_assign_plug:nn {sock/more} {plug/one}
+% \TESTMEMOIZATION*{basic}{
+%   \begin{memoize}
+%     \__mmzx_socket_replicate:n {sock/some} 
+%   \end{memoize}%
+% }{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+% \TESTMEMOIZATION*{basic}{
+%   \begin{memoize}
+%     \__mmzx_socket_replicate:nw {sock/more} {one}{two}{three}{four} \q__mmzx_stop
+%   \end{memoize}%
+% }{YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\ExplSyntaxOff
+\OMIT
+\end{document}
+% vim: ts=2:sw=2:et:

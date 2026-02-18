@@ -1,0 +1,144 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+mmzx-talk.mmz:
+-------- mmzx-talk.mmz (start) ---------
+(mmzx-talk.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/13CA6225EF1CB8B2D15D71140C2A246B.memo}[nl]
+\mmzUsedExtern {memos/13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/3CD837EB8B5DDD4D35B1BADE6058F6DA.memo}[nl]
+\mmzUsedExtern {memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-AEFF2CC68190653E36972708E91F0A94-1.pdf}[nl]
+\mmzUsedCCMemo {memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-AEFF2CC68190653E36972708E91F0A94.memo}[nl]
+\mmzUsedCMemo {memos/3CD837EB8B5DDD4D35B1BADE6058F6DA.memo}[nl]
+\mmzUsedExtern {memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-9217518737811BC763FDBFDF005C790B-1.pdf}[nl]
+\mmzUsedCCMemo {memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-9217518737811BC763FDBFDF005C790B.memo}[nl]
+\mmzUsedCMemo {memos/CD57C0E1F207C31B419A5D154A6BDE2E.memo}[nl]
+\mmzUsedExtern {memos/CD57C0E1F207C31B419A5D154A6BDE2E-AEFF2CC68190653E36972708E91F0A94-1.pdf}[nl]
+\mmzUsedCCMemo {memos/CD57C0E1F207C31B419A5D154A6BDE2E-AEFF2CC68190653E36972708E91F0A94.memo}[nl]
+\mmzUsedCMemo {memos/CD57C0E1F207C31B419A5D154A6BDE2E.memo}[nl]
+\mmzUsedExtern {memos/CD57C0E1F207C31B419A5D154A6BDE2E-9217518737811BC763FDBFDF005C790B-1.pdf}[nl]
+\mmzUsedCCMemo {memos/CD57C0E1F207C31B419A5D154A6BDE2E-9217518737811BC763FDBFDF005C790B.memo}[nl]
+\mmzUsedCMemo {memos/CD57C0E1F207C31B419A5D154A6BDE2E.memo}[nl]
+\mmzUsedExtern {memos/CD57C0E1F207C31B419A5D154A6BDE2E-D4CA3760AC7711634E09B6B6234EC1CD-1.pdf}[nl]
+\mmzUsedCCMemo {memos/CD57C0E1F207C31B419A5D154A6BDE2E-D4CA3760AC7711634E09B6B6234EC1CD.memo}[nl]
+\mmzUsedCMemo {memos/CD57C0E1F207C31B419A5D154A6BDE2E.memo}[nl]
+\mmzUsedExtern {memos/CD57C0E1F207C31B419A5D154A6BDE2E-E4931205FA6638B787C6F8CCFB35C6B8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/CD57C0E1F207C31B419A5D154A6BDE2E-E4931205FA6638B787C6F8CCFB35C6B8.memo}[nl]
+\endinput[nl]
+-------- mmzx-talk.mmz (end) -----------
+============================================================
+TEST 1: tikzpicture-cmemo
+============================================================
+memos/13CA6225EF1CB8B2D15D71140C2A246B.memo:
+-------- memos/13CA6225EF1CB8B2D15D71140C2A246B.memo (start) ---------
+(memos/13CA6225EF1CB8B2D15D71140C2A246B.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\begin {tikzpicture} \node {abc}; \end {tikzpicture}[nl]
+-------- memos/13CA6225EF1CB8B2D15D71140C2A246B.memo (end) -----------
+============================================================
+============================================================
+TEST 2: tikzpicture-ccmemo
+============================================================
+memos/13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {23.38959pt}{14.90341pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),[nl]
+\mmzEndMemo[nl]
+-------- memos/13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 3: tikzpicture~2slides-cmemo
+============================================================
+memos/3CD837EB8B5DDD4D35B1BADE6058F6DA.memo:
+-------- memos/3CD837EB8B5DDD4D35B1BADE6058F6DA.memo (start) ---------
+(memos/3CD837EB8B5DDD4D35B1BADE6058F6DA.memo) \mmzMemo[nl]
+\global \mmzContextExtra {overlay=\csname theslide\endcsname ,pauses=\ifmemoizing \mmzxTalkPauses \else \expandafter \the \csname c@pauses\endcsname \fi ,opacity=1}%[nl]
+\mmzxSetTalkOverlays {0}{2}%[nl]
+\mmzSource[nl]
+\begin {tikzpicture}[/mmz/per overlay] \onslide <1>{ \node {abc}; } \onslide <2>{ \node {def}; } \end {tikzpicture}[nl]
+-------- memos/3CD837EB8B5DDD4D35B1BADE6058F6DA.memo (end) -----------
+============================================================
+============================================================
+TEST 4: tikzpicture~2slides-ccmemo
+============================================================
+memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-AEFF2CC68190653E36972708E91F0A94.memo:
+-------- memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-AEFF2CC68190653E36972708E91F0A94.memo (start) ---------
+(memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-AEFF2CC68190653E36972708E91F0A94.memo) \mmzResource{3CD837EB8B5DDD4D35B1BADE6058F6DA-AEFF2CC68190653E36972708E91F0A94.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \only <all:\mmzxTalkOverlays >{}\mmzIncludeExtern {0}\hbox {23.38959pt}{14.90341pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}\setcounter {pauses}{0}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),overlay=1,pauses=0,opacity=1[nl]
+\mmzEndMemo[nl]
+-------- memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-AEFF2CC68190653E36972708E91F0A94.memo (end) -----------
+memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-9217518737811BC763FDBFDF005C790B.memo:
+-------- memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-9217518737811BC763FDBFDF005C790B.memo (start) ---------
+(memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-9217518737811BC763FDBFDF005C790B.memo) \mmzResource{3CD837EB8B5DDD4D35B1BADE6058F6DA-9217518737811BC763FDBFDF005C790B.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \only <all:\mmzxTalkOverlays >{}\mmzIncludeExtern {0}\hbox {23.38959pt}{14.90341pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}\setcounter {pauses}{0}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),overlay=2,pauses=0,opacity=1[nl]
+\mmzEndMemo[nl]
+-------- memos/3CD837EB8B5DDD4D35B1BADE6058F6DA-9217518737811BC763FDBFDF005C790B.memo (end) -----------
+============================================================
+============================================================
+TEST 5: tikzpicture~2slides-pauses-cmemo
+============================================================
+memos/CD57C0E1F207C31B419A5D154A6BDE2E.memo:
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E.memo (start) ---------
+(memos/CD57C0E1F207C31B419A5D154A6BDE2E.memo) \mmzMemo[nl]
+\global \mmzContextExtra {opacity=1}%[nl]
+\mmzxSetTalkOverlays {0}{4}%[nl]
+\mmzSource[nl]
+abc \pause def \begin {tikzpicture}[/mmz/per overlay] \onslide <1>{ \node {abc}; } \onslide <3-4>{ \node {def}; } \end {tikzpicture}[nl]
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E.memo (end) -----------
+============================================================
+============================================================
+TEST 6: tikzpicture~2slides-pauses-ccmemo
+============================================================
+memos/CD57C0E1F207C31B419A5D154A6BDE2E-AEFF2CC68190653E36972708E91F0A94.memo:
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E-AEFF2CC68190653E36972708E91F0A94.memo (start) ---------
+(memos/CD57C0E1F207C31B419A5D154A6BDE2E-AEFF2CC68190653E36972708E91F0A94.memo) \mmzResource{CD57C0E1F207C31B419A5D154A6BDE2E-AEFF2CC68190653E36972708E91F0A94.pdf}%[nl]
+\mmzMemo[nl]
+\only <all:\mmzxTalkOverlays >{}\quitvmode \mmzIncludeExtern {0}\hbox {60.64998pt}{14.90341pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}\setcounter {pauses}{1}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),overlay=1,pauses=0,opacity=1[nl]
+\mmzEndMemo[nl]
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E-AEFF2CC68190653E36972708E91F0A94.memo (end) -----------
+memos/CD57C0E1F207C31B419A5D154A6BDE2E-9217518737811BC763FDBFDF005C790B.memo:
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E-9217518737811BC763FDBFDF005C790B.memo (start) ---------
+(memos/CD57C0E1F207C31B419A5D154A6BDE2E-9217518737811BC763FDBFDF005C790B.memo) \mmzResource{CD57C0E1F207C31B419A5D154A6BDE2E-9217518737811BC763FDBFDF005C790B.pdf}%[nl]
+\mmzMemo[nl]
+\only <all:\mmzxTalkOverlays >{}\quitvmode \mmzIncludeExtern {0}\hbox {60.64998pt}{14.90341pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}\setcounter {pauses}{1}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),overlay=2,pauses=0,opacity=1[nl]
+\mmzEndMemo[nl]
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E-9217518737811BC763FDBFDF005C790B.memo (end) -----------
+memos/CD57C0E1F207C31B419A5D154A6BDE2E-D4CA3760AC7711634E09B6B6234EC1CD.memo:
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E-D4CA3760AC7711634E09B6B6234EC1CD.memo (start) ---------
+(memos/CD57C0E1F207C31B419A5D154A6BDE2E-D4CA3760AC7711634E09B6B6234EC1CD.memo) \mmzResource{CD57C0E1F207C31B419A5D154A6BDE2E-D4CA3760AC7711634E09B6B6234EC1CD.pdf}%[nl]
+\mmzMemo[nl]
+\only <all:\mmzxTalkOverlays >{}\quitvmode \mmzIncludeExtern {0}\hbox {60.64998pt}{14.90341pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}\setcounter {pauses}{1}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),overlay=3,pauses=0,opacity=1[nl]
+\mmzEndMemo[nl]
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E-D4CA3760AC7711634E09B6B6234EC1CD.memo (end) -----------
+memos/CD57C0E1F207C31B419A5D154A6BDE2E-E4931205FA6638B787C6F8CCFB35C6B8.memo:
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E-E4931205FA6638B787C6F8CCFB35C6B8.memo (start) ---------
+(memos/CD57C0E1F207C31B419A5D154A6BDE2E-E4931205FA6638B787C6F8CCFB35C6B8.memo) \mmzResource{CD57C0E1F207C31B419A5D154A6BDE2E-E4931205FA6638B787C6F8CCFB35C6B8.pdf}%[nl]
+\mmzMemo[nl]
+\only <all:\mmzxTalkOverlays >{}\quitvmode \mmzIncludeExtern {0}\hbox {60.64998pt}{14.90341pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}\setcounter {pauses}{1}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),overlay=4,pauses=0,opacity=1[nl]
+\mmzEndMemo[nl]
+-------- memos/CD57C0E1F207C31B419A5D154A6BDE2E-E4931205FA6638B787C6F8CCFB35C6B8.memo (end) -----------
+============================================================
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0

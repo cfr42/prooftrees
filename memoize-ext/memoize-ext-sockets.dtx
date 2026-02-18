@@ -1,0 +1,135 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% memoize-ext.dtx
+% Additions and changes Copyright (C) 2024-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file memoize-ext.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+\GetIdInfo $Id: memoize-ext-sockets.dtx 11589 2026-02-07 05:05:09Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\begin{document}
+\let\MakePrivateLetters\MyMakePrivateLetters
+\DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+% \begin{abstract}
+%   \noindent\lpack{memoize-ext}
+% \end{abstract}
+%
+% \tableofcontents
+% 
+% 
+% \MaybeStop{%
+% \PrintChanges
+% \PrintIndex
+% }
+% 
+% \section{Implementation}
+%
+%<*sty>
+%<@@=mmzx>
+% ^^A %    \begin{macrocode}
+% ^^A \SetDefaultHookLabel{memoize-ext}
+% ^^A %    \end{macrocode}
+% ^^A    \begin{macrocode}
+% ^^A \GetIdInfo $Id: memoize-ext-sockets.dtx 11589 2026-02-07 05:05:09Z cfrees $ {Extensions for Memoize}
+% ^^A \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+% ^^A    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ltsockets
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ^^A % \begin{fn}{\@@_socket_replicate:n,\@@_socket_replicate:nw}
+% ^^A %   Write socket to memo, derive ‘base’ name of the current plug, assign it, use it and re-assign original plug\footnote{I suspect this is exactly the sort of thing sockets are not supposed to be for --- certainly hooks would be simpler \dots.}
+% ^^A %    \begin{macrocode}
+% ^^A \cs_new:Npn \@@_socket_replicate:nw #1#2 \q_@@_stop
+% ^^A {
+% ^^A   \@@_socket_to_ccmemo:nw {#1}#2 \q_@@_stop
+% ^^A   \str_set:Ne \l_@@_tmpb_str {\@@_socket_assigned_plug:n {#1}}
+% ^^A   \str_set:Ne \l_@@_tmpa_str {\exp_after:wN \@@_socket_plug_base:w \l_@@_tmpb_str \q_stop}
+% ^^A   \socket_assign_plug:NV {#1} \l_@@_tmpa_str
+% ^^A   \socket_use:nw {#1}#2 
+% ^^A   \socket_assign_plug:NV {#1} \l_@@_tmpb_str
+% ^^A }
+% ^^A \cs_new:Npn \@@_socket_replicate:n #1
+% ^^A {
+% ^^A   \@@_socket_replicate:nw {#1} \q_@@_stop
+% ^^A % ^^A   \@@_socket_to_ccmemo:n {#1}
+% ^^A % ^^A   \str_set:Ne \l_@@_tmpb_str {\@@_socket_assigned_plug:n {#1}}
+% ^^A % ^^A   \str_set:Ne \l_@@_tmpa_str {\exp_after:wN \@@_socket_plug_base:w \l_@@_tmpb_str \q_stop}
+% ^^A % ^^A   \socket_assign_plug:nV {#1} \l_@@_tmpa_str
+% ^^A % ^^A   \socket_use:n {#1}
+% ^^A % ^^A   \socket_assign_plug:nV {#1} \l_@@_tmpb_str
+% ^^A }
+% ^^A %    \end{macrocode}
+% ^^A % \end{fn}
+% ^^A % \begin{fn}{\@@_socket_to_ccmemo:n,\@@_socket_to_ccmemo:nw}
+% ^^A % Replicate socket.
+% ^^A %    \begin{macrocode}
+% ^^A % ^^A \cs_new:Npn \@@_socket_to_ccmemo:n #1
+% ^^A % ^^A {
+% ^^A % ^^A   \xtoksapp\mmzCCMemo{\UseSocket \c_left_brace_str #1 \c_right_brace_str}
+% ^^A % ^^A }
+% ^^A \cs_new:Npn \@@_socket_to_ccmemo:nw #1#2 \q_@@_stop
+% ^^A {
+% ^^A   \xtoksapp\mmzCCMemo
+% ^^A   {
+% ^^A     \UseSocket \c_left_brace_str #1 \c_right_brace_str
+% ^^A     \tl_to_str:n {#2}
+% ^^A   }
+% ^^A }
+% ^^A %    \end{macrocode}
+% ^^A % \end{fn}
+% ^^A % Simple variant.
+% ^^A %    \begin{macrocode}
+% ^^A \cs_generate_variant:Nn \socket_assign_plug:nn {nV}
+% ^^A %    \end{macrocode}
+% \begin{fn}{\@@_socket_assigned_plug:n}
+%   Returns the name of the plug assigned to the specified socket.
+%   This ought not use a variable internal to the format's code, but there does not seem to be a public interface.
+%   So it may break, but for now it works.
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_socket_assigned_plug:n #1
+{ % rhybudd: fn mewnol
+  \str_use:c { l__socket_#1_plug_str }
+}
+%    \end{macrocode}
+% \end{fn}
+% ^^A % \begin{fn}{\@@_socket_plug_base:w}
+% ^^A %   Removes this module's prefix from a specified plug name.
+% ^^A %   This is not generally safe, as it does no checking, but is only intended for internal use.
+% ^^A %    \begin{macrocode}
+% ^^A \cs_new_nopar:Npn \@@_socket_plug_base:w  #1/#2 \q_stop 
+% ^^A {
+% ^^A   \if_str_eq:eeF {#1}{mmzx}{#1/}
+% ^^A   #2
+% ^^A }
+% ^^A %    \end{macrocode}
+% ^^A % \end{fn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%</sty>
+% 
+%\Finale

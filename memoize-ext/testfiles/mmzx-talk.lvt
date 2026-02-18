@@ -1,0 +1,87 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `mmzx-talk.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% memoize-ext. You may however distribute the package memoize-ext without
+%% such generated files.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{%
+  % tagging=on,
+  lang=en-GB,
+  pdfversion=2.0,
+  % pdfstandard=UA-2,
+  uncompress,
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: mmzx-talk.lvt 11593 2026-02-14 04:45:53Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\input regression-test.tex\relax
+\RequirePackage{memoize-ext-talk-debug}
+\input{mmzx-support.cfg}
+\START
+\TESTMMZ
+\OMIT
+\documentclass{ltx-talk}
+\mmzset{prefix=memos/,include context in ccmemo,trace}
+\usepackage{tikz}
+\title{memoize-ext: talk w/o tagging}
+\begin{document}
+\TIMO
+\TESTMEMOIZATION*{tikzpicture}{%
+  \begin{frame}
+    \frametitle{Frame}
+    \begin{tikzpicture}
+      \node {abc};
+    \end{tikzpicture}%
+  \end{frame}
+}{13CA6225EF1CB8B2D15D71140C2A246B}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION*{tikzpicture~2slides}{%
+  \begin{frame}
+    \frametitle{Frame}
+    \begin{tikzpicture}[/mmz/per overlay]
+      \onslide<1>{
+        \node {abc};
+      }
+      \onslide<2>{
+        \node {def};
+      }
+    \end{tikzpicture}%
+  \end{frame}
+}{3CD837EB8B5DDD4D35B1BADE6058F6DA}{AEFF2CC68190653E36972708E91F0A94,9217518737811BC763FDBFDF005C790B}
+\TESTMEMOIZATION*{tikzpicture~2slides-pauses}{%
+  \begin{frame}
+    \frametitle{Frame}
+    \begin{memoize}[per overlay]
+      abc \pause def 
+      \begin{tikzpicture}[/mmz/per overlay]
+        \onslide<1>{
+          \node {abc};
+        }
+        \onslide<3-4>{
+          \node {def};
+        }
+      \end{tikzpicture}%
+    \end{memoize}
+  \end{frame}
+}{CD57C0E1F207C31B419A5D154A6BDE2E}{AEFF2CC68190653E36972708E91F0A94,9217518737811BC763FDBFDF005C790B,D4CA3760AC7711634E09B6B6234EC1CD,E4931205FA6638B787C6F8CCFB35C6B8}
+\OMIT
+\end{document}
+% vim: ts=2:sw=2:et:
+

@@ -1,0 +1,180 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+memoize
+mmzx-tikz-tagging.mmz:
+-------- mmzx-tikz-tagging.mmz (start) ---------
+(mmzx-tikz-tagging.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/B9A498E132CAE52C88DCAF0CF0DD0068.memo}[nl]
+\mmzUsedExtern {memos/B9A498E132CAE52C88DCAF0CF0DD0068-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/B9A498E132CAE52C88DCAF0CF0DD0068-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/F68CC36BD463325ABA443AA0AE1F18D1.memo}[nl]
+\mmzUsedExtern {memos/F68CC36BD463325ABA443AA0AE1F18D1-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/F68CC36BD463325ABA443AA0AE1F18D1-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/6E4E5FF1EE960A69BF25B40063CBB4B5.memo}[nl]
+\mmzUsedExtern {memos/6E4E5FF1EE960A69BF25B40063CBB4B5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/6E4E5FF1EE960A69BF25B40063CBB4B5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/DB047F7895C514A0F516554934D623F4.memo}[nl]
+\mmzUsedExtern {memos/DB047F7895C514A0F516554934D623F4-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/DB047F7895C514A0F516554934D623F4-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\endinput[nl]
+-------- mmzx-tikz-tagging.mmz (end) -----------
+============================================================
+TEST 1: mmzx-tikz-tagging-1-cmemo
+============================================================
+memos/B9A498E132CAE52C88DCAF0CF0DD0068.memo:
+-------- memos/B9A498E132CAE52C88DCAF0CF0DD0068.memo (start) ---------
+(memos/B9A498E132CAE52C88DCAF0CF0DD0068.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\tikz [alt=Alt 1]{\node {mmzx Ti\textit {k}Z with tagging};}[nl]
+-------- memos/B9A498E132CAE52C88DCAF0CF0DD0068.memo (end) -----------
+============================================================
+============================================================
+TEST 2: mmzx-tikz-tagging-1-ccmemo
+============================================================
+memos/B9A498E132CAE52C88DCAF0CF0DD0068-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/B9A498E132CAE52C88DCAF0CF0DD0068-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/B9A498E132CAE52C88DCAF0CF0DD0068-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{B9A498E132CAE52C88DCAF0CF0DD0068-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={Alt 1}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {116.48053pt}{15.49548pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzEndMemo[nl]
+-------- memos/B9A498E132CAE52C88DCAF0CF0DD0068-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 3: mmzx-tikz-tagging-2-cmemo
+============================================================
+memos/F68CC36BD463325ABA443AA0AE1F18D1.memo:
+-------- memos/F68CC36BD463325ABA443AA0AE1F18D1.memo (start) ---------
+(memos/F68CC36BD463325ABA443AA0AE1F18D1.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\tikz [alt=Alt 2]\node {mmzx Ti\textit {k}Z with tagging};[nl]
+-------- memos/F68CC36BD463325ABA443AA0AE1F18D1.memo (end) -----------
+============================================================
+============================================================
+TEST 4: mmzx-tikz-tagging-2-ccmemo
+============================================================
+memos/F68CC36BD463325ABA443AA0AE1F18D1-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/F68CC36BD463325ABA443AA0AE1F18D1-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/F68CC36BD463325ABA443AA0AE1F18D1-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{F68CC36BD463325ABA443AA0AE1F18D1-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={Alt 2}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {116.48053pt}{15.49548pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzEndMemo[nl]
+-------- memos/F68CC36BD463325ABA443AA0AE1F18D1-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 5: mmzx-tikz-tagging-3-cmemo
+============================================================
+memos/6E4E5FF1EE960A69BF25B40063CBB4B5.memo:
+-------- memos/6E4E5FF1EE960A69BF25B40063CBB4B5.memo (start) ---------
+(memos/6E4E5FF1EE960A69BF25B40063CBB4B5.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\begin {tikzpicture}[alt=Alt 3] \pgfnode {rectangle}{center}{Aardvark}{aard}{\pgfusepath {}} \node (a) at (-1,0) {mmzx Ti\textit {k}Z with tagging}; \draw (1,0) -- (1,1); \end {tikzpicture}[nl]
+-------- memos/6E4E5FF1EE960A69BF25B40063CBB4B5.memo (end) -----------
+============================================================
+============================================================
+TEST 6: mmzx-tikz-tagging-3-ccmemo
+============================================================
+memos/6E4E5FF1EE960A69BF25B40063CBB4B5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/6E4E5FF1EE960A69BF25B40063CBB4B5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/6E4E5FF1EE960A69BF25B40063CBB4B5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{6E4E5FF1EE960A69BF25B40063CBB4B5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={Alt 3}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {116.48053pt}{36.40048pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzEndMemo[nl]
+-------- memos/6E4E5FF1EE960A69BF25B40063CBB4B5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 7: mmzx-tikz-tagging-4-cmemo
+============================================================
+memos/DB047F7895C514A0F516554934D623F4.memo:
+-------- memos/DB047F7895C514A0F516554934D623F4.memo (start) ---------
+(memos/DB047F7895C514A0F516554934D623F4.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\tikz [alt=Alt 4]{ \pgftext {\textsc {pgf} \texttt {\textbackslash pgftext} with tagging} }[nl]
+-------- memos/DB047F7895C514A0F516554934D623F4.memo (end) -----------
+============================================================
+============================================================
+TEST 8: mmzx-tikz-tagging-4-ccmemo
+============================================================
+memos/DB047F7895C514A0F516554934D623F4-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/DB047F7895C514A0F516554934D623F4-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/DB047F7895C514A0F516554934D623F4-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{DB047F7895C514A0F516554934D623F4-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={Alt 4}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {120.98157pt}{4.72107pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzEndMemo[nl]
+-------- memos/DB047F7895C514A0F516554934D623F4-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 9: Show PDF Tags
+============================================================
+-------- mmzx-tikz-tagging.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.002"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.005"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.006"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.007"
+        alt="Alt 1"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 148.71233, 630.93352, 264.75769, 646.37111 }"
+       >
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.008"
+        alt="Alt 2"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 271.39783, 630.93352, 387.44318, 646.37111 }"
+       >
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.009"
+        alt="Alt 3"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 394.08333, 630.93352, 510.12868, 667.19801 }"
+       >
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.010"
+        alt="Alt 4"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 133.76837, 618.97835, 254.29794, 623.68178 }"
+       >
+      <?MarkedContent page="1" ?>
+     </Figure>
+     <?MarkedContent page="1" ?>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- mmzx-tikz-tagging.xml (end) ---------
+============================================================
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0

@@ -1,0 +1,62 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `mmzx-tikz-tagging-none.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% memoize-ext. You may however distribute the package memoize-ext without
+%% such generated files.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: mmzx-tikz-tagging-none.lvt 11584 2026-02-06 04:19:17Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\input regression-test.tex\relax
+\documentclass{article}
+\input{mmzx-support.cfg}
+\START
+\TYPE{memoize}
+\TESTMMZ
+\OMIT
+\usepackage{memoize}
+\mmzset{prefix=memos/}
+\usepackage{memoize-ext}	
+\usepackage{tikz}
+\begin{document}
+\TIMO
+\TESTMEMOIZATION{mmzx-tikz-tagging-none-1}{
+  \showoutput
+  \tikz{\node {mmzx Ti\textit{k}Z without tagging};}
+}{9F7D9471ACB4D784B2D6F2A7705F7C53}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION{mmzx-tikz-tagging-none-2}{
+  \showoutput
+  \tikz\node {mmzx Ti\textit{k}Z without tagging};
+}{59C558A83ED82AB302D1A43DEFF093C2}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION{mmzx-tikz-tagging-none-3}{
+  \showoutput
+  \begin{tikzpicture}\pgfnode{rectangle}{center}{Aardvark}{aard}{\pgfusepath{}} \node (a) at (-1,0) {mmzx Ti\textit{k}Z without tagging}; \draw (1,0) -- (1,1); \end{tikzpicture}
+}{50C175F709FA33390CA6F0D85DB9B7A5}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION{mmzx-tikz-tagging-none-4}{
+  \showoutput
+  \tikz{\pgftext {\textsc{pgf} \texttt{\textbackslash pgftext} without tagging}}
+}{46B76CD1CE2A4414FAC03C51C8A1CDDD}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\END
+
+\end{document}
+%%
+%% End of file `mmzx-tikz-tagging-none.lvt'.
+% vim: ts=2:sw=2:

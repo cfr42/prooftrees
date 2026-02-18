@@ -54,19 +54,14 @@ collection-basic
 
 # From collection-latexextra
         accsupp
-        acro
         adjustbox
         attachfile
-        # bearwear
-        # blindtext
         cleveref
         csquotes
         doclicense
-        # duckuments
         embedfile
         enumitem
         etoc
-        filecontents
         fonttable
         getfiledate
         hobsub
@@ -83,7 +78,6 @@ collection-basic
         latex-graphics-dev
         latex-lab-dev
         latex-tools-dev
-        # lipsum
         listing
         listingsutf8
         lua-check-hyphen
@@ -91,11 +85,7 @@ collection-basic
         mleftright
         mlist
         mmap
-        mwe
         pdfcolmk
-        # scrlayer-fancyhdr
-        # scrwfile
-        # tabularray
         transparent
         varwidth
         xpatch
@@ -120,12 +110,6 @@ collection-basic
         xetex
         xetexconfig
 
-# from collection-langgerman
-        babel-german
-        dehyph
-        dehyph-exptl
-        hyphen-german
- 
 # from collection-latexrecommended
         attachfile2
         beamer
@@ -137,13 +121,11 @@ collection-basic
         hologo
         index
         infwarerr
-        # koma-script
         l3experimental
         latexbug
         lineno
         listings
         mathtools
-        # memoir
         microtype
         parskip
         pdfcolfoot
@@ -162,27 +144,17 @@ collection-basic
 # other
 pgf 
 marginnote 
-# tikzducks 
-# tikzlings 
-# catchfile
 babel-latin
 hyphen-latin
 sourcesanspro
 psnfss
 tex-gyre
 hyperxmp
-# tugboat
 babel-greek
-babel-spanish
-# times
-# ntheorem
-babel-dutch
 hyphen-greek
 greek-fontenc
 greek-inputenc
 hyphen-ancientgreek
-# cbfonts-fd
-# cbfonts
 
 # fonts
 amsfonts 
@@ -196,6 +168,7 @@ hyphen-welsh
 bookmark
 parskip
 svn-prov
+svn-multi
 xcolor
 xurl
 threeparttable
@@ -230,6 +203,11 @@ xstring
 biber
 biblatex
 logreq
+fp
+fetamont
+fontawesome
+fontawesome5
+lm
 
 # angen am unicode-math
 lualatex-math
@@ -248,3 +226,5 @@ minted
 upquote
 latex2pydata
 tikzfill
+
+sttools

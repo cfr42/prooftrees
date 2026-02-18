@@ -1,0 +1,364 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% memoize-ext.dtx
+% Additions and changes Copyright (C) 2024-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file memoize-ext.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+\GetIdInfo $Id: memoize-ext-properties.dtx 11606 2026-02-16 18:08:11Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\begin{document}
+\let\MakePrivateLetters\MyMakePrivateLetters
+\DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+% \begin{abstract}
+%   \noindent\lpack{memoize-ext}
+% \end{abstract}
+%
+% \tableofcontents
+% 
+% 
+% \MaybeStop{%
+% \PrintChanges
+% \PrintIndex
+% }
+% 
+% \section{Implementation}
+%
+%<*sty>
+%<@@=mmzx>
+%    \begin{macrocode}
+\SetDefaultHookLabel{memoize-ext}
+%    \end{macrocode}
+% ^^A    \begin{macrocode}
+% ^^A \GetIdInfo $Id: memoize-ext-properties.dtx 11606 2026-02-16 18:08:11Z cfrees $ {Extensions for Memoize}
+% ^^A \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+% ^^A    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ltproperties
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \texse[cwestiwn]{q/748804/}
+%
+% \texse[ateb]{a/748815/}
+%
+% \texse[ateb david carlisle]{a/748807/}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% copïo macros ltproperties, cctab
+%
+% \begin{fn}{%
+%   \mmzx_property_ref_orig:nn,
+%   \mmzx_property_record_orig:nn,
+%   \mmzx_property_ref_orig:ee,
+%   \mmzx_property_record_orig:ee,
+% }
+% Copy original base functions for referencing and recording properties.
+% Note that the original functions and macros for property references are expandable, whereas our replacements are not.
+%    \begin{macrocode}
+\cs_new_eq:NN \mmzx_property_ref_orig:nn \property_ref:nn
+\cs_new_eq:NN \mmzx_property_record_orig:nn \property_record:nn
+%    \end{macrocode}
+% variants of copies of originals
+%    \begin{macrocode}
+\cs_generate_variant:Nn \mmzx_property_ref_orig:nn { ee }
+\cs_generate_variant:Nn \mmzx_property_record_orig:nn { ee }
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{\property_value:n}
+%   Coming to a format near you soon!
+%    \begin{macrocode}
+\cs_if_exist:NF \property_value:n
+{ % sylwad ulrike fischer: https://chat.stackexchange.com/transcript/message/68081869#68081869
+  \cs_new:Npn\property_value:n #1 { \use:c{__property_code_ #1 :} }
+  \prg_new_conditional:Npnn \property_if_shipout:n #1 {T,F,TF,p}
+  {
+    \bool_if:cTF {g__property_shipout_ #1 _bool} 
+    {\prg_return_true:}
+    {\prg_return_false:}
+  }
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{\@@_property_record_value:n}
+%   Format suitable for recording.
+%    \begin{macrocode}
+\cs_new:Npn \@@_property_record_value:n #1 
+{
+  {#1}
+  {
+    \property_if_shipout:nT { #1 } { \exp_not:N } 
+    \property_value:n { #1 }
+  }
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{var}{%
+%   \g_@@_property_shipout_seq,
+%   \g_@@_property_now_seq,
+%   \g_@@_rec_tl,
+% }
+% vars
+%    \begin{macrocode}
+\seq_new:N \g_@@_property_shipout_seq
+\seq_new:N \g_@@_property_now_seq
+\tl_new:N \g_@@_rec_tl
+%    \end{macrocode}
+% \end{var}
+% fns mewnol: refs
+% \begin{fn}{\@@_auto_property_ref_noopt:nn}
+%   default default
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_auto_property_ref_noopt:nn #1#2
+{
+%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_ref_noopt:nn~called~with~#1,~#2.}
+  \property_if_recorded:nnTF { #1 } { #2 } 
+  {
+%<debug>    \@@_debug:n {property~#2~recorded~for~label~#1.}
+    \@@_auto_property_ref:nn { #1 } { #2 }
+  } {
+%<debug>    \@@_debug:n {property~#2~unrecorded~for~label~#1.~Aborting.}
+    \mmzAbort
+%<debug>    \@@_debug:n {Recording~#2~for~label~#1.}
+    \expandonce\AdviceOriginal {#1}{#2}
+  }
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{\@@_auto_property_ref_opt:w}
+%   2e use with local default
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_auto_property_ref_opt:w [#1]#2#3
+{
+%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_ref_opt:w~called~with~#1,~#2,~#3.}
+  \property_if_recorded:nnTF { #2 } { #3 }
+  {
+%<debug>    \@@_debug:n {property~#3~recorded~for~label~#2.}
+    \@@_auto_property_ref:nn { #2 } { #3 }
+  } {
+%<debug>    \@@_debug:n {property~#3~unrecorded~for~label~#2.~Aborting.}
+    \mmzAbort
+%<debug>    \@@_debug:n {Recording~#3~for~label~#2~with~#1.}
+    \expandonce\AdviceOriginal [#1] {#2}{#3}
+  }
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{\@@_auto_property_ref_too:nnn}
+%   case with local default
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_auto_property_ref_too:nnn #1#2#3
+{
+%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_ref_too:nnn~called~with~#1,~#2,~#3.}
+  \property_if_recorded:nnTF { #2 } { #3 } 
+  {
+%<debug>    \@@_debug:n {property~#3~recorded~for~label~#2.}
+    \@@_auto_property_ref:nn { #2 } { #3 }
+  } {
+%<debug>    \@@_debug:n {property~#3~unrecorded~for~label~#2.~Aborting.}
+    \mmzAbort
+%<debug>    \@@_debug:n {Recording~#3~for~label~#2~with~#1.}
+    \expandonce\AdviceOriginal {#1}{#2}{#3}
+  }
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{\@@_auto_property_ref:nn}
+%   Replicator for property references.
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_auto_property_ref:nn #1#2
+{
+%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_ref:nn~called~with~#1,~#2.}
+  \gtoksapp\mmzContextExtra{
+    \detokenize { \property_ref:nn } {#1}{#2} \c_space_tl -> \c_space_tl 
+    \__mmzx_property_ref_orig:ee {#1}{#2}, 
+  }
+  \mmzx_property_ref_orig:ee {#1}{#2} 
+}
+%    \end{macrocode}
+% \end{fn}
+% fns mewnol: rec
+% \begin{fn}{\@@_auto_property_record:nn}
+%   We sort properties according to their recording points.
+%   Those recorded immediately get fixed-value replication; those recorded at shipout get functional replication.
+%    \begin{macrocode}
+\cs_new_nopar:Npn \@@_auto_property_record:nn #1#2
+{
+%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_record:nn~called~with~#1,~#2.}
+  \seq_gclear:N \g_@@_property_shipout_seq
+  \seq_gclear:N \g_@@_property_now_seq
+  \tl_gclear:N \g_@@_rec_tl
+  \clist_map_inline:nn { #2 }
+  {
+%<debug>    \@@_debug:n {Mapping~##1.}
+    \exp_args:Ne \property_if_shipout:nTF {\tl_to_str:n {##1}}
+    {
+%<debug>    \@@_debug:n {##1~uses~shipout.}
+      \seq_gput_right:Ne \g_@@_property_shipout_seq {\tl_to_str:n {##1}}
+    } {
+%<debug>    \@@_debug:n {##1~uses~now.}
+      \seq_gput_right:Ne \g_@@_property_now_seq {\tl_to_str:n {##1}}
+    }
+  }
+%<debug>    \seq_log:N \g_@@_property_shipout_seq
+%<debug>    \seq_log:N \g_@@_property_now_seq
+  \seq_if_empty:NF \g_@@_property_shipout_seq
+  {
+    \tl_gput_left:Ne \g_@@_rec_tl
+    {
+      \c_left_brace_str
+      \seq_use:Nn \g_@@_property_shipout_seq { , }
+      \c_right_brace_str
+    }
+  }
+%<debug>    \tl_log:N \g_@@_rec_tl
+  \seq_if_empty:NTF \g_@@_property_now_seq
+  {
+    \tl_if_empty:NF \g_@@_rec_tl
+    {
+      \tl_gput_right:Nn \g_@@_rec_tl {{}}
+    }
+  } {
+    \tl_if_empty:NT \g_@@_rec_tl
+    {
+      \tl_gset:Nn \g_@@_rec_tl {{}}
+    }
+    \tl_gput_right:Ne \g_@@_rec_tl
+    {
+      \c_left_brace_str
+      \seq_map_function:NN \g_@@_property_now_seq \@@_property_record_value:n
+      \c_right_brace_str
+    }
+  }
+%<debug>    \tl_log:N \g_@@_rec_tl
+  \tl_if_empty:NF \g_@@_rec_tl
+  {
+    \tl_gput_left:Ne\g_@@_rec_tl 
+    { 
+      \exp_not:N \mmzxRecProperty{#1}  
+    } 
+  }
+%<debug>    \tl_log:N \g_@@_rec_tl
+  \exp_args:NNV \gtoksapp\mmzCCMemo \g_@@_rec_tl
+}
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{\@@_property_record:nnn}
+%   This code will replicate the references during utilisation.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@@_property_record:nnn #1#2#3
+{ 
+%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_record:nnn~called~with~#1,~#2,~#3.}
+  \protected@write\@auxout {} 
+  {
+    \string \new@label@record {#1}
+    {
+      \clist_map_function:nN {#2} \@@_property_record_value:n #3
+    } 
+  }
+}
+%    \end{macrocode}
+% \end{fn}
+% fns 2e
+% \begin{macro}{%
+%   \mmzxRecProperty,
+% }
+%   Public top-level wrapper for recording during utilisation.
+%    \begin{macrocode}
+\cs_new_eq:NN \mmzxRecProperty \@@_property_record:nnn
+%    \end{macrocode}
+% \begin{macro}{%
+%   \mmzx@auto@ref@property@too,
+%   \mmzx@auto@ref@property,
+%   \mmzx@auto@rec@property,
+% }
+%   Outer handlers for reference/record functions/macros.
+%    \begin{macrocode}
+\cs_new_eq:NN \mmzx@auto@ref@property@too \@@_auto_property_ref_too:nnn
+\cs_new_nopar:Npn \mmzx@auto@ref@property
+{
+  \@ifnextchar[\@@_auto_property_ref_opt:w \@@_auto_property_ref_noopt:nn
+}
+\cs_new_nopar:Npn \mmzx@auto@rec@property#1#2
+{
+%<debug>    \@@_debug:n {\cs_to_str:N \mmzx@auto@rec@property~called~with~#1,~#2.}
+%<debug>    \@@_debug:n {Calling~\cs_to_str:N \@@_auto_property_record:nn~with~#1,~#2.}
+  \@@_auto_property_record:nn {#1}{#2}
+%<debug>    \@@_debug:n {Calling~\cs_to_str:N \mmzx_property_record_orig:nn~with~#1,~#2.}
+% ^^A %<debug>    \tl_log:e {\tag_get:n {struct_tag}}
+% ^^A %<debug>    \tl_log:e {\tag_get:n {struct_id}}
+% ^^A %<debug>    \tl_log:e {\tag_get:n {struct_num}}
+% ^^A %<debug>    \tl_log:e {\tag_get:n {struct_counter}}
+% ^^A %<debug>    \tl_log:e {\tag_get:n {mc_tag}}
+% ^^A %<debug>    \tl_log:e {\tag_get:n {mc_counter}}
+% ^^A %<debug>    \int_log:N \g_shipout_readonly_int
+% ^^A %<debug>    \int_log:N \c@g__tag_MCID_abs_int
+% ^^A %<debug>    \flag_log:n { __tag/mcid }
+  \mmzx_property_record_orig:nn {#1}{#2}
+%<debug>    \@@_debug:n {Finished~\cs_to_str:N \mmzx@auto@rec@property.}
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{pgfkey}{%
+%   mmz/auto/ref~property,
+%   mmz/auto/ref~property~too,
+%   mmz/auto/rec~property,
+% }
+%   Styles
+%    \begin{macrocode}
+\mmzset{%
+  % handle these separately to avoid memoizing an internal fn
+  auto/ref~property/.style={run~if~not~replicating,outer~handler=\mmzx@auto@ref@property,},
+  auto/ref~property~too/.style={run~if~not~replicating,outer~handler=\mmzx@auto@ref@property@too,},
+  auto/rec~property/.style={run~if~not~replicating,outer~handler=\mmzx@auto@rec@property,},
+}
+%    \end{macrocode}
+% \end{pgfkey}
+% Default config. 
+% This causes issues on pdf\TeX{} if tagging.
+% So don't do that.
+% 
+% Is this any better/different from just redefining the functions/macros directly in this sort of case?
+%    \begin{macrocode}
+\bool_lazy_or:nnT 
+{ \sys_if_engine_luatex_p: }
+{ ! \tag_if_active_p: }
+{
+  \appto\mmzAtBeginMemoization
+  {
+    \mmzset{
+      auto~csname={property_record:nn}{rec~property,},
+      auto~csname={property_ref:nn}{ref~property,},
+      auto~csname={property_ref:nnn}{ref~property~too,},
+% ^^A       auto~csname={tex_savepos:D}{run~if~not~replicating,replicate,},
+    }
+  }
+}
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%</sty>
+% 
+%\Finale

@@ -1,0 +1,136 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+memoize
+mmzx-tikz-tagging-none.mmz:
+-------- mmzx-tikz-tagging-none.mmz (start) ---------
+(mmzx-tikz-tagging-none.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/9F7D9471ACB4D784B2D6F2A7705F7C53.memo}[nl]
+\mmzUsedExtern {memos/9F7D9471ACB4D784B2D6F2A7705F7C53-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/9F7D9471ACB4D784B2D6F2A7705F7C53-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/59C558A83ED82AB302D1A43DEFF093C2.memo}[nl]
+\mmzUsedExtern {memos/59C558A83ED82AB302D1A43DEFF093C2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/59C558A83ED82AB302D1A43DEFF093C2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/50C175F709FA33390CA6F0D85DB9B7A5.memo}[nl]
+\mmzUsedExtern {memos/50C175F709FA33390CA6F0D85DB9B7A5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/50C175F709FA33390CA6F0D85DB9B7A5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/46B76CD1CE2A4414FAC03C51C8A1CDDD.memo}[nl]
+\mmzUsedExtern {memos/46B76CD1CE2A4414FAC03C51C8A1CDDD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/46B76CD1CE2A4414FAC03C51C8A1CDDD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+-------- mmzx-tikz-tagging-none.mmz (end) -----------
+============================================================
+TEST 1: mmzx-tikz-tagging-none-1
+============================================================
+(memos/9F7D9471ACB4D784B2D6F2A7705F7C53.memo)
+============================================================
+============================================================
+TEST 2: mmzx-tikz-tagging-none-1-cmemo
+============================================================
+memos/9F7D9471ACB4D784B2D6F2A7705F7C53.memo:
+-------- memos/9F7D9471ACB4D784B2D6F2A7705F7C53.memo (start) ---------
+(memos/9F7D9471ACB4D784B2D6F2A7705F7C53.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\tikz {\node {mmzx Ti\textit {k}Z without tagging};}[nl]
+-------- memos/9F7D9471ACB4D784B2D6F2A7705F7C53.memo (end) -----------
+============================================================
+============================================================
+TEST 3: mmzx-tikz-tagging-none-1-ccmemo
+============================================================
+memos/9F7D9471ACB4D784B2D6F2A7705F7C53-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/9F7D9471ACB4D784B2D6F2A7705F7C53-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/9F7D9471ACB4D784B2D6F2A7705F7C53-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{9F7D9471ACB4D784B2D6F2A7705F7C53-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {130.95364pt}{15.55484pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzEndMemo[nl]
+-------- memos/9F7D9471ACB4D784B2D6F2A7705F7C53-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 4: mmzx-tikz-tagging-none-2
+============================================================
+(memos/59C558A83ED82AB302D1A43DEFF093C2.memo)
+============================================================
+============================================================
+TEST 5: mmzx-tikz-tagging-none-2-cmemo
+============================================================
+memos/59C558A83ED82AB302D1A43DEFF093C2.memo:
+-------- memos/59C558A83ED82AB302D1A43DEFF093C2.memo (start) ---------
+(memos/59C558A83ED82AB302D1A43DEFF093C2.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\tikz \node {mmzx Ti\textit {k}Z without tagging};[nl]
+-------- memos/59C558A83ED82AB302D1A43DEFF093C2.memo (end) -----------
+============================================================
+============================================================
+TEST 6: mmzx-tikz-tagging-none-2-ccmemo
+============================================================
+memos/59C558A83ED82AB302D1A43DEFF093C2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/59C558A83ED82AB302D1A43DEFF093C2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/59C558A83ED82AB302D1A43DEFF093C2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{59C558A83ED82AB302D1A43DEFF093C2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {130.95364pt}{15.55484pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzEndMemo[nl]
+-------- memos/59C558A83ED82AB302D1A43DEFF093C2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 7: mmzx-tikz-tagging-none-3
+============================================================
+(memos/50C175F709FA33390CA6F0D85DB9B7A5.memo)
+============================================================
+============================================================
+TEST 8: mmzx-tikz-tagging-none-3-cmemo
+============================================================
+memos/50C175F709FA33390CA6F0D85DB9B7A5.memo:
+-------- memos/50C175F709FA33390CA6F0D85DB9B7A5.memo (start) ---------
+(memos/50C175F709FA33390CA6F0D85DB9B7A5.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\begin {tikzpicture}\pgfnode {rectangle}{center}{Aardvark}{aard}{\pgfusepath {}} \node (a) at (-1,0) {mmzx Ti\textit {k}Z without tagging}; \draw (1,0) -- (1,1); \end {tikzpicture}[nl]
+-------- memos/50C175F709FA33390CA6F0D85DB9B7A5.memo (end) -----------
+============================================================
+============================================================
+TEST 9: mmzx-tikz-tagging-none-3-ccmemo
+============================================================
+memos/50C175F709FA33390CA6F0D85DB9B7A5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/50C175F709FA33390CA6F0D85DB9B7A5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/50C175F709FA33390CA6F0D85DB9B7A5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{50C175F709FA33390CA6F0D85DB9B7A5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {130.95364pt}{36.43016pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzEndMemo[nl]
+-------- memos/50C175F709FA33390CA6F0D85DB9B7A5-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 10: mmzx-tikz-tagging-none-4
+============================================================
+(memos/46B76CD1CE2A4414FAC03C51C8A1CDDD.memo)
+============================================================
+============================================================
+TEST 11: mmzx-tikz-tagging-none-4-cmemo
+============================================================
+memos/46B76CD1CE2A4414FAC03C51C8A1CDDD.memo:
+-------- memos/46B76CD1CE2A4414FAC03C51C8A1CDDD.memo (start) ---------
+(memos/46B76CD1CE2A4414FAC03C51C8A1CDDD.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\tikz {\pgftext {\textsc {pgf} \texttt {\textbackslash pgftext} without tagging}}[nl]
+-------- memos/46B76CD1CE2A4414FAC03C51C8A1CDDD.memo (end) -----------
+============================================================
+============================================================
+TEST 12: mmzx-tikz-tagging-none-4-ccmemo
+============================================================
+memos/46B76CD1CE2A4414FAC03C51C8A1CDDD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/46B76CD1CE2A4414FAC03C51C8A1CDDD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/46B76CD1CE2A4414FAC03C51C8A1CDDD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{46B76CD1CE2A4414FAC03C51C8A1CDDD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\quitvmode \mmzIncludeExtern {0}\hbox {135.20534pt}{5.0pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzEndMemo[nl]
+-------- memos/46B76CD1CE2A4414FAC03C51C8A1CDDD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0

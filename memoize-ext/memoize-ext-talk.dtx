@@ -1,0 +1,272 @@
+% \iffalse meta-comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% memoize-ext-talk.dtx
+% Additions and changes Copyright (C) 2024-2026 Clea F. Rees.
+% Code from skeleton.dtx Copyright (C) 2015-2024 Scott Pakin (see below).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008-05-04 or later.
+%
+% This work has the LPPL maintenance status 'muaintained'.
+%
+% The Current Maintainer of this work is Clea F. Rees.
+%
+% This work consists of all files listed in manifest.txt.
+%
+% The file memoize-ext-talk.dtx is a derived work under the terms of the
+% LPPL. It is based on version 2.4 of skeleton.dtx which is part of
+% dtxtut by Scott Pakin. A copy of dtxtut, including the
+% unmodified version of skeleton.dtx is available from
+% https://www.ctan.org/pkg/dtxtut and released under the LPPL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse
+%<*driver>
+\GetIdInfo $Id: memoize-ext-talk.dtx 11593 2026-02-14 04:45:53Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\begin{document}
+\let\MakePrivateLetters\MyMakePrivateLetters
+\DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+% 
+% \begin{abstract}
+%   \noindent\pkg{memoize-ext-talk} enables memoization of \cls{ltx-talk} presentations.
+%   It is essentially a ‘translation’ of \pkg{memoize}'s support for \pkg{beamer}, together with modifications for differences in the way the classes implement overlays and changes to the implementation of opacity when \pkg{pdfmanagement} is loaded.
+%
+%   Insofar as possible, the package avoids utilising the internals of either \pkg{memoize} or \cls{ltx-talk}, but it was not entirely possible to do so without making the code far more fragile and convoluted. 
+%   See the main manual for \pkg{memoize-ext} for details.
+%
+%   The user interface is identical to that provided by \pkg{memoize} for \pkg{beamer}.
+% \end{abstract}
+%
+% \tableofcontents
+% 
+% \MaybeStop{%
+%   \PrintChanges
+%   \PrintIndex
+% }
+% 
+% \section{Implementation}
+% 
+%<*sty>
+%<@@=mmzx>
+%    \begin{macrocode}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11593 2026-02-14 04:45:53Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
+%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+%<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+%
+%<!debug>    \disable@package@load {memoize-ext-talk-debug}
+%<debug>    \disable@package@load {memoize-ext-talk}
+{ Only~one~of~memoize-ext-talk~and~memoize-ext-talk-debug~
+  should~be~loaded.
+  Since~
+%<!debug>    memoize-ext-talk
+%<debug>    memoize-ext-talk-debug
+  ~has~been~loaded,~I~will~ignore~your~request~for~
+%<debug>    memoize-ext-talk
+%<!debug>    memoize-ext-talk-debug
+.}
+%<!debug>    \RequirePackage{memoize-ext}
+%<debug>    \RequirePackage{memoize-ext-debug}
+%    \end{macrocode}
+% We don't want inconsistent names in hooks.
+%    \begin{macrocode}
+\SetDefaultHookLabel{memoize-ext}
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN ltx-talk
+% addaswyd o memoize-beamer.code.tex & other memoize code
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    \begin{macrocode}
+\hook_gput_code:nnn {class/ltx-talk/after}{.}
+{
+%<debug>    \@@_debug:n {Enabling~ltx-talk~support.}
+  \mmzset{
+    per~overlay/.code={},
+    talk~mode~to~prefix/.style={
+      prefix=\mmz@prefix@dir\mmz@prefix@name\l_@@_talk_mode_str -,
+    },
+  }
+%    \end{macrocode}
+% \begin{var}{\g__@@_talk_opacity_seq,
+%   \g_@@_talk_saved_opacity_seq,
+%   \l_@@_talk_opacity_tl,
+% }
+%   \mbox{}
+%    \begin{macrocode}
+  \seq_new:N \g_@@_talk_opacity_seq
+  \seq_new:N \g_@@_talk_saved_opacity_seq
+  \tl_new:N \l_@@_talk_opacity_tl
+%    \end{macrocode}
+% \end{var}
+% \begin{macro}{%
+%   \g_@@_talk_frame_int,
+%   \g_@@_talk_slide_int,
+%   \g_@@_talk_pauses_int,
+%   \l_@@_talk_mode_str,
+% }
+%    \begin{macrocode}
+
+  \cs_new_eq:NN \g_@@_talk_frame_int \c@frame
+  \cs_new_eq:NN \g_@@_talk_slide_int \c@slide
+  \cs_new_eq:NN \g_@@_talk_pauses_int \c@pauses
+  \cs_new_eq:NN \l_@@_talk_mode_str \l__talk_mode_str
+%    \end{macrocode}
+% \end{var}
+% \begin{fn}{%
+%   \opacity_select:V,
+% }
+% \pkg{ltx-talk} does this too late (at least, I get an error)
+%    \begin{macrocode}
+  \cs_generate_variant:Nn \opacity_select:n {V}
+%    \end{macrocode}
+% \end{fn}
+% Initialise sequence.
+%    \begin{macrocode}
+  \seq_gpush:Nn \g_@@_talk_opacity_seq {1}
+%    \end{macrocode}
+% \begin{fn}{\@@_talk_opacity_save:,}
+%   \mbox{}
+%    \begin{macrocode}
+  \cs_new_protected_nopar:Npn \@@_talk_opacity_save:
+  {
+    \seq_gset_eq:NN \g_@@_talk_opacity_saved_seq \g_@@_talk_opacity_seq
+    \seq_get:NN \g_@@_talk_opacity_seq \l_@@_talk_opacity_tl
+    \exp_args:NV \tl_if_eq:NNTF \l_@@_talk_opacity_tl \q_no_value
+    {
+      \seq_gpush:Nn \g_@@_talk_opacity_saved_seq {1}
+      \opacity_select:n {1}
+    } {
+      \seq_gpush:NV \g_@@_talk_opacity_saved_seq \l_@@_talk_opacity_tl
+      \opacity_select:V \l_@@_talk_opacity_tl
+    }
+  }
+%    \end{macrocode}
+% \end{fn}
+% \begin{fn}{\@@_talk_opacity_restore:,}
+%   \mbox{}
+%    \begin{macrocode}
+  \cs_new_protected_nopar:Npn \@@_talk_opacity_restore:
+  {
+    \seq_gpop:NN \g_@@_talk_opacity_saved_seq \l_@@_talk_opacity_tl
+    \opacity_select:V \l_@@_talk_opacity_tl
+    \seq_gset_eq:NN \g_@@_talk_opacity_seq \g_@@_talk_opacity_saved_seq
+  }
+%    \end{macrocode}
+% \end{fn}
+% \begin{macro}{\mmzSingleExternDriver}
+%   Redefine driver
+%   Even if this does not have an internal name, the redefinition uses internals in spades \dots.
+%   We could define a new one \& I guess that's what should be done \dots
+%    \begin{macrocode}
+  \long\def\mmzSingleExternDriver#1{
+    \xtoksapp\mmzCCMemo{\mmz@maybe@quitvmode}
+    \setbox\mmz@box\mmz@capture{
+      \@@_talk_opacity_save:
+      #1
+      \@@_talk_opacity_restore:
+    }
+    \mmzExternalizeBox\mmz@box\mmz@temptoks
+    \xtoksapp\mmzCCMemo{\the\mmz@temptoks}
+    \mmz@maybe@quitvmode\box\mmz@box
+  }
+%    \end{macrocode}
+% \end{macro}
+% The code below is iffy, I guess, since the begin/end thing here is rather illusory \dots
+%    \begin{macrocode}
+  \hook_gset_rule:nnnn {begindocument} {ltx-talk} {<} {.}
+  \hook_gput_code_with_args:nnn {cmd/opacity_select:n/before} {.}
+  {
+    \seq_gpush:Nn \g_@@_talk_opacity_seq {#1}
+    % \typeout{Opacity~select:~#1}
+  }
+  \hook_gput_code:nnn {cmd/opacity_end:/after}{.}
+  {
+%<debug>    \@@_debug:n{Opacity~after}
+    \seq_gpop:NN \g_@@_talk_opacity_seq \l_tmpa_tl
+%<debug>    \seq_log:N \g_@@_talk_opacity_seq
+  }
+  \mmzset{
+    per~overlay/.style={
+      /mmz/context={
+        overlay=\csname theslide\endcsname,
+        pauses=\ifmemoizing
+          \mmzxTalkPauses
+        \else
+          \expandafter\the\csname c@pauses\endcsname
+        \fi
+      },
+      /mmz/at~begin~memoization={
+        \xdef\mmzxTalkPauses{
+          \int_to_arabic:n {\g_@@_talk_pauses_int}
+        }
+        \xtoksapp\mmzCMemo{
+          \noexpand\mmzxSetTalkOverlays{\mmzxTalkPauses}{
+            \int_to_arabic:n {\g_@@_talk_slide_int}
+          }
+        }
+        \gtoksapp\mmzCCMemo{
+          \only<all:\mmzxTalkOverlays>{}
+        }
+        \seq_get:NNTF \g_@@_talk_opacity_seq \l_@@_opacity_tl
+        {
+          \fp_gset:NV \l_@@_tmpa_fp \l_@@_opacity_tl
+        } {
+          \fp_gset:Nn \l_@@_tmpa_fp {1}
+        }
+        \xtoksapp\mmzContextExtra{
+          opacity=\fp_to_decimal:N \l_@@_tmpa_fp
+        }
+      },
+      /mmz/at~end~memoization={
+        \xtoksapp\mmzCCMemo{
+          \exp_not:N \setcounter{pauses}
+          {\int_to_arabic:n {\g_@@_talk_pauses_int}}
+        }
+      },
+      /mmz/per~overlay/.code={},
+    },
+  }
+%    \end{macrocode}
+% \begin{macro}{\mmzxSetTalkOverlays}
+%   Note the addition of code to set \verb|g__talk_slide_continue_bool|.
+%   This isn't necessary for \pkg{beamer} and is not ‘allowed’ for \pkg{ltx-talk}, but is necessary for frames with overlay specifications in memoized content.
+%    \begin{macrocode}
+  \cs_new_nopar:Npn \mmzxSetTalkOverlays#1#2{
+%<debug>    \@@_debug:e {Executing~\cs_to_str:N \mmzxSetTalkOverlays}
+    \int_compare:nNnTF {\g_@@_talk_pauses_int} = {#1}
+    {
+      \gdef\mmzxTalkOverlays{#2}
+      \int_compare:nNnTF {\g_@@_talk_slide_int} < {#2}
+      {
+        \bool_set_true:N \l_@@_tmpa_bool
+      }{
+        \bool_set_false:N \l_@@_tmpa_bool
+      }
+    }{
+      \bool_set_true:N \l_@@_tmpa_bool
+    }
+    \bool_if:NT \l_@@_tmpa_bool
+    {
+      \bool_gset_true:N \g__talk_slide_continue_bool
+      \appto\mmzAtBeginMemoization{
+        \gtoksapp\mmzCMemo{\mmzxSetTalkOverlays{#1}{#2}}
+      }
+    }
+  }
+%    \end{macrocode}
+% \end{macro}
+%    \begin{macrocode}
+}
+%    \end{macrocode}
+%</sty>
+% 
+%\Finale

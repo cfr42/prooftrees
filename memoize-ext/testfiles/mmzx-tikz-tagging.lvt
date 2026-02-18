@@ -1,0 +1,70 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `mmzx-tikz-tagging-none.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% memoize-ext. You may however distribute the package memoize-ext without
+%% such generated files.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{%
+  tagging=on,
+  lang=en-GB,
+  pdfversion=2.0,
+  pdfstandard=UA-2,
+  uncompress,
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: mmzx-tikz-tagging.lvt 11584 2026-02-06 04:19:17Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\input regression-test.tex\relax
+\documentclass{article}
+\input{mmzx-support.cfg}
+\START
+\TYPE{memoize}
+\TESTMMZ
+\OMIT
+\usepackage{memoize}
+\mmzset{prefix=memos/}
+\usepackage{memoize-ext}	
+\usepackage{tikz}
+\title{memoize-ext: tagging memoized tikz pics with alt text}
+\begin{document}
+\TIMO
+\TESTMEMOIZATION*{mmzx-tikz-tagging-1}{
+  \tikz[alt=Alt 1]{\node {mmzx Ti\textit{k}Z with tagging};}
+}{B9A498E132CAE52C88DCAF0CF0DD0068}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION*{mmzx-tikz-tagging-2}{
+  \tikz[alt=Alt 2]\node {mmzx Ti\textit{k}Z with tagging};
+}{F68CC36BD463325ABA443AA0AE1F18D1}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION*{mmzx-tikz-tagging-3}{
+  \begin{tikzpicture}[alt=Alt 3]
+    \pgfnode{rectangle}{center}{Aardvark}{aard}{\pgfusepath{}} 
+    \node (a) at (-1,0) {mmzx Ti\textit{k}Z with tagging};
+    \draw (1,0) -- (1,1);
+  \end{tikzpicture}%
+}{6E4E5FF1EE960A69BF25B40063CBB4B5}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION*{mmzx-tikz-tagging-4}{
+  \tikz[alt=Alt 4]{
+    \pgftext {\textsc{pgf} \texttt{\textbackslash pgftext} with tagging}
+  }
+}{DB047F7895C514A0F516554934D623F4}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\SHOWPDFTAGS
+\OMIT
+\end{document}
+% vim: ts=2:sw=2:et:
