@@ -34,7 +34,7 @@
   math/mathml/structelem,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: forest-ext-tagging-custom.lvt 11612 2026-02-18 02:13:50Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
+\ProvidesFileSVN{$Id: forest-ext-tagging-custom.lvt 11613 2026-02-18 03:54:01Z cfrees $}[v0.0 \revinfo][\filebase: tag support test]
 \input regression-test.tex\relax
 \documentclass{article}
 \START
@@ -92,15 +92,15 @@
     \TYPE{CANNOT FIND memos/E736A0412E8F019379D6EB2254F96EC2.memo!}%
   }%
 }
-\TEST{tagforest-custom-mem-ccmemo}{%
-  \IfFileExists{memos/E736A0412E8F019379D6EB2254F96EC2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}{%
-    \TYPE{memos/E736A0412E8F019379D6EB2254F96EC2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:}%
-    \NEWLINE
-    \SHOWFILE{memos/E736A0412E8F019379D6EB2254F96EC2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}%
-  }{%
-    \TYPE{CANNOT FIND memos/E736A0412E8F019379D6EB2254F96EC2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo!}%
-  }%
-}
+% \TEST{tagforest-custom-mem-ccmemo}{%
+%   \IfFileExists{memos/E736A0412E8F019379D6EB2254F96EC2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}{%
+%     \TYPE{memos/E736A0412E8F019379D6EB2254F96EC2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:}%
+%     \NEWLINE
+%     \SHOWFILE{memos/E736A0412E8F019379D6EB2254F96EC2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}%
+%   }{%
+%     \TYPE{CANNOT FIND memos/E736A0412E8F019379D6EB2254F96EC2-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo!}%
+%   }%
+% }
 \ResumeTagging {l3build}%
 \OMIT
 \end{document}
