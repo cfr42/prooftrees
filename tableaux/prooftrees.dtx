@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2880,8 +2880,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2927,7 +2927,29 @@ for root'={%
 % \changes{v0.9.1}{2025-08-27}{Don't load \pkg{amssymb} or \pkg{amstext} unconditionally.}
 % Load \pkg{forest}, but load maths packages later only if needed.
 % \changes{v0.9.2}{2026-01-19}{Load the \pkg{ext.tagging} library.}
+% \changes{v0.0}{0000-00-00}{Load the \pkg{memoize-ext} if \pkg{memoize} is loaded.}
+% We load \pkg{memoize-ext} and \pkg{forest-ext} because there is a chance it is early enough.
+% Once we load \pkg{forest}, it is too late.
+% This is required for compatibility with tagging: the support depends on hook rules to override \pkg{latex-lab}'s code.
 %    \begin{macrocode}
+\@ifpackageloaded{memoize}{%
+  \@ifpackageloaded{memoize-ext}{}{%
+    \@ifpackageloaded{memoize-ext-debug}{}{%
+      \IfFileExists{memoize-ext.sty}{%
+%<!debug>       \RequirePackage{memoize-ext}%
+%<debug>       \RequirePackage{memoize-ext-debug}%
+      }{%
+        \PackageError{prooftrees}{This version of prooftrees requires the
+          package memoize-ext if memoize is loaded.%
+        }{%
+          forest-ext now requires memoize-ext.
+          You should not receive this version of prooftrees from a distribution
+          unless it also provides memoize-ext and a current forest-ext.%
+        }%
+      }%
+    }%
+  }%
+}{}
 \RequirePackage{forest}[2016/12/04]
 \@ifpackageloaded{forest-lib-ext.tagging}{}{%
   \@ifpackageloaded{forest-lib-ext.tagging-debug}{}{%
@@ -4768,7 +4790,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 %    \end{macrocode}
@@ -4786,7 +4808,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11549 2026-01-19 19:50:26Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 %    \end{macrocode}

@@ -1,4 +1,4 @@
--- $Id: build.lua 11540 2026-01-19 06:46:23Z cfrees $
+-- $Id: build.lua 11616 2026-02-18 13:41:14Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -15,8 +15,8 @@ tagfiles = { "*.dtx", "*.ins", "README.md", "build.lua", "manifest.txt" }
 typesetfiles = {"prooftrees-doc.tex","prooftrees-code.tex"}
 -- typesetopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 typesetopts = "-interaction=errorstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
-typesetdeps = {maindir .. "/forest-ext"}
-checkdeps = {maindir .. "/forest-ext"}
+typesetdeps = {maindir .. "/forest-ext", maindir .. "/memoize-ext"}
+checkdeps = {maindir .. "/forest-ext", maindir .. "/memoize-ext"}
 --------------------------------------------------------------------------------
 -- indexstyle = ""
 typesetruns = 4

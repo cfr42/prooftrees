@@ -24,7 +24,7 @@
 %% This work consists of all files listed in manifest.txt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-memoize-t1.lvt 10540 2024-10-29 04:41:14Z cfrees $}[v0.0 \revinfo][\filebase: memoization test]
+\ProvidesFileSVN{$Id: prooftrees-memoize-t1.lvt 11616 2026-02-18 13:41:14Z cfrees $}[v0.0 \revinfo][\filebase: memoization test]
 \input regression-test.tex\relax
 \documentclass{article}
 \START
@@ -38,7 +38,7 @@
   }%
 }
 \OMIT
-\usepackage[extract=python]{memoize}
+\usepackage[extract=perl]{memoize}
 \mmzset{%
   prefix={memos/},
   include context in ccmemo,

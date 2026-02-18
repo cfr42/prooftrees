@@ -104,16 +104,16 @@ Completed box being shipped out [1]
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x15.0, direction TLT
 ....\hbox(7.63852+59.2774)x64.85121, direction TLT
-.....\hbox(7.63861+59.2774)x64.8513, direction TLT
-......\hbox(211.456+0.0)x137.12129, shifted 131.5474, direction TLT
+.....\hbox(7.64262+59.2774)x64.85231, direction TLT
+......\hbox(211.46+0.0)x137.1223, shifted 131.5474, direction TLT
 .......\glue -72.26999
-.......\image(211.456+0.0)x209.39128
+.......\image(211.46+0.0)x209.39229
 ....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
 ....\hbox(7.63852+59.2774)x65.53758, direction TLT
-.....\hbox(7.63861+59.2774)x65.53787, direction TLT
-......\hbox(211.456+0.0)x137.80786, shifted 131.5474, direction TLT
+.....\hbox(7.64262+59.2774)x65.53487, direction TLT
+......\hbox(211.46+0.0)x137.80486, shifted 131.5474, direction TLT
 .......\glue -72.26999
-.......\image(211.456+0.0)x210.07785
+.......\image(211.46+0.0)x210.07484
 ....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
 ....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
 ....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
