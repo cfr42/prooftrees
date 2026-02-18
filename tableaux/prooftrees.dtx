@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11619 2026-02-18 19:12:27Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2576,6 +2576,7 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 % \fi
 \begin{latexcode}
 \usepackage[extraction method=perl]{memoize}% or python
+\usepackage{memoize-ext}
 \usepackage{prooftrees}
 \end{latexcode}
 % \iffalse
@@ -2598,6 +2599,9 @@ before annotating={for nodewalk={wffs from proof line no to={3}{5}}{blue,typeset
 %
 % The infrastructure for tagging is provided by the \pkg{ext.tagging} and \pkg{ext.utils} \pkg{forest} libraries, which are part of \pkg{forest-ext}\footcite{cfr-forest-ext}.
 % \textbf{These libraries are required regardless of whether tagging is used.}
+%
+% If \pkg{memoize} is loaded (\cref{sec:memoize}), \pkg{ext.tagging} uses the framework provided by \pkg{memoize-ext}\footcite{cfr-memoize-ext}.
+% \textbf{This package is required if \pkg{memoize} is used, regardless of whether tagging is enabled.}
 %
 % Tagging is \emph{highly experimental} and the implementation will certainly change, as well, possibly, as the interface.
 % Changes to the public interface will be avoided where reasonable.
@@ -2837,11 +2841,15 @@ for root'={%
 % \changes{v0.9.2}{2026-01-19}{\pkg{forest-ext} is now required, since two of its libraries provide a framework for tagging \pkg{forest} trees.
 %   This applies even if tagging is not used.}
 %
+% \changes{v0.9.3}{0000-00-00}{\pkg{memoize-ext} is now required if \pkg{memoize} is loaded, since \pkg{forest-ext} now uses its framework for tagging \pkg{forest} trees.
+%   This applies even if tagging is not used.}
+%
 % \printbibliography
 %
 % ^^A \loadgeometry{safonol}%
 % ^^A \fancyheadoffset[lh]{0pt}%
 % 
+% \changes{v0.9.3}{0000-00-00}{More robust support for tagging memoized tableaux and changes for compatibility with changes in \pkg{forest-ext}.}
 % \changes{v0.9.2}{2026-01-19}{Experimental support for tagging based on \pkg{forest-ext}.}
 % \changes{v0.9.1}{2025-08-20}{Switch to \pkg{docstrip}.}
 % \changes{v0.9}{0001-01-01}{Use \cs{NewDocumentEnvironment}, removing direct dependency on \pkg{environ}.}
@@ -2880,8 +2888,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11619 2026-02-18 19:12:27Z cfrees $}[v0.9.2 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11619 2026-02-18 19:12:27Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -4790,7 +4798,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11619 2026-02-18 19:12:27Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 %    \end{macrocode}
@@ -4808,7 +4816,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11616 2026-02-18 13:41:14Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11619 2026-02-18 19:12:27Z cfrees $}[v0.9.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 %    \end{macrocode}
