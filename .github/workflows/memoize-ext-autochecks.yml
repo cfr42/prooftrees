@@ -77,7 +77,7 @@ jobs:
           release: ${{ contains(github.ref_name, 'memoize-ext-') }}
           tds: false
           texlive_cache_key: ${{ needs.texlive-cache.outputs.cache_key }}
-          working_directory: ./
+          working_directory: memoize-ext
       - name: Save ctan build results
         if: ${{ !cancelled() }}
         id: save-outputs
