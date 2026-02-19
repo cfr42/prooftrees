@@ -36,7 +36,7 @@
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext.dtx 11641 2026-02-19 06:27:50Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext.dtx 11643 2026-02-19 08:38:56Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forestextdoc]
 \GetFileInfoSVN*
 \let\forestextdocversion\fileversion
@@ -373,6 +373,12 @@
 {
   \keys_set:nn { forest-ext / doc } { #1 }
 }
+\cs_new_eq:NN \__forestextdoc_cs_orig:n \cs
+\cs_new_protected:Npn \__forestextdoc_cs_expl:n #1
+{
+  \exp_args:Ne \__forestextdoc_cs_orig:n {\tl_to_str:n {#1}}
+}
+\cs_new_eq:NN \ecs \__forestextdoc_cs_expl:n
 \ExplSyntaxOff
 \forestextdocset{%
   bug={\href{https://codeberg.org/cfr/prooftrees/issues}{\textsc{bugtracker}}},
@@ -1936,7 +1942,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11641 2026-02-19 06:27:50Z cfrees $}[v0.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11643 2026-02-19 08:38:56Z cfrees $}[v0.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 \input{\MyFileBaseName.dtx}
@@ -1950,7 +1956,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11641 2026-02-19 06:27:50Z cfrees $}[v0.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11643 2026-02-19 08:38:56Z cfrees $}[v0.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation\setcounter{IndexColumns}{2}}
 \input{\MyFileBaseName.dtx}
