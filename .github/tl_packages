@@ -228,3 +228,9 @@ latex2pydata
 tikzfill
 
 sttools
+
+# memoize-ext needs mmzx-talk for tests
+ltx-talk
+newcomputermodern
+relsize
+sansmathfonts
