@@ -17,7 +17,8 @@ The property list \l__forestext_my toks_prop contains the pairs (without outer b
 >  {calign}  =>  {midpoint}
 >  {l sep'+}  =>  {5mm}
 >  {before typesetting nodes}  =>  {blue,font=\sffamily ,}.
-declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, 
+[Forest ext.utils debug]:: forestext@toksa:
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, 
 [Forest ext.utils debug]:: Setting processing order for my toks to unique=tree.
 [Forest ext.utils debug]:: Declaring tagging keylist my keys
 [Forest ext.utils debug]:: with default circle,calign=first.
@@ -27,11 +28,14 @@ declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typ
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
 >  {circle}  =>  {\q_no_value }
 >  {calign}  =>  {first}.
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, 
 [tagforext debug]:: my keys: 
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
 >  {circle}  =>  {\q_no_value }
 >  {calign}  =>  {first}.
-declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, declare keylist/.process={_x{my keys}{circle,calign={first},}}, 
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, 
+[Forest ext.utils debug]:: forestext@toksa:
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 [Forest ext.utils debug]:: Setting processing order for my keys to unique=tree.
 [Forest ext.utils debug]:: Processing draw=green,rectangle,fill=red for my keys.
 [tagforext debug]:: my keys: 
@@ -41,6 +45,7 @@ The property list \l__forestext_my keys_prop contains the pairs (without outer b
 >  {draw}  =>  {green}
 >  {rectangle}  =>  {\q_no_value }
 >  {fill}  =>  {red}.
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 [Forest ext.utils debug]:: Processing fill=yellow for my keys.
 [tagforext debug]:: my keys: 
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
@@ -49,6 +54,7 @@ The property list \l__forestext_my keys_prop contains the pairs (without outer b
 >  {draw}  =>  {green}
 >  {rectangle}  =>  {\q_no_value }
 >  {fill}  =>  {yellow}.
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 [Forest ext.utils debug]:: Remove draw=green from my keys if value match.
 [Forest ext.utils debug]:: Remove draw if value is green.
 [tagforext debug]:: my keys: 
@@ -57,6 +63,7 @@ The property list \l__forestext_my keys_prop contains the pairs (without outer b
 >  {calign}  =>  {first}
 >  {rectangle}  =>  {\q_no_value }
 >  {fill}  =>  {yellow}.
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 [Forest ext.utils debug]:: Processing font=\sffamily  for my keys.
 [tagforext debug]:: my keys: 
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
@@ -65,6 +72,7 @@ The property list \l__forestext_my keys_prop contains the pairs (without outer b
 >  {rectangle}  =>  {\q_no_value }
 >  {fill}  =>  {yellow}
 >  {font}  =>  {\sffamily }.
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 [Forest ext.utils debug]:: Processing calign=child edge for my keys.
 [tagforext debug]:: my keys: 
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
@@ -73,19 +81,22 @@ The property list \l__forestext_my keys_prop contains the pairs (without outer b
 >  {rectangle}  =>  {\q_no_value }
 >  {fill}  =>  {yellow}
 >  {font}  =>  {\sffamily }.
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 [tagforext debug]:: my keys: 
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
 >  {circle}  =>  {\q_no_value }
 >  {calign}  =>  {child edge}
 >  {rectangle}  =>  {\q_no_value }
 >  {font}  =>  {\sffamily }.
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 [tagforext debug]:: my keys: 
 The property list \l__forestext_my keys_prop contains the pairs (without outer braces):
 >  {circle}  =>  {\q_no_value }
 >  {calign}  =>  {child edge}
 >  {font}  =>  {\sffamily }.
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 [Forest ext.utils debug]:: Creating options set with declare tagging keylist.
-declare keylist/.process={_x{my toks}{calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},}}, declare keylist/.process={_x{my keys}{circle,calign={child edge},font={\sffamily },}}, 
+declare keylist/.process={_x{my toks}{\forestext@prop@to@keylist {my toks}}}, declare keylist/.process={_x{my keys}{\forestext@prop@to@keylist {my keys}}}, 
 calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},
 circle,calign={child edge},font={\sffamily },
 calign={midpoint},l sep'+={5mm},before typesetting nodes={blue,font=\sffamily ,},
