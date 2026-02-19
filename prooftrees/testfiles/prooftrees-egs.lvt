@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% This is file `prooftrees-memoize-t1.lvt',
 %%
-%% Copyright (C) 2024 Clea F. Rees.
+%% Copyright (C) 2024-2026 Clea F. Rees.
 %% 
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -23,7 +23,7 @@
 %% This work consists of all files listed in manifest.txt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: prooftrees-egs.lvt 10527 2024-10-25 19:13:21Z cfrees $}[\filebase \revinfo]
+\ProvidesFileSVN{$Id: prooftrees-egs.lvt 11635 2026-02-19 04:01:25Z cfrees $}[\filebase \revinfo]
 \input regression-test.tex\relax
 \PassOptionsToPackage{rgb,x11names,svgnames,dvipsnames}{xcolor}
 \documentclass{article}
@@ -42,7 +42,9 @@
 \newcommand*{\elim}{\,\text{E}}
 \newbox\tableaubox
 \forestset{draw tree box=\tableaubox}
-
+\ExplSyntaxOn
+\cs_new_eq:NN \logbox \box_log:N
+\ExplSyntaxOff
 % note that many examples in this file are invalid or otherwise maladjusted as they've been randomly altered to test 'what if...?' scenarios with scant attention to the niceties of logic!
 \begin{document}
 \START
@@ -85,7 +87,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -124,7 +126,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -160,7 +162,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -195,7 +197,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -224,7 +226,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -249,7 +251,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -274,7 +276,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -310,7 +312,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -348,7 +350,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -376,7 +378,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -408,7 +410,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -440,7 +442,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -476,7 +478,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -508,7 +510,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -538,7 +540,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -566,7 +568,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -594,7 +596,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -622,7 +624,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -650,7 +652,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -690,7 +692,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -727,7 +729,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -764,7 +766,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -818,7 +820,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -841,7 +843,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -878,7 +880,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -916,7 +918,7 @@
         ]
       ]
     \end{prooftree}
-    \showbox\tableaubox
+    \logbox\tableaubox
   }%
 \OMIT
 \box\tableaubox
@@ -957,7 +959,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -985,7 +987,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1013,7 +1015,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1048,7 +1050,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1100,7 +1102,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1122,7 +1124,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1147,7 +1149,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1172,7 +1174,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1204,7 +1206,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1255,7 +1257,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1278,7 +1280,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1303,7 +1305,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1328,7 +1330,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1359,7 +1361,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1410,7 +1412,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1439,7 +1441,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1468,7 +1470,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1497,7 +1499,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1522,7 +1524,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1553,7 +1555,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1572,7 +1574,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1599,7 +1601,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1642,7 +1644,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1685,7 +1687,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1712,7 +1714,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1749,7 +1751,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1810,7 +1812,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1872,7 +1874,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1901,7 +1903,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1937,7 +1939,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1966,7 +1968,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -1987,7 +1989,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2024,7 +2026,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2061,7 +2063,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2098,7 +2100,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2131,7 +2133,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2170,7 +2172,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2212,7 +2214,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2245,7 +2247,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2288,9 +2290,8 @@
         ]
       ]
     ]
-  ]
-\end{prooftree}
-\showbox\tableaubox
+  \end{prooftree}
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2333,9 +2334,8 @@
         ]
       ]
     ]
-  ]
-\end{prooftree}
-\showbox\tableaubox
+  \end{prooftree}
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2385,7 +2385,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2415,7 +2415,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2436,7 +2436,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2456,7 +2456,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2476,7 +2476,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2496,7 +2496,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2528,7 +2528,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2571,7 +2571,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2600,7 +2600,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2629,7 +2629,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2658,7 +2658,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2676,7 +2676,7 @@
       ]
     ]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2722,7 +2722,7 @@
                           ]
     [Bb,close]]]]]]]]]]]]
   \end{prooftree}
-  \showbox\tableaubox
+  \logbox\tableaubox
 }%
 \OMIT
 \box\tableaubox
@@ -2787,7 +2787,7 @@
                           [{\lnot Ha}, no line no, close]
       [{Ga}, no line no, close]]]]]]]]]]]
     \end{prooftree}
-    \showbox\tableaubox
+    \logbox\tableaubox
   }%
   \OMIT
   \box\tableaubox
@@ -2826,7 +2826,7 @@
 %       ]
 %     ]
 %   \end{prooftree}
-%   \showbox\tableaubox
+%   \logbox\tableaubox
 % }%
 % \OMIT
 % \box\tableaubox

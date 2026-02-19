@@ -8,3 +8,5 @@ macro:->\environment prooftree end aux
 \protected macro:->\__cmd_start_env:nnnnn { m +b }{tableau}{\__cmd_grab_m_1:w \__cmd_grab_b_long:w }{}{}
 macro:->\environment tableau end aux 
 ============================================================
+***************
+Compilation 1 of test file completed with exit status 0
