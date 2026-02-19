@@ -22,6 +22,12 @@ on:
       - '.github/workflows/prooftrees-autochecks.yml'
       - '!licences/**'
       - '!test/**'
+      - '!memoize-ext/testfiles/**'
+      - '!memoize-ext/testfiles-*/**'
+      - '!memoize-ext/config-*.lua'
+      - '!forest-ext/testfiles/**'
+      - '!forest-ext/testfiles-*/**'
+      - '!forest-ext/config-*.lua'
   pull_request:
     branches: 
       - "*"
@@ -64,7 +70,8 @@ jobs:
           ctan: true
           # https://github.com/josephwright/siunitx/blob/549cad913591b92a3a199b7477a325866303bf29/.github/workflows/main.yaml
           # We need Ghostscript for XeTeX tests.
-          extra_packages: ghostscript python3-pdfrw
+          # extra_packages: ghostscript python3-pdfrw
+          extra_packages: ghostscript libpdf-api2-perl 
           # cannot be built on github
           manifest: false
           module: prooftrees

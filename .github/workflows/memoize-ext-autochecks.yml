@@ -19,9 +19,11 @@ on:
       - '!.github/workflows/*.yml'
       - '!.github/actions/**'
       - '!.github/dependabot.yml'
-      - '.github/workflows/main.yml'
+      - '.github/workflows/memoize-ext-autochecks.yml'
       - '!licences/**'
       - '!test/**'
+      - '!prooftrees/**'
+      - '!forest-ext/**'
   pull_request:
     branches: 
       - "*"
@@ -67,7 +69,7 @@ jobs:
           ctan: true
           # https://github.com/josephwright/siunitx/blob/549cad913591b92a3a199b7477a325866303bf29/.github/workflows/main.yaml
           # We need Ghostscript for XeTeX tests.
-          extra_packages: ghostscript python3-pdfrw
+          extra_packages: ghostscript libpdf-api2-perl
           # cannot be built on github
           manifest: false
           module: memoize-ext
