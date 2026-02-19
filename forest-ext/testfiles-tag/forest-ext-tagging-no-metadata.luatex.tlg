@@ -21,8 +21,8 @@ TEST 2: Show PDF Tags
 ============================================================
 -------- forest-ext-tagging-no-metadata.xml (start) ---------
 <PDF>
-<StructTreeRoot>
-</StructTreeRoot>
+ <StructTreeRoot>
+ </StructTreeRoot>
 </PDF>
 -------- forest-ext-tagging-no-metadata.xml (end) ---------
 ============================================================
