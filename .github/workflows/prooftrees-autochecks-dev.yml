@@ -58,7 +58,7 @@ jobs:
           # cannot be built on github
           manifest: false
           module: prooftrees
-          working_directory: tableaux
+          working_directory: prooftrees
           tds: false
           texlive_cache_key: ${{ needs.texlive-cache-dev.outputs.cache_key }}
           opts_ctan: "--dev"
