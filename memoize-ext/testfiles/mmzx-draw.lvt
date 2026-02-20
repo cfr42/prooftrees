@@ -1,0 +1,57 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `mmzx-sock.lvt',
+%%
+%% Copyright (C) 2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% memoize-ext. 
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: mmzx-draw.lvt 11650 2026-02-20 18:51:22Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\input regression-test.tex\relax
+\documentclass{article}
+\input{mmzx-support.cfg}
+\START
+% \TYPE{memoize}
+\TESTMMZ
+\OMIT
+\usepackage{memoize}
+\mmzset{prefix=memos/,include context in ccmemo,trace}
+\usepackage{memoize-ext-debug}	
+\usepackage{l3draw}
+\title{memoize-ext: draw}
+\begin{document}
+\TIMO
+\ExplSyntaxOn
+\TESTMEMOIZATION*{l3draw}{
+  % example is first one from the manual
+  \dim_new:N \l_mypos_dim
+  \draw_begin:
+    \draw_path_moveto:n { 0cm , \l_mypos_dim }
+    \draw_path_lineto:n { 1cm , \l_mypos_dim }
+    \dim_set:Nn \l_mypos_dim { 1cm }
+    \draw_path_lineto:n { 1cm , \l_mypos_dim }
+    \draw_path_close:
+    \draw_path_use_clear:n { stroke }
+  \draw_end:
+}{56D93D7E1D3D461B307A0BECB00AA3BD}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\ExplSyntaxOff
+\OMIT
+\end{document}
+% vim: ts=2:sw=2:et:

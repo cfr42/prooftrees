@@ -1,0 +1,31 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+mmzx-draw.mmz:
+-------- mmzx-draw.mmz (start) ---------
+(mmzx-draw.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/56D93D7E1D3D461B307A0BECB00AA3BD.memo}[nl]
+\mmzUsedExtern {memos/56D93D7E1D3D461B307A0BECB00AA3BD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/56D93D7E1D3D461B307A0BECB00AA3BD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\endinput[nl]
+-------- mmzx-draw.mmz (end) -----------
+============================================================
+TEST 1: l3draw-cmemo
+============================================================
+memos/56D93D7E1D3D461B307A0BECB00AA3BD.memo:
+-------- memos/56D93D7E1D3D461B307A0BECB00AA3BD.memo (start) ---------
+(memos/56D93D7E1D3D461B307A0BECB00AA3BD.memo) \mmzMemo \global \mmzContextExtra {}% % \mmzSource \draw_begin: \draw_path_moveto:n {0cm,\l_mypos_dim }\draw_path_lineto:n {1cm,\l_mypos_dim }\dim_set:Nn \l_mypos_dim {1cm}\draw_path_lineto:n {1cm,\l_mypos_dim }\draw_path_close: \draw_path_use_clear:n {stroke}\draw_end: 
+-------- memos/56D93D7E1D3D461B307A0BECB00AA3BD.memo (end) -----------
+============================================================
+============================================================
+TEST 2: l3draw-ccmemo
+============================================================
+memos/56D93D7E1D3D461B307A0BECB00AA3BD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/56D93D7E1D3D461B307A0BECB00AA3BD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/56D93D7E1D3D461B307A0BECB00AA3BD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{56D93D7E1D3D461B307A0BECB00AA3BD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}% \mmzMemo \csname __mmzx_expl_at_begin:\endcsname \quitvmode \__draw_record_origin: \mmzIncludeExtern {0}\hbox {28.85275pt}{28.85274pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\csname __mmzx_cctab_end:\endcsname % \mmzThisContext padding=(1in,1in,1in,1in), \mmzEndMemo 
+-------- memos/56D93D7E1D3D461B307A0BECB00AA3BD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0
