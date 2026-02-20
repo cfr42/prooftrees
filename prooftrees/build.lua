@@ -1,4 +1,4 @@
--- $Id: build.lua 11631 2026-02-19 01:10:33Z cfrees $
+-- $Id: build.lua 11654 2026-02-20 23:01:38Z cfrees $
 -- Build configuration for prooftrees
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -9,6 +9,7 @@ module = "prooftrees"
 --------------------------------------------------------------------------------
 checkconfigs = { "build", "config-mem", "config-tag", "config-tag-mem" }
 checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
+dynamicfiles = { "memos/*", "*.mmz" }
 manifestfile = "manifest.txt"
 sourcefiles = {"*.dtx","*.ins"}
 tagfiles = { "*.dtx", "*.ins", "README.md", "build.lua", "manifest.txt" }

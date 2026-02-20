@@ -1,4 +1,4 @@
--- $Id: build.lua 11612 2026-02-18 02:13:50Z cfrees $
+-- $Id: build.lua 11654 2026-02-20 23:01:38Z cfrees $
 -- Build configuration for forest-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -11,6 +11,7 @@ checkconfigs = { "build", "config-tag", "config-tag-mmz" } --, "config-mem" }
 checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 checkruns = 1
 checkdeps = { maindir .. "/memoize-ext" }
+dynamicfiles = { "memos/*", "*.mmz" }
 manifestfile = "manifest.txt"
 sourcefiles = {"*.dtx","*.ins"}
 tagfiles = { "*.dtx", "*.ins", "README.md", "build.lua", "manifest.txt" }
