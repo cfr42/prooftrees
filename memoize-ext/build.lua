@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- $Id: build.lua 11611 2026-02-17 21:16:15Z cfrees $
+-- $Id: build.lua 11648 2026-02-20 08:58:04Z cfrees $
 -- Build configuration for memoize-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -10,8 +10,8 @@ module = "memoize-ext"
 exludefiles = { 
   "build.lua", 
   "config-*.lua", 
-  "memoize-ext-l3draw.dtx", 
-  "memoize-ext-expl3.dtx", 
+--  "memoize-ext-l3draw.dtx", 
+--  "memoize-ext-expl3.dtx", 
   "memoize-ext-properties.dtx", 
   "memoize-ext-tikz-tagging.dtx" }
 --------------------------------------------------------------------------------
@@ -42,7 +42,8 @@ sourcefiles = {
 -- tagfiles = { "*.dtx", "README.md", "build.lua", "*.sty", "memoize-ext.tex", "manifest.txt" }
 -- typesetfiles = {"*-doc.tex", "*-imp.tex"}
 typesetopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
--- typesetruns = 5 -- 4
+typesetfiles = { "memoize-ext.dtx" }
+typesetruns = 4 -- 4
 --------------------------------------------------------------------------------
 uploadconfig = {
   ctanPath = "/macros/latex/contrib/memoize-ext",
@@ -61,9 +62,26 @@ uploadconfig = {
 }
 --------------------------------------------------------------------------------
 date = "2024-2026"
-if direxists(sourcedir .. "/../adnoddau/l3build") then
-  dofile(sourcedir .. "/../adnoddau/l3build/manifest.lua")
-  dofile(sourcedir .. "/../adnoddau/l3build/tag.lua")
+if direxists(sourcedir .. "/../../adnoddau/l3build") then
+  dofile(sourcedir .. "/../../adnoddau/l3build/manifest.lua")
+  dofile(sourcedir .. "/../../adnoddau/l3build/tag.lua")
+end
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+function docinit_hook()
+  local lines = {}
+  for _,i in ipairs(sourcefiles) do
+    if string.match(i, "%.dtx") then
+      lines = {}
+      for line in io.lines(typesetdir .. "/" .. i) do
+        table.insert(lines, (string.gsub(line,"%_*%@%@%_","__mmzx_")))
+      end
+      local f = assert(io.open(typesetdir .. "/" .. i, "w"))
+      f:write(table.concat(lines,"\n") .. "\n")
+      f:close()
+    end
+  end
+  return 0
 end
 --------------------------------------------------------------------------------
 -- vim: ts=2:sw=2:tw=0:et:foldmethod=marker:

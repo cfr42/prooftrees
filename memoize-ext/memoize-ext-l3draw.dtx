@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-l3draw.dtx 11597 2026-02-16 02:11:46Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-l3draw.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -36,8 +36,14 @@
 \end{document}
 %</driver>
 % \fi
+%
+% \title{\ExplFileName}
+% \date{\ExplFileVersion~\ExplFileDate}
+% \maketitle
+%
 % \begin{abstract}
-%   \noindent\pkg{memoize-ext-l3draw} is part of \pkg{memoize-ext}.
+%   \noindent Support for auto-memoization of content created with \pkg{l3draw} \autocite{latex-project-l3draw}.
+%   \pkg{memoize-ext-l3draw} is part of \pkg{memoize-ext}.
 % \end{abstract}
 %
 % \tableofcontents
@@ -48,14 +54,16 @@
 % \PrintIndex
 % }
 % 
-% \section{Implementation}
+% ^^A \section{Implementation}
 %
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-l3draw.dtx 11597 2026-02-16 02:11:46Z cfrees $ {Extensions for Memoize}
-%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
-%<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext-l3draw.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
+%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
+%<!debug>     {v0.0 \ExplFileVersion}{\ExplFileDescription}
+%<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
+%<debug>      {v0.0 \ExplFileVersion}{\ExplFileDescription}
 %
 %<!debug>    \disable@package@load {memoize-ext-l3draw-debug}
 %<debug>    \disable@package@load {memoize-ext-l3draw}
@@ -98,9 +106,9 @@
 %    \end{macrocode}
 % \end{macro}
 % Default configuration.
+% ^^A   l3draw~auto~memoize/.default=true,
 %    \begin{macrocode}
 \mmzset{%
-  l3draw~auto~memoize/.default=true,
   auto~csname={draw_begin:}{memoize,collector=\AdviceCollectDrawArguments,},
   auto~csname={__draw_record_origin:}{run~if~memoizing,replicate~expl~fn,},
 }
@@ -109,3 +117,5 @@
 %</sty>
 % 
 %\Finale
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:

@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-talk.dtx 11593 2026-02-14 04:45:53Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -37,14 +37,22 @@
 %</driver>
 % \fi
 % 
-% \begin{abstract}
-%   \noindent\pkg{memoize-ext-talk} enables memoization of \cls{ltx-talk} presentations.
-%   It is essentially a ‘translation’ of \pkg{memoize}'s support for \pkg{beamer}, together with modifications for differences in the way the classes implement overlays and changes to the implementation of opacity when \pkg{pdfmanagement} is loaded.
 %
-%   Insofar as possible, the package avoids utilising the internals of either \pkg{memoize} or \cls{ltx-talk}, but it was not entirely possible to do so without making the code far more fragile and convoluted. 
+% \title{\ExplFileName}
+% \date{\ExplFileVersion~\ExplFileDate}
+% \maketitle
+%
+%
+% \begin{abstract}
+%   \noindent\pkg{memoize-ext-talk} enables memoization of \cls{ltx-talk} presentations \autocite{joseph-talk}.
+%   The package is part of \pkg{memoize-ext}.
+%
+%   \pkg{memoize-ext-talk} is essentially a ‘translation’ of \pkg{memoize}'s support for \pkg{beamer}, together with modifications for differences in the way the classes implement overlays and changes to the implementation of opacity when \pkg{pdfmanagement-testphase} \autocite{latex-project-pdfmanagement-testphase} is loaded.
+%
+%   The package tries to avoid utilising the internals of either \pkg{memoize} or \cls{ltx-talk}, but it was not entirely possible to do so without making the code both more fragile and unduly convoluted. 
 %   See the main manual for \pkg{memoize-ext} for details.
 %
-%   The user interface is identical to that provided by \pkg{memoize} for \pkg{beamer}.
+%   The user interface is identical to that provided by \pkg{memoize}  for \pkg{beamer} \autocite{saso-memoize}.
 % \end{abstract}
 %
 % \tableofcontents
@@ -54,14 +62,16 @@
 %   \PrintIndex
 % }
 % 
-% \section{Implementation}
+% ^^A \section{Implementation}
 % 
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-talk.dtx 11593 2026-02-14 04:45:53Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
-%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
-%<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
+%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
+%<!debug>     {v0.0 \ExplFileVersion}{\ExplFileDescription}
+%<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
+%<debug>      {v0.0 \ExplFileVersion}{\ExplFileDescription}
 %
 %<!debug>    \disable@package@load {memoize-ext-talk-debug}
 %<debug>    \disable@package@load {memoize-ext-talk}
@@ -83,7 +93,7 @@
 %    \end{macrocode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BEGIN ltx-talk
-% addaswyd o memoize-beamer.code.tex & other memoize code
+% addaswyd o memoize-beamer.code.tex \& other memoize code
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \hook_gput_code:nnn {class/ltx-talk/after}{.}
@@ -120,7 +130,7 @@
   \cs_new_eq:NN \g_@@_talk_pauses_int \c@pauses
   \cs_new_eq:NN \l_@@_talk_mode_str \l__talk_mode_str
 %    \end{macrocode}
-% \end{var}
+% \end{macro}
 % \begin{fn}{%
 %   \opacity_select:V,
 % }
@@ -270,3 +280,5 @@
 %</sty>
 % 
 %\Finale
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:

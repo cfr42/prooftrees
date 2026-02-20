@@ -28,66 +28,99 @@
 %
 % \iffalse
 %<*driver>
-% ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
-\def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11599 2026-02-16 04:20:40Z cfrees $ {Extensions for Memoize}
+% ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
+\def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
+\GetIdInfo $Id: memoize-ext.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
 \usepackage{memoize-ext}
+\def\memoizeextdocbase{memoize-ext}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
-% \OnlyDescription
+% ^^A  \OnlyDescription
 \DoNotIndex{\verb,}
 \usepackage{babel}
 \usepackage{fancyhdr}
 \usepackage[plain]{fancyref}
-\usepackage{fixfoot}
-\usepackage{array,tabularx}
-\usepackage{longtable}
-\usepackage{enumitem}
-\usepackage[referable]{threeparttablex}
-\makeatletter
-\def\TPT@measurement{% ateb David Carlisle: https://tex.stackexchange.com/a/370691/
-  \ifdim\wd\@tempboxb<\TPTminimum
-    \hsize \TPTminimum
-  \else
-    \hsize\wd\@tempboxb
-  \fi
-  \xdef\TPT@hsize{\hsize\the\hsize \noexpand\@parboxrestore}\TPT@hsize
-  \ifx\TPT@docapt\@undefined\else
-    \TPT@docapt \vskip.2\baselineskip
-  \fi \par
-  \dimen@\dp\@tempboxb % new
-  \box\@tempboxb
-  \ifvmode \prevdepth\dimen@ \fi% was \z@ not \dimen@
-}
-\renewlist{tablenotes}{enumerate}{1}
-\setlist[tablenotes]{label=\tnote{\alph*},ref=\alph*,itemsep=\z@,topsep=\z@skip,partopsep=\z@skip,parsep=\z@,itemindent=\z@,labelindent=\tabcolsep,labelsep=.2em,leftmargin=*,align=left,before={\unskip\medskip\footnotesize}}
-\makeatother
-\usepackage{booktabs}
-\usepackage{multirow}
+% ^^A  \usepackage{fixfoot}
+% ^^A  \usepackage{array,tabularx}
+% ^^A  \usepackage{longtable}
+% ^^A  \usepackage{enumitem}
+% ^^A  \usepackage[referable]{threeparttablex}
+% ^^A  \makeatletter
+% ^^A  \def\TPT@measurement{% ateb David Carlisle: https://tex.stackexchange.com/a/370691/
+% ^^A    \ifdim\wd\@tempboxb<\TPTminimum
+% ^^A      \hsize \TPTminimum
+% ^^A    \else
+% ^^A      \hsize\wd\@tempboxb
+% ^^A    \fi
+% ^^A    \xdef\TPT@hsize{\hsize\the\hsize \noexpand\@parboxrestore}\TPT@hsize
+% ^^A    \ifx\TPT@docapt\@undefined\else
+% ^^A      \TPT@docapt \vskip.2\baselineskip
+% ^^A    \fi \par
+% ^^A    \dimen@\dp\@tempboxb % new
+% ^^A    \box\@tempboxb
+% ^^A    \ifvmode \prevdepth\dimen@ \fi% was \z@ not \dimen@
+% ^^A  }
+% ^^A  \renewlist{tablenotes}{enumerate}{1}
+% ^^A  \setlist[tablenotes]{label=\tnote{\alph*},ref=\alph*,itemsep=\z@,topsep=\z@skip,partopsep=\z@skip,parsep=\z@,itemindent=\z@,labelindent=\tabcolsep,labelsep=.2em,leftmargin=*,align=left,before={\unskip\medskip\footnotesize}}
+% ^^A  \makeatother
+% ^^A  \usepackage{booktabs}
+% ^^A  \usepackage{multirow}
 \usepackage{xcolor}
 \usepackage{xurl}
-% \urlstyle{tt}
+% ^^A  \urlstyle{tt}
 \urlstyle{sf}
+\usepackage[tt={mono,lining,tabular},sf={lining,prop},rm={oldstyle,prop}]{cfr-lm}
 \usepackage{microtype}
 \usepackage[a4paper,headheight=14pt,marginparwidth=45mm,hmarginratio=4:1,vscale=.8,hscale=.7,verbose]{geometry}	% use 14pt for 11pt text, 15pt for 12pt text
-% addaswyd o chronos.tex
+% ^^A  addaswyd o forest-ext.dtx
 \newlength\tewadjust
-\newlength\chronosdoctemplgth
-\AddToHook {begindocument/after}[.]
+\newlength\doctemplgth
+\AddToHook {begindocument/end}[.]
 {%
-  \setlength\tewadjust{\marginparwidth+\marginparsep-\paperwidth+\textwidth+\oddsidemargin+1in}%
-  \setlength\chronosdoctemplgth{0pt}%
+  \setlength\tewadjust{%
+    \dimeval{%
+      \marginparwidth+\marginparsep-\paperwidth+\textwidth+\oddsidemargin+1in
+    }%
+  }%
+  \setlength\doctemplgth{0pt}%
+  \newgeometry{%
+    headheight=14pt,scale=.8,marginparwidth=0pt,marginparsep=0pt,
+  }%
+  \savegeometry{safonol}%
+  \fancyheadoffset[lh]{0pt}% ^^A REQUIRED - do NOT remove this line!!
+  \pagenumbering{arabic}%
+}
+\newcommand \twmarg {%
+  \restoregeometry
+  \fancyheadoffset[lh]{\tewadjust}%
+}
+\newcommand \twreg {%
+  \loadgeometry{safonol}%
+  \fancyheadoffset[lh]{0pt}% ^^A REQUIRED - do NOT remove this line!!
 }
 \usepackage{csquotes}
 \MakeAutoQuote{‘}{’}
 \MakeAutoQuote*{“}{”}
-\usepackage{caption}
-\DeclareCaptionFont{lf}{\lstyle}
-\captionsetup[table]{labelfont=lf}
-% sicrhau hyperindex=false: llwytho CYN bookmark
+% ^^A  copïwyd o forest-ext.dtx
+\usepackage[citestyle=authoryear-comp,bibstyle=authoryear,mergedate=basic,isbn=false,url=true,sortcites=true,backend=biber,mincrossrefs=6]{biblatex}
+\DeclareFieldFormat{eprint:ctan}{%
+  \mkbibacro{CTAN}\addcolon\space
+  \ifhyperref
+    {\href{https://www.ctan.org/pkg/#1}{\nolinkurl{#1}}}
+  {\nolinkurl{#1}}%
+}
+\DeclareFieldAlias{eprint:CTAN}{eprint:ctan}
+\bibliography{abbrv, authors, journals-series, pub, lleoedd, ref}
+% ^^A  \bibliography{memoize-ext_biber}% generate for upload (gweler uchod)
+% ^^A  \usepackage{caption}
+% ^^A  \DeclareCaptionFont{lf}{\lstyle}
+% ^^A  \captionsetup[table]{labelfont=lf}
+% ^^A  sicrhau hyperindex=false: llwytho CYN bookmark
+% ^^A  \usepackage{minted}
 \usepackage{hypdoc}% ateb Ulrike Fischer: https://tex.stackexchange.com/a/695555/
 \usepackage{bookmark}
 \hypersetup{%
@@ -100,6 +133,58 @@
   pdfproducer={pdfeTeX},
   urlcolor={blueberry}%
 }
+\makeatletter
+\setcounter{IndexColumns}{2}
+\IndexMin=\dimexpr 0.3\textheight\relax
+\defbibheading{bibliography}[\refname]{%^^A
+  \section*{#1}%^^A
+  \markboth{#1}{}}
+\newcommand\orig@xobey@sp{}
+\newcommand\permissivelines{%
+  \def\@xobeysp{\leavevmode\penalty100\ }%
+}
+\newcommand\strictlines{%
+  \let\@xobey@sp\orig@xobey@sp
+}
+\AddToHook{begindocument}[memoizeextdoc]{%
+  \let\orig@xobey@sp\@xobey@sp
+  \addtocontents{toc}{%
+    \tlstyle
+  }%
+}
+\def\section{%
+  \@startsection{section}{1}{\z@}
+  {-3.5ex\@plus -1ex\@minus -.2ex}
+  {2.3ex\@plus .2ex}{\normalfont\sffamily\Large}%
+}
+\renewcommand*\l@section[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{1.0em \@plus\p@}%
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \leftskip 1.5em\relax
+      \parindent 1.5em\relax
+      \@afterindenttrue
+      \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode 
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      {#1}\nobreak
+      \leaders\hbox{%
+        $\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$%
+      }\hfill
+      \nobreak\hb@xt@\@pnumwidth{\hss #2%
+        \kern-\p@\kern\p@}\par
+    \endgroup
+  \fi
+}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{7em}{4.1em}}
+\makeatother
 \NewDocElement[%
   macrolike,
   idxtype=fn.,
@@ -143,6 +228,7 @@
   printtype=\textit{socket},
 ]{Sock}{socket}
 \NewDocElement[%
+  macrolike,
   idxtype=var,
   idxgroup=expl3 variables,
   printtype=\textit{var.},
@@ -172,6 +258,12 @@
 {
   \keys_set:nn { memoize-ext / doc } { #1 }
 }
+\cs_new_eq:NN \__memoizeextdoc_cs_orig:n \cs
+\cs_new_protected:Npn \__memoizeextdoc_cs_expl:n #1
+{
+  \exp_args:Ne \__memoizeextdoc_cs_orig:n {\tl_to_str:n {#1}}
+}
+\cs_new_eq:NN \ecs \__memoizeextdoc_cs_expl:n
 \ExplSyntaxOff
 \memoizeextdocset{%
   bug={\href{https://codeberg.org/cfr/memoize-ext/issues}{\textsc{bugtracker}}},
@@ -180,15 +272,26 @@
   ctan={\href{https://ctan.org/}{\textsc{ctan}}},
 }
 % \usepackage{cleveref}
-\newcommand*{\gust}{\textsc{Gust}}
 \newcommand*{\lpack}[1]{\textsf{#1}}
 \newcommand*{\fgroup}[1]{\textsf{#1}}
 \newcommand*{\fname}[1]{\textsf{#1}}
 \newcommand*{\file}[1]{\texttt{#1}}
+\newcommand*{\env}[1]{\texttt{#1}}
+\newcommand*\TikZ{Ti\emph{k}Z}
+\newcommand*\pgf{\textsc{pgf}}
+\newcommand*\pgftikz{\pgf/\TikZ}
 \NewDocumentCommand\texse{om}{%
   \href{https://tex.stackexchange.com/#2}{\TeX{} \textsc{se}\IfValueT{#1}{: #1}}%
 }
-\title{\filebase}
+\NewDocumentCommand\texseans{O{Based on \texse{} answer:} m o}{%
+  #1 \href{https://tex.stackexchange.com/a/#2}{#2}%
+  \IfValueT{#3}{ by #3}.%
+}
+% \NewDocumentCommand\texseqn{O{Based on \texse{} question} m o}{%
+%   #1 \href{https://tex.stackexchange.com/q/#2}{#2}%
+%   \IfValueT{#3}{ by #3}.%
+% }
+\title{\pkg{\ExplFileName}: Extensions for \pkg{memoize}}
 \author{Clea F. Rees\thanks{%
     Bug tracker:
     \href{https://codeberg.org/cfr/memoize-ext/issues}{\url{codeberg.org/cfr/memoize-ext/issues}}
@@ -213,14 +316,24 @@
   \property_ref:nn {t:lastpage}{page}
 }
 \cs_new_eq:NN \OrigMakePrivateLetters \MakePrivateLetters
+\hook_gput_code:nnn {begindocument/end} {.}
+{
+  \cs_set_eq:NN \MakePrivateLetters \MyMakePrivateLetters
+  % \ShowCommand \OrigMakePrivateLetters
+  % \ShowCommand \MyMakePrivateLetters
+  % \ShowCommand \MakePrivateLetters
+}
 \ExplSyntaxOff
 \definecolor{strawberry}{rgb}{1.000,0.000,0.502}
 \definecolor{blueberry}{rgb}{0.000,0.000,1.000}
 \definecolor{moss}{rgb}{0.000,0.502,0.251}
+% ^^A \setminted{style=sas,breaklines=true,breakafter={\,},}
+% ^^A \newminted {latex}{frame=single,rulecolor=darkgray,}
+% ^^A \newminted {xml}{frame=single,rulecolor=darkgray,}
 
 \begin{document}
-\let\MakePrivateLetters\MyMakePrivateLetters
-\DocInput{\filename}
+% ^^A \let\MakePrivateLetters\MyMakePrivateLetters
+\DocInput{\ExplFileName.dtx}
 \end{document}
 %</driver>
 % \fi
@@ -248,15 +361,19 @@
 %
 % \tableofcontents
 %
-% \section{Usage}
+% \twmarg
+% \part{Usage}
+%
+% \section{Basics}\label{sec:basics}
+% ^^A sec:basics <<<
 %
 % Usage is simple.
 % \iffalse
 %<*verb>
 % \fi
-\begin{verbatim}
-\usepackage{memoize-ext}
-\end{verbatim}
+% \begin{verbatim}
+% \usepackage{memoize-ext}
+% \end{verbatim}
 % \iffalse
 %</verb>
 % \fi
@@ -266,12 +383,12 @@
 % \iffalse
 %<*verb>
 % \fi
-\begin{verbatim}
-\DocumentMetadata{}
-\RequirePackage{memoize}
-\documentclass{ltx-talk}
-\usepackage{memoize-ext}
-\end{verbatim}
+% \begin{verbatim}
+% \DocumentMetadata{}
+% \RequirePackage{memoize}
+% \documentclass{ltx-talk}
+% \usepackage{memoize-ext}
+% \end{verbatim}
 % \iffalse
 %</verb>
 % \fi
@@ -279,11 +396,11 @@
 % \iffalse
 %<*verb>
 % \fi
-\begin{verbatim}
-\DocumentMetadata{}
-\RequirePackage{memoize-ext}
-\documentclass{ltx-talk}
-\end{verbatim}
+% \begin{verbatim}
+% \DocumentMetadata{}
+% \RequirePackage{memoize-ext}
+% \documentclass{ltx-talk}
+% \end{verbatim}
 % \iffalse
 %</verb>
 % \fi
@@ -291,28 +408,28 @@
 % 
 % If necessary, a small number of package options are available to customise which code is loaded.
 % 
-% \DescribeOption{expl3}\vals{true,false}
+% \DescribeOpt{expl3}\vals{true,false}
 % 
 % Loads code supporting \pkg{expl3} syntax.
 %
 % Default is \texttt{true}.
 % Initially \texttt{false}.
 %
-% \DescribeOption{l3draw}\vals{true,false}
+% \DescribeOpt{l3draw}\vals{true,false}
 % 
 % Loads code supporting \pkg{l3draw}, if the package is loaded.
 %
 % Default is \texttt{true}.
 % Initially \texttt{true}.
 %
-% \DescribeOption{tag}\vals{true,false}
+% \DescribeOpt{tag}\vals{true,false}
 % 
 % Loads code supporting tagged \textsc{pdf}, if \LaTeX's tagging code is activated.
 %
 % Default is \texttt{true}.
 % Initially \texttt{true} if tagging is activated; \texttt{false} otherwise.
 % 
-% \DescribeOption{talk}\vals{true,false}
+% \DescribeOpt{talk}\vals{true,false}
 % 
 % Loads code supporting \cls{ltx-talk}, if the class is loaded.
 %
@@ -322,13 +439,52 @@
 % Note that the additional code is not loaded if a different class is used, regardless of this setting.
 % The option is provided in case it is necessary to disable support for the class, without disabling other parts of \pkg{memoize-ext}.
 %
-% \subsection{\pkg{ltx-talk}}
+% \section{\pkg{expl3}}\label{sec:expl3}
+% ^^A sec:expl3 <<<
+% \DescribePgfkey{replicate~expl~fn} Sets up advice to ‘replicate’ an \pkg{expl3} function.
+%
+% This works similarly to the builtin support for commands created with \cs{NewDocumentCommand} etc\@.
+% This means that it is not necessary to specify \texttt{args}.
+%
+% \textbf{Functions with \texttt{w}-type arguments are NOT supported.}
+% Attempting to use this key with such a function will result in an error.
+% Such cases require custom handling and can be configured using the standard \pkg{memoize} keys.
+%
+% \file{memoize-ext-l3draw.sty} demonstrates use of \texttt{replicate expl fn}:
+% \iffalse
+%<*verb>
+% \fi
+% \begin{verbatim}
+% \mmzset{%
+%   auto~csname={draw_begin:}{memoize,collector=\AdviceCollectDrawArguments,},
+%   auto~csname={__draw_record_origin:}{run~if~memoizing,replicate~expl~fn,},
+% }
+% \end{verbatim}
+% \iffalse
+%</verb>
+% \fi
+% This code sets up a custom ‘collector’ and installs ‘advice’ which memoizes \ecs{draw_begin:}.
+% It further advises \ecs{__draw_record_origin:} so that if this function is found during memoization, it will be replicated in the \texttt{ccmemo}.
+% This ensures that the origin is recorded correctly when the memoized picture is utilised, since we do not want to record its position when memoized.
+% 
+% The net result of this is that auto-memoization of \pkg{l3draw} pictures should (hopefully) ‘just work’.
+%
+% ^^A >>> sec:expl3
+%
+% \section{\pkg{l3draw}}\label{sec:draw}
+% sec:draw <<<
+% \pkg{l3draw} pictures are auto-memoized by default.
+% \file{memoize-ext-l3draw.sty} mostly exists to demonstrate use of \texttt{replicate expl fn}.
+% >>> sec:draw
+%
+% \section{\pkg{ltx-talk}}\label{sec:talk}
+% ^^A sec:talk <<<
 %
 % The code is based on that provided by \pkg{memoize} for \pkg{beamer} and supports the same options, except that ‘\texttt{talk}’ is substituted for ‘\texttt{bemaer}’.
 % 
-% \Describe{Pgfkey}{per overlay} Equivalent to the \pkg{beamer} option of the same name.
+% \DescribePgfkey{per~overlay} Equivalent to the \pkg{beamer} option of the same name.
 %
-% \Describe{Pgfkey}{talk mode to prefix} Equivalent to \pkg{beamer mode to prefix}.
+% \DescribePgfkey{talk~mode~to~prefix} Equivalent to \pkg{beamer mode to prefix}.
 %
 % The code uses and/or changes internal code from both \cls{ltx-talk} and \pkg{memoize}.
 % While the public interface for \pkg{memoize} is fairly stable, the internals may not be, and \pkg{ltx-talk} is highly experimental. 
@@ -345,10 +501,12 @@
 %     This is required because \pkg{memoize} relies on primitive shipout, whereas the implementation of opacity in \pkg{pdfmanagement} relies on \LaTeX's shipout routine.%
 %   }.
 % \end{itemize}
+% ^^A >>> sec:talk
 %
-% \subsection{Tagged \textsc{pdf}}
+% \section{Tagged \textsc{pdf}}\label{sec:tag}
+% ^^A <<< sec:tag
 %
-% \subsubsection{\TikZ{} pictures}
+% \subsection{\TikZ{} pictures}
 %
 % If the content you wish to memoize is a \TikZ{} picture, you probably do not need to do anything special, but note that the default \pkg{latex-lab} plug is \emph{not} supported. 
 % You must use one of \texttt{alt}, \texttt{actualtext} or \texttt{artifact}.
@@ -363,11 +521,11 @@
 % So when a run produces an extern, the memoized code will not be tagged at all.
 %
 % \textbf{Note that this package does \emph{not} support \pkg{forest}.}
-% If your document uses \pkg{forest}, you should either disable memoization for these pictures or load \pkg{forest-ext}\footnote{%
+% If your document uses \pkg{forest} \autocite{saso-forest}, you should either disable memoization for these pictures or load \pkg{forest-ext}\footnote{%
 %   This is not necessary if you use \pkg{prooftrees}, which will load the package automatically if required.%
-% }.
+% } \autocite{cfr-forest-ext}.
 %
-% The \TikZ{} support is implemented by replacing plugs provided by \pkg{latex-lab} with versions designed for memoized content.
+% The \TikZ{} support is implemented by replacing plugs provided by \pkg{latex-lab} with versions designed for memoized content \autocite{latex-project-latex-lab-tikz}.
 % Code is also installed into the same hooks \pkg{latex-lab} uses with rules to ensure this package's has priority.
 %
 % \DescribeSPlug{mmzx}
@@ -405,7 +563,7 @@
 %   It would be possible to disable tagging only if memoization succeeds, but I am not sure whether the structure will be right in this case?%
 % }.
 % 
-% \subsubsection{Other content}
+% \subsection{Other content}
 %
 % If the content you wish to memoize is \emph{not} a \TikZ{} picture, you may need to read the remainder of this section.
 %
@@ -426,20 +584,59 @@
 %
 % This socket absorbs no arguments.
 % During extern utilisation, it is used immediately after inclusion of an extern.
+% ^^A >>> end sec:tag
 %
-%
+% ^^A sec:basics >>>
 % 
 % \MaybeStop{%
-% \PrintChanges
-% \PrintIndex
+%   \def\glossaryname{Changes}%
+%   \printbibliography
+%   \PrintChanges
+%   \PrintIndex
 % }
 % 
-% \section{Implementation}
+% \part{Implementation}
 %
-% You do not need to read the remainder of this document in order to install or use the package.
+% A double underscore (\texttt{\_\_}) \emph{or} an ‘at’ (\texttt{@}) indicates an internal macro or key. 
+% These are liable to change without notice and should not be used elsewhere.
+% Some additional macros are categorised in the same way, but are named differently to simplify use in memos\footnote{%
+%   This follows \pkg{memoize}'s own practice.%
+% }.
+%
+% \makeatletter
+% \let\origmaketitle\maketitle
+% \NewDocumentCommand \pkginput {O{#2}m}{%
+%   \begingroup
+%     \def\maketitle{%
+%       \expandafter\ifx\expandafter\ExplFileName\@title
+%         \def\@title{\pkg{\ExplFileName-#1}}%
+%       \fi
+%       \ifx\@author\@empty
+%         \def\@author{Clea F. Rees}%
+%       \fi
+%       \ifx\@date\@empty
+%         \def\@date{\ExplFileVersion: \ExplFileDate}%
+%       \fi
+%       \let\saved@title\@title
+%       \origmaketitle
+%       \phantomsection
+%       \addcontentsline{toc}{section}{\mdseries\pkg{\saved@title}}%
+%       \fancyhf[lh]{\itshape memoize-ext-#1}%
+%     }%
+%     \let\Finale\relax
+%     \let\PrintIndex\relax
+%     \let\PrintChanges\relax
+%     \input{\memoizeextdocbase -#2.dtx}%
+%   \endgroup
+% }
+% \makeatother
+%
+% \section*{\pkg{\ExplFileName}}
+% \addcontentsline{toc}{section}{\mdseries\pkg{\ExplFileName}}
 %
 %<*sty>
 %<@@=mmzx>
+% ^^A <<<
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}[2021-11-15]% ^^A should be later
 %    \end{macrocode}
@@ -464,9 +661,11 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11599 2026-02-16 04:20:40Z cfrees $ {Extensions for Memoize}
-%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
-%<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
+%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
+%<!debug>     {v0.0 \ExplFileVersion}{\ExplFileDescription}
+%<debug>    \ProvidesExplPackage{\ExplFileName-debug}
+%<debug>      {\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
 %
 \str_new:N \g_@@_name_str
 \str_gset:NV \g_@@_name_str \ExplFileName
@@ -489,7 +688,8 @@
 %    \begin{macrocode}
 \bool_new:N \l_@@_opt_tag_bool
 \tag_if_active:TF 
-  { \bool_set_true:N \l_@@_opt_tag_bool }{ \bool_set_false:N \l_@@_opt_tag_bool }
+  { \bool_set_true:N \l_@@_opt_tag_bool }
+  { \bool_set_false:N \l_@@_opt_tag_bool }
 %    \end{macrocode}
 % \end{var}
 % \begin{var}{\l_@@_opt_draw_bool,\l_@@_opt_expl_bool}
@@ -520,6 +720,7 @@
   \PassOptionsToPackage{\CurrentOption}{memoize}
 }
 %    \end{macrocode}
+% \end{var}
 % \begin{macro}{\IfFormatAtLeastTF}%^^A <<<
 % Joseph Wright: from \path{siunitx.sty} ; \url{https://chat.stackexchange.com/transcript/message/64327823#64327823}
 %    \begin{macrocode}
@@ -629,14 +830,6 @@
 %    \end{macrocode}
 % \pkg{memoize-ext-talk}[\pkg{-debug}]
 %    \begin{macrocode}
-% ^^A \@ifclassloaded{ltx-talk}{
-% ^^A   \PackageError{memoize-ext}{
-% ^^A     memoize-ext~must~be~loaded~before~ltx-talk.
-% ^^A   }{
-% ^^A     For~example,~use~'\RequirePackage{memoize-ext}'~after~'\DocumentMetadata'~
-% ^^A     and~before~'\documentclass{ltx-talk}'.
-% ^^A   }
-% ^^A }
 \hook_gput_code:nnn {class/ltx-talk/after} {.}
 {
   \bool_if:NT \l_@@_opt_talk_bool
@@ -666,6 +859,19 @@
   memoize-ext#1~requires~an~appropriate~version~of~#2~from~#3.
 }
 %    \end{macrocode}
+% ^^A >>>
 %</sty>
+%
+% \pkginput{expl3}
+% \pkginput{l3draw}
+% ^^A \pkginput{properties}
+% \pkginput{sockets}
+% \pkginput{tag}
+% ^^A \pkginput{tagging-tikz}
+% \pkginput{talk}
 % 
+% \twreg
+% \printbibliography
 %\Finale
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:

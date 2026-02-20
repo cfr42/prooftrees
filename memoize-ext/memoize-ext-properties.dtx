@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-properties.dtx 11606 2026-02-16 18:08:11Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-properties.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -36,9 +36,15 @@
 \end{document}
 %</driver>
 % \fi
+%
+% \title{\ExplFileName}
+% \date{\ExplFileVersion~\ExplFileDate}
+% \maketitle
+%
 % \begin{abstract}
-%   \noindent\lpack{memoize-ext}
+%   \noindent\pkg{memoize-ext-properties} is part of \pkg{memoize-ext}.
 % \end{abstract}
+%
 %
 % \tableofcontents
 % 
@@ -48,7 +54,7 @@
 % \PrintIndex
 % }
 % 
-% \section{Implementation}
+% ^^A \section{Implementation}
 %
 %<*sty>
 %<@@=mmzx>
@@ -56,7 +62,7 @@
 \SetDefaultHookLabel{memoize-ext}
 %    \end{macrocode}
 % ^^A    \begin{macrocode}
-% ^^A \GetIdInfo $Id: memoize-ext-properties.dtx 11606 2026-02-16 18:08:11Z cfrees $ {Extensions for Memoize}
+% ^^A \GetIdInfo $Id: memoize-ext-properties.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
 % ^^A \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
 % ^^A    \end{macrocode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -134,7 +140,8 @@
 %    \begin{macrocode}
 \cs_new_nopar:Npn \@@_auto_property_ref_noopt:nn #1#2
 {
-%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_ref_noopt:nn~called~with~#1,~#2.}
+%<debug>    \@@_debug:n {\cs_to_str:N 
+%<debug>      \@@_auto_property_ref_noopt:nn~called~with~#1,~#2.}
   \property_if_recorded:nnTF { #1 } { #2 } 
   {
 %<debug>    \@@_debug:n {property~#2~recorded~for~label~#1.}
@@ -153,7 +160,8 @@
 %    \begin{macrocode}
 \cs_new_nopar:Npn \@@_auto_property_ref_opt:w [#1]#2#3
 {
-%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_ref_opt:w~called~with~#1,~#2,~#3.}
+%<debug>    \@@_debug:n {\cs_to_str:N 
+%<debug>      \@@_auto_property_ref_opt:w~called~with~#1,~#2,~#3.}
   \property_if_recorded:nnTF { #2 } { #3 }
   {
 %<debug>    \@@_debug:n {property~#3~recorded~for~label~#2.}
@@ -172,7 +180,8 @@
 %    \begin{macrocode}
 \cs_new_nopar:Npn \@@_auto_property_ref_too:nnn #1#2#3
 {
-%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_ref_too:nnn~called~with~#1,~#2,~#3.}
+%<debug>    \@@_debug:n {\cs_to_str:N 
+%<debug>      \@@_auto_property_ref_too:nnn~called~with~#1,~#2,~#3.}
   \property_if_recorded:nnTF { #2 } { #3 } 
   {
 %<debug>    \@@_debug:n {property~#3~recorded~for~label~#2.}
@@ -191,7 +200,8 @@
 %    \begin{macrocode}
 \cs_new_nopar:Npn \@@_auto_property_ref:nn #1#2
 {
-%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_ref:nn~called~with~#1,~#2.}
+%<debug>    \@@_debug:n {\cs_to_str:N
+%<debug>      \@@_auto_property_ref:nn~called~with~#1,~#2.}
   \gtoksapp\mmzContextExtra{
     \detokenize { \property_ref:nn } {#1}{#2} \c_space_tl -> \c_space_tl 
     \__mmzx_property_ref_orig:ee {#1}{#2}, 
@@ -207,7 +217,8 @@
 %    \begin{macrocode}
 \cs_new_nopar:Npn \@@_auto_property_record:nn #1#2
 {
-%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_record:nn~called~with~#1,~#2.}
+%<debug>    \@@_debug:n {\cs_to_str:N 
+%<debug>      \@@_auto_property_record:nn~called~with~#1,~#2.}
   \seq_gclear:N \g_@@_property_shipout_seq
   \seq_gclear:N \g_@@_property_now_seq
   \tl_gclear:N \g_@@_rec_tl
@@ -271,7 +282,8 @@
 %    \begin{macrocode}
 \cs_new_protected_nopar:Npn \@@_property_record:nnn #1#2#3
 { 
-%<debug>    \@@_debug:n {\cs_to_str:N \@@_auto_property_record:nnn~called~with~#1,~#2,~#3.}
+%<debug>    \@@_debug:n {\cs_to_str:N 
+%<debug>      \@@_auto_property_record:nnn~called~with~#1,~#2,~#3.}
   \protected@write\@auxout {} 
   {
     \string \new@label@record {#1}
@@ -304,10 +316,13 @@
 }
 \cs_new_nopar:Npn \mmzx@auto@rec@property#1#2
 {
-%<debug>    \@@_debug:n {\cs_to_str:N \mmzx@auto@rec@property~called~with~#1,~#2.}
-%<debug>    \@@_debug:n {Calling~\cs_to_str:N \@@_auto_property_record:nn~with~#1,~#2.}
+%<debug>    \@@_debug:n {\cs_to_str:N
+%<debug>      \mmzx@auto@rec@property~called~with~#1,~#2.}
+%<debug>    \@@_debug:n {Calling~\cs_to_str:N
+%<debug>      \@@_auto_property_record:nn~with~#1,~#2.}
   \@@_auto_property_record:nn {#1}{#2}
-%<debug>    \@@_debug:n {Calling~\cs_to_str:N \mmzx_property_record_orig:nn~with~#1,~#2.}
+%<debug>    \@@_debug:n {Calling~\cs_to_str:N
+%<debug>      \mmzx_property_record_orig:nn~with~#1,~#2.}
 % ^^A %<debug>    \tl_log:e {\tag_get:n {struct_tag}}
 % ^^A %<debug>    \tl_log:e {\tag_get:n {struct_id}}
 % ^^A %<debug>    \tl_log:e {\tag_get:n {struct_num}}
@@ -331,9 +346,12 @@
 %    \begin{macrocode}
 \mmzset{%
   % handle these separately to avoid memoizing an internal fn
-  auto/ref~property/.style={run~if~not~replicating,outer~handler=\mmzx@auto@ref@property,},
-  auto/ref~property~too/.style={run~if~not~replicating,outer~handler=\mmzx@auto@ref@property@too,},
-  auto/rec~property/.style={run~if~not~replicating,outer~handler=\mmzx@auto@rec@property,},
+  auto/ref~property/.style={run~if~not~replicating,
+    outer~handler=\mmzx@auto@ref@property,},
+  auto/ref~property~too/.style={run~if~not~replicating,
+    outer~handler=\mmzx@auto@ref@property@too,},
+  auto/rec~property/.style={run~if~not~replicating,
+    outer~handler=\mmzx@auto@rec@property,},
 }
 %    \end{macrocode}
 % \end{pgfkey}
@@ -362,3 +380,5 @@
 %</sty>
 % 
 %\Finale
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%^^A vim: et:tw=0:sw=2:ts=2:foldmethod=marker:fmr=<<<,>>>:
