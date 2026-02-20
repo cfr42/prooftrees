@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11649 2026-02-20 17:52:49Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -114,12 +114,8 @@
   {\nolinkurl{#1}}%
 }
 \DeclareFieldAlias{eprint:CTAN}{eprint:ctan}
-\bibliography{abbrv, authors, journals-series, pub, lleoedd, ref}
-% ^^A  \bibliography{memoize-ext_biber}% generate for upload (gweler uchod)
-% ^^A  \usepackage{caption}
-% ^^A  \DeclareCaptionFont{lf}{\lstyle}
-% ^^A  \captionsetup[table]{labelfont=lf}
-% ^^A  sicrhau hyperindex=false: llwytho CYN bookmark
+% ^^A \bibliography{abbrv, authors, journals-series, pub, lleoedd, ref}
+\bibliography{memoize-ext_biber}% ^^A generate for upload (gweler uchod)
 % ^^A  \usepackage{minted}
 \usepackage{hypdoc}% ateb Ulrike Fischer: https://tex.stackexchange.com/a/695555/
 \usepackage{bookmark}
@@ -661,7 +657,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11648 2026-02-20 08:58:04Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11649 2026-02-20 17:52:49Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.0 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
