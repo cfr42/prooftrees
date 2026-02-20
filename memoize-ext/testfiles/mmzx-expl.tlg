@@ -1,0 +1,21 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+memoize
+mmzx-expl.mmz:
+-------- mmzx-expl.mmz (start) ---------
+(mmzx-expl.mmz) \mmzPrefix {memos/}[nl]
+\mmzUsedCMemo {memos/877EFE9A5B6B07DF39C6A74229657A8B.memo}[nl]
+\mmzUsedExtern {memos/877EFE9A5B6B07DF39C6A74229657A8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/877EFE9A5B6B07DF39C6A74229657A8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\endinput[nl]
+-------- mmzx-expl.mmz (end) -----------
+============================================================
+TEST 1: expl fn
+============================================================
+PASSED
+============================================================
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0
