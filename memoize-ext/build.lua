@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- $Id: build.lua 11648 2026-02-20 08:58:04Z cfrees $
+-- $Id: build.lua 11655 2026-02-20 23:33:18Z cfrees $
 -- Build configuration for memoize-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -10,8 +10,6 @@ module = "memoize-ext"
 exludefiles = { 
   "build.lua", 
   "config-*.lua", 
---  "memoize-ext-l3draw.dtx", 
---  "memoize-ext-expl3.dtx", 
   "memoize-ext-properties.dtx", 
   "memoize-ext-tikz-tagging.dtx" }
 --------------------------------------------------------------------------------
@@ -19,9 +17,8 @@ checkengines = { "pdftex", "luatex" }
 checkruns = 4
 recordstatus = true
 checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
+checkconfigs = { "build", "config-xetex" }
 excludetests = { 
-  "mmzx-expl",
-  "mmzx-beamer", 
   "mmzx-properties",
 }
 dynamicfiles = { "memos/*", "*.mmz" }
@@ -40,7 +37,6 @@ sourcefiles = {
   "memoize-ext-talk.dtx"
 }
 -- tagfiles = { "*.dtx", "README.md", "build.lua", "*.sty", "memoize-ext.tex", "manifest.txt" }
--- typesetfiles = {"*-doc.tex", "*-imp.tex"}
 typesetopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 typesetfiles = { "memoize-ext.dtx" }
 typesetruns = 4 -- 4
@@ -54,7 +50,7 @@ uploadconfig = {
   license = "lppl1.3c",
   update = false,
   summary = "Extended support for memoization with Memoize.",
-  description = "Automatic handling of additional kinds of material by or during memoization with Memoize. Provides support for memoizing content in tagged PDFs and compatibility with ltx-talk. TikZ pictures tagged with alt, actualtext or artifact are handled automatically.", --  Enables auto-memoization of tagged TikZ pictures and l3draw, with automatic handling of properties (ltproperties), including position on page. Arbitrary expl3 functions may be specified for auto-replication, provided their parameter specifications do not include 'w'.",
+  description = "Automatic handling of additional kinds of material by or during memoization with Memoize. Provides support for memoizing content in tagged PDFs and compatibility with ltx-talk. TikZ pictures tagged with alt, actualtext or artifact are handled automatically. The package supports automatic detection of expl3 syntax zones, auto-replication of expl3 functions without ‘weird’ arguments and auto-memoization of l3draw pictures. The code is arranged into interdependent modules so activation may be customised at load time.", 
 	bugtracker = "https://codeberg.org/cfr/memoize-ext/issues",
 	repository = {"https://codeberg.org/cfr/memoize-ext", "https://github.com/cfr42/memoize-ext"},
   topic = {"diagrams", "pgf-tikz", "expl3", "tagged-pdf"},

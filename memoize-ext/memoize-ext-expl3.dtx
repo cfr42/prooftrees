@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11650 2026-02-20 18:51:22Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11655 2026-02-20 23:33:18Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.0 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -60,7 +60,7 @@
 % ^^A common <<<
 %<*common>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11650 2026-02-20 18:51:22Z cfrees $ {Extensions for Memoize for expl3 code}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11655 2026-02-20 23:33:18Z cfrees $ {Extensions for Memoize for expl3 code}
 %<!debug>    \ProvidesExplPackage{\ExplFileName-common}{\ExplFileDate}{v0.0 %
 %<!debug>     \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-common-debug}{\ExplFileDate}{v0.0 %
@@ -264,12 +264,16 @@
 %
 % The code here is constant but the meaning changes, so what is added to the memos reflects the configuration at the time.
 %    \begin{macrocode}
-\sys_if_engine_pdftex:TF 
+\bool_lazy_or:nnTF
 {
+  \sys_if_engine_pdftex_p: 
+} {
+  \sys_if_engine_xetex_p: 
+} {
   \appto\mmzAtBeginMemoization{
 %<debug>    \@@_debug:n {Appending~expl~begin~to~ccmemo~at~end~
 %<debug>      \string\mmzAtBeginMemoization.}
-%<debug>    \@@_debug:n {Working~around~pdfTeX~peculiarity~
+%<debug>    \@@_debug:n {Working~around~pdfTeX/XeTeX~peculiarity~
 %<debug>      which~eats~first~noexpand.}
     \xtoksapp\mmzCCMemo
     {
@@ -323,7 +327,7 @@
 % ^^A sty <<<
 %<*sty>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11650 2026-02-20 18:51:22Z cfrees $ {Extensions for Memoize for replicating expl3 functions and variables}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11655 2026-02-20 23:33:18Z cfrees $ {Extensions for Memoize for replicating expl3 functions and variables}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.0 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
