@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11643 2026-02-19 08:38:56Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-tagging.dtx 11665 2026-02-21 01:33:54Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-tagging]
 \documentclass[11pt,british]{ltxdoc}
 % l3doc loads fancyvrb
@@ -64,7 +64,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-tagging.dtx 11643 2026-02-19 08:38:56Z cfrees $}
+%% $Id: forest-ext-tagging.dtx 11665 2026-02-21 01:33:54Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.tagging}[v0.1]
 %<debug>    \ProvidesForestLibrary{ext.tagging-debug}[v0.1]
 %
@@ -95,7 +95,7 @@
 %<!debug>    \useforestlibrary*{ext.utils}
 %<debug>    \useforestlibrary*{ext.utils-debug}
 %    \end{macrocode}
-% \changes{v0.0}{0000-00-00}{Require \pkg{memoize-ext}.}
+% \changes{v0.2}{2026-02-21}{Require \pkg{memoize-ext}.}
 % If \pkg{memoize} is loaded, we need \pkg{memoize-ext}.
 %    \begin{macrocode}
 \@ifpackageloaded{memoize}{%
@@ -632,7 +632,7 @@
 %  is~branch%
 % }
 %   Structural descriptors.
-% \changes{v0.0}{2026-01-21}{Reduce default structural descriptors.}
+% \changes{v0.2}{2026-01-21}{Reduce default structural descriptors.}
 %    \begin{macrocode}
   declare autowrapped toks register={is root},
   is root={},
@@ -649,7 +649,7 @@
 %    \end{macrocode}
 % \end{autotoksr}
 % \begin{autotoks}{alt~pre,alt~post}
-% \changes{v0.0}{2026-01-21}{Add \texttt{alt pre}, \texttt{alt post}.}
+% \changes{v0.2}{2026-01-21}{Add \texttt{alt pre}, \texttt{alt post}.}
 %   Options to prepend/append to \texttt{alt text}, especially in combination with auto-generation.
 %   These are per-node options.
 %    \begin{macrocode}
@@ -663,7 +663,7 @@
 % }
 % \begin{ftoks}{punct@mark}
 % Punctuation.
-% \changes{v0.0}{2026-01-22}{Punctuation registers and options.}
+% \changes{v0.2}{2026-01-22}{Punctuation registers and options.}
 %    \begin{macrocode}
   declare toks register={punctuation after parent},
   punctuation after parent={:\mmzxSpace },
@@ -710,7 +710,7 @@
   },
   tag nodes processing order/.nodewalk style={unique=tree},
 %    \end{macrocode}
-% \changes{v0.0}{2026-01-22}{Apply \texttt{filter} to nodewalk used when collating tags.}
+% \changes{v0.2}{2026-01-22}{Apply \texttt{filter} to nodewalk used when collating tags.}
 %    \begin{macrocode}
   collate tags processing order={%
     filter={%
@@ -757,8 +757,8 @@
     redeclare tagging keylist={tag nodes}{},
   },
 %    \end{macrocode}
-% \changes{v0.0}{2026-02-17}{Correct processor input.}
-% \changes{v0.0}{2026-02-17}{Work around my failure to figure out how to process the punctuation.}
+% \changes{v0.2}{2026-02-17}{Correct processor input.}
+% \changes{v0.2}{2026-02-17}{Work around my failure to figure out how to process the punctuation.}
 % The punctuations works this way, but I've no idea why it only works this way or why it otherwise fails so utterly.
 % NOTE: KEYLIST ORDER NOT GUARANTEED!!!
 %    \begin{macrocode}
@@ -775,8 +775,8 @@
         if alt text={}{%
           if edge label={}{%
 %    \end{macrocode}
-% \changes{v0.0}{2026-01-21}{Add pre/post for alt.}
-% \changes{v0.0}{2026-01-22}{Add punctuation.}
+% \changes{v0.2}{2026-01-21}{Add pre/post for alt.}
+% \changes{v0.2}{2026-01-22}{Add punctuation.}
 %    \begin{macrocode}
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
 %<debug>    debug tagforest/.process={OOOw3{content}{alt pre}{alt post}{No edge label. 
@@ -789,7 +789,7 @@
             tag@nodes@aux@r/.process={Ow{alt post}{{node@ttoks}{##1}}},
           }{%
 %    \end{macrocode}
-% \changes{v0.0}{2026-01-21}{Correct ordering of content and label; add pre/post for alt.}
+% \changes{v0.2}{2026-01-21}{Correct ordering of content and label; add pre/post for alt.}
 %    \begin{macrocode}
 %<debug>    debug tagforest/.process={Ow {id}{Node id: ##1}},
 %<debug>    debug tagforest/.process={Ow{edge label}{Edge label is ##1}},
@@ -811,7 +811,7 @@
             },
             delay={%
 %    \end{macrocode}
-% \changes{v0.0}{2026-01-21}{Prepend \texttt{is branch} and number only if register not empty.}
+% \changes{v0.2}{2026-01-21}{Prepend \texttt{is branch} and number only if register not empty.}
 %    \begin{macrocode}
               if={>Rt={is branch}{}}{%
 %<debug>                    for children={%
@@ -912,7 +912,7 @@
 \ExplSyntaxOn
 %    \end{macrocode}
 % ^^A % \begin{splug}{tagsupport/memoize/include/extern/after~tagforest/alt}
-% ^^A %   \changes{v0.0}{2026-02-16}{Use sockets from \pkg{memoize-ext}.}
+% ^^A %   \changes{v0.2}{2026-02-16}{Use sockets from \pkg{memoize-ext}.}
 % ^^A %    \begin{macrocode}
 % ^^A \socket_new_plug:nnn {tagsupport/memoize/include/extern/after} {tagforest/alt}
 % ^^A {
@@ -923,7 +923,7 @@
 % ^^A %    \end{macrocode}
 % ^^A % \end{splug}
 % ^^A % \begin{splug}{tagsupport/memoize/include/extern/before~tagforest/alt}
-% ^^A %   \changes{v0.0}{2026-02-16}{Use sockets from \pkg{memoize-ext}.}
+% ^^A %   \changes{v0.2}{2026-02-16}{Use sockets from \pkg{memoize-ext}.}
 % ^^A %    \begin{macrocode}
 % ^^A \socket_new_plug:nnn {tagsupport/memoize/include/extern/before} {tagforest/alt}
 % ^^A {
@@ -969,7 +969,7 @@
 % \begin{splug}{tagsupport/forest/tag/mmz~alt}
 %   From \pkg{prooftrees}, which will use it from here, hopefully.
 %
-%   \changes{v0.0}{0000-00-00}{Use extern sockets from \pkg{memoize-ext}.}
+%   \changes{v0.2}{2026-02-21}{Use extern sockets from \pkg{memoize-ext}.}
 %   This greatly simplifies the syntax here and avoids complications with \pkg{expl3} in memos etc.
 %   We also no longer need use \texttt{direct input}, so drop its limitations.
 %    \begin{macrocode}
@@ -999,7 +999,7 @@
 }
 %    \end{macrocode}
 % \end{splug}
-% \changes{v0.0}{0000-00-00}{Code for memos is now much simpler!
+% \changes{v0.2}{2026-02-21}{Code for memos is now much simpler!
 % But need to allow for possible redefinition of \ecs{property_ref:nn} for memoization.}
 %    \begin{macrocode}
 \hook_gput_code:nnn {begindocument/before}{.}

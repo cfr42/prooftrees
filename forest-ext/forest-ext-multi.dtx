@@ -32,7 +32,7 @@
 % ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11551 2026-01-21 07:13:48Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext-multi.dtx 11665 2026-02-21 01:33:54Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forest-ext-multi]
 \documentclass[11pt,british]{ltxdoc}
 % ^^A l3doc, minted both load fancyvrb
@@ -63,7 +63,7 @@
 % \permissivelines
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-%% $Id: forest-ext-multi.dtx 11551 2026-01-21 07:13:48Z cfrees $}
+%% $Id: forest-ext-multi.dtx 11665 2026-02-21 01:33:54Z cfrees $}
 %<!debug>    \ProvidesForestLibrary{ext.multi}[2025-12-05 v0.1]
 %<debug>    \ProvidesForestLibrary{ext.multi-debug}[2025-12-05 v0.1]
 %
@@ -515,7 +515,7 @@
     }%
   }%
 %    \end{macrocode}
-% \changes{v0.0}{2026-01-21}{Try to add something if tagging. But order is wrong. I think the whole specific approach here is misguided. But the basic infrastructure I think is maybe OK. Just I don't think producing alt text for arbitrary trees is good like this. Maybe just drop the structural descriptions? And just read the node content? Or what?}
+% \changes{v0.2}{2026-01-21}{Try to add something if tagging. But order is wrong. I think the whole specific approach here is misguided. But the basic infrastructure I think is maybe OK. Just I don't think producing alt text for arbitrary trees is good like this. Maybe just drop the structural descriptions? And just read the node content? Or what?}
 %    \begin{macrocode}
   \ifcsname l_forestext_tagging_custom_bool\endcsname
 %<!debug>        \PackageInfo{forest-lib-ext.multi}

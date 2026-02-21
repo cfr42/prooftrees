@@ -1,4 +1,4 @@
-$Id: README.md 11545 2026-01-19 07:08:04Z cfrees $
+$Id: README.md 11665 2026-02-21 01:33:54Z cfrees $
 
 # forest-ext
 
@@ -11,6 +11,10 @@ Currently the package provides the following Forest libraries:
 - ext.utils     (minor tweaks)
 
 Debugging versions of all libraries are provided.
+
+## v0.2
+
+Now uses memoize-ext's support for tagging content memoized with Memoize.
 
 ## Licence
 
@@ -112,6 +116,6 @@ Bug reports, feature requests etc. should be filed at
 
 Clea F. Rees
 Version 0.2
-2026-01-19
+2026-02-21
 
 vim: et:tw=80:ts=2:

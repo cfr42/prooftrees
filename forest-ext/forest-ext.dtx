@@ -36,7 +36,7 @@
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext.dtx 11647 2026-02-20 08:57:02Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext.dtx 11665 2026-02-21 01:33:54Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forestextdoc]
 \GetFileInfoSVN*
 \let\forestextdocversion\fileversion
@@ -617,7 +617,7 @@
 % So, if you specify \texttt{alt text}, you replace not only the \texttt{content} of the node in the corresponding tag, but the content of any \texttt{edge label} and any relevant structural information.
 % So if you want, say, a branch number prepended or an indication that the node is a `\texttt{child}` or `\texttt{leaf}`, say, or that the tree forks from this node, you must include that information into the \meta{tokens} when specifying \texttt{alt text}.
 %
-% \changes{v0.0}{2026-01-21}{Make default structure description slightly less verbose.}
+% \changes{v0.2}{2026-01-21}{Make default structure description slightly less verbose.}
 % \DescribeAwtoksr{is root}\val{tokens} 
 % 
 % Specify text to insert when describing the root.
@@ -1942,7 +1942,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11647 2026-02-20 08:57:02Z cfrees $}[v0.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11665 2026-02-21 01:33:54Z cfrees $}[v0.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 \input{\MyFileBaseName.dtx}
@@ -1956,7 +1956,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11647 2026-02-20 08:57:02Z cfrees $}[v0.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11665 2026-02-21 01:33:54Z cfrees $}[v0.2 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation\setcounter{IndexColumns}{2}}
 \input{\MyFileBaseName.dtx}

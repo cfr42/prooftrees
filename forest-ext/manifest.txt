@@ -23,7 +23,9 @@ too ashamed to share.
 
 ### Package files
 
-README.md
+
+* README.md
+* manifest.txt
 * forest-ext_biber.bib
 * forest-ext-ling.dtx
 * forest-ext-multi.dtx
@@ -39,20 +41,43 @@ README.md
 * manifest.lua
 * tag.lua
 * config-tag.lua
+* config-tag-mmz.lua
+* forest-ext-tagging-command.luatex.tlg
+* forest-ext-tagging-command.lvt
+* forest-ext-tagging-command.tlg
 * forest-ext-tagging-custom.luatex.tlg
 * forest-ext-tagging-custom.lvt
 * forest-ext-tagging-custom.tlg
 * forest-ext-tagging-iso.luatex.tlg
 * forest-ext-tagging-iso.lvt
 * forest-ext-tagging-iso.tlg
+* forest-ext-tagging-multi.luatex.tlg
+* forest-ext-tagging-multi.lvt
+* forest-ext-tagging-multi.tlg
+* forest-ext-tagging-no-metadata.luatex.tlg
+* forest-ext-tagging-no-metadata.lvt
+* forest-ext-tagging-no-metadata.tlg
 * forest-ext-tagging-off.luatex.tlg
 * forest-ext-tagging-off.lvt
 * forest-ext-tagging-off.tlg
 * forest-ext-tagging.luatex.tlg
 * forest-ext-tagging.lvt
 * forest-ext-tagging.tlg
+* forest-ext-tagging-command.lvt
+* forest-ext-tagging-command.tlg
+* forest-ext-tagging-custom.lvt
+* forest-ext-tagging-custom.tlg
+* forest-ext-tagging-iso.lvt
+* forest-ext-tagging-iso.tlg
+* forest-ext-tagging-no-metadata.lvt
+* forest-ext-tagging-no-metadata.tlg
+* forest-ext-tagging-off.lvt
+* forest-ext-tagging-off.tlg
+* forest-ext-tagging.lvt
+* forest-ext-tagging.tlg
 * forest-ext-ling.lvt
 * forest-ext-multi.lvt
+* forest-ext-utils-keylists-command.lvt
 * forest-ext-utils-keylists.lvt
 * forest-ext-utils.lvt
 * forest-ext-ling.luatex.tlg
@@ -61,6 +86,7 @@ README.md
 * forest-ext-multi.luatex.tlg
 * forest-ext-multi.tlg
 * forest-ext-multi.xetex.tlg
+* forest-ext-utils-keylists-command.tlg
 * forest-ext-utils-keylists.luatex.tlg
 * forest-ext-utils-keylists.tlg
 * forest-ext-utils.luatex.tlg
@@ -84,7 +110,7 @@ README.md
 * forest-ext-code.tex
 * forest-ext-doc.tex
 
-### Typeset documentation
+### Package files
 
-* forest-ext-doc.pdf
 * forest-ext-code.pdf
+* forest-ext-doc.pdf
