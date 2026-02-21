@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- $Id: build.lua 11655 2026-02-20 23:33:18Z cfrees $
+-- $Id: build.lua 11662 2026-02-21 01:12:06Z cfrees $
 -- Build configuration for memoize-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -44,7 +44,7 @@ typesetruns = 4 -- 4
 uploadconfig = {
   ctanPath = "/macros/latex/contrib/memoize-ext",
   pkg = "memoize-ext",
-  version = "v0.0",
+  version = "v0.1",
   author = "Clea F. Rees",
   uploader = "Clea F. Rees",
   license = "lppl1.3c",
