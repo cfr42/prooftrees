@@ -1,4 +1,4 @@
-$Id: README.md 11665 2026-02-21 01:33:54Z cfrees $
+$Id: README.md 11668 2026-02-21 02:34:38Z cfrees $
 
 # forest-ext
 
@@ -115,7 +115,7 @@ Bug reports, feature requests etc. should be filed at
 
 
 Clea F. Rees
-Version 0.2
+Version 0.3
 2026-02-21
 
 vim: et:tw=80:ts=2:

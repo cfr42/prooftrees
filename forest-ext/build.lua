@@ -1,4 +1,4 @@
--- $Id: build.lua 11654 2026-02-20 23:01:38Z cfrees $
+-- $Id: build.lua 11668 2026-02-21 02:34:38Z cfrees $
 -- Build configuration for forest-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -28,7 +28,7 @@ typesetruns = 4
 uploadconfig = {
   ctanPath = "/graphics/pgf/contrib/forest-ext",
   pkg = "forest-ext",
-  version = "v0.2",
+  version = "v0.3",
   author = "Clea F. Rees",
   uploader = "Clea F. Rees",
   license = "lppl1.3c",

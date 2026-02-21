@@ -36,7 +36,7 @@
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \ExplSyntaxOff
-\ProvidesFileSVN{$Id: forest-ext.dtx 11665 2026-02-21 01:33:54Z cfrees $}[v0.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: forest-ext.dtx 11668 2026-02-21 02:34:38Z cfrees $}[v0.3 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[forestextdoc]
 \GetFileInfoSVN*
 \let\forestextdocversion\fileversion
@@ -1942,7 +1942,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11665 2026-02-21 01:33:54Z cfrees $}[v0.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: forest-ext.dtx 11668 2026-02-21 02:34:38Z cfrees $}[v0.3 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 \input{\MyFileBaseName.dtx}
@@ -1956,7 +1956,7 @@ prepend:south east:V,
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2-#3\nil{#1-#2}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11665 2026-02-21 01:33:54Z cfrees $}[v0.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: forest-ext.dtx 11668 2026-02-21 02:34:38Z cfrees $}[v0.3 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation\setcounter{IndexColumns}{2}}
 \input{\MyFileBaseName.dtx}
