@@ -23,9 +23,9 @@ TEST 2: prooftrees-tag-mem-t2
 [tracing memoize]   C-memo was processed successfully
 [tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
 [tracing memoize]   Attempting to utilize cc-memo memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
-[mmzx debug]:: Args: 0; \hbox ; 215.38898pt; 13.23251pt; 174.57571pt; 72.26999pt; 72.26999pt; 72.26999pt; 72.26999pt
+[mmzx debug]:: Args: 0; \hbox ; 213.89604pt; 13.24597pt; 175.05762pt; 72.26999pt; 72.26999pt; 72.26999pt; 72.26999pt
 [mmzx debug]:: Executing plug mmzx/alt in socket tagsupport/memoize/include/extern/before.
-> \mmzx@tag@tikz@mark@pos@1=\long macro:->148.71233 480.09143 363.29662 841.1215.
+> \mmzx@tag@tikz@mark@pos@1=\long macro:->148.71233 479.59793 361.80925 841.60161.
 [mmzx debug]:: Recording xpos, ypos of mmxc-id1.
 [mmzx debug]:: Executing original inclusion macro.
 [mmzx debug]:: Closing tagging structures.
@@ -51,7 +51,7 @@ memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
 -------- memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
 (memos/E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{E0A20A9AE958FA0ADF4BAF7C6E172F69-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
-\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={To prove: $\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile {}{} \lnot R$ 1 $P \vee (Q \vee \lnot R)$ discharged Ass  2 $P \lif \lnot R$ discharged Ass  3 $Q \lif \lnot R$ discharged Ass  4 $\lnot \lnot R$ $\lnot $ Conc  5 $P$ 1 $\vee $ Elim  6 $\lnot P$ 2 $\lif $ Elim  closed 5, 6    6 $\lnot R$ 2 $\lif $ Elim  closed 4, 6    5 $Q \vee \lnot R$ 1 $\vee $ Elim   7 $Q$ 8 $\lnot Q$ 3 $\lif $ Elim  closed 7, 8    8 $\lnot R$ 3 $\lif $ Elim  closed 4, 8     7 $\lnot R$ 5 $\vee $ Elim  closed 4, 7    }\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {215.38898pt}{13.23251pt}{174.57571pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {112}%[nl]
+\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={To prove: $\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile {}{} \lnot R$ 1 $P \vee (Q \vee \lnot R)$ discharged Ass  2 $P \lif \lnot R$ discharged Ass  3 $Q \lif \lnot R$ discharged Ass  4 $\lnot \lnot R$ $\lnot $ Conc  5 $P$ 1 $\vee $ Elim  6 $\lnot P$ 2 $\lif $ Elim  closed 5, 6    6 $\lnot R$ 2 $\lif $ Elim  closed 4, 6    5 $Q \vee \lnot R$ 1 $\vee $ Elim   7 $Q$ 8 $\lnot Q$ 3 $\lif $ Elim  closed 7, 8    8 $\lnot R$ 3 $\lif $ Elim  closed 4, 8     7 $\lnot R$ 5 $\vee $ Elim  closed 4, 7    }\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {213.89604pt}{13.24597pt}{175.05762pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {112}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
@@ -80,7 +80,7 @@ TEST 5: Show PDF Tags
         id="ID.07"
         alt="To prove: $\{P \vee (Q \vee \lnot R), P \lif \lnot R, Q \lif \lnot R\} \sststile {}{} \lnot R$ 1 $P \vee (Q \vee \lnot R)$ discharged Ass 2 $P \lif \lnot R$ discharged Ass 3 $Q \lif \lnot R$ discharged Ass 4 $\lnot \lnot R$ $\lnot $ Conc 5 $P$ 1 $\vee $ Elim 6 $\lnot P$ 2 $\lif $ Elim closed 5, 6 6 $\lnot R$ 2 $\lif $ Elim closed 4, 6 5 $Q \vee \lnot R$ 1 $\vee $ Elim 7 $Q$ 8 $\lnot Q$ 3 $\lif $ Elim closed 7, 8 8 $\lnot R$ 3 $\lif $ Elim closed 4, 8 7 $\lnot R$ 5 $\vee $ Elim closed 4, 7 "
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
-        Layout:BBox="{ 148.71233, 480.09143, 363.29662, 841.1215 }"
+        Layout:BBox="{ 148.71233, 479.59793, 361.80925, 841.60161 }"
        >
       <?MarkedContent page="1" ?>
      </Figure>
