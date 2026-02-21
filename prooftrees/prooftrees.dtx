@@ -41,7 +41,7 @@
 % ^^A ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 % ^^A \def\MakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 % ^^A \ExplSyntaxOff
-\ProvidesFileSVN{$Id: prooftrees.dtx 11647 2026-02-20 08:57:02Z cfrees $}[v0.9.2 \revinfo][\filebase DTX: ]
+\ProvidesFileSVN{$Id: prooftrees.dtx 11666 2026-02-21 01:53:54Z cfrees $}[v0.9.3 \revinfo][\filebase DTX: ]
 \DefineFileInfoSVN[prooftreesdoc]
 \GetFileInfoSVN*
 \let\prooftreesdocversion\fileversion
@@ -2888,8 +2888,8 @@ for root'={%
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{svn-prov}
-%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11647 2026-02-20 08:57:02Z cfrees $}[v0.9.2 \revinfo]
-%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11647 2026-02-20 08:57:02Z cfrees $}[v0.9.2 \revinfo\ (debugging)]
+%<!debug>\ProvidesPackageSVN[\filebase.sty]{$Id: prooftrees.dtx 11666 2026-02-21 01:53:54Z cfrees $}[v0.9.3 \revinfo]
+%<debug>\ProvidesPackageSVN[\filebase-debug.sty]{$Id: prooftrees.dtx 11666 2026-02-21 01:53:54Z cfrees $}[v0.9.3 \revinfo\ (debugging)]
 \DefineFileInfoSVN
 %    \end{macrocode}
 % \iffalse
@@ -2935,7 +2935,7 @@ for root'={%
 % \changes{v0.9.1}{2025-08-27}{Don't load \pkg{amssymb} or \pkg{amstext} unconditionally.}
 % Load \pkg{forest}, but load maths packages later only if needed.
 % \changes{v0.9.2}{2026-01-19}{Load the \pkg{ext.tagging} library.}
-% \changes{v0.0}{0000-00-00}{Load the \pkg{memoize-ext} if \pkg{memoize} is loaded.}
+% \changes{v0.9.3}{2026-02-21}{Load the \pkg{memoize-ext} if \pkg{memoize} is loaded.}
 % We load \pkg{memoize-ext} and \pkg{forest-ext} because there is a chance it is early enough.
 % Once we load \pkg{forest}, it is too late.
 % This is required for compatibility with tagging: the support depends on hook rules to override \pkg{latex-lab}'s code.
@@ -3273,7 +3273,7 @@ for root'={%
 % Mark discharge with optional name substituted into existential
 % \changes{v0.9.1}{2025-08-25}{Add checked markers to \texttt{ttoks} if tagging.}
 % \changes{v0.9.2}{2026-01-19}{Add checked markers to \texttt{alt text} if tagging.}
-% \changes{v0.0.0}{2026-01-19}{Additional space in tagged content.}
+% \changes{v0.9.3}{2026-01-19}{Additional space in tagged content.}
 %
 % For building \texttt{alt} text, we want to do this after content is copied but still before \texttt{before typesetting nodes} or \texttt{proof tree before typesetting nodes}.
 %    \begin{macrocode}
@@ -3296,7 +3296,7 @@ for root'={%
 % Mark substitution of name into universal
 % \changes{v0.9.1}{2025-08-25}{Add substitution markers to \texttt{ttoks} if tagging.}
 % \changes{v0.9.2}{2026-01-19}{Add substitution markers to \texttt{alt text} if tagging.}
-% \changes{v0.0.0}{2026-01-19}{Additional space in tagged content.}
+% \changes{v0.9.3}{2026-01-19}{Additional space in tagged content.}
 %    \begin{macrocode}
   subs/.style={% 
     proof tree after copying content={%
@@ -4798,7 +4798,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11647 2026-02-20 08:57:02Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-doc]{$Id: prooftrees.dtx 11666 2026-02-21 01:53:54Z cfrees $}[v0.9.3 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\OnlyDescription}
 %    \end{macrocode}
@@ -4816,7 +4816,7 @@ for root'={%
 \RequirePackage{svn-prov}
 \def\GetFileBaseName#1-#2\nil{#1}
 \edef\MyFileBaseName{\expandafter\GetFileBaseName\jobname\nil}
-\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11647 2026-02-20 08:57:02Z cfrees $}[v0.9.2 \revinfo]
+\ProvidesFileSVN[\MyFileBaseName-code]{$Id: prooftrees.dtx 11666 2026-02-21 01:53:54Z cfrees $}[v0.9.3 \revinfo]
 \DefineFileInfoSVN
 \AddToHook{begindocument}{\AlsoImplementation}
 %    \end{macrocode}

@@ -1,4 +1,4 @@
-$Id: README.md 11540 2026-01-19 06:46:23Z cfrees $
+$Id: README.md 11666 2026-02-21 01:53:54Z cfrees $
 
 [![Automatic
 Checks](https://github.com/cfr42/prooftrees/actions/workflows/main.yml/badge.svg)](https://github.com/cfr42/prooftrees/actions/workflows/main.yml)
@@ -11,7 +11,7 @@ A LaTeX package for drawing logical tableaux.
 
 ## Licence
 
-Copyright 2016-2024 Clea F. Rees
+Copyright 2016-2026 Clea F. Rees
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3c
@@ -51,6 +51,12 @@ prooftrees is based on Forest and, hence, TikZ. The package requires version
 Version 0.9 adds out-of-the-box support for externalisation of tableaux using
 memoize.
 
+Version 0.9.2 supported tagging with forest-ext.
+
+Version 0.9.3 uses an updated forest-ext to support tagging tableaux memoized
+with Memoize using sockets provided by memoize-ext. This means that forest-ext
+is required and that memoize-ext is required if memoize is loaded.
+
 ## Code Repositories
 
 Code for the package is hosted at 
@@ -65,7 +71,7 @@ Bug reports, feature requests etc. should be filed at
 
 
 Clea F. Rees
-Version 0.9.2
-2026-01-19
+Version 0.9.3
+2026-02-21
 
 vim: et:tw=80:
