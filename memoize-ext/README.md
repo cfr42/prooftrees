@@ -1,11 +1,33 @@
-$Id:$
+$Id$
 
 # memoize-ext
 
+Automatic handling of additional kinds of material by or during memoization i
+with Memoize.
+
+- Memoize content in tagged PDFs.
+    - TikZ pictures tagged with alt, actualtext or artifact are handled 
+    automatically. 
+    - Support can be added for other kinds of content by creating and assigning
+      plugs to the provided sockets.
+- Memoize content in ltx-talk. 
+    - Supports the same key-value options as Memoize provides for Beamer, but
+    the implementation is modified to accommodate differences in the
+    implementation of overlays and opacity.
+- Automatic detection of expl3 syntax zones.
+- Auto-replication of expl3 functions without ‘weird’ arguments.
+    - Inspired by Memoize's support for macros created with \NewDocumentCommand
+    et al., so `args` need not be specified.
+- Auto-memoization of l3draw pictures. 
+    - This serves as a demonstration of the support for expl3 functions, which
+    it uses to replicate code required for tagging.
+
+The code is arranged into interdependent modules. Activation may be customised 
+at load time.
 
 ## Licence
 
-Copyright 2023-2025 Clea F. Rees
+Copyright 2025-2026 Clea F. Rees
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3c
@@ -20,8 +42,7 @@ This work has the LPPL maintenance status `maintained'.
 The Current Maintainer of this work is Clea F. Rees.
 
 This file may only be distributed together with a copy of the package
-chronos. You may however distribute the package chronos without
-such generated files.
+memoize-ext. 
 
 This work consists of all files listed in manifest.txt.
 
@@ -30,14 +51,14 @@ This work consists of all files listed in manifest.txt.
 ## Code Repositories
 
 Code for the package is hosted at 
-  https://codeberg.org/cfr/memoize-ext
+  https://codeberg.org/cfr/prooftrees
 For convenience, the repository is mirrored at
-  https://github.com/cfr42/memoize-ext
+  https://github.com/cfr42/prooftrees
 
 ## Contact Details
 
 Bug reports, feature requests etc. should be filed at
-  https://codeberg.org/cfr/memoize-ext/issues
+  https://codeberg.org/cfr/prooftrees/issues
 
 
 Clea F. Rees
