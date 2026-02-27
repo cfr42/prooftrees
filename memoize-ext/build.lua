@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- $Id: build.lua 11705 2026-02-27 21:46:12Z cfrees $
+-- $Id: build.lua 11706 2026-02-27 21:52:53Z cfrees $
 -- Build configuration for memoize-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -48,7 +48,7 @@ uploadconfig = {
   author = "Clea F. Rees",
   uploader = "Clea F. Rees",
   license = "lppl1.3c",
-  update = false,
+  update = true,
   summary = "Extended support for memoization with Memoize.",
   description = "Automatic handling of additional kinds of material by or during memoization with Memoize. Provides support for memoizing content in tagged PDFs and compatibility with ltx-talk. TikZ pictures tagged with alt, actualtext or artifact are handled automatically. The package supports automatic detection of expl3 syntax zones, auto-replication of expl3 functions without ‘weird’ arguments and auto-memoization of l3draw pictures. The code is arranged into interdependent modules so activation may be customised at load time.", 
 	bugtracker = "https://codeberg.org/cfr/prooftrees/issues",
