@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11663 2026-02-21 01:18:19Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11704 2026-02-27 21:43:38Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.1 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -65,7 +65,7 @@
 %   \begin{itemize}
 %     \item If a public interface for retrieving the plug is provided at some point, I will see if I can use that.
 %       However, they do not wish it to be expandable. 
-%       This is manageable, but it is very nice having an expandable function here, so I will see realise, remember and can do it not-too-painfully, I guess.
+%       This is manageable, but it is very nice having an expandable function here, so I will see if I realise, remember and can do it not-too-painfully, I guess.
 %   \end{itemize}
 %   \item \pkg{latex-lab} variables, keys etc.
 %   \begin{itemize}
@@ -89,7 +89,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11663 2026-02-21 01:18:19Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11704 2026-02-27 21:43:38Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.1 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -145,15 +145,16 @@
 % It would be nice to use module-specific names to track \pkg{latex-lab} internal variables for ease of maintenance, but I don't think this is possible.
 % If I let a new name to a token list variable, I'll just get the current value. 
 % 
-% On the one hand, if users use \pkg{pgfkeys} to set the valuse for \texttt{alt} and \texttt{actualtext}, we can easily avoid \pkg{latex-lab} internals, at least.
+% On the one hand, if users use \pkg{pgfkeys} to set the values for \texttt{alt} and \texttt{actualtext}, we can easily avoid \pkg{latex-lab} internals, at least.
 % But we do that by introducing additional variables and then have the problem of synchronisation.
 %
 % On the other hand, we could avoid the synchronisation problems by using \pkg{latex-lab} internals more consistently, but then even the \pkg{pgfkeys} interface will be dependent on the internal implementation\footnote{%
 %   I get the prohibition on internals.
 %   I really do.
 %   But there are cases where it just makes things much more complicated and error-prone.
-%   And sometimes it just doesn't not seem worth the additional fragility that introduces, even at the cost of some addition fragility due to the use of internals.%
+%   And sometimes it just doesn't not seem worth the additional fragility that introduces, even at the cost of some additional fragility due to the use of internals.%
 % }.
+% \changes{v0.0}{2026-02-27}{See \texttt{init}.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \hook_gput_code:nnn {package/tikz/after} {.}
@@ -194,6 +195,23 @@
         {tagsupport/memoize/include/extern/after} {mmzx/artifact}
 %<debug>    \tl_log:e {\exp_args:No \exp_not:n {\the\mmzCCMemo}}
     },
+    tagging-setup/.is~choice,
+    tagging-setup/alt/.forward~to=/mmz/alt,
+    tagging-setup/actualtext/.forward~to=/mmz/actualtext,
+    tagging-setup/artifact/.forward~to=/mmz/artifact,
+    tagging-setup/.unknown/.code =
+    {
+      \exp_args:Nno
+      \keys_set:nn {tikz/tagging}{\pgfkeyscurrentname={#1}}
+    },
+    /mmzx/tagging@setup/.is~family,
+    alt/.belongs~to~family=/mmzx/tagging@setup,
+    actualtext/.belongs~to~family=/mmzx/tagging@setup,
+    artifact/.belongs~to~family=/mmzx/tagging@setup,
+    tagging-setup/.belongs~to~family=/mmzx/tagging@setup,
+    tagging-setup/alt/.belongs~to~family=/mmzx/tagging@setup,
+    tagging-setup/actualtext/.belongs~to~family=/mmzx/tagging@setup,
+    tagging-setup/artifact/.belongs~to~family=/mmzx/tagging@setup,
   }
 }
 %    \end{macrocode}
@@ -426,6 +444,10 @@
 %   But because it supports also \pkg{l3keys}, I don't see a way to avoid depending on internal variables there, too. 
 %   \pkg{l3keys} does not have a \verb|.forward_to:n| or similar.
 %   There is \verb|.inherit:n|, but that does not work at all in the same way.
+% \changes{v0.0}{2026-02-27}{Avoid processing non-tagging keys too early and too often.
+%   Save and restore existing filter state.%
+% }
+% Filtering and family code (below) is copied from the code I suggested for \pkg{latex-lab}'s \TikZ{} support (\href{https://github.com/latex3/latex2e/pull/2004}{\#2004}).
 %    \begin{macrocode}
 \socket_new_plug:nnn {tagsupport/tikz/picture/init} {mmzx}
 {
@@ -435,11 +457,12 @@
   \legacy_if:nT {memoizing}
   {
 %<debug>    \@@_debug:n {Arg~to~tagsupport/tikz/picture/init~is~#1.}
-    \pgfqkeys{/pgf}{%
-      key~filters/defined/.install~key~filter,
-    }%
-    %^^A defnyddio'r allweddau sy'n diffinio | define defined keys
-    \pgfkeysfiltered{/mmz/.cd,#1}%
+    \pgfkeyssavekeyfilterstateto\mmzx@tagging@setup@saved@filterstate
+    \pgfkeysinstallkeyfilter{/pgf/key~filters/active~families}{}
+    \pgfqkeysactivatesinglefamilyandfilteroptions{/mmzx/tagging@setup}{/mmz}{#1}
+%<debug>    \@@_debug:e { Restoring~filter~state:~\exp_not:V 
+%<debug>      \mmzx@tagging@setup@saved@filterstate }
+    \mmzx@tagging@setup@saved@filterstate
     \bool_if:NF \l_@@_ok_bool
     {
 %<debug>            \@@_debug:n {
