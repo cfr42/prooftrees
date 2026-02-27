@@ -28,8 +28,8 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11704 2026-02-27 21:43:38Z cfrees $ {Extensions for Memoize}
-\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.1 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11705 2026-02-27 21:46:12Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
 \DocInput{\filename}
@@ -89,11 +89,11 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11704 2026-02-27 21:43:38Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11705 2026-02-27 21:46:12Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.1 \ExplFileVersion}{\ExplFileDescription}
+%<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
-%<debug>      {v0.1 \ExplFileVersion}{\ExplFileDescription}
+%<debug>      {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %
 %<!debug>    \disable@package@load {memoize-ext-tag-debug}
 %<debug>    \disable@package@load {memoize-ext-tag}
@@ -154,7 +154,7 @@
 %   But there are cases where it just makes things much more complicated and error-prone.
 %   And sometimes it just doesn't not seem worth the additional fragility that introduces, even at the cost of some additional fragility due to the use of internals.%
 % }.
-% \changes{v0.0}{2026-02-27}{See \texttt{init}.}
+% \changes{v0.2}{2026-02-27}{See \texttt{init}.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \hook_gput_code:nnn {package/tikz/after} {.}
@@ -444,7 +444,7 @@
 %   But because it supports also \pkg{l3keys}, I don't see a way to avoid depending on internal variables there, too. 
 %   \pkg{l3keys} does not have a \verb|.forward_to:n| or similar.
 %   There is \verb|.inherit:n|, but that does not work at all in the same way.
-% \changes{v0.0}{2026-02-27}{Avoid processing non-tagging keys too early and too often.
+% \changes{v0.2}{2026-02-27}{Avoid processing non-tagging keys too early and too often.
 %   Save and restore existing filter state.%
 % }
 % Filtering and family code (below) is copied from the code I suggested for \pkg{latex-lab}'s \TikZ{} support (\href{https://github.com/latex3/latex2e/pull/2004}{\#2004}).
