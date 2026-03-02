@@ -31,14 +31,14 @@
   uncompress,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-talk.lvt 11593 2026-02-14 04:45:53Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-talk.lvt 11721 2026-03-02 16:46:33Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
-\RequirePackage{memoize-ext-talk-debug}
+\documentclass{ltx-talk}
+\usepackage{memoize-ext-talk-debug}
 \input{mmzx-support.cfg}
 \START
 \TESTMMZ
 \OMIT
-\documentclass{ltx-talk}
 \mmzset{prefix=memos/,include context in ccmemo,trace}
 \usepackage{tikz}
 \title{memoize-ext: talk w/o tagging}

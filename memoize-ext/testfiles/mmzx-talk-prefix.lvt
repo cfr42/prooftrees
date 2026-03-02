@@ -29,14 +29,14 @@
   uncompress,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-talk-prefix.lvt 11716 2026-03-02 02:53:25Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-talk-prefix.lvt 11721 2026-03-02 16:46:33Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
+\documentclass{ltx-talk}
 \RequirePackage{memoize-ext-talk-debug}
 \input{mmzx-support.cfg}
 \START
 \TESTMMZ
 \OMIT
-\documentclass{ltx-talk}
 \mmzset{prefix=memos/,include context in ccmemo,trace,talk mode to prefix,}
 \usepackage{tikz}
 \title{memoize-ext: talk w/ mode to prefix w/o tagging}

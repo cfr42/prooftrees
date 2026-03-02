@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11705 2026-02-27 21:46:12Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11721 2026-03-02 16:46:33Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -362,45 +362,43 @@
 %
 % \section{Basics}\label{sec:basics}
 % ^^A sec:basics <<<
+% \changes{v0.0}{2026-03-02}{Correct and update usage details for \pkg{ltx-talk}.}
 %
 % Usage is simple.
-% \iffalse
-%<*verb>
-% \fi
-% \begin{verbatim}
-% \usepackage{memoize-ext}
-% \end{verbatim}
-% \iffalse
-%</verb>
-% \fi
+% {\obeylines\MacroFont
+%   \cs{documentclass}\marg{class}
+%   \cs{usepackage}\{memoize-ext\}
+% }
+%
 % The package will automatically load \pkg{memoize} and pass any unrecognised options onto that package.
 %
-% For use with \pkg{ltx-talk} either
+% Note that to create a tagged presentation with \pkg{ltx-talk}, the package should be loaded \emph{after} the class\footnote{%
+%   Note that \pkg{ltx-talk} diverges from \pkg{beamer} here, a point to which I was oblivious when I wrote the initial version of this documentation.%
+% }.
 % \iffalse
 %<*verb>
 % \fi
 % \begin{verbatim}
-% \DocumentMetadata{}
-% \RequirePackage{memoize}
+% \DocumentMetadata{tagging=on,lang=en-GB,pdfversion=2.0,pdfstandard=UA-2,}
 % \documentclass{ltx-talk}
 % \usepackage{memoize-ext}
 % \end{verbatim}
 % \iffalse
 %</verb>
 % \fi
-% or
+% If for any reason it is necessary to load the package \emph{prior} to the class in a tagged \textsc{pdf}, then tagging must be explicitly requested.
+% For example,
 % \iffalse
 %<*verb>
 % \fi
 % \begin{verbatim}
-% \DocumentMetadata{}
-% \RequirePackage{memoize-ext}
-% \documentclass{ltx-talk}
+% \DocumentMetadata{tagging=on,lang=cy,pdfversion=2.0,pdfstandard=ua-2,}
+% \RequirePackage[tag]{memoize-ext}
+% \documentclass{book}
 % \end{verbatim}
 % \iffalse
 %</verb>
 % \fi
-% may be required.
 % 
 % If necessary, a small number of package options are available to customise which code is loaded.
 % 
@@ -420,7 +418,8 @@
 %
 % \DescribeOpt{tag}\vals{true,false}
 % 
-% Loads code supporting tagged \textsc{pdf}, if \LaTeX's tagging code is activated.
+% Loads code supporting tagged \textsc{pdf}, if \LaTeX's tagging code is activated when the package is loaded.
+% Note that this is \emph{not} true prior to \cs{documentclass}.
 %
 % Default is \texttt{true}.
 % Initially \texttt{true} if tagging is activated; \texttt{false} otherwise.
@@ -501,6 +500,12 @@
 %
 % \section{Tagged \textsc{pdf}}\label{sec:tag}
 % ^^A <<< sec:tag
+%
+% If using the package to produce tagged \textsc{pdf}, note that the tagging support 
+% \begin{itemize}
+%   \item redefines the internal macro \cs{\mmzIncludeExtern} during utilisation;
+%   \item relies on an internal string variable in \pkg{ltsockets}.
+% \end{itemize}
 %
 % \subsection{\TikZ{} pictures}
 %
@@ -657,7 +662,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11705 2026-02-27 21:46:12Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11721 2026-03-02 16:46:33Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
