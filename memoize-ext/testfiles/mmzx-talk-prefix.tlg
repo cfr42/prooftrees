@@ -1,0 +1,15 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+mmzx-talk-prefix.mmz:
+-------- mmzx-talk-prefix.mmz (start) ---------
+(mmzx-talk-prefix.mmz) \mmzPrefix {memos/projector-}[nl]
+\mmzUsedCMemo {memos/projector-13CA6225EF1CB8B2D15D71140C2A246B.memo}[nl]
+\mmzUsedExtern {memos/projector-13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/projector-13CA6225EF1CB8B2D15D71140C2A246B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\endinput[nl]
+-------- mmzx-talk-prefix.mmz (end) -----------
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0
