@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-talk.dtx 11705 2026-02-27 21:46:12Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11717 2026-03-02 11:49:42Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -52,7 +52,7 @@
 %   The package tries to avoid utilising the internals of either \pkg{memoize} or \cls{ltx-talk}, but it was not entirely possible to do so without making the code both more fragile and unduly convoluted. 
 %   See the main manual for \pkg{memoize-ext} for details.
 %
-%   The user interface is identical to that provided by \pkg{memoize}  for \pkg{beamer} \autocite{saso-memoize}.
+%   The user interface is identical to that provided by \pkg{memoize}  for \cls{beamer} \autocite{saso-memoize}.
 % \end{abstract}
 %
 % \tableofcontents
@@ -67,7 +67,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-talk.dtx 11705 2026-02-27 21:46:12Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11717 2026-03-02 11:49:42Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -84,8 +84,14 @@
 %<debug>    memoize-ext-talk
 %<!debug>    memoize-ext-talk-debug
 .}
-%<!debug>    \RequirePackage{memoize-ext}
-%<debug>    \RequirePackage{memoize-ext-debug}
+%    \end{macrocode}
+% \changes{v0.0}{2026-03-02}{Load \pkg{memoize-ext-tag}/\pkg{memoize-ext-tag-debug} and hope \cs{DocumentMetadata} is sufficient in case tagging is off.}
+% We have to load this (I think) prior to \cs{documentclass}, so cannot use \verb|tag_if_active:TF| here.
+% We could test for \cs{DocumentMetadata}, but \cls{ltx-talk} already requires that.
+% But maybe I should be testing that anyway?
+%    \begin{macrocode}
+%<!debug>    \RequirePackage{memoize-ext-tag}
+%<debug>    \RequirePackage{memoize-ext-tag-debug}
 %    \end{macrocode}
 % We don't want inconsistent names in hooks.
 %    \begin{macrocode}
