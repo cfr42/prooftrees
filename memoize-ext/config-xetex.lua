@@ -1,4 +1,4 @@
--- $Id: config-xetex.lua 11655 2026-02-20 23:33:18Z cfrees $
+-- $Id: config-xetex.lua 11719 2026-03-02 13:19:21Z cfrees $
 -- Build configuration for prooftrees
 checkengines = { "xetex" }
 -- the *only* test run is sockets !!
@@ -9,6 +9,8 @@ excludetests = {
   "mmzx-tag-tikz",
   "mmzx-tag",
   "mmzx-talk",
+  "mmzx-talk-prefix",
+  "mmzx-talk-tag",
   "mmzx-tikz-tagging-none",
   "mmzx-tikz-tagging",
 }
