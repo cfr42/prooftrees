@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11705 2026-02-27 21:46:12Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11718 2026-03-02 12:58:08Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -89,7 +89,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11705 2026-02-27 21:46:12Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11718 2026-03-02 12:58:08Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -155,11 +155,13 @@
 %   And sometimes it just doesn't not seem worth the additional fragility that introduces, even at the cost of some additional fragility due to the use of internals.%
 % }.
 % \changes{v0.2}{2026-02-27}{See \texttt{init}.}
+% 
+% Note: will need revising when the \pkg{pgfkeys} version of the \pkg{latex-lab} code gets published.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \hook_gput_code:nnn {package/tikz/after} {.}
 {
-  \tikzset{
+  \pgfqkeys{/tikz}{
     alt/.forward~to=/mmz/alt,
     actualtext/.forward~to=/mmz/actualtext,
     artifact/.forward~to=/mmz/artifact,
