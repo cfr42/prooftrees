@@ -46,47 +46,47 @@
 \TIMO
 \TESTMEMOIZATION*{tikzpicture-alt}{%
   \begin{frame}
-    \frametitle{Frame}
+    \frametitle{Frame 1}
     \begin{tikzpicture}[alt=start of alphabet]
       \node {abc};
     \end{tikzpicture}%
   \end{frame}
-}{BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB}{AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA}
+}{projector-13323D17A05258C3FB7F8F39CA70E9FB}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{tikzpicture-ts}{%
   \begin{frame}
-    \frametitle{Frame}
+    \frametitle{Frame 2}
     \begin{tikzpicture}[tagging-setup={alt=beginning of alphabet}]
       \node {abc};
     \end{tikzpicture}%
   \end{frame}
-}{QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ}{RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR}
+}{projector-D4BCF8AA2F98AF6F9E153079ECBA7966}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{tikzpicture-actualtext}{%
   \begin{frame}
-    \frametitle{Frame}
+    \frametitle{Frame 3}
     \begin{tikzpicture}[actualtext=abc]
       \node {abc};
     \end{tikzpicture}%
   \end{frame}
-}{KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK}{LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL}
+}{projector-5D6DA4F3BDF2EE7D1A16326CE2FFA79F}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{tikzpicture-artifact}{%
   \begin{frame}
-    \frametitle{Frame}
+    \frametitle{Frame 4}
     \begin{tikzpicture}[artifact]
       \draw (0,0) -- (1,1);
     \end{tikzpicture}%
   \end{frame}
-}{MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM}{NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN}
-\TESTMEMOIZATION*{tikzpicture-unsupported}{%
+}{projector-D8FCAC9CD1253541EC2C89EEC4C10C1E}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TEST{tikzpicture-unsupported}{%
   \begin{frame}
-    \frametitle{Frame}
+    \frametitle{Frame 5}
     \begin{tikzpicture}
       \node {Memoization should abort};
     \end{tikzpicture}%
   \end{frame}
-}{OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO}{PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP}
+}
 \TESTMEMOIZATION*{tikzpicture~2slides-alt}{%
   \begin{frame}
-    \frametitle{Frame}
+    \frametitle{Frame 6}
     \begin{tikzpicture}[/mmz/per overlay,alt=a through f]
       \onslide<1>{
         \node {abc};
@@ -99,18 +99,17 @@
 }{CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC}{DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD,EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE}
 \TESTMEMOIZATION*{tikzpicture~2slides-pauses-alt}{%
   \begin{frame}
-    \frametitle{Frame}
-    \begin{memoize}[per overlay]
-      abc \pause def 
-      \begin{tikzpicture}[/mmz/per overlay,alt=abc def]
-        \onslide<1>{
-          \node {abc};
-        }
-        \onslide<3-4>{
-          \node {def};
-        }
-      \end{tikzpicture}%
-    \end{memoize}
+    \frametitle{Frame 7}
+    \mmzset{per overlay}
+    abc \pause def 
+    \begin{tikzpicture}[alt=abc def]
+      \onslide<1>{
+        \node {abc};
+      }
+      \onslide<3-4>{
+        \node {def};
+      }
+    \end{tikzpicture}%
   \end{frame}
 }{FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}{GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG,HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH,IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII,JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ}
 \SHOWPDFTAGS

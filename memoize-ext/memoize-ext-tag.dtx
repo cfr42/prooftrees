@@ -117,13 +117,14 @@
 \SetDefaultHookLabel{memoize-ext}
 %    \end{macrocode}
 % \begin{var}{\g_@@_tagpic_int,\l_@@_toks_tl,\l_@@_ok_bool}
-% \begin{macro}{\mmzxtagtoks}
+% \begin{macro}{\mmzxtagtoks,\mmzxtagtokssaved}
 %   Tracking \& storage variables.
 %    \begin{macrocode}
 \bool_new:N \l_@@_ok_bool
 \int_new:N \g_@@_tagpic_int
 \tl_new:N \l_@@_toks_tl
 \newtoks\mmzxtagtoks
+\newtoks\mmzxtagtokssaved
 %    \end{macrocode}
 % \end{macro}
 % \end{var}
