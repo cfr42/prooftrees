@@ -1,0 +1,67 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is file `mmzx-talk.lvt',
+%%
+%% Copyright (C) 2025-2026 Clea F. Rees.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008-05-04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Clea F. Rees.
+%% 
+%% This file may only be distributed together with a copy of the package
+%% memoize-ext. You may however distribute the package memoize-ext without
+%% such generated files.
+%% 
+%% This work consists of all files listed in manifest.txt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DocumentMetadata{%
+  tagging=on,
+  lang=en-GB,
+  pdfversion=2.0,
+  pdfstandard=UA-2,
+  uncompress,
+}
+\RequirePackage{svn-prov}
+\ProvidesFileSVN{$Id: mmzx-talk-tag-abort.lvt 11725 2026-03-04 02:41:52Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\input regression-test.tex\relax
+\documentclass{ltx-talk}
+\RequirePackage{memoize-ext-debug}
+\input{mmzx-support.cfg}
+\START
+\TESTMMZ
+\OMIT
+\mmzset{prefix=memos/,include context in ccmemo,trace,talk mode to prefix}
+\usepackage{tikz}
+\title{memoize-ext: talk w tagging - abortions}
+\begin{document}
+\TIMO
+\TEST{tikzpicture-unsupported}{%
+  \begin{frame}
+    \frametitle{Frame 1}
+    \begin{tikzpicture}
+      \node {Memoization should abort};
+    \end{tikzpicture}%
+  \end{frame}
+}
+\TEST{tikzpicture-remember}{%
+  \begin{frame}
+    \frametitle{Frame 2}
+    \begin{tikzpicture}[alt=remember picture,remember picture]
+      \node {This picture should be remembered.};
+    \end{tikzpicture}%
+  \end{frame}
+}
+\SHOWPDFTAGS
+\OMIT
+\end{document}
+% vim: ts=2:sw=2:et:
+
