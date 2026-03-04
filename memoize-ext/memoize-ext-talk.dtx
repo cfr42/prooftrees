@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-talk.dtx 11717 2026-03-02 11:49:42Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11723 2026-03-04 00:26:28Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -67,7 +67,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-talk.dtx 11717 2026-03-02 11:49:42Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11723 2026-03-04 00:26:28Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -110,6 +110,12 @@
     talk~mode~to~prefix/.style={
       prefix=\mmz@prefix@dir\mmz@prefix@name\l_@@_talk_mode_str -,
     },
+  }
+%    \end{macrocode}
+% Should this always be added? Regardless of class? Regardless of tagging?
+%    \begin{macrocode}
+  \toksapp\mmzSalt{
+    Tagging~status:~\tag_if_active_p:
   }
 %    \end{macrocode}
 % \begin{var}{\g__@@_talk_opacity_seq,

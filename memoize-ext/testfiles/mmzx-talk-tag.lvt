@@ -31,10 +31,10 @@
   uncompress,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-talk-tag.lvt 11722 2026-03-02 16:47:05Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-talk-tag.lvt 11723 2026-03-04 00:26:28Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
 \documentclass{ltx-talk}
-\RequirePackage{memoize-ext-talk-debug}
+\RequirePackage{memoize-ext-debug}
 \input{mmzx-support.cfg}
 \START
 \TESTMMZ
@@ -51,7 +51,7 @@
       \node {abc};
     \end{tikzpicture}%
   \end{frame}
-}{projector-13323D17A05258C3FB7F8F39CA70E9FB}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{projector-3CED1657A3A4B22E0BC6AA14B1AA9ADB}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{tikzpicture-ts}{%
   \begin{frame}
     \frametitle{Frame 2}
@@ -59,7 +59,7 @@
       \node {abc};
     \end{tikzpicture}%
   \end{frame}
-}{projector-D4BCF8AA2F98AF6F9E153079ECBA7966}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{projector-52C90F767A8ECCFBF4D5E43EC85F7E54}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{tikzpicture-actualtext}{%
   \begin{frame}
     \frametitle{Frame 3}
@@ -67,7 +67,7 @@
       \node {abc};
     \end{tikzpicture}%
   \end{frame}
-}{projector-5D6DA4F3BDF2EE7D1A16326CE2FFA79F}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{projector-F74816F1E6D67A160F5738F2330A70A0}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{tikzpicture-artifact}{%
   \begin{frame}
     \frametitle{Frame 4}
@@ -75,18 +75,10 @@
       \draw (0,0) -- (1,1);
     \end{tikzpicture}%
   \end{frame}
-}{projector-D8FCAC9CD1253541EC2C89EEC4C10C1E}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
-\TEST{tikzpicture-unsupported}{%
+}{projector-B89AAA28FED6CD49103CBAE34D83FAF6}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOPAIRS*{tikzpicture~2slides-alt}{%
   \begin{frame}
     \frametitle{Frame 5}
-    \begin{tikzpicture}
-      \node {Memoization should abort};
-    \end{tikzpicture}%
-  \end{frame}
-}
-\TESTMEMOIZATION*{tikzpicture~2slides-alt}{%
-  \begin{frame}
-    \frametitle{Frame 6}
     \begin{tikzpicture}[/mmz/per overlay,alt=a through f]
       \onslide<1>{
         \node {abc};
@@ -96,10 +88,13 @@
       }
     \end{tikzpicture}%
   \end{frame}
-}{CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC}{DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD,EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE}
-\TESTMEMOIZATION*{tikzpicture~2slides-pauses-alt}{%
+}{%
+  projector-43F076D3B62F28AB2376430B884D13BD/AEFF2CC68190653E36972708E91F0A94,
+  projector-2BD0358797AFC1E1C567EB0F5A958026/9217518737811BC763FDBFDF005C790B,
+}
+\TESTMEMOPAIRS*{tikzpicture~2slides-pauses-alt}{%
   \begin{frame}
-    \frametitle{Frame 7}
+    \frametitle{Frame 6}
     \mmzset{per overlay}
     abc \pause def 
     \begin{tikzpicture}[alt=abc def]
@@ -111,7 +106,12 @@
       }
     \end{tikzpicture}%
   \end{frame}
-}{FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}{GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG,HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH,IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII,JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ}
+}{%
+  projector-D90368024C0E909F4C8D1DFAD7F95ECF/DA4D7C081B295C1EA99F0D0084A95B1F,
+  projector-D90368024C0E909F4C8D1DFAD7F95ECF/78A9C122F849D5AD59FF9D1E96A9D842,
+  projector-D90368024C0E909F4C8D1DFAD7F95ECF/A6C7E15CC4B8D6FB4B72A7E54CD66CBD,
+  projector-376C4E0D9441C13C77AED37129895A22/BA0A7486D8FA913A9F64ADCBDBBBF2DC,
+}
 \SHOWPDFTAGS
 \OMIT
 \end{document}
