@@ -31,7 +31,7 @@
   uncompress,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-tag-tikz.lvt 11586 2026-02-06 07:15:47Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-tag-tikz.lvt 11724 2026-03-04 02:33:49Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
 \documentclass{article}
 \input{mmzx-support.cfg}
@@ -61,6 +61,11 @@
     \draw (0,0) .. controls +(1,-1) and +(1,1) .. (5,5);
   \end{tikzpicture}%
 }{F0269457E4045939B5D1E8B500CC3218}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+\TESTMEMOIZATION*{other keys}{
+  \begin{tikzpicture}[alt=one of many,->,thick]
+    \draw circle (10pt);
+  \end{tikzpicture}%
+}{3E1A3268DC7EA7866A72E56F084D07DD}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \SHOWPDFTAGS
 \OMIT
 \end{document}

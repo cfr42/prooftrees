@@ -13,6 +13,9 @@ mmzx-tag-tikz.mmz:
 \mmzUsedCMemo {memos/F0269457E4045939B5D1E8B500CC3218.memo}[nl]
 \mmzUsedExtern {memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
 \mmzUsedCCMemo {memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/3E1A3268DC7EA7866A72E56F084D07DD.memo}[nl]
+\mmzUsedExtern {memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 \endinput[nl]
 -------- mmzx-tag-tikz.mmz (end) -----------
 ============================================================
@@ -91,7 +94,32 @@ padding=(1in,1in,1in,1in),[nl]
 -------- memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 ============================================================
-TEST 7: Show PDF Tags
+TEST 7: other keys-cmemo
+============================================================
+memos/3E1A3268DC7EA7866A72E56F084D07DD.memo:
+-------- memos/3E1A3268DC7EA7866A72E56F084D07DD.memo (start) ---------
+(memos/3E1A3268DC7EA7866A72E56F084D07DD.memo) \mmzMemo[nl]
+\global \mmzContextExtra {}%[nl]
+%[nl]
+\mmzSource[nl]
+\begin {tikzpicture}[alt=one of many,->,thick] \draw circle (10pt); \end {tikzpicture}[nl]
+-------- memos/3E1A3268DC7EA7866A72E56F084D07DD.memo (end) -----------
+============================================================
+============================================================
+TEST 8: other keys-ccmemo
+============================================================
+memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+\mmzMemo[nl]
+\let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={one of many}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {20.79999pt}{20.79999pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
+\mmzThisContext[nl]
+padding=(1in,1in,1in,1in),[nl]
+\mmzEndMemo[nl]
+-------- memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+============================================================
+============================================================
+TEST 9: Show PDF Tags
 ============================================================
 -------- mmzx-tag-tikz.xml (start) ---------
 <PDF>
@@ -123,6 +151,14 @@ TEST 7: Show PDF Tags
        >
       <?MarkedContent page="1" ?>
      </Span>
+     <Figure xmlns="http://iso.org/pdf2/ssn"
+        id="ID.09"
+        alt="one of many"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:BBox="{ 388.16357, 468.3744, 408.88586, 489.09668 }"
+       >
+      <?MarkedContent page="1" ?>
+     </Figure>
     </text>
    </text-unit>
   </Document>

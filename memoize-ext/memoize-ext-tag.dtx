@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11723 2026-03-04 00:26:28Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11724 2026-03-04 02:33:49Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -89,7 +89,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11723 2026-03-04 00:26:28Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11724 2026-03-04 02:33:49Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -166,6 +166,12 @@
     alt/.forward~to=/mmz/alt,
     actualtext/.forward~to=/mmz/actualtext,
     artifact/.forward~to=/mmz/artifact,
+    tagging-setup/.forward~to=/mmz/tagging-setup,
+    /mmzx/tagging@setup/.is~family,
+    alt/.belongs~to~family=/mmzx/tagging@setup,
+    artifact/.belongs~to~family=/mmzx/tagging@setup,
+    actualtext/.belongs~to~family=/mmzx/tagging@setup,
+    tagging-setup/.belongs~to~family=/mmzx/tagging@setup,
   }
   \mmzset{
     alt/.code={
@@ -207,7 +213,6 @@
       \exp_args:Nno
       \keys_set:nn {tikz/tagging}{\pgfkeyscurrentname={#1}}
     },
-    /mmzx/tagging@setup/.is~family,
     alt/.belongs~to~family=/mmzx/tagging@setup,
     actualtext/.belongs~to~family=/mmzx/tagging@setup,
     artifact/.belongs~to~family=/mmzx/tagging@setup,
@@ -462,7 +467,7 @@
 %<debug>    \@@_debug:n {Arg~to~tagsupport/tikz/picture/init~is~#1.}
     \pgfkeyssavekeyfilterstateto\mmzx@tagging@setup@saved@filterstate
     \pgfkeysinstallkeyfilter{/pgf/key~filters/active~families}{}
-    \pgfqkeysactivatesinglefamilyandfilteroptions{/mmzx/tagging@setup}{/mmz}{#1}
+    \pgfqkeysactivatesinglefamilyandfilteroptions{/mmzx/tagging@setup}{/tikz}{#1}
 %<debug>    \@@_debug:e { Restoring~filter~state:~\exp_not:V 
 %<debug>      \mmzx@tagging@setup@saved@filterstate }
     \mmzx@tagging@setup@saved@filterstate
@@ -500,6 +505,8 @@
           Aborting~memoization.
         }
         \mmzAbort
+        \socket_assign_plug:nn {tagsupport/tikz/picture/init} {default}
+        \socket_use:nn {tagsupport/tikz/picture/init} {#1}
       }
     }
   }
