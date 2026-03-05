@@ -24,7 +24,7 @@
 %% This work consists of all files listed in manifest.txt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-tikz-tagging-none.lvt 11584 2026-02-06 04:19:17Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-tikz-tagging-none.lvt 11727 2026-03-05 05:08:55Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
 \documentclass{article}
 \input{mmzx-support.cfg}
@@ -41,19 +41,19 @@
 \TESTMEMOIZATION{mmzx-tikz-tagging-none-1}{
   \showoutput
   \tikz{\node {mmzx Ti\textit{k}Z without tagging};}
-}{9F7D9471ACB4D784B2D6F2A7705F7C53}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{2144BDD81FCD442D97846DDC63D07FD5}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION{mmzx-tikz-tagging-none-2}{
   \showoutput
   \tikz\node {mmzx Ti\textit{k}Z without tagging};
-}{59C558A83ED82AB302D1A43DEFF093C2}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{D03AC8FB38B57969123D6DD4020EB952}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION{mmzx-tikz-tagging-none-3}{
   \showoutput
   \begin{tikzpicture}\pgfnode{rectangle}{center}{Aardvark}{aard}{\pgfusepath{}} \node (a) at (-1,0) {mmzx Ti\textit{k}Z without tagging}; \draw (1,0) -- (1,1); \end{tikzpicture}
-}{50C175F709FA33390CA6F0D85DB9B7A5}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{3E6E9571337CC1090C13B310392C96DB}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION{mmzx-tikz-tagging-none-4}{
   \showoutput
   \tikz{\pgftext {\textsc{pgf} \texttt{\textbackslash pgftext} without tagging}}
-}{46B76CD1CE2A4414FAC03C51C8A1CDDD}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{88B42F80A2D8826B5DF8393D4FABAD0D}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \END
 
 \end{document}

@@ -23,7 +23,7 @@
 %% This work consists of all files listed in manifest.txt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-draw.lvt 11650 2026-02-20 18:51:22Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-draw.lvt 11727 2026-03-05 05:08:55Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
 \documentclass{article}
 \input{mmzx-support.cfg}
@@ -50,7 +50,7 @@
     \draw_path_close:
     \draw_path_use_clear:n { stroke }
   \draw_end:
-}{56D93D7E1D3D461B307A0BECB00AA3BD}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{DB3DF2CFE73A0A2392A75694B4569E3C}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \ExplSyntaxOff
 \OMIT
 \end{document}

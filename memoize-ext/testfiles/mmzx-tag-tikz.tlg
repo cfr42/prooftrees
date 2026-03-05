@@ -4,119 +4,119 @@ memoize
 mmzx-tag-tikz.mmz:
 -------- mmzx-tag-tikz.mmz (start) ---------
 (mmzx-tag-tikz.mmz) \mmzPrefix {memos/}[nl]
-\mmzUsedCMemo {memos/BADC0AA30949AEB754F17F7170D260BF.memo}[nl]
-\mmzUsedExtern {memos/BADC0AA30949AEB754F17F7170D260BF-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/BADC0AA30949AEB754F17F7170D260BF-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
-\mmzUsedCMemo {memos/608761D624C8F4474C490F8F1A4DE768.memo}[nl]
-\mmzUsedExtern {memos/608761D624C8F4474C490F8F1A4DE768-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/608761D624C8F4474C490F8F1A4DE768-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
-\mmzUsedCMemo {memos/F0269457E4045939B5D1E8B500CC3218.memo}[nl]
-\mmzUsedExtern {memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
-\mmzUsedCMemo {memos/3E1A3268DC7EA7866A72E56F084D07DD.memo}[nl]
-\mmzUsedExtern {memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/8C639C9D217A2F6FA983FE8EC4259211.memo}[nl]
+\mmzUsedExtern {memos/8C639C9D217A2F6FA983FE8EC4259211-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/8C639C9D217A2F6FA983FE8EC4259211-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/CCFF30B0931D89D2886B3F6CB24F494E.memo}[nl]
+\mmzUsedExtern {memos/CCFF30B0931D89D2886B3F6CB24F494E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/CCFF30B0931D89D2886B3F6CB24F494E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/B8C97A399AA54B21D3F766D93826DF87.memo}[nl]
+\mmzUsedExtern {memos/B8C97A399AA54B21D3F766D93826DF87-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/B8C97A399AA54B21D3F766D93826DF87-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/474ED3F304209E6DB5A8F744416C3F41.memo}[nl]
+\mmzUsedExtern {memos/474ED3F304209E6DB5A8F744416C3F41-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/474ED3F304209E6DB5A8F744416C3F41-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 \endinput[nl]
 -------- mmzx-tag-tikz.mmz (end) -----------
 ============================================================
 TEST 1: alt-cmemo
 ============================================================
-memos/BADC0AA30949AEB754F17F7170D260BF.memo:
--------- memos/BADC0AA30949AEB754F17F7170D260BF.memo (start) ---------
-(memos/BADC0AA30949AEB754F17F7170D260BF.memo) \mmzMemo[nl]
+memos/8C639C9D217A2F6FA983FE8EC4259211.memo:
+-------- memos/8C639C9D217A2F6FA983FE8EC4259211.memo (start) ---------
+(memos/8C639C9D217A2F6FA983FE8EC4259211.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[alt=Square] \draw (0,0) rectangle (1,1); \end {tikzpicture}[nl]
--------- memos/BADC0AA30949AEB754F17F7170D260BF.memo (end) -----------
+-------- memos/8C639C9D217A2F6FA983FE8EC4259211.memo (end) -----------
 ============================================================
 ============================================================
 TEST 2: alt-ccmemo
 ============================================================
-memos/BADC0AA30949AEB754F17F7170D260BF-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/BADC0AA30949AEB754F17F7170D260BF-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/BADC0AA30949AEB754F17F7170D260BF-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{BADC0AA30949AEB754F17F7170D260BF-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/8C639C9D217A2F6FA983FE8EC4259211-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/8C639C9D217A2F6FA983FE8EC4259211-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/8C639C9D217A2F6FA983FE8EC4259211-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{8C639C9D217A2F6FA983FE8EC4259211-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
 \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={Square}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {28.85274pt}{28.85274pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/BADC0AA30949AEB754F17F7170D260BF-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/8C639C9D217A2F6FA983FE8EC4259211-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 ============================================================
 TEST 3: actualtext-cmemo
 ============================================================
-memos/608761D624C8F4474C490F8F1A4DE768.memo:
--------- memos/608761D624C8F4474C490F8F1A4DE768.memo (start) ---------
-(memos/608761D624C8F4474C490F8F1A4DE768.memo) \mmzMemo[nl]
+memos/CCFF30B0931D89D2886B3F6CB24F494E.memo:
+-------- memos/CCFF30B0931D89D2886B3F6CB24F494E.memo (start) ---------
+(memos/CCFF30B0931D89D2886B3F6CB24F494E.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[actualtext=o] \draw circle (10pt); \end {tikzpicture}[nl]
--------- memos/608761D624C8F4474C490F8F1A4DE768.memo (end) -----------
+-------- memos/CCFF30B0931D89D2886B3F6CB24F494E.memo (end) -----------
 ============================================================
 ============================================================
 TEST 4: actualtext-ccmemo
 ============================================================
-memos/608761D624C8F4474C490F8F1A4DE768-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/608761D624C8F4474C490F8F1A4DE768-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/608761D624C8F4474C490F8F1A4DE768-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{608761D624C8F4474C490F8F1A4DE768-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/CCFF30B0931D89D2886B3F6CB24F494E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/CCFF30B0931D89D2886B3F6CB24F494E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/CCFF30B0931D89D2886B3F6CB24F494E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{CCFF30B0931D89D2886B3F6CB24F494E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
 \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={o}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/actualtext}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/actualtext}\mmzIncludeExtern {0}\hbox {20.4pt}{20.4pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/608761D624C8F4474C490F8F1A4DE768-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/CCFF30B0931D89D2886B3F6CB24F494E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 ============================================================
 TEST 5: artifact-cmemo
 ============================================================
-memos/F0269457E4045939B5D1E8B500CC3218.memo:
--------- memos/F0269457E4045939B5D1E8B500CC3218.memo (start) ---------
-(memos/F0269457E4045939B5D1E8B500CC3218.memo) \mmzMemo[nl]
+memos/B8C97A399AA54B21D3F766D93826DF87.memo:
+-------- memos/B8C97A399AA54B21D3F766D93826DF87.memo (start) ---------
+(memos/B8C97A399AA54B21D3F766D93826DF87.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[artifact] \draw (0,0) .. controls +(1,-1) and +(1,1) .. (5,5); \end {tikzpicture}[nl]
--------- memos/F0269457E4045939B5D1E8B500CC3218.memo (end) -----------
+-------- memos/B8C97A399AA54B21D3F766D93826DF87.memo (end) -----------
 ============================================================
 ============================================================
 TEST 6: artifact-ccmemo
 ============================================================
-memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/B8C97A399AA54B21D3F766D93826DF87-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/B8C97A399AA54B21D3F766D93826DF87-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/B8C97A399AA54B21D3F766D93826DF87-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{B8C97A399AA54B21D3F766D93826DF87-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
 \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/artifact}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/artifact}\mmzIncludeExtern {0}\hbox {171.11646pt}{199.5692pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/F0269457E4045939B5D1E8B500CC3218-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/B8C97A399AA54B21D3F766D93826DF87-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 ============================================================
 TEST 7: other keys-cmemo
 ============================================================
-memos/3E1A3268DC7EA7866A72E56F084D07DD.memo:
--------- memos/3E1A3268DC7EA7866A72E56F084D07DD.memo (start) ---------
-(memos/3E1A3268DC7EA7866A72E56F084D07DD.memo) \mmzMemo[nl]
+memos/474ED3F304209E6DB5A8F744416C3F41.memo:
+-------- memos/474ED3F304209E6DB5A8F744416C3F41.memo (start) ---------
+(memos/474ED3F304209E6DB5A8F744416C3F41.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[alt=one of many,->,thick] \draw circle (10pt); \end {tikzpicture}[nl]
--------- memos/3E1A3268DC7EA7866A72E56F084D07DD.memo (end) -----------
+-------- memos/474ED3F304209E6DB5A8F744416C3F41.memo (end) -----------
 ============================================================
 ============================================================
 TEST 8: other keys-ccmemo
 ============================================================
-memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/474ED3F304209E6DB5A8F744416C3F41-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/474ED3F304209E6DB5A8F744416C3F41-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/474ED3F304209E6DB5A8F744416C3F41-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{474ED3F304209E6DB5A8F744416C3F41-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
 \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={one of many}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {20.79999pt}{20.79999pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {1}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/3E1A3268DC7EA7866A72E56F084D07DD-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/474ED3F304209E6DB5A8F744416C3F41-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 ============================================================
 TEST 9: Show PDF Tags

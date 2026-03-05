@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-talk.dtx 11723 2026-03-04 00:26:28Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11727 2026-03-05 05:08:55Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -67,7 +67,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-talk.dtx 11723 2026-03-04 00:26:28Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11727 2026-03-05 05:08:55Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -112,11 +112,7 @@
     },
   }
 %    \end{macrocode}
-% Should this always be added? Regardless of class? Regardless of tagging?
 %    \begin{macrocode}
-  \toksapp\mmzSalt{
-    Tagging~status:~\tag_if_active_p:
-  }
 %    \end{macrocode}
 % \begin{var}{\g__@@_talk_opacity_seq,
 %   \g_@@_talk_saved_opacity_seq,
@@ -208,7 +204,6 @@
   \hook_gput_code_with_args:nnn {cmd/opacity_select:n/before} {.}
   {
     \seq_gpush:Nn \g_@@_talk_opacity_seq {#1}
-    % \typeout{Opacity~select:~#1}
   }
   \hook_gput_code:nnn {cmd/opacity_end:/after}{.}
   {
@@ -217,6 +212,12 @@
 %<debug>    \seq_log:N \g_@@_talk_opacity_seq
   }
   \mmzset{
+    at~begin~memoization={
+      \socket_use:n {mmzx/talk/memoization/begin}
+    },
+    at~end~memoization={
+      \socket_use:n {mmzx/talk/memoization/end}
+    },
     per~overlay/.style={
       /mmz/context={
         overlay=\csname theslide\endcsname,
@@ -226,38 +227,89 @@
           \expandafter\the\csname c@pauses\endcsname
         \fi
       },
-      /mmz/at~begin~memoization={
-        \xdef\mmzxTalkPauses{
-          \int_to_arabic:n {\g_@@_talk_pauses_int}
-        }
-        \xtoksapp\mmzCMemo{
-          \noexpand\mmzxSetTalkOverlays{\mmzxTalkPauses}{
-            \int_to_arabic:n {\g_@@_talk_slide_int}
+      /utils/exec={
+        \str_if_eq:eeF {peroverlay}
+        {\@@_socket_assigned_plug:n {mmzx/talk/memoization/begin}}
+        {
+          \socket_assign_plug:nn {mmzx/talk/memoization/begin}{peroverlay}
+          \socket_assign_plug:nn {mmzx/talk/memoization/end}{peroverlay}
+%    \end{macrocode}
+% This is required to allow per overlay to be used in the options for
+% \env{tikzpicture}s etc.
+%    \begin{macrocode}
+          \legacy_if:nT {memoizing} {
+            \socket_use:n {mmzx/talk/memoization/begin}
           }
         }
-        \gtoksapp\mmzCCMemo{
-          \only<all:\mmzxTalkOverlays>{}
-        }
-        \seq_get:NNTF \g_@@_talk_opacity_seq \l_@@_opacity_tl
-        {
-          \fp_gset:NV \l_@@_tmpa_fp \l_@@_opacity_tl
-        } {
-          \fp_gset:Nn \l_@@_tmpa_fp {1}
-        }
-        \xtoksapp\mmzContextExtra{
-          opacity=\fp_to_decimal:N \l_@@_tmpa_fp
-        }
       },
-      /mmz/at~end~memoization={
-        \xtoksapp\mmzCCMemo{
-          \exp_not:N \setcounter{pauses}
-          {\int_to_arabic:n {\g_@@_talk_pauses_int}}
-        }
-      },
+%    \end{macrocode}
+% Is resetting the style meant to prevent duplication in memos etc.?
+% Because it obviously won't \dots?
+%    \begin{macrocode}
       /mmz/per~overlay/.code={},
     },
   }
 %    \end{macrocode}
+% \begin{socket}{mmzx/talk/memoization/begin,mmzx/talk/memoization/end}
+% \changes{v0.0}{2026-03-05}{Use sockets to try to keep memos cleaner.}
+% Sockets.
+%    \begin{macrocode}
+  \socket_new:nn {mmzx/talk/memoization/begin}{0}
+  \socket_new:nn {mmzx/talk/memoization/end}{0}
+%    \end{macrocode}
+% \end{socket}
+% \begin{plug}{mmzx/talk/memoization/begin~peroverlay,mmzx/talk/memoization/end~peroverlay}
+% \changes{v0.0}{2026-03-05}{What is a socket without a plug?}
+% Plugs.
+%    \begin{macrocode}
+  \socket_new_plug:nnn {mmzx/talk/memoization/begin}{peroverlay}
+  {
+%<debug>    \@@_debug:n {Executing~plug~peroverlay~in~socket~
+%<debug>      mmzx/talk/memoization/begin.}
+    \xdef\mmzxTalkPauses{
+      \int_to_arabic:n {\g_@@_talk_pauses_int}
+    }
+    \xtoksapp\mmzCMemo{
+      \noexpand\mmzxSetTalkOverlays{\mmzxTalkPauses}{
+        \int_to_arabic:n {\g_@@_talk_slide_int}
+      }
+    }
+    \gtoksapp\mmzCCMemo{
+      \only<all:\mmzxTalkOverlays>{}
+    }
+    \seq_get:NNTF \g_@@_talk_opacity_seq \l_@@_opacity_tl
+    {
+      \fp_gset:NV \l_@@_tmpa_fp \l_@@_opacity_tl
+    } {
+      \fp_gset:Nn \l_@@_tmpa_fp {1}
+    }
+    \xtoksapp\mmzContextExtra{
+      opacity=\fp_to_decimal:N \l_@@_tmpa_fp
+    }
+  }
+  \socket_new_plug:nnn {mmzx/talk/memoization/end}{peroverlay}
+  {
+%<debug>    \@@_debug:n {Executing~plug~peroverlay~in~socket~
+%<debug>      mmzx/talk/memoization/end.}
+    \xtoksapp\mmzCCMemo{
+      \exp_not:N \setcounter{pauses}
+      {\int_to_arabic:n {\g_@@_talk_pauses_int}}
+    }
+  }
+%    \end{macrocode}
+% \end{plug}
+% ^^A % \begin{fn}{\@@_talk_per_overlay_begin:,
+% ^^A %   \@@_talk_per_overlay_end:,
+% ^^A %   \@@_talk_per_overlay_end:,
+% ^^A % }
+% ^^A % \changes{v0.0}{2026-03-05}{This isn't done for \pkg{beamer}, but try to streamline memos.}
+% ^^A % Not done for \pkg{beamer} and not technically required, but keeps the memos and hooks a bit cleaner.
+% ^^A %    \begin{macrocode}
+% ^^A   \cs_new_nopar:Npn \@@_talk_per_overlay:
+% ^^A   {
+% ^^A   }
+% ^^A %    \end{macrocode}
+% ^^A % \end{fn}
 % \begin{macro}{\mmzxSetTalkOverlays}
 %   Note the addition of code to set \verb|g__talk_slide_continue_bool|.
 %   This isn't necessary for \pkg{beamer} and is not ‘allowed’ for \pkg{ltx-talk}, but is necessary for frames with overlay specifications in memoized content.

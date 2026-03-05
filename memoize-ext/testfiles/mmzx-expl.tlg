@@ -4,9 +4,9 @@ memoize
 mmzx-expl.mmz:
 -------- mmzx-expl.mmz (start) ---------
 (mmzx-expl.mmz) \mmzPrefix {memos/}[nl]
-\mmzUsedCMemo {memos/877EFE9A5B6B07DF39C6A74229657A8B.memo}[nl]
-\mmzUsedExtern {memos/877EFE9A5B6B07DF39C6A74229657A8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/877EFE9A5B6B07DF39C6A74229657A8B-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/135B33BFAB52D52F3DD22890E4279A86.memo}[nl]
+\mmzUsedExtern {memos/135B33BFAB52D52F3DD22890E4279A86-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/135B33BFAB52D52F3DD22890E4279A86-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 \endinput[nl]
 -------- mmzx-expl.mmz (end) -----------
 ============================================================

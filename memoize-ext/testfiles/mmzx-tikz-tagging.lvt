@@ -31,7 +31,7 @@
   uncompress,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-tikz-tagging.lvt 11584 2026-02-06 04:19:17Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-tikz-tagging.lvt 11727 2026-03-05 05:08:55Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
 \documentclass{article}
 \input{mmzx-support.cfg}
@@ -48,22 +48,22 @@
 \TIMO
 \TESTMEMOIZATION*{mmzx-tikz-tagging-1}{
   \tikz[alt=Alt 1]{\node {mmzx Ti\textit{k}Z with tagging};}
-}{B9A498E132CAE52C88DCAF0CF0DD0068}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{9157C04F9B106328F14B4EE146DEE170}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{mmzx-tikz-tagging-2}{
   \tikz[alt=Alt 2]\node {mmzx Ti\textit{k}Z with tagging};
-}{F68CC36BD463325ABA443AA0AE1F18D1}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{7485557BB944CF2077126D402A57E590}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{mmzx-tikz-tagging-3}{
   \begin{tikzpicture}[alt=Alt 3]
     \pgfnode{rectangle}{center}{Aardvark}{aard}{\pgfusepath{}} 
     \node (a) at (-1,0) {mmzx Ti\textit{k}Z with tagging};
     \draw (1,0) -- (1,1);
   \end{tikzpicture}%
-}{6E4E5FF1EE960A69BF25B40063CBB4B5}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{B1E7A1E8F0FA7BBBEFBCF9DE3CC63250}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{mmzx-tikz-tagging-4}{
   \tikz[alt=Alt 4]{
     \pgftext {\textsc{pgf} \texttt{\textbackslash pgftext} with tagging}
   }
-}{DB047F7895C514A0F516554934D623F4}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{1D63C460BFFA08BC2557A68A569245C3}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \SHOWPDFTAGS
 \OMIT
 \end{document}

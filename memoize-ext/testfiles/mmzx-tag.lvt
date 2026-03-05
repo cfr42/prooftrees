@@ -31,7 +31,7 @@
   uncompress,
 }
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-tag.lvt 11582 2026-02-05 06:33:50Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-tag.lvt 11727 2026-03-05 05:08:55Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
 \documentclass{article}
 \input{mmzx-support.cfg}
@@ -50,17 +50,17 @@
   \begin{tikzpicture}[alt=ABC]
     \node {abc};
   \end{tikzpicture}%
-}{4B4D05C18ACC21F25B529D93C51E3F9D}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{6DD43B0C4FEBE24347AA1C9D4C0D1DB2}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{alt}{
   \begin{tikzpicture}[alt=DEF]
     \node {abc};
   \end{tikzpicture}%
-}{6768EACBDFD5B8F8811DAF879B79357A}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{64A2FA9CB5CFE7F59480F84BE8DA30C4}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \TESTMEMOIZATION*{alt}{
   \begin{tikzpicture}[alt=DEF]
     \node {def};
   \end{tikzpicture}%
-}{4DE67A750F712A3260ED0663332EDAE7}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
+}{ACD4D99724684E14C345EBB9B904B430}{E778DCCCB8AAB0BBD3F6CFEEFD2421F8}
 \SHOWPDFTAGS
 \OMIT
 \end{document}
