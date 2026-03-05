@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11727 2026-03-05 05:08:55Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11729 2026-03-05 17:13:39Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -57,7 +57,6 @@
 % }
 % 
 % ^^A \section{Implementation}
-% Should probably use unique prefix \dots?
 %
 % Uses and/or redefines the following internals, primitives and other nefarious methods:
 % \begin{itemize}
@@ -89,7 +88,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11727 2026-03-05 05:08:55Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11729 2026-03-05 17:13:39Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -489,7 +488,14 @@
 %<debug>            \@@_debug:n {
 %<debug>              No~plug~set~for~utilisation.~Trying~to~match~latex-lab~plug.
 %<debug>            }
-      \str_case_e:nnTF
+%    \end{macrocode}
+% If the argument to the picture set the plug, it is already in the code hash.
+% Otherwise, we add the value of the \pkg{latex-lab} plug to the context, using \cs{mmzContextExtra} and appending globally as we are memoizing by hypothesis.
+%    \begin{macrocode}
+      \xtoksapp\mmzContextExtra {
+        tagging~plug=\@@_socket_assigned_plug:n {tagsupport/tikz/picture/begin},
+      }
+      \str_case_e:nnF
       {\@@_socket_assigned_plug:n {tagsupport/tikz/picture/begin}}
       {
         {alt} {
@@ -507,10 +513,6 @@
         {artifact} {
           \mmzset{artifact,}
 %<debug>            \@@_debug:n {Using~artifact~plug.}
-        }
-      }{
-        \xtoksapp\mmzContextExtra {
-          tagging~plug=\@@_socket_assigned_plug:n {tagsupport/tikz/picture/begin},
         }
       }{
 %<debug>            \@@_debug:e {Found~unsupported~
