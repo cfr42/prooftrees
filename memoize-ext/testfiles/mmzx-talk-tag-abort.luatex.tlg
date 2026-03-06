@@ -57,62 +57,62 @@ TEST 3: Show PDF Tags
 ============================================================
 -------- mmzx-talk-tag-abort.xml (start) ---------
 <PDF>
-<StructTreeRoot>
-<Document xmlns="http://iso.org/pdf2/ssn"
-id="ID.002"
->
-<frame xmlns="https://www.latex-project.org/ns/local/ltx-talk"
-id="ID.005"
-rolemaps-to="Sect"
->
-<frametitle xmlns="https://www.latex-project.org/ns/local/ltx-talk"
-id="ID.008"
-title="Frame 1"
-rolemaps-to="H4"
->
-<?MarkedContent page="1" ?>Frame 1
-</frametitle>
-<text-unit xmlns="https://www.latex-project.org/ns/dflt"
-id="ID.006"
-rolemaps-to="Part"
->
-<text xmlns="https://www.latex-project.org/ns/dflt"
-id="ID.007"
-xmlns:Layout="http://iso.org/pdf/ssn/Layout"
-Layout:TextAlign="Start"
-rolemaps-to="P"
->
-<?MarkedContent page="1" ?>Memoization should abort
-<?MarkedContent page="1" ?>
-</text>
-</text-unit>
-</frame>
-<frame xmlns="https://www.latex-project.org/ns/local/ltx-talk"
-id="ID.009"
-rolemaps-to="Sect"
->
-<frametitle xmlns="https://www.latex-project.org/ns/local/ltx-talk"
-id="ID.012"
-title="Frame 2"
-rolemaps-to="H4"
->
-<?MarkedContent page="2" ?>Frame 2
-</frametitle>
-<text-unit xmlns="https://www.latex-project.org/ns/dflt"
-id="ID.010"
-rolemaps-to="Part"
->
-<text xmlns="https://www.latex-project.org/ns/dflt"
-id="ID.011"
-xmlns:Layout="http://iso.org/pdf/ssn/Layout"
-Layout:TextAlign="Start"
-rolemaps-to="P"
->
-</text>
-</text-unit>
-</frame>
-</Document>
-</StructTreeRoot>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.002"
+    >
+   <frame xmlns="https://www.latex-project.org/ns/local/ltx-talk"
+      id="ID.005"
+      rolemaps-to="Sect"
+     >
+    <frametitle xmlns="https://www.latex-project.org/ns/local/ltx-talk"
+       id="ID.008"
+       title="Frame 1"
+       rolemaps-to="H4"
+      >
+     <?MarkedContent page="1" ?>Frame 1
+    </frametitle>
+    <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.006"
+       rolemaps-to="Part"
+      >
+     <text xmlns="https://www.latex-project.org/ns/dflt"
+        id="ID.007"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:TextAlign="Start"
+        rolemaps-to="P"
+       >
+      <?MarkedContent page="1" ?>Memoization should abort
+      <?MarkedContent page="1" ?>
+     </text>
+    </text-unit>
+   </frame>
+   <frame xmlns="https://www.latex-project.org/ns/local/ltx-talk"
+      id="ID.009"
+      rolemaps-to="Sect"
+     >
+    <frametitle xmlns="https://www.latex-project.org/ns/local/ltx-talk"
+       id="ID.012"
+       title="Frame 2"
+       rolemaps-to="H4"
+      >
+     <?MarkedContent page="2" ?>Frame 2
+    </frametitle>
+    <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.010"
+       rolemaps-to="Part"
+      >
+     <text xmlns="https://www.latex-project.org/ns/dflt"
+        id="ID.011"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:TextAlign="Start"
+        rolemaps-to="P"
+       >
+     </text>
+    </text-unit>
+   </frame>
+  </Document>
+ </StructTreeRoot>
 </PDF>
 -------- mmzx-talk-tag-abort.xml (end) ---------
 ============================================================
@@ -121,3 +121,4 @@ Compilation 1 of test file completed with exit status 0
 Compilation 2 of test file completed with exit status 0
 Compilation 3 of test file completed with exit status 0
 Compilation 4 of test file completed with exit status 0
+Compilation 5 of test file completed with exit status 0
