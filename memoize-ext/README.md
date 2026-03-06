@@ -1,6 +1,8 @@
-$Id: README.md 11731 2026-03-06 05:47:08Z cfrees $
+$Id: README.md 11732 2026-03-06 05:55:41Z cfrees $
 
 # memoize-ext
+
+## Features
 
 Automatic handling of additional kinds of material by or during memoization i
 with Memoize.
@@ -25,6 +27,16 @@ with Memoize.
 The code is arranged into interdependent modules. Activation may be customised 
 at load time.
 
+## Changes
+
+v0.3 Fix bug involving loss of tagging for tikzpictures on multiple talk
+overlays. In case memoization aborts, the tagging support now warns the 
+user intervention may be required. In case no supported plug is found, it
+now marks the code as unmemoizable. Whether tagging is active is added to the
+salt. If the plug used for a tikzpicture depends on code outside that picture,
+the plug is added to the context.
+
+
 ## Licence
 
 Copyright 2025-2026 Clea F. Rees
@@ -46,7 +58,6 @@ memoize-ext.
 
 This work consists of all files listed in manifest.txt.
 
-## Features
 
 ## Code Repositories
 
