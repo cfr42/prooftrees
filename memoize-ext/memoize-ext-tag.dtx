@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11731 2026-03-06 05:47:08Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11735 2026-03-06 08:03:26Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -88,7 +88,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11731 2026-03-06 05:47:08Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11735 2026-03-06 08:03:26Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -118,7 +118,7 @@
 \cs_generate_variant:Nn \socket_assign_plug:nn {nV}
 %    \end{macrocode}
 % \begin{var}{\g_@@_tagpic_int,\l_@@_toks_tl,\l_@@_ok_bool,\g_@@_plug_orig_str}
-% \begin{toks}{\mmzxtagtoks}
+% \begin{toksr}{\mmzxtagtoks}
 %   Tracking \& storage variables.
 %    \begin{macrocode}
 \bool_new:N \l_@@_ok_bool
@@ -127,7 +127,7 @@
 \tl_new:N \l_@@_toks_tl
 \newtoks\mmzxtagtoks
 %    \end{macrocode}
-% \end{toks}
+% \end{toksr}
 % \end{var}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{socket}{tagsupport/memoize/include/extern/before,tagsupport/memoize/include/extern/after}
