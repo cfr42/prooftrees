@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11729 2026-03-05 17:13:39Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11730 2026-03-06 05:42:47Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -88,7 +88,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11729 2026-03-05 17:13:39Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11730 2026-03-06 05:42:47Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -118,7 +118,7 @@
 \cs_generate_variant:Nn \socket_assign_plug:nn {nV}
 %    \end{macrocode}
 % \begin{var}{\g_@@_tagpic_int,\l_@@_toks_tl,\l_@@_ok_bool,\g_@@_plug_orig_str}
-% \begin{macro}{\mmzxtagtoks,\mmzxtagtokssaved}
+% \begin{toks}{\mmzxtagtoks}
 %   Tracking \& storage variables.
 %    \begin{macrocode}
 \bool_new:N \l_@@_ok_bool
@@ -126,9 +126,8 @@
 \str_new:N \g_@@_plug_orig_str
 \tl_new:N \l_@@_toks_tl
 \newtoks\mmzxtagtoks
-\newtoks\mmzxtagtokssaved
 %    \end{macrocode}
-% \end{macro}
+% \end{toks}
 % \end{var}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{socket}{tagsupport/memoize/include/extern/before,tagsupport/memoize/include/extern/after}
@@ -283,7 +282,6 @@
 \cs_new_eq:NN \mmzxIncludeExternOrig \@@_noop:nNnnnnnnn
 %    \end{macrocode}
 % \end{macro}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \end{fn}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{plug}{tagsupport/memoize/include/extern/before~mmzx/alt}
@@ -555,41 +553,10 @@
     \socket_assign_plug:nn {tagsupport/tikz/picture/end} {noop}
     \socket_assign_plug:nn {tagsupport/tikz/picture/text/begin} {noop}
     \socket_assign_plug:nn {tagsupport/tikz/picture/text/end} {noop}
-% ^^A     \hook_gput_code:nnn {cmd/mmzAbort/after}{.}
-% ^^A     {
-% ^^A       \socket_assign_plug:nV 
-% ^^A         {tagsupport/tikz/picture/begin} \g_@@_plug_orig_str
-% ^^A       \socket_assign_plug:nV 
-% ^^A         {tagsupport/tikz/picture/end} \g_@@_plug_orig_str
-% ^^A       \socket_assign_plug:nn {tagsupport/tikz/picture/text/begin} {default}
-% ^^A       \socket_assign_plug:nn {tagsupport/tikz/picture/text/end} {default}
-% ^^A %<debug>    \socket_log:n {tagsupport/tikz/picture/begin}
-% ^^A %<debug>    \socket_log:n {tagsupport/tikz/picture/end}
-% ^^A       \socket_use:n {tagsupport/tikz/picture/begin}
-% ^^A     }
-% ^^A     \hook_gput_next_code:nn {cmd/endpgfpicture/after} 
-% ^^A     {
-% ^^A       \legacy_if:nF {memoizing}
-% ^^A       {
-% ^^A         \socket_use:n {tagsupport/tikz/picture/end}
-% ^^A       }
-% ^^A       \hook_gremove_code:nn {cmd/mmzAbort/after} {.}
-% ^^A %<debug>    \hook_log:n {cmd/mmzAbort/after}
-% ^^A %<debug>    \socket_log:n {tagsupport/tikz/picture/init}
-% ^^A     }
   } {
 %<debug>    \@@_debug:n {Not~memoizing.~Enabling~tagging~for~current~tikz~
 %<debug>      picture.~Marking~code~unmemoizable.}
-    % ^^A \mmzAbort
     \mmzUnmemoizable
-% ^^A     \hook_gput_next_code:nn {cmd/endpgfpicture/after}
-% ^^A     {
-% ^^A       \socket_assign_plug:nn {tagsupport/tikz/picture/init} {mmzx}
-% ^^A     }
-% ^^A %<debug>    \socket_log:n {tagsupport/tikz/picture/begin}
-% ^^A %<debug>    \socket_log:n {tagsupport/tikz/picture/end}
-% ^^A     \socket_assign_plug:nV {tagsupport/tikz/picture/begin} \g_@@_plug_orig_str
-% ^^A     \socket_assign_plug:nV {tagsupport/tikz/picture/end} \g_@@_plug_orig_str
   }
 }
 %    \end{macrocode}

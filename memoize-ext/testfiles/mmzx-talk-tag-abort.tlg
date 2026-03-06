@@ -1,0 +1,126 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+mmzx-talk-tag-abort.mmz:
+-------- mmzx-talk-tag-abort.mmz (start) ---------
+(mmzx-talk-tag-abort.mmz) \mmzPrefix {memos/projector-}[nl]
+\mmzUsedCMemo {memos/projector-4EADD6CE44B2E1BF5CBE2830010B7ACA.memo}[nl]
+\mmzUsedCMemo {memos/projector-D603C7C4CD777BF469A7713B74A45CCA.memo}[nl]
+\mmzNewCMemo {memos/projector-D603C7C4CD777BF469A7713B74A45CCA.memo}[nl]
+\endinput[nl]
+-------- mmzx-talk-tag-abort.mmz (end) -----------
+============================================================
+TEST 1: tikzpicture-unsupported
+============================================================
+[tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
+[tracing memoize]   Code: \begin {tikzpicture} \node {Memoization should abort}; \end {tikzpicture}
+[tracing memoize]   Code md5sum: 4EADD6CE44B2E1BF5CBE2830010B7ACA
+[tracing memoize]   Attempting to utilize c-memo memos/projector-4EADD6CE44B2E1BF5CBE2830010B7ACA.memo
+(memos/projector-4EADD6CE44B2E1BF5CBE2830010B7ACA.memo)
+[tracing memoize]   This code was marked as unmemoizable
+[tracing memoize]   Compiling
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture. Marking code unmemoizable.
+[1]
+============================================================
+============================================================
+TEST 2: tikzpicture-remember
+============================================================
+[tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
+[tracing memoize]   Code: \begin {tikzpicture}[alt=remember picture,remember picture] \node {This picture should be remembered.}; \end {tikzpicture}
+[tracing memoize]   Code md5sum: D603C7C4CD777BF469A7713B74A45CCA
+[tracing memoize]   Attempting to utilize c-memo memos/projector-D603C7C4CD777BF469A7713B74A45CCA.memo
+(memos/projector-D603C7C4CD777BF469A7713B74A45CCA.memo)
+[tracing memoize]   C-memo was processed successfully
+[tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
+[tracing memoize]   Attempting to utilize cc-memo memos/projector-D603C7C4CD777BF469A7713B74A45CCA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[tracing memoize]   CC-memo does not exist
+[tracing memoize]   Cc-memo input failed
+[tracing memoize]   Memoizing
+[mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
+[mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
+[mmzx debug]:: Arg to tagsupport/tikz/picture/init is alt=remember picture,remember picture.
+> \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode .
+[mmzx debug]:: Restoring filter state: \pgfkeysinstallkeyfilter {/pgf/key filters/true}{\pgfkeysnovalue }\pgfkeysinstallkeyfilterhandler {/pgf/key filter handlers/ignore}{\pgfkeysnovalue }
+[mmzx debug]:: Disabling tagging for current tikz picture during current run.
+> \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={remember picture}\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}.
+Package memoize-ext Warning: Memoization has been aborted. If something like a reference needs resolving, just compile again. If the content is unmemoizable -- e.g. contains remember picture, a breakable tcolorbox or suchlike, you **must** mark the content unmemoizable or the tagging will be incorrect. You may do this automatically or manually. Aborted  on input line ....
+[tracing memoize]   Memoization was aborted
+Package memoize Info: Memoization was aborted on input line ....
+[2
+pdfTeX warning: pdftex: pop empty color page stack 1
+pdfTeX warning: pdftex: pop empty color page stack 1
+]
+============================================================
+============================================================
+TEST 3: Show PDF Tags
+============================================================
+-------- mmzx-talk-tag-abort.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.002"
+    >
+   <frame xmlns="https://www.latex-project.org/ns/local/ltx-talk"
+      id="ID.005"
+      rolemaps-to="Sect"
+     >
+    <frametitle xmlns="https://www.latex-project.org/ns/local/ltx-talk"
+       id="ID.008"
+       title="Frame 1"
+       rolemaps-to="H4"
+      >
+     <?MarkedContent page="1" ?>Frame 1
+    </frametitle>
+    <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.006"
+       rolemaps-to="Part"
+      >
+     <text xmlns="https://www.latex-project.org/ns/dflt"
+        id="ID.007"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:TextAlign="Start"
+        rolemaps-to="P"
+       >
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>Memoization should abort
+      <?MarkedContent page="1" ?>
+      <?MarkedContent page="1" ?>
+     </text>
+    </text-unit>
+   </frame>
+   <frame xmlns="https://www.latex-project.org/ns/local/ltx-talk"
+      id="ID.009"
+      rolemaps-to="Sect"
+     >
+    <frametitle xmlns="https://www.latex-project.org/ns/local/ltx-talk"
+       id="ID.012"
+       title="Frame 2"
+       rolemaps-to="H4"
+      >
+     <?MarkedContent page="2" ?>Frame 2
+    </frametitle>
+    <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.010"
+       rolemaps-to="Part"
+      >
+     <text xmlns="https://www.latex-project.org/ns/dflt"
+        id="ID.011"
+        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+        Layout:TextAlign="Start"
+        rolemaps-to="P"
+       >
+      <?MarkedContent page="2" ?>This picture should be remembered.
+     </text>
+    </text-unit>
+   </frame>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- mmzx-talk-tag-abort.xml (end) ---------
+============================================================
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0

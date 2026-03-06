@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11727 2026-03-05 05:08:55Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11730 2026-03-06 05:42:47Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -223,6 +223,12 @@
   idxgroup=sockets,
   printtype=\textit{socket},
 ]{Sock}{socket}
+\NewDocElement[%
+  macrolike,
+  idxtype=toks,
+  idxgroup=token registers,
+  printtype=\textit{toks},
+]{Toks}{toks}
 \NewDocElement[%
   macrolike,
   idxtype=var,
@@ -507,6 +513,11 @@
 %   \item relies on an internal string variable in \pkg{ltsockets}.
 % \end{itemize}
 %
+% \textbf{Correct tagging \emph{requires} that unmemoizable code be marked as such, either manually or automatically.}
+% The package does this automatically for \env{tikzpicture}s which use an unsupported tagging plug, but does nothing in any other case.
+% So if your picture uses \texttt{remember picture}, for example, you \emph{must} mark the code as unmemoizable or disable tagging for the affected code.
+% The package will warn you about this, but that is all it does.
+%
 % \subsection{\TikZ{} pictures}
 %
 % If the content you wish to memoize is a \TikZ{} picture, you probably do not need to do anything special, but note that the default \pkg{latex-lab} plug is \emph{not} supported. 
@@ -662,7 +673,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11727 2026-03-05 05:08:55Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11730 2026-03-06 05:42:47Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
