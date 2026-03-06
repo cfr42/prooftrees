@@ -6,9 +6,9 @@ TEST 1: tagforest-command-mem-mmz
 forest-ext-tagging-command.mmz:
 -------- forest-ext-tagging-command.mmz (start) ---------
 (forest-ext-tagging-command.mmz) \mmzPrefix {memos/}[nl]
-\mmzUsedCMemo {memos/12E9447C2543CB3310E4CBA06B749B63.memo}[nl]
-\mmzUsedExtern {memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/8EFE00A634B30622E87412A9491717FA.memo}[nl]
+\mmzUsedExtern {memos/8EFE00A634B30622E87412A9491717FA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/8EFE00A634B30622E87412A9491717FA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 \endinput[nl]
 -------- forest-ext-tagging-command.mmz (end) -----------
 ============================================================
@@ -17,12 +17,12 @@ TEST 2: tagforest-command-mem
 ============================================================
 [tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
 [tracing memoize]   Code: \Forest {[VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] }
-[tracing memoize]   Code md5sum: 12E9447C2543CB3310E4CBA06B749B63
-[tracing memoize]   Attempting to utilize c-memo memos/12E9447C2543CB3310E4CBA06B749B63.memo
-(memos/12E9447C2543CB3310E4CBA06B749B63.memo)
+[tracing memoize]   Code md5sum: 8EFE00A634B30622E87412A9491717FA
+[tracing memoize]   Attempting to utilize c-memo memos/8EFE00A634B30622E87412A9491717FA.memo
+(memos/8EFE00A634B30622E87412A9491717FA.memo)
 [tracing memoize]   C-memo was processed successfully
 [tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
-[tracing memoize]   Attempting to utilize cc-memo memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[tracing memoize]   Attempting to utilize cc-memo memos/8EFE00A634B30622E87412A9491717FA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
 [mmzx debug]:: Args: 0; \hbox ; 148.39047pt; 124.06189pt; 0.0pt; 72.26999pt; 72.26999pt; 72.26999pt; 72.26999pt
 [mmzx debug]:: Executing plug mmzx/alt in socket tagsupport/memoize/include/extern/before.
 > \mmzx@tag@tikz@mark@pos@1=\long macro:->259.48477 543.59961 407.32085 667.19801.
@@ -73,27 +73,27 @@ tagpdf DEBUG Info: Tagging suspended
 ============================================================
 TEST 4: tagforest-command-mem-cmemo
 ============================================================
-memos/12E9447C2543CB3310E4CBA06B749B63.memo:
--------- memos/12E9447C2543CB3310E4CBA06B749B63.memo (start) ---------
-(memos/12E9447C2543CB3310E4CBA06B749B63.memo) \mmzMemo[nl]
+memos/8EFE00A634B30622E87412A9491717FA.memo:
+-------- memos/8EFE00A634B30622E87412A9491717FA.memo (start) ---------
+(memos/8EFE00A634B30622E87412A9491717FA.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
 \Forest {[VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] }[nl]
--------- memos/12E9447C2543CB3310E4CBA06B749B63.memo (end) -----------
+-------- memos/8EFE00A634B30622E87412A9491717FA.memo (end) -----------
 ============================================================
 ============================================================
 TEST 5: tagforest-command-mem-ccmemo
 ============================================================
-memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/8EFE00A634B30622E87412A9491717FA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/8EFE00A634B30622E87412A9491717FA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/8EFE00A634B30622E87412A9491717FA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{8EFE00A634B30622E87412A9491717FA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
 \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={VP 2 children :  DP:  child John;  V prime V:  child sent;  DP:  child Mary;  DP 2 children :  D:  child a;  NP:  child letter;  }\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {148.39047pt}{124.06189pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/12E9447C2543CB3310E4CBA06B749B63-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/8EFE00A634B30622E87412A9491717FA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 tagpdf DEBUG Info: Tagging resumed
 (tagpdf DEBUG)     level: 1 ==> 0, label: l3build [on line ...]

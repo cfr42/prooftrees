@@ -6,9 +6,9 @@ TEST 1: tagforest-iso-mem-mmz
 forest-ext-tagging-iso.mmz:
 -------- forest-ext-tagging-iso.mmz (start) ---------
 (forest-ext-tagging-iso.mmz) \mmzPrefix {memos/}[nl]
-\mmzUsedCMemo {memos/3B3123F6CC4859EF1D234AF2632EAC38.memo}[nl]
-\mmzUsedExtern {memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/FBFC866F404685E826525B61DD8B30EA.memo}[nl]
+\mmzUsedExtern {memos/FBFC866F404685E826525B61DD8B30EA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/FBFC866F404685E826525B61DD8B30EA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 \endinput[nl]
 -------- forest-ext-tagging-iso.mmz (end) -----------
 ============================================================
@@ -17,12 +17,12 @@ TEST 2: tagforest-iso-mem
 ============================================================
 [tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
 [tracing memoize]   Code: \begin {forest} [a[b][c]] \end {forest}
-[tracing memoize]   Code md5sum: 3B3123F6CC4859EF1D234AF2632EAC38
-[tracing memoize]   Attempting to utilize c-memo memos/3B3123F6CC4859EF1D234AF2632EAC38.memo
-(memos/3B3123F6CC4859EF1D234AF2632EAC38.memo)
+[tracing memoize]   Code md5sum: FBFC866F404685E826525B61DD8B30EA
+[tracing memoize]   Attempting to utilize c-memo memos/FBFC866F404685E826525B61DD8B30EA.memo
+(memos/FBFC866F404685E826525B61DD8B30EA.memo)
 [tracing memoize]   C-memo was processed successfully
 [tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
-[tracing memoize]   Attempting to utilize cc-memo memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[tracing memoize]   Attempting to utilize cc-memo memos/FBFC866F404685E826525B61DD8B30EA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
 [mmzx debug]:: Args: 0; \hbox ; 30.3919pt; 38.5964pt; 0.0pt; 72.26999pt; 72.26999pt; 72.26999pt; 72.26999pt
 [mmzx debug]:: Executing plug mmzx/alt in socket tagsupport/memoize/include/extern/before.
 > \mmzx@tag@tikz@mark@pos@1=\long macro:->148.71233 628.7458 178.99069 667.19801.
@@ -73,27 +73,27 @@ tagpdf DEBUG Info: Tagging suspended
 ============================================================
 TEST 4: tagforest-iso-mem-cmemo
 ============================================================
-memos/3B3123F6CC4859EF1D234AF2632EAC38.memo:
--------- memos/3B3123F6CC4859EF1D234AF2632EAC38.memo (start) ---------
-(memos/3B3123F6CC4859EF1D234AF2632EAC38.memo) \mmzMemo[nl]
+memos/FBFC866F404685E826525B61DD8B30EA.memo:
+-------- memos/FBFC866F404685E826525B61DD8B30EA.memo (start) ---------
+(memos/FBFC866F404685E826525B61DD8B30EA.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
 \begin {forest} [a[b][c]] \end {forest}[nl]
--------- memos/3B3123F6CC4859EF1D234AF2632EAC38.memo (end) -----------
+-------- memos/FBFC866F404685E826525B61DD8B30EA.memo (end) -----------
 ============================================================
 ============================================================
 TEST 5: tagforest-iso-mem-ccmemo
 ============================================================
-memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/FBFC866F404685E826525B61DD8B30EA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/FBFC866F404685E826525B61DD8B30EA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/FBFC866F404685E826525B61DD8B30EA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{FBFC866F404685E826525B61DD8B30EA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
 \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={a 2 children :  b;  c;  }\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {30.3919pt}{38.5964pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {5}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/3B3123F6CC4859EF1D234AF2632EAC38-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/FBFC866F404685E826525B61DD8B30EA-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 tagpdf DEBUG Info: Tagging resumed
 (tagpdf DEBUG)     level: 1 ==> 0, label: l3build [on line ...]

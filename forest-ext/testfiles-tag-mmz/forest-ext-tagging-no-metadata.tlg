@@ -6,9 +6,9 @@ TEST 1: tagforest-none-mem-mmz
 forest-ext-tagging-no-metadata.mmz:
 -------- forest-ext-tagging-no-metadata.mmz (start) ---------
 (forest-ext-tagging-no-metadata.mmz) \mmzPrefix {memos/}[nl]
-\mmzUsedCMemo {memos/01A74BE27D0905D89D108FC951B48D25.memo}[nl]
-\mmzUsedExtern {memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/B300075B55D81543D09873E49FCEFD6E.memo}[nl]
+\mmzUsedExtern {memos/B300075B55D81543D09873E49FCEFD6E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/B300075B55D81543D09873E49FCEFD6E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 \endinput[nl]
 -------- forest-ext-tagging-no-metadata.mmz (end) -----------
 ============================================================
@@ -17,12 +17,12 @@ TEST 2: tagforest-none-mem
 ============================================================
 [tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
 [tracing memoize]   Code: \begin {forest} typeout={tagging register should be 0:}, typeout/.register=tagging, [VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}
-[tracing memoize]   Code md5sum: 01A74BE27D0905D89D108FC951B48D25
-[tracing memoize]   Attempting to utilize c-memo memos/01A74BE27D0905D89D108FC951B48D25.memo
-(memos/01A74BE27D0905D89D108FC951B48D25.memo)
+[tracing memoize]   Code md5sum: B300075B55D81543D09873E49FCEFD6E
+[tracing memoize]   Attempting to utilize c-memo memos/B300075B55D81543D09873E49FCEFD6E.memo
+(memos/B300075B55D81543D09873E49FCEFD6E.memo)
 [tracing memoize]   C-memo was processed successfully
 [tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
-[tracing memoize]   Attempting to utilize cc-memo memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[tracing memoize]   Attempting to utilize cc-memo memos/B300075B55D81543D09873E49FCEFD6E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
 [tracing memoize]   Utilization successful
 ============================================================
 ============================================================
@@ -38,27 +38,27 @@ TEST 3: Show PDF Tags
 ============================================================
 TEST 4: tagforest-none-mem-cmemo
 ============================================================
-memos/01A74BE27D0905D89D108FC951B48D25.memo:
--------- memos/01A74BE27D0905D89D108FC951B48D25.memo (start) ---------
-(memos/01A74BE27D0905D89D108FC951B48D25.memo) \mmzMemo[nl]
+memos/B300075B55D81543D09873E49FCEFD6E.memo:
+-------- memos/B300075B55D81543D09873E49FCEFD6E.memo (start) ---------
+(memos/B300075B55D81543D09873E49FCEFD6E.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
 \begin {forest} typeout={tagging register should be 0:}, typeout/.register=tagging, [VP [DP[John]] [V^^e2^^80^^99, alt text=V prime, [V[sent]] [DP[Mary]] [DP[D[a]][NP[letter]]] ] ] \end {forest}[nl]
--------- memos/01A74BE27D0905D89D108FC951B48D25.memo (end) -----------
+-------- memos/B300075B55D81543D09873E49FCEFD6E.memo (end) -----------
 ============================================================
 ============================================================
 TEST 5: tagforest-none-mem-ccmemo
 ============================================================
-memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/B300075B55D81543D09873E49FCEFD6E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/B300075B55D81543D09873E49FCEFD6E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/B300075B55D81543D09873E49FCEFD6E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{B300075B55D81543D09873E49FCEFD6E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
 \quitvmode \mmzIncludeExtern {0}\hbox {148.39047pt}{124.06189pt}{0.0pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {49}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/01A74BE27D0905D89D108FC951B48D25-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/B300075B55D81543D09873E49FCEFD6E-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 ***************
 Compilation 1 of test file completed with exit status 0
