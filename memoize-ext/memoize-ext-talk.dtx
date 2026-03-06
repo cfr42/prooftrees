@@ -28,8 +28,8 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-talk.dtx 11727 2026-03-05 05:08:55Z cfrees $ {Extensions for Memoize}
-\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.2 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11731 2026-03-06 05:47:08Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
 \DocInput{\filename}
@@ -67,11 +67,11 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-talk.dtx 11727 2026-03-05 05:08:55Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
+\GetIdInfo $Id: memoize-ext-talk.dtx 11731 2026-03-06 05:47:08Z cfrees $ {Extensions for Memoize for tagged ltx-talk}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.2 \ExplFileVersion}{\ExplFileDescription}
+%<!debug>     {v0.3 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
-%<debug>      {v0.2 \ExplFileVersion}{\ExplFileDescription}
+%<debug>      {v0.3 \ExplFileVersion}{\ExplFileDescription}
 %
 %<!debug>    \disable@package@load {memoize-ext-talk-debug}
 %<debug>    \disable@package@load {memoize-ext-talk}
@@ -85,7 +85,7 @@
 %<!debug>    memoize-ext-talk-debug
 .}
 %    \end{macrocode}
-% \changes{v0.0}{2026-03-02}{Load \pkg{memoize-ext-tag}/\pkg{memoize-ext-tag-debug} and hope \cs{DocumentMetadata} is sufficient in case tagging is off.}
+% \changes{v0.3}{2026-03-02}{Load \pkg{memoize-ext-tag}/\pkg{memoize-ext-tag-debug} and hope \cs{DocumentMetadata} is sufficient in case tagging is off.}
 % We have to load this (I think) prior to \cs{documentclass}, so cannot use \verb|tag_if_active:TF| here.
 % We could test for \cs{DocumentMetadata}, but \cls{ltx-talk} already requires that.
 % But maybe I should be testing that anyway?
@@ -251,7 +251,7 @@
   }
 %    \end{macrocode}
 % \begin{socket}{mmzx/talk/memoization/begin,mmzx/talk/memoization/end}
-% \changes{v0.0}{2026-03-05}{Use sockets to try to keep memos cleaner.}
+% \changes{v0.3}{2026-03-05}{Use sockets to try to keep memos cleaner.}
 % Sockets.
 %    \begin{macrocode}
   \socket_new:nn {mmzx/talk/memoization/begin}{0}
@@ -259,7 +259,7 @@
 %    \end{macrocode}
 % \end{socket}
 % \begin{plug}{mmzx/talk/memoization/begin~peroverlay,mmzx/talk/memoization/end~peroverlay}
-% \changes{v0.0}{2026-03-05}{What is a socket without a plug?}
+% \changes{v0.3}{2026-03-05}{What is a socket without a plug?}
 % Plugs.
 %    \begin{macrocode}
   \socket_new_plug:nnn {mmzx/talk/memoization/begin}{peroverlay}
@@ -302,7 +302,7 @@
 % ^^A %   \@@_talk_per_overlay_end:,
 % ^^A %   \@@_talk_per_overlay_end:,
 % ^^A % }
-% ^^A % \changes{v0.0}{2026-03-05}{This isn't done for \pkg{beamer}, but try to streamline memos.}
+% ^^A % \changes{v0.3}{2026-03-05}{This isn't done for \pkg{beamer}, but try to streamline memos.}
 % ^^A % Not done for \pkg{beamer} and not technically required, but keeps the memos and hooks a bit cleaner.
 % ^^A %    \begin{macrocode}
 % ^^A   \cs_new_nopar:Npn \@@_talk_per_overlay:
