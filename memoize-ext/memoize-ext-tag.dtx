@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11735 2026-03-06 08:03:26Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11738 2026-03-06 16:57:06Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -88,7 +88,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11735 2026-03-06 08:03:26Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11738 2026-03-06 16:57:06Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -489,11 +489,12 @@
 %    \end{macrocode}
 % If the argument to the picture set the plug, it is already in the code hash.
 % Otherwise, we add the value of the \pkg{latex-lab} plug to the context, using \cs{mmzContextExtra} and appending globally as we are memoizing by hypothesis.
+% \changes{v0.0}{2026-03-06}{Default to OK.}
 %    \begin{macrocode}
       \xtoksapp\mmzContextExtra {
         tagging~plug=\@@_socket_assigned_plug:n {tagsupport/tikz/picture/begin},
       }
-      \str_case_e:nnF
+      \str_case_e:nn
       {\@@_socket_assigned_plug:n {tagsupport/tikz/picture/begin}}
       {
         {alt} {
@@ -512,19 +513,22 @@
           \mmzset{artifact,}
 %<debug>            \@@_debug:n {Using~artifact~plug.}
         }
-      }{
+        {text} {
+          \bool_set_false:N \l_@@_ok_bool
 %<debug>            \@@_debug:e {Found~unsupported~
-%<debug>              \@@_socket_assigned_plug:n
+%<debug>              text~
 %<debug>              {tagsupport/tikz/picture/begin}~plug.}
-        \PackageWarning{memoize-ext}{Unsupported~tag~config~for~tikz~picture.~
-          Please~use~one~of~alt,~actualtext~and~artifact.~
-          Note~that~text~(the~latex-lab~default)~is~NOT~supported.~
-          Aborting~memoization.
+          \PackageWarning{memoize-ext}{Unsupported~tag~config~for~tikz~picture.~
+            Please~use~alt,~actualtext,~artifact~or~another supported~plug.~
+            Note~that~text~(the~latex-lab~default)~is~NOT~supported.~
+            Aborting~memoization~and~marking~code~unmemoizable.
+          }
+          \mmzUnmemoizable
         }
       }
     }
   }
-  \bool_if:NTF \l_@@_ok_bool
+  \bool_if:NT \l_@@_ok_bool
   {
     \xtoksapp\mmzCCMemo{
       \exp_not:N \mmzxtagtoks
@@ -553,11 +557,7 @@
     \socket_assign_plug:nn {tagsupport/tikz/picture/end} {noop}
     \socket_assign_plug:nn {tagsupport/tikz/picture/text/begin} {noop}
     \socket_assign_plug:nn {tagsupport/tikz/picture/text/end} {noop}
-  } {
-%<debug>    \@@_debug:n {Not~memoizing.~Enabling~tagging~for~current~tikz~
-%<debug>      picture.~Marking~code~unmemoizable.}
-    \mmzUnmemoizable
-  }
+  } 
 }
 %    \end{macrocode}
 % \end{plug}

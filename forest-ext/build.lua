@@ -7,7 +7,7 @@ sourcedir = sourcedir or "."
 ctanpkg = "forest-ext"
 module = "forest-ext"
 --------------------------------------------------------------------------------
-checkconfigs = { "build", "config-tag", "config-tag-mmz" } --, "config-mem" }
+checkconfigs = { "build", "config-tag", "config-tag-mmz", "config-tag-mmz-luatex" } 
 checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
 checkruns = 1
 checkdeps = { maindir .. "/memoize-ext" }

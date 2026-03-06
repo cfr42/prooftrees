@@ -20,7 +20,6 @@ TEST 1: tikzpicture-unsupported
 [tracing memoize]   Compiling
 [mmzx debug]:: Executing mmzx code in hook cmd/tikz@picture/before.
 [mmzx debug]:: Executing plug mmzx in socket tagsupport/tikz/picture/init.
-[mmzx debug]:: Not memoizing. Enabling tagging for current tikz picture. Marking code unmemoizable.
 [1]
 ============================================================
 ============================================================
