@@ -28,8 +28,8 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11738 2026-03-06 16:57:06Z cfrees $ {Extensions for Memoize}
-\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11744 2026-03-06 21:12:42Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.1 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
 \DocInput{\filename}
@@ -88,11 +88,11 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11738 2026-03-06 16:57:06Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11744 2026-03-06 21:12:42Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.3 \ExplFileVersion}{\ExplFileDescription}
+%<!debug>     {v0.3.1 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
-%<debug>      {v0.3 \ExplFileVersion}{\ExplFileDescription}
+%<debug>      {v0.3.1 \ExplFileVersion}{\ExplFileDescription}
 %
 %<!debug>    \disable@package@load {memoize-ext-tag-debug}
 %<debug>    \disable@package@load {memoize-ext-tag}
@@ -489,7 +489,7 @@
 %    \end{macrocode}
 % If the argument to the picture set the plug, it is already in the code hash.
 % Otherwise, we add the value of the \pkg{latex-lab} plug to the context, using \cs{mmzContextExtra} and appending globally as we are memoizing by hypothesis.
-% \changes{v0.0}{2026-03-06}{Default to OK.}
+% \changes{v0.3.1}{2026-03-06}{Default to OK.}
 %    \begin{macrocode}
       \xtoksapp\mmzContextExtra {
         tagging~plug=\@@_socket_assigned_plug:n {tagsupport/tikz/picture/begin},

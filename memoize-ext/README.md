@@ -1,4 +1,4 @@
-$Id: README.md 11732 2026-03-06 05:55:41Z cfrees $
+$Id: README.md 11744 2026-03-06 21:12:42Z cfrees $
 
 # memoize-ext
 
@@ -73,7 +73,7 @@ Bug reports, feature requests etc. should be filed at
 
 
 Clea F. Rees
-Version 0.3
+Version 0.3.1
 2026-03-06
 
 vim: et:tw=80:ts=2:
