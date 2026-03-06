@@ -6,9 +6,9 @@ TEST 1: prooftrees-tag-mem-t1-mmz
 prooftrees-tag-mem-t1.mmz:
 -------- prooftrees-tag-mem-t1.mmz (start) ---------
 (prooftrees-tag-mem-t1.mmz) \mmzPrefix {memos/}[nl]
-\mmzUsedCMemo {memos/C1296E5C3F9D87D77A252D261FCE6D46.memo}[nl]
-\mmzUsedExtern {memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
-\mmzUsedCCMemo {memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
+\mmzUsedCMemo {memos/FEA9141268ED69BBF134F4004896AE16.memo}[nl]
+\mmzUsedExtern {memos/FEA9141268ED69BBF134F4004896AE16-E778DCCCB8AAB0BBD3F6CFEEFD2421F8-1.pdf}[nl]
+\mmzUsedCCMemo {memos/FEA9141268ED69BBF134F4004896AE16-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo}[nl]
 \endinput[nl]
 -------- prooftrees-tag-mem-t1.mmz (end) -----------
 ============================================================
@@ -17,12 +17,12 @@ TEST 2: prooftrees-tag-mem-t1
 ============================================================
 [tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
 [tracing memoize]   Code: \begin {tableau}{to prove=\sststile {}{}p\vee \lnot p, } [\lnot (p\vee \lnot p),just=$\lnot $ conc [\lnot p,just=$\vee $E:!u, [\lnot \lnot p,just=$\vee $E:!uu,close={:!u,!c},] ] ] \end {tableau}
-[tracing memoize]   Code md5sum: C1296E5C3F9D87D77A252D261FCE6D46
-[tracing memoize]   Attempting to utilize c-memo memos/C1296E5C3F9D87D77A252D261FCE6D46.memo
-(memos/C1296E5C3F9D87D77A252D261FCE6D46.memo)
+[tracing memoize]   Code md5sum: FEA9141268ED69BBF134F4004896AE16
+[tracing memoize]   Attempting to utilize c-memo memos/FEA9141268ED69BBF134F4004896AE16.memo
+(memos/FEA9141268ED69BBF134F4004896AE16.memo)
 [tracing memoize]   C-memo was processed successfully
 [tracing memoize]   Context: "padding=(1in,1in,1in,1in)," --> E778DCCCB8AAB0BBD3F6CFEEFD2421F8
-[tracing memoize]   Attempting to utilize cc-memo memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
+[tracing memoize]   Attempting to utilize cc-memo memos/FEA9141268ED69BBF134F4004896AE16-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (indirect input)
 [mmzx debug]:: Args: 0; \hbox ; 128.21954pt; 13.23251pt; 67.69293pt; 72.26999pt; 72.26999pt; 72.26999pt; 72.26999pt
 [mmzx debug]:: Executing plug mmzx/alt in socket tagsupport/memoize/include/extern/before.
 > \mmzx@tag@tikz@mark@pos@1=\long macro:->148.71233 586.5749 276.45284 734.63805.
@@ -35,27 +35,27 @@ TEST 2: prooftrees-tag-mem-t1
 ============================================================
 TEST 3: prooftrees-tag-mem-t1-cmemo
 ============================================================
-memos/C1296E5C3F9D87D77A252D261FCE6D46.memo:
--------- memos/C1296E5C3F9D87D77A252D261FCE6D46.memo (start) ---------
-(memos/C1296E5C3F9D87D77A252D261FCE6D46.memo) \mmzMemo[nl]
+memos/FEA9141268ED69BBF134F4004896AE16.memo:
+-------- memos/FEA9141268ED69BBF134F4004896AE16.memo (start) ---------
+(memos/FEA9141268ED69BBF134F4004896AE16.memo) \mmzMemo[nl]
 \global \mmzContextExtra {}%[nl]
 %[nl]
 \mmzSource[nl]
 \begin {tableau}{to prove=\sststile {}{}p\vee \lnot p, } [\lnot (p\vee \lnot p),just=$\lnot $ conc [\lnot p,just=$\vee $E:!u, [\lnot \lnot p,just=$\vee $E:!uu,close={:!u,!c},] ] ] \end {tableau}[nl]
--------- memos/C1296E5C3F9D87D77A252D261FCE6D46.memo (end) -----------
+-------- memos/FEA9141268ED69BBF134F4004896AE16.memo (end) -----------
 ============================================================
 ============================================================
 TEST 4: prooftrees-tag-mem-t1-ccmemo
 ============================================================
-memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
--------- memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
-(memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
+memos/FEA9141268ED69BBF134F4004896AE16-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo:
+-------- memos/FEA9141268ED69BBF134F4004896AE16-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (start) ---------
+(memos/FEA9141268ED69BBF134F4004896AE16-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo) \mmzResource{C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf}%[nl]
 \mmzMemo[nl]
 \let \mmzxIncludeExternOrig \mmzIncludeExtern \let \mmzIncludeExtern \mmzxIncludeExtern \quitvmode \mmzxtagtoks ={To prove: $\sststile {}{}p\vee \lnot p$ 1 $\lnot (p\vee \lnot p)$ $\lnot $ conc  2 $\lnot p$ 1 $\vee $E  3 $\lnot \lnot p$ 1 $\vee $E  closed 2, 3    }\AssignSocketPlug {tagsupport/memoize/include/extern/before}{mmzx/alt}\AssignSocketPlug {tagsupport/memoize/include/extern/after}{mmzx/alt}\mmzIncludeExtern {0}\hbox {128.21954pt}{13.23251pt}{67.69293pt}{72.26999pt}{72.26999pt}{72.26999pt}{72.26999pt}\mmzStepPgfPictureId {23}%[nl]
 \mmzThisContext[nl]
 padding=(1in,1in,1in,1in),[nl]
 \mmzEndMemo[nl]
--------- memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
+-------- memos/FEA9141268ED69BBF134F4004896AE16-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.memo (end) -----------
 ============================================================
 ============================================================
 TEST 5: Show PDF Tags
@@ -94,7 +94,7 @@ TEST 5: Show PDF Tags
 -------- prooftrees-tag-mem-t1.xml (end) ---------
 ============================================================
 [1
- <./memos/C1296E5C3F9D87D77A252D261FCE6D46-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf>]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-mem-t1.aux)
+ <./memos/FEA9141268ED69BBF134F4004896AE16-E778DCCCB8AAB0BBD3F6CFEEFD2421F8.pdf>]<<latex-list-css.html>><<latex-align-css.html>> (prooftrees-tag-mem-t1.aux)
 Package tagpdf Info: Finalizing the tagging structure:
 (tagpdf)             Writing out ~7 structure objects
 (tagpdf)             with ~5 'MC' leaf nodes.
