@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11744 2026-03-06 21:12:42Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11759 2026-03-14 18:37:10Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.1 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -673,7 +673,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11744 2026-03-06 21:12:42Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11759 2026-03-14 18:37:10Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.1 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -767,6 +767,23 @@
 %<debug>      trace,
 %<debug>      include~context~in~ccmemo,
 %<debug>    }
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fix for \cs{toksapp} and friends courtesy of Max Chernoff
+% \url{https://github.com/sasozivanovic/memoize/pull/57/commits}.
+% \changes{v0.0}{2026-03-14}{Fix \cs{toksapp} and friends courtesy Max Chernoff. }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    \begin{macrocode}
+\sys_if_engine_luatex:F
+{
+  \clist_map_inline:nn {\toksapp,\etoksapp,\gtoksapp,\xtoksapp}
+  {
+    \tl_if_head_eq_meaning:VNF #1 \protected
+    {
+      \expandafter\protected\expandafter\def\expandafter#1\expandafter{#1}
+    }
+  }
+}
 %    \end{macrocode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % temporary variables, quarks
