@@ -155,7 +155,7 @@ TEST 2: Show PDF Tags
   </Document>
  </StructTreeRoot>
 </PDF>
--------- forest-ext-tagging-command.xml (end) ---------
+-------- forest-ext-tagging-command.xml (end) -----------
 ============================================================
 ============================================================
 TEST 3: tagforest-command-taginfo

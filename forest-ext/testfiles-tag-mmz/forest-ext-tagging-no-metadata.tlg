@@ -33,7 +33,7 @@ TEST 3: Show PDF Tags
  <StructTreeRoot>
  </StructTreeRoot>
 </PDF>
--------- forest-ext-tagging-no-metadata.xml (end) ---------
+-------- forest-ext-tagging-no-metadata.xml (end) -----------
 ============================================================
 ============================================================
 TEST 4: tagforest-none-mem-cmemo

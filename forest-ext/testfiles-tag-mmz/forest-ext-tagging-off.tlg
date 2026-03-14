@@ -33,7 +33,7 @@ TEST 3: Show PDF Tags
  <StructTreeRoot>
  </StructTreeRoot>
 </PDF>
--------- forest-ext-tagging-off.xml (end) ---------
+-------- forest-ext-tagging-off.xml (end) -----------
 ============================================================
 ============================================================
 TEST 4: tagforest-off-mem-cmemo

@@ -404,7 +404,7 @@ TEST 3: Show PDF Tags
   </Document>
  </StructTreeRoot>
 </PDF>
--------- forest-ext-tagging-custom.xml (end) ---------
+-------- forest-ext-tagging-custom.xml (end) -----------
 ============================================================
 tagpdf DEBUG Info: Tagging suspended
 (tagpdf DEBUG)     level: 0 ==> 1, label: l3build [on line ...]
