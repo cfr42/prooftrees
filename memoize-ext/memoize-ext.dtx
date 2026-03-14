@@ -30,8 +30,8 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11759 2026-03-14 18:37:10Z cfrees $ {Extensions for Memoize}
-\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.1 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext.dtx 11763 2026-03-14 21:14:35Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.2 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
 \usepackage{memoize-ext}
@@ -673,11 +673,11 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11759 2026-03-14 18:37:10Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11763 2026-03-14 21:14:35Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.3.1 \ExplFileVersion}{\ExplFileDescription}
+%<!debug>     {v0.3.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
-%<debug>      {\ExplFileDate}{v0.3.1 \ExplFileVersion}{\ExplFileDescription}
+%<debug>      {\ExplFileDate}{v0.3.2 \ExplFileVersion}{\ExplFileDescription}
 %
 \str_new:N \g_@@_name_str
 \str_gset:NV \g_@@_name_str \ExplFileName
@@ -771,7 +771,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Fix for \cs{toksapp} and friends courtesy of Max Chernoff
 % \url{https://github.com/sasozivanovic/memoize/pull/57/commits}.
-% \changes{v0.0}{2026-03-14}{Fix \cs{toksapp} and friends courtesy Max Chernoff. }
+% \changes{v0.3.2}{2026-03-14}{Fix \cs{toksapp} and friends courtesy Max Chernoff. }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \sys_if_engine_luatex:F
