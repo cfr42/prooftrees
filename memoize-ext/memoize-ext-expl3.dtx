@@ -28,8 +28,8 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11766 2026-03-15 00:30:25Z cfrees $ {Extensions for Memoize}
-\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.2 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11767 2026-03-15 01:59:02Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.3 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
 \DocInput{\filename}
@@ -60,7 +60,7 @@
 % ^^A common <<<
 %<*common>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11766 2026-03-15 00:30:25Z cfrees $ {Extensions for Memoize for expl3 code}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11767 2026-03-15 01:59:02Z cfrees $ {Extensions for Memoize for expl3 code}
 %<!debug>    \ProvidesExplPackage{\ExplFileName-common}{\ExplFileDate}{v0.0 %
 %<!debug>     \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-common-debug}{\ExplFileDate}{v0.0 %
@@ -309,11 +309,11 @@
 % ^^A sty <<<
 %<*sty>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11766 2026-03-15 00:30:25Z cfrees $ {Extensions for Memoize for replicating expl3 functions and variables}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11767 2026-03-15 01:59:02Z cfrees $ {Extensions for Memoize for replicating expl3 functions and variables}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.3.2 \ExplFileVersion}{\ExplFileDescription}
+%<!debug>     {v0.3.3 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
-%<debug>      {v0.3.2 \ExplFileVersion}{\ExplFileDescription}
+%<debug>      {v0.3.3 \ExplFileVersion}{\ExplFileDescription}
 %
 %<!debug>    \disable@package@load {memoize-ext-expl3-debug}
 %<debug>    \disable@package@load {memoize-ext-expl3}
@@ -450,7 +450,7 @@
 % }
 % \begin{macro}{\mmzx@expl@replicate@fn}
 % For replicating \texttt{expl3} \emph{functions}.
-% \changes{v0.0}{2026-03-14}{Switch cat codes if necessary.}
+% \changes{v0.3.3}{2026-03-14}{Switch cat codes if necessary.}
 %    \begin{macrocode}
 \cs_new_eq:NN \@@_tmp_cctab_stop: \@@_noop:
 \cs_new:Npn \@@_expl_replicate_fn:
