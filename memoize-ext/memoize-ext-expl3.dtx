@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11765 2026-03-14 22:37:08Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11766 2026-03-15 00:30:25Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.2 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -60,7 +60,7 @@
 % ^^A common <<<
 %<*common>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11765 2026-03-14 22:37:08Z cfrees $ {Extensions for Memoize for expl3 code}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11766 2026-03-15 00:30:25Z cfrees $ {Extensions for Memoize for expl3 code}
 %<!debug>    \ProvidesExplPackage{\ExplFileName-common}{\ExplFileDate}{v0.0 %
 %<!debug>     \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-common-debug}{\ExplFileDate}{v0.0 %
@@ -253,7 +253,7 @@
   \cs_set_nopar:Npn \mmzxExplAtBegin {@@_nexpl_at_begin:}
   \cs_set_nopar:Npn \mmzxExplAtEnd {@@_cctab_end:}
 }
-\cs_new_nopar:Npn \@@_cctab_stop:
+\cs_new_protected_nopar:Npn \@@_cctab_stop:
 {
   \cs_set_nopar:Npn \mmzxExplAtBegin {relax}
   \cs_set_nopar:Npn \mmzxExplAtEnd {relax}
@@ -309,7 +309,7 @@
 % ^^A sty <<<
 %<*sty>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-expl3.dtx 11765 2026-03-14 22:37:08Z cfrees $ {Extensions for Memoize for replicating expl3 functions and variables}
+\GetIdInfo $Id: memoize-ext-expl3.dtx 11766 2026-03-15 00:30:25Z cfrees $ {Extensions for Memoize for replicating expl3 functions and variables}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -383,6 +383,7 @@
         }
         \exp_not:N \expandonce \exp_not:N \AdviceOriginal \l_@@_tmpa_tl
         \exp_not:N \group_end:
+        \@@_tmp_cctab_stop:
       }
     }
     \str_if_eq:eeF {#2}{\l_@@_tmpc_tl}
@@ -391,13 +392,6 @@
     }
   }
   \use:c { __mmzx_rep_#1:#2 }
-  \bool_if:NT \l_@@_tmpa_bool
-  {
-    \xtoksapp\mmzCCMemo {
-      \exp_not:N \csname \mmzxExplAtEnd \exp_not:N \endcsname
-    }
-    \@@_cctab_stop:
-  }
 }
 \cs_new:Npn \@@_expl_replicate__aux:n #1
 {
@@ -452,11 +446,13 @@
 % \end{fn}
 % \begin{fn}{%
 %   \@@_expl_replicate_fn:,
+%   \@@_tmp_cctab_stop:,
 % }
 % \begin{macro}{\mmzx@expl@replicate@fn}
 % For replicating \texttt{expl3} \emph{functions}.
 % \changes{v0.0}{2026-03-14}{Switch cat codes if necessary.}
 %    \begin{macrocode}
+\cs_new_eq:NN \@@_tmp_cctab_stop: \@@_noop:
 \cs_new:Npn \@@_expl_replicate_fn:
 {
   \bool_set_false:N \l_@@_tmpa_bool
@@ -467,6 +463,15 @@
     \xtoksapp\mmzCCMemo {
       \exp_not:N \csname \mmzxExplAtBegin \exp_not:N \endcsname
     }
+    \cs_set:Npn \@@_tmp_cctab_stop:
+    {
+      \xtoksapp\mmzCCMemo {
+        \exp_not:N \csname \mmzxExplAtEnd \exp_not:N \endcsname
+      }
+      \@@_cctab_stop:
+    }
+  }{
+    \cs_set_eq:NN \@@_tmp_cctab_stop: \@@_noop:
   }
   \group_begin:
     \bool_set_true:N \l_@@_replicating_bool
