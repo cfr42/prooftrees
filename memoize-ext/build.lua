@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- $Id: build.lua 11782 2026-03-17 14:49:00Z cfrees $
+-- $Id: build.lua 11784 2026-03-17 17:30:47Z cfrees $
 -- Build configuration for memoize-ext
 --------------------------------------------------------------------------------
 maindir = maindir or ".."
@@ -17,7 +17,7 @@ checkengines = { "pdftex", "luatex" }
 checkruns = 5
 recordstatus = true
 checkopts = "-interaction=nonstopmode -cnf-line='TEXMFHOME=.' -cnf-line='TEXMFLOCAL=.' -cnf-line='TEXMFARCH=.'"
-checkconfigs = { "build" } --, "config-xetex" }
+checkconfigs = { "build", "config-rpgicons" } --, "config-xetex" }
 excludetests = { 
   "mmzx-properties",
 }

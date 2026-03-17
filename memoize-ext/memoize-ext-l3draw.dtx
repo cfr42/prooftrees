@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-l3draw.dtx 11782 2026-03-17 14:49:00Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-l3draw.dtx 11784 2026-03-17 17:30:47Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -59,7 +59,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-l3draw.dtx 11782 2026-03-17 14:49:00Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-l3draw.dtx 11784 2026-03-17 17:30:47Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -112,31 +112,23 @@
 }
 %    \end{macrocode}
 % \end{macro}
-% \begin{fn}{\@@_gincr_draw_id:}
-%   Does what it says on the tin.
-%    \begin{macrocode}
-\cs_new_protected_nopar:Npn \@@_gincr_draw_id:
-{
-  \AdviceOriginal
-  \gtoksapp\mmzCCMemo {
-    \expandafter\global\expandafter\advance\csname g_draw_id_int\endcsname 
-    ~ by ~ 1 ~
-  }
-}
-%    \end{macrocode}
-% \end{fn}
+% \changes{v0.0}{2026-03-17}{Hopefully slightly saner code for incrementing \pkg{l3draw} id.}
 % Default configuration.
 % \changes{v0.3.4}{2026-03-15}{Replicate changes to \pkg{l3draw}'s id.}
 % This replicates changes to \verb|\g_draw_id_int|, but does so by executing code at the start and end of \emph{every} memoization.
 % There must be a more efficient way to do do this \dots.
 %    \begin{macrocode}
 \mmzset{%
-  mmzx/gincr~draw~id/.code={
-    \@@_gincr_draw_id:
+  gincr~draw~id/.style={
+    at~begin~memoization={
+      \gtoksapp\mmzCCMemo 
+      {
+        \UseName{int_gincr:c} {g_draw_id_int} 
+      }
+    },
   },
-  auto~csname={draw_begin:}{memoize,collector=\AdviceCollectDrawArguments,},
+  auto~csname={draw_begin:}{memoize,collector=\AdviceCollectDrawArguments,gincr~draw~id,},
   auto~csname={__draw_record_origin:}{run~if~memoizing,replicate~expl~fn,},
-  auto~csname={g_draw_id_int}{run~if~memoizing,/mmz/mmzx/gincr~draw~id,},
 }
 %    \end{macrocode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

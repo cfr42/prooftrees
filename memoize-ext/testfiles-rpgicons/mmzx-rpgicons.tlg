@@ -1,0 +1,56 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: rpgicons-tag
+============================================================
+[tracing memoize] Entering \Memoize (enabled, normal mode) on line ...
+[tracing memoize]   Code: \draw_begin: \draw_set_cap_round: \draw_set_join_round: \color_stroke:V \l_rpgicons_icon_color_stroke_tl \color_fill:V \l_rpgicons_icon_color_fill_tl \opacity_stroke:n {\l_rpgicons_icon_opacity_stroke_fp }\opacity_fill:n {\l_rpgicons_icon_opacity_fill_fp }\draw_set_linewidth:n {\l_rpgicons_icon_linewidth_dim }\draw_transform_scale:n {\l_rpgicons_icon_transform_scale_fp }\draw_transform_rotate:n {\l_rpgicons_icon_transform_rotate_fp }\draw_set_baseline:n {\l_rpgicons_icon_baseline_dim }\draw_path_rectangle_corners:nn {-.5cm,-.5cm-\l_rpgicons_icon_linewidth_dim /2}{.5cm,.5cm+\l_rpgicons_icon_linewidth_dim /2}\draw_path_replace_bb: \bool_set_false:N \l_draw_bb_update_bool \draw_scope_begin: \clist_if_in:nVT {ability,saving,spellschool,damage,class,alignment}\l_rpgicons_icon_frame_tl {\cs_if_exist_use:cF {rpgicons_draw_frame_\l_rpgicons_icon_frame_tl :}{\msg_warning:nnV {rpgicons}{frame-undefined}\l_rpgicons_icon_frame_tl }\bool_if:nTF {\BooleanFalse }{\draw_path_use_clear:n {fill}\color_select:V \l_rpgicons_icon_color_background_tl \opacity_select:n {\l_rpgicons_icon_opacity_background_fp }}{\draw_path_use_clear:n {stroke}}\draw_transform_scale:n {\l_rpgicons_icon_transform_scale_inner_fp }}\clist_if_in:neTF {sixside one,sixside two,sixside three,sixside four,sixside five,sixside six,sixside seven,sixside eight,sixside nine}{wisdom}{\seq_set_split:NVV \l__rpgicons_icon_shape_name_parts_seq \c_underscore_str \l__rpgicons_icon_shape_name_str \exp_args:Ne \rpgicons_draw_shape_sixside_pips:n {\seq_item:Nn \l__rpgicons_icon_shape_name_parts_seq {2}}\draw_path_use_clear:n {stroke}}{\str_if_empty:NF \l__rpgicons_icon_shape_name_str {\cs_if_exist:cTF {rpgicons_draw_shape_\l__rpgicons_icon_shape_name_str _\int_to_roman:n {\l_rpgicons_icon_variant_int }:}{\str_set:Ne \l__rpgicons_icon_shape_name_variant_str {\l__rpgicons_icon_shape_name_str _\int_to_roman:n {\l_rpgicons_icon_variant_int }}}{\str_set_eq:NN \l__rpgicons_icon_shape_name_variant_str \l__rpgicons_icon_shape_name_str }\cs_if_exist_use:cF {rpgicons_draw_shape_\l__rpgicons_icon_shape_name_variant_str :}{\tl_if_blank:VF \l__rpgicons_icon_shape_name_str {\msg_warning:nnV {rpgicons}{shape-undefined}\l__rpgicons_icon_shape_name_str }}\draw_path_use_clear:n {stroke}}}\tl_if_novalue:nF {-NoValue-}{\draw_scope_begin: \color_select:V \l_rpgicons_icon_color_text_tl \opacity_select:n {\l_rpgicons_icon_opacity_text_fp }\hcoffin_set:Nn \l__rpgicons_icon_label_coffin {-NoValue-}\draw_coffin_use:Nnn \l__rpgicons_icon_label_coffin {hc}{vc}\draw_scope_end: }\draw_scope_end: \draw_end: 
+[tracing memoize]   Code md5sum: 8E1820345CB9864D09657F48B4B619BB
+[tracing memoize]   Attempting to utilize c-memo memos/8E1820345CB9864D09657F48B4B619BB.memo
+(memos/8E1820345CB9864D09657F48B4B619BB.memo)
+[tracing memoize]   C-memo was processed successfully
+[tracing memoize]   Context: "padding=(1in,1in,1in,1in),before sep=0.4999,after sep=0.4999,baseline=-3.5,frame=,variant=1,stroke=.,fill=.,text=.,color=.,.,.,background=white,stroke opacity=1,fill opacity=1,text opacity=1,background opacity=1,line width=0.4,scale=0.333,scale inner=0.675,rotate=0,precompose output=mmzx-rpgicons_rpgicons,actualtext=wisdom,," --> AA1A027545DD31FBE71BB5E2058F8E34
+[tracing memoize]   Attempting to utilize cc-memo memos/8E1820345CB9864D09657F48B4B619BB-AA1A027545DD31FBE71BB5E2058F8E34.memo (direct input)
+(memos/8E1820345CB9864D09657F48B4B619BB-AA1A027545DD31FBE71BB5E2058F8E34.memo)
+[tracing memoize]   Utilization successful
+============================================================
+============================================================
+TEST 2: Show PDF Tags
+============================================================
+-------- mmzx-rpgicons.xml (start) ---------
+<PDF>
+ <StructTreeRoot>
+  <Document xmlns="http://iso.org/pdf2/ssn"
+     id="ID.02"
+    >
+   <text-unit xmlns="https://www.latex-project.org/ns/dflt"
+      id="ID.05"
+      rolemaps-to="Part"
+     >
+    <text xmlns="https://www.latex-project.org/ns/dflt"
+       id="ID.06"
+       xmlns:Layout="http://iso.org/pdf/ssn/Layout"
+       Layout:TextAlign="Justify"
+       rolemaps-to="P"
+      >
+     <?MarkedContent page="1" ?>
+     <Span xmlns="http://iso.org/pdf2/ssn"
+        id="ID.07"
+        actualtext=" wisdom "
+       >
+      <?MarkedContent page="1" ?>
+     </Span>
+     <?MarkedContent page="1" ?>
+    </text>
+   </text-unit>
+  </Document>
+ </StructTreeRoot>
+</PDF>
+-------- mmzx-rpgicons.xml (end) -----------
+============================================================
+***************
+Compilation 1 of test file completed with exit status 0
+Compilation 2 of test file completed with exit status 0
+Compilation 3 of test file completed with exit status 0
+Compilation 4 of test file completed with exit status 0
+Compilation 5 of test file completed with exit status 0
