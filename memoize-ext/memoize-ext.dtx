@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11815 2026-03-25 19:50:49Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11817 2026-03-25 21:25:53Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -616,7 +616,7 @@
 % The effect is that the specified plugs will be used before and after the \emph{extern} is utilised and these may use the \emph{toks} register \cs{mmzxtagtoks}, if appropriate.
 % If \pkg{expl3} syntax is preferred, \ecs{mmzx_tag_get_recorded:N} may be used instead.
 %
-% \DescribeFn{mmzx_tag_socket_plug_record:nnn} \hspace*{10mm}\marg{plug for before} \marg{plug for after} \marg{tokens}
+% \DescribeFn{\mmzx_tag_socket_plug_record:nnn} \hspace*{10mm}\marg{plug for before} \marg{plug for after} \marg{tokens}
 %
 % Write code to the \emph{ccmemo} which assigns
 % \begin{itemize}
@@ -626,7 +626,7 @@
 % \end{itemize}
 % \emph{during utilisation}.
 %
-% \DescribeFn{mmzx_tag_socket_plug_record:nn} \hspace*{10mm}\marg{plug for before} \marg{plug for after}
+% \DescribeFn{\mmzx_tag_socket_plug_record:nn} \hspace*{10mm}\marg{plug for before} \marg{plug for after}
 %
 % Write code to the \emph{ccmemo} which assigns
 % \begin{itemize}
@@ -636,7 +636,7 @@
 % \end{itemize}
 % \emph{during utilisation}.
 %
-% \DescribeFn{mmzx_tag_socket_plug_record:} \mbox{ } 
+% \DescribeFn{\mmzx_tag_socket_plug_record:} \mbox{ } 
 %
 % Write code to the \emph{ccmemo} which assigns
 % \begin{itemize}
@@ -730,7 +730,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11815 2026-03-25 19:50:49Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11817 2026-03-25 21:25:53Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
