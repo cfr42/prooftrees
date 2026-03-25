@@ -97,20 +97,20 @@ TEST 7: Show PDF Tags
 <PDF>
  <StructTreeRoot>
   <Document xmlns="http://iso.org/pdf2/ssn"
-     id="ID.02"
+     id="ID.002"
     >
    <text-unit xmlns="https://www.latex-project.org/ns/dflt"
-      id="ID.05"
+      id="ID.006"
       rolemaps-to="Part"
      >
     <text xmlns="https://www.latex-project.org/ns/dflt"
-       id="ID.06"
+       id="ID.007"
        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
        Layout:TextAlign="Justify"
        rolemaps-to="P"
       >
      <Figure xmlns="http://iso.org/pdf2/ssn"
-        id="ID.07"
+        id="ID.008"
         alt="ABC"
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 148.71233, 653.4237, 170.5763, 667.08841 }"
@@ -118,7 +118,7 @@ TEST 7: Show PDF Tags
       <?MarkedContent page="1" ?>
      </Figure>
      <Figure xmlns="http://iso.org/pdf2/ssn"
-        id="ID.08"
+        id="ID.009"
         alt="DEF"
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 177.21141, 653.4237, 199.07538, 667.08841 }"
@@ -126,7 +126,7 @@ TEST 7: Show PDF Tags
       <?MarkedContent page="1" ?>
      </Figure>
      <Figure xmlns="http://iso.org/pdf2/ssn"
-        id="ID.09"
+        id="ID.010"
         alt="DEF"
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 205.7105, 653.4237, 225.36275, 667.19801 }"

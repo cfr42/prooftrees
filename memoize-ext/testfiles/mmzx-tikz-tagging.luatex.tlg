@@ -120,17 +120,17 @@ TEST 9: Show PDF Tags
      id="ID.002"
     >
    <text-unit xmlns="https://www.latex-project.org/ns/dflt"
-      id="ID.005"
+      id="ID.006"
       rolemaps-to="Part"
      >
     <text xmlns="https://www.latex-project.org/ns/dflt"
-       id="ID.006"
+       id="ID.007"
        xmlns:Layout="http://iso.org/pdf/ssn/Layout"
        Layout:TextAlign="Justify"
        rolemaps-to="P"
       >
      <Figure xmlns="http://iso.org/pdf2/ssn"
-        id="ID.007"
+        id="ID.008"
         alt="Alt 1"
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 148.71233, 630.8486, 264.32474, 646.45602 }"
@@ -138,7 +138,7 @@ TEST 9: Show PDF Tags
       <?MarkedContent page="1" ?>
      </Figure>
      <Figure xmlns="http://iso.org/pdf2/ssn"
-        id="ID.008"
+        id="ID.009"
         alt="Alt 2"
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 270.95985, 630.8486, 386.57227, 646.45602 }"
@@ -146,7 +146,7 @@ TEST 9: Show PDF Tags
       <?MarkedContent page="1" ?>
      </Figure>
      <Figure xmlns="http://iso.org/pdf2/ssn"
-        id="ID.009"
+        id="ID.010"
         alt="Alt 3"
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 393.2074, 630.8486, 508.81981, 667.19801 }"
@@ -154,7 +154,7 @@ TEST 9: Show PDF Tags
       <?MarkedContent page="1" ?>
      </Figure>
      <Figure xmlns="http://iso.org/pdf2/ssn"
-        id="ID.010"
+        id="ID.011"
         alt="Alt 4"
         xmlns:Layout="http://iso.org/pdf/ssn/Layout"
         Layout:BBox="{ 133.76837, 618.89343, 254.33624, 623.52608 }"
