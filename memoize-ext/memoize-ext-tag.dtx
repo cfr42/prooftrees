@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11806 2026-03-25 03:57:30Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11811 2026-03-25 19:20:31Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -88,7 +88,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11806 2026-03-25 03:57:30Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11811 2026-03-25 19:20:31Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -564,7 +564,7 @@
 %   %
 % }
 % Wrappers for the most common cases of recording plugs for use in utilisation.
-% \changes{v0.0}{2026-03-24}{Add fns.\ \ecs{@@_tag_socket_plug_record:nnn}, \ecs{@@_tag_socket_plug_record:nn}, \ecs{@@_tag_socket_plug_record:ee} and \ecs{@@_tag_socket_plug_record:}.}
+% \changes{v0.3.4}{2026-03-24}{Add fns.\ \ecs{@@_tag_socket_plug_record:nnn}, \ecs{@@_tag_socket_plug_record:nn}, \ecs{@@_tag_socket_plug_record:ee} and \ecs{@@_tag_socket_plug_record:}.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <<<
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_tag_socket_plug_record:nn #1#2
@@ -607,7 +607,7 @@
 % \end{fn}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% >>>
 % \begin{fn}{\mmzx_tag_get_recorded:N}
-%   \changes{v0.0}{2026-03-25}{New expl3 fn.\ to get recorded text.}
+%   \changes{v0.3.4}{2026-03-25}{New expl3 fn.\ to get recorded text.}
 %   Intended for use in plugs.
 % 
 %   \verb|#1| should be a local token list variable.
@@ -624,7 +624,7 @@
 %   \mmzx_tag_socket_plug_record:nn,
 %   \mmzx_tag_socket_plug_record:%
 % }
-% \changes{v0.0}{2026-03-24}{Add fns.\ \ecs{mmzx_tag_socket_plug_record:nn} and \ecs{mmzx_tag_socket_plug_record:}.}
+% \changes{v0.3.4}{2026-03-24}{Add fns.\ \ecs{mmzx_tag_socket_plug_record:nn} and \ecs{mmzx_tag_socket_plug_record:}.}
 % Public names for recording and auto-recording plugs.
 % Note \cs{mmzxtagtoks} is available here and is auto-recorded regardless.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <<<
