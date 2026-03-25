@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11782 2026-03-17 14:49:00Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11805 2026-03-25 00:51:38Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -88,7 +88,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11782 2026-03-17 14:49:00Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11805 2026-03-25 00:51:38Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -530,27 +530,8 @@
   }
   \bool_if:NT \l_@@_ok_bool
   {
-    \xtoksapp\mmzCCMemo{
-      \exp_not:N \mmzxtagtoks
-      =
-      \c_left_brace_str
-      \the\mmzxtagtoks
-      \c_right_brace_str
-      \exp_not:N \AssignSocketPlug
-      \c_left_brace_str
-      tagsupport/memoize/include/extern/before
-      \c_right_brace_str
-      \c_left_brace_str
-      \@@_socket_assigned_plug:n {tagsupport/memoize/include/extern/before}
-      \c_right_brace_str
-      \exp_not:N \AssignSocketPlug
-      \c_left_brace_str
-      tagsupport/memoize/include/extern/after
-      \c_right_brace_str
-      \c_left_brace_str
-      \@@_socket_assigned_plug:n {tagsupport/memoize/include/extern/after}
-      \c_right_brace_str
-    }
+    % ^^A uses the currently assigned plugs for the before/after sockets
+    \@@_tag_socket_plug_record: 
 %<debug>    \@@_debug:n {Disabling~tagging~for~current~tikz~picture~during~
 %<debug>      current~run.}
     \socket_assign_plug:nn {tagsupport/tikz/picture/begin} {noop}
@@ -575,6 +556,61 @@
   }
 }
 %    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% >>>
+% \begin{fn}{\@@_tag_socket_plug_record:nn,
+%   \@@_tag_socket_plug_record:ee,
+%   \@@_tag_socket_plug_record:%
+% }
+% Wrappers for the most common cases of recording plugs for use in utilisation.
+% \changes{v0.0}{2026-03-24}{Add fns.\ \ecs{@@_tag_socket_plug_record:nn}, \ecs{@@_tag_socket_plug_record:ee} and \ecs{@@_tag_socket_plug_record:}.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <<<
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_tag_socket_plug_record:nn #1#2
+{
+  \xtoksapp\mmzCCMemo{
+    \exp_not:N \mmzxtagtoks
+    =
+    \c_left_brace_str
+    \the\mmzxtagtoks
+    \c_right_brace_str
+    \exp_not:N \AssignSocketPlug
+    \c_left_brace_str
+    tagsupport/memoize/include/extern/before
+    \c_right_brace_str
+    \c_left_brace_str
+    #1
+    \c_right_brace_str
+    \exp_not:N \AssignSocketPlug
+    \c_left_brace_str
+    tagsupport/memoize/include/extern/after
+    \c_right_brace_str
+    \c_left_brace_str
+    #2
+    \c_right_brace_str
+  }
+}
+\cs_generate_variant:Nn \@@_tag_socket_plug_record:nn {ee}
+\cs_new_protected:Npn \@@_tag_socket_plug_record: 
+{
+  \@@_tag_socket_plug_record:ee 
+  {\@@_socket_assigned_plug:n {tagsupport/memoize/include/extern/before}}
+  {\@@_socket_assigned_plug:n {tagsupport/memoize/include/extern/after}}
+}
+%    \end{macrocode}
+% \end{fn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% >>>
+% \begin{fn}{\mmzx_tag_socket_plug_record:nn,
+%   \mmzx_tag_socket_plug_record:%
+% }
+% \changes{v0.0}{2026-03-24}{Add fns.\ \ecs{mmzx_tag_socket_plug_record:nn} and \ecs{mmzx_tag_socket_plug_record:}.}
+% Public names for recording and auto-recording plugs.
+% Note \cs{mmzxtagtoks} is available here and is auto-recorded regardless.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <<<
+%    \begin{macrocode}
+\cs_new_eq:NN \mmzx_tag_socket_plug_record:nn \@@_tag_socket_plug_record:nn
+\cs_new_eq:NN \mmzx_tag_socket_plug_record: \@@_tag_socket_plug_record:
+%    \end{macrocode}
+% \end{fn}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% >>>
 % pgf/tikz
 % addaswyd o latex-lab-testphase-tika.sty
