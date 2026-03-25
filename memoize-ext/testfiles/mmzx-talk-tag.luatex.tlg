@@ -142,7 +142,7 @@ memos/projector-43F076D3B62F28AB2376430B884D13BD.memo:
 -------- memos/projector-43F076D3B62F28AB2376430B884D13BD.memo (start) ---------
 (memos/projector-43F076D3B62F28AB2376430B884D13BD.memo) \mmzMemo[nl]
 \global \mmzContextExtra {overlay=\csname theslide\endcsname ,pauses=\ifmemoizing \mmzxTalkPauses \else \expandafter \the \csname c@pauses\endcsname \fi ,opacity=1}%[nl]
-\mmzxSetTalkOverlays {0}{2}\mmzxSetTalkOverlays {0}{1}%[nl]
+\mmzxSetTalkOverlays {0}{2}%[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[/mmz/per overlay,alt=a through f] \onslide <1>{ \node {abc}; } \onslide <2>{ \node {def}; } \end {tikzpicture}[nl]
 -------- memos/projector-43F076D3B62F28AB2376430B884D13BD.memo (end) -----------
@@ -163,7 +163,7 @@ memos/projector-2BD0358797AFC1E1C567EB0F5A958026.memo:
 -------- memos/projector-2BD0358797AFC1E1C567EB0F5A958026.memo (start) ---------
 (memos/projector-2BD0358797AFC1E1C567EB0F5A958026.memo) \mmzMemo[nl]
 \global \mmzContextExtra {overlay=\csname theslide\endcsname ,pauses=\ifmemoizing \mmzxTalkPauses \else \expandafter \the \csname c@pauses\endcsname \fi ,opacity=1}%[nl]
-\mmzxSetTalkOverlays {0}{2}%[nl]
+\mmzxSetTalkOverlays {0}{2}\mmzxSetTalkOverlays {0}{1}%[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[/mmz/per overlay,alt=a through f] \onslide <1>{ \node {abc}; } \onslide <2>{ \node {def}; } \end {tikzpicture}[nl]
 -------- memos/projector-2BD0358797AFC1E1C567EB0F5A958026.memo (end) -----------
@@ -184,7 +184,7 @@ memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo:
 -------- memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo (start) ---------
 (memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo) \mmzMemo[nl]
 \global \mmzContextExtra {opacity=1}%[nl]
-\mmzxSetTalkOverlays {1}{1}\mmzxSetTalkOverlays {1}{4}%[nl]
+\mmzxSetTalkOverlays {1}{4}%[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[alt=abc def] \onslide <1>{ \node {abc}; } \onslide <3-4>{ \node {def}; } \end {tikzpicture}[nl]
 -------- memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo (end) -----------
@@ -205,7 +205,7 @@ memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo:
 -------- memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo (start) ---------
 (memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo) \mmzMemo[nl]
 \global \mmzContextExtra {opacity=1}%[nl]
-\mmzxSetTalkOverlays {1}{1}\mmzxSetTalkOverlays {1}{4}%[nl]
+\mmzxSetTalkOverlays {1}{4}%[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[alt=abc def] \onslide <1>{ \node {abc}; } \onslide <3-4>{ \node {def}; } \end {tikzpicture}[nl]
 -------- memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo (end) -----------
@@ -226,7 +226,7 @@ memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo:
 -------- memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo (start) ---------
 (memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo) \mmzMemo[nl]
 \global \mmzContextExtra {opacity=1}%[nl]
-\mmzxSetTalkOverlays {1}{1}\mmzxSetTalkOverlays {1}{4}%[nl]
+\mmzxSetTalkOverlays {1}{4}%[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[alt=abc def] \onslide <1>{ \node {abc}; } \onslide <3-4>{ \node {def}; } \end {tikzpicture}[nl]
 -------- memos/projector-D90368024C0E909F4C8D1DFAD7F95ECF.memo (end) -----------
@@ -247,7 +247,7 @@ memos/projector-376C4E0D9441C13C77AED37129895A22.memo:
 -------- memos/projector-376C4E0D9441C13C77AED37129895A22.memo (start) ---------
 (memos/projector-376C4E0D9441C13C77AED37129895A22.memo) \mmzMemo[nl]
 \global \mmzContextExtra {opacity=1}%[nl]
-\mmzxSetTalkOverlays {1}{4}%[nl]
+\mmzxSetTalkOverlays {1}{3}\mmzxSetTalkOverlays {1}{4}%[nl]
 \mmzSource[nl]
 \begin {tikzpicture}[alt=abc def] \onslide <1>{ \node {abc}; } \onslide <3-4>{ \node {def}; } \end {tikzpicture}[nl]
 -------- memos/projector-376C4E0D9441C13C77AED37129895A22.memo (end) -----------

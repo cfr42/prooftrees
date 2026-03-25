@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11803 2026-03-25 00:49:21Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11806 2026-03-25 03:57:30Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -602,14 +602,19 @@
 % This socket absorbs no arguments.
 % During extern utilisation, it is used immediately after inclusion of an extern.
 %
-% \DescribeFn{mmzx_tag_socket_plug_record:nn} \marg{plug for before}\marg{plug for after}
+%
+% \DescribeFn{mmzx_tag_socket_plug_record:nnn} \marg{plug for before} \marg{plug for after} \marg{tokens}
+%
+% \DescribeFn{mmzx_tag_socket_plug_record:nn} \marg{plug for before} \marg{plug for after}
 %
 % \DescribeFn{mmzx_tag_socket_plug_record:} 
 %
 % Assign \meta{plug for before} to the socket \texttt{tagsupport/memoize/include/extern/before} and \meta{plug for after} to the socket \texttt{tagsupport/memoize/include/extern/after}.
-% The second form uses the plugs currently installed into these sockets.
+% The third form uses the plugs currently installed into these sockets.
 %
-% If this function is used, the content of \cs{mmzxtagtoks} will also be recorded.
+% The first form also records \meta{tokens} in the \emph{ccmemo}, first assigning it to the toks register \cs{mmzxtagtoks}.
+%
+% If the second or third form is used, the existing content of \cs{mmzxtagtoks} is recorded instead.
 %
 % More precisely, in pseudo-code, the functions write the equivalent of the following to the \emph{ccmemo} for execution during utilisation.
 % \begin{verbatim}
@@ -617,8 +622,13 @@
 % \AssignSocketPlug{tagsupport/memoize/include/extern/before}{<plug for before>}%
 % \AssignSocketPlug{tagsupport/memoize/include/extern/after}{<plug for after>}%
 % \end{verbatim}
-% The effect is that the specified plugs will be used before and after the \emph{extern} is utilised and these may use the \emph{toks} register \cs{mmzxtagtoks} during memoization and utilisation, if appropriate.
-% Obviously, the register should be manipulated only locally i.e.~code should not assume that global defaults persist, since \pkg{memoize-ext} itself, as well as other packages, also modify this register when memoizing and utilising externs.
+% The effect is that the specified plugs will be used before and after the \emph{extern} is utilised and these may use the \emph{toks} register \cs{mmzxtagtoks} utilisation, if appropriate.
+% If \pkg{expl3} syntax is preferred, \ecs{mmzx_tag_get_recorded:N} may be used instead.
+%
+% \DescribeFn{\mmzx_tag_get_recorded:N} \meta{token list}
+%
+% Recovers the value from the toks register for the current extern during utilisation and stores it in the specified (local) token list variable.
+% May be used in the definitions of plugs, as explained above for \cs{mmzxtagtoks}.
 %
 % ^^A >>> end sec:tag
 %
@@ -697,7 +707,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11803 2026-03-25 00:49:21Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11806 2026-03-25 03:57:30Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
