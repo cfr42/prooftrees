@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11782 2026-03-17 14:49:00Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11803 2026-03-25 00:49:21Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -288,6 +288,9 @@
 \NewDocumentCommand\texseans{O{Based on \texse{} answer:} m o}{%
   #1 \href{https://tex.stackexchange.com/a/#2}{#2}%
   \IfValueT{#3}{ by #3}.%
+}
+\NewDocumentCommand\githubref{O{See} m O{#2}}{%
+  #1 \textsc{GitHub} \href{https://github.com/#2}{#3}.%
 }
 % \NewDocumentCommand\texseqn{O{Based on \texse{} question} m o}{%
 %   #1 \href{https://tex.stackexchange.com/q/#2}{#2}%
@@ -585,6 +588,8 @@
 % Plugs may be assigned to the sockets either by writing suitable code to the ccmemo or in the document itself.
 % The \TikZ{} support, for example, writes commands to the ccmemo which assign plugs analogous to the \pkg{latex-lab} plugs available for non-memoized pictures.
 %
+% More precisely, the \TikZ{} support now uses one of the wrapper functions the package provides to assist users for the most common cases.
+%
 % \DescribeSock{tagsupport/memoize/include/extern/before}
 %
 % This socket receives three arguments during extern utilisation: the width, height and depth of the memoized content.
@@ -596,6 +601,25 @@
 %
 % This socket absorbs no arguments.
 % During extern utilisation, it is used immediately after inclusion of an extern.
+%
+% \DescribeFn{mmzx_tag_socket_plug_record:nn} \marg{plug for before}\marg{plug for after}
+%
+% \DescribeFn{mmzx_tag_socket_plug_record:} 
+%
+% Assign \meta{plug for before} to the socket \texttt{tagsupport/memoize/include/extern/before} and \meta{plug for after} to the socket \texttt{tagsupport/memoize/include/extern/after}.
+% The second form uses the plugs currently installed into these sockets.
+%
+% If this function is used, the content of \cs{mmzxtagtoks} will also be recorded.
+%
+% More precisely, in pseudo-code, the functions write the equivalent of the following to the \emph{ccmemo} for execution during utilisation.
+% \begin{verbatim}
+% \mmzxtagtoks={<expansion of \the\mmzxtagtoks>}%
+% \AssignSocketPlug{tagsupport/memoize/include/extern/before}{<plug for before>}%
+% \AssignSocketPlug{tagsupport/memoize/include/extern/after}{<plug for after>}%
+% \end{verbatim}
+% The effect is that the specified plugs will be used before and after the \emph{extern} is utilised and these may use the \emph{toks} register \cs{mmzxtagtoks} during memoization and utilisation, if appropriate.
+% Obviously, the register should be manipulated only locally i.e.~code should not assume that global defaults persist, since \pkg{memoize-ext} itself, as well as other packages, also modify this register when memoizing and utilising externs.
+%
 % ^^A >>> end sec:tag
 %
 % ^^A sec:basics >>>
@@ -673,7 +697,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11782 2026-03-17 14:49:00Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11803 2026-03-25 00:49:21Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.4 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -781,6 +805,23 @@
     \tl_if_head_eq_meaning:VNF #1 \protected
     {
       \expandafter\protected\expandafter\def\expandafter#1\expandafter{#1}
+    }
+  }
+}
+%    \end{macrocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bug fix: Ulrike Fischer: \url{https://chat.stackexchange.com/transcript/41?m=68852988#68852988}
+% \changes{v0.0}{2026-03-24}{\githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    \begin{macrocode}
+\FirstAidNeededT{memoize}{sty}{2024/12/02~v1.4.1~Fast~and~flexible~externalization}{
+  \hook_gput_code:nnn {begindocument/after} {.}
+  {
+    \IfDocumentMetadataT{
+      \hook_gput_code:nnn {cmd/mmz@shipout@extern/before} {.}
+      {
+        \g__kernel_pdfmanagement_thispage_shipout_code_tl
+      }
     }
   }
 }
