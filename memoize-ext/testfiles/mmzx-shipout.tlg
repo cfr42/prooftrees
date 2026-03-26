@@ -1,0 +1,85 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+(memoize-ext.sty
+Package: memoize-ext ....-..-.. v... 11821 Extensions for Memoize
+(../memoize.sty
+Package: memoize ....-..-.. v... Fast and flexible externalization
+(../etoolbox.sty
+Package: etoolbox ....-..-.. v... e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count...
+) (../pdftexcmds.sty
+Package: pdftexcmds ....-..-.. v... Utility functions of pdfTeX for LuaTeX (HO)
+(../infwarerr.sty
+Package: infwarerr ....-..-.. v... Providing info/warning/error messages (HO)
+) (../iftex.sty
+Package: iftex ....-..-.. v... TeX engine tests
+) (../ltxcmds.sty
+Package: ltxcmds ....-..-.. v... LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (../advice.sty
+Package: advice ....-..-.. v... Extend commands and environments
+(../collargs.sty
+Package: collargs ....-..-.. v... Collect arguments of any command
+(../pgfkeys.sty (../pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks...
+\pgfkeys@temptoks=\toks...
+(../pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks...
+)))
+\collargsArgs=\toks...
+\collargsArg=\toks...
+\collargs@begins=\count...
+) (../xparse.sty (../expl3.sty
+Package: expl3 ....-..-.. L3 programming layer (loader) 
+)
+Package: xparse ....-..-.. L3 Experimental document command parser
+))
+\mmz@temptoks=\toks...
+\mmz@box=\box...
+\mmz@out=\write...
+\mmz@mdfive@source=\toks...
+\mmz@exec@source=\toks...
+\mmzContext=\toks...
+\mmzContextExtra=\toks...
+\mmzSalt=\toks...
+\mmzCMemo=\toks...
+\mmzCCMemo=\toks...
+\mmz@seq=\count...
+\mmz@ccmemo@resources=\toks...
+\mmz@tbe@box=\box...
+\mmzExternPages=\count...
+\mmzExtraPages=\count...
+runsystem(memoize-extract.pl  -F latex mmzx-shipout )...executed safely (allowed).
+(mmzx-shipout.mmz.log
+Package memoize (perl-based extraction) Info: Extracting new externs listed in 'mmzx-shipout.mmz' from 'mmzx-shipout.pdf' using Perl module PDF::API2 on input line ....
+Package memoize (perl-based extraction) Info: Done (there was nothing to extract) on input line ....
+))
+==> First Aid for memoize.sty applied!
+\l__mmzx_tmpa_int=\count...
+)
+============================================================
+TEST 1: memoize-ext: shipout
+============================================================
+-> The generic hook 'cmd/mmz@shipout@extern/before':
+> Code chunks:
+>     memoize-ext -> \g__kernel_pdfmanagement_thispage_shipout_code_tl 
+> Document-level (top-level) code (executed last):
+>     ---
+> Extra code for next invocation:
+>     ---
+> Rules:
+>     ---
+> Execution order:
+>     memoize-ext.
+<recently read> }
+l. ...}
+============================================================
+***************
+Compilation 1 of test file completed with exit status 1
+Compilation 2 of test file completed with exit status 1
+Compilation 3 of test file completed with exit status 1
+Compilation 4 of test file completed with exit status 1
+Compilation 5 of test file completed with exit status 1

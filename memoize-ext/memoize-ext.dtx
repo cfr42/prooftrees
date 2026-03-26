@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11817 2026-03-25 21:25:53Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11821 2026-03-26 22:09:35Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -730,7 +730,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11817 2026-03-25 21:25:53Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11821 2026-03-26 22:09:35Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -844,17 +844,15 @@
 %    \end{macrocode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % bug fix: Ulrike Fischer: \url{https://chat.stackexchange.com/transcript/41?m=68852988#68852988}
-% \changes{v0.3.4}{2026-03-24}{\githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}}
+% \changes{v0.3.5}{2026-03-24}{\githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}.}
+% \changes{v0.3.6}{2026-03-26}{Fix fix for \githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \FirstAidNeededT{memoize}{sty}{2024/12/02~v1.4.1~Fast~and~flexible~externalization}{
-  \hook_gput_code:nnn {begindocument/after} {.}
-  {
-    \IfDocumentMetadataT{
-      \hook_gput_code:nnn {cmd/mmz@shipout@extern/before} {.}
-      {
-        \g__kernel_pdfmanagement_thispage_shipout_code_tl
-      }
+  \IfDocumentMetadataT{
+    \hook_gput_code:nnn {cmd/mmz@shipout@extern/before} {.}
+    {
+      \g__kernel_pdfmanagement_thispage_shipout_code_tl
     }
   }
 }
