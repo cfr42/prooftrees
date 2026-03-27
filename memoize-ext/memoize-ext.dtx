@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11821 2026-03-26 22:09:35Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11822 2026-03-27 03:30:12Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -730,7 +730,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11821 2026-03-26 22:09:35Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11822 2026-03-27 03:30:12Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -846,14 +846,14 @@
 % bug fix: Ulrike Fischer: \url{https://chat.stackexchange.com/transcript/41?m=68852988#68852988}
 % \changes{v0.3.5}{2026-03-24}{\githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}.}
 % \changes{v0.3.6}{2026-03-26}{Fix fix for \githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}.}
+% \changes{v0.3.6}{2026-03-27}{Use ‘less internal’ internal 2e macro, which does not need metadata test.}
+% \githubref[‘Less internal’ internal macro: Jasper Habicht]{cfr42/prooftrees/issues/8}{issue \#8}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \FirstAidNeededT{memoize}{sty}{2024/12/02~v1.4.1~Fast~and~flexible~externalization}{
-  \IfDocumentMetadataT{
-    \hook_gput_code:nnn {cmd/mmz@shipout@extern/before} {.}
-    {
-      \g__kernel_pdfmanagement_thispage_shipout_code_tl
-    }
+  \hook_gput_code:nnn {cmd/mmz@shipout@extern/before} {.}
+  {
+    \csname @kernel@after@shipout@background\endcsname
   }
 }
 %    \end{macrocode}
