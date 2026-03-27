@@ -25,15 +25,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DocumentMetadata{}
 \RequirePackage{svn-prov}
-\ProvidesFileSVN{$Id: mmzx-shipout.lvt 11821 2026-03-26 22:09:35Z cfrees $}[v0.0 \revinfo][\filebase: test]
+\ProvidesFileSVN{$Id: mmzx-shipout.lvt 11823 2026-03-27 03:32:34Z cfrees $}[v0.0 \revinfo][\filebase: test]
 \input regression-test.tex\relax
 \documentclass{article}
-\START
 \usepackage{memoize-ext}
-\OMIT
 \begin{document}
 \makeatletter
-\TIMO
+\START
 \TEST{memoize-ext: shipout}{%
   \ShowHook{cmd/mmz@shipout@extern/before}%
 }
