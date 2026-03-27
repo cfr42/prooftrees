@@ -5,15 +5,15 @@ TEST 1: memoize-ext: shipout
 ============================================================
 -> The generic hook 'cmd/mmz@shipout@extern/before':
 > Code chunks:
->     memoize-ext -> \csname @kernel@after@shipout@background\endcsname 
-> Document-level (top-level) code (executed last):
 >     ---
+> Document-level (top-level) code (executed last):
+>     -> \UseName {@kernel@after@shipout@background}
 > Extra code for next invocation:
 >     ---
 > Rules:
 >     ---
 > Execution order:
->     memoize-ext.
+>     ---.
 <recently read> }
 l. ...}
 ============================================================
