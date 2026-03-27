@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11822 2026-03-27 03:30:12Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11824 2026-03-27 06:04:15Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -730,7 +730,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11822 2026-03-27 03:30:12Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11824 2026-03-27 06:04:15Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -848,12 +848,17 @@
 % \changes{v0.3.6}{2026-03-26}{Fix fix for \githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}.}
 % \changes{v0.3.6}{2026-03-27}{Use ‘less internal’ internal 2e macro, which does not need metadata test.}
 % \githubref[‘Less internal’ internal macro: Jasper Habicht]{cfr42/prooftrees/issues/8}{issue \#8}.
+% Lua\LaTeX{} can't tolerate this addition to the shipout hook, whereas pdf\LaTeX{} produces an invalid \textsc{pdf} without it.
+% I have no clue about other engines, but probably better to err on the side of caution and leave possibly-well alone.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \FirstAidNeededT{memoize}{sty}{2024/12/02~v1.4.1~Fast~and~flexible~externalization}{
-  \hook_gput_code:nnn {cmd/mmz@shipout@extern/before} {.}
-  {
-    \csname @kernel@after@shipout@background\endcsname
+  \sys_if_engine_pdftex:T {
+    \hook_gput_code:nnn {begindocument/end} {.} {
+      \hook_gput_code:nnn {cmd/mmz@shipout@extern/before} {.} {
+        \UseName{@kernel@after@shipout@background}
+      }
+    }
   }
 }
 %    \end{macrocode}
