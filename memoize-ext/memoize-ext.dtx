@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11827 2026-03-30 04:11:32Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11829 2026-03-30 05:26:58Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -730,7 +730,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11827 2026-03-30 04:11:32Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11829 2026-03-30 05:26:58Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -762,6 +762,7 @@
 %    \end{macrocode}
 % \end{var}
 % \begin{var}{\l_@@_opt_draw_bool,\l_@@_opt_expl_bool}
+% \changes{v0.0}{2026-03-30}{Fix non-recognition of memoize pkg options in \pkg{memoize-ext-debug}.}
 %   Other bools.
 %    \begin{macrocode}
 \keys_define:nn {memoize-ext}
@@ -785,7 +786,7 @@
   talk        .default:n  = true,
   talk        .initial:n  = true,
 }
-\DeclareUnknownKeyHandler{
+\DeclareUnknownKeyHandler[memoize-ext]{
   \PassOptionsToPackage{\CurrentOption}{memoize}
 }
 %    \end{macrocode}
