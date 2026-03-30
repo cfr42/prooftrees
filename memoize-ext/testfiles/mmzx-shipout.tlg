@@ -7,7 +7,7 @@ TEST 1: memoize-ext: shipout
 > Code chunks:
 >     ---
 > Document-level (top-level) code (executed last):
->     -> \UseName {@kernel@after@shipout@background}
+>     -> \noexpand \@mmzx@kernel@after@shipout@background 
 > Extra code for next invocation:
 >     ---
 > Rules:
