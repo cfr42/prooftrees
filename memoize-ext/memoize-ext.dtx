@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11824 2026-03-27 06:04:15Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11827 2026-03-30 04:11:32Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -730,7 +730,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11824 2026-03-27 06:04:15Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11827 2026-03-30 04:11:32Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -843,6 +843,7 @@
 }
 %    \end{macrocode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{macro}{\@mmzx@kernel@after@shipout@background}
 % bug fix: Ulrike Fischer: \url{https://chat.stackexchange.com/transcript/41?m=68852988#68852988}
 % \changes{v0.3.5}{2026-03-24}{\githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}.}
 % \changes{v0.3.6}{2026-03-26}{Fix fix for \githubref[Fix for]{sasozivanovic/memoize/issues/60}{issue \#60}.}
@@ -850,18 +851,30 @@
 % \githubref[‘Less internal’ internal macro: Jasper Habicht]{cfr42/prooftrees/issues/8}{issue \#8}.
 % Lua\LaTeX{} can't tolerate this addition to the shipout hook, whereas pdf\LaTeX{} produces an invalid \textsc{pdf} without it.
 % I have no clue about other engines, but probably better to err on the side of caution and leave possibly-well alone.
+% 
+% \changes{v0.3.6}{2026-03-30}{Try to be a bit more cautious, even on pdf\LaTeX{}.}
+% My worry here is that if the contents of \cs{@kernel@after@shipout@background} changes, I have zero confidence the same problem won't arise for pdf\LaTeX{}.
+% \emph{However}, a combination of \cs{protected} and \cs{noexpand} seems to work even if I use \cs{special}\{\} rather than the kernel hook \emph{and} it avoids looping with Lua\LaTeX{}.
+% So, even though I have no clue what is happening and even though Ulrike said she can't see how it would help, since it does help, it seems better to err on the side of caution.
+%
+% Better create an invalid \textsc{pdf} than looping infinitely not creating one at all \dots{}.`
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
+\cs_new_protected_nopar:Npn \@mmzx@kernel@after@shipout@background
+{
+  \use:c {@kernel@after@shipout@background}
+}
 \FirstAidNeededT{memoize}{sty}{2024/12/02~v1.4.1~Fast~and~flexible~externalization}{
   \sys_if_engine_pdftex:T {
     \hook_gput_code:nnn {begindocument/end} {.} {
       \hook_gput_code:nnn {cmd/mmz@shipout@extern/before} {.} {
-        \UseName{@kernel@after@shipout@background}
+        \noexpand\@mmzx@kernel@after@shipout@background
       }
     }
   }
 }
 %    \end{macrocode}
+% \end{macro}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % temporary variables, quarks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
