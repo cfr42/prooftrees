@@ -667,7 +667,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x6.58333
 ..........\hbox(8.39996+3.60004)x6.58333
-...........\mathon
 ...........\vbox(8.39996+3.60004)x6.58333
 ............\hbox(8.39996+3.60004)x6.58333
 .............\glue(\tabskip) 0.0
@@ -681,7 +680,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -739,7 +737,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.95836
 ..........\hbox(8.39996+3.60004)x5.95836
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.95836
 ............\hbox(8.39996+3.60004)x5.95836
 .............\glue(\tabskip) 0.0
@@ -752,7 +749,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -810,7 +806,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x4.97224
 ..........\hbox(8.39996+3.60004)x4.97224
-...........\mathon
 ...........\vbox(8.39996+3.60004)x4.97224
 ............\hbox(8.39996+3.60004)x4.97224
 .............\glue(\tabskip) 0.0
@@ -824,7 +819,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -882,7 +876,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.22202
 ..........\hbox(8.39996+3.60004)x7.22202
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.22202
 ............\hbox(8.39996+3.60004)x7.22202
 .............\glue(\tabskip) 0.0
@@ -893,7 +886,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 C
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -951,7 +943,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.63902
 ..........\hbox(8.39996+3.60004)x7.63902
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.63902
 ............\hbox(8.39996+3.60004)x7.63902
 .............\glue(\tabskip) 0.0
@@ -962,7 +953,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 D
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1020,7 +1010,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x9.30576
 ..........\hbox(8.39996+3.60004)x9.30576
-...........\mathon
 ...........\vbox(8.39996+3.60004)x9.30576
 ............\hbox(8.39996+3.60004)x9.30576
 .............\glue(\tabskip) 0.0
@@ -1032,7 +1021,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 l
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1090,7 +1078,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x6.80551
 ..........\hbox(8.39996+3.60004)x6.80551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x6.80551
 ............\hbox(8.39996+3.60004)x6.80551
 .............\glue(\tabskip) 0.0
@@ -1101,7 +1088,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 E
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1159,7 +1145,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x6.25693
 ..........\hbox(8.39996+3.60004)x6.25693
-...........\mathon
 ...........\vbox(8.39996+3.60004)x6.25693
 ............\hbox(8.39996+3.60004)x6.25693
 .............\glue(\tabskip) 0.0
@@ -1172,7 +1157,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1230,7 +1214,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.778
 ..........\hbox(8.39996+3.60004)x7.778
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.778
 ............\hbox(8.39996+3.60004)x7.778
 .............\glue(\tabskip) 0.0
@@ -1241,7 +1224,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 O
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1299,7 +1281,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x11.11118
 ..........\hbox(8.39996+3.60004)x11.11118
-...........\mathon
 ...........\vbox(8.39996+3.60004)x11.11118
 ............\hbox(8.39996+3.60004)x11.11118
 .............\glue(\tabskip) 0.0
@@ -1312,7 +1293,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 e
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1370,7 +1350,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x6.528
 ..........\hbox(8.39996+3.60004)x6.528
-...........\mathon
 ...........\vbox(8.39996+3.60004)x6.528
 ............\hbox(8.39996+3.60004)x6.528
 .............\glue(\tabskip) 0.0
@@ -1381,7 +1360,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 F
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1439,7 +1417,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x20.27802
 ..........\hbox(8.39996+3.60004)x20.27802
-...........\mathon
 ...........\vbox(8.39996+3.60004)x20.27802
 ............\hbox(8.39996+3.60004)x20.27802
 .............\glue(\tabskip) 0.0
@@ -1453,7 +1430,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 )
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1511,7 +1487,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x9.167
 ..........\hbox(8.39996+3.60004)x9.167
-...........\mathon
 ...........\vbox(8.39996+3.60004)x9.167
 ............\hbox(8.39996+3.60004)x9.167
 .............\glue(\tabskip) 0.0
@@ -1522,7 +1497,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 M
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1580,7 +1554,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x6.18404
 ..........\hbox(8.39996+3.60004)x6.18404
-...........\mathon
 ...........\vbox(8.39996+3.60004)x6.18404
 ............\hbox(8.39996+3.60004)x6.18404
 .............\glue(\tabskip) 0.0
@@ -1594,7 +1567,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1652,7 +1624,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.73286
 ..........\hbox(8.39996+3.60004)x5.73286
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.73286
 ............\hbox(8.39996+3.60004)x5.73286
 .............\glue(\tabskip) 0.0
@@ -1666,7 +1637,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1724,7 +1694,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x10.278
 ..........\hbox(8.39996+3.60004)x10.278
-...........\mathon
 ...........\vbox(8.39996+3.60004)x10.278
 ............\hbox(8.39996+3.60004)x10.278
 .............\glue(\tabskip) 0.0
@@ -1735,7 +1704,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 W
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1793,7 +1761,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x6.07292
 ..........\hbox(8.39996+3.60004)x6.07292
-...........\mathon
 ...........\vbox(8.39996+3.60004)x6.07292
 ............\hbox(8.39996+3.60004)x6.07292
 .............\glue(\tabskip) 0.0
@@ -1807,7 +1774,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1865,7 +1831,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.50002
 ..........\hbox(8.39996+3.60004)x7.50002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.50002
 ............\hbox(8.39996+3.60004)x7.50002
 .............\glue(\tabskip) 0.0
@@ -1876,7 +1841,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 V
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1934,7 +1898,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x6.11101
 ..........\hbox(8.39996+3.60004)x6.11101
-...........\mathon
 ...........\vbox(8.39996+3.60004)x6.11101
 ............\hbox(8.39996+3.60004)x6.11101
 .............\glue(\tabskip) 0.0
@@ -1945,7 +1908,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 Z
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2003,7 +1965,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x19.58302
 ..........\hbox(8.39996+3.60004)x19.58302
-...........\mathon
 ...........\vbox(8.39996+3.60004)x19.58302
 ............\hbox(8.39996+3.60004)x19.58302
 .............\glue(\tabskip) 0.0
@@ -2017,7 +1978,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 )
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2075,7 +2035,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x4.82292
 ..........\hbox(8.39996+3.60004)x4.82292
-...........\mathon
 ...........\vbox(8.39996+3.60004)x4.82292
 ............\hbox(8.39996+3.60004)x4.82292
 .............\glue(\tabskip) 0.0
@@ -2089,7 +2048,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2147,7 +2105,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x4.6632
 ..........\hbox(8.39996+3.60004)x4.6632
-...........\mathon
 ...........\vbox(8.39996+3.60004)x4.6632
 ............\hbox(8.39996+3.60004)x4.6632
 .............\glue(\tabskip) 0.0
@@ -2160,7 +2117,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2218,7 +2174,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x6.80551
 ..........\hbox(8.39996+3.60004)x6.80551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x6.80551
 ............\hbox(8.39996+3.60004)x6.80551
 .............\glue(\tabskip) 0.0
@@ -2229,7 +2184,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 P
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2287,7 +2241,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.50002
 ..........\hbox(8.39996+3.60004)x7.50002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.50002
 ............\hbox(8.39996+3.60004)x7.50002
 .............\glue(\tabskip) 0.0
@@ -2298,7 +2251,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 U
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2356,7 +2308,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.3241
 ..........\hbox(8.39996+3.60004)x5.3241
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.3241
 ............\hbox(8.39996+3.60004)x5.3241
 .............\glue(\tabskip) 0.0
@@ -2370,7 +2321,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2428,7 +2378,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.36101
 ..........\hbox(8.39996+3.60004)x7.36101
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.36101
 ............\hbox(8.39996+3.60004)x7.36101
 .............\glue(\tabskip) 0.0
@@ -2439,7 +2388,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 R
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2497,7 +2445,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.22202
 ..........\hbox(8.39996+3.60004)x7.22202
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.22202
 ............\hbox(8.39996+3.60004)x7.22202
 .............\glue(\tabskip) 0.0
@@ -2508,7 +2455,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 T
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2566,7 +2512,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.55551
 ..........\hbox(8.39996+3.60004)x5.55551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.55551
 ............\hbox(8.39996+3.60004)x5.55551
 .............\glue(\tabskip) 0.0
@@ -2577,7 +2522,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 S
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}

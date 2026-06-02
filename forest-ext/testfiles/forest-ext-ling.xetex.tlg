@@ -16,10 +16,6 @@ TEST 1: multi
 [Forest ext.multi debug]:: id = 3
 [Forest ext.multi debug]:: id = 3
 [Forest ext.multi debug]:: multi@edge = (.child anchor) -- (parent 1 of node@3.parent anchor)
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line ....
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line ....
 > \box...=
 \hbox(11.73294+63.85272)x14.16595
 .\hbox(75.58566+0.0)x14.16595, shifted 63.85272
@@ -69,7 +65,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.50002
 ..........\hbox(8.39996+3.60004)x7.50002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.50002
 ............\hbox(8.39996+3.60004)x7.50002
 .............\glue(\tabskip) 0.0
@@ -80,7 +75,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 A
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -195,7 +189,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.00002
 ..........\hbox(8.39996+3.60004)x5.00002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.00002
 ............\hbox(8.39996+3.60004)x5.00002
 .............\glue(\tabskip) 0.0
@@ -206,7 +199,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..............\T1/lmr/m/n/10 a
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -393,7 +385,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.50002
 ..........\hbox(8.39996+3.60004)x7.50002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.50002
 ............\hbox(8.39996+3.60004)x7.50002
 .............\glue(\tabskip) 0.0
@@ -404,7 +395,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 A
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -462,7 +452,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.00002
 ..........\hbox(8.39996+3.60004)x5.00002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.00002
 ............\hbox(8.39996+3.60004)x5.00002
 .............\glue(\tabskip) 0.0
@@ -473,7 +462,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 a
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -531,7 +519,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.55551
 ..........\hbox(8.39996+3.60004)x5.55551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.55551
 ............\hbox(8.39996+3.60004)x5.55551
 .............\glue(\tabskip) 0.0
@@ -542,7 +529,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 d
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -629,7 +615,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.55551
 ..........\hbox(8.39996+3.60004)x5.55551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.55551
 ............\hbox(8.39996+3.60004)x5.55551
 .............\glue(\tabskip) 0.0
@@ -640,7 +625,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 b
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -755,7 +739,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x4.44452
 ..........\hbox(8.39996+3.60004)x4.44452
-...........\mathon
 ...........\vbox(8.39996+3.60004)x4.44452
 ............\hbox(8.39996+3.60004)x4.44452
 .............\glue(\tabskip) 0.0
@@ -766,7 +749,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 c
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -824,7 +806,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x3.05551
 ..........\hbox(8.39996+3.60004)x3.05551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x3.05551
 ............\hbox(8.39996+3.60004)x3.05551
 .............\glue(\tabskip) 0.0
@@ -835,7 +816,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 f
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -893,7 +873,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.00002
 ..........\hbox(8.39996+3.60004)x5.00002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.00002
 ............\hbox(8.39996+3.60004)x5.00002
 .............\glue(\tabskip) 0.0
@@ -904,7 +883,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 g
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1020,7 +998,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.278
 ..........\hbox(8.39996+3.60004)x5.278
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.278
 ............\hbox(8.39996+3.60004)x5.278
 .............\glue(\tabskip) 0.0
@@ -1031,7 +1008,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 x
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1089,7 +1065,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.278
 ..........\hbox(8.39996+3.60004)x5.278
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.278
 ............\hbox(8.39996+3.60004)x5.278
 .............\glue(\tabskip) 0.0
@@ -1100,7 +1075,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..............\T1/lmr/m/n/10 y
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1335,9 +1309,7 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(0.0+0.0)x0.0
 ..........\hbox(0.0+0.0)x0.0
-...........\mathon
 ...........\vbox(0.0+0.0)x0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1395,7 +1367,6 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.00002
 ..........\hbox(8.39996+3.60004)x5.00002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.00002
 ............\hbox(8.39996+3.60004)x5.00002
 .............\glue(\tabskip) 0.0
@@ -1406,7 +1377,6 @@ TEST 3: pretty nice empty nodes
 ..............\T1/lmr/m/n/10 a
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1464,9 +1434,7 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(0.0+0.0)x0.0
 ..........\hbox(0.0+0.0)x0.0
-...........\mathon
 ...........\vbox(0.0+0.0)x0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1524,9 +1492,7 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(0.0+0.0)x0.0
 ..........\hbox(0.0+0.0)x0.0
-...........\mathon
 ...........\vbox(0.0+0.0)x0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1584,9 +1550,7 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(0.0+0.0)x0.0
 ..........\hbox(0.0+0.0)x0.0
-...........\mathon
 ...........\vbox(0.0+0.0)x0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1644,7 +1608,6 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.55551
 ..........\hbox(8.39996+3.60004)x5.55551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.55551
 ............\hbox(8.39996+3.60004)x5.55551
 .............\glue(\tabskip) 0.0
@@ -1655,7 +1618,6 @@ TEST 3: pretty nice empty nodes
 ..............\T1/lmr/m/n/10 b
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1713,9 +1675,7 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(0.0+0.0)x0.0
 ..........\hbox(0.0+0.0)x0.0
-...........\mathon
 ...........\vbox(0.0+0.0)x0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1830,7 +1790,6 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x4.44452
 ..........\hbox(8.39996+3.60004)x4.44452
-...........\mathon
 ...........\vbox(8.39996+3.60004)x4.44452
 ............\hbox(8.39996+3.60004)x4.44452
 .............\glue(\tabskip) 0.0
@@ -1841,7 +1800,6 @@ TEST 3: pretty nice empty nodes
 ..............\T1/lmr/m/n/10 c
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1899,7 +1857,6 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x3.05551
 ..........\hbox(8.39996+3.60004)x3.05551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x3.05551
 ............\hbox(8.39996+3.60004)x3.05551
 .............\glue(\tabskip) 0.0
@@ -1910,7 +1867,6 @@ TEST 3: pretty nice empty nodes
 ..............\T1/lmr/m/n/10 f
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -1968,7 +1924,6 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x5.00002
 ..........\hbox(8.39996+3.60004)x5.00002
-...........\mathon
 ...........\vbox(8.39996+3.60004)x5.00002
 ............\hbox(8.39996+3.60004)x5.00002
 .............\glue(\tabskip) 0.0
@@ -1979,7 +1934,6 @@ TEST 3: pretty nice empty nodes
 ..............\T1/lmr/m/n/10 g
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2037,9 +1991,7 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(0.0+0.0)x0.0
 ..........\hbox(0.0+0.0)x0.0
-...........\mathon
 ...........\vbox(0.0+0.0)x0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2097,9 +2049,7 @@ TEST 3: pretty nice empty nodes
 .........\special{pdf:code 0 g }
 .........\hbox(0.0+0.0)x0.0
 ..........\hbox(0.0+0.0)x0.0
-...........\mathon
 ...........\vbox(0.0+0.0)x0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2241,6 +2191,10 @@ TEST 4: multidom prepend
 [Forest ext.multi debug]:: edge path and edge
 \path [draw](!c fosterling.east) to [looseness=.5, out=east] (VP.parent anchor);
 [Forest ext.multi debug]:: edge = draw
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
 > \box...=
 \hbox(11.73294+142.12857)x151.24532
 .\hbox(153.86151+0.0)x151.24532, shifted 142.12857
@@ -2290,7 +2244,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x14.02751
 ..........\hbox(8.39996+3.60004)x14.02751
-...........\mathon
 ...........\vbox(8.39996+3.60004)x14.02751
 ............\hbox(8.39996+3.60004)x14.02751
 .............\glue(\tabskip) 0.0
@@ -2302,7 +2255,6 @@ TEST 4: multidom prepend
 ..............\T1/lmr/m/n/10 P
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2360,7 +2312,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x14.44452
 ..........\hbox(8.39996+3.60004)x14.44452
-...........\mathon
 ...........\vbox(8.39996+3.60004)x14.44452
 ............\hbox(8.39996+3.60004)x14.44452
 .............\glue(\tabskip) 0.0
@@ -2372,7 +2323,6 @@ TEST 4: multidom prepend
 ..............\T1/lmr/m/n/10 P
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2430,7 +2380,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+15.60004)x13.88902
 ..........\hbox(8.39996+15.60004)x13.88902
-...........\mathon
 ...........\vbox(8.39996+15.60004)x13.88902
 ............\hbox(8.39996+3.60004)x13.88902
 .............\glue(\tabskip) 0.0
@@ -2453,7 +2402,6 @@ TEST 4: multidom prepend
 ..............\T1/lmr/m/n/10 e
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2511,7 +2459,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+15.60004)x36.11096
 ..........\hbox(8.39996+15.60004)x36.11096
-...........\mathon
 ...........\vbox(8.39996+15.60004)x36.11096
 ............\hbox(8.39996+3.60004)x36.11096
 .............\glue(\tabskip) 0.0
@@ -2540,7 +2487,6 @@ TEST 4: multidom prepend
 ..............\T1/lmr/m/n/10 y
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2598,7 +2544,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x10.02757
 ..........\hbox(8.39996+3.60004)x10.02757
-...........\mathon
 ...........\vbox(8.39996+3.60004)x10.02757
 ............\hbox(8.39996+3.60004)x10.02757
 .............\glue(\tabskip) 0.0
@@ -2613,7 +2558,6 @@ TEST 4: multidom prepend
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2671,7 +2615,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.22202
 ..........\hbox(8.39996+3.60004)x7.22202
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.22202
 ............\hbox(8.39996+3.60004)x7.22202
 .............\glue(\tabskip) 0.0
@@ -2682,7 +2625,6 @@ TEST 4: multidom prepend
 ..............\T1/lmr/m/n/10 T
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2740,7 +2682,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x14.30551
 ..........\hbox(8.39996+3.60004)x14.30551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x14.30551
 ............\hbox(8.39996+3.60004)x14.30551
 .............\glue(\tabskip) 0.0
@@ -2752,7 +2693,6 @@ TEST 4: multidom prepend
 ..............\T1/lmr/m/n/10 P
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2839,7 +2779,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x10.30557
 ..........\hbox(8.39996+3.60004)x10.30557
-...........\mathon
 ...........\vbox(8.39996+3.60004)x10.30557
 ............\hbox(8.39996+3.60004)x10.30557
 .............\glue(\tabskip) 0.0
@@ -2854,7 +2793,6 @@ TEST 4: multidom prepend
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -2912,7 +2850,6 @@ TEST 4: multidom prepend
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+15.60004)x30.66669
 ..........\hbox(8.39996+15.60004)x30.66669
-...........\mathon
 ...........\vbox(8.39996+15.60004)x30.66669
 ............\hbox(8.39996+3.60004)x30.66669
 .............\glue(\tabskip) 0.0
@@ -2939,7 +2876,6 @@ TEST 4: multidom prepend
 ..............\T1/lmr/m/n/10 s
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3137,7 +3073,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x14.02751
 ..........\hbox(8.39996+3.60004)x14.02751
-...........\mathon
 ...........\vbox(8.39996+3.60004)x14.02751
 ............\hbox(8.39996+3.60004)x14.02751
 .............\glue(\tabskip) 0.0
@@ -3149,7 +3084,6 @@ TEST 5: other multidom parents
 ..............\T1/lmr/m/n/10 P
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3207,7 +3141,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x14.44452
 ..........\hbox(8.39996+3.60004)x14.44452
-...........\mathon
 ...........\vbox(8.39996+3.60004)x14.44452
 ............\hbox(8.39996+3.60004)x14.44452
 .............\glue(\tabskip) 0.0
@@ -3219,7 +3152,6 @@ TEST 5: other multidom parents
 ..............\T1/lmr/m/n/10 P
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3277,7 +3209,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+15.60004)x13.88902
 ..........\hbox(8.39996+15.60004)x13.88902
-...........\mathon
 ...........\vbox(8.39996+15.60004)x13.88902
 ............\hbox(8.39996+3.60004)x13.88902
 .............\glue(\tabskip) 0.0
@@ -3300,7 +3231,6 @@ TEST 5: other multidom parents
 ..............\T1/lmr/m/n/10 e
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3358,7 +3288,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+15.60004)x36.11096
 ..........\hbox(8.39996+15.60004)x36.11096
-...........\mathon
 ...........\vbox(8.39996+15.60004)x36.11096
 ............\hbox(8.39996+3.60004)x36.11096
 .............\glue(\tabskip) 0.0
@@ -3387,7 +3316,6 @@ TEST 5: other multidom parents
 ..............\T1/lmr/m/n/10 y
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3445,7 +3373,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x10.02757
 ..........\hbox(8.39996+3.60004)x10.02757
-...........\mathon
 ...........\vbox(8.39996+3.60004)x10.02757
 ............\hbox(8.39996+3.60004)x10.02757
 .............\glue(\tabskip) 0.0
@@ -3460,7 +3387,6 @@ TEST 5: other multidom parents
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3518,7 +3444,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x7.22202
 ..........\hbox(8.39996+3.60004)x7.22202
-...........\mathon
 ...........\vbox(8.39996+3.60004)x7.22202
 ............\hbox(8.39996+3.60004)x7.22202
 .............\glue(\tabskip) 0.0
@@ -3529,7 +3454,6 @@ TEST 5: other multidom parents
 ..............\T1/lmr/m/n/10 T
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3587,7 +3511,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x14.30551
 ..........\hbox(8.39996+3.60004)x14.30551
-...........\mathon
 ...........\vbox(8.39996+3.60004)x14.30551
 ............\hbox(8.39996+3.60004)x14.30551
 .............\glue(\tabskip) 0.0
@@ -3599,7 +3522,6 @@ TEST 5: other multidom parents
 ..............\T1/lmr/m/n/10 P
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3686,7 +3608,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+3.60004)x10.30557
 ..........\hbox(8.39996+3.60004)x10.30557
-...........\mathon
 ...........\vbox(8.39996+3.60004)x10.30557
 ............\hbox(8.39996+3.60004)x10.30557
 .............\glue(\tabskip) 0.0
@@ -3701,7 +3622,6 @@ TEST 5: other multidom parents
 ..............\mathoff
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
@@ -3788,7 +3708,6 @@ TEST 5: other multidom parents
 .........\special{pdf:code 0 g }
 .........\hbox(8.39996+15.60004)x30.66669
 ..........\hbox(8.39996+15.60004)x30.66669
-...........\mathon
 ...........\vbox(8.39996+15.60004)x30.66669
 ............\hbox(8.39996+3.60004)x30.66669
 .............\glue(\tabskip) 0.0
@@ -3815,7 +3734,6 @@ TEST 5: other multidom parents
 ..............\T1/lmr/m/n/10 s
 ..............\glue 0.0 plus 1.0fil
 .............\glue(\tabskip) 0.0
-...........\mathoff
 .........\glue 0.0
 .......\special{pdf:etrans}
 .......\special{pdf:ecolor}
