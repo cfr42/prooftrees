@@ -16,10 +16,6 @@ TEST 1: multi
 [Forest ext.multi debug]:: id = 3
 [Forest ext.multi debug]:: id = 3
 [Forest ext.multi debug]:: multi@edge = (.child anchor) -- (parent 1 of node@3.parent anchor)
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line ....
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line ....
 > \box...=
 \hbox(11.73294+63.9508)x14.16595, direction TLT
 .\hbox(75.68375+0.0)x14.16595, shifted 63.9508, direction TLT
@@ -57,7 +53,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x7.50002, direction TLT
 ..............\hbox(8.39996+3.60004)x7.50002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x7.50002, direction TLT
 ................\hbox(8.39996+3.60004)x7.50002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -68,7 +63,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..................\TU/lmr/m/n/10 A
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -147,7 +141,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.00002, direction TLT
 ..............\hbox(8.39996+3.60004)x5.00002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.00002, direction TLT
 ................\hbox(8.39996+3.60004)x5.00002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -158,7 +151,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ..................\TU/lmr/m/n/10 a
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -325,7 +317,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x7.50002, direction TLT
 ..............\hbox(8.39996+3.60004)x7.50002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x7.50002, direction TLT
 ................\hbox(8.39996+3.60004)x7.50002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -336,7 +327,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 A
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -376,7 +366,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.00002, direction TLT
 ..............\hbox(8.39996+3.60004)x5.00002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.00002, direction TLT
 ................\hbox(8.39996+3.60004)x5.00002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -387,7 +376,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 a
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -427,7 +415,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.56001, direction TLT
 ..............\hbox(8.39996+3.60004)x5.56001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.56001, direction TLT
 ................\hbox(8.39996+3.60004)x5.56001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -438,7 +425,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 d
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -497,7 +483,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.56001, direction TLT
 ..............\hbox(8.39996+3.60004)x5.56001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.56001, direction TLT
 ................\hbox(8.39996+3.60004)x5.56001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -508,7 +493,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 b
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -587,7 +571,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x4.44002, direction TLT
 ..............\hbox(8.39996+3.60004)x4.44002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x4.44002, direction TLT
 ................\hbox(8.39996+3.60004)x4.44002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -598,7 +581,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 c
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -638,7 +620,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x3.06001, direction TLT
 ..............\hbox(8.39996+3.60004)x3.06001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x3.06001, direction TLT
 ................\hbox(8.39996+3.60004)x3.06001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -649,7 +630,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 f
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -689,7 +669,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.00002, direction TLT
 ..............\hbox(8.39996+3.60004)x5.00002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.00002, direction TLT
 ................\hbox(8.39996+3.60004)x5.00002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -700,7 +679,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 g
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -778,7 +756,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.28001, direction TLT
 ..............\hbox(8.39996+3.60004)x5.28001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.28001, direction TLT
 ................\hbox(8.39996+3.60004)x5.28001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -789,7 +766,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 x
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -829,7 +805,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.28001, direction TLT
 ..............\hbox(8.39996+3.60004)x5.28001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.28001, direction TLT
 ................\hbox(8.39996+3.60004)x5.28001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -840,7 +815,6 @@ TEST 2: curve to also parent, curve to also parent+, multidom, multi, also paren
 ..................\TU/lmr/m/n/10 y
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1045,9 +1019,7 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(0.0+0.0)x0.0, direction TLT
 ..............\hbox(0.0+0.0)x0.0, direction TLT
-...............\mathon
 ...............\vbox(0.0+0.0)x0.0, direction TLT
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1087,7 +1059,6 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.00002, direction TLT
 ..............\hbox(8.39996+3.60004)x5.00002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.00002, direction TLT
 ................\hbox(8.39996+3.60004)x5.00002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1098,7 +1069,6 @@ TEST 3: pretty nice empty nodes
 ..................\TU/lmr/m/n/10 a
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1138,9 +1108,7 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(0.0+0.0)x0.0, direction TLT
 ..............\hbox(0.0+0.0)x0.0, direction TLT
-...............\mathon
 ...............\vbox(0.0+0.0)x0.0, direction TLT
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1180,9 +1148,7 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(0.0+0.0)x0.0, direction TLT
 ..............\hbox(0.0+0.0)x0.0, direction TLT
-...............\mathon
 ...............\vbox(0.0+0.0)x0.0, direction TLT
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1222,9 +1188,7 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(0.0+0.0)x0.0, direction TLT
 ..............\hbox(0.0+0.0)x0.0, direction TLT
-...............\mathon
 ...............\vbox(0.0+0.0)x0.0, direction TLT
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1264,7 +1228,6 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.56001, direction TLT
 ..............\hbox(8.39996+3.60004)x5.56001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.56001, direction TLT
 ................\hbox(8.39996+3.60004)x5.56001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1275,7 +1238,6 @@ TEST 3: pretty nice empty nodes
 ..................\TU/lmr/m/n/10 b
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1315,9 +1277,7 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(0.0+0.0)x0.0, direction TLT
 ..............\hbox(0.0+0.0)x0.0, direction TLT
-...............\mathon
 ...............\vbox(0.0+0.0)x0.0, direction TLT
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1396,7 +1356,6 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x4.44002, direction TLT
 ..............\hbox(8.39996+3.60004)x4.44002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x4.44002, direction TLT
 ................\hbox(8.39996+3.60004)x4.44002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1407,7 +1366,6 @@ TEST 3: pretty nice empty nodes
 ..................\TU/lmr/m/n/10 c
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1447,7 +1405,6 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x3.06001, direction TLT
 ..............\hbox(8.39996+3.60004)x3.06001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x3.06001, direction TLT
 ................\hbox(8.39996+3.60004)x3.06001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1458,7 +1415,6 @@ TEST 3: pretty nice empty nodes
 ..................\TU/lmr/m/n/10 f
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1498,7 +1454,6 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x5.00002, direction TLT
 ..............\hbox(8.39996+3.60004)x5.00002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x5.00002, direction TLT
 ................\hbox(8.39996+3.60004)x5.00002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1509,7 +1464,6 @@ TEST 3: pretty nice empty nodes
 ..................\TU/lmr/m/n/10 g
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1549,9 +1503,7 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(0.0+0.0)x0.0, direction TLT
 ..............\hbox(0.0+0.0)x0.0, direction TLT
-...............\mathon
 ...............\vbox(0.0+0.0)x0.0, direction TLT
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1591,9 +1543,7 @@ TEST 3: pretty nice empty nodes
 .............\pdfliteral origin{0 g }
 .............\hbox(0.0+0.0)x0.0, direction TLT
 ..............\hbox(0.0+0.0)x0.0, direction TLT
-...............\mathon
 ...............\vbox(0.0+0.0)x0.0, direction TLT
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1727,6 +1677,10 @@ TEST 4: multidom prepend
 [Forest ext.multi debug]:: edge path and edge
 \path [draw](!c fosterling.east) to [looseness=.5, out=east] (VP.parent anchor);
 [Forest ext.multi debug]:: edge = draw
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
 > \box...=
 \hbox(11.73294+142.12857)x151.23727, direction TLT
 .\hbox(153.86151+0.0)x151.23727, shifted 142.12857, direction TLT
@@ -1764,7 +1718,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x14.03001, direction TLT
 ..............\hbox(8.39996+3.60004)x14.03001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x14.03001, direction TLT
 ................\hbox(8.39996+3.60004)x14.03001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1776,7 +1729,6 @@ TEST 4: multidom prepend
 ..................\TU/lmr/m/n/10 P
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1816,7 +1768,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x14.45001, direction TLT
 ..............\hbox(8.39996+3.60004)x14.45001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x14.45001, direction TLT
 ................\hbox(8.39996+3.60004)x14.45001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1828,7 +1779,6 @@ TEST 4: multidom prepend
 ..................\TU/lmr/m/n/10 P
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1868,7 +1818,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+15.60004)x13.89001, direction TLT
 ..............\hbox(8.39996+15.60004)x13.89001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+15.60004)x13.89001, direction TLT
 ................\hbox(8.39996+3.60004)x13.89001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1891,7 +1840,6 @@ TEST 4: multidom prepend
 ..................\TU/lmr/m/n/10 e
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -1931,7 +1879,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+15.60004)x36.11002, direction TLT
 ..............\hbox(8.39996+15.60004)x36.11002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+15.60004)x36.11002, direction TLT
 ................\hbox(8.39996+3.60004)x36.11002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -1962,7 +1909,6 @@ TEST 4: multidom prepend
 ..................\TU/lmr/m/n/10 y
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2002,7 +1948,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x10.02557, direction TLT
 ..............\hbox(8.39996+3.60004)x10.02557, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x10.02557, direction TLT
 ................\hbox(8.39996+3.60004)x10.02557, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2018,7 +1963,6 @@ TEST 4: multidom prepend
 ..................\mathoff
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2058,7 +2002,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x7.22002, direction TLT
 ..............\hbox(8.39996+3.60004)x7.22002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x7.22002, direction TLT
 ................\hbox(8.39996+3.60004)x7.22002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2069,7 +2012,6 @@ TEST 4: multidom prepend
 ..................\TU/lmr/m/n/10 T
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2109,7 +2051,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x14.31001, direction TLT
 ..............\hbox(8.39996+3.60004)x14.31001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x14.31001, direction TLT
 ................\hbox(8.39996+3.60004)x14.31001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2121,7 +2062,6 @@ TEST 4: multidom prepend
 ..................\TU/lmr/m/n/10 P
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2180,7 +2120,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x10.30557, direction TLT
 ..............\hbox(8.39996+3.60004)x10.30557, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x10.30557, direction TLT
 ................\hbox(8.39996+3.60004)x10.30557, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2196,7 +2135,6 @@ TEST 4: multidom prepend
 ..................\mathoff
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2236,7 +2174,6 @@ TEST 4: multidom prepend
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+15.60004)x30.65002, direction TLT
 ..............\hbox(8.39996+15.60004)x30.65002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+15.60004)x30.65002, direction TLT
 ................\hbox(8.39996+3.60004)x30.65002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2263,7 +2200,6 @@ TEST 4: multidom prepend
 ..................\TU/lmr/m/n/10 s
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2441,7 +2377,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x14.03001, direction TLT
 ..............\hbox(8.39996+3.60004)x14.03001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x14.03001, direction TLT
 ................\hbox(8.39996+3.60004)x14.03001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2453,7 +2388,6 @@ TEST 5: other multidom parents
 ..................\TU/lmr/m/n/10 P
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2493,7 +2427,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x14.45001, direction TLT
 ..............\hbox(8.39996+3.60004)x14.45001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x14.45001, direction TLT
 ................\hbox(8.39996+3.60004)x14.45001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2505,7 +2438,6 @@ TEST 5: other multidom parents
 ..................\TU/lmr/m/n/10 P
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2545,7 +2477,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+15.60004)x13.89001, direction TLT
 ..............\hbox(8.39996+15.60004)x13.89001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+15.60004)x13.89001, direction TLT
 ................\hbox(8.39996+3.60004)x13.89001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2568,7 +2499,6 @@ TEST 5: other multidom parents
 ..................\TU/lmr/m/n/10 e
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2608,7 +2538,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+15.60004)x36.11002, direction TLT
 ..............\hbox(8.39996+15.60004)x36.11002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+15.60004)x36.11002, direction TLT
 ................\hbox(8.39996+3.60004)x36.11002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2639,7 +2568,6 @@ TEST 5: other multidom parents
 ..................\TU/lmr/m/n/10 y
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2679,7 +2607,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x10.02557, direction TLT
 ..............\hbox(8.39996+3.60004)x10.02557, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x10.02557, direction TLT
 ................\hbox(8.39996+3.60004)x10.02557, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2695,7 +2622,6 @@ TEST 5: other multidom parents
 ..................\mathoff
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2735,7 +2661,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x7.22002, direction TLT
 ..............\hbox(8.39996+3.60004)x7.22002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x7.22002, direction TLT
 ................\hbox(8.39996+3.60004)x7.22002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2746,7 +2671,6 @@ TEST 5: other multidom parents
 ..................\TU/lmr/m/n/10 T
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2786,7 +2710,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x14.31001, direction TLT
 ..............\hbox(8.39996+3.60004)x14.31001, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x14.31001, direction TLT
 ................\hbox(8.39996+3.60004)x14.31001, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2798,7 +2721,6 @@ TEST 5: other multidom parents
 ..................\TU/lmr/m/n/10 P
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2857,7 +2779,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+3.60004)x10.30557, direction TLT
 ..............\hbox(8.39996+3.60004)x10.30557, direction TLT
-...............\mathon
 ...............\vbox(8.39996+3.60004)x10.30557, direction TLT
 ................\hbox(8.39996+3.60004)x10.30557, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2873,7 +2794,6 @@ TEST 5: other multidom parents
 ..................\mathoff
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
@@ -2932,7 +2852,6 @@ TEST 5: other multidom parents
 .............\pdfliteral origin{0 g }
 .............\hbox(8.39996+15.60004)x30.65002, direction TLT
 ..............\hbox(8.39996+15.60004)x30.65002, direction TLT
-...............\mathon
 ...............\vbox(8.39996+15.60004)x30.65002, direction TLT
 ................\hbox(8.39996+3.60004)x30.65002, direction TLT
 .................\glue(\tabskip) 0.0
@@ -2959,7 +2878,6 @@ TEST 5: other multidom parents
 ..................\TU/lmr/m/n/10 s
 ..................\glue 0.0 plus 1.0fil
 .................\glue(\tabskip) 0.0
-...............\mathoff
 .............\glue(\spaceskip) 0.0
 ...........\pdfliteral origin{Q }
 ...........\glue(\spaceskip) 0.0
