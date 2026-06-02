@@ -163,7 +163,7 @@ TEST 2: Show PDF Tags
       <?MarkedContent page="1" ?>
      </Figure>
      <?MarkedContent page="1" ?> ABC apple ba
-     <?MarkedContent page="1" ?>nana pear 
+     <?MarkedContent page="1" ?>nana pear
     </text>
    </text-unit>
   </Document>
