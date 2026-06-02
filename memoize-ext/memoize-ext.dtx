@@ -30,8 +30,8 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11921 2026-06-02 14:19:41Z cfrees $ {Extensions for Memoize}
-\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext.dtx 11924 2026-06-02 14:44:19Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.4 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
 \usepackage{memoize-ext}
@@ -730,11 +730,11 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11921 2026-06-02 14:19:41Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11924 2026-06-02 14:44:19Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
+%<!debug>     {v0.4 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
-%<debug>      {\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
+%<debug>      {\ExplFileDate}{v0.4 \ExplFileVersion}{\ExplFileDescription}
 %
 \str_new:N \g_@@_name_str
 \str_gset:NV \g_@@_name_str \ExplFileName
@@ -762,7 +762,7 @@
 %    \end{macrocode}
 % \end{var}
 % \begin{var}{\l_@@_opt_draw_bool,\l_@@_opt_expl_bool}
-% \changes{v0.0}{2026-03-30}{Fix non-recognition of memoize pkg options in \pkg{memoize-ext-debug}.}
+% \changes{v0.4}{2026-03-30}{Fix non-recognition of memoize pkg options in \pkg{memoize-ext-debug}.}
 %   Other bools.
 %    \begin{macrocode}
 \keys_define:nn {memoize-ext}
@@ -787,7 +787,7 @@
   talk        .initial:n  = true,
 }
 %    \end{macrocode}
-% \changes{v0.0}{2026-06-02}{\githubref[Fix for]{latex3/latex2e/issues/2110}{\LaTeXe{} issue \#2110}.}
+% \changes{v0.4}{2026-06-02}{\githubref[Fix for]{latex3/latex2e/issues/2110}{\LaTeXe{} issue \#2110}.}
 % Joseph Wright: \url{https://chat.stackexchange.com/transcript/message/69011532#69011532}.
 %    \begin{macrocode}
 \IfFormatAtLeastTF { 2026-06-01 }{
@@ -930,7 +930,7 @@
 %   \changes{v0.3.3}{2026-03-15}{Need this defined earlier.
 %     I'm starting to understand why libraries are a thing.}
 %   Do nothing successfully.
-%   \changes{v0.0}{2026-06-02}{Fix \ecs{@@_noop:n}, though currently unused.}
+%   \changes{v0.4}{2026-06-02}{Fix \ecs{@@_noop:n}, though currently unused.}
 %    \begin{macrocode}
 \cs_new:Npn \@@_noop: {}
 \cs_new_eq:NN \@@_noop:n \use_none:n

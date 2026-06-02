@@ -28,8 +28,8 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11919 2026-06-02 00:15:13Z cfrees $ {Extensions for Memoize}
-\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11924 2026-06-02 14:44:19Z cfrees $ {Extensions for Memoize}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.4 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
 \DocInput{\filename}
@@ -88,11 +88,11 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11919 2026-06-02 00:15:13Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11924 2026-06-02 14:44:19Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
+%<!debug>     {v0.4 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
-%<debug>      {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
+%<debug>      {v0.4 \ExplFileVersion}{\ExplFileDescription}
 %
 %<!debug>    \disable@package@load {memoize-ext-tag-debug}
 %<debug>    \disable@package@load {memoize-ext-tag}
@@ -160,7 +160,7 @@
 % 
 % Note: will need revising when the \pkg{pgfkeys} version of the \pkg{latex-lab} code gets published.
 % 
-% \changes{v0.0}{2026-6-01}{Use new \texttt{/tikz/tagging-setup} rather than \texttt{/mmzx/tagging@setup}; switch to \pkg{pgfkeys} interface.}
+% \changes{v0.4}{2026-6-01}{Use new \texttt{/tikz/tagging-setup} rather than \texttt{/mmzx/tagging@setup}; switch to \pkg{pgfkeys} interface.}
 % Keys can only belong to a single family, so I'm surprised it works still at all \dots.
 % Given I wrote the \pkg{latex-lab} code I cannot really complain here.%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -218,7 +218,7 @@
     tagging-setup/.unknown/.code =
     {
 %    \end{macrocode}
-% \changes{v0.0}{2026-06-01}{Use \pkg{pgfkeys} interface now it's available, which is a little bit nicer.}
+% \changes{v0.4}{2026-06-01}{Use \pkg{pgfkeys} interface now it's available, which is a little bit nicer.}
 % I guess this still does something useful?
 %    \begin{macrocode}
       \exp_args:Nno
