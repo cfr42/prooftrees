@@ -28,7 +28,7 @@
 %
 % \iffalse
 %<*driver>
-\GetIdInfo $Id: memoize-ext-tag.dtx 11815 2026-03-25 19:50:49Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11919 2026-06-02 00:15:13Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 \begin{document}
 \let\MakePrivateLetters\MyMakePrivateLetters
@@ -88,7 +88,7 @@
 %<*sty>
 %<@@=mmzx>
 %    \begin{macrocode}
-\GetIdInfo $Id: memoize-ext-tag.dtx 11815 2026-03-25 19:50:49Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
+\GetIdInfo $Id: memoize-ext-tag.dtx 11919 2026-06-02 00:15:13Z cfrees $ {Extensions for Memoize for tagged tikz pictures}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}{\ExplFileDate}
@@ -159,6 +159,10 @@
 % \changes{v0.2}{2026-02-27}{See \texttt{init}.}
 % 
 % Note: will need revising when the \pkg{pgfkeys} version of the \pkg{latex-lab} code gets published.
+% 
+% \changes{v0.0}{2026-6-01}{Use new \texttt{/tikz/tagging-setup} rather than \texttt{/mmzx/tagging@setup}; switch to \pkg{pgfkeys} interface.}
+% Keys can only belong to a single family, so I'm surprised it works still at all \dots.
+% Given I wrote the \pkg{latex-lab} code I cannot really complain here.%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \hook_gput_code:nnn {package/tikz/after} {.}
@@ -168,15 +172,10 @@
     actualtext/.forward~to=/mmz/actualtext,
     artifact/.forward~to=/mmz/artifact,
     tagging-setup/.forward~to=/mmz/tagging-setup,
-    /mmzx/tagging@setup/.is~family,
-    alt/.belongs~to~family=/mmzx/tagging@setup,
-    artifact/.belongs~to~family=/mmzx/tagging@setup,
-    actualtext/.belongs~to~family=/mmzx/tagging@setup,
-    tagging-setup/.belongs~to~family=/mmzx/tagging@setup,
   }
   \mmzset{
     alt/.code={
-      \keys_set:nn {tikz/tagging}{alt={#1}}
+      \pgfqkeys{/tikz/tagging-setup}{alt={#1}}
       \bool_set_true:N \l_@@_ok_bool
       \str_gset:Nn \g_@@_plug_orig_str {alt}
       \exp_args:Ne \mmzxtagtoks { \text_purify:n {#1} }
@@ -187,7 +186,7 @@
 %<debug>    \tl_log:e {\exp_args:No \exp_not:n {\the\mmzCCMemo}}
     },
     actualtext/.code={
-      \keys_set:nn {tikz/tagging}{actualtext={#1}}
+      \pgfqkeys{/tikz/tagging-setup}{actualtext={#1}}
       \bool_set_true:N \l_@@_ok_bool
       \str_gset:Nn \g_@@_plug_orig_str {actualtext}
       \exp_args:Ne \mmzxtagtoks { \text_purify:n {#1} }
@@ -198,7 +197,7 @@
 %<debug>    \tl_log:e {\exp_args:No \exp_not:n {\the\mmzCCMemo}}
     },
     artifact/.code={
-      \keys_set:nn {tikz/tagging}{artifact}
+      \pgfqkeys{/tikz/tagging-setup}{artifact}
       \bool_set_true:N \l_@@_ok_bool
       \str_gset:Nn \g_@@_plug_orig_str {artifact}
       \mmzxtagtoks {}
@@ -208,22 +207,30 @@
         {tagsupport/memoize/include/extern/after} {mmzx/artifact}
 %<debug>    \tl_log:e {\exp_args:No \exp_not:n {\the\mmzCCMemo}}
     },
+%    \end{macrocode}
+% Originally, I used a \texttt{choice} key here because \pkg{latex-lab} used one.
+% Now it doesn't, so I wonder if a simple \texttt{code} key would make more sense.
+%    \begin{macrocode}
     tagging-setup/.is~choice,
     tagging-setup/alt/.forward~to=/mmz/alt,
     tagging-setup/actualtext/.forward~to=/mmz/actualtext,
     tagging-setup/artifact/.forward~to=/mmz/artifact,
     tagging-setup/.unknown/.code =
     {
+%    \end{macrocode}
+% \changes{v0.0}{2026-06-01}{Use \pkg{pgfkeys} interface now it's available, which is a little bit nicer.}
+% I guess this still does something useful?
+%    \begin{macrocode}
       \exp_args:Nno
-      \keys_set:nn {tikz/tagging}{\pgfkeyscurrentname={#1}}
+      \pgfqkeys{/tikz/tagging-setup}{\pgfkeyscurrentname={#1}}
     },
-    alt/.belongs~to~family=/mmzx/tagging@setup,
-    actualtext/.belongs~to~family=/mmzx/tagging@setup,
-    artifact/.belongs~to~family=/mmzx/tagging@setup,
-    tagging-setup/.belongs~to~family=/mmzx/tagging@setup,
-    tagging-setup/alt/.belongs~to~family=/mmzx/tagging@setup,
-    tagging-setup/actualtext/.belongs~to~family=/mmzx/tagging@setup,
-    tagging-setup/artifact/.belongs~to~family=/mmzx/tagging@setup,
+    alt/.belongs~to~family=/tikz/tagging-setup,
+    actualtext/.belongs~to~family=/tikz/tagging-setup,
+    artifact/.belongs~to~family=/tikz/tagging-setup,
+    tagging-setup/.belongs~to~family=/tikz/tagging-setup,
+    tagging-setup/alt/.belongs~to~family=/tikz/tagging-setup,
+    tagging-setup/actualtext/.belongs~to~family=/tikz/tagging-setup,
+    tagging-setup/artifact/.belongs~to~family=/tikz/tagging-setup,
   }
 }
 %    \end{macrocode}
@@ -232,7 +239,7 @@
 %
 % The basic idea is this:
 % \begin{itemize}
-%   \item At the start of memoization, we redefine the (internal) command \cs{mmzIncludeExtern}.
+%   \item At the start of memoization, we add to the utilisation code which redefines the (internal) command \cs{mmzIncludeExtern}.
 %   \item In its place, we use simple wrapper around a copy of the original.
 %   \item The wrapper defines a socket before and after executing the original.
 % \end{itemize}
@@ -365,7 +372,7 @@
 {
 %<debug>    \@@_debug:n {Executing~plug~mmzx/actualtext~in~socket~
 %<debug>      tagsupport/memoize/include/extern/before.}
-  \keys_set:nn {tikz/tagging} {actualtext:o = {\the\mmzxtagtoks},}
+  \pgfqkeys{/tikz/tagging-setup}{actualtext/.expand~once = {\the\mmzxtagtoks},}
   \socket_use:n {tagsupport/tikz/picture/begin}
 }
 \socket_new_plug:nnn {tagsupport/memoize/include/extern/after} {mmzx/actualtext}
@@ -388,7 +395,7 @@
 {
 %<debug>    \@@_debug:n {Executing~plug~mmzx/artifact~in~socket~
 %<debug>      tagsupport/memoize/include/extern/before.}
-  \keys_set:nn {tikz/tagging} {artifact,}
+  \pgfqkeys{/tikz/tagging-setup}{artifact,}
   \socket_use:n {tagsupport/tikz/picture/begin}
 }
 \socket_new_plug:nnn {tagsupport/memoize/include/extern/after} {mmzx/artifact}
@@ -475,12 +482,14 @@
   \legacy_if:nT {memoizing}
   {
 %<debug>    \@@_debug:n {Arg~to~tagsupport/tikz/picture/init~is~#1.}
-    \pgfkeyssavekeyfilterstateto\mmzx@tagging@setup@saved@filterstate
-    \pgfkeysinstallkeyfilter{/pgf/key~filters/active~families}{}
-    \pgfqkeysactivatesinglefamilyandfilteroptions{/mmzx/tagging@setup}{/tikz}{#1}
+    \pgfkeyssavekeyfilterstateto\mmzx@temp@tagging@saved@filterstate
+    \pgfkeysinstallkeyfilter{/pgf/key~filters/active~families~or~no~family}
+      {{/pgf/key~filters/false}{/pgf/key~filters/false}}
+    \pgfqkeysactivatesinglefamilyandfilteroptions{/tikz/tagging-setup}{/tikz}{#1}
+
 %<debug>    \@@_debug:e { Restoring~filter~state:~\exp_not:V 
-%<debug>      \mmzx@tagging@setup@saved@filterstate }
-    \mmzx@tagging@setup@saved@filterstate
+%<debug>      \mmzx@temp@tagging@saved@filterstate }
+    \mmzx@temp@tagging@saved@filterstate
     \bool_if:NF \l_@@_ok_bool
     {
 %<debug>            \@@_debug:n {
