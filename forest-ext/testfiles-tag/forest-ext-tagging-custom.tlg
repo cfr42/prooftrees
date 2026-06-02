@@ -8,275 +8,343 @@ TEST 1: tagforest-custom
 [Forest ext.utils debug]:: Creating options set with declare tagging keylist.
 declare keylist/.process={_x{tag nodes}{\forestext@prop@to@keylist {tag nodes}}}, declare keylist/.process={_x{collate tags}{\forestext@prop@to@keylist {collate tags}}}, 
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagging should be 1:
 1
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikz /picture [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
+tagpdf DEBUG Info: Tagging suspended
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 Package tagpdf Warning: there is no mc to end at 85
 [tagforest debug]:: Process keylist: before tagging nodes ...
 [tagforest debug]:: Process keylist: tag nodes ...
@@ -286,9 +354,9 @@ Package tagpdf Warning: there is no mc to end at 85
 [tagforest debug]:: Stage: tag tree stage ...
 [tagforest debug]:: Completed all tagging stages!
 tagpdf DEBUG Info: Tagging suspended
-(tagpdf DEBUG)     level: 0 ==> 1, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 0 ==> 1, label: \pgfpicture  [on line ...]
 tagpdf DEBUG Info: Tagging resumed
-(tagpdf DEBUG)     level: 1 ==> 0, label: \tikzpicture  [on line ...]
+(tagpdf DEBUG)     level: 1 ==> 0, label: \pgfpicture  [on line ...]
 ============================================================
 ============================================================
 TEST 2: Show PDF Tags
