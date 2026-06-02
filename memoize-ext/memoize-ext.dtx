@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11829 2026-03-30 05:26:58Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11921 2026-06-02 14:19:41Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -730,7 +730,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11829 2026-03-30 05:26:58Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11921 2026-06-02 14:19:41Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.3.5 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -786,6 +786,28 @@
   talk        .default:n  = true,
   talk        .initial:n  = true,
 }
+%    \end{macrocode}
+% \changes{v0.0}{2026-06-02}{\githubref[Fix for]{latex3/latex2e/issues/2110}{\LaTeXe{} issue \#2110}.}
+% Joseph Wright: \url{https://chat.stackexchange.com/transcript/message/69011532#69011532}.
+%    \begin{macrocode}
+\IfFormatAtLeastTF { 2026-06-01 }{
+  \IfFormatAtLeastF { 2026-11-01 }{
+    \DeclareDocumentCommand \DeclareUnknownKeyHandler { O { \@currname } +m }
+    {
+      \cs_set_protected:cpn { __keys_unknown_handler_ #1 :nn } ##1##2 {#2}
+      \__keys_options_expand_module:Nn \keys_define:ne {#1}
+      {
+        unknown .code:n =
+        \exp_not:N \exp_args:NV
+        \exp_not:c { __keys_unknown_handler_ #1 :nn }
+        \exp_not:N \l_keys_key_str {##1}
+      }
+    }
+  }
+}{}
+%    \end{macrocode}
+% Pass unknown options to \pkg{memoize}, loaded below.
+%    \begin{macrocode}
 \DeclareUnknownKeyHandler[memoize-ext]{
   \PassOptionsToPackage{\CurrentOption}{memoize}
 }
@@ -819,6 +841,8 @@
 %    \end{macrocode}
 % Should specify next version here, most probably. 
 % Or conditionalise input switch for ccmemos?
+%
+% \verb|^^| ????
 %    \begin{macrocode}
 \RequirePackage{memoize}
 %<debug>    \mmzset{
@@ -858,7 +882,7 @@
 % \emph{However}, a combination of \cs{protected} and \cs{noexpand} seems to work even if I use \cs{special}\{\} rather than the kernel hook \emph{and} it avoids looping with Lua\LaTeX{}.
 % So, even though I have no clue what is happening and even though Ulrike said she can't see how it would help, since it does help, it seems better to err on the side of caution.
 %
-% Better create an invalid \textsc{pdf} than looping infinitely not creating one at all \dots{}.`
+% Better create an invalid \textsc{pdf} than looping infinitely not creating one at all \dots{}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \begin{macrocode}
 \cs_new_protected_nopar:Npn \@mmzx@kernel@after@shipout@background
@@ -906,9 +930,10 @@
 %   \changes{v0.3.3}{2026-03-15}{Need this defined earlier.
 %     I'm starting to understand why libraries are a thing.}
 %   Do nothing successfully.
+%   \changes{v0.0}{2026-06-02}{Fix \ecs{@@_noop:n}, though currently unused.}
 %    \begin{macrocode}
 \cs_new:Npn \@@_noop: {}
-\cs_new:Npn \@@_noop:n {}
+\cs_new_eq:NN \@@_noop:n \use_none:n
 %    \end{macrocode}
 % \end{macro}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
