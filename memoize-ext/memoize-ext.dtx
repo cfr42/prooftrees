@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11924 2026-06-02 14:44:19Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11939 2026-06-03 11:45:04Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.4 \ExplFileVersion}{\ExplFileDescription}
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
@@ -44,34 +44,8 @@
 \usepackage{babel}
 \usepackage{fancyhdr}
 \usepackage[plain]{fancyref}
-% ^^A  \usepackage{fixfoot}
-% ^^A  \usepackage{array,tabularx}
-% ^^A  \usepackage{longtable}
-% ^^A  \usepackage{enumitem}
-% ^^A  \usepackage[referable]{threeparttablex}
-% ^^A  \makeatletter
-% ^^A  \def\TPT@measurement{% ateb David Carlisle: https://tex.stackexchange.com/a/370691/
-% ^^A    \ifdim\wd\@tempboxb<\TPTminimum
-% ^^A      \hsize \TPTminimum
-% ^^A    \else
-% ^^A      \hsize\wd\@tempboxb
-% ^^A    \fi
-% ^^A    \xdef\TPT@hsize{\hsize\the\hsize \noexpand\@parboxrestore}\TPT@hsize
-% ^^A    \ifx\TPT@docapt\@undefined\else
-% ^^A      \TPT@docapt \vskip.2\baselineskip
-% ^^A    \fi \par
-% ^^A    \dimen@\dp\@tempboxb % new
-% ^^A    \box\@tempboxb
-% ^^A    \ifvmode \prevdepth\dimen@ \fi% was \z@ not \dimen@
-% ^^A  }
-% ^^A  \renewlist{tablenotes}{enumerate}{1}
-% ^^A  \setlist[tablenotes]{label=\tnote{\alph*},ref=\alph*,itemsep=\z@,topsep=\z@skip,partopsep=\z@skip,parsep=\z@,itemindent=\z@,labelindent=\tabcolsep,labelsep=.2em,leftmargin=*,align=left,before={\unskip\medskip\footnotesize}}
-% ^^A  \makeatother
-% ^^A  \usepackage{booktabs}
-% ^^A  \usepackage{multirow}
 \usepackage{xcolor}
 \usepackage{xurl}
-% ^^A  \urlstyle{tt}
 \urlstyle{sf}
 \usepackage[tt={mono,lining,tabular},sf={lining,prop},rm={oldstyle,prop}]{cfr-lm}
 \usepackage{microtype}
@@ -305,7 +279,7 @@
     \textbar{} Mirror:
     \href{https://github.com/cfr42/memoize-ext}{\url{github.com/cfr42/memoize-ext}}% 
 }}
-\date{\ExplFileVersion~\ExplFileDate}
+\date{v0.4 \ExplFileVersion{} \ExplFileDate}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhf[lh]{\itshape\ExplFileName}
@@ -730,7 +704,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11924 2026-06-02 14:44:19Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11939 2026-06-03 11:45:04Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.4 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
