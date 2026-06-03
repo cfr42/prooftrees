@@ -30,8 +30,12 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11939 2026-06-03 11:45:04Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11941 2026-06-03 12:46:48Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.4 \ExplFileVersion}{\ExplFileDescription}
+\cs_new_eq:NN \MyExplFileName \ExplFileName
+\cs_new_eq:NN \MyExplFileDate \ExplFileDate
+\cs_new_eq:NN \MyExplFileVersion \ExplFileVersion
+\cs_new_eq:NN \MyExplFileDescription \ExplFileDescription
 \ExplSyntaxOff
 \documentclass[11pt,british]{ltxdoc}
 \usepackage{memoize-ext}
@@ -270,7 +274,7 @@
 %   #1 \href{https://tex.stackexchange.com/q/#2}{#2}%
 %   \IfValueT{#3}{ by #3}.%
 % }
-\title{\pkg{\ExplFileName}: Extensions for \pkg{memoize}}
+\title{\pkg{\MyExplFileName}: Extensions for \pkg{memoize}}
 \author{Clea F. Rees\thanks{%
     Bug tracker:
     \href{https://codeberg.org/cfr/memoize-ext/issues}{\url{codeberg.org/cfr/memoize-ext/issues}}
@@ -279,11 +283,11 @@
     \textbar{} Mirror:
     \href{https://github.com/cfr42/memoize-ext}{\url{github.com/cfr42/memoize-ext}}% 
 }}
-\date{v0.4 \ExplFileVersion{} \ExplFileDate}
+\date{v0.4 \MyExplFileVersion{} \MyExplFileDate}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhf[lh]{\itshape\ExplFileName}
-\fancyhf[rh]{\itshape\ExplFileVersion}
+\fancyhf[lh]{\itshape\MyExplFileName}
+\fancyhf[rh]{\itshape\MyExplFileVersion}
 \fancyhf[cf]{\itshape--- \thepage~/~\lastpage{} ---}
 \ExplSyntaxOn
 \hook_gput_code:nnn {shipout/lastpage} {.}
@@ -312,7 +316,7 @@
 
 \begin{document}
 % ^^A \let\MakePrivateLetters\MyMakePrivateLetters
-\DocInput{\ExplFileName.dtx}
+\DocInput{\MyExplFileName.dtx}
 \end{document}
 %</driver>
 % \fi
@@ -651,14 +655,14 @@
 % \NewDocumentCommand \pkginput {O{#2}m}{%
 %   \begingroup
 %     \def\maketitle{%
-%       \expandafter\ifx\expandafter\ExplFileName\@title
-%         \def\@title{\pkg{\ExplFileName-#1}}%
+%       \expandafter\ifx\expandafter\MyExplFileName\@title
+%         \def\@title{\pkg{\MyExplFileName-#1}}%
 %       \fi
 %       \ifx\@author\@empty
 %         \def\@author{Clea F. Rees}%
 %       \fi
 %       \ifx\@date\@empty
-%         \def\@date{\ExplFileVersion: \ExplFileDate}%
+%         \def\@date{v0.4 \MyExplFileVersion: \MyExplFileDate}%
 %       \fi
 %       \let\saved@title\@title
 %       \origmaketitle
@@ -674,8 +678,8 @@
 % }
 % \makeatother
 %
-% \section*{\pkg{\ExplFileName}}
-% \addcontentsline{toc}{section}{\mdseries\pkg{\ExplFileName}}
+% \section*{\pkg{\MyExplFileName}}
+% \addcontentsline{toc}{section}{\mdseries\pkg{\MyExplFileName}}
 %
 %<*sty>
 %<@@=mmzx>
@@ -704,14 +708,14 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11939 2026-06-03 11:45:04Z cfrees $ {Extensions for Memoize}
-%<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.4 \ExplFileVersion}{\ExplFileDescription}
-%<debug>    \ProvidesExplPackage{\ExplFileName-debug}
-%<debug>      {\ExplFileDate}{v0.4 \ExplFileVersion}{\ExplFileDescription}
+\GetIdInfo $Id: memoize-ext.dtx 11941 2026-06-03 12:46:48Z cfrees $ {Extensions for Memoize}
+%<!debug>    \ProvidesExplPackage{\MyExplFileName}{\MyExplFileDate}
+%<!debug>     {v0.4 \MyExplFileVersion}{\MyExplFileDescription}
+%<debug>    \ProvidesExplPackage{\MyExplFileName-debug}
+%<debug>      {\MyExplFileDate}{v0.4 \MyExplFileVersion}{\MyExplFileDescription}
 %
 \str_new:N \g_@@_name_str
-\str_gset:NV \g_@@_name_str \ExplFileName
+\str_gset:NV \g_@@_name_str \MyExplFileName
 %
 %<!debug>    \disable@package@load {memoize-ext-debug}
 %<debug>    \disable@package@load {memoize-ext}
