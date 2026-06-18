@@ -43,7 +43,7 @@ jobs:
       cache_key: ${{ steps.texlive.outputs.cache_key }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Install TeX Live
         id: texlive
         uses: zauguin/install-texlive@v4
@@ -59,7 +59,7 @@ jobs:
       ctan_forest_ext: ${{ steps.build.outputs.ctan_ret }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Build ctan
         id: build 
         # uses: cfr42/nfssext/.github/actions/nfssext-autocheck-action@eeab7fc024553e35584805f40af881812b7e09a6
