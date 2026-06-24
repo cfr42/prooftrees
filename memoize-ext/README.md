@@ -73,7 +73,7 @@ Bug reports, feature requests etc. should be filed at
 
 
 Clea F. Rees
-Version 0.4.2
-2026-06-04
+Version 0.4.3
+2026-06-25
 
 vim: et:tw=80:ts=2:

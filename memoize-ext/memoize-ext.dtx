@@ -31,7 +31,7 @@
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
 \GetIdInfo $Id: memoize-ext.dtx 11976 2026-06-24 20:14:15Z cfrees $ {Extensions for Memoize}
-\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.4.2 \ExplFileVersion}{\ExplFileDescription}
+\ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.4.3 \ExplFileVersion}{\ExplFileDescription}
 \cs_new_eq:NN \MyExplFileName \ExplFileName
 \cs_new_eq:NN \MyExplFileDate \ExplFileDate
 \cs_new_eq:NN \MyExplFileVersion \ExplFileVersion
@@ -283,7 +283,7 @@
     \textbar{} Mirror:
     \href{https://github.com/cfr42/memoize-ext}{\url{github.com/cfr42/memoize-ext}}% 
 }}
-\date{v0.4.2 \MyExplFileVersion{} \MyExplFileDate}
+\date{v0.4.3 \MyExplFileVersion{} \MyExplFileDate}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhf[lh]{\itshape\MyExplFileName}
@@ -662,7 +662,7 @@
 %         \def\@author{Clea F. Rees}%
 %       \fi
 %       \ifx\@date\@empty
-%         \def\@date{v0.4.2 \MyExplFileVersion: \MyExplFileDate}%
+%         \def\@date{v0.4.3 \MyExplFileVersion: \MyExplFileDate}%
 %       \fi
 %       \let\saved@title\@title
 %       \origmaketitle
@@ -710,9 +710,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \GetIdInfo $Id: memoize-ext.dtx 11976 2026-06-24 20:14:15Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
-%<!debug>     {v0.4.2 \ExplFileVersion}{\ExplFileDescription}
+%<!debug>     {v0.4.3 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
-%<debug>      {\ExplFileDate}{v0.4.2 \ExplFileVersion}{\ExplFileDescription}
+%<debug>      {\ExplFileDate}{v0.4.3 \ExplFileVersion}{\ExplFileDescription}
 %
 \str_new:N \g_@@_name_str
 \str_gset:NV \g_@@_name_str \ExplFileName
@@ -767,7 +767,7 @@
 %    \end{macrocode}
 % \changes{v0.4}{2026-06-02}{\githubref[Fix for]{latex3/latex2e/issues/2110}{\LaTeXe{} issue \#2110}.}
 % Joseph Wright: \url{https://chat.stackexchange.com/transcript/message/69011532#69011532}.
-% \changes{v0.0}{2026-06-24}{Don't time-limit redefinition of \cs{DeclareUnknownKeyHandler}.}
+% \changes{v0.4.3}{2026-06-24}{Don't time-limit redefinition of \cs{DeclareUnknownKeyHandler}.}
 %
 % The fix is applied unconditionally if the format is at least the June 2026 release.
 % Otherwise, the fix doesn't get applied to the \texttt{dev} format, since it claims to be the November release even in June (sigh)\footnote{%
