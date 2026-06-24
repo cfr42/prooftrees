@@ -30,7 +30,7 @@
 %<*driver>
 % ^^A  ref. ateb Max Chernoff: https://tex.stackexchange.com/a/723294/
 \def\MyMakePrivateLetters{\makeatletter\ExplSyntaxOn\endlinechar13}
-\GetIdInfo $Id: memoize-ext.dtx 11975 2026-06-24 15:12:47Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11976 2026-06-24 20:14:15Z cfrees $ {Extensions for Memoize}
 \ProvidesExplFile{\ExplFileName}{\ExplFileDate}{v0.4.2 \ExplFileVersion}{\ExplFileDescription}
 \cs_new_eq:NN \MyExplFileName \ExplFileName
 \cs_new_eq:NN \MyExplFileDate \ExplFileDate
@@ -708,7 +708,7 @@
   \endinput
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\GetIdInfo $Id: memoize-ext.dtx 11975 2026-06-24 15:12:47Z cfrees $ {Extensions for Memoize}
+\GetIdInfo $Id: memoize-ext.dtx 11976 2026-06-24 20:14:15Z cfrees $ {Extensions for Memoize}
 %<!debug>    \ProvidesExplPackage{\ExplFileName}{\ExplFileDate}
 %<!debug>     {v0.4.2 \ExplFileVersion}{\ExplFileDescription}
 %<debug>    \ProvidesExplPackage{\ExplFileName-debug}
@@ -767,19 +767,24 @@
 %    \end{macrocode}
 % \changes{v0.4}{2026-06-02}{\githubref[Fix for]{latex3/latex2e/issues/2110}{\LaTeXe{} issue \#2110}.}
 % Joseph Wright: \url{https://chat.stackexchange.com/transcript/message/69011532#69011532}.
+% \changes{v0.0}{2026-06-24}{Don't time-limit redefinition of \cs{DeclareUnknownKeyHandler}.}
+%
+% The fix is applied unconditionally if the format is at least the June 2026 release.
+% Otherwise, the fix doesn't get applied to the \texttt{dev} format, since it claims to be the November release even in June (sigh)\footnote{%
+%   I originally assumed the \texttt{dev} releases would carry ‘real’ dates, but apparently not.%
+% }. 
+% If I can find a way to distinguish the release, I'll make it conditional again but, for now, see if this works.
 %    \begin{macrocode}
 \IfFormatAtLeastT { 2026-06-01 }{
-  \IfFormatAtLeastF { 2026-11-01 }{
-    \DeclareDocumentCommand \DeclareUnknownKeyHandler { O { \@currname } +m }
+  \DeclareDocumentCommand \DeclareUnknownKeyHandler { O { \@currname } +m }
+  {
+    \cs_set_protected:cpn { __keys_unknown_handler_ #1 :nn } ##1##2 {#2}
+    \__keys_options_expand_module:Nn \keys_define:ne {#1}
     {
-      \cs_set_protected:cpn { __keys_unknown_handler_ #1 :nn } ##1##2 {#2}
-      \__keys_options_expand_module:Nn \keys_define:ne {#1}
-      {
-        unknown .code:n =
-        \exp_not:N \exp_args:NV
-        \exp_not:c { __keys_unknown_handler_ #1 :nn }
-        \exp_not:N \l_keys_key_str {##1}
-      }
+      unknown .code:n =
+      \exp_not:N \exp_args:NV
+      \exp_not:c { __keys_unknown_handler_ #1 :nn }
+      \exp_not:N \l_keys_key_str {##1}
     }
   }
 }
