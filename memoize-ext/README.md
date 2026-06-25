@@ -1,4 +1,4 @@
-$Id: README.md 11956 2026-06-04 03:13:27Z cfrees $
+$Id: README.md 11978 2026-06-25 01:01:43Z cfrees $
 
 # memoize-ext
 
